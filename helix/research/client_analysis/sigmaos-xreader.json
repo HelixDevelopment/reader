@@ -1,0 +1,102 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-sigmaos-xreader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1372,
+    "scanned_text": 4,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 4
+  },
+  "format_keyword_evidence": {
+    "markdown": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    }
+  },
+  "inventory_url": "https://github.com/aaryansinghchauhan09/sigmaos-xreader",
+  "kind": "client",
+  "languages_by_file_count": {},
+  "license_review": {
+    "candidate_notices": [
+      "GPL-3.0"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/aaryansinghchauhan09/sigmaos-xreader",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "fa76a9e2a24bab4db1d46cf03e7f9b2b93d06740",
+  "schema_version": 1,
+  "slug": "sigmaos-xreader",
+  "support_claims_allowed": false,
+  "tree": "05b08d711bcbcb18ec6f47a040b8960eb8c25f50"
+}

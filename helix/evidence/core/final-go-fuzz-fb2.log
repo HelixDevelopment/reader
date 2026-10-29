@@ -1,0 +1,6 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/90 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 90/90 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 39708 (13224/sec), new interesting: 3 (total: 93)
+fuzz: elapsed: 4s, execs: 39708 (0/sec), new interesting: 3 (total: 93)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/fb2	4.286s

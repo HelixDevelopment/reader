@@ -1,0 +1,2375 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 183,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 137,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 275,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 133,
+          "matched_term": "rag",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "rag",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 176,
+          "matched_term": "rag",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 178,
+          "matched_term": "rag",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 334,
+          "matched_term": "rag",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "rag",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "rag",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "speakub/tts/ui/playlist.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "speakub/tts/ui/playlist.py",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "speakub/tts/ui/playlist.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "rag",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "rag",
+          "path": "speakub/utils/performance_monitor.py",
+          "role": "source"
+        },
+        {
+          "line": 346,
+          "matched_term": "rag",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "rag",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 91,
+          "matched_term": "rag",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 277,
+          "matched_term": "rag",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 128,
+          "matched_term": "rag",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        },
+        {
+          "line": 129,
+          "matched_term": "rag",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        },
+        {
+          "line": 144,
+          "matched_term": "rag",
+          "path": "tests/test_tts_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 145,
+          "matched_term": "rag",
+          "path": "tests/test_tts_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 146,
+          "matched_term": "rag",
+          "path": "tests/test_tts_integration.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 11,
+        "source": 75,
+        "test": 16
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "CFI",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "CFI",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "annotation",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "cfi",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cfi",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "EPUBCFI",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "cfi",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "CFI",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "cfi",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 426,
+          "matched_term": "cfi",
+          "path": "speakub/ui/app.py",
+          "role": "source"
+        },
+        {
+          "line": 426,
+          "matched_term": "cfi",
+          "path": "speakub/ui/app.py",
+          "role": "source"
+        },
+        {
+          "line": 427,
+          "matched_term": "cfi",
+          "path": "speakub/ui/app.py",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "cfi",
+          "path": "speakub/ui/epub_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "cfi",
+          "path": "speakub/ui/epub_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "cfi",
+          "path": "speakub/ui/epub_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cfi",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "CFI",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "CFI",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 451,
+          "matched_term": "highlight",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 463,
+          "matched_term": "highlight",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "highlight",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "Highlight",
+          "path": "speakub/ui/widgets/tts_widget.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 26,
+        "source": 145
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 66,
+          "matched_term": "restore",
+          "path": "speakub/tts/ui/network.py",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "restore",
+          "path": "speakub/tts/ui/network.py",
+          "role": "source"
+        },
+        {
+          "line": 711,
+          "matched_term": "Restore",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "backup",
+          "path": "speakub/utils/logging_config.py",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "backup",
+          "path": "speakub/utils/logging_config.py",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "backup",
+          "path": "speakub/utils/logging_config.py",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "restore",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "Restore",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        },
+        {
+          "line": 144,
+          "matched_term": "Restore",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 8,
+        "test": 9
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "speakub/utils/predictive_preloader.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "cache",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cache",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "CACHE",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "cache",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 110,
+          "matched_term": "cache",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 171,
+          "matched_term": "cache",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 358,
+          "matched_term": "cache",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 360,
+          "matched_term": "cache",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 361,
+          "matched_term": "cache",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Cache",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "cache",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cache",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "cache",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "cache",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Cache",
+          "path": "speakub/core/exceptions.py",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Cache",
+          "path": "speakub/core/exceptions.py",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "cache",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "cache",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "cache",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "cache",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Cache",
+          "path": "speakub/utils/performance_monitor.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Cache",
+          "path": "speakub/utils/performance_monitor.py",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "cache",
+          "path": "speakub/utils/performance_monitor.py",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "cache",
+          "path": "speakub/utils/predictive_preloader.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "cache",
+          "path": "speakub/utils/predictive_preloader.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "cache",
+          "path": "speakub/utils/predictive_preloader.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "cache",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 374,
+          "matched_term": "cache",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 81,
+        "source": 269,
+        "test": 98
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 498,
+          "matched_term": "conversion",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "conversion",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 434,
+          "matched_term": "conversion",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "conversion",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 40,
+          "matched_term": "conversion",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "test": 2
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "accessibility",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "accessibility",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 286,
+          "matched_term": "accessibility",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "daisy",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "test": 1
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "sqlite",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "sqlite",
+          "path": ".gitignore",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 86,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "dedup",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "duplicate",
+          "path": "speakub/utils/logging_config.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "Translation",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Dictionary",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "Dictionary",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 154,
+          "matched_term": "dictionary",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 396,
+          "matched_term": "Dictionary",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "dictionary",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Dictionary",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "Dictionary",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "Dictionary",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 420,
+          "matched_term": "Dictionary",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "dictionary",
+          "path": "speakub/core/epub/opf_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "dictionary",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "dictionary",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "Dictionary",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "dictionary",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "dictionary",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 251,
+          "matched_term": "dictionary",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "dictionary",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 324,
+          "matched_term": "Dictionary",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 29
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": "Quic",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "metadata",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 405,
+          "matched_term": "metadata",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "speakub/core/epub/metadata_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "metadata",
+          "path": "speakub/core/epub/opf_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "metadata",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": "metadata",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 71,
+          "matched_term": "metadata",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "metadata",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": "metadata",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": "metadata",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 99,
+          "matched_term": "metadata",
+          "path": "tests/test_security.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4,
+        "test": 14
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 119,
+          "matched_term": "Reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "Reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "reading progress",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "reading progress",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "reading progress",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "sync def update_tts_progress",
+          "path": "speakub/tts/integration.py",
+          "role": "source"
+        },
+        {
+          "line": 453,
+          "matched_term": "sync def _update_tts_progress",
+          "path": "speakub/ui/app.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "reading progress",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "sync def start_progress",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "sync def load_saved_progress",
+          "path": "speakub/ui/progress.py",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "syncio.run(app._update_tts_progress",
+          "path": "tests/test_layout_verification.py",
+          "role": "test"
+        },
+        {
+          "line": 302,
+          "matched_term": "sync def test_update_tts_progress",
+          "path": "tests/test_tts_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 318,
+          "matched_term": "sync def test_update_tts_progress",
+          "path": "tests/test_tts_integration.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 12,
+        "test": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 105,
+          "matched_term": "line height",
+          "path": "speakub/ui/tts_panel.py",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "theme",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "font_size",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 462,
+          "matched_term": "FONT_SIZE",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Path Traversal",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 176,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 363,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 412,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "https",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 68,
+          "matched_term": "https",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "https",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 259,
+          "matched_term": "path traversal",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "path traversal",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 224,
+          "matched_term": "path traversal",
+          "path": "tests/test_security.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 26,
+        "source": 1,
+        "test": 2
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "Unit test",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "pytest",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "pytest",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "Benchmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 175,
+          "matched_term": "Benchmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 175,
+          "matched_term": "benchmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "pytest",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "pytest",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "pytest",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 133,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 133,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 254,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "pytest",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 56,
+          "matched_term": "pytest",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 145,
+          "matched_term": "pytest",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "pytest",
+          "path": "requirements.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "pytest",
+          "path": "requirements.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 62,
+          "matched_term": "benchmark",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "benchmark",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "benchmark",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Unit test",
+          "path": "tests/test_adaptive_cache.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "Unit test",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "pytest",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "pytest",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "pytest",
+          "path": "tests/test_layout_verification.py",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "pytest",
+          "path": "tests/test_layout_verification.py",
+          "role": "test"
+        },
+        {
+          "line": 85,
+          "matched_term": "pytest",
+          "path": "tests/test_layout_verification.py",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": "pytest",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "pytest",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        },
+        {
+          "line": 154,
+          "matched_term": "pytest",
+          "path": "tests/test_network_error_handling.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "benchmark",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": "benchmark",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "Benchmark",
+          "path": "tests/test_performance_benchmarks.py",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "pytest",
+          "path": "tests/test_pitch.py",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": "pytest",
+          "path": "tests/test_pitch.py",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "pytest",
+          "path": "tests/test_pitch.py",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "pytest",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": "pytest",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 68,
+          "matched_term": "pytest",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": "pytest",
+          "path": "tests/test_tts_exit_fix.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "documentation": 28,
+        "source": 8,
+        "test": 75
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "TTS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "TTS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "TTS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "TTS",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "tts",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 224,
+          "matched_term": "TTS",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "TTS",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "TTS",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "TTS",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Text-to-Speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "Text-to-Speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "TTS",
+          "path": "cleanup_tts_temp.sh",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "TTS",
+          "path": "cleanup_tts_temp.sh",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "TTS",
+          "path": "cleanup_tts_temp.sh",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "TTS",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "tts",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "text-to-speech",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "TTS",
+          "path": "requirements.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "tts",
+          "path": "requirements.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "TTS",
+          "path": "speakub/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "TTS",
+          "path": "speakub/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "TTS",
+          "path": "speakub/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "TTS",
+          "path": "speakub/core/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "tts",
+          "path": "speakub/core/chapter_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "tts",
+          "path": "speakub/core/chapter_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "tts",
+          "path": "speakub/core/chapter_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 380,
+          "matched_term": "TTS",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 386,
+          "matched_term": "TTS",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "TTS",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "tts",
+          "path": "speakub/core/epub/toc_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "TTS",
+          "path": "speakub/core/exceptions.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "TTS",
+          "path": "speakub/desktop.py",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "TTS",
+          "path": "speakub/tts/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "TTS",
+          "path": "speakub/tts/audio_player.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "TTS",
+          "path": "speakub/tts/audio_player.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "TTS",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "TTS",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "tts",
+          "path": "speakub/tts/edge_tts_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "TTS",
+          "path": "speakub/tts/engine.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "documentation": 116,
+        "source": 279,
+        "test": 119
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-speakub.jsonl.gz",
+  "files": {
+    "scanned_bytes": 548577,
+    "scanned_text": 73,
+    "skipped_binary_or_empty": 2,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 75
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 104,
+          "matched_term": ".daisy",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 1
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 132,
+          "matched_term": ".epub",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 234,
+          "matched_term": "EPUB ",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 355,
+          "matched_term": ".epub",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 125,
+          "matched_term": "EPUB ",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "EPUB ",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB ",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB ",
+          "path": "speakub/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "epub",
+          "path": "speakub/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "EPUB ",
+          "path": "speakub/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub",
+          "path": "speakub/core/chapter_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "epub",
+          "path": "speakub/core/chapter_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub/opf_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub/opf_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "EPUB3",
+          "path": "speakub/core/epub/toc_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "epub",
+          "path": "speakub/core/epub/toc_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "EPUB ",
+          "path": "speakub/core/progress_tracker.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "EPUB ",
+          "path": "speakub/desktop.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "epub",
+          "path": "speakub/desktop.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/ui/epub_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "EPUB ",
+          "path": "speakub/ui/epub_manager.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "speakub/ui/widgets/content_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "speakub/ui/widgets/toc_widget.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/utils/config.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "speakub/utils/file_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "EPUB ",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 61,
+        "source": 79,
+        "test": 41
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 343,
+          "matched_term": ".xhtml",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": ".xhtml",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": ".html",
+          "path": "speakub/core/epub/path_resolver.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".xhtml",
+          "path": "speakub/core/epub/toc_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": ".xhtml",
+          "path": "speakub/core/epub/toc_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 452,
+          "matched_term": ".xhtml",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 499,
+          "matched_term": ".xhtml",
+          "path": "speakub/core/epub_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": ".xhtml",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 69,
+          "matched_term": "xhtml",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 25,
+          "matched_term": ".html",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 25,
+          "matched_term": ".html",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": ".xhtml",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "xhtml",
+          "path": "tests/test_security.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 8,
+        "test": 30
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 286,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 491,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 177,
+          "matched_term": ".md",
+          "path": "CPU_OPTIMIZATION_SUMMARY.md",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 389,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": ".md",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 247,
+          "matched_term": "markdown",
+          "path": "speakub/core/content_renderer.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "MARKDOWN",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "markdown",
+          "path": "speakub/utils/text_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 11,
+        "source": 6
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 515,
+          "matched_term": "Package document",
+          "path": "speakub/core/cfi.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Open Packaging Format",
+          "path": "speakub/core/epub/opf_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": ".opf",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": ".opf",
+          "path": "tests/test_cpu_optimization.py",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": ".opf",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 68,
+          "matched_term": ".opf",
+          "path": "tests/test_epub_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": ".opf",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": ".opf",
+          "path": "tests/test_security.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 18
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": ".txt",
+          "path": "tests/test_security.py",
+          "role": "test"
+        },
+        {
+          "line": 130,
+          "matched_term": ".txt",
+          "path": "tests/test_security.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 4,
+        "test": 3
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 370,
+          "matched_term": "lpf",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/eyes1971/speakub",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Python": 64,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/eyes1971/speakub",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "e8e4c6f1fb39a2c24259778677b6b95ac8231aa4",
+  "schema_version": 1,
+  "slug": "speakub",
+  "support_claims_allowed": false,
+  "tree": "824ffabb752f61129279e9a20c0008894603b291"
+}

@@ -1,0 +1,1316 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "rag",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 289,
+          "matched_term": "rag",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 809,
+          "matched_term": "rag",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 812,
+          "matched_term": "rag",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 3
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 180,
+          "matched_term": "SNAPSHOT",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "snapshot",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 613,
+          "matched_term": "snapshot",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 491,
+          "matched_term": "cb7",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "cache",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": "cache",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 110,
+          "matched_term": "cache",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "cache",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": "config/settings.lua",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "config/settings.lua",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": "config/settings.lua",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "cache",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6,
+        "test": 4
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "Redis",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 635,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "redis",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "redis",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 50,
+          "matched_term": "redis",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "redis",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Redis",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "redis",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "redis",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "redis",
+          "path": "config/errors.lua",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Redis",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "redis",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "mysql",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "mysql",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "mysql",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Redis",
+          "path": "db/redis.lua",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "redis",
+          "path": "db/redis.lua",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Redis",
+          "path": "db/redis.lua",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "redis",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "redis",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "redis",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "redis",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "redis",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Redis",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "scripts/run_tests.sh",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "scripts/run_tests.sh",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "redis",
+          "path": "scripts/run_tests.sh",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "redis",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 9,
+        "documentation": 9,
+        "source": 191,
+        "test": 33
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 227,
+          "matched_term": "checksum",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "checksum",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "checksum",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "duplicate",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 4,
+        "test": 1
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "docker",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "Docker",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "docker",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": "Docker",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "HEALTHCHECK",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 74,
+          "matched_term": "healthcheck",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "docker",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "docker",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "healthcheck",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 325,
+          "matched_term": "healthcheck",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "systemd",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "systemd",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "systemd",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "healthcheck",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "healthcheck",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "healthcheck",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Docker",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "docker",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "docker",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "healthcheck",
+          "path": "scripts/healthcheck.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 13,
+        "source": 23,
+        "test": 22
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 455,
+          "matched_term": "Translation",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 932,
+          "matched_term": "quic",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "koreader_sync": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "koreader-sync",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "kosync",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": "koreader-sync",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "koreader-sync",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "koreader-sync",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 64,
+          "matched_term": "koreader-sync",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Koreader Sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Koreader sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "kosync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "/syncs/progress",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "/syncs/progress",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "koreader-sync",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "koreader-sync",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "koreader-sync",
+          "path": "db/mysql.lua",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "kosync",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "kosync",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "kosync",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "/syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "/syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "/syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "kosync",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "kosync",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "kosync",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "koreader-sync",
+          "path": "scripts/run_tests.sh",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "/syncs/progress",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "/syncs/progress",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 9,
+        "documentation": 16,
+        "source": 29,
+        "test": 18
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 380,
+          "matched_term": "license document",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 383,
+          "matched_term": "license document",
+          "path": "COPYING",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 670,
+          "matched_term": "filesystem",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "metadata",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "metadata",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 343,
+          "matched_term": "metadata",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 334,
+          "matched_term": "metadata",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 350,
+          "matched_term": "metadata",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 6
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 299,
+          "matched_term": "authorization",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "authentication",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "authentication",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "authentication",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 261,
+          "matched_term": "authentication",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 270,
+          "matched_term": "authentication",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2,
+        "test": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "permission",
+          "path": ".github/workflows/benchmark.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 218,
+          "matched_term": "permission",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 20,
+        "source": 1,
+        "test": 1
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "sync service to keep all reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": "SyncsController:get_progress",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "SyncsController:update_progress",
+          "path": "app/controllers/1/syncs_controller.lua",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "SYNC with master in progress",
+          "path": "config/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "syncs/progress\", { controller = \"syncs\", action = \"update_progress",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "syncs/progress/:document\", { controller = \"syncs\", action = \"get_progress",
+          "path": "config/routes.lua",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "syncs/progress",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "syncs/progress",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "syncs/progress",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 9,
+        "test": 2
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 80,
+          "matched_term": "secret",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 97,
+          "matched_term": "secret",
+          "path": ".github/workflows/unit_tests.yaml",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "HTTPS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "TLS",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "TLS",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "scripts/healthcheck.sh",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "https",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "https",
+          "path": "spec/controllers/1/syncs_controller_spec.lua",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 10,
+        "source": 6,
+        "test": 10
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "Benchmark",
+          "path": ".github/workflows/benchmark.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "benchmark",
+          "path": ".github/workflows/benchmark.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "benchmark",
+          "path": ".github/workflows/benchmark.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "benchmark",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "source": 16
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-koreader-koreader-sync-server.jsonl.gz",
+  "files": {
+    "scanned_bytes": 153746,
+    "scanned_text": 26,
+    "skipped_binary_or_empty": 5,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 31
+  },
+  "format_keyword_evidence": {
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 618,
+          "matched_term": ".html",
+          "path": "config/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": ".md",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".md",
+          "path": ".editorconfig",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "markdown",
+          "path": "scripts/benchmark.lua",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": ".md",
+          "path": "scripts/benchmark.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    }
+  },
+  "inventory_url": "https://github.com/koreader/koreader-sync-server",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Lua": 10,
+    "Shell": 3
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0"
+    ],
+    "notice_files": [
+      "COPYING"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/koreader/koreader-sync-server",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "46ef6b84a3930b3f0265efac74899f2256c158f1",
+  "schema_version": 1,
+  "slug": "koreader-koreader-sync-server",
+  "support_claims_allowed": false,
+  "tree": "57d0e43d371675044c73387cc15d70f02adca239"
+}

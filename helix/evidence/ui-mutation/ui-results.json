@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "base_url": "http://127.0.0.1:4174/",
+  "viewports": [
+    {
+      "viewport": {
+        "name": "phone",
+        "width": 375,
+        "height": 812
+      },
+      "checks": [
+        {
+          "id": "viewport-meta",
+          "status": "FAIL",
+          "evidence": "one viewport declaration"
+        },
+        {
+          "id": "no-horizontal-overflow",
+          "status": "PASS",
+          "evidence": {
+            "scroll": 375,
+            "client": 375
+          }
+        },
+        {
+          "id": "sample-data-disclosure",
+          "status": "PASS",
+          "evidence": "backend state disclosed"
+        },
+        {
+          "id": "search-filter",
+          "status": "PASS",
+          "evidence": "six books reduced to one"
+        },
+        {
+          "id": "reader-next-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "Chapter 7 \u00b7 The Reading",
+            "after": "Chapter 8 \u00b7 An Index of Doors"
+          }
+        },
+        {
+          "id": "reader-font-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "20px",
+            "after": "19px"
+          }
+        },
+        {
+          "id": "save-passage",
+          "status": "PASS",
+          "evidence": "passage added to notes panel"
+        },
+        {
+          "id": "book-detail",
+          "status": "PASS",
+          "evidence": "reader returns to selected edition"
+        },
+        {
+          "id": "metadata-decision-delta",
+          "status": "PASS",
+          "evidence": {
+            "items": 3,
+            "accepted": 1
+          }
+        },
+        {
+          "id": "source-validation",
+          "status": "PASS",
+          "evidence": "empty source rejected"
+        },
+        {
+          "id": "source-add-delta",
+          "status": "PASS",
+          "evidence": "validated source appears"
+        },
+        {
+          "id": "source-scan-state",
+          "status": "PASS",
+          "evidence": "scan action changes explicit prototype state"
+        },
+        {
+          "id": "sync-conflict-delta",
+          "status": "PASS",
+          "evidence": "47% position selected"
+        },
+        {
+          "id": "theme-delta",
+          "status": "PASS",
+          "evidence": "sepia theme applied"
+        },
+        {
+          "id": "console-errors",
+          "status": "PASS",
+          "evidence": []
+        },
+        {
+          "id": "missing-assets",
+          "status": "PASS",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024
+      },
+      "checks": [
+        {
+          "id": "viewport-meta",
+          "status": "FAIL",
+          "evidence": "one viewport declaration"
+        },
+        {
+          "id": "no-horizontal-overflow",
+          "status": "PASS",
+          "evidence": {
+            "scroll": 768,
+            "client": 768
+          }
+        },
+        {
+          "id": "sample-data-disclosure",
+          "status": "PASS",
+          "evidence": "backend state disclosed"
+        },
+        {
+          "id": "search-filter",
+          "status": "PASS",
+          "evidence": "six books reduced to one"
+        },
+        {
+          "id": "reader-next-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "Chapter 7 \u00b7 The Reading",
+            "after": "Chapter 8 \u00b7 An Index of Doors"
+          }
+        },
+        {
+          "id": "reader-font-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "20px",
+            "after": "19px"
+          }
+        },
+        {
+          "id": "save-passage",
+          "status": "PASS",
+          "evidence": "passage added to notes panel"
+        },
+        {
+          "id": "book-detail",
+          "status": "PASS",
+          "evidence": "reader returns to selected edition"
+        },
+        {
+          "id": "metadata-decision-delta",
+          "status": "PASS",
+          "evidence": {
+            "items": 3,
+            "accepted": 1
+          }
+        },
+        {
+          "id": "source-validation",
+          "status": "PASS",
+          "evidence": "empty source rejected"
+        },
+        {
+          "id": "source-add-delta",
+          "status": "PASS",
+          "evidence": "validated source appears"
+        },
+        {
+          "id": "source-scan-state",
+          "status": "PASS",
+          "evidence": "scan action changes explicit prototype state"
+        },
+        {
+          "id": "sync-conflict-delta",
+          "status": "PASS",
+          "evidence": "47% position selected"
+        },
+        {
+          "id": "theme-delta",
+          "status": "PASS",
+          "evidence": "sepia theme applied"
+        },
+        {
+          "id": "console-errors",
+          "status": "PASS",
+          "evidence": []
+        },
+        {
+          "id": "missing-assets",
+          "status": "PASS",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1024,
+        "height": 900
+      },
+      "checks": [
+        {
+          "id": "viewport-meta",
+          "status": "FAIL",
+          "evidence": "one viewport declaration"
+        },
+        {
+          "id": "no-horizontal-overflow",
+          "status": "PASS",
+          "evidence": {
+            "scroll": 1024,
+            "client": 1024
+          }
+        },
+        {
+          "id": "sample-data-disclosure",
+          "status": "PASS",
+          "evidence": "backend state disclosed"
+        },
+        {
+          "id": "search-filter",
+          "status": "PASS",
+          "evidence": "six books reduced to one"
+        },
+        {
+          "id": "reader-next-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "Chapter 7 \u00b7 The Reading",
+            "after": "Chapter 8 \u00b7 An Index of Doors"
+          }
+        },
+        {
+          "id": "reader-font-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "20px",
+            "after": "19px"
+          }
+        },
+        {
+          "id": "save-passage",
+          "status": "PASS",
+          "evidence": "passage added to notes panel"
+        },
+        {
+          "id": "book-detail",
+          "status": "PASS",
+          "evidence": "reader returns to selected edition"
+        },
+        {
+          "id": "metadata-decision-delta",
+          "status": "PASS",
+          "evidence": {
+            "items": 3,
+            "accepted": 1
+          }
+        },
+        {
+          "id": "source-validation",
+          "status": "PASS",
+          "evidence": "empty source rejected"
+        },
+        {
+          "id": "source-add-delta",
+          "status": "PASS",
+          "evidence": "validated source appears"
+        },
+        {
+          "id": "source-scan-state",
+          "status": "PASS",
+          "evidence": "scan action changes explicit prototype state"
+        },
+        {
+          "id": "sync-conflict-delta",
+          "status": "PASS",
+          "evidence": "47% position selected"
+        },
+        {
+          "id": "theme-delta",
+          "status": "PASS",
+          "evidence": "sepia theme applied"
+        },
+        {
+          "id": "console-errors",
+          "status": "PASS",
+          "evidence": []
+        },
+        {
+          "id": "missing-assets",
+          "status": "PASS",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "wide",
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": [
+        {
+          "id": "viewport-meta",
+          "status": "FAIL",
+          "evidence": "one viewport declaration"
+        },
+        {
+          "id": "no-horizontal-overflow",
+          "status": "PASS",
+          "evidence": {
+            "scroll": 1440,
+            "client": 1440
+          }
+        },
+        {
+          "id": "sample-data-disclosure",
+          "status": "PASS",
+          "evidence": "backend state disclosed"
+        },
+        {
+          "id": "search-filter",
+          "status": "PASS",
+          "evidence": "six books reduced to one"
+        },
+        {
+          "id": "reader-next-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "Chapter 7 \u00b7 The Reading",
+            "after": "Chapter 8 \u00b7 An Index of Doors"
+          }
+        },
+        {
+          "id": "reader-font-delta",
+          "status": "PASS",
+          "evidence": {
+            "before": "20px",
+            "after": "19px"
+          }
+        },
+        {
+          "id": "save-passage",
+          "status": "PASS",
+          "evidence": "passage added to notes panel"
+        },
+        {
+          "id": "book-detail",
+          "status": "PASS",
+          "evidence": "reader returns to selected edition"
+        },
+        {
+          "id": "metadata-decision-delta",
+          "status": "PASS",
+          "evidence": {
+            "items": 3,
+            "accepted": 1
+          }
+        },
+        {
+          "id": "source-validation",
+          "status": "PASS",
+          "evidence": "empty source rejected"
+        },
+        {
+          "id": "source-add-delta",
+          "status": "PASS",
+          "evidence": "validated source appears"
+        },
+        {
+          "id": "source-scan-state",
+          "status": "PASS",
+          "evidence": "scan action changes explicit prototype state"
+        },
+        {
+          "id": "sync-conflict-delta",
+          "status": "PASS",
+          "evidence": "47% position selected"
+        },
+        {
+          "id": "theme-delta",
+          "status": "PASS",
+          "evidence": "sepia theme applied"
+        },
+        {
+          "id": "console-errors",
+          "status": "PASS",
+          "evidence": []
+        },
+        {
+          "id": "missing-assets",
+          "status": "PASS",
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 60,
+    "fail": 4,
+    "skip": 0
+  }
+}

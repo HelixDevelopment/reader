@@ -1,0 +1,5529 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "Rag",
+          "path": "collections/bbc-big-read.json",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "rag",
+          "path": "internal/auth/ratings.go",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "RAG",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rAg",
+          "path": "internal/collections/sources/sources.go",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "rAg",
+          "path": "internal/collections/sources/sources.go",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "rag",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "rag",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "rag",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "internal/library/txt.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "internal/library/txt.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "internal/library/txt.go",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "rag",
+          "path": "internal/server/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 91,
+          "matched_term": "rag",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 96,
+          "matched_term": "rag",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "RAG",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "RAG",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "RAG",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "RAG",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 133,
+          "matched_term": "RAG",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 3016,
+          "matched_term": "rag",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3017,
+          "matched_term": "rag",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3042,
+          "matched_term": "rag",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "rag",
+          "path": "web/src/api/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "web/src/api/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "web/src/api/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 663,
+          "matched_term": "rag",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 678,
+          "matched_term": "rag",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "web/src/i18n.test.js",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "web/src/i18n.test.js",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "web/src/i18n.test.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 44,
+        "test": 11
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "annotation",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "Highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "CFI",
+          "path": "internal/auth/progress.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Annotation",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "Annotation",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 314,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "annotation",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "annotation",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 367,
+          "matched_term": "annotation",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "annotation",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "Annotation",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "annotation",
+          "path": "internal/server/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "annotation",
+          "path": "internal/server/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 172,
+          "matched_term": "annotation",
+          "path": "internal/server/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 221,
+          "matched_term": "annotation",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "annotation",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "annotation",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 426,
+          "matched_term": "annotation",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.css",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.css",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.css",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 488,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 489,
+          "matched_term": "annotation",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 35,
+        "test": 19
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 73,
+          "matched_term": "restore",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "snapshot",
+          "path": "internal/auth/sync.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "restore",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "restore",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "restore",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 360,
+          "matched_term": "snapshot",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 376,
+          "matched_term": "snapshot",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "restore",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 161,
+          "matched_term": "restore",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "restore",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": "restore",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "restore",
+          "path": "internal/store/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "restore",
+          "path": "internal/store/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 397,
+          "matched_term": "Restore",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 446,
+          "matched_term": "restore",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 463,
+          "matched_term": "restore",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 351,
+          "matched_term": "restore",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        },
+        {
+          "line": 1822,
+          "matched_term": "snapshot",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1824,
+          "matched_term": "snapshot",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1824,
+          "matched_term": "snapshot",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "restore",
+          "path": "web/src/api/manage.js",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "restore",
+          "path": "web/src/api/manage.js",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "restore",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "restore",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "restore",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "restore",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "restore",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "restore",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "restore",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 28,
+        "test": 8
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "reading list",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "cmd/polka/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "collection",
+          "path": "cmd/polka/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "collection",
+          "path": "cmd/polka/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "collection",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "collection",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "collections/bundled.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "collection",
+          "path": "collections/bundled.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Reading list",
+          "path": "internal/auth/lists.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "internal/auth/lists.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "internal/auth/progress.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "internal/auth/ratings.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "internal/collections/collections_test.go",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": "collection",
+          "path": "internal/collections/collections_test.go",
+          "role": "test"
+        },
+        {
+          "line": 122,
+          "matched_term": "Collection",
+          "path": "internal/collections/collections_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/forbes.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/forbes.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/forbes.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/forbes_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/sources.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/sources.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "collection",
+          "path": "internal/collections/sources/sources.go",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "collection",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Collection",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "collection",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "collection",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "collection",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "series",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 42,
+        "source": 869,
+        "test": 267
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 75,
+          "matched_term": "cbz",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "comic",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "cBr",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 977,
+          "matched_term": "CBT",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1399,
+          "matched_term": "cbr",
+          "path": "web/package-lock.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4,
+        "test": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 35,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 36,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 74,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 187,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "cache",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "brotli",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "cache",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "cache",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "thumbnail",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 98,
+          "matched_term": "Cache",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 38,
+          "matched_term": "cache",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Cache",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "cache",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "internal/enrich/similar_test.go",
+          "role": "test"
+        },
+        {
+          "line": 74,
+          "matched_term": "Cache",
+          "path": "internal/enrich/similar_test.go",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": "cache",
+          "path": "internal/enrich/similar_test.go",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "cache",
+          "path": "internal/library/jxl.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "cover cache",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Cache",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Cache",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "cache",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 286,
+          "matched_term": "cache",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 288,
+          "matched_term": "cache",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 432,
+          "matched_term": "Cache",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Cache",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Cache",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Cache",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Thumbnail",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "thumbnail",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "Thumbnail",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Cache",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Cache",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 1,
+        "source": 107,
+        "test": 46
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "FB2, EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "fb2 / epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "fb2, zip, epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "fb2/epub",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "EPUBText(r io.ReaderAt, size int64, imgURL func(string) string) (*FB2",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Converter",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "Converter",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Converter",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "transcode",
+          "path": "internal/library/jxl.go",
+          "role": "source"
+        },
+        {
+          "line": 529,
+          "matched_term": "fb2, txt or epub",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "fb2\": []byte(testFB2), \"2.txt\": []byte(\"Глава первая\\n\\nТекст.\\n\"), \"3.epub\": epub",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "fb2\": \"application/x-fictionbook+xml; charset=utf-8\", \"EPUB\": \"application/epub",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "fb2\": true, \"epub",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "fb2/\" + id, Type: \"application/epub",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "fb2\", \"txt\", \"epub",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 2055,
+          "matched_term": "conversion",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2299,
+          "matched_term": "conversion",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3075,
+          "matched_term": "conversion",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "fb2, epub, pdf, djvu, txt, mobi — метаданные fb2 и epub",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "fb2, epub, pdf, djvu, txt, mobi — fb2 and epub",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "fb2,.epub",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 429,
+          "matched_term": "fb2\", \".txt\", \".pdf\", \".epub",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 26,
+        "test": 2
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 1582,
+          "matched_term": "aria-",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1583,
+          "matched_term": "aria-",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1584,
+          "matched_term": "accessibility",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "aria-",
+          "path": "web/src/components/BookCard.jsx",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "aria-",
+          "path": "web/src/components/KosyncDialog.jsx",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "aria-",
+          "path": "web/src/components/RateStars.jsx",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "aria-",
+          "path": "web/src/components/RateStars.jsx",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "aria-",
+          "path": "web/src/components/RatingStars.jsx",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "aria-",
+          "path": "web/src/components/RatingStars.jsx",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "aria-",
+          "path": "web/src/components/RatingStars.jsx",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "aria-",
+          "path": "web/src/components/Shelf.jsx",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "aria-",
+          "path": "web/src/components/Shelf.jsx",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "aria-",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "aria-",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "aria-",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 354,
+          "matched_term": "aria-",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 474,
+          "matched_term": "aria-",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "aria-",
+          "path": "web/src/pages/AdminUsersPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "aria-",
+          "path": "web/src/pages/HomePage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "aria-",
+          "path": "web/src/pages/LoginPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "aria-",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 462,
+          "matched_term": "aria-",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 476,
+          "matched_term": "aria-",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 483,
+          "matched_term": "aria-",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 42
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "sqlite",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 105,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "sqlite",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "sqlite",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "SQLite",
+          "path": "internal/auth/sync.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "sqlite",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "sqlite",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "sqlite",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "SQLite",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "sqlite",
+          "path": "internal/sqlitedrv/modernc.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "internal/sqlitedrv/sqlitedrv.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "SQLite",
+          "path": "internal/sqlitedrv/sqlitedrv.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sqlite",
+          "path": "internal/sqlitedrv/sqlitedrv.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "SQLite",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "internal/store/store.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "sqlite",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "sqlite",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "sqlite",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "sqlite",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "sqlite",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "sqlite",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 25,
+        "test": 4
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 55,
+          "matched_term": "duplicate",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "sha256",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "Duplicate",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 129,
+          "matched_term": "duplicate",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "duplicate",
+          "path": "internal/auth/progress.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "sha256",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 411,
+          "matched_term": "SHA-256",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "fingerprint",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "sha256",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "sha256",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "Duplicate",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 123,
+          "matched_term": "duplicate",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "Duplicate",
+          "path": "internal/server/duplicates_test.go",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "Duplicate",
+          "path": "internal/server/duplicates_test.go",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "Duplicate",
+          "path": "internal/server/duplicates_test.go",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": "Duplicate",
+          "path": "internal/server/lists_test.go",
+          "role": "test"
+        },
+        {
+          "line": 81,
+          "matched_term": "duplicate",
+          "path": "internal/server/lists_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "duplicate",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Duplicate",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "Duplicate",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "duplicate",
+          "path": "internal/server/recs.go",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "dedup",
+          "path": "internal/server/recs.go",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "dedup",
+          "path": "internal/server/recs.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "duplicate",
+          "path": "internal/store/import.go",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "duplicate",
+          "path": "internal/store/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "duplicate",
+          "path": "internal/store/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "duplicate",
+          "path": "internal/store/recs.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "duplicate",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "duplicate",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 457,
+          "matched_term": "duplicate",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 458,
+          "matched_term": "duplicate",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 463,
+          "matched_term": "duplicate",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 294,
+          "matched_term": "duplicate",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "duplicate",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "duplicate",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 40,
+        "test": 20
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 119,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "healthcheck",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "healthcheck",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "healthcheck",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "healthcheck",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 10,
+        "documentation": 7,
+        "source": 2,
+        "test": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 168,
+          "matched_term": "anki",
+          "path": "internal/genres/genres.go",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "anki",
+          "path": "internal/genres/genres_en.go",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "anki",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "translation",
+          "path": "internal/store/recs.go",
+          "role": "source"
+        },
+        {
+          "line": 606,
+          "matched_term": "anki",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 700,
+          "matched_term": "dictionary",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "dictionary",
+          "path": "web/src/i18n.test.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 5,
+        "test": 2
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "brotli",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "kobo_sync": {
+      "evidence": [
+        {
+          "line": 184,
+          "matched_term": "/v1/books",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 185,
+          "matched_term": "/v1/books",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 186,
+          "matched_term": "/v1/books",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 187,
+          "matched_term": "/v1/books",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 149,
+          "matched_term": "/v1/books",
+          "path": "internal/server/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "/v1/books",
+          "path": "internal/server/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 80,
+          "matched_term": "/v1/books",
+          "path": "internal/server/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "/v1/books",
+          "path": "internal/server/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 193,
+          "matched_term": "/v1/books",
+          "path": "internal/server/lists.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "/v1/books",
+          "path": "internal/server/lists_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "/v1/books",
+          "path": "internal/server/lists_test.go",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "/v1/books",
+          "path": "internal/server/sendmail.go",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "/v1/books",
+          "path": "internal/server/sendmail_test.go",
+          "role": "test"
+        },
+        {
+          "line": 210,
+          "matched_term": "/v1/books",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "/v1/books",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "/v1/books",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "/v1/books",
+          "path": "web/src/api/lists.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "/v1/books",
+          "path": "web/src/api/ratings.js",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "/v1/books",
+          "path": "web/src/api/send.js",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "Kobo and other devices can sync the reading position with Polka (Tools → Progress sync",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10,
+        "test": 11
+      }
+    },
+    "koreader_sync": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "KOReader sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "kosync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "kosync",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "kosync",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "kosync",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 458,
+          "matched_term": "kosync",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "koreader-sync",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Kosync",
+          "path": "internal/server/kosync_digest_test.go",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync_digest_test.go",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": "kosync",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 103,
+          "matched_term": "kosync",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Kosync",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "kosync",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Kosync",
+          "path": "web/src/api/kosync.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "kosync",
+          "path": "web/src/api/kosync.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Kosync",
+          "path": "web/src/api/kosync.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "kosync",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "kosync",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Kosync",
+          "path": "web/src/components/KosyncDialog.jsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Kosync",
+          "path": "web/src/components/KosyncDialog.jsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "kosync",
+          "path": "web/src/components/KosyncDialog.jsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Kosync",
+          "path": "web/src/components/KosyncDialog.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "Kosync",
+          "path": "web/src/components/KosyncDialog.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "kosync",
+          "path": "web/src/components/KosyncDialog.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 228,
+          "matched_term": "kosync",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "kosync",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "kosync",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Kosync",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Kosync",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "kosync",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "kosync",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "kosync",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "kosync",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 199,
+        "test": 74
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 196,
+          "matched_term": "drm",
+          "path": "web/package-lock.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "folder scan",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 418,
+          "matched_term": "in place",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 458,
+          "matched_term": "in place",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "ISBN",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "ISBN",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "Google Books",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "isbn",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "isbn",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "ISBN",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "isbn",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "isbn",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "ISBN",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Google Books",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "OpenLibrary",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "OpenLibrary",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "OpenLibrary",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "OpenLibrary",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "OpenLibrary",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 184,
+          "matched_term": "ISBN",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "ISBN",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "ISBN",
+          "path": "internal/enrich/similar.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "metadata",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "Metadata",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "ISBN",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "isbn",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "isbn",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "isbn",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "ISBN",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 413,
+          "matched_term": "metadata",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "metadata",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "metadata",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "metadata",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "metadata",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": "metadata",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 209,
+          "matched_term": "metadata",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 232,
+          "matched_term": "ISBN",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "isbn",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "ISBN",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "isbn",
+          "path": "internal/server/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "ISBN",
+          "path": "internal/server/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "metadata",
+          "path": "internal/server/duplicates_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 164,
+        "test": 45
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "per-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "Multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "per-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "per-user",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "authentication",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "authentication",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "authentication",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "authentication",
+          "path": "internal/server/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "authentication",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "authentication",
+          "path": "internal/server/lists.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Authentication",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "authentication",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "authentication",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Per-user",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "authentication",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Per user",
+          "path": "internal/server/readerprefs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "authentication",
+          "path": "internal/server/sendmail.go",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "authentication",
+          "path": "internal/server/sendmail.go",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "Authentication",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "authentication",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Authorization",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 93,
+          "matched_term": "Authorization",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 142,
+          "matched_term": "JWt",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Per-user",
+          "path": "web/src/api/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "oAuth",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 392,
+          "matched_term": "oAuth",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "oAuth",
+          "path": "web/src/pages/SearchPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 22,
+        "test": 3
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 134,
+          "matched_term": "NFS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 418,
+          "matched_term": "NFS",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "NFS",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 172,
+          "matched_term": "ftp",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 212,
+          "matched_term": "NFS",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "NFS",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3,
+        "test": 2
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "OPDS",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "opds",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 171,
+          "matched_term": "opds",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 172,
+          "matched_term": "opds",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 476,
+          "matched_term": "OPDS",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "OPDS",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 126,
+          "matched_term": "opds",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 132,
+          "matched_term": "opds",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "OPDS",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "OPDS",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "OPDS",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "opds",
+          "path": "internal/server/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "opds",
+          "path": "internal/server/lang.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "opds",
+          "path": "internal/server/lang.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "opds",
+          "path": "internal/server/lang.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "OPDS 1.2",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "application/atom+xml",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "opds",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "OPDS",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "opds",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "opds",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "OPDS",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "OPDS",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": "opds",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "OPDS",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 447,
+          "matched_term": "OPDS",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 552,
+          "matched_term": "OPDS",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "OPDS",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 639,
+          "matched_term": "OPDS",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 643,
+          "matched_term": "opds",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS",
+          "path": "packaging/nfpm.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "opds",
+          "path": "web/src/api/api.test.js",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "opds",
+          "path": "web/src/api/api.test.js",
+          "role": "test"
+        },
+        {
+          "line": 235,
+          "matched_term": "OPDS",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "opds",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "OPDS",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 10,
+        "source": 152,
+        "test": 64
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 178,
+          "matched_term": "opensearch",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "OpenSearch",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "opensearch",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "OpenSearch",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 162,
+          "matched_term": "opensearch",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 164,
+          "matched_term": "opensearch",
+          "path": "internal/server/opds_test.go",
+          "role": "test"
+        },
+        {
+          "line": 154,
+          "matched_term": "opensearch",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "OpenSearch",
+          "path": "internal/server/server.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 11,
+        "test": 4
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "djvu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "reflow",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 535,
+          "matched_term": "djvu",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "djvu",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "djvu",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "djvu",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "djvu",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "pdf.js",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "pdfjs",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2464,
+          "matched_term": "pdfjs",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2466,
+          "matched_term": "pdfjs",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "pdfjs",
+          "path": "web/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 199,
+          "matched_term": "djvu",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "djvu",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "djvu",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdfjs",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdfjs",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdfjs",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 17,
+        "test": 2
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "user.** Accounts with admin/reader role",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 125,
+          "matched_term": "users.CreateUser(ctx, \"admin\", password, \"Администратор\", auth.Role",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "users.CreateUser(ctx, login, password, \"\", auth.Role",
+          "path": "cmd/polka/main.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "User) IsAdmin() bool { return u.Role == Role",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "User(ctx, login, RandomPassword(), displayName, role",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "users WHERE role",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "User(ctx, \"admin\", \"secret123\", \"Админ\", Role",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 61,
+          "matched_term": "User(ctx, \"admin\", \"pass1234\", \"\", Role",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 62,
+          "matched_term": "user, _ := s.CreateUser(ctx, \"reader\", \"pass1234\", \"\", Role",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "users (login, password_hash, display_name, role",
+          "path": "internal/auth/guest.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "User(ctx, \"owner\", \"pass1234\", \"\", Role",
+          "path": "internal/auth/sync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "User(ctx, \"owner\", \"pass1234\", \"\", Role",
+          "path": "internal/auth/sync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "users.CreateUser(ctx, \"admin\", \"secret123\", \"Админ\", auth.Role",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": "users.CreateUser(ctx, \"reader\", \"reader123\", \"Читатель\", auth.Role",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 279,
+          "matched_term": "user == nil || user[\"role\"] != auth.Role",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 239,
+          "matched_term": "users/\"+readerID, map[string]any{\"displayName\": \"Новое имя\", \"role\": auth.Role",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 244,
+          "matched_term": "User[\"displayName\"] != \"Новое имя\" || upd.User[\"role\"] != auth.Role",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 248,
+          "matched_term": "users/\"+readerID, map[string]any{\"role\": auth.Role",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 243,
+          "matched_term": "users.CreateUser(r.Context(), req.Login, password, displayName, role",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 262,
+          "matched_term": "users.UpdateUser(r.Context(), id, req.Password, req.DisplayName, req.Role",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "users.CreateUser(context.Background(), \"admin\", \"secret123\", \"\", auth.Role",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 50,
+          "matched_term": "users.CreateUser(context.Background(), \"admin\", \"secret123\", \"\", auth.Role",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 72,
+          "matched_term": "users.EnsureLogin(context.Background(), \"desktop\", \"Владелец\", auth.Role",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "users.CreateUser(ctx, upstreamLogin, upstreamPassword, \"\", auth.Role",
+          "path": "internal/server/syncmode_test.go",
+          "role": "test"
+        },
+        {
+          "line": 243,
+          "matched_term": "users.EnsureLogin(ctx, \"desktop\", \"Владелец\", auth.Role",
+          "path": "internal/server/syncmode_test.go",
+          "role": "test"
+        },
+        {
+          "line": 360,
+          "matched_term": "users.EnsureLogin(ctx, \"desktop\", \"Владелец\", auth.Role",
+          "path": "internal/syncer/syncer.go",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "users.EnsureLogin(ctx, \"desktop\", \"Владелец\", auth.Role",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "user?.role",
+          "path": "web/src/Root.jsx",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "user?.role",
+          "path": "web/src/Root.jsx",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "user?.role",
+          "path": "web/src/components/TopBar.jsx",
+          "role": "source"
+        },
+        {
+          "line": 309,
+          "matched_term": "users.role",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 632,
+          "matched_term": "users.role\": \"Role",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "User(u.id, { role: u.role",
+          "path": "web/src/pages/AdminUsersPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "users.role",
+          "path": "web/src/pages/AdminUsersPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 481,
+          "matched_term": "user?.role",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 22,
+        "test": 21
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "progress sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "progress sync",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sync_progress",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "syncProgress",
+          "path": "internal/auth/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Reading progress",
+          "path": "internal/auth/progress.go",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "SyncState{Progress: []Progress",
+          "path": "internal/auth/sync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 136,
+          "matched_term": "reading progress",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "progress sync",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "syncs/progress",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "syncs/progress",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "syncDo(t, base, \"PUT\", \"/syncs/progress",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 95,
+          "matched_term": "syncDo(t, base, \"GET\", \"/syncs/progress",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 101,
+          "matched_term": "syncDo(t, base, \"PUT\", \"/syncs/progress",
+          "path": "internal/server/kosync_test.go",
+          "role": "test"
+        },
+        {
+          "line": 103,
+          "matched_term": "progress sync",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "syncAfter(s.handleReadProgress",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 296,
+          "matched_term": "SyncState{Progress: []auth.Progress",
+          "path": "internal/syncer/syncer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "reading progress",
+          "path": "web/src/components/BookCard.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 495,
+          "matched_term": "sync.intro\": \"Connect this client to your Polka server: browse the server catalog, read online and s",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "sync.auto\": \"Reading progress",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "sync.hint\": \"KOReader on PocketBook, Kindle, Kobo and other devices can sync the reading position wi",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 23,
+        "test": 14
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "sepia",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "typography",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "theme",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "font size",
+          "path": "internal/server/readerprefs.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "theme",
+          "path": "internal/server/readerprefs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "internal/server/readerprefs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "internal/server/readerprefs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "web/index.html",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "theme",
+          "path": "web/public/manifest.webmanifest",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "font-size",
+          "path": "web/src/Root.css",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "font-size",
+          "path": "web/src/Root.css",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "theme",
+          "path": "web/src/Root.jsx",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "font-size",
+          "path": "web/src/components/BookCard.css",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "font-size",
+          "path": "web/src/components/BookCard.css",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "line-height",
+          "path": "web/src/components/BookCard.css",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "font-size",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "font-size",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "font-size",
+          "path": "web/src/components/KosyncDialog.css",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "font-size",
+          "path": "web/src/components/ListsMenu.css",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "font-size",
+          "path": "web/src/components/ListsMenu.css",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "font-size",
+          "path": "web/src/components/ListsMenu.css",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "font-size",
+          "path": "web/src/components/RateStars.css",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "line-height",
+          "path": "web/src/components/RateStars.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "font-size",
+          "path": "web/src/components/RatingStars.css",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "font-size",
+          "path": "web/src/components/RatingStars.css",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "font-size",
+          "path": "web/src/components/RatingStars.css",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "font-size",
+          "path": "web/src/components/Shelf.css",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "font-size",
+          "path": "web/src/components/Shelf.css",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font-size",
+          "path": "web/src/components/Shelf.css",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "line-height",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "font-size",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "font-size",
+          "path": "web/src/components/TopBar.css",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "theme",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "theme",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "theme",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "font-size",
+          "path": "web/src/pages/AdminLibraryPage.css",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "font-size",
+          "path": "web/src/pages/AdminLibraryPage.css",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "font-size",
+          "path": "web/src/pages/AdminLibraryPage.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 209,
+        "test": 4
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "FTS5",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "FTS5",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "search index",
+          "path": "internal/importer/importer.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "search index",
+          "path": "internal/store/import.go",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "search index",
+          "path": "internal/store/import.go",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "search index",
+          "path": "internal/store/import.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "search index",
+          "path": "internal/store/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "FTS5",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "FTS5",
+          "path": "internal/store/queries.go",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "fts5",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "fts5",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "fts5",
+          "path": "internal/store/schema.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "FTS5",
+          "path": "internal/store/store.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 13
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": ".github/FUNDING.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/FUNDING.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 131,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 118,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "collections/100-knig-shkolnikam.json",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "https",
+          "path": "collections/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "collections/bbc-big-read.json",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "Secret",
+          "path": "collections/bbc-big-read.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "collections/le-monde-100.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "collections/verdensbiblioteket.json",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Credential",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "Credential",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "credential",
+          "path": "internal/auth/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "secret",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "Credential",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "Credential",
+          "path": "internal/auth/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": "https",
+          "path": "internal/collections/collections.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "internal/collections/sources/forbes.go",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "https",
+          "path": "internal/collections/sources/forbes_test.go",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "https",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "https",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "https",
+          "path": "internal/enrich/enrich.go",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "https",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "https",
+          "path": "internal/enrich/enrich_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "tls",
+          "path": "internal/mailer/mailer.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "tls",
+          "path": "internal/mailer/mailer.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "tls",
+          "path": "internal/mailer/mailer.go",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "secret",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 88,
+          "matched_term": "secret",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 162,
+          "matched_term": "Credential",
+          "path": "internal/server/auth.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "secret",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 94,
+          "matched_term": "secret",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "Credential",
+          "path": "internal/server/desktopcfg.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "credential",
+          "path": "internal/server/kosync.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "secret",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 62,
+          "matched_term": "secret",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 252,
+          "matched_term": "https",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 9,
+        "source": 353,
+        "test": 35
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "go test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 32,
+          "matched_term": "go test",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "go test",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "vitest",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1614,
+          "matched_term": "vitest",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1617,
+          "matched_term": "vitest",
+          "path": "web/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "vitest",
+          "path": "web/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "vitest",
+          "path": "web/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "vitest",
+          "path": "web/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/api/api.test.js",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/components/BookCard.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/components/KosyncDialog.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/components/Shelf.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/i18n.test.js",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/pages/HomePage.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "vitest",
+          "path": "web/src/pages/HomePage.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "vitest",
+          "path": "web/src/pages/HomePage.test.jsx",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "web/src/test/setup.js",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "vitest",
+          "path": "web/src/test/setup.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "source": 59,
+        "test": 11
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-polka.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1100815,
+    "scanned_text": 193,
+    "skipped_binary_or_empty": 13,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 2,
+    "tracked": 209
+  },
+  "format_keyword_evidence": {
+    "djvu": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "djvu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 535,
+          "matched_term": "djvu",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": ".djvu",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "djvu",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": ".djvu",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "djvu",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "djvu",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "djvu",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": ".djvu",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6,
+        "test": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "epub",
+          "path": "internal/auth/progress.go",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "epub",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "epub",
+          "path": "internal/inpx/file_test.go",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "internal/inpx/file_test.go",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": "epub",
+          "path": "internal/inpx/inpx_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "EPUB ",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB",
+          "path": "internal/library/epubimg_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB",
+          "path": "internal/library/epubimg_test.go",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": "EPUB ",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB ",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB",
+          "path": "internal/library/epubtext_inline_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "internal/library/epubtext_inline_test.go",
+          "role": "test"
+        },
+        {
+          "line": 112,
+          "matched_term": "epub",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "epub ",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub ",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB",
+          "path": "internal/library/toc_check_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB",
+          "path": "internal/library/toc_check_test.go",
+          "role": "test"
+        },
+        {
+          "line": 531,
+          "matched_term": "epub",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 532,
+          "matched_term": "epub",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "EPUB",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "epub",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "epub",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "epub",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "epub",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "epub",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 307,
+          "matched_term": "epub",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "epub",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 405,
+          "matched_term": "epub",
+          "path": "internal/store/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 160,
+          "matched_term": "EPUB",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "EPUB",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": ".epub",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 429,
+          "matched_term": ".epub",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 504,
+          "matched_term": "EPUB ",
+          "path": "web/src/pages/ReaderPage.css",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB ",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 55,
+        "test": 61
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "fb2",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "fb2",
+          "path": "internal/collections/collections_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "FB2",
+          "path": "internal/genres/genres.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "FB2",
+          "path": "internal/genres/genres.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "FB2",
+          "path": "internal/genres/genres_en.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "fb2",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "fb2",
+          "path": "internal/importer/importer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 50,
+          "matched_term": "fb2",
+          "path": "internal/inpx/file_test.go",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "fb2",
+          "path": "internal/inpx/file_test.go",
+          "role": "test"
+        },
+        {
+          "line": 50,
+          "matched_term": "fb2",
+          "path": "internal/inpx/inpx.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "fb2",
+          "path": "internal/inpx/inpx_test.go",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": "fb2",
+          "path": "internal/inpx/inpx_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "fb2",
+          "path": "internal/library/confine_test.go",
+          "role": "test"
+        },
+        {
+          "line": 195,
+          "matched_term": "FB2",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 239,
+          "matched_term": "FB2",
+          "path": "internal/library/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fb2",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "FB2",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "FB2",
+          "path": "internal/library/fb2.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "FictionBook",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "fictionbook",
+          "path": "internal/library/fb2_test.go",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": "FB2",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "fb2",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "FictionBook",
+          "path": "internal/library/fb2text_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "fictionbook",
+          "path": "internal/library/fb2text_test.go",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "FB2",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": ".fb2",
+          "path": "internal/library/library.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".fb2",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 130,
+          "matched_term": ".fb2",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": ".fb2",
+          "path": "internal/library/sevenz_test.go",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "fb2",
+          "path": "internal/library/sevenz_test.go",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": ".fb2",
+          "path": "internal/mailer/mailer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 82,
+          "matched_term": ".fb2",
+          "path": "internal/mailer/mailer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".fb2",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".fb2",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 391,
+          "matched_term": "fb2",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 477,
+          "matched_term": "fb2.zip",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "FB2",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "fb2",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 87,
+        "test": 168
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": ".HTML",
+          "path": "internal/library/epubimg_test.go",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": ".HTML",
+          "path": "internal/library/epubimg_test.go",
+          "role": "test"
+        },
+        {
+          "line": 126,
+          "matched_term": ".HTML",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": ".HTML",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".HTML",
+          "path": "internal/library/epubtext_inline_test.go",
+          "role": "test"
+        },
+        {
+          "line": 125,
+          "matched_term": ".HTML",
+          "path": "internal/library/fb2text.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".HTML",
+          "path": "internal/library/fb2text_test.go",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": ".HTML",
+          "path": "internal/library/fb2text_test.go",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": ".xhtml",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": "xhtml",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": ".HTML",
+          "path": "internal/library/toc_check_test.go",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": ".HTML",
+          "path": "internal/library/toc_check_test.go",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": ".HTML",
+          "path": "internal/library/txt_test.go",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".HTML",
+          "path": "internal/library/txt_test.go",
+          "role": "test"
+        },
+        {
+          "line": 83,
+          "matched_term": ".html",
+          "path": "internal/server/access_test.go",
+          "role": "test"
+        },
+        {
+          "line": 94,
+          "matched_term": ".html",
+          "path": "internal/server/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".html",
+          "path": "internal/server/auth_test.go",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": ".html",
+          "path": "internal/server/manage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 167,
+          "matched_term": ".HTML",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": ".html",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": ".html",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 387,
+          "matched_term": ".HTML",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".html",
+          "path": "internal/server/syncmode_test.go",
+          "role": "test"
+        },
+        {
+          "line": 131,
+          "matched_term": ".html",
+          "path": "internal/server/syncmode_test.go",
+          "role": "test"
+        },
+        {
+          "line": 455,
+          "matched_term": ".html",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": ".html",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9,
+        "test": 35
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "collections/bundled.go",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": ".md",
+          "path": "internal/collections/collections_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2,
+        "test": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "mobi",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "mobi",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "azw3",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "mobi",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "mobi",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": ".mobi",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": ".azw3",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6,
+        "test": 1
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 78,
+          "matched_term": ".opf",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": ".opf",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "pdf",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": ".pdf",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 385,
+          "matched_term": "PDF",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 450,
+          "matched_term": "PDF",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 533,
+          "matched_term": "pdf",
+          "path": "internal/server/api.go",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "pdf",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "application/pdf",
+          "path": "internal/server/api_more_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "pdf",
+          "path": "internal/server/manage.go",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "pdf",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "application/pdf",
+          "path": "internal/server/opds.go",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "pdf",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "pdf",
+          "path": "internal/server/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 307,
+          "matched_term": "pdf",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "pdf",
+          "path": "internal/server/syncmode.go",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "PDF",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "PDF",
+          "path": "web/src/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": ".pdf",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 429,
+          "matched_term": ".pdf",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 436,
+          "matched_term": ".pdf",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".pdf",
+          "path": "web/src/pages/PdfReader.css",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".pdf",
+          "path": "web/src/pages/PdfReader.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "PDF",
+          "path": "web/src/pages/PdfReader.jsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "PDF",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "pdf",
+          "path": "web/src/pages/ReaderPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 36,
+        "test": 6
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": ".txt",
+          "path": "internal/inpx/file_test.go",
+          "role": "test"
+        },
+        {
+          "line": 213,
+          "matched_term": "plain text",
+          "path": "internal/library/epubtext.go",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": ".txt",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 274,
+          "matched_term": ".txt",
+          "path": "internal/library/library_test.go",
+          "role": "test"
+        },
+        {
+          "line": 278,
+          "matched_term": ".txt",
+          "path": "web/src/pages/AdminLibraryPage.jsx",
+          "role": "source"
+        },
+        {
+          "line": 429,
+          "matched_term": ".txt",
+          "path": "web/src/pages/BookPage.jsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3,
+        "test": 4
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "LPF",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/vestigiumincaligne/polka",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 20,
+    "Go": 109,
+    "HTML": 1,
+    "JavaScript": 16,
+    "JavaScript React": 24
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/vestigiumincaligne/polka",
+  "readme_files": [
+    "README.md",
+    "collections/README.md"
+  ],
+  "revision": "01c2712a771fc72b7eced5887eea68e6bb1876a0",
+  "schema_version": 1,
+  "slug": "polka",
+  "support_claims_allowed": false,
+  "tree": "0c3ab0a2cd9ea1f57ab45a73870cf1263f617210"
+}

@@ -1,0 +1,4398 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "RAG",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "rag",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "RAG",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "RAG",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 615,
+          "matched_term": "rag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 621,
+          "matched_term": "rag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 650,
+          "matched_term": "rag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "rag",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "rag",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "rag",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/book_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/folder_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/highlight_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/login_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/rectf_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/register_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/tag_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/DTOs/word_definition_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/adapters_export.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/ai_explanation_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/app_info_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/folder_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/adapters/controllers/page_controller.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 1420,
+        "test": 253
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "Annotation",
+          "path": ".clang-format",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "Highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 461,
+          "matched_term": "Highlight",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 819,
+          "matched_term": "Bookmark",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 820,
+          "matched_term": "Bookmark",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "bookmark",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "bookmark",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "highlight",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Highlight",
+          "path": "resources/data/default_appearance_settings.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Highlight",
+          "path": "resources/data/default_appearance_settings.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Highlight",
+          "path": "resources/data/default_appearance_settings.json",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Bookmark",
+          "path": "resources/data/default_shortcuts.json",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Bookmark",
+          "path": "resources/data/default_shortcuts.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Highlight",
+          "path": "resources/data/default_shortcuts.json",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "bookmark",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "bookmark",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "bookmark",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "bookmark",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "bookmark",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Highlight",
+          "path": "src/adapters/DTOs/highlight_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "bookmark",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "bookmark",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "highlight",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "bookmark",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Highlight",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Highlight",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "bookmark",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "highlight",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Bookmark",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "highlight",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Highlight",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Highlight",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1085
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 401,
+          "matched_term": "Restore",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "restore",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 519,
+          "matched_term": "Restore",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "backup",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "backup",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "backup",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "EXPORT Library",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/page_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/page_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "restore",
+          "path": "src/adapters/controllers/page_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "EXPORT Library",
+          "path": "src/adapters/data_models/library_model/library_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "EXPORT Library",
+          "path": "src/adapters/data_models/library_model/library_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "EXPORT Library",
+          "path": "src/adapters/gateways/library_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "restore",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "restore",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "restore",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "restore",
+          "path": "src/application/core/page_generator.hpp",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "Restore",
+          "path": "src/application/core/utils/fz_utils.hpp",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "restore",
+          "path": "src/application/core/utils/fz_utils.hpp",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "restore",
+          "path": "src/application/core/utils/fz_utils.hpp",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "restore",
+          "path": "src/application/services/book_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "EXPORT Library",
+          "path": "src/application/services/library_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 517,
+          "matched_term": "restore",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "restore",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "restore",
+          "path": "src/presentation/modules/CppElements/page_view.cpp",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "restore",
+          "path": "src/presentation/modules/CppElements/page_view.cpp",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "restore",
+          "path": "src/presentation/modules/CppElements/page_view.cpp",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MExternalReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MExternalReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MExternalReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "restore",
+          "path": "src/presentation/readingPage/MReadingPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Restore",
+          "path": "src/presentation/settings/MAppearancePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 514,
+          "matched_term": "restore",
+          "path": "src/presentation/settings/MAppearancePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "Restore",
+          "path": "src/presentation/settings/MBehaviorPage.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 137
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 43,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 213,
+          "matched_term": "collection",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 392,
+          "matched_term": "collection",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 484,
+          "matched_term": "collection",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 142,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 142,
+          "matched_term": "Comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "cb7",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "librum.desktop",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "librum.desktop",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "double page",
+          "path": "src/domain/entities/book.cpp",
+          "role": "source"
+        },
+        {
+          "line": 447,
+          "matched_term": "Double Page",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": "Double Page",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 6
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "Cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "CACHE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "CACHE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "CACHE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "eTag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 366,
+          "matched_term": "eTag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 372,
+          "matched_term": "eTag",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CACHE",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 281,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/user_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "eTag",
+          "path": "src/adapters/controllers/user_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/book_title_model/book_title_proxy_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/book_title_model/book_title_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/folders_model/folders_proxy_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/folders_model/folders_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/library_model/library_proxy_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/library_model/library_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/shortcuts_model/shortcuts_proxy_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Cache",
+          "path": "src/adapters/data_models/shortcuts_model/shortcuts_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "eTag",
+          "path": "src/adapters/gateways/user_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "eTag",
+          "path": "src/adapters/gateways/user_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "eTag",
+          "path": "src/adapters/gateways/user_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "eTag",
+          "path": "src/adapters/gateways/user_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "eTag",
+          "path": "src/adapters/gateways/user_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/controllers/i_library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/controllers/i_library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/controllers/i_user_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/controllers/i_user_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/persistance/i_user_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "eTag",
+          "path": "src/adapters/interfaces/persistance/i_user_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Cache",
+          "path": "src/application/core/toc/filtered_toc_model.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 254,
+        "test": 102
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 70,
+          "matched_term": "converter",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "converter",
+          "path": "src/application/services/authentication_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "converter",
+          "path": "src/application/services/authentication_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "converter",
+          "path": "src/application/services/authentication_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "converter",
+          "path": "src/application/utility/error_code_converter.hpp",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "converter",
+          "path": "src/application/utility/error_code_converter.hpp",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "conversion",
+          "path": "src/presentation/toolsPage/MImageToPdfPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "conversion",
+          "path": "src/presentation/toolsPage/MPdfToImagePopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 1590,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1778,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1561,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1749,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1777,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1965,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1521,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1709,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1587,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1775,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1608,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1799,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1588,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1776,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1601,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1789,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1726,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1914,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1590,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1778,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1596,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 1784,
+          "matched_term": "conversion",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "conversion",
+          "path": "tests/adapters_unit_tests/gateways/library_storage_gateway_tests.cpp",
+          "role": "test"
+        },
+        {
+          "line": 113,
+          "matched_term": "conversion",
+          "path": "tests/adapters_unit_tests/gateways/library_storage_gateway_tests.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 30,
+        "test": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Redis",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Redis",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 3
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 48,
+          "matched_term": "duplicate",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "duplicate",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "DUPLICATE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 434,
+          "matched_term": "DUPLICATE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 526,
+          "matched_term": "DUPLICATE",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 393,
+          "matched_term": "fingerprint",
+          "path": "resources.qrc",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "fingerprint",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "fingerprint",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "Duplicate",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "Duplicate",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Duplicate",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "dedUp",
+          "path": "src/adapters/data_models/book_title_model/book_title_proxy_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "dedUp",
+          "path": "src/adapters/data_models/book_title_model/book_title_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "dedUp",
+          "path": "src/adapters/data_models/book_title_model/book_title_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "Duplicate",
+          "path": "src/adapters/interfaces/controllers/i_library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Duplicate",
+          "path": "src/application/interfaces/services/i_library_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "Duplicate",
+          "path": "src/application/services/library_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "Duplicate",
+          "path": "src/application/services/library_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Duplicate",
+          "path": "src/application/services/library_service.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 20
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "translation",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "translation",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 660,
+          "matched_term": "translation",
+          "path": "resources/data/folder_icons.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "translation",
+          "path": "scripts/update_translations.sh",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "TRANSLATION",
+          "path": "scripts/update_translations.sh",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "scripts/update_translations.sh",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "dictionary",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "dictionary",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "dictionary",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/DTOs/word_definition_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/DTOs/word_definition_dto.hpp",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "translation",
+          "path": "src/adapters/controllers/app_info_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/controllers/dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/gateways/dictionary_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/interfaces/controllers/i_dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "dictionary",
+          "path": "src/adapters/interfaces/controllers/i_dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/interfaces/controllers/i_dictionary_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/interfaces/persistance/i_dictionary_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "dictionary",
+          "path": "src/adapters/interfaces/persistance/i_dictionary_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Dictionary",
+          "path": "src/adapters/interfaces/persistance/i_dictionary_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "dictionary",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "dictionary",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "dictionary",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Dictionary",
+          "path": "src/application/interfaces/gateways/i_dictionary_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Dictionary",
+          "path": "src/application/interfaces/gateways/i_dictionary_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "dictionary",
+          "path": "src/application/interfaces/gateways/i_dictionary_gateway.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 12113
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "Quic",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Quic",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "Quic",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Quic",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "Quic",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "Quic",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "quic",
+          "path": "src/application/services/free_books_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Quic",
+          "path": "src/domain/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Quic",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Quic",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "Quic",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Quic",
+          "path": "src/presentation/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/FontSheet.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/Globals.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/IconSheet.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/StyleSheet.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/TranslationsModel.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/forgotPasswordPage/MForgotPasswordPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/forgotPasswordPage/MForgotPasswordPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/forgotPasswordPage/MForgotPasswordPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MDownloadBookPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MDownloadBookPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MDownloadBookPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBooksPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBooksPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/MFreeBooksPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/explorerToolbar/MExplorerToolbar.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/explorerToolbar/MExplorerToolbar.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/freeBooksPage/explorerToolbar/MExplorerToolbar.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBook.qml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBookDetailsPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBookDetailsPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "src/presentation/homePage/MBookDetailsPopup.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 373,
+        "test": 3
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "local library",
+          "path": "src/application/interfaces/utility/i_local_library_tracker.hpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "filesystem",
+          "path": "src/application/interfaces/utility/i_local_library_tracker.hpp",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "local library",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "local library",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "local library",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "local library",
+          "path": "src/application/services/folder_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 640,
+          "matched_term": "filesystem",
+          "path": "src/application/services/library_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 666,
+          "matched_term": "local library",
+          "path": "src/application/services/library_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "local library",
+          "path": "src/application/utility/merge_status.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "metadata",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "metadata",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "metadata",
+          "path": "src/adapters/controllers/free_books_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "fetchingFirstMetadata",
+          "path": "src/adapters/controllers/free_books_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "FetchingFirstMetadata",
+          "path": "src/adapters/controllers/free_books_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "fetchFirstBooksMetadata",
+          "path": "src/adapters/controllers/free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "FetchingFirstMetadata",
+          "path": "src/adapters/controllers/free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": "MetaData",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 379,
+          "matched_term": "MetaData",
+          "path": "src/adapters/controllers/library_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "MetaData",
+          "path": "src/adapters/controllers/library_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "Metadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "Metadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Metadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Metadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Metadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "fetchBooksMetadata",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "fetchingFirstMetadata",
+          "path": "src/adapters/gateways/free_books_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fetchingFirstMetadata",
+          "path": "src/adapters/gateways/free_books_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "fetchingBooksMetaData",
+          "path": "src/adapters/gateways/free_books_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "fetchFirstBooksMetadata",
+          "path": "src/adapters/gateways/free_books_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fetchBooksMetadata",
+          "path": "src/adapters/gateways/free_books_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Metadata",
+          "path": "src/adapters/gateways/free_books_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "MetaData",
+          "path": "src/adapters/gateways/library_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Metadata",
+          "path": "src/adapters/gateways/library_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "MetaData",
+          "path": "src/adapters/gateways/library_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "MetaData",
+          "path": "src/adapters/gateways/library_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Metadata",
+          "path": "src/adapters/gateways/library_storage_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "fetchFirstBooksMetadata",
+          "path": "src/adapters/interfaces/controllers/i_free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "FetchingFistMetadata",
+          "path": "src/adapters/interfaces/controllers/i_free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "fetchingFirstMetadata",
+          "path": "src/adapters/interfaces/controllers/i_free_books_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fetchFirstBooksMetadata",
+          "path": "src/adapters/interfaces/persistance/i_free_books_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "fetchBooksMetadata",
+          "path": "src/adapters/interfaces/persistance/i_free_books_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "fetchingFirstMetadata",
+          "path": "src/adapters/interfaces/persistance/i_free_books_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "MetaData",
+          "path": "src/adapters/interfaces/persistance/i_library_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "MetaData",
+          "path": "src/adapters/interfaces/persistance/i_library_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "metaData",
+          "path": "src/adapters/interfaces/persistance/i_library_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "metadata",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "metadata",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "metadata",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "src/application/core/metadata_extractor.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 312,
+        "test": 349
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "authentication",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "authentication",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "authentication",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "authentication",
+          "path": "src/adapters/controllers/authentication_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "authentication",
+          "path": "src/adapters/controllers/authentication_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Authentication",
+          "path": "src/adapters/controllers/authentication_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "authentication",
+          "path": "src/adapters/controllers/authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "authentication",
+          "path": "src/adapters/controllers/authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authentication",
+          "path": "src/adapters/controllers/authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "authentication",
+          "path": "src/adapters/gateways/authentication_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authentication",
+          "path": "src/adapters/gateways/authentication_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authentication",
+          "path": "src/adapters/gateways/authentication_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "authentication",
+          "path": "src/adapters/gateways/authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "authentication",
+          "path": "src/adapters/gateways/authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Authentication",
+          "path": "src/adapters/gateways/authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/controllers/i_ai_explanation_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/controllers/i_app_info_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/controllers/i_authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "authentication",
+          "path": "src/adapters/interfaces/controllers/i_authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/controllers/i_authentication_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/persistance/i_authentication_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/persistance/i_authentication_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "authentication",
+          "path": "src/adapters/interfaces/persistance/i_authentication_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Authentication",
+          "path": "src/adapters/interfaces/persistance/i_library_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "authentication",
+          "path": "src/adapters/interfaces/persistance/i_library_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "authentication",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "authentication",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "authentication",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Authentication",
+          "path": "src/application/interfaces/gateways/i_authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Authentication",
+          "path": "src/application/interfaces/gateways/i_authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "authentication",
+          "path": "src/application/interfaces/gateways/i_authentication_gateway.hpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Authentication",
+          "path": "src/application/interfaces/services/i_authentication_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "authentication",
+          "path": "src/application/interfaces/services/i_authentication_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Authentication",
+          "path": "src/application/interfaces/services/i_authentication_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "authentication",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "authentication",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "authentication",
+          "path": "src/application/managers/library_storage_manager.cpp",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "authentication",
+          "path": "src/application/managers/library_storage_manager.hpp",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "authentication",
+          "path": "src/application/services/ai_explanation_service.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 279,
+        "test": 35
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 184,
+          "matched_term": "ftp",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 288,
+          "matched_term": "ftp",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "EXPORT IHighlightS",
+          "path": "src/adapters/interfaces/persistance/i_highlight_storage_access.hpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "EXPORT IHighlightS",
+          "path": "src/application/interfaces/managers/i_highlight_storage_manager.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": "openSearch",
+          "path": "src/presentation/freeBooksPage/MFreeBooksPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "openSearch",
+          "path": "src/presentation/freeBooksPage/explorerToolbar/MExplorerToolbar.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "Reflow",
+          "path": ".clang-format",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "mupdf",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "mupdf",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "mupdf",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "mupdf",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "mupdf",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "mupdf",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "MUPDF",
+          "path": "src/adapters/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/page_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/page_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/page_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/page_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "mupdf",
+          "path": "src/adapters/controllers/page_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "mupdf",
+          "path": "src/adapters/interfaces/controllers/i_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "mupdf",
+          "path": "src/adapters/interfaces/controllers/i_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "mupdf",
+          "path": "src/adapters/interfaces/controllers/i_page_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "mupdf",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "MUPDF",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "mupdf",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "mupdf",
+          "path": "src/application/core/metadata_extractor.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "mupdf",
+          "path": "src/application/core/metadata_extractor.hpp",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "mupdf",
+          "path": "src/application/core/metadata_extractor.hpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.cpp",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.hpp",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.hpp",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "mupdf",
+          "path": "src/application/core/page_generator.hpp",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "mupdf",
+          "path": "src/application/core/toc/toc_item.hpp",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "mupdf",
+          "path": "src/application/core/toc/toc_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "reflow",
+          "path": "src/application/core/toc/toc_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "mupdf",
+          "path": "src/application/core/toc/toc_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "mupdf",
+          "path": "src/application/core/toc/toc_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "mupdf",
+          "path": "src/application/core/toc/toc_model.hpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 240
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "UserController::getRole",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "userService->getRole",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/book_title_model/book_title_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/bookmarks_model/bookmarks_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/free_books_model/free_books_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/library_model/library_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/library_model/library_proxy_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/shortcuts_model/shortcuts_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "UserTagsModel::data(const QModelIndex& index, int role",
+          "path": "src/adapters/data_models/user_tags_model/user_tags_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "UserTagsModel::role",
+          "path": "src/adapters/data_models/user_tags_model/user_tags_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "UserRole",
+          "path": "src/adapters/data_models/user_tags_model/user_tags_model.hpp",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "user.setRole(jsonObj[\"role",
+          "path": "src/adapters/gateways/user_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "permission",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "PERMISSION",
+          "path": "src/application/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "UserService::getRole",
+          "path": "src/application/services/user_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "user.getRole",
+          "path": "src/application/services/user_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "user.setRole(user.getRole",
+          "path": "src/application/services/user_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "userData.role",
+          "path": "src/application/utility/automatic_login_helper.hpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "User::User(const QString& name, const QString& email, const QString& role",
+          "path": "src/domain/entities/user.cpp",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "User::getRole",
+          "path": "src/domain/entities/user.cpp",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "User::setRole(const QString& newRole",
+          "path": "src/domain/entities/user.cpp",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "User(const QString& name, const QString& email, const QString& role",
+          "path": "src/domain/entities/user.hpp",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "UserController.role",
+          "path": "src/presentation/settings/MStoragePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "UserController.role",
+          "path": "src/presentation/settings/accountPage/MAccountPage.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 20,
+        "source": 27
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "theme",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 413,
+          "matched_term": "Theme",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Theme",
+          "path": "resources/data/default_appearance_settings.json",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 239,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Theme",
+          "path": "src/adapters/controllers/external_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Theme",
+          "path": "src/adapters/interfaces/controllers/i_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Theme",
+          "path": "src/adapters/interfaces/controllers/i_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Theme",
+          "path": "src/adapters/interfaces/controllers/i_book_controller.hpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Theme",
+          "path": "src/application/common/enums/setting_keys.hpp",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Theme",
+          "path": "src/application/core/metadata_extractor.cpp",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "Theme",
+          "path": "src/application/interfaces/services/i_book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Theme",
+          "path": "src/application/interfaces/services/i_book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Theme",
+          "path": "src/application/interfaces/services/i_book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.cpp",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Theme",
+          "path": "src/application/services/book_service.hpp",
+          "role": "source"
+        },
+        {
+          "line": 376,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.cpp",
+          "role": "source"
+        },
+        {
+          "line": 378,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.cpp",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.cpp",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.hpp",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.hpp",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Theme",
+          "path": "src/domain/entities/book.hpp",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Theme",
+          "path": "src/domain/value_objects/book_meta_data.hpp",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Theme",
+          "path": "src/domain/value_objects/book_meta_data.hpp",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Theme",
+          "path": "src/domain/value_objects/book_meta_data.hpp",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "font size",
+          "path": "src/presentation/FontSheet.qml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "font size",
+          "path": "src/presentation/FontSheet.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 99
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".github/FUNDING.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 648,
+          "matched_term": "https",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 667,
+          "matched_term": "https",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "app_info.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "app_info.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "app_info.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "https",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "https",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 1391,
+          "matched_term": "https",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1531,
+          "matched_term": "https",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1738,
+          "matched_term": "credential",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "src/application/common/enums/book_operation_status.hpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "src/application/common/enums/error_code.hpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "src/application/common/enums/setting_groups.hpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "src/application/common/enums/setting_keys.hpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "src/infrastructure/data/endpoints.hpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "src/infrastructure/data/endpoints.hpp",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "https",
+          "path": "src/infrastructure/data/endpoints.hpp",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "HttpS",
+          "path": "src/infrastructure/persistance/ai_explanation_access.cpp",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "HttpS",
+          "path": "src/infrastructure/persistance/api_error_helper.hpp",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "HttpS",
+          "path": "src/infrastructure/persistance/api_error_helper.hpp",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "HttpS",
+          "path": "src/infrastructure/persistance/library_storage_access.cpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "HttpS",
+          "path": "src/infrastructure/persistance/user_storage_access.cpp",
+          "role": "source"
+        },
+        {
+          "line": 305,
+          "matched_term": "https",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "csP",
+          "path": "src/presentation/main.qml",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "csP",
+          "path": "src/presentation/main.qml",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "csP",
+          "path": "src/presentation/main.qml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cSp",
+          "path": "src/presentation/modules/CustomComponents/MProgressArc.qml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "cSp",
+          "path": "src/presentation/modules/CustomComponents/MProgressArc.qml",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "cSp",
+          "path": "src/presentation/modules/CustomComponents/MProgressArc.qml",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "csP",
+          "path": "src/presentation/qmlSources.qrc",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 35,
+        "source": 119
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "unit test",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 50,
+          "matched_term": "unit test",
+          "path": ".gitignore",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 1
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 167,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2000,
+          "matched_term": "TTS",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 2001,
+          "matched_term": "TTS",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-librum.jsonl.gz",
+  "files": {
+    "scanned_bytes": 3329312,
+    "scanned_text": 833,
+    "skipped_binary_or_empty": 6,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 844
+  },
+  "format_keyword_evidence": {
+    "cbz": {
+      "evidence": [
+        {
+          "line": 142,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "librum.desktop",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "librum.desktop",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 141,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "epub ",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 1203,
+          "matched_term": "Epub",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1205,
+          "matched_term": "Epub",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub",
+          "path": "librum.desktop",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "epub",
+          "path": "src/adapters/gateways/free_books_storage_gateway.cpp",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "epub",
+          "path": "src/application/core/toc/toc_model.cpp",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "epub",
+          "path": "src/infrastructure/persistance/free_books_storage_access.cpp",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "epub",
+          "path": "src/infrastructure/persistance/free_books_storage_access.cpp",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "EPUB",
+          "path": "src/presentation/freeBooksPage/MDownloadBookPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 801,
+          "matched_term": "EPUB",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 802,
+          "matched_term": ".epub",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "Epub",
+          "path": "src/presentation/homePage/toolbar/filterByButton/MFilterByPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 1210,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1211,
+          "matched_term": "EPUB",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1181,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1182,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1336,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1337,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1145,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1208,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1209,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1227,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1228,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1209,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1210,
+          "matched_term": "EPUB",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1212,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1213,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1305,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1306,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1210,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1211,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1219,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 1220,
+          "matched_term": "Epub",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Epub",
+          "path": "tests/adapters_unit_tests/data_models/test_data/filter_by_request_test_data.hpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 33,
+        "test": 1
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 143,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": ".html",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": ".html",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 803,
+          "matched_term": ".html",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 9
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "markdown",
+          "path": "librum.desktop",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 145,
+          "matched_term": "Mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1209,
+          "matched_term": "Mobi",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1211,
+          "matched_term": "Mobi",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 802,
+          "matched_term": "MOBI",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 802,
+          "matched_term": ".mobi",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "Mobi",
+          "path": "src/presentation/homePage/toolbar/filterByButton/MFilterByPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1216,
+          "matched_term": "MOBI",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1186,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1187,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1341,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1342,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1150,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1213,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1214,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1232,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1233,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1214,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "MOBI",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1217,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1218,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1310,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1311,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1216,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1224,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 1225,
+          "matched_term": "Mobi",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 26
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 140,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "pdf",
+          "path": "com.librumreader.librum.metainfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 1197,
+          "matched_term": "Pdf",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1199,
+          "matched_term": "Pdf",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "application/pdf",
+          "path": "librum.desktop",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".pdf",
+          "path": "src/adapters/controllers/tools_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".pdf",
+          "path": "src/adapters/controllers/tools_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "pdf",
+          "path": "src/adapters/controllers/user_controller.cpp",
+          "role": "source"
+        },
+        {
+          "line": 801,
+          "matched_term": "PDF",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 801,
+          "matched_term": ".pdf",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "Pdf",
+          "path": "src/presentation/homePage/toolbar/filterByButton/MFilterByPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "pdf",
+          "path": "src/presentation/toolsPage/MExtractPagesPopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "pdf",
+          "path": "src/presentation/toolsPage/MMergePopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "Pdf",
+          "path": "src/presentation/toolsPage/MPdfToImagePopup.qml",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "PDF",
+          "path": "src/presentation/toolsPage/MToolsPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "PDF",
+          "path": "src/presentation/toolsPage/MToolsPage.qml",
+          "role": "source"
+        },
+        {
+          "line": 1205,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1206,
+          "matched_term": "PDF",
+          "path": "src/presentation/translations/librum_ar.ts",
+          "role": "source"
+        },
+        {
+          "line": 1176,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1177,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_bn.ts",
+          "role": "source"
+        },
+        {
+          "line": 1331,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1332,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_de.ts",
+          "role": "source"
+        },
+        {
+          "line": 1140,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1714,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1203,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1204,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_id.ts",
+          "role": "source"
+        },
+        {
+          "line": 1222,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1223,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_it.ts",
+          "role": "source"
+        },
+        {
+          "line": 1204,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1205,
+          "matched_term": "PDF",
+          "path": "src/presentation/translations/librum_ko.ts",
+          "role": "source"
+        },
+        {
+          "line": 1207,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1208,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_pt.ts",
+          "role": "source"
+        },
+        {
+          "line": 1300,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1301,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_ru.ts",
+          "role": "source"
+        },
+        {
+          "line": 1205,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1206,
+          "matched_term": "PDF",
+          "path": "src/presentation/translations/librum_uk.ts",
+          "role": "source"
+        },
+        {
+          "line": 1214,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "Pdf",
+          "path": "src/presentation/translations/librum_zh.ts",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": ".pdf",
+          "path": "tests/adapters_unit_tests/controllers/library_controller_tests.cpp",
+          "role": "test"
+        },
+        {
+          "line": 342,
+          "matched_term": ".pdf",
+          "path": "tests/adapters_unit_tests/controllers/library_controller_tests.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 109,
+        "test": 109
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": ".txt",
+          "path": "cmake/CodeCoverage.cmake",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "it.changes",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": ".txt",
+          "path": "src/application/utility/automatic_login_helper.hpp",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": ".txt",
+          "path": "src/message_handler.hpp",
+          "role": "source"
+        },
+        {
+          "line": 803,
+          "matched_term": ".txt",
+          "path": "src/presentation/homePage/MHomePage.qml",
+          "role": "source"
+        },
+        {
+          "line": 661,
+          "matched_term": ".txt",
+          "path": "tests/domain_unit_tests/book_tests.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 11,
+        "test": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/librum-reader/librum",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C++": 101,
+    "C++ header": 167,
+    "JavaScript": 4,
+    "Shell": 1,
+    "TypeScript": 11,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE.md",
+      "resources/images/folder_icons/license.svg"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/librum-reader/librum",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "5fdac3454c3c3fbc4191aa6a4f277368895c9c70",
+  "schema_version": 1,
+  "slug": "librum",
+  "support_claims_allowed": false,
+  "tree": "458fbaf87945cf7bc2f9a6664e66bc6fb3589eae"
+}

@@ -1,0 +1,2561 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 189,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 217,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "rag",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 715,
+          "matched_term": "rag",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 179,
+          "matched_term": "rag",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 621,
+          "matched_term": "rag",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "RAg",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 30
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 128,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 222,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cFi",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 2041,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 2042,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 2077,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cFi",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Bookmark",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 555,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 563,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 577,
+          "matched_term": "bookmark",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "bookmark",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 368,
+          "matched_term": "Bookmark",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 372,
+          "matched_term": "bookmark",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "Bookmark",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "Bookmark",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "Bookmark",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 14,
+        "source": 229
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 2872,
+          "matched_term": "snapshot",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 2874,
+          "matched_term": "snapshot",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 2885,
+          "matched_term": "snapshot",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "restore",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 550,
+          "matched_term": "restore",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 16
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "series",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "series",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 375,
+          "matched_term": "Series",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": "Series",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "Series",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "series",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 621,
+          "matched_term": "Series",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "Collection",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "Collection",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 387,
+          "matched_term": "series",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "series",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "series",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Series",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Series",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Series",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 548,
+          "matched_term": "Series",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 548,
+          "matched_term": "Series",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 549,
+          "matched_term": "Series",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1346,
+          "matched_term": "Reading List",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1777,
+          "matched_term": "series",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1777,
+          "matched_term": "Series",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Collection",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "collection",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "Series",
+          "path": "xml-template/ComicInfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Series",
+          "path": "xml-template/ComicInfo.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 24,
+        "source": 37
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cbt",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cbr",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cbz",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cb7",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cbr",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "CBT",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "comic",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "comic",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "comic",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "comic",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "cbr",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "cb7",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "cbz",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "comic",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Comic",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "cb7",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "cb7",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "cb7",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Comic",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "comic",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "comic",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "cb7",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "CBr",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Comic",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 196,
+        "source": 1608
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": ".containerignore",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "cache",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "cache",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/config.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/config.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "cache",
+          "path": "app/gopherbook/config.go",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "cache",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 640,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "cache",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "cache",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "cache",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "cache",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "cache",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 435,
+          "matched_term": "cache",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 435,
+          "matched_term": "Cache",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "app/gopherbook/main_server.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "eTag",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 1293,
+          "matched_term": "eTag",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1300,
+          "matched_term": "eTag",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1308,
+          "matched_term": "eTag",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "cache",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "cache",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "Cache",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "brotli",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 26,
+        "source": 227
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "kEPUB",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "kEPUB",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "kEPUB",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "sha256",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "sha256",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "sha256",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sha256",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "SHA256",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "SHA256",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "SHA-256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 215,
+          "matched_term": "Duplicate",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 261,
+          "matched_term": "checksum",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "SHA-256",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "SHA-256",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "sha256",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sha256",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 279,
+          "matched_term": "duplicate",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 3145,
+          "matched_term": "sha256",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": "SHA-256",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 141,
+          "matched_term": "checksum",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "SHA-256",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 572,
+          "matched_term": "Checksum",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 574,
+          "matched_term": "checksum",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "sha256",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "SHA256",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "sha256",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "sha256",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "scripts-go/cbt.go",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "sha256",
+          "path": "scripts-go/cbt.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 16,
+        "source": 41
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "docker",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "docker",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "docker",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 506,
+          "matched_term": "readiness",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 585,
+          "matched_term": "docker",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": "scripts-bash/run-gb-container/run-docker.sh",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "docker",
+          "path": "scripts-bash/run-gb-container/run-docker.sh",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "docker",
+          "path": "scripts-bash/run-gb-container/run-docker.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 14
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 182,
+          "matched_term": "word lookup",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 99,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 265,
+          "matched_term": "quic",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "brotli",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "Quic",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "Quic",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "Quic",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 7
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 235,
+          "matched_term": "directory scan",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 197,
+          "matched_term": "filesystem",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "filesystem",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "filesystem",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 615,
+          "matched_term": "filesystem",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 328,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 329,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 343,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 344,
+          "matched_term": "metadata",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 754,
+          "matched_term": "metadata",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 756,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 858,
+          "matched_term": "Metadata",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Metadata",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "metadata",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "metadata",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 33,
+        "source": 46
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "per-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "Multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "per-user",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": "per-user",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 2786,
+          "matched_term": "per-user",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Authentication",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "authentication",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "Per-user",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "Jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "Jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "Jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "Multi-user",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "per user",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "per user",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 15,
+        "source": 19
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 223,
+          "matched_term": "SFTP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 224,
+          "matched_term": "Network share",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "permission",
+          "path": "scripts-bash/building-only/build-labeled-container.sh",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": "scripts-bash/run-gb-container/run-docker.sh",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": "scripts-bash/run-gb-container/run-podman.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 150,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "Theme",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_images.go",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Theme",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_main.go",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "theme",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 373,
+          "matched_term": "Theme",
+          "path": "app/gopherbook/desktop_reader.go",
+          "role": "source"
+        },
+        {
+          "line": 3754,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 3755,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 3757,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "font-size",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "font-size",
+          "path": "docs/images/svgs/PIL.svg",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "theme",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 518,
+          "matched_term": "theme",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 520,
+          "matched_term": "theme",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 106
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "https",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "https",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "https",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "https",
+          "path": "Containerfile.build",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 415,
+          "matched_term": "credential",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 420,
+          "matched_term": "credential",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1446,
+          "matched_term": "csP",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1538,
+          "matched_term": "credential",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1715,
+          "matched_term": "csP",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 611,
+          "matched_term": "TLS",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 611,
+          "matched_term": "TLS",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 629,
+          "matched_term": "TLS",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": "https",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "https",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "https",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "secret",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "secret",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "xml-template/ComicInfo.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 27,
+        "source": 31
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "Watch folder",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "watch folder",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 175,
+          "matched_term": "watch folder",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 171,
+          "matched_term": "watch folder",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "watch folder",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "watch folder",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "watch folder",
+          "path": "app/gopherbook/server_setup.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Watch Folder",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "watch folder",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 401,
+          "matched_term": "watch folder",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "Watch folder",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Watch Folder",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "Watch folder",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 21,
+        "source": 24
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-gopherbook.jsonl.gz",
+  "files": {
+    "scanned_bytes": 465758,
+    "scanned_text": 38,
+    "skipped_binary_or_empty": 5,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 43
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": ".cbt",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".cb7",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "CBT",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "CB7",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 1018,
+          "matched_term": "cbt",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 1018,
+          "matched_term": "cb7",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": ".cbt",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": ".cb7",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1169,
+          "matched_term": "CBT",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1169,
+          "matched_term": "CB7",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "CBT",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "CB7",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "CBT",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "CB7",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBT",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": ".cbt",
+          "path": "scripts-bash/comic-scripts/cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cbt",
+          "path": "scripts-bash/comic-scripts/test-cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".cbt",
+          "path": "scripts-bash/comic-scripts/test-cbt.sh",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".cbt",
+          "path": "scripts-go/cbt.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cbt",
+          "path": "scripts-go/cbt.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 52,
+        "source": 125
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": ".cbr",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".cbr",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 366,
+          "matched_term": "CBR",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 1018,
+          "matched_term": "cbr",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": ".cbz",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".cbz",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "CBZ",
+          "path": "app/gopherbook/cb7.go",
+          "role": "source"
+        },
+        {
+          "line": 1018,
+          "matched_term": "cbz",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": ".cbz",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": ".cbz",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1169,
+          "matched_term": "CBZ",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1170,
+          "matched_term": ".cbz",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "CBZ",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "CBZ",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "CBZ",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "CBZ",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".cbz",
+          "path": "scripts-bash/comic-scripts/make-cbz-imagemagick.sh",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "CBZ",
+          "path": "xml-template/ComicInfo.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "CBZ",
+          "path": "xml-template/ComicInfo.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 27,
+        "source": 52
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": ".docx",
+          "path": ".gitattributes",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1018,
+          "matched_term": "epub",
+          "path": "app/gopherbook/desktop_gui.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB 3",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": ".epub",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": ".epub",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1170,
+          "matched_term": ".epub",
+          "path": "app/gopherbook/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "EPUB ",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 145,
+          "matched_term": "EPUB\n\n",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 28,
+        "source": 35
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 55,
+          "matched_term": "XHTML",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 265,
+          "matched_term": "XHTML",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "XHTML",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 303,
+          "matched_term": "XHTML",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": ".html",
+          "path": "app/gopherbook/globals.go",
+          "role": "source"
+        },
+        {
+          "line": 3229,
+          "matched_term": ".html",
+          "path": "app/gopherbook/main.go",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": ".html",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": ".html",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 4
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": ".md",
+          "path": ".containerignore",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "odt_rtf": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": ".odt",
+          "path": ".gitattributes",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 52,
+          "matched_term": ".opf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": ".opf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 234,
+          "matched_term": ".opf",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": ".opf",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": ".opf",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 173,
+          "matched_term": ".opf",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 7
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": ".pdf",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": ".pdf",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdf",
+          "path": "scripts-bash/comic-scripts/test-cbt.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 269,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".txt",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": ".txt",
+          "path": "app/gopherbook/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": ".txt",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 171,
+          "matched_term": ".txt",
+          "path": "docs/whitepaper/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": ".txt",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": ".txt",
+          "path": "scripts-bash/building-only/package-release.sh",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".txt",
+          "path": "scripts-bash/comic-scripts/comic-page-number.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 30
+      }
+    }
+  },
+  "inventory_url": "https://github.com/riomoo/gopherbook",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Go": 13,
+    "HTML": 1,
+    "Shell": 9,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/riomoo/gopherbook",
+  "readme_files": [
+    "README.md",
+    "docs/whitepaper/README.md"
+  ],
+  "revision": "e515c353c4272d46e5e815df899e4c9d8ce7d4ab",
+  "schema_version": 1,
+  "slug": "gopherbook",
+  "support_claims_allowed": false,
+  "tree": "3bbfc8babeb7155a7891ba2ccfd004c06c1a8926"
+}

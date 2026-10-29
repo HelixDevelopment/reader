@@ -1,0 +1,646 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "makefile",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "makefile",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "makefile",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 36,
+          "matched_term": "collection",
+          "path": "state/state.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 52,
+          "matched_term": "Metadata",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "Metadata",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 59,
+          "matched_term": "Metadata",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "Metadata",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Metadata",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Metadata",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "ISBN",
+          "path": "views/application.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 19,
+        "test": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": ".github/workflows/release-please.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "reading progress",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "reading progress",
+          "path": "state/state.go",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "reading progress",
+          "path": "views/application.go",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "reading progress",
+          "path": "views/application.go",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "reading progress",
+          "path": "views/application.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "Theme",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Theme",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Theme",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "theme",
+          "path": "config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": "Theme",
+          "path": "config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": "Theme",
+          "path": "config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "Theme",
+          "path": "example/config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "example/config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "render/render.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Theme",
+          "path": "render/render.go",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "theme",
+          "path": "render/render.go",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Theme",
+          "path": "views/application.go",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Theme",
+          "path": "views/application.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 24,
+        "test": 3
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "render/whitespace.go",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "https",
+          "path": "views/application.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 2
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "go test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "go test",
+          "path": "makefile",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-goreader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 77351,
+    "scanned_text": 31,
+    "skipped_binary_or_empty": 1,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 33
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "epub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub ",
+          "path": "epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/container.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "epub/container.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub ",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "EPUB ",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": ".epub",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/nav.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB 3",
+          "path": "epub/nav.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/ncx.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB 2",
+          "path": "epub/ncx.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub\n\n",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "epub",
+          "path": "goreader.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "epub",
+          "path": "goreader.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "makefile",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub",
+          "path": "render/image.go",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "epub",
+          "path": "render/image.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "render/render.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "epub ",
+          "path": "render/render.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub",
+          "path": "views/application.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "epub",
+          "path": "views/application.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "views/application_test.go",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": "epub",
+          "path": "views/application_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 52,
+        "test": 7
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 107,
+          "matched_term": ".html",
+          "path": "epub/epub_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "render/whitespace.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 1
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": ".opf",
+          "path": "epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": ".opf",
+          "path": "epub/container.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".opf",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".opf",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".opf",
+          "path": "epub/package.go",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": ".opf",
+          "path": "epub/package.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".txt",
+          "path": "makefile",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".txt",
+          "path": "makefile",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    }
+  },
+  "inventory_url": "https://github.com/knusbaum/goreader",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Go": 20
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/knusbaum/goreader",
+  "readme_files": [
+    "README.md",
+    "epub/README.md"
+  ],
+  "revision": "e461f046ea6fef8d5e496ffd4008dc995b96227e",
+  "schema_version": 1,
+  "slug": "goreader",
+  "support_claims_allowed": false,
+  "tree": "7ae9c32bdacba72e310a4aae98affc9d6c2a9bd6"
+}

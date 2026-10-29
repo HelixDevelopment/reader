@@ -1,0 +1,6530 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "rag",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "rag",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": ".github/ISSUE_TEMPLATE/feature-request-suggestion.md",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": ".github/ISSUE_TEMPLATE/problem-report.md",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": ".github/action-run-tests/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": ".github/action-run-tests/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": ".github/holopin.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-brewtest.yml",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-brewtest.yml",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-brewtest.yml",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 85,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 86,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 163,
+        "documentation": 557,
+        "source": 2185,
+        "test": 935
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 174,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Model/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Model/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Model/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Model/Setup.pm",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Model/Setup.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "bookmark",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "Bookmark",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "bookmark",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "bookmark",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "Bookmark",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "bookmark",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "bookmark",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "Bookmark",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "Bookmark",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "bookmark",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "Bookmark",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "bookmark",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "bookmark",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "Bookmark",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 223,
+          "matched_term": "bookmark",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "bookmark",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "Bookmark",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "bookmark",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "bookmark",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "Bookmark",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "bookmark",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "bookmark",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "Bookmark",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "bookmark",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "bookmark",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "Bookmark",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "bookmark",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "bookmark",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "Bookmark",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": "bookmark",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 327,
+        "test": 76
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 136,
+          "matched_term": "Restore",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 138,
+          "matched_term": "restore",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "backup",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "Backup",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Backup",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Backup",
+          "path": "lib/LANraragi/Controller/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Controller/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Controller/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Backup",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 450,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 453,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 453,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Backup",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 616,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 620,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Routing.pm",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "backup",
+          "path": "lib/LANraragi/Utils/Routing.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Utils/Tags.pm",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "restore",
+          "path": "lib/LANraragi/Utils/Tags.pm",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Backup",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Backup",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Restore",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Backup",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Backup",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Restore",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Backup",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Backup",
+          "path": "locales/template/en.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 44,
+        "source": 625,
+        "test": 29
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 251,
+          "matched_term": "collection",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "collection",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "collection",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Collection",
+          "path": "lib/LANraragi/Controller/Api/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 394,
+          "matched_term": "collection",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Model/Stats.pm",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "Series",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Hentag.pm",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Koromo.pm",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "Series",
+          "path": "lib/LANraragi/Plugin/Metadata/Koromo.pm",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Koromo.pm",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Ksk.pm",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Series",
+          "path": "lib/LANraragi/Plugin/Metadata/RegexParse.pm",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/RegexParse.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Plugin/Metadata/RegexParse.pm",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "collection",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "series",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "collection",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 380,
+          "matched_term": "collection",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 641,
+          "matched_term": "Series",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "collection",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 444,
+          "matched_term": "collection",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 759,
+          "matched_term": "Series",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "collection",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "collection",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "collection",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "collection",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 438,
+          "matched_term": "collection",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 742,
+          "matched_term": "Series",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "collection",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "collection",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 440,
+          "matched_term": "collection",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 155,
+        "test": 120
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Comic",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Comic",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "comic",
+          "path": "lib/LANraragi/Plugin/Metadata/ComicInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Plugin/Metadata/CopyTags.pm",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "cBt",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "CBr",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "manga",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Cbz",
+          "path": "lib/LANraragi/Plugin/Scripts/FolderToCat.pm",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "comic",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Comic",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cb7",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cbz",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cbr",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cb7",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 961,
+          "matched_term": "manga",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 961,
+          "matched_term": "right-to-left",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 967,
+          "matched_term": "double page",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1108,
+          "matched_term": "manga",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1108,
+          "matched_term": "right-to-left",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1109,
+          "matched_term": "Manga",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1094,
+          "matched_term": "manga",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1094,
+          "matched_term": "right-to-left",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1095,
+          "matched_term": "manga",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1086,
+          "matched_term": "manga",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1086,
+          "matched_term": "right-to-left",
+          "path": "locales/template/es.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 14,
+        "source": 226,
+        "test": 577
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "cache",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "cache",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 63,
+          "matched_term": "cache",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "cache",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 76,
+          "matched_term": "cache",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "Thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "cache",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "Cache",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "cache",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CACHE",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Cache",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cdn",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "cdn",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "cdn",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Api/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "thumbnail",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Cache",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 369,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Model/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "cache",
+          "path": "lib/LANraragi/Model/Category.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 38,
+        "documentation": 52,
+        "source": 1408,
+        "test": 397
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Converter",
+          "path": "lib/LANraragi/Plugin/Scripts/nHentaiSourceConverter.pm",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Converter",
+          "path": "lib/LANraragi/Plugin/Scripts/nHentaiSourceConverter.pm",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": "conversion",
+          "path": "lib/LANraragi/Utils/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "conversion",
+          "path": "lib/LANraragi/Utils/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 400,
+          "matched_term": "conversion",
+          "path": "lib/LANraragi/Utils/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "conversion",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "conversion",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "conversion",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1680,
+          "matched_term": "converter",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "conversion",
+          "path": "tests/LANraragi/Utils/Tags.t",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "Converter",
+          "path": "tests/modules.t",
+          "role": "test"
+        },
+        {
+          "line": 169,
+          "matched_term": "conversion",
+          "path": "tools/Documentation/plugin-docs/metadata.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "conversion",
+          "path": "tools/Documentation/plugin-docs/metadata.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 10,
+        "test": 2
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 617,
+          "matched_term": "aria-",
+          "path": "public/css/lrr.css",
+          "role": "source"
+        },
+        {
+          "line": 608,
+          "matched_term": "aria-",
+          "path": "public/themes/g.css",
+          "role": "source"
+        },
+        {
+          "line": 618,
+          "matched_term": "aria-",
+          "path": "public/themes/g.css",
+          "role": "source"
+        },
+        {
+          "line": 739,
+          "matched_term": "aria-",
+          "path": "public/themes/modern_clear.css",
+          "role": "source"
+        },
+        {
+          "line": 675,
+          "matched_term": "aria-",
+          "path": "public/themes/modern_red.css",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "aria-",
+          "path": "public/themes/modern_red.css",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "aria-",
+          "path": "templates/config.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "aria-",
+          "path": "templates/config.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "aria-",
+          "path": "templates/config.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "aria-",
+          "path": "templates/plugins.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "aria-",
+          "path": "templates/plugins.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "aria-",
+          "path": "templates/plugins.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "aria-",
+          "path": "templates/stats.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "aria-",
+          "path": "templates/stats.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "aria-",
+          "path": "templates/stats.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/001_search_response.html",
+          "role": "test"
+        },
+        {
+          "line": 112,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/001_search_response.html",
+          "role": "test"
+        },
+        {
+          "line": 115,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/001_search_response.html",
+          "role": "test"
+        },
+        {
+          "line": 102,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/002_gallery_front.html",
+          "role": "test"
+        },
+        {
+          "line": 103,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/002_gallery_front.html",
+          "role": "test"
+        },
+        {
+          "line": 186,
+          "matched_term": "aria-",
+          "path": "tests/samples/fakku/002_gallery_front.html",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 24,
+        "test": 57
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "Redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "redis",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Api/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Stamp.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "redis",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Redis",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 138,
+        "documentation": 34,
+        "source": 1890,
+        "test": 152
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "duplicate",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 48,
+          "matched_term": "sha256",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "sha256",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 64,
+          "matched_term": "duplicate",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "checksum",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "checksum",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "checksum",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Duplicate",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "DUPLICATE",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 493,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 504,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 659,
+          "matched_term": "Dedup",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 679,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 706,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Model/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Plugin/Metadata/GalleryDL.pm",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Plugin/Metadata/GalleryDL.pm",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Plugin/Metadata/GalleryDL.pm",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 323,
+          "matched_term": "dedup",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 441,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 281,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 323,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Utils/Minion.pm",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "sha256",
+          "path": "lib/LANraragi/Utils/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Utils/Routing.pm",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": "duplicate",
+          "path": "lib/LANraragi/Utils/Routing.pm",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "duplicate",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 17,
+        "source": 361,
+        "test": 21
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Docker",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Docker",
+          "path": ".github/ISSUE_TEMPLATE/problem-report.md",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "docker",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "docker",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "docker",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "Docker",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "Docker",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 32,
+          "matched_term": "Docker",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "Docker",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "docker",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "Docker",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 70,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 88,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "Docker",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 914,
+          "matched_term": "Docker",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "docker",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "docker",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "docker",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/SUMMARY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "docker",
+          "path": "tools/Documentation/SUMMARY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/advanced-usage/network-interfaces.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/advanced-usage/network-interfaces.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "docker",
+          "path": "tools/Documentation/advanced-usage/network-interfaces.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/advanced-usage/proxy-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/advanced-usage/proxy-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/basic-operations/themes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "GitHub Actions",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "GitHub Actions",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "docker",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "docker",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Docker",
+          "path": "tools/Documentation/installing-lanraragi/community.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 115,
+        "documentation": 88,
+        "source": 17
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Model/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "anki",
+          "path": "lib/LANraragi/Model/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "translation",
+          "path": "lib/LANraragi/Plugin/Metadata/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "ankI",
+          "path": "public/js/batch.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "ankI",
+          "path": "public/js/batch.js",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "dictionary",
+          "path": "public/js/mod/common.js",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "dictionary",
+          "path": "public/js/mod/common.js",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "dictionary",
+          "path": "public/js/mod/common.js",
+          "role": "source"
+        },
+        {
+          "line": 830,
+          "matched_term": "ankI",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 833,
+          "matched_term": "ankI",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 835,
+          "matched_term": "ankI",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 397,
+          "matched_term": "ankI",
+          "path": "public/js/mod/server.js",
+          "role": "source"
+        },
+        {
+          "line": 400,
+          "matched_term": "ankI",
+          "path": "public/js/mod/server.js",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "ankI",
+          "path": "public/js/mod/server.js",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "anki",
+          "path": "tests/backup.t",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "anki",
+          "path": "tests/backup.t",
+          "role": "test"
+        },
+        {
+          "line": 71,
+          "matched_term": "anki",
+          "path": "tests/backup.t",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/illust.json",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/illust.json",
+          "role": "test"
+        },
+        {
+          "line": 513,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ajax/illust.json",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/manga_1.json",
+          "role": "test"
+        },
+        {
+          "line": 437,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ajax/manga_1.json",
+          "role": "test"
+        },
+        {
+          "line": 471,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ajax/manga_1.json",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/manga_2.json",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/manga_2.json",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ajax/manga_2.json",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ssr/illust.html",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ssr/illust.html",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ssr/illust.html",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ssr/manga_1.html",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ssr/manga_1.html",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "Translation",
+          "path": "tests/samples/pixiv/ssr/manga_1.html",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": "translation",
+          "path": "tests/samples/pixiv/ssr/manga_2.html",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 19,
+        "source": 59,
+        "test": 49
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "quic",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "quic",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "quic",
+          "path": "lib/LANraragi/Model/Reader.pm",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "quic",
+          "path": "lib/LANraragi/Model/Stats.pm",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "quic",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Quic",
+          "path": "lib/LANraragi/Plugin/Metadata/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Quic",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Quic",
+          "path": "lib/LANraragi/Plugin/Metadata/nHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "quic",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": "quic",
+          "path": "public/css/lrr.css",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "quic",
+          "path": "public/css/lrr.css",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "Quic",
+          "path": "public/js/mod/common.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "quic",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Quic",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 320,
+          "matched_term": "quic",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "quic",
+          "path": "public/js/mod/reader_archive_overlay.js",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "quic",
+          "path": "public/js/mod/reader_archive_overlay.js",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "quic",
+          "path": "public/js/mod/reader_archive_overlay.js",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "Quic",
+          "path": "tests/LANraragi/Plugin/Metadata/GalleryDL.t",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "quic",
+          "path": "tests/samples/gallerydl/gallerydl_arraysingletags_sample.json",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "quic",
+          "path": "tests/samples/gallerydl/gallerydl_arraysingletags_sample.json",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "quic",
+          "path": "tests/samples/gallerydl/gallerydl_arraysingletags_sample.json",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "Quic",
+          "path": "tools/Documentation/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "quic",
+          "path": "tools/Documentation/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "quic",
+          "path": "tools/Documentation/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "quic",
+          "path": "tools/Documentation/basic-operations/archives.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "quic",
+          "path": "tools/Documentation/basic-operations/archives.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "quic",
+          "path": "tools/Documentation/basic-operations/categories.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "quic",
+          "path": "tools/Documentation/basic-operations/stats.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "Quic",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "Quic",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "quic",
+          "path": "tools/Documentation/extending-lanraragi/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "quic",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "quic",
+          "path": "tools/Documentation/installing-lanraragi/methods.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1085,
+          "matched_term": "quic",
+          "path": "tools/build/docker/redis.conf",
+          "role": "configuration"
+        },
+        {
+          "line": 1085,
+          "matched_term": "quic",
+          "path": "tools/build/homebrew/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 1085,
+          "matched_term": "quic",
+          "path": "tools/build/windows/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 13,
+        "source": 23,
+        "test": 11
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "LCpa",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 734,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Model/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Model/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Plugin/Metadata/RegexParse.pm",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Plugin/Metadata/nHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 497,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Filesystem",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 348,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Utils/Database.pm",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "FileSystem",
+          "path": "lib/LANraragi/Utils/Path.pm",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "FileSystem",
+          "path": "lib/LANraragi/Utils/Path.pm",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "FileSystem",
+          "path": "lib/LANraragi/Utils/Path.pm",
+          "role": "source"
+        },
+        {
+          "line": 318,
+          "matched_term": "filesystem",
+          "path": "lib/LANraragi/Utils/RotatingLog.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "filesystem",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "filesystem",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "in place",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "filesystem",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 449,
+          "matched_term": "filesystem",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 415,
+          "matched_term": "filesystem",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "filesystem",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 441,
+          "matched_term": "filesystem",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 445,
+          "matched_term": "filesystem",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 441,
+          "matched_term": "filesystem",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "filesystem",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 445,
+          "matched_term": "filesystem",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 430,
+          "matched_term": "filesystem",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "filesystem",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 433,
+          "matched_term": "filesystem",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 446,
+          "matched_term": "filesystem",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": "filesystem",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 379,
+          "matched_term": "filesystem",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "filesystem",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 1189,
+          "matched_term": "in-place",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1246,
+          "matched_term": "in-place",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        },
+        {
+          "line": 408,
+          "matched_term": "local storage",
+          "path": "public/js/mod/server.js",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "filesystem",
+          "path": "templates/templates_config/config_global.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "filesystem",
+          "path": "tools/Documentation/advanced-usage/network-interfaces.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "filesystem",
+          "path": "tools/Documentation/advanced-usage/network-interfaces.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "filesystem",
+          "path": "tools/Documentation/advanced-usage/plugin-registries.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "filesystem",
+          "path": "tools/Documentation/basic-operations/metadata.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "filesystem",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 10,
+        "source": 48
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": ".github/actions/docker-builder/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "metadata",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "METADATA",
+          "path": ".github/actions/docker-merge/action.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 56,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 164,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "fetch_metadata",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Controller/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "Metadata",
+          "path": "lib/LANraragi/Controller/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 303,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 307,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 369,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "METADATA",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "METADATA",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Model/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/Chaika.pm",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/Chaika.pm",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "lib/LANraragi/Plugin/Login/EHentai.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 81,
+        "source": 759,
+        "test": 393
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 87,
+          "matched_term": "metadata on lock",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "lock after changing all the metadata",
+          "path": "lib/LANraragi/Model/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "lock to create an appropriate external metadata",
+          "path": "lib/LANraragi/Plugin/Metadata/GalleryDL.pm",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "merge with directly selected archive IDs, then fetch metadata",
+          "path": "public/js/batch.js",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "metadata requests to external services go through a proxy, in case said external services are block",
+          "path": "tools/Documentation/advanced-usage/proxy-setup.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 426,
+          "matched_term": "authentication",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": "authentication",
+          "path": "lib/LANraragi/Controller/Api/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "authentication",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "authentication",
+          "path": "lib/LANraragi/Controller/Api/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "Authorization",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "Authorization",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Authorization",
+          "path": "lib/LANraragi/Plugin/Login/nHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Authentication",
+          "path": "lib/LANraragi/Utils/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "authorization",
+          "path": "lib/LANraragi/Utils/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Authorization",
+          "path": "lib/LANraragi/Utils/Routing.pm",
+          "role": "source"
+        },
+        {
+          "line": 433,
+          "matched_term": "Authorization",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 508,
+          "matched_term": "Authorization",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "Authorization",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 467,
+          "matched_term": "Authorization",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 468,
+          "matched_term": "Authorization",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 499,
+          "matched_term": "Authorization",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 502,
+          "matched_term": "Authorization",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 504,
+          "matched_term": "Authorization",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 507,
+          "matched_term": "Authorization",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 501,
+          "matched_term": "Authorization",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 504,
+          "matched_term": "Authorization",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 500,
+          "matched_term": "Authorization",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "Authorization",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 488,
+          "matched_term": "Authorization",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "Authorization",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "Authorization",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 490,
+          "matched_term": "Authorization",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 493,
+          "matched_term": "Authorization",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 504,
+          "matched_term": "Authorization",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "Authorization",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 489,
+          "matched_term": "Authorization",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 429,
+          "matched_term": "Authorization",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 430,
+          "matched_term": "Authorization",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 434,
+          "matched_term": "Authorization",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 435,
+          "matched_term": "Authorization",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "authentication",
+          "path": "public/js/mod/common.js",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "Authorization",
+          "path": "templates/templates_config/config_security.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "authentication",
+          "path": "tools/Documentation/api-documentation/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "authentication",
+          "path": "tools/Documentation/api-documentation/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Authorization",
+          "path": "tools/Documentation/api-documentation/getting-started.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5,
+        "source": 47
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 170,
+          "matched_term": "ftp",
+          "path": "tests/LANraragi/Utils/Registry.t",
+          "role": "test"
+        },
+        {
+          "line": 171,
+          "matched_term": "ftp",
+          "path": "tests/LANraragi/Utils/Registry.t",
+          "role": "test"
+        },
+        {
+          "line": 249,
+          "matched_term": "ftp",
+          "path": "tests/LANraragi/Utils/Registry.t",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "s3",
+          "path": "tools/Documentation/advanced-usage/external-readers.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "ftp",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "test": 3
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 804,
+          "matched_term": "export function applySelectionHighlights",
+          "path": "public/js/mod/index.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "Opds",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "OPDS",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Opds",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Opds",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "OPDS",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "opds",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "OPDS",
+          "path": "lib/LANraragi/Utils/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "OPDS",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "opds",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "opds",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 1499,
+          "matched_term": "OPDS",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1702,
+          "matched_term": "OPDS",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1707,
+          "matched_term": "opds",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1707,
+          "matched_term": "OPDS",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1712,
+          "matched_term": "OPDS",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1713,
+          "matched_term": "opds",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1713,
+          "matched_term": "OPDS",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1683,
+          "matched_term": "OPDS",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1688,
+          "matched_term": "opds",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1688,
+          "matched_term": "OPDS",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1663,
+          "matched_term": "OPDS",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1668,
+          "matched_term": "opds",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1668,
+          "matched_term": "OPDS",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1681,
+          "matched_term": "OPDS",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1686,
+          "matched_term": "opds",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1686,
+          "matched_term": "OPDS",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1608,
+          "matched_term": "OPDS",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1613,
+          "matched_term": "opds",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1613,
+          "matched_term": "OPDS",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1625,
+          "matched_term": "OPDS",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1629,
+          "matched_term": "opds",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1630,
+          "matched_term": "OPDS",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1565,
+          "matched_term": "OPDS",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1569,
+          "matched_term": "opds",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1569,
+          "matched_term": "OPDS",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1664,
+          "matched_term": "OPDS",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1669,
+          "matched_term": "opds",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1669,
+          "matched_term": "OPDS",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1685,
+          "matched_term": "OPDS",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 198,
+        "test": 145
+      }
+    },
+    "opds_pse": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": "OPDS-PSE",
+          "path": "lib/LANraragi/Controller/Api/Other.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "opds-pse",
+          "path": "templates/opds.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "opds-pse",
+          "path": "templates/opds.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "opds-pse",
+          "path": "templates/opds_entry.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "opds-pse",
+          "path": "templates/opds_entry.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "opds-pse",
+          "path": "tests/samples/opds/opds_sample.xml",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": "opds-pse",
+          "path": "tests/samples/opds/opds_sample.xml",
+          "role": "test"
+        },
+        {
+          "line": 102,
+          "matched_term": "opds-pse",
+          "path": "tests/samples/opds/opds_sample.xml",
+          "role": "test"
+        },
+        {
+          "line": 69,
+          "matched_term": "Page Streaming",
+          "path": "tools/Documentation/advanced-usage/external-readers.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "opds-pse",
+          "path": "tools/Documentation/advanced-usage/external-readers.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "OPDS PSE",
+          "path": "tools/Documentation/advanced-usage/external-readers.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "opds-pse",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "opds-pse",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "opds-pse",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 16,
+        "test": 14
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "opensearch",
+          "path": "tests/samples/eh/002_search_results.html",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "tests/samples/eh/002_search_results.html",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 2
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "permission",
+          "path": "lib/LANraragi/Model/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "permission",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 133,
+          "matched_term": "permission",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "permission",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "permission",
+          "path": "tools/Documentation/plugin-docs/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "permission",
+          "path": "tools/build/docker/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 33,
+          "matched_term": "PERMISSION",
+          "path": "tools/build/docker/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 233,
+          "matched_term": "permission",
+          "path": "tools/build/docker/redis.conf",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "PERMISSION",
+          "path": "tools/build/docker/s6/cont-init.d/01-lrr-setup",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "tools/build/docker/s6/cont-init.d/01-lrr-setup",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "permission",
+          "path": "tools/build/docker/s6/cont-init.d/01-lrr-setup",
+          "role": "configuration"
+        },
+        {
+          "line": 233,
+          "matched_term": "permission",
+          "path": "tools/build/homebrew/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "permission",
+          "path": "tools/build/windows/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 9,
+        "source": 3
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 580,
+          "matched_term": "reading progress",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 359,
+          "matched_term": "reading progress",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1454,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1463,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 418,
+          "matched_term": "reading progress",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1648,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1659,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 382,
+          "matched_term": "reading progress",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "reading progress",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1667,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 411,
+          "matched_term": "reading progress",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1628,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1639,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 413,
+          "matched_term": "reading progress",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1609,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1620,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "reading progress",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1629,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1640,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 419,
+          "matched_term": "reading progress",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1557,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1568,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 400,
+          "matched_term": "reading progress",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1576,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1587,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 376,
+          "matched_term": "reading progress",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1516,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1526,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "reading progress",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1613,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1624,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "reading progress",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 1632,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 1643,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 405,
+          "matched_term": "reading progress",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 1589,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 1600,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "reading progress",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 1461,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 1470,
+          "matched_term": "Reading Progress",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 86
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Backup.pm",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Batch.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Category.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Duplicates.pm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Edit.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Index.pm",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Index.pm",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Logging.pm",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Logging.pm",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Plugins.pm",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Reader.pm",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Reader.pm",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Stats.pm",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Stats.pm",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Controller/Upload.pm",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Model/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "theme",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "Theme",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 558,
+          "matched_term": "Theme",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "theme",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "Theme",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 670,
+          "matched_term": "Theme",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 671,
+          "matched_term": "theme",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 239,
+          "matched_term": "Theme",
+          "path": "locales/template/en.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 18,
+        "source": 285,
+        "test": 7
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 425,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Search.pm",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Stats.pm",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 626,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": "search index",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "Search index",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 277,
+          "matched_term": "search index",
+          "path": "tools/Documentation/extending-lanraragi/architecture.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 27,
+          "matched_term": "symlink",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature-request-suggestion.md",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/problem-report.md",
+          "role": "configuration"
+        },
+        {
+          "line": 36,
+          "matched_term": "secret",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 37,
+          "matched_term": "secret",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 48,
+          "matched_term": "secret",
+          "path": ".github/workflows/push-continous-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "secret",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 65,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 92,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-delivery.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "eslint.config.mjs",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "secret",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "secret",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "secret",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Controller/Api/Registry.pm",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Controller/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Controller/Login.pm",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Model/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "cors",
+          "path": "lib/LANraragi/Model/Config.pm",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Model/Setup.pm",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/Chaika.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/Chaika.pm",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/EHentai.pm",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "https",
+          "path": "lib/LANraragi/Plugin/Download/Pixiv.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "credential",
+          "path": "lib/LANraragi/Plugin/Login/EHentai.pm",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 32,
+        "documentation": 204,
+        "source": 468,
+        "test": 753
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "Integration test",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "Integration test",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 59,
+          "matched_term": "Integration Test",
+          "path": ".github/workflows/push-continuous-integration.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 360,
+          "matched_term": "unit test",
+          "path": "lib/LANraragi/Model/Tankoubon.pm",
+          "role": "source"
+        },
+        {
+          "line": 1290,
+          "matched_term": "benchmark",
+          "path": "tools/build/docker/redis.conf",
+          "role": "configuration"
+        },
+        {
+          "line": 1290,
+          "matched_term": "benchmark",
+          "path": "tools/build/homebrew/redis.conf",
+          "role": "source"
+        },
+        {
+          "line": 1290,
+          "matched_term": "benchmark",
+          "path": "tools/build/windows/redis.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 15,
+        "source": 3
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 214,
+          "matched_term": "File Watcher",
+          "path": "lib/LANraragi.pm",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "File Watcher",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "inotify",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "inotify",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 450,
+          "matched_term": "File Watcher",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 459,
+          "matched_term": "File Watcher",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 462,
+          "matched_term": "File Watcher",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 532,
+          "matched_term": "File Watcher",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 541,
+          "matched_term": "File Watcher",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 546,
+          "matched_term": "File Watcher",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 492,
+          "matched_term": "File Watcher",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 493,
+          "matched_term": "File Watcher",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 501,
+          "matched_term": "File Watcher",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 522,
+          "matched_term": "File Watcher",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 531,
+          "matched_term": "File Watcher",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "File Watcher",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 528,
+          "matched_term": "File Watcher",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 537,
+          "matched_term": "File Watcher",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "File Watcher",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 525,
+          "matched_term": "File Watcher",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 534,
+          "matched_term": "File Watcher",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 539,
+          "matched_term": "File Watcher",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 517,
+          "matched_term": "File Watcher",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 526,
+          "matched_term": "File Watcher",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 529,
+          "matched_term": "File Watcher",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 518,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 477,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 491,
+          "matched_term": "File Watcher",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 513,
+          "matched_term": "File Watcher",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 522,
+          "matched_term": "File Watcher",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 527,
+          "matched_term": "File Watcher",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 528,
+          "matched_term": "File Watcher",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 529,
+          "matched_term": "File Watcher",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 537,
+          "matched_term": "File Watcher",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "File Watcher",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "File Watcher",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 518,
+          "matched_term": "File Watcher",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 69
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-lanraragi.jsonl.gz",
+  "files": {
+    "scanned_bytes": 3763326,
+    "scanned_text": 385,
+    "skipped_binary_or_empty": 74,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 1,
+    "tracked": 462
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "cba",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 51,
+          "matched_term": "cb7",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cbt",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cb7",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cbt",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "cbt",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "cb7",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 4
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "cbr",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cbr",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cbr",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 745,
+          "matched_term": "cbr",
+          "path": "public/js/mod/reader_common.js",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "cbr",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 343,
+          "matched_term": "cbr",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "cbz",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cbz",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cbz",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".cbz",
+          "path": "tests/cbw.t",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": ".cbz",
+          "path": "tests/cbw.t",
+          "role": "test"
+        },
+        {
+          "line": 69,
+          "matched_term": "cbz",
+          "path": "tests/samples/opds/opds_sample.xml",
+          "role": "test"
+        },
+        {
+          "line": 101,
+          "matched_term": "cbz",
+          "path": "tests/samples/opds/opds_sample.xml",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": "cbz",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "cbz",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "cbz",
+          "path": "tools/openapi.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 11,
+        "test": 15
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "epub",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "epub",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "epub",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "epub",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 1496,
+          "matched_term": "EPUB ",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1499,
+          "matched_term": "EPUB ",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 1699,
+          "matched_term": "EPUB ",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1700,
+          "matched_term": "EPUB ",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1709,
+          "matched_term": "EPUB ",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1710,
+          "matched_term": "EPUB ",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 1680,
+          "matched_term": "EPUB ",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1681,
+          "matched_term": "EPUB ",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1660,
+          "matched_term": "EPUB ",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1661,
+          "matched_term": "EPUB",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1678,
+          "matched_term": "EPUB ",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1679,
+          "matched_term": "EPUB ",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 1605,
+          "matched_term": "EPUB ",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1606,
+          "matched_term": "EPUB ",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1622,
+          "matched_term": "EPUB ",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1623,
+          "matched_term": "EPUB ",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1562,
+          "matched_term": "EPUB ",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1563,
+          "matched_term": "EPUB ",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 1661,
+          "matched_term": "EPUB ",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1662,
+          "matched_term": "EPUB ",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 1682,
+          "matched_term": "EPUB ",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 1683,
+          "matched_term": "EPUB ",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 1638,
+          "matched_term": "EPUB ",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 1639,
+          "matched_term": "EPUB ",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 1504,
+          "matched_term": "EPUB ",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 1505,
+          "matched_term": "EPUB ",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 1509,
+          "matched_term": "EPUB ",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 1510,
+          "matched_term": "EPUB ",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 753,
+          "matched_term": "epub",
+          "path": "public/js/mod/reader_common.js",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "EPUB ",
+          "path": "templates/i18n.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "EPUB ",
+          "path": "templates/i18n.html.tt2",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 60
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 50,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Plugin/Metadata/Hitomi.pm",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Utils/Metrics.pm",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Utils/RotatingLog.pm",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": ".html",
+          "path": "lib/LANraragi/Utils/RotatingLog.pm",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": ".html",
+          "path": "locales/template/as.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/de.po",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "locales/template/en.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/es.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/id.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/it.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".html",
+          "path": "locales/template/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": ".html",
+          "path": "locales/template/ko.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/nb_NO.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": ".html",
+          "path": "locales/template/pt.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".html",
+          "path": "locales/template/vi.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": ".html",
+          "path": "locales/template/zh.po",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": ".html",
+          "path": "locales/template/zh_Hant.po",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "public/js/backup.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".html",
+          "path": "public/js/backup.js",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": ".html",
+          "path": "public/js/batch.js",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": ".html",
+          "path": "public/js/batch.js",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".html",
+          "path": "public/js/config.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 15,
+        "source": 619,
+        "test": 50
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "markdown",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "tools/Documentation/.gitbook.yaml",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "tools/Documentation/.gitbook.yaml",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".md",
+          "path": "tools/Documentation/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": ".md",
+          "path": "tools/Documentation/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "tools/Documentation/SUMMARY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "tools/Documentation/SUMMARY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": ".md",
+          "path": "tools/Documentation/advanced-usage/batch-tagging.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "tools/Documentation/advanced-usage/duplicate-detection.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": "tools/Documentation/advanced-usage/tankoubons-and-chapters.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/archives.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/archives.md",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/metadata.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": ".md",
+          "path": "tools/Documentation/basic-operations/metadata.md",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/macos.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/macos.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/methods.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/methods.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/source.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/source.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": ".md",
+          "path": "tools/Documentation/installing-lanraragi/windows.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/login.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/login.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/scripts.md",
+          "role": "documentation"
+        },
+        {
+          "line": 139,
+          "matched_term": ".md",
+          "path": "tools/Documentation/plugin-docs/scripts.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 113,
+        "source": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 87,
+          "matched_term": ".mobi",
+          "path": "tools/Documentation/advanced-usage/external-readers.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "pdf",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "application/pdf",
+          "path": "lib/LANraragi/Model/Opds.pm",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": ".pdf",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "pdf",
+          "path": "lib/LANraragi/Utils/Archive.pm",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "pdf",
+          "path": "lib/LANraragi/Utils/Generic.pm",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "pdf",
+          "path": "lib/Shinobu.pm",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "pdf",
+          "path": "tests/LANraragi/Utils/Vips.t",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".pdf",
+          "path": "tests/LANraragi/Utils/Vips.t",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": ".pdf",
+          "path": "tests/cbw.t",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": ".pdf",
+          "path": "tests/cbw.t",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "tools/Documentation/advanced-usage/downloading.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": ".pdf",
+          "path": "tools/Documentation/advanced-usage/downloading.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "PDF",
+          "path": "tools/Documentation/advanced-usage/tankoubons-and-chapters.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "pdf",
+          "path": "tools/Documentation/basic-operations/first-steps.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "PDF",
+          "path": "tools/Documentation/installing-lanraragi/source.md",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": ".pdf",
+          "path": "tools/Documentation/plugin-docs/download.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "PDF",
+          "path": "tools/install.pl",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 11,
+        "test": 8
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/EHDLInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/EHDLInfo.pm",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/HDoujin.pm",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/HatH.pm",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": ".txt",
+          "path": "lib/LANraragi/Plugin/Metadata/HatH.pm",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/EHDLInfo.t",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/EHDLInfo.t",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/HatH.t",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/HatH.t",
+          "role": "test"
+        },
+        {
+          "line": 301,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/Pixiv.t",
+          "role": "test"
+        },
+        {
+          "line": 318,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Plugin/Metadata/Pixiv.t",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Utils/Routing.t",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": ".txt",
+          "path": "tests/LANraragi/Utils/Routing.t",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 9,
+        "test": 31
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 2014,
+          "matched_term": "Lpf",
+          "path": "package-lock.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/difegue/lanraragi",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 7,
+    "HTML": 6,
+    "JavaScript": 25,
+    "PowerShell": 3,
+    "Ruby": 1,
+    "Shell": 6,
+    "XML": 5
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "COPYING"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/difegue/lanraragi",
+  "readme_files": [
+    "README.md",
+    "tools/Documentation/README.md"
+  ],
+  "revision": "adfe9e75cbb8dd4db0fef2c2e35698d557c5a59b",
+  "schema_version": 1,
+  "slug": "lanraragi",
+  "support_claims_allowed": false,
+  "tree": "f5877cb353f3ca068bf4a2019e8ae1486e281163"
+}

@@ -1,0 +1,52 @@
+=== RUN   TestLRUEviction
+--- PASS: TestLRUEviction (0.00s)
+=== RUN   TestProtectedNeverEvicted
+--- PASS: TestProtectedNeverEvicted (0.00s)
+=== RUN   TestOversizedRejected
+--- PASS: TestOversizedRejected (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/cache	0.012s
+=== RUN   TestSameFormatIsDirect
+--- PASS: TestSameFormatIsDirect (0.00s)
+=== RUN   TestDocumentedMatrix
+--- PASS: TestDocumentedMatrix (0.00s)
+=== RUN   TestTargetsNeverBlocked
+--- PASS: TestTargetsNeverBlocked (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/formats	0.171s
+=== RUN   TestWordCount
+--- PASS: TestWordCount (0.00s)
+=== RUN   TestModelRoundTripShape
+--- PASS: TestModelRoundTripShape (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hdm	0.089s
+=== RUN   TestMonotonicWithFrozenClock
+--- PASS: TestMonotonicWithFrozenClock (0.00s)
+=== RUN   TestClockSkewBackward
+--- PASS: TestClockSkewBackward (0.00s)
+=== RUN   TestUpdateMerge
+--- PASS: TestUpdateMerge (0.00s)
+=== RUN   TestParseRoundTrip
+--- PASS: TestParseRoundTrip (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hlc	0.007s
+=== RUN   TestValidISBN13
+--- PASS: TestValidISBN13 (0.00s)
+=== RUN   TestInvalidISBN13
+--- PASS: TestInvalidISBN13 (0.00s)
+=== RUN   TestValidISBN10
+--- PASS: TestValidISBN10 (0.00s)
+=== RUN   TestExtractFromPage
+--- PASS: TestExtractFromPage (0.00s)
+=== RUN   TestExtractEmpty
+--- PASS: TestExtractEmpty (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/isbn	0.007s
+=== RUN   TestAllProtocolsStreamOrRange
+--- PASS: TestAllProtocolsStreamOrRange (0.00s)
+=== RUN   TestInsecureProtocolsFlagged
+--- PASS: TestInsecureProtocolsFlagged (0.00s)
+=== RUN   TestSyncCapableBackends
+--- PASS: TestSyncCapableBackends (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/sources	0.054s

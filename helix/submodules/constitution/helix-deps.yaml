@@ -1,0 +1,129 @@
+# helix-deps.yaml — Universal Helix Constitution
+#
+# Per §11.4.31 (Submodule-Dependency-Manifest Mandate): every own-org
+# submodule chain MUST ship a machine-readable dependency manifest at
+# this canonical path, listing every own-org depth-1 dependency so
+# consumers can mechanically reconstruct the graph without git-walking.
+#
+# The constitution submodule itself acts as a HUB (§11.4.28(C) carve-out):
+# it hosts own-org depth-1 dependencies — the reusable engines under
+# `submodules/` (llmctl added 2026-10-13, §11.4.277) plus the OpenDesign
+# design-toolkit.
+# The depth-1 invariant holds for every engine EXCEPT llmctl: llmctl's own
+# .gitmodules declares own-org submodules (its `constitution` = THIS
+# constitution, and `containers`), so the engines are NOT all leaves.
+# OPERATOR DECISION (explicit, 2026-10-13): submodules/llmctl is kept as a
+# depth-1 hub entry that consumers MUST NOT initialise recursively
+# (`git submodule update --init submodules/llmctl`, WITHOUT --recursive);
+# the entry below carries the marker `recursive_init: false`. The mutual
+# reference is finite only because llmctl's `constitution` pin (4091798 at v3.2.2; 3e8e855 at v3.2.1)
+# contains no submodules/llmctl; bumping that pin to a commit that does
+# contain it MUST be refused. CM-LLMCTL-SUBMODULE-NONRECURSIVE
+# (scripts/gates/cm_llmctl_submodule_nonrecursive.sh) enforces both.
+#
+# Discovered gap: constitution/helix-deps.yaml was MISSING until
+# 2026-08-15 (chain-audit finding, subagent a2cf7f91). Created inline
+# per operator IMPORTANT mandate 2026-08-15: "Pay attention on
+# constitution Submodule and its own dependency Submodules and how they
+# are all connected and used! Make sure nothing is hanging or use of it
+# is broken!!!"
+#
+# SSH-only per Hard Stop #2 (verified zero HTTPS URLs across recursive
+# chain). Refs are pinned tags where available (§11.4.113 fetch-first +
+# reproducibility) and pinned shas otherwise (until upstream tags land).
+
+schema_version: 1
+
+deps:
+  # ─── Reusable engines under submodules/ (grouped layout) ────────────
+  - name: docs_chain
+    ssh_url: git@github.com:vasic-digital/docs_chain.git
+    ref: helixcode-v1.1.0    # §11.4.113 fetch-first pinned tag
+    why: "§11.4.106 canonical mechanical documentation-and-database dependency-propagation engine — content-addressed Merkle sync/verify with atomic-rename commits, honest ToolAbsentError SKIPs, gates docs/DB sync at build/commit/constitution-pull seams"
+    layout: grouped
+
+  - name: continuum
+    ssh_url: git@github.com:vasic-digital/continuum.git
+    ref: d88a007             # pinned sha (no upstream tag yet)
+    why: "§11.4.207 instant multi-stream resume engine — content-addressed Merkle snapshot + append-only ledger + atomic single-writer refs so a fresh session resumes the WHOLE fleet at O(changed streams), self-validating oracle (golden-good/bad/negative-control)"
+    layout: grouped
+
+  - name: anti_bluff
+    ssh_url: git@github.com:vasic-digital/anti_bluff.git
+    ref: bcc7f3d             # pinned sha
+    why: "shared anti-bluff verification primitives (§11.4 covenant family) — ab_pass_with_evidence / ab_skip_with_reason helpers, sink-side taxonomy per §11.4.69, stress+chaos helpers per §11.4.85; consumed by challenge scripts across the constitution consumer fleet"
+    layout: grouped
+
+  - name: session_orchestrator
+    ssh_url: git@github.com:vasic-digital/session_orchestrator.git
+    ref: 78b77bb             # pinned sha
+    why: "§11.4.187 automatic multi-track ruler orchestration substrate — headless spawn primitive (claude -p --output-format stream-json + session_id from init event), per-subscription auth isolation, rate-limit → alias rebind, crash-resilient ruler self-supervisor"
+    layout: grouped
+
+  - name: token_optimizer
+    ssh_url: git@github.com:vasic-digital/token_optimizer.git
+    ref: c0591b5             # pinned sha
+    why: "§11.4.141 heavy token-optimization engine — compact-anchor rewriter, targeted-read planner, evidence-hash reference builder, subagent-context-isolation helpers; always-on default per §11.4.198 (default mechanisms always-on)"
+    layout: grouped
+
+  - name: helix_perf_cache
+    ssh_url: git@github.com:HelixDevelopment/helix_perf_cache.git
+    ref: 6adcfb2             # pinned sha (HelixDevelopment org, not vasic-digital)
+    why: "shared performance cache (build/test/measurement result memoization with fingerprint invalidation) — reduces the §11.4.24 build-resource stats window churn + supports §11.4.230 pipeline-overlap parallelization by caching invariant results across stages"
+    layout: grouped
+
+  - name: llmctl
+    ssh_url: git@github.com:vasic-digital/llmctl.git
+    ref: v3.2.2              # pinned tag (commit 5c3dea57fb35215cdaa4b7412da438e7a8d96d86); exists on the remote
+    why: "§11.4.277 llmctl model validation gate + host-safe model units — the vendored model manager through which every model is acquired, started, validated (`llmctl validate` / `require-validated`) and stopped; §11.4.278 vision step consumes its validated `vision` profile. NOTE: llmctl vendors this constitution as its own `constitution` submodule (mutual reference); depth-1 hub entry, non-recursive init per the operator decision recorded in the header and §11.4.277(B)."
+    layout: grouped
+    recursive_init: false    # operator decision: NEVER `--recursive` for this path (mutual reference with this constitution); gate CM-LLMCTL-SUBMODULE-NONRECURSIVE
+
+  # ─── OpenDesign design-toolkit (flat layout, top-level) ──────────────
+  - name: design-toolkit
+    ssh_url: git@github.com:vasic-digital/design-toolkit.git
+    ref: 16e4e76             # pinned sha
+    why: "§11.4.162 OpenDesign UI design-system engine — canonical machine-readable design-token source (§11.4.216) + brand contract (§11.4.217) + living design-library catalogue (§11.4.218); consumed by every project that ships a user-facing UI"
+    layout: flat
+
+transitive_handling:
+  # §11.4.28(C) depth-1 carve-out: constitution IS the hub. Most engines
+  # nest no own-org deps and declare `deps: []` (leaf), but llmctl is NOT a
+  # leaf: its own helix-deps.yaml lists `constitution` (THIS constitution)
+  # and `containers`. `recursive: true` stays the default so tooling walks
+  # the manifest chain, with ONE explicit exception: any dep entry carrying
+  # `recursive_init: false` (llmctl) MUST be neither initialised with
+  # `git submodule update --recursive` nor walked into by manifest-walking
+  # tooling; tooling that ignores the marker would loop through the mutual
+  # reference. CM-LLMCTL-SUBMODULE-NONRECURSIVE checks the marker and that
+  # the loop is finite.
+  recursive: true
+
+  # §11.4.6 no-guessing: conflicts (two dep entries diverging on ref)
+  # are OPERATOR decisions, never silently merged. Consumer tooling
+  # halts on conflict + surfaces the divergence.
+  conflict_resolution: operator-required
+
+# §11.4.28(C) depth-1 invariant applies: no language-specific subtree
+# resolution; consumers reach every engine directly from the parent root
+# per the mandated layout (grouped vs flat as declared per-dep above).
+language_specific_subtree: false
+
+# ─── Verification recipe (operator-runnable, §11.4.6 anti-bluff) ────
+#
+# From a fresh clone that pulled the constitution submodule + this
+# manifest:
+#
+#   cd constitution
+#   git submodule update --init --recursive submodules design-toolkit
+#   # Verify SSH-only per Hard Stop #2:
+#   git submodule foreach --recursive --quiet 'git remote -v | grep -c https://' | \
+#     paste -sd+ | bc   # MUST be 0
+#   # Verify pins match manifest:
+#   for d in $(yq '.deps[].name' helix-deps.yaml); do
+#     path="submodules/$d"; [ "$d" = "design-toolkit" ] && path="$d"
+#     want=$(yq ".deps[] | select(.name == \"$d\") | .ref" helix-deps.yaml)
+#     got=$(cd "$path" && git describe --tags --exact-match 2>/dev/null || \
+#           cd "$path" && git rev-parse --short HEAD)
+#     [ "$want" = "$got" ] || echo "DRIFT: $d wants $want got $got"
+#   done

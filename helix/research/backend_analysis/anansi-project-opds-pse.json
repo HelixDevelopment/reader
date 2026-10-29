@@ -1,0 +1,576 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 112,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "rag",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "rag",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "rag",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "rag",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "rag",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "rag",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": "Collection",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "Collection",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 19
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "comic",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "comic",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "double page",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "comic",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "comic",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "double page",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "comic",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "comic",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "double page",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 12
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 130,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 4
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "opds",
+          "path": ".github/workflows/dispatch.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS-PSE",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 8,
+        "source": 84
+      }
+    },
+    "opds_pse": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Page Streaming",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Page Streaming",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS-PSE",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Page Streaming",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Page Streaming",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Page Streaming",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Page Streaming",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Page Streaming",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Page Streaming",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OPDS-PSE",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 49
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "opensearch",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 97,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 244,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "secret",
+          "path": ".github/workflows/dispatch.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 51,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 359,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "https",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "https",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "v1.2.md",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "https",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 4,
+        "source": 27
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-anansi-project-opds-pse.jsonl.gz",
+  "files": {
+    "scanned_bytes": 35339,
+    "scanned_text": 8,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 8
+  },
+  "format_keyword_evidence": {
+    "markdown": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": ".github/workflows/dispatch.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": ".md",
+          "path": ".github/workflows/dispatch.yml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "v1.0.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "v1.1.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "v1.2.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    }
+  },
+  "inventory_url": "https://github.com/anansi-project/opds-pse",
+  "kind": "backend",
+  "languages_by_file_count": {},
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/anansi-project/opds-pse",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "9a082e4e254048a584df55255114dca765c246ba",
+  "schema_version": 1,
+  "slug": "anansi-project-opds-pse",
+  "support_claims_allowed": false,
+  "tree": "7f6d4c5bf1b94d7e97d614867fb055c85125e169"
+}

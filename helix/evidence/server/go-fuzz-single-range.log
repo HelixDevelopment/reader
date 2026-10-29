@@ -1,0 +1,7 @@
+$ go test ./internal/httpapi -run ^FuzzSingleRange$ -fuzz ^FuzzSingleRange$ -fuzztime=5s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/13 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 13/13 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 7487 (2496/sec), new interesting: 0 (total: 13)
+fuzz: elapsed: 5s, execs: 14407 (3282/sec), new interesting: 0 (total: 13)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	5.229s

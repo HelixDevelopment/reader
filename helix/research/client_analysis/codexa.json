@@ -1,0 +1,6821 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "embedding",
+          "path": "Android/app/src/main/java/com/codexa/reader/HeaderUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "rag",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 376,
+          "matched_term": "rag",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": "rAg",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "Android/app/src/main/res/values-de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "rag",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 930,
+          "matched_term": "rag",
+          "path": "docs/css/docs.css",
+          "role": "documentation"
+        },
+        {
+          "line": 324,
+          "matched_term": "rag",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 499,
+          "matched_term": "rag",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 682,
+          "matched_term": "rag",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "rag",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 157,
+          "matched_term": "rag",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 192,
+          "matched_term": "rag",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "rag",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 258,
+          "matched_term": "RAG",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "rag",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "RAG",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "rag",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "rag",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 899,
+          "matched_term": "rag",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 638,
+          "matched_term": "rag",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 646,
+          "matched_term": "rag",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 646,
+          "matched_term": "rag",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "rag",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "rag",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "rag",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "rag",
+          "path": "public/js/app.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 53,
+        "source": 665
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "highlight",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "highlight",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Bookmark",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "highlight",
+          "path": "Android/play-store/release-notes/1.0.7/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "highlight",
+          "path": "Android/play-store/release-notes/1.0.7/en-US.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 875,
+          "matched_term": "highlight",
+          "path": "docs/css/docs.css",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "bookmark",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "bookmark",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "Bookmark",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 385,
+          "matched_term": "highlight",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 425,
+          "matched_term": "highlight",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 428,
+          "matched_term": "highlight",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "bookmark",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "highlight",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "highlight",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 773,
+          "matched_term": "cFI",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 352,
+          "matched_term": "highlight",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 1445,
+          "matched_term": "highlight",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 1452,
+          "matched_term": "highlight",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "bookmark",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "bookmark",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "highlight",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "highlight",
+          "path": "public/images/highlight.svg",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "highlight",
+          "path": "public/images/highlight_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 367,
+          "matched_term": "highlight",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 661,
+          "matched_term": "highlight",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "Highlight",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "highlight",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "highlight",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "annotation",
+          "path": "public/js/cxreader/column-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "annotation",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "Cfi",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "bookmark",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "annotation",
+          "path": "public/js/cxreader/paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "bookmark",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "highlight",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 129,
+        "source": 2089
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "Backup",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "Restore",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "restore",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 299,
+          "matched_term": "Restore",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "restore",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "restore",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "restore",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "Restore",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 315,
+          "matched_term": "restore",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 762,
+          "matched_term": "Backup",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "backup",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "restore",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 350,
+          "matched_term": "restore",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 2397,
+          "matched_term": "restore",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 2398,
+          "matched_term": "restore",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "snapshot",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "restore",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 1956,
+          "matched_term": "restore",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "restore",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "restore",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "backup",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "restore",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 1184,
+          "matched_term": "restore",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 1275,
+          "matched_term": "restore",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "snapshot",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "snapshot",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "snapshot",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "snapshot",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Snapshot",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Snapshot",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "restore",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 424,
+          "matched_term": "restore",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 830,
+          "matched_term": "restore",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "restore",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "restore",
+          "path": "public/js/img-bg-fix.js",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "snapshot",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Restore",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 1599,
+          "matched_term": "restore",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "restore",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "restore",
+          "path": "public/js/opds.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 192
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "series",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "series",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Shelves",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "shelves",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "series",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "Shelves",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "Shelves",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "shelves",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "shelves",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "Shelves",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "series",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "series",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 687,
+          "matched_term": "series",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "series",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "series",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "Series",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Collection",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Series",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Shelves",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "series",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "series",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "series",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Shelves",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Shelves",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Shelves",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 871,
+          "matched_term": "Shelves",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 890,
+          "matched_term": "Shelves",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "series",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "series",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 3035,
+          "matched_term": "series",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Shelves",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Shelves",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "shelves",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "shelves",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "shelves",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "series",
+          "path": "public/locales/de.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 145,
+        "source": 988
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 415,
+          "matched_term": "cbz",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "comic",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "CBZ",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "comic",
+          "path": "Android/play-store/listing/short-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Comic",
+          "path": "Android/play-store/release-notes/1.0.7/de-DE.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "comic",
+          "path": "Android/play-store/release-notes/1.0.7/en-US.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "CBZ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "CBR",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "CBZ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "comic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "comic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "Comic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "comic",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 508,
+          "matched_term": "CBZ",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1879,
+          "matched_term": "CBr",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1949,
+          "matched_term": "cbz",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "comic",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Comic",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "comic",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "CB7",
+          "path": "public/images/appearance.svg",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "public/images/appearance_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "cbz",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "cbr",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 286,
+          "matched_term": "cBt",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "cBt",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "cBt",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Comic",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "comic",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBZ",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Cbz",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Cbz",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 164,
+        "source": 659
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": ".github/workflows/ios-build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 384,
+          "matched_term": "cache",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 358,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 358,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 292,
+          "matched_term": "cache",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 358,
+          "matched_term": "cache",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1830,
+          "matched_term": "cache",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "cache",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 182,
+          "matched_term": "cache",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 979,
+          "matched_term": "etag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 981,
+          "matched_term": "etag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 981,
+          "matched_term": "etag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3528,
+          "matched_term": "thumbnail",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Cache",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "Cache",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Cache",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "Cache",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "Cache",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 223,
+          "matched_term": "cache",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 975,
+          "matched_term": "cache",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 979,
+          "matched_term": "Cache",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1013,
+          "matched_term": "cache",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "cache",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "Cache",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "cache",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "CACHE",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "CACHE",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "cache",
+          "path": "public/js/img-bg-fix.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Cache",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "cache",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 671,
+          "matched_term": "cache",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "public/js/offline.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 20,
+        "source": 581
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "EPUB (including Kobo's **KEPUB**), fixed-layout EPUB, **CBZ & CBR**, and **PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "KEPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "conversion",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "KEPUB",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 310,
+          "matched_term": "EPUB engine; reflowable, fixed-layout, comic, and PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 310,
+          "matched_term": "KEPUB",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 207,
+          "matched_term": "epub,.kepub,.cbz,.cbr,.pdf",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "conversion",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1398,
+          "matched_term": "Epub = this._continuous && !this._isCbz && !this._isPdf",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1403,
+          "matched_term": "EPUB's virtual paging, but not a real page count for a comic/PDF",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 2271,
+          "matched_term": "epubs = [...fileList].filter(f => f.name.endsWith('.epub') || f.name.endsWith('.kepub') || f.name.en",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "conversion",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Converter",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Converter",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Converter",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB-, KEPUB-, CBZ-, CBR- oder PDF",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"Datei hat kein unterstütztes Format (EPUB, KEPUB, CBZ, CBR oder PDF",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB-, Comic- (CBZ, CBR) und PDF",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR or PDF",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"File is not a supported format (EPUB, KEPUB, CBZ, CBR or PDF",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, comic book (CBZ, CBR) and PDF",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR o PDF",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"El archivo no tiene un formato compatible (EPUB, KEPUB, CBZ, CBR o PDF",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, de cómics (CBZ, CBR) y PDF",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR ou PDF",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"Le fichier n'est pas dans un format pris en charge (EPUB, KEPUB, CBZ, CBR ou PDF",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, de bandes dessinées (CBZ, CBR) et PDF",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR o PDF",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"Il file non è in un formato supportato (EPUB, KEPUB, CBZ, CBR o PDF",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, di fumetti (CBZ, CBR) e PDF",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR ou PDF",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"O ficheiro não tem um formato suportado (EPUB, KEPUB, CBZ, CBR ou PDF",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, de banda desenhada (CBZ, CBR) e PDF",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB, KEPUB, CBZ, CBR ali PDF",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"Datoteka ni v podprtem formatu (EPUB, KEPUB, CBZ, CBR ali PDF",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB, stripov (CBZ, CBR) in PDF",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "EPUB、KEPUB、CBZ、CBR 或 PDF",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "epub\": \"文件格式不支持（仅支持 EPUB、KEPUB、CBZ、CBR 或 PDF",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "EPUB、漫画（CBZ、CBR）和 PDF",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": "KEPUB",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 71
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 218,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "aria-",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "aria-",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "aria-",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "aria-",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 1409,
+          "matched_term": "aria-",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "aria-",
+          "path": "public/images/all_library.svg",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "public/images/all_library_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "aria-",
+          "path": "public/images/chapter_page.svg",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "aria-",
+          "path": "public/images/chapter_page_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "aria-",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "aria-",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "aria-",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 623,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 624,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 742,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitSessions.js",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitSessions.js",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "aria-",
+          "path": "public/js/bookorbitSessions.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "aria-",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "aria-",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "aria-",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "aria-",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "aria-",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 712,
+          "matched_term": "aria-",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 634,
+          "matched_term": "aria-",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 635,
+          "matched_term": "aria-",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 758,
+          "matched_term": "aria-",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 946,
+          "matched_term": "aria-",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 987,
+          "matched_term": "aria-",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4381,
+          "matched_term": "aria-",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "aria-",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 393,
+          "matched_term": "aria-",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "aria-",
+          "path": "public/js/settings.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 232
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "sqlite",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 288,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 260,
+          "matched_term": "SQLite",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 715,
+          "matched_term": "SQLite",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 731,
+          "matched_term": "SQLite",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 763,
+          "matched_term": "SQLite",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "sqlite",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 578,
+          "matched_term": "sqlite",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "sqlite",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "sqlite",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "SQLite",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "sqlite",
+          "path": "server/index.js",
+          "role": "source"
+        },
+        {
+          "line": 294,
+          "matched_term": "SQLite",
+          "path": "server/routes/auth.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "server/utils/pdf.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 6,
+        "source": 12
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 718,
+          "matched_term": "sha256",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 719,
+          "matched_term": "sha256",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 721,
+          "matched_term": "sha256",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "dedUp",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "dedUp",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 241,
+          "matched_term": "dedUp",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "duplicate",
+          "path": "public/js/cxreader/paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "duplicate",
+          "path": "public/js/cxreader/paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "duplicate",
+          "path": "public/js/cxreader/paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 450,
+          "matched_term": "duplicate",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 1234,
+          "matched_term": "duplicate",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 1042,
+          "matched_term": "duplicate",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 497,
+          "matched_term": "duplicate",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 5757,
+          "matched_term": "SHA-256",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 7674,
+          "matched_term": "dedup",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 305,
+          "matched_term": "duplicate",
+          "path": "public/js/ui.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fingerprint",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fingerprint",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "content hash",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "content hash",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "sha256",
+          "path": "server/routes/auth.js",
+          "role": "source"
+        },
+        {
+          "line": 472,
+          "matched_term": "content hash",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 626,
+          "matched_term": "duplicate",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 689,
+          "matched_term": "SHA-256",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "duplicate",
+          "path": "server/routes/books.js",
+          "role": "source"
+        },
+        {
+          "line": 607,
+          "matched_term": "content hash",
+          "path": "server/routes/books.js",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "SHA-256",
+          "path": "server/routes/kosync.js",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "duplicate",
+          "path": "server/routes/oidc.js",
+          "role": "source"
+        },
+        {
+          "line": 1152,
+          "matched_term": "duplicate",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 1172,
+          "matched_term": "duplicate",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 1230,
+          "matched_term": "SHA-256",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "content hash",
+          "path": "server/routes/stats.js",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "dedup",
+          "path": "server/utils/bookCompletion.js",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "duplicate",
+          "path": "server/utils/cbr.js",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "SHA-256",
+          "path": "server/utils/cbr.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "duplicate",
+          "path": "server/utils/completions.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "content hash",
+          "path": "server/utils/covers.js",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "sha256",
+          "path": "server/utils/epub.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 15,
+        "source": 44
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "docker",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "docker",
+          "path": ".forgejo/workflows/build-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "docker",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "docker",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "docker",
+          "path": ".forgejo/workflows/release-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "docker",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "GitHub Actions",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 52,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "Docker",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": "Docker",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": "docker",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "Docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 496,
+          "matched_term": "docker",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 504,
+          "matched_term": "docker",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 512,
+          "matched_term": "docker",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "GitHub Actions",
+          "path": "iOS/fastlane/Fastfile",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "GitHub Actions",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "GitHub Actions",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "GitHub Actions",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "docker",
+          "path": "server/db.js",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "docker",
+          "path": "server/index.js",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Docker",
+          "path": "server/oidcProviders.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 11,
+        "documentation": 48,
+        "source": 18
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "translation",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "dictionary",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "dictionary",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "StarDict",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "translation",
+          "path": "Android/play-store/release-notes/1.0.7/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "Dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "dictionary",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "dictionary",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "StarDict",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "Dictionary",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "dictionary",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "dictionary",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "Translation",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "translation",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 3336,
+          "matched_term": "Dictionary",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "dictionary",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "dictionary",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "Dictionary",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 438,
+          "matched_term": "Dictionary",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 501,
+          "matched_term": "dictionary",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "anki",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "Translation",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "dictionary",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Translation",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Translation",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "Translation",
+          "path": "public/js/i18n.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 998,
+          "matched_term": "Translation",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 313,
+          "matched_term": "dictionary",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "dictionary",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 366,
+          "matched_term": "dictionary",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 366,
+          "matched_term": "dictionary",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": "dictionary",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "dictionary",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "dictionary",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "dictionary",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Translation",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 101,
+        "source": 199
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "quic",
+          "path": "Android/play-store/release-notes/1.0.7/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 97,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "Quic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 426,
+          "matched_term": "quic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 634,
+          "matched_term": "quic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 927,
+          "matched_term": "Quic",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 6520,
+          "matched_term": "quic",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 6793,
+          "matched_term": "quic",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Accept-Ranges",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Content-Range",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Content-Range",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 874,
+          "matched_term": "quic",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "Accept-Ranges",
+          "path": "server/routes/books.js",
+          "role": "source"
+        },
+        {
+          "line": 737,
+          "matched_term": "quic",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "quic",
+          "path": "server/routes/stats.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "server/services/bookorbitSync.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "server/utils/peekCleanup.js",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "quic",
+          "path": "server/utils/stardict.js",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "quic",
+          "path": "server/utils/stardict.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 14
+      }
+    },
+    "koreader_sync": {
+      "evidence": [
+        {
+          "line": 285,
+          "matched_term": "KOSync",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "KOReader sync",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "KOSync",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "KOReader sync",
+          "path": "Android/play-store/listing/short-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "KOReader-Sync",
+          "path": "Android/play-store/release-notes/1.0.7/de-DE.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "KOReader sync",
+          "path": "Android/play-store/release-notes/1.0.7/en-US.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "KOReader sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "KOReader sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "KOSync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "KOSync",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "KOSync",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "KOSync",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "kosync",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "kosync",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "KOSync",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "KOReader Sync",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "KOSync",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "KOReader sync",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 227,
+          "matched_term": "kosync",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 2044,
+          "matched_term": "KOSync",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 2045,
+          "matched_term": "kosync",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 818,
+          "matched_term": "KOSync",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 826,
+          "matched_term": "kosync",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 834,
+          "matched_term": "kosync",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "kosync",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "kosync",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "KOReader Sync",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "KOSync",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 744,
+          "matched_term": "kosync",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 744,
+          "matched_term": "kosync",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 821,
+          "matched_term": "kosync",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "KOReader sync",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "kosync",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "KOReader sync",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "kosync",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "kosync",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 482,
+          "matched_term": "kosync",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "kosync",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "kosync",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "kosync",
+          "path": "public/js/settings.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 98,
+        "source": 1040
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 80,
+          "matched_term": "in place",
+          "path": ".forgejo/workflows/build-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "in place",
+          "path": ".forgejo/workflows/release-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "in place",
+          "path": ".github/workflows/build-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "in place",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 456,
+          "matched_term": "in place",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "in-place",
+          "path": "build.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1070,
+          "matched_term": "local storage",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1076,
+          "matched_term": "local storage",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1450,
+          "matched_term": "in place",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "local storage",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 200,
+          "matched_term": "local storage",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 2805,
+          "matched_term": "in place",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "in place",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "in place",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": "In-place",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "in place",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 820,
+          "matched_term": "in-place",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "local files",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "in-place",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "in-place",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "in place",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 5683,
+          "matched_term": "in place",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 6618,
+          "matched_term": "in place",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "in place",
+          "path": "public/js/ui.js",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "local library",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "local library",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": "in place",
+          "path": "public/sw.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 4,
+        "source": 22
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "metadata",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "metadata",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "Metadata",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 2362,
+          "matched_term": "Goodreads",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "public/images/fullscreen_exit.svg",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "metadata",
+          "path": "public/images/fullscreen_exit.svg",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "public/images/fullscreen_exit_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "metadata",
+          "path": "public/images/fullscreen_exit_bw.svg",
+          "role": "source"
+        },
+        {
+          "line": 485,
+          "matched_term": "metadata",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "metadata",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 487,
+          "matched_term": "metadata",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 791,
+          "matched_term": "isbn",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 791,
+          "matched_term": "isbn",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 791,
+          "matched_term": "isbn",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Metadata",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 493,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 952,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 952,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Metadata",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "metadata",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 702,
+          "matched_term": "isbn",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 702,
+          "matched_term": "isbn",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 702,
+          "matched_term": "isbn",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "metadata",
+          "path": "public/js/offline.js",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "metadata",
+          "path": "public/js/offline.js",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "metadata",
+          "path": "public/js/offline.js",
+          "role": "source"
+        },
+        {
+          "line": 622,
+          "matched_term": "fetch or metadata",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "metadata",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 349,
+          "matched_term": "metadata",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4341,
+          "matched_term": "metadata",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4455,
+          "matched_term": "metadata",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fetchData:()=>fetchData,getDocument:()=>getDocument,getFilenameFromUrl:()=>getFilenameFromUrl,getPdf",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "isbn",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "ISBN",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "metadata",
+          "path": "public/locales/en.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 39,
+        "source": 250
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "review:\"pdfjs-editor-new-alt-text-to-review-button\",\"review-label\":\"pdfjs-editor-new-alt-text-to-rev",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 55,
+          "matched_term": "SSO",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "OIDC",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "oidc",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Multi-user",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "per-user",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Multi-user",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "Multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "JWT",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "JWT",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "JWT",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "OIDC",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "JWT",
+          "path": "docker-compose.sample.yaml",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "oidc",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "oidc",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "OIDC",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "Single sign-on",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": "authentication",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "authentication",
+          "path": "iOS/fastlane/Fastfile",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "authorization",
+          "path": "iOS/fastlane/Fastfile",
+          "role": "source"
+        },
+        {
+          "line": 1737,
+          "matched_term": "oidc",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1739,
+          "matched_term": "oidc",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1739,
+          "matched_term": "oidc",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3391,
+          "matched_term": "Per-user",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "oidC",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "OIDC",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "JWT",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Authorization",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Authorization",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 2286,
+          "matched_term": "Authorization",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "oidC",
+          "path": "public/js/login.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "oidC",
+          "path": "public/js/login.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "oidC",
+          "path": "public/js/login.js",
+          "role": "source"
+        },
+        {
+          "line": 4025,
+          "matched_term": "oidC",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4026,
+          "matched_term": "oidC",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 6016,
+          "matched_term": "Authorization",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "per-user",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 648,
+          "matched_term": "per-user",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 634,
+          "matched_term": "oidC",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 635,
+          "matched_term": "oidC",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 203,
+        "source": 281
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "ftp",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "exports=function(t){if(s(t))return t;throw new r(n(t)+\" is not a function\")}},3506:(t,e,i)=>{var s=i",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 582,
+          "matched_term": "OPDS",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 680,
+          "matched_term": "OPDS",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "OPDS",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "OPDS",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "OPDS",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "OPDS",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "opds",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "opds",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "OPDS",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 129,
+          "matched_term": "OPDS",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "OPDS",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 201,
+          "matched_term": "opds",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "opds",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "opds",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "opds",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "OPDS",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "OPDS",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "opds",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "opds",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "opds",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "opds",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "opds",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 345,
+          "matched_term": "opds",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 348,
+          "matched_term": "opds",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 424,
+          "matched_term": "opds",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 303,
+          "matched_term": "opds",
+          "path": "public/js/bookorbitSessions.js",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "opds",
+          "path": "public/js/bookorbitSessions.js",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "OPDS",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "opds",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "opds",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "opds",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "OPDS",
+          "path": "public/js/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "opds",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "opds",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "OPDS",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 134,
+        "source": 1170
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 1425,
+          "matched_term": "OpenSearch",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 3977,
+          "matched_term": "openSearch",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4086,
+          "matched_term": "openSearch",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 7508,
+          "matched_term": "openSearch",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 852,
+          "matched_term": "opensearch",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 853,
+          "matched_term": "OpenSearch",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 859,
+          "matched_term": "OpenSearch",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 9
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "fixed-layout",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "fixed-layout",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fixed-layout",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "fixed-layout",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "Fixed-layout",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "Fixed-layout",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 269,
+          "matched_term": "fixed-layout",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 310,
+          "matched_term": "reflow",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "PDF.js",
+          "path": "docs/research/pdf-paper-inversion.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "PDF.js",
+          "path": "docs/research/pdf-paper-inversion.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "PDF.js",
+          "path": "docs/research/pdf-paper-inversion.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 477,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1812,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "reflow",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "reflow",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "fixed-layout",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "fixed-layout",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "fixed-layout",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "pdfjs",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "fixed-layout",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "reflow",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdf.js",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf.js",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "PDFJS",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "fixed-layout",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "Fixed-layout",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 360,
+          "matched_term": "reflow",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf.js",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdfjs",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "PDFJS",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 2954,
+          "matched_term": "reflow",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 2955,
+          "matched_term": "reflow",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 3386,
+          "matched_term": "refLow",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pdfjs",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pdfjs",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pdfjs",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "pdf.js",
+          "path": "server/index.js",
+          "role": "source"
+        },
+        {
+          "line": 490,
+          "matched_term": "pdf.js",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 31,
+        "source": 148
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "permission",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "permission",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "permission",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "permission",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 704,
+          "matched_term": "permission",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 707,
+          "matched_term": "permission",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "Android/gradlew",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "Android/gradlew.bat",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "access control",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1422,
+          "matched_term": "library and BookOrbit, in the top-right of the toolbar. It's a single share",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "access control",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 177,
+          "matched_term": "Permission",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "permission",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 275,
+          "matched_term": "per-library",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 1317,
+          "matched_term": "user scrolls — same role",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Permission",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Permission",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Permission",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "userAgent;t.exports=n?String(n):\"\"},9519:(t,e,i)=>{var s,n,r=i(4576),a=i(2839),o=r.process,l=r.Deno,",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Permission",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "permission",
+          "path": "server/services/bookorbitSync.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5,
+        "source": 42
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "progress sync",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "sync highlights, reading sessions, and progress",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "sync of highlights, reading sessions, progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "Sync & Progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "sync** — optional two-way sync of highlights, reading sessions, live reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "Reading Progress",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 246,
+          "matched_term": "progress sync",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 344,
+          "matched_term": "Sync &amp; Progress",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "reading progress",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "reading progress",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "synchronization of highlights, reading sessions, and progress",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 262,
+          "matched_term": "reading progress",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "reading progress",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "synced', count, 'offline progress",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 851,
+          "matched_term": "Sync a collection/smart-scope into a Codexa shelf (SSE progress",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "sync function downloadBook(book, token, onProgress",
+          "path": "public/js/offline.js",
+          "role": "source"
+        },
+        {
+          "line": 748,
+          "matched_term": "Sync to shelf (SSE progress",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 792,
+          "matched_term": "sync-progress",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 793,
+          "matched_term": "sync-progress",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "reading progress",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "furthest",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "sync function flushProgress",
+          "path": "public/js/progress-outbox.js",
+          "role": "source"
+        },
+        {
+          "line": 302,
+          "matched_term": "sync progress",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 473,
+          "matched_term": "syncs KOReader progress",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 5775,
+          "matched_term": "sync function fetchRemoteProgress",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "sync function fetchData(t,e=\"text\"){if(isValidFetchUrl(t,document.baseURI)){const i=await fetch(t);i",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 773,
+          "matched_term": "sync_no_progress",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 836,
+          "matched_term": "Position sync",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 223,
+          "matched_term": "reading progress",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "Reading Progress",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 266,
+          "matched_term": "Reading progress",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 773,
+          "matched_term": "sync_no_progress",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 396,
+          "matched_term": "position sync",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "sync_dlg_hint\": \"Fermer cette fenêtre sautera à la position la plus avancée pour protéger votre prog",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 532,
+          "matched_term": "synchronisés, pas seulement la progress",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "sync_dlg_hint\": \"Chiudere questa finestra salterà alla posizione più avanzata per proteggere i tuoi ",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 773,
+          "matched_term": "sync_no_progress",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "sync_dlg_hint\": \"Fechar esta caixa de diálogo saltará para a posição mais avançada para proteger o s",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 773,
+          "matched_term": "sync_no_progress",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 835,
+          "matched_term": "sync\": \"Sincronizar progress",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 28,
+        "source": 94
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "theme",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "Android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "dark mode",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "theme",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "theme",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "Android/app/src/main/res/values-night/colors.xml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "Android/app/src/main/res/values/colors.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "Android/app/src/main/res/values/themes.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "Android/app/src/main/res/values/themes.xml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "THEME",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Sepia",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "typography",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "Sepia",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "Sepia",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "docs/css/docs.css",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "theme",
+          "path": "docs/css/docs.css",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "font-size",
+          "path": "docs/css/docs.css",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": "theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": "theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": "Theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Theme",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "THEME",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "THEME",
+          "path": "docs/js/docs.js",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "typography",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "font-size",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "font-size",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "font-size",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "font-size",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "font-size",
+          "path": "iOS/www/index.html",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "theme",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "theme",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "theme",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "font-size",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "line-height",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "theme",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "theme",
+          "path": "public/index.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 214,
+        "source": 1238
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "full-text search",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 318,
+          "matched_term": "full-text search",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/build-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/build-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/build-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/docker.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/pages.yml",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/pages.yml",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/pages.yml",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "secret",
+          "path": ".forgejo/workflows/release-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/release-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": ".forgejo/workflows/release-android.yml",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "certificate",
+          "path": ".github/workflows/build-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "secret",
+          "path": ".github/workflows/build-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 55,
+          "matched_term": "secret",
+          "path": ".github/workflows/build-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 57,
+          "matched_term": "secret",
+          "path": ".github/workflows/docker.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "secret",
+          "path": ".github/workflows/ios-build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "secret",
+          "path": ".github/workflows/ios-build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 51,
+          "matched_term": "secret",
+          "path": ".github/workflows/ios-build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": ".github/workflows/ios-sideload.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "certificate",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "secret",
+          "path": "Android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 503,
+          "matched_term": "https",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 816,
+          "matched_term": "secret",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "https",
+          "path": "Android/app/src/main/java/com/codexa/reader/ServerSelectActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Secret",
+          "path": "Android/app/src/main/res/values-de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-es/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-es/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Secret",
+          "path": "Android/app/src/main/res/values-es/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Secret",
+          "path": "Android/app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-it/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "Android/app/src/main/res/values-it/strings.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 56,
+        "documentation": 147,
+        "source": 531
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 3136,
+          "matched_term": "audiobook",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 3136,
+          "matched_term": "text-to-speech",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 2050,
+          "matched_term": "chapter mark",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 302,
+          "matched_term": "chapter mark",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "chapter mark",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 3352,
+          "matched_term": "chapter mark",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 8903,
+          "matched_term": "chapter mark",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 1009,
+          "matched_term": "audiobook",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 1009,
+          "matched_term": "TTS",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 108,
+          "matched_term": "auto!import",
+          "path": "public/js/cxreader/column-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "auto!import",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "auto!import",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-codexa.jsonl.gz",
+  "files": {
+    "scanned_bytes": 3666393,
+    "scanned_text": 277,
+    "skipped_binary_or_empty": 77,
+    "skipped_large": 3,
+    "skipped_sensitive_name": 1,
+    "tracked": 358
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "CBR",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CBR",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "CBR",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "CBR",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 140,
+          "matched_term": "CBR",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 269,
+          "matched_term": "CBR",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 207,
+          "matched_term": ".cbr",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 2271,
+          "matched_term": ".cbr",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBR",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBR",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cbr",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "cbr",
+          "path": "server/routes/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cbr",
+          "path": "server/routes/books.js",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "cbr",
+          "path": "server/routes/books.js",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "cbr",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "CBR",
+          "path": "server/routes/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "server/utils/cbr.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "CBR",
+          "path": "server/utils/cbr.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "cbr",
+          "path": "server/utils/pdf.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 35,
+        "source": 63
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 415,
+          "matched_term": "cbz",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "CBZ",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CBZ",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "CBZ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "CBZ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 140,
+          "matched_term": "CBZ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 269,
+          "matched_term": "CBZ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1949,
+          "matched_term": "cbz",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "CBZ",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "CBZ",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": ".cbz",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBZ",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cbz",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "CBZ",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 2271,
+          "matched_term": ".cbz",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 535,
+          "matched_term": "CBZ",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 538,
+          "matched_term": "CBZ",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "CBZ",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "CBZ",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 45,
+        "source": 194
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 209,
+          "matched_term": ".doc",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": ".doc",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": ".doc",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 415,
+          "matched_term": "epub",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/listing/full-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB",
+          "path": "Android/play-store/listing/short-description.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB",
+          "path": "Android/play-store/release-notes/1.0.7/de-DE.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB",
+          "path": "Android/play-store/release-notes/1.0.7/en-US.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/release-notes/1.0.7/es-ES.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/release-notes/1.0.7/fr-FR.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/release-notes/1.0.7/it-IT.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/release-notes/1.0.7/pt-PT.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "Android/play-store/release-notes/1.0.7/zh-CN.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "EPUB ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 251,
+          "matched_term": "EPUB ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB ",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1945,
+          "matched_term": "epub",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 2327,
+          "matched_term": "EPUB ",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "EPUB ",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 590,
+          "matched_term": "epub",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "EPUB ",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": ".epub",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "epub ",
+          "path": "public/js/cxreader/column-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "epub",
+          "path": "public/js/cxreader/column-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "EPUB3",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "epub",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "epub",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "epub",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "EPUB",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "EPUB",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB",
+          "path": "public/js/cxreader/scroll-paginator.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 59,
+        "source": 294
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": ".html",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 331,
+          "matched_term": ".html",
+          "path": "Android/app/src/main/java/com/codexa/reader/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".html",
+          "path": "Android/play-store/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 429,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 402,
+          "matched_term": ".html",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": ".html",
+          "path": "docs/privacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": ".html",
+          "path": "iOS/iOS.md",
+          "role": "source"
+        },
+        {
+          "line": 2925,
+          "matched_term": ".html",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".html",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 2339,
+          "matched_term": ".html",
+          "path": "public/css/reader.css",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": ".html",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": ".html",
+          "path": "public/js/api.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".html",
+          "path": "public/js/app.js",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": ".html",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 488,
+          "matched_term": ".html",
+          "path": "public/js/bookorbit.js",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": ".html",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": ".html",
+          "path": "public/js/bookorbitActivity.js",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": ".html",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": ".html",
+          "path": "public/js/bookorbitDash.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "public/js/cxreader/cbz-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "xhtml",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "XHTML",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 651,
+          "matched_term": ".xhtml",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".xhtml",
+          "path": "public/js/cxreader/link-intercept.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".xhtml",
+          "path": "public/js/cxreader/link-intercept.js",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "xhtml",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "HTML5",
+          "path": "public/js/cxreader/renderer.js",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": ".html",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": ".html",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 492,
+          "matched_term": ".html",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 534,
+          "matched_term": ".html",
+          "path": "public/js/opds.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 895,
+          "matched_term": ".html",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 796,
+          "matched_term": ".html",
+          "path": "public/js/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": ".html",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": ".html",
+          "path": "public/js/sidebar.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "public/js/sw-register.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".html",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": ".html",
+          "path": "public/oidc-callback.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 96
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "markdown",
+          "path": "public/js/vendor/jszip.min.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": ".opf",
+          "path": "public/js/cxreader/epub-parser.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "docs/research/pdf-paper-inversion.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "docs/research/pdf-paper-inversion.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1953,
+          "matched_term": "pdf",
+          "path": "public/css/main.css",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": ".pdf",
+          "path": "public/index.html",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "PDF",
+          "path": "public/js/comic-viewer.js",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "PDF",
+          "path": "public/js/cxreader/fixed-paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdf",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "PDF",
+          "path": "public/js/cxreader/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "public/js/cxreader/pdf-parser.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdf",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 2271,
+          "matched_term": ".pdf",
+          "path": "public/js/library.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "public/js/pdf-cover.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "pdf",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 294,
+          "matched_term": "PDF",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "PDF",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".PDF",
+          "path": "public/js/vendor/pdf.min.mjs",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/de.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/en.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/es.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/fr.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/it.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/pt.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/sl.json",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "PDF",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "PDF",
+          "path": "public/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 512,
+          "matched_term": "PDF",
+          "path": "public/reader.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 32,
+        "source": 285
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 60,
+          "matched_term": ".txt",
+          "path": "Android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".txt",
+          "path": "Android/play-store/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "Android/play-store/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": ".txt",
+          "path": "Android/play-store/release-notes/1.0.7/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": ".txt",
+          "path": "Android/play-store/release-notes/1.0.7/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 812,
+          "matched_term": "plain text",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 2521,
+          "matched_term": "plain text",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 4500,
+          "matched_term": "Plain text",
+          "path": "public/js/reader.js",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "plain text",
+          "path": "server/routes/kosync.js",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "plain text",
+          "path": "server/utils/stardict.js",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "plain text",
+          "path": "server/utils/stardict.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 7
+      }
+    }
+  },
+  "inventory_url": "https://github.com/thehijacker/codexa",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 3,
+    "HTML": 9,
+    "JavaScript": 64,
+    "Kotlin": 3,
+    "Shell": 1,
+    "XML": 20
+  },
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/thehijacker/codexa",
+  "readme_files": [
+    "Android/play-store/README.md",
+    "Android/play-store/release-notes/1.0.7/README.md",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "revision": "083dffe43e2fcd31a1222ea09196909f78e7fc2c",
+  "schema_version": 1,
+  "slug": "codexa",
+  "support_claims_allowed": false,
+  "tree": "8f1f38f437284d64f37c7a6f399499c9f0184742"
+}

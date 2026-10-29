@@ -1,0 +1,24 @@
+test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok
+test_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok
+test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok
+test_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok
+test_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok
+test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... FAIL
+test_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok
+test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok
+test_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok
+test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok
+
+======================================================================
+FAIL: test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/agents/output/helix/tests/test_workable_items.py", line 144, in test_markdown_database_markdown_round_trip
+    self.assertEqual(content, wi.markdown_documents(recovered)[name], name)
+AssertionError: '# He[849 chars]d by AI; assigned to Operator\n\n**Created / m[138 chars]ed\n' != '# He[849 chars]d by UNKNOWN; assigned to UNKNOWN\n\n**Created[56 chars]0Z\n'
+Diff is 1249 characters long. Set self.maxDiff to None to see it. : Fixed.md
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.149s
+
+FAILED (failures=1)

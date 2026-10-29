@@ -1,0 +1,22 @@
+# github.com/helixreader/helix/server/cmd/helix-server
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/cmd/helix-server [setup failed]
+# github.com/helixreader/helix/server/internal/catalog
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/internal/catalog [setup failed]
+# github.com/helixreader/helix/server/internal/httpapi
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/internal/httpapi [setup failed]
+# github.com/helixreader/helix/server/internal/identify
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/internal/identify [setup failed]
+# github.com/helixreader/helix/server/internal/ingest
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/internal/ingest [setup failed]
+# github.com/helixreader/helix/server/internal/opds
+internal/catalog/postgres.go:16:12: pattern migrations/*.sql: no matching files found
+FAIL	github.com/helixreader/helix/server/internal/opds [setup failed]
+?   	github.com/helixreader/helix/server/internal/config	[no test files]
+ok  	github.com/helixreader/helix/server/internal/covers	(cached)
+ok  	github.com/helixreader/helix/server/internal/sources	0.014s
+FAIL

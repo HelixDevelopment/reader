@@ -1,0 +1,8 @@
+$ go test ./formats -run ^FuzzDetect$ -fuzz ^FuzzDetect$ -fuzztime=5s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/89 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 89/89 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 120703 (40210/sec), new interesting: 2 (total: 91)
+fuzz: elapsed: 6s, execs: 262045 (47129/sec), new interesting: 2 (total: 91)
+fuzz: elapsed: 6s, execs: 262045 (0/sec), new interesting: 2 (total: 91)
+PASS
+ok  	github.com/helixreader/helix/core/formats	6.095s

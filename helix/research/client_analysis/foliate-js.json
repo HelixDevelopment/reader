@@ -1,0 +1,2638 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 107,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 583,
+          "matched_term": "embedding",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 911,
+          "matched_term": "rag",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 1053,
+          "matched_term": "rag",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 353,
+          "matched_term": "rag",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "rag",
+          "path": "footnotes.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "rag",
+          "path": "footnotes.js",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "footnotes.js",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "rag",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 885,
+          "matched_term": "rag",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 912,
+          "matched_term": "rag",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "rag",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "progress.js",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "progress.js",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "rag",
+          "path": "progress.js",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "rag",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "rag",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "rag",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "rag",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "rag",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "rag",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "RAG",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "RAG",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "rAg",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": "rag",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "rag",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "rag",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 352
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 36,
+          "matched_term": "epubcfi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "CFI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "CFI",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epubcfi",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 441,
+          "matched_term": "highlight",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "CFI",
+          "path": "epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "epubcfi",
+          "path": "epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "CFI",
+          "path": "epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "annotation",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "annotation",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "annotation",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "highlight",
+          "path": "overlayer.js",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "highlight",
+          "path": "overlayer.js",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "highlight",
+          "path": "overlayer.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "cfi",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "annotation",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "annotation",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "annotation",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "annotation",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "annotation",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "highlight",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CFI",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "epubcfi",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "CFI",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "epubcfi",
+          "path": "tests/tests.js",
+          "role": "test"
+        },
+        {
+          "line": 106,
+          "matched_term": "highlight",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "highlight",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "highlight",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "annotation",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Highlight",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "ANNOTATION",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "ANNOTATION",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "ANNOTATION",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "highlight",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "highlight",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "highlight",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CFI",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epubcfi",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 26,
+        "source": 1282,
+        "test": 50
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 248,
+          "matched_term": "restore",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 4972,
+          "matched_term": "restore",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 5997,
+          "matched_term": "restore",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 63
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 124,
+          "matched_term": "Series",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "Collection",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 258,
+          "matched_term": "collection",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 923,
+          "matched_term": "Series",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 1113,
+          "matched_term": "Series",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "collection",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 25
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Comic",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "CBT",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cbz",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 9990,
+          "matched_term": "cbr",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10021,
+          "matched_term": "cbr",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10034,
+          "matched_term": "cbr",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "CBZ",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "comic",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 7,
+        "source": 12
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 707,
+          "matched_term": "cache",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 728,
+          "matched_term": "cache",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 745,
+          "matched_term": "cache",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "thumbnail",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "cache",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 636,
+          "matched_term": "thumbnail",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "THUMBNAIL",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "thumbnail",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "thumbnail",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 324,
+          "matched_term": "CdN",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "cache",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "cache",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "cache",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 1759,
+          "matched_term": "Cache",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1762,
+          "matched_term": "cache",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1762,
+          "matched_term": "Cache",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 270
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "EPUB, MOBI, KF8 (AZW3), FB2, CBZ, PDF (experimental; requires PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "Converter",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "converter",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "Converter",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 8940,
+          "matched_term": "Conversion",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 8982,
+          "matched_term": "Conversion",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 8983,
+          "matched_term": "Conversion",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 22
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "daisy",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "aria-",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "aria-",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "aria-",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "aria-",
+          "path": "ui/menu.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "aria-",
+          "path": "ui/menu.js",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "aria-",
+          "path": "ui/tree.js",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "aria-",
+          "path": "ui/tree.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "aria-",
+          "path": "ui/tree.js",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "ACCESSIBILITY",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 4727,
+          "matched_term": "aria-",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 5188,
+          "matched_term": "accessibility",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 77
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/cmaps/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/cmaps/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/cmaps/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_FOXIT",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_FOXIT",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_FOXIT",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "redis",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 7
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 7367,
+          "matched_term": "CHECKSUM",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 7369,
+          "matched_term": "checksum",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 7369,
+          "matched_term": "CHECKSUM",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "duplicate",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "duplicate",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 13
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 294,
+          "matched_term": "StarDict",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 297,
+          "matched_term": "StarDict",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "StarDict",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 166,
+          "matched_term": "StarDict",
+          "path": "dict.js",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "StarDict",
+          "path": "dict.js",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "StarDict",
+          "path": "dict.js",
+          "role": "source"
+        },
+        {
+          "line": 281,
+          "matched_term": "dictionary",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 286,
+          "matched_term": "dictionary",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "dictionary",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "stardict",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "vendor/fflate.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "vendor/fflate.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "vendor/fflate.js",
+          "role": "source"
+        },
+        {
+          "line": 2864,
+          "matched_term": "translation",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 2865,
+          "matched_term": "translation",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 3022,
+          "matched_term": "translation",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5,
+        "source": 54
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 128,
+          "matched_term": "range request",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13358,
+          "matched_term": "Accept-Ranges",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 13622,
+          "matched_term": "Content-Range",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 13626,
+          "matched_term": "Content-Range",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "local files",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 103,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": "comic-book.js",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "isbn",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "isbn",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "Metadata",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "metadata",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "isbn",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 618,
+          "matched_term": "Metadata",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 778,
+          "matched_term": "metadata",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "metadata",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": "metadata",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "metadata",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "metadata",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "Metadata",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "metadata",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "metadata",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "metadata",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 206,
+          "matched_term": "metadata",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 9301,
+          "matched_term": "Metadata",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 9330,
+          "matched_term": "Metadata",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 9331,
+          "matched_term": "Metadata",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "metadata",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "metadata",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 83,
+        "test": 4
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "authentication",
+          "path": "vendor/zip.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 372,
+          "matched_term": "ftp",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10423,
+          "matched_term": "s3",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10426,
+          "matched_term": "s3",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 7
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 322,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 324,
+          "matched_term": "opds",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 324,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "opds",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "application/atom+xml",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "opds",
+          "path": "package.json",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 13,
+        "source": 16
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 337,
+          "matched_term": "OpenSearch",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 337,
+          "matched_term": "OpenSearch",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 337,
+          "matched_term": "OpenSearch",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 248,
+          "matched_term": "OpenSearch",
+          "path": "opds.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "PDF.js",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "fixed-layout",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "fixed layout",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 927,
+          "matched_term": "fixed-layout",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 1049,
+          "matched_term": "reflow",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1024,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1026,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdfjs",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDFJS",
+          "path": "rollup.config.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdfjs",
+          "path": "rollup.config.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdfjs",
+          "path": "rollup.config.js",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "pdfjs",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "pdfjs",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "pdfjs",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "pdf.js",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "pdf.js",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 255,
+          "matched_term": "fixed-layout",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 14,
+        "source": 116
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "permission",
+          "path": ".github/workflows/eslint.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/cmaps/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "Permission",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 14736,
+          "matched_term": "Permission",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_FOXIT",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "PERMISSION",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Permission",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 16
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 156,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "sync transform(e,t){const r=this,{password:n,strength:a,resolveReady:i,ready:o}=r;n?(await async fun",
+          "path": "vendor/zip.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 215,
+          "matched_term": "font-size",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 540,
+          "matched_term": "font-size",
+          "path": "paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "font-size",
+          "path": "quote-image.js",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "line-height",
+          "path": "quote-image.js",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "font-size",
+          "path": "quote-image.js",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "font-size",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "font-size",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "line-height",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "line-height",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "font-size",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "font-size",
+          "path": "vendor/pdfjs/annotation_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 10469,
+          "matched_term": "FONT_SIZE",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10470,
+          "matched_term": "FONT_SIZE",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 11579,
+          "matched_term": "FONT_SIZE",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "line-height",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "font size",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "font-size",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 36
+      }
+    },
+    "readium": {
+      "evidence": [
+        {
+          "line": 103,
+          "matched_term": "Readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "webpub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 212,
+          "matched_term": "webpub",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "webpub",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 249,
+          "matched_term": "webpub",
+          "path": "epub.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 6
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/workflows/eslint.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": ".github/workflows/eslint.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "HTTPS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "https",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "https",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 339,
+          "matched_term": "https",
+          "path": "epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "https",
+          "path": "fixed-layout.js",
+          "role": "source"
+        },
+        {
+          "line": 698,
+          "matched_term": "https",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "https",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 243,
+          "matched_term": "https",
+          "path": "paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "https",
+          "path": "paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "https",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Content-Security-Policy",
+          "path": "reader.html",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "https",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 59,
+          "matched_term": "https",
+          "path": "ui/tree.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "uri-template.js",
+          "role": "source"
+        },
+        {
+          "line": 371,
+          "matched_term": "https",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1371,
+          "matched_term": "https",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1374,
+          "matched_term": "https",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "https",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 29,
+        "source": 151,
+        "test": 1
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 280,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 286,
+          "matched_term": "Text-to-Speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 286,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 205,
+          "matched_term": "TTS",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": "tts",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 586,
+          "matched_term": "tts",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 586,
+          "matched_term": "tts",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 8
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-foliate-js.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1228909,
+    "scanned_text": 49,
+    "skipped_binary_or_empty": 179,
+    "skipped_large": 3,
+    "skipped_sensitive_name": 0,
+    "tracked": 231
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 9990,
+          "matched_term": "cbr",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 10021,
+          "matched_term": "cbr",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "cbz",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": ".cbz",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 1
+      }
+    },
+    "daisy": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": ".daisy",
+          "path": "epub.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": ".doc",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": ".doc",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": ".doc",
+          "path": "tts.js",
+          "role": "source"
+        },
+        {
+          "line": 585,
+          "matched_term": ".doc",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 586,
+          "matched_term": ".doc",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "EPUB ",
+          "path": "epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": ".EPUB",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "epub",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 655,
+          "matched_term": "epub",
+          "path": "paginator.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "epub",
+          "path": "reader.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "EPUB ",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": "EPUB ",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "EPUB",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 21,
+        "source": 40,
+        "test": 2
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "fb2",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".fb2",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "fb2",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "fictionbook",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".fb2",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 11
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "XHTML",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "xhtml",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "XHTML",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "xhtml",
+          "path": "fb2.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "XHTML",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "xhtml",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "xhtml",
+          "path": "opds.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "XHTML",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "xhtml",
+          "path": "tests/epubcfi-tests.js",
+          "role": "test"
+        },
+        {
+          "line": 59,
+          "matched_term": ".html",
+          "path": "ui/tree.js",
+          "role": "source"
+        },
+        {
+          "line": 18886,
+          "matched_term": ".html",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 36,
+        "test": 24
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "AZW3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "PALMDOC",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "PalmDOC",
+          "path": "mobi.js",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "mobi",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "azw",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 111,
+          "matched_term": "MOBI",
+          "path": "view.js",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "mobi",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 8,
+        "source": 82
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 174,
+          "matched_term": ".OPF",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": ".OPF",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "package document",
+          "path": "epubcfi.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 589,
+          "matched_term": "pdf",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "pdf.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdf",
+          "path": "rollup.config.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdf",
+          "path": "rollup.config.js",
+          "role": "source"
+        },
+        {
+          "line": 1172,
+          "matched_term": "PDF",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1173,
+          "matched_term": ".PDF",
+          "path": "vendor/pdfjs/pdf.mjs",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "pdf",
+          "path": "vendor/pdfjs/text_layer_builder.css",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "pdf",
+          "path": "view.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 47
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 1073,
+          "matched_term": ".txt",
+          "path": "epub.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 103,
+          "matched_term": "webpub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "webpub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 212,
+          "matched_term": "webpub",
+          "path": "epub.js",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "webpub",
+          "path": "epub.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 6
+      }
+    }
+  },
+  "inventory_url": "https://github.com/johnfactotum/foliate-js",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 2,
+    "HTML": 2,
+    "JavaScript": 30
+  },
+  "license_review": {
+    "candidate_notices": [
+      "BSD-2-Clause",
+      "BSD-3-Clause",
+      "MIT",
+      "OFL-1.1"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "vendor/pdfjs/cmaps/LICENSE",
+      "vendor/pdfjs/standard_fonts/LICENSE_FOXIT",
+      "vendor/pdfjs/standard_fonts/LICENSE_LIBERATION"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/johnfactotum/foliate-js",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "78914aef4466eb960965702401634c2cb348e9b1",
+  "schema_version": 1,
+  "slug": "foliate-js",
+  "support_claims_allowed": false,
+  "tree": "72c695f2511bcfc0e3dc37385b81daa5f6fe6930"
+}

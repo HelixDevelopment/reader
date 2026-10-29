@@ -1,0 +1,6690 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "components/ble_page_turner/include/ble_page_turner.h",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "rag",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "components/continuous_du/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "components/continuous_du/include/continuous_du.h",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "components/cst836u/include/cst836u.h",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/include/e0470_epaper_waveform.h",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/include/e0470_waveform_trim.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/waveforms/du.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/waveforms/gc16.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/waveforms/gl16.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/waveforms/gray8_gc16.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/e0470_epaper_waveform/waveforms/gray8_gl16.h",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "components/e0470_page_turn/include/e0470_page_turn.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/include/epd_lcd.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/include/epd_waveform.h",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/epd_board.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/epd_display.h",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/epd_highlevel.h",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/epdiy.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_common/line_queue.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_common/lut.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_common/render_context.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_common/render_method.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_common/white_border.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_lcd/epdiy_idf6_compat.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/output_lcd/render_lcd.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/epdiy/src/render.h",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "components/espressif__esp_tinyusb/CMakeLists.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 108,
+        "source": 2858,
+        "test": 210
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 114,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "highlight",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "annotation",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "annotation",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 236,
+          "matched_term": "cFi",
+          "path": "components/jpegdec/src/JPEGDEC.h",
+          "role": "source"
+        },
+        {
+          "line": 1349,
+          "matched_term": "cFi",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 1384,
+          "matched_term": "cFi",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 1553,
+          "matched_term": "cFi",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "bookmark",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 203,
+          "matched_term": "highlight",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 208,
+          "matched_term": "Bookmark",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1139,
+          "matched_term": "bookmark",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "bookmark",
+          "path": "flash/assets/manual-search.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1043,
+          "matched_term": "bookmark",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "bookmark",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "flash/simulator/guides.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "flash/simulator/guides.js",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "bookmark",
+          "path": "flash/simulator/guides.json",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "bookmark",
+          "path": "flash/simulator/guides.json",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "highlight",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "flash/vendor/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "annotation",
+          "path": "flash/vendor/metalio/ESPTOOL-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CFi",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CFi",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CFi",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cFI",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "highlight",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "highlight",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "highlight",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "highlight",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "highlight",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "annotation",
+          "path": "licenses/Apache-2.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "bookmark",
+          "path": "main/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "BOOKMARK",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "BOOKMARK",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "BOOKMARK",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "bookmark",
+          "path": "main/apps/app_device_settings.c",
+          "role": "source"
+        },
+        {
+          "line": 411,
+          "matched_term": "bookmark",
+          "path": "main/apps/app_device_settings.c",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "bookmark",
+          "path": "main/apps/app_device_settings.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 17,
+        "source": 370,
+        "test": 61
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "snapshot",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "backup",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "backup",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "restore",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "backup",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Restore",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 136,
+          "matched_term": "backup",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "snapshot",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "restore",
+          "path": "components/e0470_epaper_waveform/include/e0470_epaper_waveform.h",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Restore",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_console.h",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "BACKUP",
+          "path": "components/espressif__esp_tinyusb/include_private/mtp/tinyusb_mtp_types.h",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/include_private/mtp/tinyusb_mtp_types.h",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/include_private/tinyusb_usb_wakeup.h",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Restore",
+          "path": "components/espressif__esp_tinyusb/include_private/tinyusb_usb_wakeup.h",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/include_private/tinyusb_usb_wakeup.h",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "BACKUP",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_codec.c",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "BACKUP",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_codec.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_write.c",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "backup",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_write.c",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "BACKUP",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_write.c",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "snapshot",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "snapshot",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "snapshot",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.c",
+          "role": "test"
+        },
+        {
+          "line": 156,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.c",
+          "role": "test"
+        },
+        {
+          "line": 331,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.c",
+          "role": "test"
+        },
+        {
+          "line": 271,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_device_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "Restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_console.c",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_console.c",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_console.c",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "Restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_usb_wakeup.c",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_usb_wakeup.c",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "restore",
+          "path": "components/espressif__esp_tinyusb/tinyusb_usb_wakeup.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 69,
+        "source": 938,
+        "test": 570
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "Bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 98,
+          "matched_term": "Bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "series",
+          "path": "components/e0470_epaper_waveform/e0470_epaper_waveform.c",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 699,
+          "matched_term": "bookshelf",
+          "path": "main/app/app_loop.c",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "collection",
+          "path": "main/assets/OFL-Noto.txt",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "collection",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "collection",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "series",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "shelves",
+          "path": "main/ui/ui_kit.h",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "bookshelf",
+          "path": "tools/run_book_management_tests.sh",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": "bookshelf",
+          "path": "tools/simulator/src/PicoSimulator.swift",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "Series",
+          "path": "tools/simulator/web/vendor/zlib/zconf.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 30,
+        "test": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "cb7",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "cb7",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBR",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "CBT",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cBR",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32-BLbsWvxO.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cBZ",
+          "path": "flash/vendor/web/stub_flasher_32-BLbsWvxO.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32c2-wLQhZItC.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32c2-wLQhZItC.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32c3-DmSvHQKL.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32c3-DmSvHQKL.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cBR",
+          "path": "flash/vendor/web/stub_flasher_32c5-D1WK4DyB.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cBR",
+          "path": "flash/vendor/web/stub_flasher_32c5-D1WK4DyB.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32c61-DeKkw9vN.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32p4-CpHBYEwI.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cBR",
+          "path": "flash/vendor/web/stub_flasher_32p4rc1-DyGqUAeZ.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "flash/vendor/web/stub_flasher_32p4rc1-DyGqUAeZ.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32s2-CrsP1231.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32s2-CrsP1231.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32s3-CiJyd6Fk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CB7",
+          "path": "flash/vendor/web/stub_flasher_32s3-CiJyd6Fk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBz",
+          "path": "flash/vendor/web/stub_flasher_32s3-CiJyd6Fk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cbZ",
+          "path": "flash/vendor/web/stub_flasher_8266-CQFcqJ_a.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "flash/vendor/web/stub_flasher_8266-CQFcqJ_a.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CbR",
+          "path": "flash/vendor/web/stub_flasher_8266-CQFcqJ_a.js",
+          "role": "source"
+        },
+        {
+          "line": 2930,
+          "matched_term": "right to left",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 5278,
+          "matched_term": "right to left",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 2197,
+          "matched_term": "comic",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 638,
+          "matched_term": "right to left",
+          "path": "main/book/book_layout.c",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "right to left",
+          "path": "main/book/book_layout.h",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "right-to-left",
+          "path": "main/book/book_reader_input.h",
+          "role": "source"
+        },
+        {
+          "line": 321,
+          "matched_term": "cb7",
+          "path": "main/book/gbk_table.h",
+          "role": "source"
+        },
+        {
+          "line": 704,
+          "matched_term": "cb7",
+          "path": "main/book/gbk_table.h",
+          "role": "source"
+        },
+        {
+          "line": 1055,
+          "matched_term": "cb7",
+          "path": "main/book/gbk_table.h",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "right to left",
+          "path": "main/settings.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 131,
+        "test": 4
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "Cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "cache",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "Cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "cache",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": "components/epdiy/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "cache",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "cache",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/hacks.cmake",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/hacks.cmake",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "CACHE",
+          "path": "components/epdiy/src/hacks.cmake",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/render_lcd.c",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/render_lcd.c",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/output_lcd/render_lcd.c",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "cache",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/Kconfig",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/Kconfig",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Cache",
+          "path": "components/espressif__esp_tinyusb/include/tusb_config.h",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "Cache",
+          "path": "components/espressif__esp_tinyusb/include/tusb_config.h",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/include/tusb_config.h",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_object_store.c",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_object_store.c",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_object_store.c",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 323,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 820,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.h",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "Cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.h",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/tinyusb_mtp_test.h",
+          "role": "test"
+        },
+        {
+          "line": 319,
+          "matched_term": "cache",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 57,
+        "source": 1399,
+        "test": 372
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 100,
+          "matched_term": "EPUB 书架、目录、字号与逐书进度与 TF 阅读背景。/ TXT",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB と TXT",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB and TXT",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB、TXT",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/lut.S",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/render_context.c",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/render_context.h",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_common/render_context.h",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/output_lcd/render_lcd.c",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "conversion",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/include/vfs_tinyusb.h",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/include/vfs_tinyusb.h",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/include/vfs_tinyusb.h",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_codec.c",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/vfs_tinyusb.c",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "conversion",
+          "path": "components/espressif__esp_tinyusb/vfs_tinyusb.c",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "conversion",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "conversion",
+          "path": "components/jpegdec/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 98,
+          "matched_term": "conversion",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "conversion",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 3639,
+          "matched_term": "conversion",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "epub\") || !strcasecmp(ext, \".txt",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 1605,
+          "matched_term": "epub\") || !strcasecmp(ext, \".txt",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "EPUB、TXT → books。同名文件会先询问。</p><input type=\"file\" accept=\".epub,.txt",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "epub|txt",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "EPUB 或 TXT",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 221,
+          "matched_term": "EPUB / TXT",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 253,
+          "matched_term": "EPUB、TXT",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "EPUB / TXT",
+          "path": "docs/user-manual.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "EPUB / TXT",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "EPUB、TXT",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB 或 TXT 文件放入 books，保留原扩展名。不要只复制解压后的 EPUB 文件夹。</li><li>把 TTF 字体放入 fonts，图片放入 pictures。文件夹可用小写英文，便于",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "EPUB 或 TXT",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "EPUB / TXT",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 16,
+        "source": 152,
+        "test": 7
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "screen reader",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "screen reader",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "aria-",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "aria-",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "aria-",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "aria-",
+          "path": "flash/assets/manual-helper.js",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "aria-",
+          "path": "flash/assets/manual-helper.js",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "aria-",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "aria-",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "aria-",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "aria-",
+          "path": "flash/manual/manual.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "aria-",
+          "path": "flash/manual/manual.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "aria-",
+          "path": "flash/manual/manual.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "aria-",
+          "path": "flash/metalio-installer.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "aria-",
+          "path": "flash/metalio-installer.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "aria-",
+          "path": "flash/metalio-installer.js",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "aria-",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "aria-",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "aria-",
+          "path": "flash/simulator/index.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "aria-",
+          "path": "flash/simulator/index.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "aria-",
+          "path": "flash/simulator/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "flash/simulator/simulator.css",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "aria-",
+          "path": "flash/simulator/simulator.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "aria-",
+          "path": "flash/simulator/simulator.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "aria-",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "aria-",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "aria-",
+          "path": "flash/site.js",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "aria-",
+          "path": "flash/site.js",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "aria-",
+          "path": "flash/site.js",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "aria-",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "aria-",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "aria-",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 234
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "redis",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "Redis",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "redis",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 166,
+          "matched_term": "redis",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "Redis",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 152,
+          "matched_term": "redis",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 167,
+          "matched_term": "redis",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "redis",
+          "path": "flash/simulator/NOTICE.txt",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "Redis",
+          "path": "flash/vendor/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "redis",
+          "path": "flash/vendor/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "redis",
+          "path": "flash/vendor/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "Redis",
+          "path": "flash/vendor/metalio/ESPTOOL-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "redis",
+          "path": "flash/vendor/metalio/ESPTOOL-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "redis",
+          "path": "flash/vendor/metalio/ESPTOOL-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": "redis",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "redis",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 241,
+          "matched_term": "redis",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Redis",
+          "path": "licenses/Apache-2.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "redis",
+          "path": "licenses/Apache-2.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "redis",
+          "path": "licenses/Apache-2.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "redis",
+          "path": "licenses/kiikoread-Personal-Study-1.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "redis",
+          "path": "main/assets/OFL-Noto.txt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "redis",
+          "path": "main/assets/OFL-Noto.txt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "redis",
+          "path": "main/assets/OFL-Noto.txt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "redis",
+          "path": "tools/simulator/web/NOTICE.txt",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "tools/simulator/web/vendor/zlib/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "redis",
+          "path": "tools/simulator/web/vendor/zlib/zlib.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 25
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "SHA-256",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "SHA-256",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "checksum",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "duplicate",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "SHA256",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "checksum",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 601,
+          "matched_term": "duplicate",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 638,
+          "matched_term": "Dedup",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 677,
+          "matched_term": "duplicate",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "duplicate",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sha256",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "SHA-256",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "sha256",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "SHA-256",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "SHA-256",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "duplicate",
+          "path": "components/read_pico_transfer/transfer_policy.h",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "SHA-256",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": "SHA-256",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 156,
+          "matched_term": "SHA-256",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 462,
+          "matched_term": "duplicate",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "SHA-256",
+          "path": "docs/OTA_MAINTENANCE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "SHA-256",
+          "path": "docs/WEBSITE-MANUAL.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1851,
+          "matched_term": "SHA-256",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "SHA-256",
+          "path": "flash/flasher-integrity.js",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "sha256",
+          "path": "flash/flasher-integrity.js",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "sha256",
+          "path": "flash/flasher-integrity.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "sha256",
+          "path": "flash/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "sha256",
+          "path": "flash/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "sha256",
+          "path": "flash/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "SHA-256",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1717,
+          "matched_term": "SHA-256",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "SHA256",
+          "path": "flash/metalio-native-stub.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "SHA-256",
+          "path": "flash/metalio-native-stub.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "SHA256",
+          "path": "flash/metalio-native-stub.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "sha256",
+          "path": "flash/metalio-s31-update.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "SHA-256",
+          "path": "flash/metalio/index.html",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "sha256",
+          "path": "flash/metalio/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "sha256",
+          "path": "flash/metalio/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "sha256",
+          "path": "flash/metalio/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "flash/metalio/release-assets.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 25,
+        "source": 554,
+        "test": 67
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "DOCKER",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "DOCKER",
+          "path": ".devcontainer/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Docker",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Docker",
+          "path": ".devcontainer/devcontainer.json",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "readiness",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Docker",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Docker",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "Docker",
+          "path": "components/espressif__esp_tinyusb/test_apps/vendor/pytest_vendor.py",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "readiness",
+          "path": "components/read_pico/read_pico_sd.c",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "docker",
+          "path": "docs/HANDOFF.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "docker",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "DOCKER",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "docker",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "readiness",
+          "path": "main/apps/app_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "readiness",
+          "path": "tools/book_layout_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 116,
+          "matched_term": "readiness",
+          "path": "tools/lock_feedback_host_test.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 76,
+        "source": 8,
+        "test": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": ".github/ISSUE_TEMPLATE/documentation.md",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "translation",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 27,
+          "matched_term": "translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "dictionary",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "translation",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "translation",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "anki",
+          "path": "components/read_pico/include/read_pico_epd_timing.h",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "anki",
+          "path": "components/read_pico/include/read_pico_epd_timing.h",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "anki",
+          "path": "components/read_pico/read_pico_epd_timing.c",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "anki",
+          "path": "components/read_pico/read_pico_epd_timing.c",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "anki",
+          "path": "components/read_pico/read_pico_init.c",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "dictionary",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "Dictionary",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "dictionary",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "dictionary",
+          "path": "components/read_pico_search/read_pico_search.c",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "dictionary",
+          "path": "components/read_pico_search/search_candidates.h",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "anki",
+          "path": "flash/assets/manual-helper.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "translation",
+          "path": "flash/installer-bridge.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "translation",
+          "path": "flash/installer-bridge.js",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "translation",
+          "path": "flash/installer-bridge.js",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "translation",
+          "path": "flash/vendor/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "translation",
+          "path": "flash/vendor/metalio/ESPTOOL-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "dictionary",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Dictionary",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "dictionary",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "dictionary",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Dictionary",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "dictionary",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "translation",
+          "path": "licenses/Apache-2.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "translation",
+          "path": "licenses/kiikoread-Personal-Study-1.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 243,
+          "matched_term": "anki",
+          "path": "main/book/book_lock_collage.c",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "anki",
+          "path": "main/display.h",
+          "role": "source"
+        },
+        {
+          "line": 936,
+          "matched_term": "translation",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 937,
+          "matched_term": "translation",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "dictionary",
+          "path": "main/font/ui_hanzi_scale.h",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "dictionary",
+          "path": "main/ui/ui_ime.c",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "tools/flasher_locale_host_test.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 8,
+        "source": 181,
+        "test": 2
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 176,
+          "matched_term": "Quic",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 481,
+          "matched_term": "quic",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Quic",
+          "path": "components/cst836u/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "quic",
+          "path": "components/epdiy/src/epdiy.h",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "quic",
+          "path": "components/epdiy/src/epdiy.h",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "quic",
+          "path": "components/epdiy/src/output_common/render_context.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "quic",
+          "path": "components/epdiy/src/output_common/render_context.h",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Quic",
+          "path": "components/fca9555/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2696,
+          "matched_term": "quic",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/llms-full_en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/llms-full_en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/llms-full_zh_cn.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/llms-full_zh_cn.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_en.h",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_en.h",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_en.h",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_zh_cn.h",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_zh_cn.h",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_zh_cn.h",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_registers_en.json",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/docs/pmu_registers_zh_cn.json",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/include/read_pico_pmu.h",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/include/read_pico_pmu.h",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/include/read_pico_pmu.h",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/include/read_pico_pmu_protocol.h",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/include/read_pico_pmu_protocol.h",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "QUIC",
+          "path": "components/read_pico_pmu/include/read_pico_pmu_protocol.h",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/read_pico_pmu.c",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/read_pico_pmu.c",
+          "role": "source"
+        },
+        {
+          "line": 629,
+          "matched_term": "quic",
+          "path": "components/read_pico_pmu/read_pico_pmu.c",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Quic",
+          "path": "components/sc7a20h/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "quic",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 185,
+          "matched_term": "quic",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 185,
+          "matched_term": "Quic",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "quic",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 25,
+        "source": 419,
+        "test": 137
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 1988,
+          "matched_term": "DRM",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "DRM",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1847,
+          "matched_term": "DRM",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "license document",
+          "path": "flash/vendor/metalio/SPARK-MD5-LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "DRM",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "DRM",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "DRM",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "LcPA",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "DrM",
+          "path": "flash/vendor/web/stub_flasher_32c2-wLQhZItC.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "DrM",
+          "path": "flash/vendor/web/stub_flasher_32c3-DmSvHQKL.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "DrM",
+          "path": "flash/vendor/web/stub_flasher_32c6-ZuxjUVr4.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "DrM",
+          "path": "flash/vendor/web/stub_flasher_32c61-DeKkw9vN.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "DrM",
+          "path": "flash/vendor/web/stub_flasher_32h2-CZ4EIL3w.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "licenses/LGPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "license document",
+          "path": "licenses/LGPL-3.0.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 27
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 485,
+          "matched_term": "Filesystem",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 486,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_msc.h",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_msc.h",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Filesystem",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_msc.h",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_mtp.h",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "FILESYSTEM",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_operations.c",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_filesystem.c",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_filesystem.c",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_filesystem.c",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 575,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 651,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/tinyusb_msc.c",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/tinyusb_msc.c",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "filesystem",
+          "path": "components/espressif__esp_tinyusb/tinyusb_msc.c",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "filesystem",
+          "path": "components/read_pico/include/read_pico_sd.h",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "filesystem",
+          "path": "components/read_pico/include/read_pico_sd.h",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "filesystem",
+          "path": "components/read_pico/read_pico_sd.c",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "filesystem",
+          "path": "components/read_pico/read_pico_sd.c",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "filesystem",
+          "path": "components/read_pico/read_pico_sd.c",
+          "role": "source"
+        },
+        {
+          "line": 368,
+          "matched_term": "filesystem",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "in place",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "in place",
+          "path": "main/apps/app_dashboard.c",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "filesystem",
+          "path": "main/apps/app_files.c",
+          "role": "source"
+        },
+        {
+          "line": 564,
+          "matched_term": "filesystem",
+          "path": "main/apps/app_files.c",
+          "role": "source"
+        },
+        {
+          "line": 565,
+          "matched_term": "filesystem",
+          "path": "main/apps/app_files.c",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "filesystem",
+          "path": "main/book/book_file_path.h",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "in place",
+          "path": "main/ui/ui_reader_background.c",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "in-place",
+          "path": "tools/home_cover_cache_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": "in place",
+          "path": "tools/navigation_waveform_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 85,
+          "matched_term": "in place",
+          "path": "tools/reader_stability_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 164,
+          "matched_term": "filesystem",
+          "path": "tools/sd_probe_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 171,
+          "matched_term": "filesystem",
+          "path": "tools/sd_probe_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 171,
+          "matched_term": "filesystem",
+          "path": "tools/sd_probe_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 98,
+          "matched_term": "filesystem",
+          "path": "tools/settings_entry_clock_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 143,
+          "matched_term": "filesystem",
+          "path": "tools/settings_entry_clock_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 146,
+          "matched_term": "filesystem",
+          "path": "tools/settings_entry_clock_host_test.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 71,
+        "test": 10
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 64,
+          "matched_term": "metadata",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "metadata",
+          "path": "components/espressif__esp_tinyusb/mtp/tinyusb_mtp_codec.c",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "components/espressif__esp_tinyusb/tinyusb_msc.c",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Metadata",
+          "path": "components/read_pico_transfer/include/read_pico_transfer.h",
+          "role": "source"
+        },
+        {
+          "line": 1979,
+          "matched_term": "metadata",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "metadata",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "metadata",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "metadata",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 600,
+          "matched_term": "metadata",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "docs/OTA_MAINTENANCE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "docs/OTA_MAINTENANCE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "docs/OTA_MAINTENANCE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/simulator/pico-458b515a255f5a54.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/simulator/pico-458b515a255f5a54.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "fetchPromise;var fetched=Module[\"getPreloadedPackage\"]&&Module[\"getPreloadedPackage\"](REMOTE_PACKAGE",
+          "path": "flash/simulator/pico-458b515a255f5a54.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/simulator/pico.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/simulator/pico.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "fetchPromise;var fetched=Module[\"getPreloadedPackage\"]&&Module[\"getPreloadedPackage\"](REMOTE_PACKAGE",
+          "path": "flash/simulator/pico.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 2050,
+          "matched_term": "metadata",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 4730,
+          "matched_term": "metadata",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 4787,
+          "matched_term": "metadata",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "metadata",
+          "path": "main/apps/app_dashboard.c",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "metadata",
+          "path": "main/apps/app_dashboard.c",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "metadata",
+          "path": "main/apps/app_dashboard.c",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "metadata",
+          "path": "main/apps/file_tree.c",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "metadata",
+          "path": "main/assets/OFL-Noto.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 1115,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.h",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.h",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "metadata",
+          "path": "main/book/book_epub.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 11,
+        "source": 75,
+        "test": 14
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 434,
+          "matched_term": "dry-run",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata){if(typeof window===\"object\")window[\"encodeURIComponent\"](window.location.pathname.substrin",
+          "path": "flash/simulator/pico-458b515a255f5a54.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata){if(typeof window===\"object\")window[\"encodeURIComponent\"](window.location.pathname.substrin",
+          "path": "flash/simulator/pico.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "metadata??(Symbol.metadata=Symbol(\"metadata\")),v.litPropertyMetadata??(v.litPropertyMetadata=new Wea",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "lock: read the metadata",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "metadata cache only; the lock",
+          "path": "main/book/book_epub.h",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Metadata-only preview",
+          "path": "main/ui/ui_home_clock.h",
+          "role": "source"
+        },
+        {
+          "line": 446,
+          "matched_term": "locks, not just CSS metadata",
+          "path": "tools/book_layout_host_test.c",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6,
+        "test": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 1546,
+          "matched_term": "authentication",
+          "path": "components/ble_page_turner/src/ble_page_turner.c",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "authentication",
+          "path": "components/read_pico_transfer/include/read_pico_transfer_network.h",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "authentication",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "oauth",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 548,
+          "matched_term": "oauth",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "JwT",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Jwt",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "JwT",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "JWT",
+          "path": "flash/vendor/web/stub_flasher_32c6-ZuxjUVr4.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Jwt",
+          "path": "flash/vendor/web/stub_flasher_32c6-ZuxjUVr4.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "JWT",
+          "path": "flash/vendor/web/stub_flasher_32c61-DeKkw9vN.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Jwt",
+          "path": "flash/vendor/web/stub_flasher_32c61-DeKkw9vN.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "JWT",
+          "path": "flash/vendor/web/stub_flasher_32h2-CZ4EIL3w.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Jwt",
+          "path": "flash/vendor/web/stub_flasher_32h2-CZ4EIL3w.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "JWt",
+          "path": "flash/vendor/web/stub_flasher_32s2-CrsP1231.js",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "authorization",
+          "path": "licenses/LGPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "authentication",
+          "path": "main/app_main.c",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "Authentication",
+          "path": "main/boot_state.c",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "authentication",
+          "path": "main/boot_state.h",
+          "role": "source"
+        },
+        {
+          "line": 696,
+          "matched_term": "authentication",
+          "path": "main/sleep.c",
+          "role": "source"
+        },
+        {
+          "line": 705,
+          "matched_term": "authentication",
+          "path": "main/sleep.c",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "authentication",
+          "path": "main/ui/ui_pinpad.h",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "authentication",
+          "path": "tools/lock_screen_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "authentication",
+          "path": "tools/pico_lock_hint_host_test.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 26,
+        "test": 2
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "S3",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "S3",
+          "path": "components/epdiy/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "S3",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "S3",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "S3",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "S3",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "S3",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/epdiy.h",
+          "role": "source"
+        },
+        {
+          "line": 541,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/epdiy.h",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 330,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/lut.c",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/lut.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/render_method.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/render_method.h",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_common/rmt_compat.c",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": "s3",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 503,
+          "matched_term": "s3",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 853,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/output_lcd/lcd_driver.c",
+          "role": "source"
+        },
+        {
+          "line": 266,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 535,
+          "matched_term": "S3",
+          "path": "components/epdiy/src/render.c",
+          "role": "source"
+        },
+        {
+          "line": 331,
+          "matched_term": "S3",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 544,
+          "matched_term": "S3",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "S3",
+          "path": "components/espressif__esp_tinyusb/include/tinyusb_default_config.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "S3",
+          "path": "components/jpegdec/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "S3",
+          "path": "components/jpegdec/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "S3",
+          "path": "components/jpegdec/FORK.md",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "S3",
+          "path": "components/jpegdec/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 230,
+          "matched_term": "S3",
+          "path": "components/jpegdec/src/JPEGDEC.h",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "S3",
+          "path": "components/jpegdec/src/JPEGDEC.h",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "S3",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 1581,
+          "matched_term": "S3",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "S3",
+          "path": "components/read_pico/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "S3",
+          "path": "components/read_pico/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "S3",
+          "path": "components/read_pico/include/read_pico_board.h",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "S3",
+          "path": "components/read_pico/include/read_pico_board.h",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "S3",
+          "path": "components/read_pico/read_pico_board.c",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "S3",
+          "path": "components/read_pico/read_pico_board.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 28,
+        "source": 73,
+        "test": 2
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "Reflow",
+          "path": ".clang-format",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "reflow",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 222,
+          "matched_term": "reflow",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "reflow",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "reflow",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "reflow",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 608,
+          "matched_term": "reflow",
+          "path": "main/sleep.c",
+          "role": "source"
+        },
+        {
+          "line": 894,
+          "matched_term": "reflow",
+          "path": "tools/book_layout_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 263,
+          "matched_term": "reflow",
+          "path": "tools/book_ui_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 263,
+          "matched_term": "reflow",
+          "path": "tools/book_ui_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 264,
+          "matched_term": "reflow",
+          "path": "tools/book_ui_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 100,
+          "matched_term": "reflow",
+          "path": "tools/lock_style_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "reflow",
+          "path": "tools/reader_fullscreen_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "reflow",
+          "path": "tools/reader_fullscreen_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "reflow",
+          "path": "tools/reader_fullscreen_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 173,
+          "matched_term": "reflow",
+          "path": "tools/reader_images_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 173,
+          "matched_term": "reflow",
+          "path": "tools/reader_images_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 196,
+          "matched_term": "reflow",
+          "path": "tools/reader_images_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "reflow",
+          "path": "tools/reader_indent_hold_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": "reflow",
+          "path": "tools/reader_indent_hold_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 80,
+          "matched_term": "reflow",
+          "path": "tools/reader_indent_hold_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "reflow",
+          "path": "tools/reader_spacing_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 148,
+          "matched_term": "reflow",
+          "path": "tools/reader_spacing_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 148,
+          "matched_term": "reflow",
+          "path": "tools/reader_spacing_host_test.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 9,
+        "test": 64
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": "permission",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 188,
+          "matched_term": "permission",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "permission",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "Library collage**. Real covers keep their source aspect ratios, rounded corners and a share",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/continuous_du/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/cst836u/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/e0470_epaper_waveform/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 139,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 152,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Permission",
+          "path": "components/espressif__esp_tinyusb/include/tusb_config.h",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/include/tusb_config.h",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/vendor/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": "components/espressif__esp_tinyusb/test_apps/vendor/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/fca9555/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "permission",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 140,
+          "matched_term": "permission",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 153,
+          "matched_term": "permission",
+          "path": "components/jpegdec/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "library. Over the years I added support for more and more formats until I had supported all of the s",
+          "path": "components/jpegdec/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "permission",
+          "path": "components/jpegdec/src/JPEGDEC.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "components/jpegdec/src/JPEGDEC.h",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "permission",
+          "path": "components/jpegdec/src/jpeg.inl",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "permission",
+          "path": "components/pwm_audio/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/read_pico/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": "components/read_pico_pmu/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/llms-full_en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/llms-full_zh_cn.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_en.h",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/pmu_protocol_zh_cn.h",
+          "role": "documentation"
+        },
+        {
+          "line": 424,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/pmu_registers_en.json",
+          "role": "documentation"
+        },
+        {
+          "line": 424,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/docs/pmu_registers_zh_cn.json",
+          "role": "documentation"
+        },
+        {
+          "line": 188,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/include/read_pico_pmu_protocol.h",
+          "role": "source"
+        },
+        {
+          "line": 886,
+          "matched_term": "PERMISSION",
+          "path": "components/read_pico_pmu/read_pico_pmu.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 52,
+        "source": 121,
+        "test": 5
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 126,
+          "matched_term": "reading progress",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 171,
+          "matched_term": "reading progress",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "sync function readS31Flash(loader,address,size,onProgress",
+          "path": "flash/metalio-flash-reader.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "SYNC_FLUSH:2,Z_FULL_FLUSH:3,Z_FINISH:4,Z_BLOCK:5,Z_TREES:6,Z_OK:0,Z_STREAM_END:1,Z_NEED_DICT:2,Z_ERR",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "SYNC_FLUSH:2,Z_FULL_FLUSH:3,Z_FINISH:4,Z_BLOCK:5,Z_TREES:6,Z_OK:0,Z_STREAM_END:1,Z_NEED_DICT:2,Z_STR",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 528,
+          "matched_term": "sync initialize(e=1e3){if(this.logger.log(\"Initializing Improv Serial\"),this._processInput(),void 0=",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 886,
+          "matched_term": "syncScanning(){const e=\"PROVISION\"===this._state&&!this._busy&&this._showsProvisionForm;e!==!!this._",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "reading progress",
+          "path": "main/book/book_progress.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 102,
+          "matched_term": "Typography",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "font size",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "typography",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "font-size",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "line-height",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "font-size",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "typography",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 654,
+          "matched_term": "font size",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1168,
+          "matched_term": "typography",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "font-size",
+          "path": "flash/assets/manual-helper.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "font-size",
+          "path": "flash/assets/manual-helper.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "line-height",
+          "path": "flash/assets/manual-helper.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "theme",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "typography",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "font-size",
+          "path": "flash/manual/manual.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "font-size",
+          "path": "flash/manual/manual.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "line-height",
+          "path": "flash/manual/manual.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "line-height",
+          "path": "flash/metalio/index.html",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "font-size",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "font-size",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "font-size",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "font-size",
+          "path": "flash/notices.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "flash/simulator/simulator.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "flash/simulator/simulator.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "flash/simulator/simulator.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "line-height",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "font-size",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "line-height",
+          "path": "flash/site.css",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "font-size",
+          "path": "flash/vendor/web/install-button.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "font-size",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "line-height",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "line-height",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "line-height",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "line-height",
+          "path": "flash/vendor/web/styles-sT2V1cOw.js",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "typography",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "font_size",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        },
+        {
+          "line": 1827,
+          "matched_term": "font_size",
+          "path": "main/apps/app_book.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 628,
+        "test": 51
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "credential",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "credential",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "tls",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 66,
+          "matched_term": "tls",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "HTTPS",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "HTTPS",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "HTTPS",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "credential",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "credential",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/continuous_du/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "components/continuous_du/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "components/continuous_du/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/cst836u/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "components/cst836u/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "components/cst836u/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/e0470_epaper_waveform/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "components/e0470_epaper_waveform/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "components/e0470_epaper_waveform/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/epdiy/idf_component.yml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 131,
+        "source": 434,
+        "test": 92
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "benchmark",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc.py",
+          "role": "source"
+        },
+        {
+          "line": 342,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 345,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 346,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/cdc/pytest_cdc_throughput.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/dconn_detection/pytest_dconn_detection.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/dconn_detection/pytest_dconn_detection.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/dconn_detection/pytest_dconn_detection.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/pytest_msc_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/pytest_msc_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/pytest_msc_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/common_pm.h",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_device_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_device_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_device_pm.c",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_esp_pm_integration.c",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/main/test_esp_pm_integration.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_remote_wake.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_remote_wake.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_remote_wake.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_usb_pm.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_usb_pm.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "pytest",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/pytest_usb_pm.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 20,
+        "source": 247,
+        "test": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-read-pico-reader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 13068906,
+    "scanned_text": 1206,
+    "skipped_binary_or_empty": 97,
+    "skipped_large": 16,
+    "skipped_sensitive_name": 1,
+    "tracked": 1320
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": ".daisy",
+          "path": "tools/gen_book_fixtures.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": ".daisy",
+          "path": "tools/simulator/web/build.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": ".doc",
+          "path": "tools/simulator/web/vendor/zlib/trees.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 100,
+          "matched_term": "EPUB ",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "EPUB ",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB ",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "EPUB ",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 98,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "EPUB ",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "EPUB ",
+          "path": "components/ble_page_turner/include/ble_page_turner.h",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "EPUB",
+          "path": "components/ble_page_turner/include/ble_page_turner.h",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".epub",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".epub",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB ",
+          "path": "components/read_pico_search/include/read_pico_search.h",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "components/read_pico_search/include/read_pico_search.h",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": ".epub",
+          "path": "components/read_pico_search/read_pico_search.c",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB",
+          "path": "components/read_pico_transfer/include/read_pico_transfer.h",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "EPUB ",
+          "path": "components/read_pico_transfer/include/read_pico_transfer.h",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": ".epub",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": ".epub",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "EPUB",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".epub",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "EPUB ",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "EPUB ",
+          "path": "docs/RELEASE_NOTES_0.3.3-rc68.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "EPUB ",
+          "path": "docs/RELEASE_NOTES_0.3.3-rc68.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "EPUB",
+          "path": "docs/RELEASE_NOTES_0.3.3-rc69.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "docs/RELEASE_NOTES_0.3.3-rc69.md",
+          "role": "documentation"
+        },
+        {
+          "line": 207,
+          "matched_term": "EPUB ",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 207,
+          "matched_term": "EPUB ",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "EPUB",
+          "path": "docs/user-manual.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 190,
+          "matched_term": "EPUB ",
+          "path": "docs/user-manual.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "epub",
+          "path": "flash/assets/manual-search.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "EPUB",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "EPUB",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "EPUB ",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "EPUB ",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "epub",
+          "path": "flash/simulator/guides.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "epub",
+          "path": "flash/simulator/guides.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 98,
+        "source": 234,
+        "test": 138
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "XHTML",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "XHTML",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": ".html",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 307,
+          "matched_term": ".html",
+          "path": "components/espressif__esp_tinyusb/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "components/espressif__esp_tinyusb/idf_component.yml",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": ".html",
+          "path": "components/espressif__esp_tinyusb/test_apps/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "components/read_pico_transfer/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 546,
+          "matched_term": "XHTML",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": ".html",
+          "path": "docs/OTA_MAINTENANCE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "docs/WEBSITE-MANUAL.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".html",
+          "path": "flash/_headers",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".html",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".html",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "flash/notices.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "flash/simulator/NOTICE.txt",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": ".html",
+          "path": "flash/vendor/web/index-Dt9w-IG1.js",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".html",
+          "path": "flash/vendor/web/index-Dt9w-IG1.js",
+          "role": "source"
+        },
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "licenses/GPL-3.0.txt",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "XHTML",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 668,
+          "matched_term": "xhtml",
+          "path": "main/book/book_epub.c",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "XHTML",
+          "path": "main/book/html_text.h",
+          "role": "source"
+        },
+        {
+          "line": 1041,
+          "matched_term": ".html",
+          "path": "main/font/stb_truetype.h",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": ".html",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": ".html",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": ".html",
+          "path": "tools/build_user_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": ".html",
+          "path": "tools/build_user_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": ".xhtml",
+          "path": "tools/comic_image_probe_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": "xhtml",
+          "path": "tools/comic_image_probe_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "tools/flasher_locale_host_test.js",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": "xhtml",
+          "path": "tools/gen_book_fixtures.py",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": ".xhtml",
+          "path": "tools/gen_book_fixtures.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "tools/license_notices_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "tools/license_notices_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": ".html",
+          "path": "tools/manual_search_test.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 14,
+        "source": 147,
+        "test": 12
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": ".md",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": ".md",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".md",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": ".md",
+          "path": "components/e0470_epaper_waveform/e0470_epaper_waveform.c",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": ".md",
+          "path": "components/e0470_epaper_waveform/e0470_epaper_waveform.c",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 728,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": ".md",
+          "path": "components/espressif__esp_tinyusb/test_apps/vendor/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": ".md",
+          "path": "components/jpegdec/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".md",
+          "path": "components/jpegdec/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".md",
+          "path": "components/read_pico_pmu/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".md",
+          "path": "components/read_pico_pmu/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "components/read_pico_search/search_table.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "components/read_pico_search/search_table.h",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": ".md",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": ".md",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 137,
+        "source": 74,
+        "test": 3
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": ".opf",
+          "path": "tools/comic_image_probe_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": ".opf",
+          "path": "tools/comic_image_probe_host_test.py",
+          "role": "test"
+        },
+        {
+          "line": 74,
+          "matched_term": ".opf",
+          "path": "tools/gen_book_fixtures.py",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": ".opf",
+          "path": "tools/gen_book_fixtures.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".opf",
+          "path": "tools/simulator/web/build.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".opf",
+          "path": "tools/simulator/web/build.py",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".opf",
+          "path": "tools/test_book_epub.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": ".opf",
+          "path": "tools/test_book_epub.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 25,
+        "test": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".pdf",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": ".pdf",
+          "path": "components/read_pico_pmu/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": ".pdf",
+          "path": "components/read_pico_pmu/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".pdf",
+          "path": "components/read_pico_pmu/docs/llms-full_en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".pdf",
+          "path": "components/read_pico_pmu/docs/llms-full_zh_cn.md",
+          "role": "documentation"
+        },
+        {
+          "line": 322,
+          "matched_term": "PDF",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 322,
+          "matched_term": "PDF",
+          "path": "docs/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 317,
+          "matched_term": "PDF",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/WEBSITE-MANUAL.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".pdf",
+          "path": "docs/WEBSITE-MANUAL.md",
+          "role": "documentation"
+        },
+        {
+          "line": 759,
+          "matched_term": "PDF",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": ".pdf",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "PDF",
+          "path": "flash/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".pdf",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        },
+        {
+          "line": 668,
+          "matched_term": "PDF",
+          "path": "flash/manual/manual-index.json",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "PDF",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "PDF",
+          "path": "flash/new-features/index.html",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "tools/build_detailed_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "tools/build_user_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "tools/build_user_manual.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".pdf",
+          "path": "tools/simulator/web/vendor/sha256.c",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".pdf",
+          "path": "tools/simulator/web/vendor/zlib/crc32.c",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "PDF",
+          "path": "tools/stage_public_flash.py",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": ".pdf",
+          "path": "tools/transfer_host_test.c",
+          "role": "test"
+        },
+        {
+          "line": 229,
+          "matched_term": ".pdf",
+          "path": "tools/transfer_host_test.c",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 21,
+        "source": 45,
+        "test": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": ".txt",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".txt",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".txt",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": ".txt",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": ".txt",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": ".txt",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".txt",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": ".txt",
+          "path": "README.ja-JP.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".txt",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": ".txt",
+          "path": "README.zh-CN.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".txt",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "THIRD_PARTY_NOTICES.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": ".txt",
+          "path": "components/epdiy/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".txt",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": ".txt",
+          "path": "components/epdiy/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/CHECKSUMS.json",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/test_apps/msc_storage/main/test_msc_filesystem.c",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/main/test_mtp_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": ".txt",
+          "path": "components/espressif__esp_tinyusb/test_apps/mtp_storage/pytest_mtp_storage.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".txt",
+          "path": "components/jpegdec/FORK.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": ".txt",
+          "path": "components/jpegdec/FORK.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".txt",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".txt",
+          "path": "components/read_pico_search/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": ".txt",
+          "path": "components/read_pico_search/read_pico_search.c",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": ".txt",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": ".txt",
+          "path": "components/read_pico_transfer/read_pico_transfer.c",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".txt",
+          "path": "components/read_pico_transfer/upload.html",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": ".txt",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 211,
+          "matched_term": ".txt",
+          "path": "docs/ONBOARDING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 468,
+          "matched_term": ".txt",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 739,
+          "matched_term": ".txt",
+          "path": "docs/user-manual-detailed.zh-CN.json",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "flash/manual/index.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 29,
+        "source": 195,
+        "test": 127
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "lpf",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+          "role": "configuration"
+        },
+        {
+          "line": 150,
+          "matched_term": "lpf",
+          "path": "components/espressif__esp_tinyusb/Kconfig",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "LPF",
+          "path": "components/read_pico/read_pico_buzzer.c",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "LPF",
+          "path": "components/sc7a20h/include/sc7a20h.h",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "LPF",
+          "path": "components/sc7a20h/include/sc7a20h.h",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "lpf",
+          "path": "components/sc7a20h/sc7a20h.c",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "LPF",
+          "path": "components/sc7a20h/sc7a20h.c",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LPf",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LPf",
+          "path": "flash/vendor/metalio/esp32s31-esptool-5.5.0.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "lPf",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "LPf",
+          "path": "flash/vendor/metalio/esptool-js-0.7.0.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lpf",
+          "path": "flash/vendor/web/esp32c5-CeCSizBL.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lpf",
+          "path": "flash/vendor/web/esp32c61-C8HktcOt.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lpf",
+          "path": "flash/vendor/web/esp32h2-L0n5WuSo.js",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "lpf",
+          "path": "flash/vendor/web/install-dialog-im156JnI.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lpf",
+          "path": "flash/vendor/web/stub_flasher_32s3-CiJyd6Fk.js",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "LPF",
+          "path": "main/apps/app_axis.c",
+          "role": "source"
+        },
+        {
+          "line": 431,
+          "matched_term": "lpf",
+          "path": "main/apps/app_axis.c",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "LPF",
+          "path": "tools/simulator/shim/sc7a20h.h",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "LPF",
+          "path": "tools/simulator/shim/sc7a20h.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 49
+      }
+    }
+  },
+  "inventory_url": "https://github.com/wegooo-cell/read-pico-reader",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 258,
+    "C++": 2,
+    "C/C++ header": 378,
+    "CSS": 5,
+    "HTML": 9,
+    "JavaScript": 56,
+    "Objective-C": 1,
+    "Python": 133,
+    "Shell": 11,
+    "Swift": 1,
+    "TypeScript React": 10
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0",
+      "GPL-3.0",
+      "LGPL",
+      "MIT",
+      "Unlicense"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "components/continuous_du/LICENSE",
+      "components/cst836u/LICENSE",
+      "components/e0470_epaper_waveform/LICENSE",
+      "components/epdiy/LICENSE",
+      "components/espressif__esp_tinyusb/LICENSE",
+      "components/fca9555/LICENSE",
+      "components/jpegdec/LICENSE",
+      "components/pwm_audio/LICENSE",
+      "components/read_pico/LICENSE",
+      "components/read_pico_pmu/LICENSE",
+      "components/read_pico_search/LICENSE.pypinyin",
+      "components/sc7a20h/LICENSE",
+      "components/sy7636a/LICENSE",
+      "flash/notices.html",
+      "flash/simulator/NOTICE.txt",
+      "flash/vendor/LICENSE",
+      "tools/icons/lucide/LICENSE",
+      "tools/license_notices_host_test.py",
+      "tools/simulator/web/NOTICE.txt",
+      "tools/simulator/web/vendor/zlib/LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/wegooo-cell/read-pico-reader",
+  "readme_files": [
+    "README.ja-JP.md",
+    "README.md",
+    "README.zh-CN.md",
+    "components/continuous_du/README.md",
+    "components/cst836u/README.md",
+    "components/e0470_epaper_waveform/README.md",
+    "components/epdiy/README.md",
+    "components/espressif__esp_tinyusb/README.md",
+    "components/espressif__esp_tinyusb/test_apps/README.md",
+    "components/espressif__esp_tinyusb/test_apps/cdc/README.md",
+    "components/espressif__esp_tinyusb/test_apps/dconn_detection/README.md",
+    "components/espressif__esp_tinyusb/test_apps/msc_storage/README.md",
+    "components/espressif__esp_tinyusb/test_apps/mtp_storage/README.md",
+    "components/espressif__esp_tinyusb/test_apps/power_management/README.md",
+    "components/espressif__esp_tinyusb/test_apps/runtime_config/README.md",
+    "components/espressif__esp_tinyusb/test_apps/teardown_device/README.md",
+    "components/espressif__esp_tinyusb/test_apps/vendor/README.md",
+    "components/fca9555/README.md",
+    "components/jpegdec/README.md",
+    "components/pwm_audio/README.md",
+    "components/read_pico/README.md",
+    "components/read_pico_pmu/README.md",
+    "components/read_pico_search/README.md",
+    "components/sc7a20h/README.md",
+    "components/sy7636a/README.md",
+    "flash/metalio/README.txt",
+    "flash/vendor/metalio/README.txt",
+    "tools/icons/animateicons/README.md",
+    "tools/icons/lucide/README.md",
+    "tools/simulator/README.md"
+  ],
+  "revision": "2f1ef29d446b66ec1d0bf1afa39f1caa8622bbc8",
+  "schema_version": 1,
+  "slug": "read-pico-reader",
+  "support_claims_allowed": false,
+  "tree": "5c951fc5f7c7507a06d3dcd9dd1244d05ada9fc2"
+}

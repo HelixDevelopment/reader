@@ -1,0 +1,1708 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "rag",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "rag",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "RAG",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "RAG",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "RAG",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 12
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "snapshot",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "snapshot",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "snapshot",
+          "path": "misc/release/release.mk",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 2
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 213,
+          "matched_term": "Cbt",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 92,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Cache",
+          "path": "authz/expr/cache.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Cache",
+          "path": "authz/expr/cache.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "authz/expr/cache.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Cache",
+          "path": "authz/expr/rule.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Cache",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "Cache",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "cache",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "middleware/cache/file.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cache",
+          "path": "middleware/cache/file.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "cache",
+          "path": "middleware/cache/file.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "middleware/cache/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "cache",
+          "path": "middleware/cache/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "cache",
+          "path": "middleware/cache/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "middleware/cache/memory.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "middleware/cache/memory.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "middleware/cache/memory.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "middleware/cache/middleware.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "middleware/cache/store.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 55
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "sqlite",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "redis",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 635,
+          "matched_term": "redis",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "sqlite",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/file.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/file.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/file.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/init.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/init.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "sqlite",
+          "path": "filesystem/sqlite/init.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "sqlite",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 106,
+          "matched_term": "sqlite",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 296,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 302,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 5,
+        "source": 86,
+        "test": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "checksum",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "checksum",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "sha256",
+          "path": "filesystem/testsuite/large_file_write.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "sha256",
+          "path": "filesystem/testsuite/util.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "SHA-256",
+          "path": "filesystem/testsuite/util.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "sha256",
+          "path": "filesystem/testsuite/util.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "docker",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "docker",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Docker",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "docker",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "docker",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "docker",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "docker",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "docker",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "docker",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "docker",
+          "path": "litmus/testsuite.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "docker",
+          "path": "litmus/testsuite.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Docker",
+          "path": "litmus/testsuite.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": "misc/litmus/litmus.mk",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "docker",
+          "path": "misc/litmus/litmus.mk",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "source": 21
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 380,
+          "matched_term": "license document",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "license document",
+          "path": "LICENCE",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "FileSystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "FileSystem",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "FileSystem",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "FileSystem",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Filesystem",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "filesystem",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "filesystem",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "filesystem",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "filesystem",
+          "path": "example/server_example.go",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "FileSystem",
+          "path": "example/server_example.go",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "filesystem",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "filesystem",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "filesystem",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "filesystem",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "FileSystem",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "filesystem",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "FileSystem",
+          "path": "filesystem/local/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "FileSystem",
+          "path": "filesystem/local/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "filesystem",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "filesystem",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "FileSystem",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "filesystem",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "filesystem",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "filesystem",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "filesystem",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "FileSystem",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "FileSystem",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "FileSystem",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "FileSystem",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "FileSystem",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "FileSystem",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "filesystem",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "filesystem",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "FileSystem",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "filesystem",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "filesystem",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 211,
+        "test": 32
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 93,
+          "matched_term": "metadata",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "metadata",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Metadata",
+          "path": "filesystem/testsuite/file_metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "filesystem/testsuite/file_metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Metadata",
+          "path": "filesystem/testsuite/file_metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Metadata",
+          "path": "filesystem/testsuite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Metadata",
+          "path": "filesystem/testsuite/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "metadata",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 14
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 299,
+          "matched_term": "authorization",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "authorization",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "Authorization",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Authorization",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Authorization",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 130,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "s3",
+          "path": "cmd/server/config.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "s3",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "S3",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "s3",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/file_info.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "S3",
+          "path": "filesystem/s3/file_info.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "S3",
+          "path": "filesystem/s3/file_info.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "S3",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "S3",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "s3",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "s3",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "s3",
+          "path": "filesystem/s3/util.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 18,
+        "test": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 73,
+          "matched_term": "reflow",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 142,
+          "matched_term": "reflow",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "reflow",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 2
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "permission",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "permission",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "permission",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "Permission",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 257,
+          "matched_term": "Permission",
+          "path": "filesystem/sqlite/file.go",
+          "role": "source"
+        },
+        {
+          "line": 461,
+          "matched_term": "permission",
+          "path": "filesystem/sqlite/filesystem.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 23
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 646,
+          "matched_term": "https",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 661,
+          "matched_term": "https",
+          "path": "LICENCE",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 142,
+          "matched_term": "secret",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 142,
+          "matched_term": "SECRET",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "credential",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": "credential",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "credential",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Secret",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "secret",
+          "path": "filesystem/s3/init.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "https",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "https",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "https",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "misc/litmus/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "certificate",
+          "path": "misc/release/Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "certificate",
+          "path": "misc/release/Dockerfile",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 7,
+        "source": 10,
+        "test": 2
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "go test",
+          "path": ".github/workflows/check.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "benchmark",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "go test",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "go test",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 201,
+          "matched_term": "Benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 204,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Benchmark",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Benchmark",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Benchmark",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Benchmark",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "Benchmark",
+          "path": "filesystem/s3/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 25,
+          "matched_term": "Benchmark",
+          "path": "filesystem/sqlite/filesystem_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 6,
+        "test": 3
+      }
+    },
+    "webdav": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "webdav",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "webdav",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "authz/expr/cache.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "authz/expr/rule.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "webdav",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "webdav",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "webdav",
+          "path": "authz/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "webdav",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "webdav",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "webdav",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "webdav",
+          "path": "cmd/server/mdns.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "WebDAV",
+          "path": "cmd/server/mdns.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "example/server_example.go",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "webdav",
+          "path": "example/server_example.go",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "webdav",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "webdav",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "filesystem/all/init.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "webdav",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "webdav",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "webdav",
+          "path": "filesystem/bench/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "webdav",
+          "path": "filesystem/local/filesystem_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "webdav",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "webdav",
+          "path": "filesystem/local/init.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "webdav",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "webdav",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "webdav",
+          "path": "filesystem/registry.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/file.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "webdav",
+          "path": "filesystem/s3/filesystem.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 18,
+        "source": 239,
+        "test": 18
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-bornholm-go-webdav.jsonl.gz",
+  "files": {
+    "scanned_bytes": 196344,
+    "scanned_text": 76,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 76
+  },
+  "format_keyword_evidence": {
+    "txt": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": ".txt",
+          "path": ".goreleaser.yaml",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/delete_file.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/file_metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/modify_file.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/read_dir.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/read_dir.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/recursive_directory.go",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/recursive_directory.go",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/rename_directory_with_children.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/rename_directory_with_children.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/rename_file.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/rename_file.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "filesystem/testsuite/write_file.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 24
+      }
+    }
+  },
+  "inventory_url": "https://github.com/Bornholm/go-webdav",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Go": 60
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0"
+    ],
+    "notice_files": [
+      "LICENCE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/Bornholm/go-webdav",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "08cd422bee325e0ff85b76b3afcff86830711aca",
+  "schema_version": 1,
+  "slug": "bornholm-go-webdav",
+  "support_claims_allowed": false,
+  "tree": "573bda3c0d2b33548b69e919134b29772541cd76"
+}

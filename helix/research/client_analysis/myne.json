@@ -1,0 +1,2499 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "rag",
+          "path": ".github/ISSUE_TEMPLATE/--bug-report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/BookTextMapper.kt",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/library/viewmodels/LibraryViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/library/viewmodels/LibraryViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "rag",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/library/viewmodels/LibraryViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "rag",
+          "path": "app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "rag",
+          "path": "app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "fastlane/metadata/android/cs-CZ/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "fastlane/metadata/android/en-US/changelogs/19.txt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "fastlane/metadata/android/en-US/changelogs/370.txt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "fastlane/metadata/android/ro/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "rag",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 75
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "Highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "bookmark",
+          "path": "app/schemas/com.starry.myne.database.MyneDatabase/6.json",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/api/models/Author.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/api/models/Book.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/api/models/BookSet.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/api/models/Formats.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/api/models/Translator.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/MyneDatabase.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/MyneDatabase.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderBookmark.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderBookmark.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderDao.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderDao.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderDao.kt",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "Annotation",
+          "path": "app/src/main/java/com/starry/myne/epub/BookTextMapper.kt",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "cFi",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "cFi",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 298,
+          "matched_term": "cFi",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookDownloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookLanguage.kt",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "highlight",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "highlight",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceholderHighlight.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Highlight",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceholderHighlight.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "highlight",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceholderHighlight.kt",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "Highlight",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/library/composables/LibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/main/MainScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersDrawer.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersDrawer.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersDrawer.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ReaderScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ReaderScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ReaderScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderFont.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 169,
+        "test": 6
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Backup",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Backup",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "backup",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "restore",
+          "path": "app/src/main/java/com/starry/myne/helpers/ZenModeManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "restore",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "backup",
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "backup",
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "backup",
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "backup",
+          "path": "app/src/main/res/xml/data_extraction_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "restore",
+          "path": "app/src/main/res/xml/data_extraction_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "backup",
+          "path": "app/src/main/res/xml/data_extraction_rules.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 19
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "collection",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": "Collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "shelves",
+          "path": "app/src/main/java/com/starry/myne/api/models/Book.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "shelves",
+          "path": "app/src/main/java/com/starry/myne/api/models/Book.kt",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "collection",
+          "path": "app/src/main/java/com/starry/myne/helpers/Utils.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 3
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "cache",
+          "path": ".github/workflows/android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/MyneApp.kt",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/MyneApp.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/MyneApp.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/api/BookAPI.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/api/BookAPI.kt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/api/BookAPI.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/api/CacheInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "CACHE",
+          "path": "app/src/main/java/com/starry/myne/api/CacheInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/api/CacheInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/api/models/BookSet.kt",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/api/models/BookSet.kt",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "eTag",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/viewmodels/CategoryViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "cache",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/detail/viewmodels/BookDetailViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/detail/viewmodels/BookDetailViewModel.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 46
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "conversion",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "accessibility",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "accessibility",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "daisy",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 197,
+          "matched_term": "daisy",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "accessibility",
+          "path": "fastlane/metadata/android/en-US/changelogs/472.txt",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "daisy",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2,
+        "test": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 89,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 5
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/--bug-report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/--feature-request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "duplicate",
+          "path": ".github/PULL_REQUEST_TEMPLATE/general_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "duplicate",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "SHA-256",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookDownloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "duplicate",
+          "path": "fastlane/metadata/android/en-US/changelogs/430.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "translation",
+          "path": ".github/PULL_REQUEST_TEMPLATE/translations_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "Translation",
+          "path": ".github/PULL_REQUEST_TEMPLATE/translations_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "Translation",
+          "path": ".github/PULL_REQUEST_TEMPLATE/translations_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "Translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "Translation",
+          "path": "app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "DICTIONARY",
+          "path": "app/src/main/java/com/starry/myne/ui/common/MyneTextSelectionContainer.kt",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Dictionary",
+          "path": "app/src/main/java/com/starry/myne/ui/common/MyneTextSelectionContainer.kt",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "Dictionary",
+          "path": "app/src/main/java/com/starry/myne/ui/common/MyneTextSelectionContainer.kt",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "translation",
+          "path": "app/src/main/java/com/starry/myne/ui/common/ProgressDots.kt",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "Dictionary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "dictionary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "dictionary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-ar/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-bn/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-cs/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-es/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-hi/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-it/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-pl/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-pt-rBR/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-ro/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-ru/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-tr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values-zh-rCN/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "dictionary",
+          "path": "app/src/main/res/values/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "translation",
+          "path": "fastlane/metadata/android/en-US/changelogs/20.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "translation",
+          "path": "fastlane/metadata/android/en-US/changelogs/20.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "translation",
+          "path": "fastlane/metadata/android/en-US/changelogs/20.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "fastlane/metadata/android/en-US/changelogs/22.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 9,
+        "source": 62
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "fastlane/metadata/android/en-US/changelogs/390.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "fetch metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/MainViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/MainViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/composables/SettingsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/composables/SettingsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/composables/SettingsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/viewmodels/SettingsViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/viewmodels/SettingsViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "openLibrary",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/viewmodels/SettingsViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "metadata",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 148,
+          "matched_term": "metadata",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/cs-CZ/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google books",
+          "path": "fastlane/metadata/android/cs-CZ/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "metadata",
+          "path": "fastlane/metadata/android/en-US/changelogs/300.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "fastlane/metadata/android/en-US/changelogs/4.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/en-US/changelogs/450.txt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/en-US/changelogs/500.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "fetch metadata",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fetch some extra data like book summary and pages count etc, as the GutenBerg project don't include ",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/ro/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/ro/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Google Books",
+          "path": "fastlane/metadata/android/ro/full_description.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 65,
+        "test": 2
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "multi user",
+          "path": "fastlane/metadata/android/en-US/changelogs/320.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": ".github/workflows/android.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 139,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/MainViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/MyneApp.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/BookAPI.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/CacheInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/models/Author.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/models/Book.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/models/BookSet.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/models/Formats.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/api/models/Translator.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/MyneDatabase.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/library/LibraryDao.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/library/LibraryItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderBookmark.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderDao.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderProgress.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/di/MainModule.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/BookTextMapper.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubBook.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubImage.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/epub/models/ReaderItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/Extensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/NetworkObserver.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/Paginator.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/Preferencesutils.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/Utils.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "app/src/main/java/com/starry/myne/helpers/ZenModeManager.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5,
+        "source": 100,
+        "test": 3
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "reading progress",
+          "path": "app/src/main/java/com/starry/myne/database/reader/ReaderProgress.kt",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "reading progress",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 43,
+          "matched_term": "dark mode",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "theme",
+          "path": "app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/helpers/Preferencesutils.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "THEME",
+          "path": "app/src/main/java/com/starry/myne/helpers/Preferencesutils.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/helpers/Preferencesutils.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookDetailTopUI.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookDetailTopUI.kt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookDetailTopUI.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookLanguageSheeet.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookLanguageSheeet.kt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookLanguageSheeet.kt",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/NetworkError.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/NetworkError.kt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/NetworkError.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/ProgressDots.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/ProgressDots.kt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/TopAppBars.kt",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/TopAppBars.kt",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/TopAppBars.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/navigation/NavGraph.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/navigation/NavGraph.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoriesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoriesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoriesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoryDetailScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoryDetailScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/categories/composables/CategoryDetailScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/detail/composables/BookDetailScreen.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 748
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/--bug-report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": ".github/PULL_REQUEST_TEMPLATE/general_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": ".github/PULL_REQUEST_TEMPLATE/general_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": ".github/PULL_REQUEST_TEMPLATE/translations_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/api/BookAPI.kt",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/detail/composables/BookDetailScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 330,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/composables/AboutScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 258,
+          "matched_term": "https",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/settings/composables/SettingsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "app/src/main/res/raw/no_library_items_lottie.json",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cors",
+          "path": "app/src/main/res/values-it/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "app/src/main/res/xml/data_extraction_rules.xml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/cs-CZ/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/changelogs/11.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/changelogs/2.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/changelogs/3.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/changelogs/4.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/changelogs/7.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/ro/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/ru-RU/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "gradle.properties",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "gradle/gradle-daemon-jvm.properties",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 13,
+        "documentation": 62,
+        "source": 53
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-myne.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1588518,
+    "scanned_text": 250,
+    "skipped_binary_or_empty": 46,
+    "skipped_large": 3,
+    "skipped_sensitive_name": 0,
+    "tracked": 299
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 196,
+          "matched_term": ".daisy",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 197,
+          "matched_term": ".daisy",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 72,
+          "matched_term": "daisy",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "epub",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub",
+          "path": "app/src/main/java/com/starry/myne/api/models/Formats.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/di/MainModule.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/BookTextMapper.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/BookTextMapper.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParserException.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParserException.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubXMLFileParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubBook.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubBook.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubChapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubImage.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/epub/models/EpubImage.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/epub/models/ReaderItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Epub ",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "epub",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookDownloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/helpers/book/BookDownloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "epub",
+          "path": "app/src/main/java/com/starry/myne/ui/common/BookItemCard.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/library/viewmodels/LibraryViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/detail/ReaderDetailViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/detail/ReaderDetailViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "epub ",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/activities/ReaderActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/composables/ChaptersDrawer.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/com/starry/myne/ui/screens/reader/main/viewmodel/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "app/src/main/res/values-ar/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "EPUB ",
+          "path": "app/src/main/res/values-ar/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub ",
+          "path": "app/src/main/res/values-bn/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "EPUB ",
+          "path": "app/src/main/res/values-bn/strings.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 155,
+        "test": 5
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 98,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "app/proguard-rules.pro",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "xhtml",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": ".html",
+          "path": "app/src/main/java/com/starry/myne/ui/common/placeholder/PlaceHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": ".xhtml",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 151,
+          "matched_term": "xhtml",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "gradle.properties",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".html",
+          "path": "gradle.properties",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 5,
+        "test": 10
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/--bug-report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/--bug-report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": ".md",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".md",
+          "path": "app/src/main/java/com/starry/myne/helpers/Constants.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 4,
+        "source": 1
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 353,
+          "matched_term": ".opf",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 372,
+          "matched_term": ".opf",
+          "path": "app/src/main/java/com/starry/myne/epub/EpubParser.kt",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": ".opf",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        },
+        {
+          "line": 235,
+          "matched_term": ".opf",
+          "path": "app/src/test/java/com/starry/myne/EpubParserTest.kt",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 6,
+        "test": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": ".txt",
+          "path": "app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": ".txt",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/pool-of-tears/myne",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Kotlin": 88,
+    "XML": 63
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/pool-of-tears/myne",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "7ec1fdb19ebf19de13d7b61bcb52b3ce4878a579",
+  "schema_version": 1,
+  "slug": "myne",
+  "support_claims_allowed": false,
+  "tree": "c0ec58c2e980c25b4719fae7740f5e1ede78a6b7"
+}

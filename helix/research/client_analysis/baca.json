@@ -1,0 +1,2122 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 379,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "rag",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "rag",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 498,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 534,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 633,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "rag",
+          "path": "src/baca/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 67
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 165,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 661,
+          "matched_term": "highlight",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 722,
+          "matched_term": "highlight",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "highlight",
+          "path": "src/baca/db.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 72,
+          "matched_term": "restore",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "restore",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "restore",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "restore",
+          "path": "src/baca/resources/style.css",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "backup",
+          "path": "src/baca/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "backup",
+          "path": "src/baca/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Backup",
+          "path": "src/baca/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 202,
+          "matched_term": "collection",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 449,
+          "matched_term": "Collection",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 874,
+          "matched_term": "cb7",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 1000,
+          "matched_term": "cb7",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 1010,
+          "matched_term": "cb7",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "right to left",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 15
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "cache",
+          "path": "src/baca/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "cache",
+          "path": "src/baca/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Thumbnail",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 683,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "eTag",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "eTag",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "eTag",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "etag",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "src/baca/utils/user_appdirs.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "src/baca/utils/user_appdirs.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "src/baca/utils/user_appdirs.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 40
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "conversion",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "conversion",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Converter",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "Converter",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Converter",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Converter",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Converter",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "DAISY",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "daisy",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "DAISY",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "daisy",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "daisy",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Sqlite",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Sqlite",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 967,
+          "matched_term": "redis",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Redis",
+          "path": "src/baca/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 9
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 878,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 879,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 880,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "duplicate",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 778
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "translation",
+          "path": "src/baca/components/contents.py",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Dictionary",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 624,
+          "matched_term": "Dictionary",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "Dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "DICTIONARY",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DICTIONARY",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "DICTIONARY",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DICTIONARY",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "FURIGANA",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Furigana",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "FURIGANA",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "dictionary",
+          "path": "src/baca/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 52
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "Brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 19
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 831,
+          "matched_term": "Filesystem",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "in place",
+          "path": "src/baca/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "filesystem",
+          "path": "src/baca/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "in place",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "in place",
+          "path": "src/baca/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "filesystem",
+          "path": "src/baca/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "filesystem",
+          "path": "src/baca/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 7
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 127,
+          "matched_term": "Metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 241,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 243,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 500,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "metadata",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "metadata",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "metadata",
+          "path": "src/baca/app.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "metadata",
+          "path": "src/baca/config.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Metadata",
+          "path": "src/baca/config.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Metadata",
+          "path": "src/baca/db.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Metadata",
+          "path": "src/baca/db.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Metadata",
+          "path": "src/baca/db.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Metadata",
+          "path": "src/baca/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Metadata",
+          "path": "src/baca/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "Metadata",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "metadata",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Metadata",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "metadata",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "metadata",
+          "path": "src/baca/models.py",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "Metadata",
+          "path": "src/baca/resources/config.ini",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Metadata",
+          "path": "src/baca/resources/style.css",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "ISBN",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "metadata",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 336
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 500,
+          "matched_term": "metadata (==4.3)\", \"jinja2 (==2.11.1)\", \"markdown (==3.2.1)\", \"markupsafe (==2.0.1)\", \"merge",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "metadata, 'orientation-lock', 'orientation-lock",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "metadata, 'Review', 'review",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 583,
+          "matched_term": "metadata.get('orientation-lock",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 78,
+          "matched_term": "fixed-layout",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "fixed-layout",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "fixed-layout",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "fixed-layout",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 581,
+          "matched_term": "fixed-layout",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 20
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 73,
+          "matched_term": "reading progress",
+          "path": "src/baca/app.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 300,
+          "matched_term": "theme",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 302,
+          "matched_term": "theme",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "theme",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "font size",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 430,
+          "matched_term": "font size",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 13
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "src/baca/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 348,
+          "matched_term": "cSp",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "cSp",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": "cSp",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 6
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "pytest",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 72
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 149,
+          "matched_term": "Text-to-Speech",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 483,
+          "matched_term": "Text-to-Speech",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "Text to Speech",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "Text-to-Speech",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "TTS",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-baca.jsonl.gz",
+  "files": {
+    "scanned_bytes": 556486,
+    "scanned_text": 57,
+    "skipped_binary_or_empty": 3,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 60
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "DAISY",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".daisy",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": ".daisy",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": ".daisy",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "Epub",
+          "path": "src/baca/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".epub",
+          "path": "src/baca/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".epub",
+          "path": "src/baca/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub\n",
+          "path": "src/baca/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Epub",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "EPUB",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".epub",
+          "path": "src/baca/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Epub\n",
+          "path": "src/baca/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "epub3",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "epub2",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "epub",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "epub ",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub3",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "epub ",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "epub",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "EPUB3",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "epub2",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": ".epub",
+          "path": "src/baca/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "epub",
+          "path": "src/baca/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "src/baca/utils/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": ".epub",
+          "path": "src/baca/utils/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".epub",
+          "path": "tools/debug.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 91
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 166,
+          "matched_term": "FictionBook",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "html5",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "html5",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "src/baca/db.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "XHTML",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "xhtml",
+          "path": "src/baca/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": ".html",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".html",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "XHTML",
+          "path": "src/baca/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "XHTML",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "XHTML",
+          "path": "src/baca/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": ".html",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": ".html",
+          "path": "src/baca/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 360,
+          "matched_term": ".xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "XHTML",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "xhtml",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".html",
+          "path": "tests/test_html_parser.py",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": ".html",
+          "path": "tests/test_html_parser.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 87,
+        "test": 4
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 230,
+          "matched_term": "markdown",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 382,
+          "matched_term": "markdown",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "markdown",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "markdown",
+          "path": "src/baca/components/contents.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Markdown",
+          "path": "src/baca/components/contents.py",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "Markdown",
+          "path": "src/baca/resources/style.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "markdown",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Markdown",
+          "path": "src/baca/utils/html_parser.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 42
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "Mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Azw",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "Azw",
+          "path": "src/baca/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Mobi",
+          "path": "src/baca/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Azw",
+          "path": "src/baca/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Mobi",
+          "path": "src/baca/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Mobi",
+          "path": "src/baca/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "mobi",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "mobi",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Palmdoc",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "palmdoc",
+          "path": "src/baca/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "mobi",
+          "path": "src/baca/tools/KindleUnpack/mobi_index.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Mobi",
+          "path": "src/baca/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "Mobi",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "palmdoc",
+          "path": "src/baca/tools/KindleUnpack/mobi_split.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "mobi",
+          "path": "src/baca/tools/KindleUnpack/mobi_split.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Palmdoc",
+          "path": "src/baca/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Mobi",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "mobi",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Azw",
+          "path": "src/baca/utils/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Mobi",
+          "path": "src/baca/utils/cli.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".azw3",
+          "path": "tools/debug.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".mobi",
+          "path": "tools/debug.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 84
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": ".opf",
+          "path": "src/baca/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 377,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 553,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": ".opf",
+          "path": "src/baca/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "PDF",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "PDF",
+          "path": "src/baca/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": ".pdf",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": "application/pdf",
+          "path": "src/baca/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "pdf",
+          "path": "src/baca/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "lpF",
+          "path": "src/baca/utils/cli.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/wustho/baca",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 1,
+    "Python": 51
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/wustho/baca",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "13ee794b08a4852f63002e7b0ca6a5c82b4239d4",
+  "schema_version": 1,
+  "slug": "baca",
+  "support_claims_allowed": false,
+  "tree": "fed1a2b9fb1ecbb52fa19c9c618f4e369770f43f"
+}

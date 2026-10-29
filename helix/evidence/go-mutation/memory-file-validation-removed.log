@@ -1,0 +1,8 @@
+$ /tmp/helix-go-toolchain/bin/go test ./internal/catalog -run ^TestMemoryRejectsIncompleteFileIdentityLikePostgres$ -count=1
+--- FAIL: TestMemoryRejectsIncompleteFileIdentityLikePostgres (0.00s)
+    memory_test.go:153: memory repository accepted an empty file ID
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.010s
+FAIL
+
+exit=1

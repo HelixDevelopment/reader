@@ -1,0 +1,8 @@
+$ go test ./pkg/parse/txt -run ^FuzzParse$ -fuzz ^FuzzParse$ -fuzztime=5s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/85 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 85/85 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 1033 (344/sec), new interesting: 1 (total: 86)
+fuzz: elapsed: 6s, execs: 1033 (0/sec), new interesting: 1 (total: 86)
+fuzz: elapsed: 6s, execs: 1033 (0/sec), new interesting: 1 (total: 86)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	6.100s

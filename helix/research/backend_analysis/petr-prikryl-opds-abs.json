@@ -1,0 +1,2839 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 438,
+          "matched_term": "rag",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 994,
+          "matched_term": "rag",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "rag",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 58,
+          "matched_term": "cfi",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "cFi",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "cFi",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 231,
+          "matched_term": "backup",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "backup",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "restore",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "bookshelf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "BOOKSHELF",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "BOOKSHELF",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "BOOKSHELF",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "BOOKSHELF",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "bookshelf",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "BOOKSHELF",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "docstring-check.py",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/api/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Series",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Series",
+          "path": "opds_abs/core/navigation.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "series",
+          "path": "opds_abs/core/navigation.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "series",
+          "path": "opds_abs/core/navigation.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "series",
+          "path": "opds_abs/feeds/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Series",
+          "path": "opds_abs/feeds/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "collection",
+          "path": "opds_abs/feeds/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Collection",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "BOOKSHELF",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Collection",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "collection",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Series",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "bookshelf",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "series",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 41,
+        "source": 945,
+        "test": 28
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "cbz",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cbz",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cbr",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1061,
+          "matched_term": "cbz",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1061,
+          "matched_term": "cbz",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1062,
+          "matched_term": "cbr",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cache",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 85,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "Cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "CACHE",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "CACHE",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "CACHE",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CACHE",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "CACHE",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "CACHE",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Cache",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "CACHE",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "cache",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "cache",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "cache",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cache",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "CACHE",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "CACHE",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 8,
+        "source": 547,
+        "test": 26
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "conversion",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "fingerprint",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "fingerprint",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "fingerprint",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "fingerprint",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "fingerprint",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "fingerprint",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 19,
+        "test": 8
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker-image-dev.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "docker",
+          "path": ".github/workflows/docker-image-dev.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 32,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker-image-dev.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "Docker",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 49,
+          "matched_term": "docker",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 500,
+          "matched_term": "GitHub actions",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "GitHub Actions",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Docker",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "docker",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Docker",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Docker",
+          "path": "run.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 16,
+        "documentation": 21,
+        "source": 9
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 534,
+          "matched_term": "dictionary",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 545,
+          "matched_term": "dictionary",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 548,
+          "matched_term": "dictionary",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "dictionary",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Dictionary",
+          "path": "docstring-check.py",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "Dictionary",
+          "path": "docstring-check.py",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "Dictionary",
+          "path": "docstring-check.py",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Dictionary",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "dictionary",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": "dictionary",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 399,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 387,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 255,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": "Dictionary",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "Dictionary",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "Dictionary",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 499,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 518,
+          "matched_term": "dictionary",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "dictionary",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "dictionary",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "dictionary",
+          "path": "opds_abs/utils/xml_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "dictionary",
+          "path": "opds_abs/utils/xml_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "dictionary",
+          "path": "opds_abs/utils/xml_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 39
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 60,
+          "matched_term": "in place",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "filesystem",
+          "path": "run.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "filesystem",
+          "path": "run.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 228,
+          "matched_term": "metadata",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "metadata",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "metadata",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "metadata",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "metadata",
+          "path": "opds_abs/core/navigation.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 223,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "fetched and cached for metadata",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "metadata",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "metadata",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "metadata",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "metadata",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 111,
+          "matched_term": "metadata",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "metadata",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 38,
+          "matched_term": "metadata",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 95,
+        "test": 8
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "Authentication",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Authentication",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "authentication",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "authentication",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Authentication",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "authentication",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "authentication",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "Authentication",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "authentication",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "authentication",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "authentication",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "authentication",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "Authentication",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Authentication",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Authentication",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "authentication",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "authentication",
+          "path": "opds_abs/templates/error.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Authentication",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Authorization",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Authorization",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "Authentication",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 324,
+          "matched_term": "Authentication",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 361,
+          "matched_term": "Authentication",
+          "path": "opds_abs/utils/cache_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "Authentication",
+          "path": "opds_abs/utils/error_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "authentication",
+          "path": "opds_abs/utils/error_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 17,
+        "source": 171,
+        "test": 15
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "opds",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "opds",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "opds",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "docstring-check.py",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "opds_abs/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/core/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "OPDS",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "OPDS",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/core/navigation.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": "opds",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "opds",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "application/atom+xml",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "OPDS",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 468,
+          "matched_term": "opds",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "OPDS",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS",
+          "path": "opds_abs/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "OPDS",
+          "path": "opds_abs/templates/index.html",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "opds_abs/templates/search.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 24,
+        "source": 213,
+        "test": 15
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "opensearch",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "opensearch",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "opensearch",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "OpenSearch",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 473,
+          "matched_term": "OpenSearch",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 500,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OpenSearch",
+          "path": "opds_abs/templates/search.xml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "opensearch",
+          "path": "opds_abs/templates/search.xml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "OpenSearch",
+          "path": "opds_abs/templates/search.xml",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "OpenSearch",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 94,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 98,
+          "matched_term": "opensearch",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "opensearch",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 18,
+        "test": 5
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "permission",
+          "path": ".github/workflows/docker-image-dev.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 33,
+          "matched_term": "permission",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "permission",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 163,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 229,
+          "matched_term": "Permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 239,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "library items from cache using the share",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 3,
+        "source": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "line-height",
+          "path": "opds_abs/templates/error.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 497,
+          "matched_term": "Search index",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "secret",
+          "path": ".github/workflows/docker-image-dev.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 61,
+          "matched_term": "secret",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "https",
+          "path": ".pylintrc",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "https",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "credential",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "credential",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "credential",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "https",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "credential",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "credential",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "secret",
+          "path": "opds_abs/utils/auth_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "HTTPS",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 81,
+          "matched_term": "secret",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 86,
+          "matched_term": "credential",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "secret",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "secret",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "credential",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "SECRET",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "SECRET",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "SECRET",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "secret",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "credential",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "secret",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "SECRET",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "SECRET",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        },
+        {
+          "line": 136,
+          "matched_term": "SECRET",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 12,
+        "source": 51,
+        "test": 44
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "pytest",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 25,
+          "matched_term": "pytest",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "pytest",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "pytest",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "pytest",
+          "path": ".pydocstyle",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pytest",
+          "path": "pytest.ini",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "pytest",
+          "path": "requirements-dev.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "pytest",
+          "path": "requirements-dev.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "pytest",
+          "path": "tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "integration test",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "pytest",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": "pytest",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "pytest",
+          "path": "tests/test_auth.py",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "pytest",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "pytest",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "pytest",
+          "path": "tests/test_integration.py",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "pytest",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "pytest",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "source": 2,
+        "test": 17
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "AUDIOBOOK",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "AUDIOBOOK",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "AUDIOBOOK",
+          "path": "config.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "AUDIOBOOK",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Audiobook",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "AUDIOBOOK",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/api/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/api/client.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/config.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/author_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/collection_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/navigation_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/search_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/feeds/series_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Audiobook",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "AUDIOBOOK",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 41,
+        "source": 207,
+        "test": 8
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-petr-prikryl-opds-abs.jsonl.gz",
+  "files": {
+    "scanned_bytes": 335663,
+    "scanned_text": 48,
+    "skipped_binary_or_empty": 7,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 55
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "cbt",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "cbt",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "cbr",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cbr",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1062,
+          "matched_term": "cbr",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1062,
+          "matched_term": "cbr",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "cbz",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cbz",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1061,
+          "matched_term": "cbz",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1061,
+          "matched_term": "cbz",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "epub",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "epub",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "epub ",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "epub",
+          "path": "opds_abs/feeds/library_feed.py",
+          "role": "source"
+        },
+        {
+          "line": 1057,
+          "matched_term": "epub",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1057,
+          "matched_term": "epub",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "epub",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "tests/fake_abs.py",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": "epub",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": "epub",
+          "path": "tests/test_feeds.py",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": ".epub",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": ".epub",
+          "path": "tests/test_routes.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 9,
+        "test": 15
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "fb2",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "fictionbook",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1063,
+          "matched_term": "fictionbook",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1063,
+          "matched_term": "fb2",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 121,
+          "matched_term": ".html",
+          "path": "DOCS_STANDARDS.md",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": ".html",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 417,
+          "matched_term": ".html",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 273,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 273,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "markdown",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1067,
+          "matched_term": "markdown",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "mobi",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "azw3",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1059,
+          "matched_term": "mobi",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1060,
+          "matched_term": "azw3",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "pdf",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "application/pdf",
+          "path": "opds_abs/core/feed_generator.py",
+          "role": "source"
+        },
+        {
+          "line": 1058,
+          "matched_term": "application/pdf",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        },
+        {
+          "line": 1058,
+          "matched_term": "pdf",
+          "path": "opds_abs/main.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": ".txt",
+          "path": ".github/workflows/docker-image.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": ".txt",
+          "path": ".github/workflows/docstring-check.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": ".txt",
+          "path": ".github/workflows/docstring-check.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": ".txt",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": ".txt",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 260,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "requirements-dev.txt",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "documentation": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/petr-prikryl/OPDS-ABS",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "HTML": 2,
+    "Python": 29,
+    "Shell": 1,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/petr-prikryl/OPDS-ABS",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "add44a30d4cdd150194e86115a1f6b1dcee62d40",
+  "schema_version": 1,
+  "slug": "petr-prikryl-opds-abs",
+  "support_claims_allowed": false,
+  "tree": "304a3b09c434dfd518cedd81a612be8c40020413"
+}

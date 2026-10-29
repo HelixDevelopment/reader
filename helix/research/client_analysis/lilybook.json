@@ -1,0 +1,1562 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "main/core/storage.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "main/core/storage.c",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "rag",
+          "path": "main/core/storage.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "main/core/storage.h",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "main/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "main/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "main/modes/InternalMemoryMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "main/modes/InternalMemoryMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "main/modes/InternalMemoryMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "main/modes/ReaderMode.h",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "main/modes/SdCardMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "main/modes/SdCardMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "rag",
+          "path": "main/modes/SdCardMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "main/modes/reader/TextStorage.cpp",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "main/modes/reader/TextStorage.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "main/modes/reader/TextStorage.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "main/modes/reader/TextStorage.h",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "main/modes/reader/TextStorage.h",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.c",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.h",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "main/modes/reader/reader_storage.h",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "partitions_table.csv",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 52
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "bookmark",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "bookmark",
+          "path": "main/modes/ReaderMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "bookmark",
+          "path": "main/modes/ReaderMode.h",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "bookmark",
+          "path": "main/modes/ReaderMode.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 27
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 1337,
+          "matched_term": "restore",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 2099,
+          "matched_term": "restore",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 513,
+          "matched_term": "Restore",
+          "path": "components/epaper/EPD.h",
+          "role": "source"
+        },
+        {
+          "line": 517,
+          "matched_term": "restore",
+          "path": "components/epaper/EPD.h",
+          "role": "source"
+        },
+        {
+          "line": 549,
+          "matched_term": "restore",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 2256,
+          "matched_term": "restore",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 549,
+          "matched_term": "restore",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 2256,
+          "matched_term": "restore",
+          "path": "components/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "Series",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 694,
+          "matched_term": "collection",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 716,
+          "matched_term": "collection",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "collection",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 694,
+          "matched_term": "collection",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 716,
+          "matched_term": "collection",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "collection",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "comic",
+          "path": "components/epaper/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Comic",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 1542,
+          "matched_term": "COMIC",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 1542,
+          "matched_term": "Comic",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "COMIC",
+          "path": "components/epaper/EPD.h",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "comic",
+          "path": "components/epaper/comic24.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Comic",
+          "path": "components/epaper/comic24.c",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "COMIC",
+          "path": "main/core/display.c",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "COMIC",
+          "path": "main/modes/AbstractMenuMode.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "COMIC",
+          "path": "main/modes/InternalMemoryMenuMode.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "Cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/Makefile.original",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Cache",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Cache",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Cache",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 1047,
+          "matched_term": "cache",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 1053,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 354,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "CACHE",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "components/spiffs/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs_cache.c",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cache",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "CACHE",
+          "path": "components/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 944
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "conversion",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "conversion",
+          "path": "components/epaper/Ubuntu16.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "conversion",
+          "path": "components/epaper/comic24.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "conversion",
+          "path": "components/epaper/dejavuX.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "conversion",
+          "path": "components/epaper/minya24.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "conversion",
+          "path": "components/epaper/tooney32.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 89,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 653,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 1110,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 1120,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 1276,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 738,
+          "matched_term": "quic",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 653,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_gc.c",
+          "role": "source"
+        },
+        {
+          "line": 1110,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 1120,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_hydrogen.c",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 1276,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_nucleus.c",
+          "role": "source"
+        },
+        {
+          "line": 738,
+          "matched_term": "quic",
+          "path": "components/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 20
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 374,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 590,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 417,
+          "matched_term": "filesystem",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 374,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 590,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 417,
+          "matched_term": "filesystem",
+          "path": "components/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "filesystem",
+          "path": "main/core/storage.c",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "filesystem",
+          "path": "main/core/storage.c",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "filesystem",
+          "path": "main/core/storage.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 34
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 539,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 544,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 484,
+          "matched_term": "metadata",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 539,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 544,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_config.h",
+          "role": "source"
+        },
+        {
+          "line": 484,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_vfs.c",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_vfs.c",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "metadata",
+          "path": "components/spiffs/spiffs_vfs.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 27
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 405,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "components/mkspiffs/src/tclap/COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "components/mkspiffs/src/tclap/COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "components/spidriver/spi_master_lobo.c",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "components/spidriver/spi_master_lobo.h",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/esp_spiffs.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/esp_spiffs.h",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/list.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/list.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/list.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/list.h",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/list.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/list.h",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/mutex.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/mutex.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/mutex.c",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "components/spiffs/mutex.h",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "components/spiffs/mutex.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "components/spiffs/mutex.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 27
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 1144,
+          "matched_term": "font[size",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 1145,
+          "matched_term": "font[size",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 1149,
+          "matched_term": "font[size",
+          "path": "components/epaper/EPD.c",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "line height",
+          "path": "components/epaper/EPD.h",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Font size",
+          "path": "components/epaper/SmallFont.c",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Font size",
+          "path": "components/spiffs_image/image/fonts/ocrfont.c",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "line_height",
+          "path": "main/modes/reader/Typesetter.cpp",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "line_height",
+          "path": "main/modes/reader/Typesetter.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 11
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "components/epaper/EPD.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "components/mkspiffs/src/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "https",
+          "path": "components/mkspiffs/src/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "https",
+          "path": "components/mkspiffs/src/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": "components/spidriver/spi_master_lobo.c",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "components/spiffs/mutex.c",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "components/spiffs/mutex.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "components/spiffs/spiffs_vfs.c",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "components/spiffs/spiffs_vfs.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "components/spiffs/spiffs_vfs.h",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "components/spiffs/spiffs_vfs.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 8
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-lilybook.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1159901,
+    "scanned_text": 133,
+    "skipped_binary_or_empty": 17,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 150
+  },
+  "format_keyword_evidence": {
+    "txt": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": ".txt",
+          "path": "components/mkspiffs/src/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": ".txt",
+          "path": "components/spiffs/spiffs_nucleus.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 90,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/MultiArg.h",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/MultiArg.h",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/UnlabeledMultiArg.h",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/UnlabeledMultiArg.h",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/UnlabeledValueArg.h",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/UnlabeledValueArg.h",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/ValueArg.h",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "lpf",
+          "path": "components/mkspiffs/src/tclap/ValueArg.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    }
+  },
+  "inventory_url": "https://github.com/dejvino/lilybook",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 33,
+    "C++": 16,
+    "C/C++ header": 59
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0",
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "components/mkspiffs/src/tclap/COPYING"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/dejvino/lilybook",
+  "readme_files": [
+    "README.md",
+    "components/mkspiffs/src/README.md"
+  ],
+  "revision": "37a48bf3b53140c9de9ccda87e7cc9c34583eaf5",
+  "schema_version": 1,
+  "slug": "lilybook",
+  "support_claims_allowed": false,
+  "tree": "1006f49288d49a033e46eb53cfaa459aff88b4a7"
+}

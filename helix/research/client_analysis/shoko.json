@@ -1,0 +1,5935 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 86,
+          "matched_term": "rag",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 97,
+          "matched_term": "rag",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 98,
+          "matched_term": "rag",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "rag",
+          "path": ".rubocop.yml",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "rag",
+          "path": ".rubocop.yml",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "rag",
+          "path": ".rubocop.yml",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 173,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "rag",
+          "path": "Rakefile",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "rag",
+          "path": "Rakefile",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "rag",
+          "path": "Rakefile",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "docs/architecture/constitution.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/src/nn.c",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/src/nn.c",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/src/nn.c",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "embedding",
+          "path": "ext/shoko_translate/src/nn.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "RAG",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "RAG",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_selector.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_selector.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_selector.rb",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "rag",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 8,
+        "source": 940,
+        "test": 646
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "Annotation",
+          "path": "docs/architecture/census-2026-06-01.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "annotation",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "bookmark",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "annotation",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "highlight",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_segment_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/book_sources/pdf/pdf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/book_sources/pdf/pdf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 222,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/book_sources/pdf/pdf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/annotations/mouse_handler.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/annotations_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/annotations_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/annotations_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "Annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/reader_controller_service_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/reader_controller_service_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/reader_runtime_startup_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/reader_runtime_startup_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/state_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/state_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "bookmark",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/state_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/ui_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/ui_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/ui_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "highlight",
+          "path": "lib/shoko/adapters/input/controllers/in_book_search/result_navigator.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "HIGHLIGHT",
+          "path": "lib/shoko/adapters/input/controllers/in_book_search/result_navigator.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "highlight",
+          "path": "lib/shoko/adapters/input/controllers/in_book_search/result_navigator.rb",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "highlight",
+          "path": "lib/shoko/adapters/input/controllers/in_book_search_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "annotation",
+          "path": "lib/shoko/adapters/input/controllers/menu/controller.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 18,
+        "source": 2860,
+        "test": 828
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "snapshot",
+          "path": "docs/architecture/census-2026-06-01.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "snapshot",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "snapshot",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "snapshot",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "snapshot",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "restore",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "backup",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/pdb_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/input/controllers/menu/controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/input/controllers/menu/reader_launch_progress_presenter.rb",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "Snapshot",
+          "path": "lib/shoko/adapters/input/controllers/menu/reader_launch_progress_presenter.rb",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/input/controllers/reader/render_mailbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/input/controllers/reader/render_mailbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/input/controllers/reader/render_mailbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/input/controllers/reader/startup_sequence.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/input/controllers/reader/startup_sequence.rb",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/input/controllers/reader/startup_sequence.rb",
+          "role": "source"
+        },
+        {
+          "line": 481,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/input/controllers/state_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/output/kitty/kitty_graphics.rb",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/output/terminal/output.rb",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "RESTORE",
+          "path": "lib/shoko/adapters/output/terminal/output.rb",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "RESTORE",
+          "path": "lib/shoko/adapters/output/terminal/terminal.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_projection.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_projection.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_projection.rb",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "restore",
+          "path": "lib/shoko/adapters/runtime/reader_mode_runner.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/reader_mode_runner.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/reader_mode_runner.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/app_config_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/app_config_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/app_config_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/menu_session_mutator.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/menu_session_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "snapshot",
+          "path": "lib/shoko/adapters/runtime/session_state/menu_session_store_adapter.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 897,
+        "test": 820
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 193,
+          "matched_term": "collection",
+          "path": "lib/shoko/adapters/storage/json_cache_store.rb",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "collection",
+          "path": "lib/shoko/adapters/storage/json_cache_store.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "collection",
+          "path": "lib/shoko/adapters/translation/model_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "collection",
+          "path": "spec/adapters/book_sources/parser/pdf/pdf_reader_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 42,
+          "matched_term": "collection",
+          "path": "spec/core/architecture/no_reflection_probing_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 3,
+        "test": 2
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "right-to-left",
+          "path": "lib/shoko/shared/index_range.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 68,
+          "matched_term": "cache",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 82,
+          "matched_term": "cache",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "cache",
+          "path": "docs/architecture/constitution.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "cache",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "cache",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "CACHE",
+          "path": "lib/shoko/adapters/book_sources/book_finder.rb",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/book_finder.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/book_finder.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/cache_import_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Cache",
+          "path": "lib/shoko/adapters/book_sources/cache_import_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/cache_import_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Cache",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Cache",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_index.rb",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/exth_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "CDN",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_font_profile_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_font_profile_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_font_profile_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "cache",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 21,
+        "source": 2457,
+        "test": 979
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "epub`, `.fb2`, `.pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "EPUB`, `PDF`, `FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "EPUB/FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub, fb2",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub', '.fb2', '.fb2",
+          "path": "lib/shoko/adapters/book_sources/format_registry.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "epub, :fb2",
+          "path": "lib/shoko/adapters/book_sources/format_registry.rb",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 251,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "epub fb2 mobi azw3 azw pdf",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 809,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 934,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 987,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "epub pdf fb2",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub: 'EPUB', pdf: 'PDF', fb2: 'FB2",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Transcode",
+          "path": "lib/shoko/adapters/output/kitty/image_transcoder.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "transcode",
+          "path": "lib/shoko/adapters/output/kitty/kitty_image_renderer.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "transcode",
+          "path": "lib/shoko/adapters/output/kitty/kitty_image_renderer.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Transcode",
+          "path": "lib/shoko/adapters/output/kitty/kitty_image_renderer.rb",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "transcode",
+          "path": "lib/shoko/adapters/output/kitty/resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "transcode",
+          "path": "lib/shoko/adapters/output/kitty/resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/output/terminal/buffer/frame.rb",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Conversion",
+          "path": "lib/shoko/adapters/rss/bounded_http_body.rb",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Converter",
+          "path": "lib/shoko/adapters/rss/bounded_http_body.rb",
+          "role": "source"
+        },
+        {
+          "line": 463,
+          "matched_term": "converter",
+          "path": "lib/shoko/adapters/ui/components/dictionary_popup_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 466,
+          "matched_term": "converter",
+          "path": "lib/shoko/adapters/ui/components/dictionary_popup_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 469,
+          "matched_term": "converter",
+          "path": "lib/shoko/adapters/ui/components/dictionary_popup_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "epub -> green, pdf -> red, rtf -> blue, kindle -> orange, fb2",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "EPUB, PDF",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub pdf fb2",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "epub/fb2",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Epub', source: :gutendex, formats: { 'text/plain' => 'https://example.org/noepub.txt",
+          "path": "spec/adapters/book_sources/download_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 88,
+          "matched_term": "epub: 1, pdf",
+          "path": "spec/adapters/input/cli_directory_import_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 165,
+          "matched_term": "epub_doc, pdf",
+          "path": "spec/adapters/input/cli_directory_import_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 166,
+          "matched_term": "epub: 1, pdf",
+          "path": "spec/adapters/input/cli_directory_import_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "epub, fb2, pdf",
+          "path": "spec/adapters/output/formatting/format_parity_golden_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "transcode",
+          "path": "spec/adapters/output/kitty/kitty_image_renderer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "transcode",
+          "path": "spec/adapters/output/kitty/kitty_image_renderer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "transcode",
+          "path": "spec/adapters/output/kitty/kitty_image_renderer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 91,
+          "matched_term": "transcode",
+          "path": "spec/adapters/output/kitty/resource_loader_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 34,
+        "test": 20
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/input/controllers/dictionary/dataset_installer.rb",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/input/controllers/reader/selection_interaction.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/dictionary_availability_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/dictionary_availability_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "SQLite",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/dictionary_storage_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "SQLite",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Sqlite",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Sqlite",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter/fuzzy_ranker.rb",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/ui/components/screens/dictionary_settings_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/ui/components/screens/dictionary_settings_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/adapters/ui/components/screens/dictionary_settings_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "SQLite",
+          "path": "lib/shoko/application/ports/outbound/dictionary_availability.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "SQLite",
+          "path": "lib/shoko/application/ports/outbound/dictionary_availability.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/application/ports/outbound/dictionary_availability.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Sqlite",
+          "path": "lib/shoko/application/ports/outbound/dictionary_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/application/ports/outbound/runtime_config.rb",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/application/use_cases/settings_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/application/use_cases/settings_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/application/use_cases/settings_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/composition/container_factory/domain_application_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "Sqlite",
+          "path": "lib/shoko/composition/container_factory/domain_application_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "sqlite",
+          "path": "lib/shoko/composition/container_factory/port_and_repository_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "Sqlite",
+          "path": "lib/shoko/composition/container_factory/port_and_repository_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "redis",
+          "path": "spec/adapters/book_sources/parser/pdf/pdf_text_extractor_win_ansi_override_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "redis",
+          "path": "spec/adapters/book_sources/parser/pdf/pdf_text_extractor_win_ansi_override_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": "REDIS",
+          "path": "spec/adapters/book_sources/pdf/pdf_real_document_regression_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": "redis",
+          "path": "spec/adapters/book_sources/pdf/pdf_real_document_regression_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary/dataset_installer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary/dataset_installer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 38,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary/dataset_installer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary_controller_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 165,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary_controller_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 239,
+          "matched_term": "sqlite",
+          "path": "spec/adapters/input/controllers/dictionary_controller_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 63,
+        "test": 136
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "SHA256",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "SHA256",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 32,
+          "matched_term": "checksum",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 176,
+          "matched_term": "Duplicate",
+          "path": ".rubocop.yml",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "sha256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 139,
+          "matched_term": "checksum",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "duplicate",
+          "path": "docs/architecture/decisions/0004-guardrail-scope.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "duplicate",
+          "path": "docs/architecture/history/constitution-history.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "SHA256",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "SHA256",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "SHA256",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "duplicate",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 236,
+          "matched_term": "duplicate",
+          "path": "ext/shoko_translate/src/engine.c",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "duplicate",
+          "path": "ext/shoko_translate/src/marian_bin.c",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "duplicate",
+          "path": "ext/shoko_translate/src/spm.c",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "duplicate",
+          "path": "ext/shoko_translate/test/protocol.sh",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "SHA256",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "SHA256",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "SHA256",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "dedup",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "checksum",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "checksum",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 280,
+          "matched_term": "checksum",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 321,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/rss/article_block_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "SHA256",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "SHA256",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 425,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/rss/rss_reader_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/app_config_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/branch_snapshot.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/menu_session_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/menu_transient_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/reader_pagination_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/reader_session_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/reader_view_state_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "duplicate",
+          "path": "lib/shoko/adapters/runtime/session_state/reader_view_state_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "sha256",
+          "path": "lib/shoko/adapters/storage/book_cache_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "sha256",
+          "path": "lib/shoko/adapters/storage/book_cache_store_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "sha256",
+          "path": "lib/shoko/adapters/storage/cache/epub/serializer.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 11,
+        "source": 184,
+        "test": 40
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "Readiness",
+          "path": "lib/shoko/application/workflows/cli/folder_import_readiness_warmup.rb",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "readiness",
+          "path": "lib/shoko/application/workflows/cli/folder_import_readiness_warmup.rb",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "readiness",
+          "path": "lib/shoko/composition/container_factory.rb",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "Readiness",
+          "path": "lib/shoko/composition/container_factory.rb",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "Readiness",
+          "path": "lib/shoko/composition/container_factory.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "readiness",
+          "path": "script/bench/support/import_books.rb",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "Readiness",
+          "path": "spec/adapters/book_sources/cache_import_adapter_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 76,
+          "matched_term": "Readiness",
+          "path": "spec/adapters/book_sources/cache_import_adapter_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Readiness",
+          "path": "spec/application/workflows/cli/folder_import_readiness_warmup_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "readiness",
+          "path": "spec/application/workflows/cli/folder_import_readiness_warmup_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 55,
+          "matched_term": "readiness",
+          "path": "spec/core/architecture/boot_surface_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 6,
+        "test": 5
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "translation",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "translation",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "dictionary",
+          "path": "docs/architecture/census-2026-06-01.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "dictionary",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "dictionary",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "dictionary",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Translation",
+          "path": "ext/shoko_translate/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/src/engine.c",
+          "role": "source"
+        },
+        {
+          "line": 315,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/src/engine.c",
+          "role": "source"
+        },
+        {
+          "line": 437,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/src/engine.c",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Translation",
+          "path": "ext/shoko_translate/src/marian_bin.h",
+          "role": "source"
+        },
+        {
+          "line": 582,
+          "matched_term": "translation",
+          "path": "ext/shoko_translate/src/nn.c",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 327,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/reader/dictionary_value_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/reader/stream_predictor.rb",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/spellcheck_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Dictionary",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/dictionary_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Dictionary",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/dictionary_controller_dependencies.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "dictionary",
+          "path": "lib/shoko/adapters/input/controllers/dependencies/dictionary_controller_dependencies.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 25,
+        "source": 1916,
+        "test": 917
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "quic",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "quic",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "quic",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "quic",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "quic",
+          "path": "spec/adapters/output/terminal/buffer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "quic",
+          "path": "spec/adapters/output/terminal/text_metrics_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": "quic",
+          "path": "spec/adapters/ui/components/dictionary_popup_component_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 234,
+          "matched_term": "quic",
+          "path": "spec/adapters/ui/components/translator_lookup_popup_component_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 241,
+          "matched_term": "quic",
+          "path": "spec/adapters/ui/components/translator_lookup_popup_component_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 243,
+          "matched_term": "quic",
+          "path": "spec/adapters/ui/components/translator_lookup_popup_component_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "quic",
+          "path": "spec/adapters/ui/components/ui/text_utils_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "quic",
+          "path": "spec/application/services/annotations/anchor_resolver_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "quic",
+          "path": "spec/application/services/annotations/anchor_resolver_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 67,
+          "matched_term": "QUIC",
+          "path": "spec/application/services/annotations/anchor_resolver_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 8,
+        "test": 10
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 49,
+          "matched_term": "DRM",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "drm",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "drm",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "drm",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "DRM",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "drm",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "DRM",
+          "path": "spec/adapters/book_sources/parser/kindle/mobi_header_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 95,
+          "matched_term": "DRM",
+          "path": "spec/adapters/book_sources/parser/kindle/mobi_header_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 97,
+          "matched_term": "drm",
+          "path": "spec/adapters/book_sources/parser/kindle/mobi_header_parser_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6,
+        "test": 6
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 66,
+          "matched_term": "filesystem",
+          "path": "docs/architecture/constitution.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "filesystem",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 444,
+          "matched_term": "in place",
+          "path": "ext/shoko_translate/src/spm.c",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/book_file_probe.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "directory scan",
+          "path": "lib/shoko/adapters/book_sources/book_finder/scanner_context.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "local library",
+          "path": "lib/shoko/adapters/book_sources/download_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/entry_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/path_resolution.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_image_source.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/input/controllers/translator_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/input/controllers/ui_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/storage/data_cleanup_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/storage/file_probe_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/storage/json_cache_store.rb",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/storage/repositories/storage/file_store_utils.rb",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/storage/rss_reader_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/adapters/storage/storage_error_translation.rb",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/ui/components/screens/annotation_editor_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/ui/components/status_bar/status_context.rb",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "in place",
+          "path": "lib/shoko/adapters/ui/components/ui/note_markup.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/application/ports/outbound/file_probe.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/application/ports/outbound/file_probe.rb",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "filesystem",
+          "path": "lib/shoko/application/ports/outbound/file_probe.rb",
+          "role": "source"
+        },
+        {
+          "line": 386,
+          "matched_term": "Filesystem",
+          "path": "lib/shoko/application/use_cases/catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "filesystem",
+          "path": "spec/adapters/book_sources/library_scanner_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 353,
+          "matched_term": "in place",
+          "path": "spec/adapters/input/controllers/translator_controller_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 142,
+          "matched_term": "in place",
+          "path": "spec/adapters/input/controllers/translator_flow_integration_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 420,
+          "matched_term": "in place",
+          "path": "spec/adapters/rss/rss_reader_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "in place",
+          "path": "spec/adapters/storage/json_cache_store_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": "in place",
+          "path": "spec/adapters/storage/repositories/storage/file_store_utils_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 76,
+          "matched_term": "filesystem",
+          "path": "spec/application/use_cases/catalog_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 298,
+          "matched_term": "filesystem",
+          "path": "spec/core/architecture/layer_dependency_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 78,
+          "matched_term": "filesystem",
+          "path": "spec/core/architecture/state_conventions_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 428,
+          "matched_term": "in place",
+          "path": "spec/core/architecture/state_conventions_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 25,
+        "test": 10
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "Shoko.gemspec",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "Shoko.gemspec",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "metadata",
+          "path": "Shoko.gemspec",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "metadata",
+          "path": "docs/architecture/constitution.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "metadata",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "metadata",
+          "path": "docs/architecture/port-inventory.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "metadata",
+          "path": "ext/shoko_translate/test/marian_bin_test.c",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/archive/zip/decompressed_data.rb",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Metadata",
+          "path": "lib/shoko/adapters/book_sources/archive/zip/entry.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/canonical_metadata.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/canonical_metadata.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Metadata",
+          "path": "lib/shoko/adapters/book_sources/canonical_metadata.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf_processor.rb",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf_processor.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf_processor.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/fb2_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/fb2_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/fb2_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/element_text.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_metadata_extractor.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1214,
+        "test": 483
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "locks and metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata = block",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "lock.new(type: paragraph_type(context), segments: segments, metadata: metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "metadata = @style_resolver.block",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "locks[-1] = last.with(metadata: last.metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "lock_metadata",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "lock(:heading, segments, level: level, metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "lock(:heading, segments, level: 3, metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "lock(:image, [placeholder], metadata",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "metadata.merge",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "metadata block",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/exth_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "lock.new(type: :paragraph, segments: segments, level: 0, metadata",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata.merge",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "lock-level typography metadata",
+          "path": "lib/shoko/adapters/output/formatting/css/element_style_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "lock_metadata",
+          "path": "lib/shoko/adapters/output/formatting/css/element_style_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "lock_by_element[element] ||= build_block_metadata",
+          "path": "lib/shoko/adapters/output/formatting/css/element_style_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "locks carry optional CSS-derived metadata",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "lock.metadata",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "lock.metadata",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata for block",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler/image_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "lock_lines(block, block_index:, base_metadata",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler/image_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "metadata.merge(image_render: block_render_metadata(block, block",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler/image_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "metadata = base_metadata.merge(block",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler/table_renderer.rb",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "metadata: base_metadata.merge(block",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/line_assembler/table_renderer.rb",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "lock.metadata && block.metadata",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/plain_lines_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "metadata: block",
+          "path": "lib/shoko/adapters/rss/article_block_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 293,
+          "matched_term": "lock_metadata",
+          "path": "lib/shoko/adapters/rss/article_block_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "metadata: sanitize_metadata(block",
+          "path": "lib/shoko/adapters/rss/article_block_sanitizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "metadata_row.merge",
+          "path": "lib/shoko/adapters/storage/json_cache_manifest_store.rb",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "merge('status' => 'ok', 'metadata' => normalize_metadata(metadata",
+          "path": "lib/shoko/adapters/storage/repositories/display_metadata_cache_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "metadata: stringify(block",
+          "path": "lib/shoko/adapters/support/content_block_codec.rb",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "lock_type = canonical_block_type(metadata",
+          "path": "lib/shoko/adapters/ui/components/render_style.rb",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "lock_type, highlight_enabled?(metadata",
+          "path": "lib/shoko/adapters/ui/components/render_style.rb",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "lock_type(metadata",
+          "path": "lib/shoko/adapters/ui/components/render_style.rb",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "lock.metadata",
+          "path": "lib/shoko/adapters/ui/components/screens/rss_article_layout.rb",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "lock_type = metadata",
+          "path": "lib/shoko/adapters/ui/rendering/line/line_content_composer.rb",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "lock_type = canonical_block_type(metadata",
+          "path": "lib/shoko/adapters/ui/rendering/line/line_content_composer.rb",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "metadata.delete('block",
+          "path": "lib/shoko/adapters/ui/rendering/line/line_content_composer.rb",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "lock_metadata",
+          "path": "lib/shoko/adapters/ui/rendering/line/wrapped_lines_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "lock_metadata",
+          "path": "lib/shoko/adapters/ui/rendering/line/wrapped_lines_fetcher.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 123,
+        "test": 96
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "ftp",
+          "path": "spec/adapters/rss/article_content_fetcher_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 80,
+          "matched_term": "ftp",
+          "path": "spec/adapters/rss/feed_fetcher_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 2
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 102,
+          "matched_term": "application/atom+xml",
+          "path": "lib/shoko/adapters/rss/feed_fetcher.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "fixed-layout",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "reflow",
+          "path": "lib/shoko/adapters/ui/components/screens/rss_reader_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "fixed-layout",
+          "path": "spec/adapters/book_sources/parser/kindle/kindle_importer_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "permission",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/input/controllers/state_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/monitoring/perf_tracer.rb",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/storage/repositories/display_metadata_cache_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/storage/repositories/storage/file_store_utils.rb",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/storage/rss_reader_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 232,
+          "matched_term": "permission",
+          "path": "lib/shoko/adapters/storage/sqlite_dictionary_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lib/shoko/core/errors/dictionary_failure.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "permission",
+          "path": "lib/shoko/core/services/dictionary_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "library renderer and the open-gate share",
+          "path": "lib/shoko/core/services/prepagination_status.rb",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "permission",
+          "path": "spec/adapters/input/cli_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 296,
+          "matched_term": "permission",
+          "path": "spec/adapters/input/cli_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 149,
+          "matched_term": "permission",
+          "path": "spec/adapters/storage/repositories/storage/annotation_file_store_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 174,
+          "matched_term": "permission",
+          "path": "spec/core/services/dictionary_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 175,
+          "matched_term": "permission",
+          "path": "spec/core/services/dictionary_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": "spec/support/architecture/layer_policy.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 2,
+        "source": 10,
+        "test": 6
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 153,
+          "matched_term": "synchronize { @scan_in_progress",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "synchronize { @scan_in_progress",
+          "path": "lib/shoko/adapters/book_sources/library_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/input/controllers/reader/progress_autosave.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/storage/repositories/progress_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/storage/repositories/progress_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/storage/repositories/progress_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/ui/components/screens/settings_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/ui/components/status_bar/reader_status_context_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/adapters/ui/components/status_bar/status_context.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/application/ports/outbound/progress_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "sync.persist_session(pending_progress: nil) if payload[:clear_pending_progress",
+          "path": "lib/shoko/application/services/pagination/restore_manager.rb",
+          "role": "source"
+        },
+        {
+          "line": 298,
+          "matched_term": "sync_relay.enqueue { update_download_state(download_progress_payload(title, source, progress",
+          "path": "lib/shoko/application/workflows/menu/download_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "reading progress",
+          "path": "lib/shoko/core/models/reading_progress.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "reading progress",
+          "path": "spec/adapters/storage/codecs_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 14,
+        "test": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "line spacing",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "line spacing",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "typography",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/page_extraction_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/page_extraction_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "typography",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "typography",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "typography",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_group_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_group_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_group_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "font size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_heuristics.rb",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_heuristics.rb",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_heuristics.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "FONT_SIZE",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_line_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_line_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_line_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 270,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/rtf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 270,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/rtf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "font_size",
+          "path": "lib/shoko/adapters/book_sources/rtf/rtf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay/editor_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/annotation_overlay_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/dictionary_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "theme",
+          "path": "lib/shoko/adapters/input/controllers/dictionary_controller.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 404,
+        "test": 183
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "full-text search",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "full-text search",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Full-text search",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "full text search",
+          "path": "lib/shoko/adapters/input/controllers/in_book_search_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/adapters/ui/components/dictionary/entry_formatter.rb",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/application/ports/outbound/dictionary_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/application/ports/outbound/dictionary_repository.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/core/services/dictionary_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/core/services/dictionary_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "fuzzy search",
+          "path": "lib/shoko/core/services/dictionary_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "fuzzy search",
+          "path": "spec/core/services/dictionary_service_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 9,
+        "test": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": ".github/workflows/fixtures-nightly.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": ".github/workflows/ruby.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "Gemfile",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "Shoko.gemspec",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "csp",
+          "path": "ext/shoko_translate/src/nn.c",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "symlink",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/book_sources/gutendex_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/book_sources/gutendex_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/book_sources/gutendex_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "csP",
+          "path": "lib/shoko/adapters/output/terminal/text_metrics_port_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/rss/article_content_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/rss/article_content_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/rss/article_content_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/rss/feed_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/rss/feed_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/rss/feed_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/storage/dictionary_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/translation/libre_translate_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/translation/libre_translate_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/translation/libre_translate_adapter.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/translation/model_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/translation/model_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "HTTPS",
+          "path": "lib/shoko/adapters/translation/model_catalog_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 257,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/ui/components/screens/annotations_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 606,
+          "matched_term": "https",
+          "path": "lib/shoko/adapters/ui/components/screens/rss_reader_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "csP",
+          "path": "lib/shoko/composition/container_factory/port_and_repository_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "lib/shoko/shared/terminal/kitty_unicode_placeholders.rb",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "https",
+          "path": "spec/adapters/book_sources/download_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": "https",
+          "path": "spec/adapters/book_sources/download_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 108,
+          "matched_term": "https",
+          "path": "spec/adapters/book_sources/download_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "https",
+          "path": "spec/adapters/book_sources/gutendex_client_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "spec/adapters/book_sources/gutendex_client_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 2,
+        "source": 61,
+        "test": 162
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 143,
+          "matched_term": "Benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "benchmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "benchmark",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "benchmark",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "benchmark",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "benchmark",
+          "path": "script/bench/menu_responsiveness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "benchmark",
+          "path": "script/bench/menu_responsiveness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Benchmark",
+          "path": "script/bench/menu_responsiveness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "benchmark",
+          "path": "script/bench/reader_open_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "benchmark",
+          "path": "script/bench/reader_open_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Benchmark",
+          "path": "script/bench/reader_open_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Benchmark",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "benchmark",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "benchmark",
+          "path": "script/bench/snappiness_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Benchmark",
+          "path": "script/bench/startup_menu_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "benchmark",
+          "path": "script/bench/startup_menu_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "benchmark",
+          "path": "script/bench/startup_menu_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Benchmark",
+          "path": "script/bench/state_store_hot_path_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Benchmark",
+          "path": "script/bench/state_store_hot_path_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "benchmark",
+          "path": "script/bench/state_store_hot_path_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "benchmark",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "benchmark",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "unit test",
+          "path": "spec/adapters/storage/sqlite_dictionary_adapter_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 174,
+          "matched_term": "benchmark",
+          "path": "spec/application/workflows/menu/library_prepagination_warmup_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "unit test",
+          "path": "spec/core/architecture/domain_invariants_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 32,
+        "test": 3
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-shoko.jsonl.gz",
+  "files": {
+    "scanned_bytes": 5453435,
+    "scanned_text": 1215,
+    "skipped_binary_or_empty": 2,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 1217
+  },
+  "format_keyword_evidence": {
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 89,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/reader/mouse_session.rb",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/reader/mouse_session.rb",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/reader/runtime_setup.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/reader/startup_sequence.rb",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/reader_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/input/controllers/state_controller.rb",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": ".doc",
+          "path": "lib/shoko/adapters/ui/rendering/reader_render_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": ".doc",
+          "path": "lib/shoko/composition/container_factory/controller_composition/reader_runtime_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": ".doc",
+          "path": "lib/shoko/composition/container_factory/controller_composition/reader_runtime_assembler.rb",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": ".doc",
+          "path": "lib/shoko/core/services/pagination/internal/dynamic_page_map_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": ".doc",
+          "path": "lib/shoko/core/services/pagination/internal/dynamic_page_map_builder.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 19
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": ".epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": ".epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "EPUB ",
+          "path": "lib/shoko/adapters/book_sources/book_finder.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB ",
+          "path": "lib/shoko/adapters/book_sources/book_finder/directory_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/download_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/download_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB ",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/list_marker.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/markup_visibility.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/element_queries.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB ",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/element_queries.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/entry_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_context.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_index.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_document_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_label_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_list_item.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_result.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_selector.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_source_locator.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/navigation_walker.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf/path_resolution.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/opf_processor.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_segment_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_segment_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xml_text_normalizer.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 169,
+        "test": 556
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": ".fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "fb2",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 144,
+          "matched_term": ".fb2.zip",
+          "path": "lib/shoko/adapters/book_sources/book_finder/directory_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/fb2_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/fb2_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/element_text.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/element_text.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_inline_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_inline_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_section_flattener.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_section_flattener.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Fb2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "FB2",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": ".fb2",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".fb2",
+          "path": "lib/shoko/adapters/book_sources/format_registry.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".fb2.zip",
+          "path": "lib/shoko/adapters/book_sources/format_registry.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "fb2",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fb2",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": ".fb2",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".fb2",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".fb2.zip",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".fb2",
+          "path": "script/bench/reader_open_benchmark.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "fb2",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": ".fb2",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".fb2",
+          "path": "spec/adapters/book_sources/archive/zip_reader_entries_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": ".fb2",
+          "path": "spec/adapters/book_sources/archive/zip_reader_entries_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": ".fb2.zip",
+          "path": "spec/adapters/book_sources/folder_scanner_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 74,
+          "matched_term": ".fb2.zip",
+          "path": "spec/adapters/book_sources/folder_scanner_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 76,
+          "matched_term": ".fb2",
+          "path": "spec/adapters/book_sources/import_budget_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Fb2",
+          "path": "spec/adapters/book_sources/importer_extract_resources_flag_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 98,
+        "test": 91
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 248,
+          "matched_term": ".xhtml",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": ".html",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "HTML5",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/markup_visibility.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_block_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_content_traversal.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xhtml_segment_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/epub/parser/xml_text_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": ".xhtml",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/monitoring/perf_tracer.rb",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/adapters/rss/article_content_fetcher.rb",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": ".xhtml",
+          "path": "lib/shoko/adapters/storage/cache/epub/serializer.rb",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": ".xhtml",
+          "path": "lib/shoko/adapters/storage/json_cache_store.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/adapters/storage/lazy_file_string.rb",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/container_factory.rb",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/container_factory.rb",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/composition/container_factory/domain_application_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/container_factory/domain_application_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/container_factory/infrastructure_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/container_factory/infrastructure_registration.rb",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "xhtml",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "XHTML",
+          "path": "lib/shoko/shared/text_sanitizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".xhtml",
+          "path": "spec/adapters/book_sources/parser/epub/navigation_text_extraction_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": ".xhtml",
+          "path": "spec/adapters/book_sources/parser/epub/navigation_text_extraction_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 61,
+          "matched_term": "XHTML",
+          "path": "spec/adapters/book_sources/parser/kindle/kindle_content_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 62,
+          "matched_term": "XHTML",
+          "path": "spec/adapters/book_sources/parser/kindle/kindle_content_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "XHTML",
+          "path": "spec/adapters/book_sources/parser/kindle/kindle_importer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 151,
+          "matched_term": "XHTML",
+          "path": "spec/adapters/book_sources/parser/kindle/kindle_importer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "XHTML",
+          "path": "spec/adapters/book_sources/xhtml_content_parser_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 62,
+        "test": 94
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 141,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 141,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": ".md",
+          "path": "docs/architecture/history/constitution-history.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".md",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".md",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "markdown",
+          "path": "lib/shoko/adapters/rss/article_content_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "markdown",
+          "path": "lib/shoko/adapters/ui/components/ui/annotation_markup.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 2
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": ".mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".azw",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": ".mobi",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".azw",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "mobi",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".azw",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_image_source.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_image_source.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "palmdoc",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/kindle_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/exth_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".azw3",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/huff_cdic_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "AZW",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/kindle_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "mobi",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PalmDOC",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/mobi_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "PalmDOC",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/palmdoc_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Palmdoc",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/palmdoc_decompressor.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/pdb_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".azw",
+          "path": "lib/shoko/adapters/book_sources/kindle/parser/pdb_header_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "mobi",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "azw3",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/adapters/output/kitty/image_cache_warmup.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".azw",
+          "path": "lib/shoko/adapters/output/kitty/image_cache_warmup.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/adapters/output/kitty/resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".azw",
+          "path": "lib/shoko/adapters/output/kitty/resource_loader.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "AZW3",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "MOBI",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": ".azw",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": ".mobi",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": ".azw",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".mobi",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": ".azw3",
+          "path": "spec/adapters/book_sources/folder_scanner_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 134,
+        "test": 176
+      }
+    },
+    "odt_rtf": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": ".rtf",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".rtf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "RTF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": ".rtf",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "rtf",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": ".rtf",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "RTF",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "RTF",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "RTF",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "RTF",
+          "path": "lib/shoko/adapters/book_sources/rtf/parser/rtf_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/rtf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/book_sources/rtf/rtf_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/input/cli.rb",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "rtf",
+          "path": "lib/shoko/adapters/ui/components/status_bar/format_badge.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rtf",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": ".rtf",
+          "path": "lib/shoko/application/workflows/cli/folder_import_workflow.rb",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": ".rtf",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "rtf",
+          "path": "lib/shoko/composition/format_registry_composition.rb",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "RTF",
+          "path": "lib/shoko/core/services/in_book_search_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rtf",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".rtf",
+          "path": "script/bench/support/library_sandbox.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "rtf",
+          "path": "spec/adapters/book_sources/folder_scanner_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 65,
+          "matched_term": ".rtf",
+          "path": "spec/adapters/book_sources/folder_scanner_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "Rtf",
+          "path": "spec/adapters/book_sources/importer_extract_resources_flag_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "RTF",
+          "path": "spec/adapters/book_sources/parser/metadata_schema_contract_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "RTF",
+          "path": "spec/adapters/book_sources/parser/metadata_schema_contract_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "Rtf",
+          "path": "spec/adapters/book_sources/parser/rtf/metadata_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 40,
+          "matched_term": ".rtf",
+          "path": "spec/adapters/book_sources/parser/rtf/metadata_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "Rtf",
+          "path": "spec/adapters/book_sources/parser/rtf/rtf_content_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "Rtf",
+          "path": "spec/adapters/book_sources/parser/rtf/rtf_importer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "RTF",
+          "path": "spec/adapters/book_sources/parser/rtf/rtf_importer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "Rtf",
+          "path": "spec/adapters/book_sources/parser/rtf/rtf_metadata_extractor_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 84,
+        "test": 142
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 248,
+          "matched_term": ".opf",
+          "path": "lib/shoko/adapters/book_sources/epub/epub_importer.rb",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".opf",
+          "path": "spec/composition/reader_composition_integration_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 69,
+          "matched_term": ".opf",
+          "path": "spec/composition/reader_composition_integration_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": ".pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": ".pdf",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".pdf",
+          "path": "docs/book-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "PDF",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": ".pdf",
+          "path": "docs/performance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".pdf",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "pdf",
+          "path": "lib/shoko/adapters/book_sources/folder_scanner.rb",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "pdf",
+          "path": "lib/shoko/adapters/book_sources/libgen_client.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/metadata_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/metadata_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/page_extraction_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/importer/page_extraction_coordinator.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/metadata_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_tokenizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_content_stream_tokenizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_font_profile_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_font_profile_resolver.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_classifier.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_classifier.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_group_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_group_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_heuristics.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_heuristics.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_line_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_line_normalizer.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_layout_payload_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_metadata_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_reader.rb",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_extractor.rb",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Pdf",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_fragment_decoder.rb",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "PDF",
+          "path": "lib/shoko/adapters/book_sources/pdf/parser/pdf_text_fragment_decoder.rb",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 121,
+        "test": 141
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "plain text",
+          "path": "lib/shoko/adapters/book_sources/fb2/parser/fb2_inline_parser.rb",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "plain text",
+          "path": "lib/shoko/adapters/output/formatting/formatting_service/plain_lines_builder.rb",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "plain text",
+          "path": "lib/shoko/adapters/ui/components/screens/rss_reader_screen_component.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "plain text",
+          "path": "lib/shoko/application/ports/outbound/text_metrics.rb",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "plain text",
+          "path": "lib/shoko/core/services/in_book_search_service.rb",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".txt",
+          "path": "lib/shoko/shared/terminal/kitty_unicode_placeholders.rb",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "plain text",
+          "path": "lib/shoko/shared/terminal/text_metrics/wrapper.rb",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "plain text",
+          "path": "script/visual/capture_page.rb",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".txt",
+          "path": "spec/adapters/book_sources/archive/zip_reader_entries_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": ".txt",
+          "path": "spec/adapters/book_sources/archive/zip_reader_entries_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 142,
+          "matched_term": ".txt",
+          "path": "spec/adapters/book_sources/download_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": ".txt",
+          "path": "spec/adapters/book_sources/parser/fb2/fb2_importer_zip_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 133,
+          "matched_term": "plain text",
+          "path": "spec/adapters/book_sources/parser/pdf/pdf_content_parser_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 30,
+          "matched_term": "plain text",
+          "path": "spec/adapters/book_sources/pdf/pdf_importer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": ".txt",
+          "path": "spec/adapters/input/cli_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 42,
+          "matched_term": ".txt",
+          "path": "spec/adapters/input/cli_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 72,
+          "matched_term": "plain text",
+          "path": "spec/adapters/rss/bounded_http_body_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 79,
+          "matched_term": "plain text",
+          "path": "spec/adapters/rss/bounded_http_body_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 215,
+          "matched_term": "Plain text",
+          "path": "spec/adapters/rss/rss_reader_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 224,
+          "matched_term": "Plain text",
+          "path": "spec/adapters/rss/rss_reader_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": ".txt",
+          "path": "spec/adapters/storage/atomic_file_writer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": ".txt",
+          "path": "spec/adapters/storage/atomic_file_writer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".txt",
+          "path": "spec/adapters/storage/dictionary_catalog_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".txt",
+          "path": "spec/adapters/storage/dictionary_catalog_service_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "plain text",
+          "path": "spec/shared/terminal/text_metrics/wrapper_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "spec/zip/decompression_output_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "spec/zip/file_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": ".txt",
+          "path": "spec/zip/file_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": ".txt",
+          "path": "spec/zip/name_normalizer_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": ".txt",
+          "path": "spec/zip/name_normalizer_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 9,
+        "test": 26
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "lpf",
+          "path": "spec/adapters/book_sources/gutendex_client_spec.rb",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": "lpf",
+          "path": "spec/adapters/rss/article_content_fetcher_spec.rb",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 2
+      }
+    }
+  },
+  "inventory_url": "https://git.sr.ht/~shayan/shoko",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 6,
+    "C/C++ header": 3,
+    "Ruby": 1168,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://git.sr.ht/~shayan/Shoko",
+  "readme_files": [
+    "README.md",
+    "ext/shoko_translate/README.md"
+  ],
+  "revision": "eb319d18d7154ebebb403990f3ac9d99cc1aa893",
+  "schema_version": 1,
+  "slug": "shoko",
+  "support_claims_allowed": false,
+  "tree": "d261648b9cdf3c2b741a79f41d3873c3a304f621"
+}

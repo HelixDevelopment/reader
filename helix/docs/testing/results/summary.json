@@ -1,0 +1,441 @@
+{
+  "entries": [
+    {
+      "category": "Core",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-test.log",
+          "sha256": "12e07a3ae7175798456d3f4dd2af71037d0225627fa18754a4aa559ff0389c5d"
+        }
+      ],
+      "id": "core-unit-integration",
+      "status": "PASS",
+      "summary": "Complete core Go test log."
+    },
+    {
+      "category": "Core",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-race.log",
+          "sha256": "04ea9afac2133eb70acd376cea0b31b425459dd5d7fa477ac0ef5089fa0d2a53"
+        }
+      ],
+      "id": "core-race",
+      "status": "PASS",
+      "summary": "Core race-detector campaign."
+    },
+    {
+      "category": "Core",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-vet.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "id": "core-vet",
+      "status": "PASS",
+      "summary": "Core static vet campaign."
+    },
+    {
+      "category": "Fuzz",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-formats.log",
+          "sha256": "ec94fe8620829185720d1f7810b42caef272fe0661f6baab95e4c2d6aa952df2"
+        },
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-cbz.log",
+          "sha256": "fc899ef2f12843f42b592ca66e4e02815a73b51db5b2f65a1b755cb8e280a19d"
+        },
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-epub.log",
+          "sha256": "4e682381682d1a81a7ea288b062c296cf7f3e44e97772d81897a604ec3d17be5"
+        },
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-fb2.log",
+          "sha256": "e857b8145eeea0b2b25a62a675ebcfc259f44e58f807c4250380e418fbd1e431"
+        },
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-mobi.log",
+          "sha256": "e6468f63e7cc2198693bfc5c2788dcf33bf3526af934e78c1a7a892779814ae6"
+        },
+        {
+          "exists": true,
+          "path": "evidence/core/final-go-fuzz-txt.log",
+          "sha256": "4e5d13c94000cad5b1e566c90e687497c58528153680b50baa2950eaa05523a5"
+        }
+      ],
+      "id": "core-fuzz",
+      "status": "PASS",
+      "summary": "Six core format fuzz targets."
+    },
+    {
+      "category": "Server",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/server/final-go-test.log",
+          "sha256": "26a4bfa0ce68c16373ed81c7ee19588d2be40243d098e2b254f07c07dc57ce25"
+        },
+        {
+          "exists": true,
+          "path": "evidence/server/final-repeat-1.log",
+          "sha256": "d5d7e36d9a14b6e3d75767832f9aadd2c8e6cdb5d8e54e7a5602d47d8b7e438d"
+        },
+        {
+          "exists": true,
+          "path": "evidence/server/final-repeat-2.log",
+          "sha256": "4aa32b03cdd025e8ab628be43fe875844472f909875bb4bab8b9b512c108648e"
+        },
+        {
+          "exists": true,
+          "path": "evidence/server/final-repeat-3.log",
+          "sha256": "0bb1dbf5c1975e3b98668faa839f920d76bcc38ea0fb62c74c0def7362505b99"
+        }
+      ],
+      "id": "server-unit-integration",
+      "status": "PASS",
+      "summary": "Server test and three repeat logs."
+    },
+    {
+      "category": "Server",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/server/final-go-race.log",
+          "sha256": "6a4810a15388ec46c69236548c4645ec809c1792211e2ecb7b0c816c34aa203d"
+        },
+        {
+          "exists": true,
+          "path": "evidence/server/final-go-vet.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "id": "server-race-vet",
+      "status": "PASS",
+      "summary": "Server race and vet campaigns."
+    },
+    {
+      "category": "Fuzz",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/server/final-go-fuzz-single-range.log",
+          "sha256": "80026123cde08ffb9217e27a21cd951305785b3478c0e4bc41d42b5333a6199d"
+        }
+      ],
+      "id": "server-range-fuzz",
+      "status": "PASS",
+      "summary": "Single-range parser fuzz target."
+    },
+    {
+      "category": "Live services",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/server/final-go-live-services.log",
+          "sha256": "ced3a68bdffaaa534fe3b2a3d49f5066ac8c9874619a1be8937688c6588958e3"
+        }
+      ],
+      "id": "live-postgresql-redis",
+      "status": "PASS",
+      "summary": "Real PostgreSQL, pgvector, Redis KOSync, and internal progress tests."
+    },
+    {
+      "category": "Web",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/ui/final-npm-ci-dry-run.log",
+          "sha256": "7fa32407623b2c0632fc62264fe43af0f06172b28eac1f824342b26e4d13dde7"
+        },
+        {
+          "exists": true,
+          "path": "evidence/ui/final-npm-lint.log",
+          "sha256": "64d02581f09d78874ae6643ecad602e328ad6bf8a976a76993281fb4f0fa2a42"
+        },
+        {
+          "exists": true,
+          "path": "evidence/ui/final-npm-build.log",
+          "sha256": "c8a6165e66cd491e1df10eee66bdf4f5a24e40f69f487b4ec5f8de784c15512a"
+        }
+      ],
+      "id": "web-static-and-build",
+      "status": "PASS",
+      "summary": "Dependency dry run, lint, and production build."
+    },
+    {
+      "category": "Web",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/ui/final-run.log",
+          "sha256": "2d299c16f3fe2c973e48526eb5b7e6c59a759955cdf5db55ddaa08c7e6e83179"
+        }
+      ],
+      "id": "web-four-viewports",
+      "status": "PASS",
+      "summary": "64 browser checks across four viewports; sample-only interface, not native-client evidence."
+    },
+    {
+      "category": "Mutation",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/go-mutation/results.json",
+          "sha256": "4e56082e924e5f04e0e664e326f801a381001b098665b91e5f51e0fed1583d48"
+        }
+      ],
+      "id": "go-mutation",
+      "status": "PASS",
+      "summary": "21 pass / 0 fail. Twenty-one targeted mutants; original-tree hash check is included in the artifact."
+    },
+    {
+      "category": "Governance",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/workable-items/results.json",
+          "sha256": "fa4e3bf0863e51bf7e9991f9fba985d2b294f1023db5f03d7e80c65ac532c102"
+        }
+      ],
+      "id": "workable-items",
+      "status": "PASS",
+      "summary": "10 pass / 0 fail. Real SQLite lifecycle, stress, crash recovery, corruption recovery, and four tracker mutations."
+    },
+    {
+      "category": "Live API",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/live-server/post-fix-repeat-01/results.json",
+          "sha256": "9936f033fa510e4503d3618f1e0a19b7b9587d754bfb2031173e04ba047e5452"
+        },
+        {
+          "exists": true,
+          "path": "evidence/live-server/post-fix-repeat-02/results.json",
+          "sha256": "9936f033fa510e4503d3618f1e0a19b7b9587d754bfb2031173e04ba047e5452"
+        },
+        {
+          "exists": true,
+          "path": "evidence/live-server/post-fix-repeat-03/results.json",
+          "sha256": "9936f033fa510e4503d3618f1e0a19b7b9587d754bfb2031173e04ba047e5452"
+        },
+        {
+          "exists": true,
+          "path": "evidence/live-server/post-fix-daemon-restart/results.json",
+          "sha256": "a42f59feac4da1fc0821c74043ca4bfe033fa1f77e990606a41381f7eac942fc"
+        }
+      ],
+      "id": "live-server-post-fix",
+      "status": "PASS",
+      "summary": "Three ordinary 37/37 runs and one daemon/PostgreSQL/Redis restart 38/38 run passed after the keepalive fix."
+    },
+    {
+      "category": "Live API",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/live-server-daemon-restart/results.json",
+          "sha256": "a42f59feac4da1fc0821c74043ca4bfe033fa1f77e990606a41381f7eac942fc"
+        }
+      ],
+      "id": "live-server-earlier-failure",
+      "status": "FAIL",
+      "summary": "Preserved pre-fix daemon-restart failure: connection reset after the identity attachment response."
+    },
+    {
+      "category": "Transport",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/live-transport/post-compression-repeat-02/results.json",
+          "sha256": "3421fde370ab7f93cea034593ec33006744634a993b8a186f020b5649cd51ad1"
+        },
+        {
+          "exists": true,
+          "path": "evidence/live-transport/post-compression-repeat-03/results.json",
+          "sha256": "3421fde370ab7f93cea034593ec33006744634a993b8a186f020b5649cd51ad1"
+        },
+        {
+          "exists": true,
+          "path": "evidence/live-transport/post-compression-repeat-04/results.json",
+          "sha256": "3421fde370ab7f93cea034593ec33006744634a993b8a186f020b5649cd51ad1"
+        }
+      ],
+      "id": "transport-post-fix",
+      "status": "PASS",
+      "summary": "Three consecutive instrumented 5/5 HTTP/1.1, HTTP/2, HTTP/3, TLS, and Alt-Svc reruns passed."
+    },
+    {
+      "category": "Transport",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/live-transport/post-compression-failure-01/results.json",
+          "sha256": "4843f0000b9177e98a91ac7813f2fff08b429531bd4b9d13ff59b80c7ef4b78c"
+        }
+      ],
+      "id": "transport-readiness-failure",
+      "status": "FAIL",
+      "summary": "One post-fix readiness attempt failed without diagnostics; direct reproduction passed and the verifier was instrumented before three passing reruns. The initial failure is not explained away."
+    },
+    {
+      "category": "Recovery",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/backup-restore/post-compression/results.json",
+          "sha256": "a673c4f7a139d91fe27f61601eda5e783f4999e1d4730f6991e87b5720d87943"
+        }
+      ],
+      "id": "backup-restore-post-fix",
+      "status": "PASS",
+      "summary": "13 pass / 0 fail. Live backup/restore rerun after the compression change."
+    },
+    {
+      "category": "HelixQA",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/helixqa-build-test.log",
+          "sha256": "e6efab547b8a08d5f0a74b34fa99ee219cb937452bcab6d1d7ed4f919914ad7c"
+        },
+        {
+          "exists": true,
+          "path": "submodules/qa/helix-deps.yaml",
+          "sha256": "461a25a91baf627e1e4e2c9ee68c955bb3c81288281547c5914a285f460effeb"
+        }
+      ],
+      "id": "helixqa-build",
+      "status": "FAIL",
+      "summary": "Actual CLI build failed because declared own-org dependency checkouts are incomplete. No HelixQA test pass is claimed."
+    },
+    {
+      "category": "Research",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "research/analysis_summary.json",
+          "sha256": "1c9573106d9b4ee43b3a1019b6e23fc9d6ca838b50342266d4482c4a4285d2c2"
+        }
+      ],
+      "id": "repository-research",
+      "status": "PARTIAL",
+      "summary": "106/111 static analyses are indexed; five targets remain unavailable and manual architecture/license review is incomplete."
+    },
+    {
+      "category": "Scalability",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "docs/scalability-review.md",
+          "sha256": "f9114d31148ee6b11834d5008e0cb4fac01e59034d416272e3d4a1c39b95a93b"
+        }
+      ],
+      "id": "enterprise-load",
+      "status": "NOT RUN",
+      "summary": "No representative enterprise load, query-plan, saturation, or multi-node qualification has run."
+    },
+    {
+      "category": "Clients",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "docs/architecture.md",
+          "sha256": "b0540cb372616cb2404365b698b3405e8c600bf687c0abddecc7aab8f7ed4d50"
+        }
+      ],
+      "id": "native-clients",
+      "status": "NOT DELIVERED",
+      "summary": "No native Windows, macOS, Linux, Android, or iOS client artifacts or real-device validation exist."
+    },
+    {
+      "category": "Clients",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "evidence/ui/final-run.log",
+          "sha256": "2d299c16f3fe2c973e48526eb5b7e6c59a759955cdf5db55ddaa08c7e6e83179"
+        }
+      ],
+      "id": "device-demos",
+      "status": "PARTIAL",
+      "summary": "Four browser viewports are verified; native-device and low-end-hardware interactive demonstrations are not delivered."
+    },
+    {
+      "category": "Deployment",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "deploy/docker-compose.yml",
+          "sha256": "9c316455ac7e00ca8a291525b429c8ec203b90497a71b0c91ac23e44124d7b3c"
+        },
+        {
+          "exists": true,
+          "path": "server/Dockerfile",
+          "sha256": "844a73536999da83a401e9dc70923fb32bfb91da7a5b334c77b25dfb5d9301cc"
+        }
+      ],
+      "id": "container-runtime",
+      "status": "NOT RUN",
+      "summary": "Container recipes exist, but Docker/Podman cold start, restart, upgrade, and rollback have not run."
+    },
+    {
+      "category": "Deployment",
+      "evidence": [],
+      "id": "firebase-distribution",
+      "status": "NOT RUN",
+      "summary": "No project-bound Firebase distribution run or CLI evidence exists."
+    },
+    {
+      "category": "Interoperability",
+      "evidence": [],
+      "id": "external-interoperability",
+      "status": "NOT RUN",
+      "summary": "No physical KOReader, external OPDS client, or deployment-specific rclone provider validation is recorded."
+    },
+    {
+      "category": "Governance",
+      "evidence": [
+        {
+          "exists": true,
+          "path": "docs/tracking/helixtrack-outbox.json",
+          "sha256": "0ca2579bf0299cb4570ea14df26b7ec38ab1584a73726e4348236fb1d60c3cc7"
+        },
+        {
+          "exists": true,
+          "path": "docs/workable-items.md",
+          "sha256": "c0a3e444d911e6cbee006d6a8157e25e7ccfacee464e86eb0eaebabbd8c2f1ba"
+        }
+      ],
+      "id": "helixtrack-remote-sync",
+      "status": "NOT RUN",
+      "summary": "Only an offline outbox exists. Exact remote API compatibility, credentials, and push/pull receipts are unverified."
+    },
+    {
+      "category": "Release",
+      "evidence": [],
+      "id": "final-archives",
+      "status": "NOT RUN",
+      "summary": "Fresh final ZIP and tar.gz archives are withheld while requested scope and qualification remain open."
+    }
+  ],
+  "release_qualification": "NOT READY",
+  "schema": "helix.test-results.index.v1",
+  "status_counts": {
+    "FAIL": 3,
+    "NOT DELIVERED": 1,
+    "NOT RUN": 6,
+    "PARTIAL": 2,
+    "PASS": 15
+  }
+}

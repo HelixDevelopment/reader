@@ -1,0 +1,4265 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 289,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "rag",
+          "path": "apps/reader/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 121,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/base/DropZone.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/base/DropZone.tsx",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/base/DropZone.tsx",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/base/SplitView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/base/SplitView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/theme/useColorScheme.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/theme/useColorScheme.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/theme/useColorScheme.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/useAi.ts",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/useAi.ts",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "rag",
+          "path": "apps/reader/src/hooks/useAi.ts",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "rag",
+          "path": "apps/reader/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "openai",
+          "path": "apps/reader/src/pages/api/ai.ts",
+          "role": "source"
+        },
+        {
+          "line": 402,
+          "matched_term": "rag",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "apps/reader/src/state.ts",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "apps/reader/src/state.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "apps/reader/src/state.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "rag",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "rag",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 63,
+        "source": 187,
+        "test": 6
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "highlight",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Highlight",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "annotation",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Annotation",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "annotation",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "highlight",
+          "path": "apps/reader/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "highlight",
+          "path": "apps/reader/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/annotation.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "highlight",
+          "path": "apps/reader/src/annotation.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/annotation.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Highlight",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "highlight",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "cfi",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "cfi",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cfi",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Annotation",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "annotation",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 272,
+        "source": 1130,
+        "test": 269
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/ImageView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/ImageView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/ImageView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/hooks/remote/useSync.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/hooks/remote/useSync.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/hooks/useTypography.ts",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/hooks/useTypography.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "snapshot",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "snapshot",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "Snapshot",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "backup",
+          "path": "apps/reader/src/sync.ts",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "backup",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "backup",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "backup",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 57,
+        "test": 1
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 59,
+          "matched_term": "Collection",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Collection",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "Collection",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "collection",
+          "path": "apps/reader/src/pages/api/webdav/utils.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "collection",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "collection",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 291,
+          "matched_term": "collection",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 850,
+          "matched_term": "series",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "series",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "packages/epubjs/src/spine.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "shelves",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_001.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "shelves",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_001.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "shelves",
+          "path": "packages/epubjs/test/section.js",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "shelves",
+          "path": "packages/epubjs/test/section.js",
+          "role": "test"
+        },
+        {
+          "line": 2668,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8219,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10880,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 23,
+        "test": 4
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 35,
+          "matched_term": "Double Page",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cb7",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "Double Page",
+          "path": "packages/epubjs/src/layout.js",
+          "role": "source"
+        },
+        {
+          "line": 526,
+          "matched_term": "Cbt",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 684,
+          "matched_term": "cbR",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1111,
+          "matched_term": "CBT",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 38
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 230,
+          "matched_term": "cache",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 251,
+          "matched_term": "cache",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Cache",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "cache",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "cache",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "cache",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "eTag",
+          "path": "apps/reader/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "eTag",
+          "path": "apps/reader/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "eTag",
+          "path": "apps/reader/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Cache",
+          "path": "apps/reader/src/pages/api/ai.ts",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "apps/reader/src/pages/api/ai.ts",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Cache",
+          "path": "apps/reader/src/pages/api/webdav/download.ts",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "cache",
+          "path": "apps/reader/src/pages/api/webdav/download.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "cache",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "eTag",
+          "path": "apps/website/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "eTag",
+          "path": "apps/website/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "eTag",
+          "path": "apps/website/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "cache",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "cache",
+          "path": "packages/epubjs/.travis.yml",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/archived.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/continuous-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/highlights.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/hypothesis-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/hypothesis-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/hypothesis.html",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/hypothesis.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "packages/epubjs/examples/input.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 23,
+        "source": 141
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "epubjs/types/utils/hook.d.ts\",\"../../packages/epubjs/types/section.d.ts\",\"../../packages/epubjs/type",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB standard](http://www.idpf.org/epub/30/spec/epub30-overview.html) is a widely used and easily co",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8142,
+          "matched_term": "conversion",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8145,
+          "matched_term": "conversion",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 17783,
+          "matched_term": "conversion",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 84,
+          "matched_term": "accessibility",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "Accessibility",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "dtbook",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "daisy",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_001.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "daisy",
+          "path": "packages/epubjs/test/fixtures/highlight.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 2118,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10433,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 12237,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6,
+        "test": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 625,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 635,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "packages/epubjs/license",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "packages/epubjs/license",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "Redis",
+          "path": "packages/epubjs/license",
+          "role": "documentation"
+        },
+        {
+          "line": 317,
+          "matched_term": "reDis",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 318,
+          "matched_term": "reDis",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 324,
+          "matched_term": "reDis",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "test": 9
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "DUPLICATE",
+          "path": "apps/reader/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "dedup",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 766,
+          "matched_term": "duplicate",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 772,
+          "matched_term": "duplicate",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8852,
+          "matched_term": "duplicate",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 7
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "Docker",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Docker",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Docker",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Docker",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 27,
+          "matched_term": "Docker",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Docker",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "docker",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "DOCKER",
+          "path": "apps/reader/next.config.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "DOCKER",
+          "path": "apps/reader/next.config.js",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "DOCKER",
+          "path": "apps/reader/next.config.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "docker",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Docker",
+          "path": "docker-compose.yml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 5,
+        "source": 57
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "translation",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Form.tsx",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Form.tsx",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Row.tsx",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Row.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Tab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Tab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/Tab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/SearchView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/ThemeView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/ThemeView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TimelineView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TocView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/hooks/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/hooks/useTranslation.ts",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Translation",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 55
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 1140,
+          "matched_term": "quic",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1994,
+          "matched_term": "quic",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "quic",
+          "path": "packages/epubjs/src/utils/core.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "quic",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "quic",
+          "path": "packages/epubjs/src/utils/queue.js",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "quic",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_003.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "Quic",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_004.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "quic",
+          "path": "packages/epubjs/test/fixtures/chapter1-highlights.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": "quic",
+          "path": "packages/epubjs/test/fixtures/chapter1.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 6444,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 6448,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10917,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 10,
+        "test": 4
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 380,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 383,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 1611,
+          "matched_term": "DRm",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "FileSystem",
+          "path": "apps/reader/src/web.d.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "in place",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "in place",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "local storage",
+          "path": "packages/epubjs/examples/locations.html",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "local storage",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "local storage",
+          "path": "packages/epubjs/src/store.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "Metadata",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Metadata",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "metadata",
+          "path": "apps/reader/src/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "metadata",
+          "path": "apps/reader/src/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "apps/reader/src/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "fetch-event.d.ts\",\"../../node_modules/.pnpm/next@12.3.4_@babel+core@7.2_4efd33eaa1f5e9ff166d22015ea7",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/continuous-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/continuous-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/continuous-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/hypothesis.html",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/hypothesis.js",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/legacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/legacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/legacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/manifest.html",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/mathml.html",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/mathml.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/mathml.html",
+          "role": "documentation"
+        },
+        {
+          "line": 260,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/single-full.html",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/examples/spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/packaging.js",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/packaging.js",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/packaging.js",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/package.opf",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Metadata",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/package.opf",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/package.opf",
+          "role": "test"
+        },
+        {
+          "line": 127,
+          "matched_term": "Metadata",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 131,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 133,
+          "matched_term": "metadata",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "Metadata",
+          "path": "packages/epubjs/types/book.d.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 29,
+        "source": 89,
+        "test": 10
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 279,
+          "matched_term": "dry-run",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "merge.d.ts\",\"../../node_modules/.pnpm/type-fest@2.12.2/node_modules/type-fest/source/merge-exclusive",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 299,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "Authorization",
+          "path": "apps/reader/src/pages/api/ai.ts",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Authentication",
+          "path": "apps/reader/src/pages/api/webdav/connect.ts",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Authorization",
+          "path": "apps/reader/src/pages/api/webdav/utils.ts",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "authentication",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 495,
+          "matched_term": "jwT",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 2903,
+          "matched_term": "jWT",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4885,
+          "matched_term": "jWT",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 12
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "cloud storage",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Cloud storage",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "cloud storage",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "cloud storage",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/archived.html",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/contents.html",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/continuous-scrolled.html",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/continuous-spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/embedded.html",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/highlights.html",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/hooks.html",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/hypothesis-continuous.html",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/hypothesis.html",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/hypothesis.js",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/legacy.html",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/locations.html",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/marks.html",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/offline.html",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/renderless.html",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/scrolled.html",
+          "role": "documentation"
+        },
+        {
+          "line": 159,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/single-full.html",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/spreads.html",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/swipe.html",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/themes.html",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "s3",
+          "path": "packages/epubjs/examples/toc.html",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": "s3",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 84,
+          "matched_term": "s3",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 92,
+          "matched_term": "s3",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "s3",
+          "path": "packages/epubjs/types/epubjs-tests.ts",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "s3",
+          "path": "packages/epubjs/types/epubjs-tests.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 4,
+        "test": 6
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 150,
+          "matched_term": "export const Annotations: React.FC<Annotations",
+          "path": "apps/reader/src/components/Annotation.tsx",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "exportAnnotations",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "exported[chapter] = annotations",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "exportedAnnotations",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "annotations.d.ts\",\"../../packages/epubjs/types/themes.d.ts\",\"../../packages/epubjs/types/utils/core.",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "export default Annotations",
+          "path": "packages/epubjs/src/annotations.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "export default class Annotations",
+          "path": "packages/epubjs/types/annotations.d.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 973,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1169,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "fixed-layout",
+          "path": "packages/epubjs/src/displayoptions.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/layout.js",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/layout.js",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/layout.js",
+          "role": "source"
+        },
+        {
+          "line": 322,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/managers/views/iframe.js",
+          "role": "source"
+        },
+        {
+          "line": 572,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 642,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "PDF.js",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf.js",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "reflow",
+          "path": "packages/epubjs/types/rendition.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 10
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "permission",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "permission",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "permission",
+          "path": "apps/website/src/pages/terms.mdx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 20,
+        "source": 11
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": "reading progress",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "theme",
+          "path": ".vscode/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "typography",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Typography",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "typography",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "theme",
+          "path": "apps/reader/public/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/Layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "typography",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "line height",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "apps/reader/src/components/Theme.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/Theme.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/Theme.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/components/viewlets/ThemeView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "apps/reader/src/components/viewlets/ThemeView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/components/viewlets/TypographyView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "typography",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "apps/reader/src/hooks/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Typography",
+          "path": "apps/reader/src/hooks/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/hooks/theme/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/hooks/theme/useBackground.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "apps/reader/src/hooks/theme/useBackground.ts",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "theme",
+          "path": "apps/reader/src/hooks/theme/useBackground.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 57,
+        "source": 304,
+        "test": 12
+      }
+    },
+    "readium": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "readium",
+          "path": "packages/epubjs/examples/manifest.html",
+          "role": "documentation"
+        },
+        {
+          "line": 3757,
+          "matched_term": "Rwpm",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": ".npmrc",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": ".vscode/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "secret",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "https",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "https",
+          "path": "DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 646,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 661,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "https",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "apps/reader/netlify.toml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "apps/reader/netlify.toml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "apps/reader/next-env.d.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "apps/reader/next.config.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "apps/reader/public/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "apps/reader/sentry.client.config.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "apps/reader/sentry.client.config.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "apps/reader/sentry.properties",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "apps/reader/sentry.server.config.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "apps/reader/sentry.server.config.js",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "apps/reader/src/color.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/Form.tsx",
+          "role": "source"
+        },
+        {
+          "line": 293,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/TextSelectionMenu.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/base/ContextView.excalidraw",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/base/ContextView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/base/DropZone.tsx",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/base/DropZone.tsx",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "https",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "apps/reader/src/hooks/useDisablePinchZooming.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "apps/reader/src/hooks/useTextSelection.ts",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "apps/reader/src/hooks/useTextSelection.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 549,
+        "source": 199,
+        "test": 10
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 91,
+          "matched_term": "Unit test",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "Integration test",
+          "path": "QWEN.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "webdav": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "WebDAV",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "WEBDAV",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/components/pages/settings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "webdav",
+          "path": "apps/reader/src/hooks/remote/useRemote.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "webdav",
+          "path": "apps/reader/src/hooks/remote/useRemote.ts",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "webdav",
+          "path": "apps/reader/src/hooks/remote/useRemote.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "WEBDAV",
+          "path": "apps/reader/src/pages/api/webdav/connect.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/pages/api/webdav/connect.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/pages/api/webdav/connect.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "WEBDAV",
+          "path": "apps/reader/src/pages/api/webdav/utils.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "webdav",
+          "path": "apps/reader/src/pages/api/webdav/utils.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/pages/api/webdav/utils.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "WEBDAV",
+          "path": "apps/reader/src/sync.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "webdav",
+          "path": "apps/reader/src/sync.ts",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "WebDAV",
+          "path": "apps/reader/src/sync.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "webdav",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "webdav",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "webdav",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 51
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-flow.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1876800,
+    "scanned_text": 303,
+    "skipped_binary_or_empty": 39,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 2,
+    "tracked": 345
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "dtbook",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "daisy",
+          "path": "packages/epubjs/test/fixtures/alice/OPS/chapter_001.xhtml",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "daisy",
+          "path": "packages/epubjs/test/fixtures/highlight.xhtml",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "ePub ",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "ePub ",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "ePub ",
+          "path": "QWEN.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "ePub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "Epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "apps/reader/public/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "epub",
+          "path": "apps/reader/public/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": ".epub",
+          "path": "apps/reader/src/components/viewlets/ImageView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "epub",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "epub",
+          "path": "apps/reader/src/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "ePub",
+          "path": "apps/reader/src/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "ePub",
+          "path": "apps/reader/src/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".epub",
+          "path": "apps/reader/src/mime.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub",
+          "path": "apps/reader/src/mime.ts",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": ".epub",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": ".epub",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": ".epub",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub",
+          "path": "apps/reader/tsconfig.tsbuildinfo",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "EPUB ",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "apps/website/locales/en-US.json",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "apps/website/locales/ja-JP.json",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "ePub",
+          "path": "apps/website/locales/ja-JP.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "EPUB ",
+          "path": "apps/website/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "apps/website/locales/zh-CN.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "ePub",
+          "path": "apps/website/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Epub",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Epub",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "epub",
+          "path": "packages/epubjs/bower.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "epub",
+          "path": "packages/epubjs/bower.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "ePub",
+          "path": "packages/epubjs/documentation.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "ePub\n\n",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "ePub",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB",
+          "path": "packages/epubjs/examples/archived.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub",
+          "path": "packages/epubjs/examples/archived.html",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB",
+          "path": "packages/epubjs/examples/contents.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "packages/epubjs/examples/contents.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB",
+          "path": "packages/epubjs/examples/continuous-scrolled.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 152,
+        "source": 134,
+        "test": 99
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "apps/reader/src/models/reader.ts",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": ".html",
+          "path": "apps/reader/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "apps/reader/src/pages/_error.js",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": ".html",
+          "path": "apps/reader/src/pages/index.tsx",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".html",
+          "path": "apps/website/src/pages/_document.tsx",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": ".html",
+          "path": "apps/website/src/pages/privacy.mdx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".html",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "HTML5",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 225,
+          "matched_term": ".html",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 233,
+          "matched_term": ".html",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/examples/hooks.html",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": ".html",
+          "path": "packages/epubjs/examples/hypothesis-continuous.html",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": ".html",
+          "path": "packages/epubjs/examples/hypothesis.html",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": ".html",
+          "path": "packages/epubjs/examples/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": ".html",
+          "path": "packages/epubjs/examples/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/examples/swipe.html",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/examples/themes.html",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/karma.conf.js",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/karma.conf.js",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/archive.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/archive.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/epubcfi.js",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/managers/views/iframe.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/navigation.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/navigation.js",
+          "role": "source"
+        },
+        {
+          "line": 563,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/rendition.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/resources.js",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/resources.js",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/spine.js",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/store.js",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/store.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/utils/path.js",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".html",
+          "path": "packages/epubjs/src/utils/path.js",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "xhtml",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "packages/epubjs/test/core.js",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "packages/epubjs/test/core.js",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": ".xhtml",
+          "path": "packages/epubjs/test/epub.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 35,
+        "source": 32,
+        "test": 146
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "markdown",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Markdown",
+          "path": "apps/reader/locales/en-US.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "markdown",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Markdown",
+          "path": "apps/reader/locales/ja-JP.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "markdown",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Markdown",
+          "path": "apps/reader/locales/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "Markdown",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "Markdown",
+          "path": "apps/reader/src/components/viewlets/AiView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "markdown",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "markdown",
+          "path": "apps/reader/src/components/viewlets/AnnotationView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": ".md",
+          "path": "apps/website/next.config.js",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Markdown",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": ".md",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".md",
+          "path": "packages/epubjs/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1723,
+          "matched_term": "markdown",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5246,
+          "matched_term": "markdown",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 58
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "Mobi",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "azw",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "mobi",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 544,
+          "matched_term": "Open Packaging Format",
+          "path": "packages/epubjs/documentation/md/API.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/annotator.html",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/contents.html",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/continuous-scrolled.html",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/highlights.html",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/hooks.html",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/hypothesis-continuous.html",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/marks.html",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/renderless.html",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/scrolled.html",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/swipe.html",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/themes.html",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/examples/toc.html",
+          "role": "documentation"
+        },
+        {
+          "line": 270,
+          "matched_term": ".OPF",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "Open Packaging Format",
+          "path": "packages/epubjs/src/book.js",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/src/container.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Open Packaging Format",
+          "path": "packages/epubjs/src/packaging.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/book.js",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/book.js",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/fixtures/alice/META-INF/container.xml",
+          "role": "test"
+        },
+        {
+          "line": 55,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/old/epub.js",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": ".opf",
+          "path": "packages/epubjs/test/old/rendering.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 14,
+        "source": 5,
+        "test": 33
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "PDF",
+          "path": "packages/epubjs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "pdf",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "pdf",
+          "path": "packages/epubjs/src/utils/mime.js",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "PDF",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf",
+          "path": "packages/epubjs/src/utils/request.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 1050,
+          "matched_term": "Lpf",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5083,
+          "matched_term": "lpF",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/cnmgch1/flow",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 6,
+    "HTML": 27,
+    "JavaScript": 71,
+    "TypeScript": 87,
+    "TypeScript React": 36,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "BSD-2-Clause"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "packages/epubjs/license"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/cnmgch1/flow",
+  "readme_files": [
+    "README.md",
+    "packages/epubjs/README.md"
+  ],
+  "revision": "36ce6fe4d577305f0c1fb9fb7d9b64a71b37d330",
+  "schema_version": 1,
+  "slug": "flow",
+  "support_claims_allowed": false,
+  "tree": "15b86bd525abc4ad54d067e82706217011d6be9f"
+}

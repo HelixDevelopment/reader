@@ -1,0 +1,3134 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "RAG",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "RAG",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "RAG",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "rag",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "rag",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "rag",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "rag",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "pkg/stor/store.go",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "RAG",
+          "path": "pkg/stor/store.go",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "RAG",
+          "path": "pkg/stor/store.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "rag",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 7,
+        "source": 29
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "backup",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "backup",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "backup",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "backup",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "backup",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Backup",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Backup",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "backup",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "Backup",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Backup",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "backup",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "BACKUP",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Backup",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "backup",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "BACKUP",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Backup",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "BACKUP",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "backup",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Backup",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "backup",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "backup",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Restore",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "restore",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "backup",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 123,
+        "source": 202
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "collection",
+          "path": "pkg/check/data/link.schema.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 205,
+          "matched_term": "Comic",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Cbr",
+          "path": "test/license1.lcpl",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "Gzip",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "gzip",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "gzip",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Gzip",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "gzip",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "gzip",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "cache",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "gzip",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "cache",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "cache",
+          "path": "pkg/lic/license_test.go",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": "cache",
+          "path": "pkg/lic/status_doc.go",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "cache",
+          "path": "pkg/stor/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 96,
+          "matched_term": "gzip",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "gzip",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 3,
+        "source": 12,
+        "test": 3
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "EPUBs, PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "epub`, `pdf`, `lcpdf",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 208,
+          "matched_term": "epub\", \"lcpdf",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "test": 1
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": "MYSQL",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 48,
+          "matched_term": "MYSQL",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 52,
+          "matched_term": "MYSQL",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "MySQL",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "mysql",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "MySQL",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "MySQL",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "PostgresQL",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "SQLite",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "MySQL",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "MYSQL",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "SQLite",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sqlite",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "MySQL",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "mysql",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "MySQL",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "mysql",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "MySQL",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "MySQL",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "mysql",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "SQLite",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "MySQL",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "GORM",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "SQLite",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "MySQL",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "SQLite",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "gorm",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "mysql",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "gorm",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 35,
+          "matched_term": "mysql",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "mysql",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "sqlite",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "gorm",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": "sqlite",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": "gorm",
+          "path": "pkg/api/license_handler.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 87,
+        "source": 263,
+        "test": 21
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 99,
+          "matched_term": "duplicate",
+          "path": "cmd/lcpencrypt/server.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "duplicate",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "SHA256",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "sha256",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "Checksum",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "Checksum",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "Checksum",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "checksum",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 107,
+          "matched_term": "Checksum",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 211,
+          "matched_term": "Checksum",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 211,
+          "matched_term": "Checksum",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sha256",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "sha256",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "SHA-256",
+          "path": "pkg/check/data/link.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "sha256",
+          "path": "pkg/crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 100,
+          "matched_term": "sha256",
+          "path": "pkg/crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": "Checksum",
+          "path": "pkg/lic/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "SHA256",
+          "path": "pkg/lic/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "sha256",
+          "path": "pkg/lic/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "Checksum",
+          "path": "pkg/lic/license_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "sha256",
+          "path": "pkg/sign/sign.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "sha256",
+          "path": "pkg/sign/sign.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sha256",
+          "path": "pkg/sign/sign.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Checksum",
+          "path": "pkg/stor/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "checksum",
+          "path": "pkg/stor/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Checksum",
+          "path": "pkg/stor/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "sha256",
+          "path": "test/license1.lcpl",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": "sha256",
+          "path": "test/license1.lcpl",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 10,
+        "source": 18,
+        "test": 11
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "docker",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "Docker",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "docker",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "docker",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "healthcheck",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Docker",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "docker",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Docker",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Docker",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "Docker",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "docker",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 137,
+          "matched_term": "Docker",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 139,
+          "matched_term": "docker",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "docker",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "docker",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Docker",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Docker",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "Docker",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "docker",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "Docker",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "Docker",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "docker",
+          "path": "pkg/stor/store.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "docker",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "docker",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "docker",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "docker",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "docker",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "docker",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "docker",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "docker",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "docker",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "docker",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "docker",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 40,
+        "source": 58
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": "quic",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "Quic",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "quic",
+          "path": "pkg/crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "quic",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2,
+        "test": 1
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "LCP",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "LCP",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "LCP",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "LCP",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "lcp",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpchecker/lcpchecker.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "cmd/lcpchecker/lcpchecker.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "lcp",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "lcp",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lcp",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "LCP",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "LCP",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "lcp",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "lcp",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "LCP",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "LCP",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "LCP",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "LCP",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "LCP",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "LCP",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "docs/api.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 144,
+        "source": 120,
+        "test": 32
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 139,
+          "matched_term": "in place",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 71,
+          "matched_term": "metadata",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "authentication",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "jwt",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "jwt",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "jwt",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Authorization",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "Authentication",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "JWT",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "authentication",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "JWT",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "JWT",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "JWT",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "jwt",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "JWT",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "authentication",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "JWT",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "jwt",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "JWT",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "JWT",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "authentication",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "OAuth",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "authentication",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "Authentication",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "JWT",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "JWT",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "jwt",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "jwt",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "JWT",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "jwt",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "JWT",
+          "path": "pkg/conf/config.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 18,
+        "source": 82
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 35,
+          "matched_term": "FTP",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "S3",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "Cloud Storage",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "S3",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 167,
+          "matched_term": "s3",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "S3",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "S3",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "S3",
+          "path": "scripts/automated-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 6
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "application/atom+xml",
+          "path": "config/nginx.conf",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "mupdf",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 64,
+          "matched_term": "mupdf",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 65,
+          "matched_term": "mupdf",
+          "path": "Dockerfile",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "permission",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 277,
+          "matched_term": "permission",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "permission",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "pkg/crypto/pad_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 5,
+        "test": 4
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "docs/Gemfile",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "theme",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "readium": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "Readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "readium",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "readium",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "readium",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Readium",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "readium",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "readium",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "readium",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "Readium",
+          "path": "docs/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "readium",
+          "path": "docs/integration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "readium",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "readium",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 85,
+          "matched_term": "readium",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "readium",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "readium",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "readium",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "Readium",
+          "path": "pkg/api/error_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "readium",
+          "path": "pkg/api/error_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "readium",
+          "path": "pkg/api/error_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 312,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense_test.go",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense_test.go",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": "readium",
+          "path": "pkg/check/checklicense_test.go",
+          "role": "test"
+        },
+        {
+          "line": 148,
+          "matched_term": "readium",
+          "path": "pkg/check/checkstatus.go",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "readium",
+          "path": "pkg/check/checkstatus.go",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "readium",
+          "path": "pkg/check/checkstatus.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "readium",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "webpub",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "pkg/check/data/license.schema.json",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "Readium",
+          "path": "pkg/check/data/license.schema.json",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Readium",
+          "path": "pkg/check/data/license.schema.json",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "pkg/check/data/link.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Readium",
+          "path": "pkg/check/data/link.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "pkg/check/data/status.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Readium",
+          "path": "pkg/check/data/status.schema.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 18,
+        "source": 34,
+        "test": 18
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "secret",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 73,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 73,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "HTTPS",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "CSRF",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "HTTPS",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "https",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Credential",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Credential",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Credential",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cors",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "CORS",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cors",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "tls",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "tls",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Certificate",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "certificate",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "CERTIFICATE",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "CERTIFICATE",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "secret",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "secret",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Secret",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "secret",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "credential",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "secret",
+          "path": "config/access.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "secret",
+          "path": "config/access.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "docs/Gemfile",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "https",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "https",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 225,
+          "matched_term": "https",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": "credential",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 201,
+          "matched_term": "secret",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 209,
+          "matched_term": "secret",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 75,
+        "source": 200,
+        "test": 23
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "go test",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "unit test",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "audiobook",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "audiobook",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "audiobook",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "audiobook",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "Audiobook",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "watch folder",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "Watching director",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fsnotify",
+          "path": "cmd/lcpencrypt/server.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fsnotify",
+          "path": "cmd/lcpencrypt/server.go",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "fsnotify",
+          "path": "cmd/lcpencrypt/server.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "fsnotify",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "fsnotify",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "fsnotify",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "fsnotify",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "fsnotify",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 1,
+        "source": 11
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-edrlab-lcp-server.jsonl.gz",
+  "files": {
+    "scanned_bytes": 371533,
+    "scanned_text": 91,
+    "skipped_binary_or_empty": 1,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 7,
+    "tracked": 99
+  },
+  "format_keyword_evidence": {
+    "divina": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": "divina",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "divina",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "divina",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 158,
+          "matched_term": ".epub",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 159,
+          "matched_term": "epub",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 193,
+          "matched_term": "epub ",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        },
+        {
+          "line": 208,
+          "matched_term": "epub",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "epub",
+          "path": "pkg/api/api_test.go",
+          "role": "test"
+        },
+        {
+          "line": 55,
+          "matched_term": "epub",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "epub",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "epub",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "epub",
+          "path": "pkg/lic/license_test.go",
+          "role": "test"
+        },
+        {
+          "line": 198,
+          "matched_term": "epub",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "EPUB",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "epub",
+          "path": "pkg/stor/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 121,
+          "matched_term": "epub",
+          "path": "pkg/stor/store_test.go",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "epub",
+          "path": "test/license1.lcpl",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": ".epub",
+          "path": "test/license1.lcpl",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 5,
+        "test": 10
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 141,
+          "matched_term": ".html",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": ".html",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2
+      }
+    },
+    "lcp_protected": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "LCP",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "LCP",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "NGINX-DEPLOYMENT.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "lcp",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpchecker/lcpchecker.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "cmd/lcpchecker/lcpchecker.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "LCP",
+          "path": "cmd/lcpencrypt/process.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "cmd/lcpserver/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "lcp",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/router.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "LCP",
+          "path": "cmd/lcpserver/server.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "lcp",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "LCP",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "lcp",
+          "path": "config-example.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "LCP",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "LCP",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "LCP",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "LCP",
+          "path": "config/nginx.conf",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "LCP",
+          "path": "docs/_config.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "LCP",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "LCP",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "LCP",
+          "path": "docs/backup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "LCP",
+          "path": "docs/choices.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "lcp",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "LCP",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "LCP",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "LCP",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "LCP",
+          "path": "docs/index.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "LCP",
+          "path": "docs/index.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 140,
+        "source": 114,
+        "test": 24
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": ".md",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": ".md",
+          "path": "docs/integration.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "PDF",
+          "path": "cmd/lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "pdf",
+          "path": "docs/api.md",
+          "role": "documentation"
+        },
+        {
+          "line": 200,
+          "matched_term": "application/pdf",
+          "path": "pkg/api/api_publication_test.go",
+          "role": "test"
+        },
+        {
+          "line": 57,
+          "matched_term": "pdf",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "application/pdf",
+          "path": "pkg/api/publication_handler.go",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "application/pdf",
+          "path": "pkg/check/checklicense.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "PDF",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "application/pdf",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "PDF",
+          "path": "pkg/stor/dashboard.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 10,
+        "test": 1
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 152,
+          "matched_term": ".txt",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 243,
+          "matched_term": ".txt",
+          "path": "compose.yaml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".txt",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": ".txt",
+          "path": "config/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".txt",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": ".txt",
+          "path": "docs/deployment.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "scripts/cold-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "scripts/hot-backup.sh",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".txt",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": ".txt",
+          "path": "scripts/monitor-backup-impact.sh",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "scripts/restore-backup.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 19,
+        "source": 10
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 58,
+          "matched_term": "lPF",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "webpub",
+          "path": "pkg/check/data/lcpdf.schema.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/edrlab/lcp-server",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Go": 54,
+    "Shell": 5
+  },
+  "license_review": {
+    "candidate_notices": [
+      "BSD-2-Clause",
+      "BSD-3-Clause",
+      "CC0"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "pkg/api/license_handler.go",
+      "pkg/api/licenseinfo_handler.go",
+      "pkg/check/data/license.schema.json",
+      "pkg/lic/license.go",
+      "pkg/lic/license_test.go",
+      "pkg/stor/licenseinfo.go",
+      "test/license1.lcpl"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/edrlab/lcp-server",
+  "readme_files": [
+    "README.md",
+    "config/README.md"
+  ],
+  "revision": "e41ae954097fc42b2d8996fabdfd355a1824108c",
+  "schema_version": 1,
+  "slug": "edrlab-lcp-server",
+  "support_claims_allowed": false,
+  "tree": "3dc0685e49f2365f3e6c367c5478f520de282798"
+}

@@ -1,0 +1,4649 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 131,
+          "matched_term": "rag",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "backend/comics/comics-document.h",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "backend/comics/ev-archive.h",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": "rag",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.c",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.c",
+          "role": "source"
+        },
+        {
+          "line": 707,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.c",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.h",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.h",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/afmparse.h",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "rag",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 2566,
+          "matched_term": "RAG",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 2567,
+          "matched_term": "RAG",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 2568,
+          "matched_term": "RAG",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 1824,
+          "matched_term": "rag",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "rag",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "rag",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 315,
+          "matched_term": "rag",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "rag",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "rag",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.c",
+          "role": "source"
+        },
+        {
+          "line": 883,
+          "matched_term": "rag",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1106,
+          "matched_term": "rag",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "rag",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "rag",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "rag",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "rag",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "rag",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "rag",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "rag",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "rag",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "rag",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 342,
+          "matched_term": "rag",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 512,
+          "matched_term": "rag",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 513,
+          "matched_term": "rag",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 359,
+          "matched_term": "rag",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 524,
+          "matched_term": "rag",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 526,
+          "matched_term": "rag",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "rag",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 520,
+          "matched_term": "rag",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 605
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 153,
+          "matched_term": "bookmark",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "bookmark",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "bookmark",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "cFi",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "cfi",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 457,
+          "matched_term": "cfi",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "cfi",
+          "path": "backend/dvi/mdvi-lib/fontmap.h",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "annotation",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "annotation",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "Annotation",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "highlight",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "highlight",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "highlight",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "highlight",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "bookmark",
+          "path": "data/xreader.1",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "bookmark",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "annotation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 283,
+          "matched_term": "annotation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 290,
+          "matched_term": "annotation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "bookmark",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "annotation",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "annotation",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "annotation",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "bookmark",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 255,
+          "matched_term": "bookmark",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "bookmark",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 595,
+          "matched_term": "bookmark",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 611,
+          "matched_term": "bookmark",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 603,
+          "matched_term": "bookmark",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 612,
+          "matched_term": "bookmark",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "bookmark",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 603,
+          "matched_term": "bookmark",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 604,
+          "matched_term": "bookmark",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 614,
+          "matched_term": "bookmark",
+          "path": "help/es/es.po",
+          "role": "source"
+        },
+        {
+          "line": 339,
+          "matched_term": "bookmark",
+          "path": "help/eu/eu.po",
+          "role": "source"
+        },
+        {
+          "line": 579,
+          "matched_term": "bookmark",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 621,
+          "matched_term": "bookmark",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 617,
+          "matched_term": "bookmark",
+          "path": "help/it/it.po",
+          "role": "source"
+        },
+        {
+          "line": 554,
+          "matched_term": "bookmark",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 556,
+          "matched_term": "bookmark",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 74,
+        "source": 8756,
+        "test": 5
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 131,
+          "matched_term": "backup",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "BACKUP",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "restore",
+          "path": "backend/dvi/cairo-device.c",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "restore",
+          "path": "backend/dvi/cairo-device.c",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "restore",
+          "path": "backend/dvi/cairo-device.c",
+          "role": "source"
+        },
+        {
+          "line": 991,
+          "matched_term": "restore",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 327,
+          "matched_term": "restore",
+          "path": "backend/dvi/mdvi-lib/font.c",
+          "role": "source"
+        },
+        {
+          "line": 571,
+          "matched_term": "restore",
+          "path": "backend/dvi/mdvi-lib/pk.c",
+          "role": "source"
+        },
+        {
+          "line": 1812,
+          "matched_term": "restore",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 547,
+          "matched_term": "restore",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 590,
+          "matched_term": "restore",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 619,
+          "matched_term": "restore",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "restore",
+          "path": "cut-n-paste/smclient/eggsmclient.c",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "restore",
+          "path": "cut-n-paste/smclient/eggsmclient.c",
+          "role": "source"
+        },
+        {
+          "line": 261,
+          "matched_term": "Restore",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1266,
+          "matched_term": "restore",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1314,
+          "matched_term": "restore",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "Restore",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "restore",
+          "path": "libdocument/ev-document-misc.c",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "restore",
+          "path": "libdocument/ev-document-misc.c",
+          "role": "source"
+        },
+        {
+          "line": 197,
+          "matched_term": "restore",
+          "path": "libview/ev-loading-window.c",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "restore",
+          "path": "libview/ev-transition-animation.c",
+          "role": "source"
+        },
+        {
+          "line": 309,
+          "matched_term": "restore",
+          "path": "libview/ev-transition-animation.c",
+          "role": "source"
+        },
+        {
+          "line": 1052,
+          "matched_term": "restore",
+          "path": "libview/ev-view.c",
+          "role": "source"
+        },
+        {
+          "line": 4761,
+          "matched_term": "restore",
+          "path": "libview/ev-view.c",
+          "role": "source"
+        },
+        {
+          "line": 4774,
+          "matched_term": "restore",
+          "path": "libview/ev-view.c",
+          "role": "source"
+        },
+        {
+          "line": 621,
+          "matched_term": "restore",
+          "path": "shell/ev-application.c",
+          "role": "source"
+        },
+        {
+          "line": 2352,
+          "matched_term": "restore",
+          "path": "shell/ev-window.c",
+          "role": "source"
+        },
+        {
+          "line": 2452,
+          "matched_term": "restore",
+          "path": "shell/ev-window.c",
+          "role": "source"
+        },
+        {
+          "line": 3046,
+          "matched_term": "restore",
+          "path": "shell/ev-window.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 34
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "collection",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "collection",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "collection",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "collection",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "collection",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "collection",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "collection",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "collection",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "collection",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "collection",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "collection",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "collection",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "collection",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "collection",
+          "path": "help/es/es.po",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "collection",
+          "path": "help/es/es.po",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "collection",
+          "path": "help/eu/eu.po",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "collection",
+          "path": "help/eu/eu.po",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "collection",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "collection",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "collection",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "collection",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "collection",
+          "path": "help/it/it.po",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "collection",
+          "path": "help/it/it.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "collection",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "collection",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "collection",
+          "path": "help/nl/nl.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "collection",
+          "path": "help/nl/nl.po",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "collection",
+          "path": "help/oc/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "collection",
+          "path": "help/oc/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "collection",
+          "path": "help/pt_BR/pt_BR.po",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "collection",
+          "path": "help/pt_BR/pt_BR.po",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "collection",
+          "path": "help/ru/ru.po",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "collection",
+          "path": "help/ru/ru.po",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "collection",
+          "path": "help/sl/sl.po",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "collection",
+          "path": "help/sl/sl.po",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "collection",
+          "path": "help/sr/sr.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "collection",
+          "path": "help/sr/sr.po",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "collection",
+          "path": "help/sv/sv.po",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "collection",
+          "path": "help/sv/sv.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 52
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 58,
+          "matched_term": "comic",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "Comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "comic",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Comic",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Comic",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "comic",
+          "path": "backend/comics/comics-document.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "comic",
+          "path": "backend/comics/comics-document.h",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "COMIC",
+          "path": "backend/comics/comics-document.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "comic",
+          "path": "backend/comics/comicsdocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Comic",
+          "path": "backend/comics/comicsdocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "COMIC",
+          "path": "backend/comics/comicsdocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "COMIC",
+          "path": "backend/comics/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "comic",
+          "path": "backend/comics/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "comic",
+          "path": "backend/comics/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 329,
+          "matched_term": "double page",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 583,
+          "matched_term": "double page",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 604,
+          "matched_term": "double page",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 266,
+          "matched_term": "double page",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "double page",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "right to left",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "right to left",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 1511,
+          "matched_term": "double page",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 463,
+          "matched_term": "double page",
+          "path": "backend/tiff/tiff-document.c",
+          "role": "source"
+        },
+        {
+          "line": 373,
+          "matched_term": "double page",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 373,
+          "matched_term": "double page",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "double page",
+          "path": "backend/tiff/tiff2ps.h",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "double page",
+          "path": "backend/tiff/tiff2ps.h",
+          "role": "source"
+        },
+        {
+          "line": 546,
+          "matched_term": "double page",
+          "path": "backend/xps/xps-document.c",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "comic",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "comic",
+          "path": "data/xreader.desktop.in.in",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "comic",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 406,
+          "matched_term": "manga",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 480,
+          "matched_term": "Right-to-Left",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 416,
+          "matched_term": "comic",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "comic",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 425,
+          "matched_term": "comic",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "comic",
+          "path": "debian/rules",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "cbr",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 2563
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "thumbnail",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "thumbnail",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Thumbnail",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "thumbnail",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "thumbnail",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "Thumbnail",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "thumbnail",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "thumbnail",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Thumbnail",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "thumbnail",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "thumbnail",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Thumbnail",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/color.c",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "Cache",
+          "path": "backend/dvi/mdvi-lib/color.c",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "Cache",
+          "path": "backend/dvi/mdvi-lib/color.c",
+          "role": "source"
+        },
+        {
+          "line": 1071,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 1145,
+          "matched_term": "CACHE",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 1145,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/t1.c",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/t1.c",
+          "role": "source"
+        },
+        {
+          "line": 525,
+          "matched_term": "cache",
+          "path": "backend/dvi/mdvi-lib/t1.c",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "thumbnail",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "thumbnail",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "Thumbnail",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "thumbnail",
+          "path": "backend/pixbuf/pixbuf-document.c",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "thumbnail",
+          "path": "backend/pixbuf/pixbuf-document.c",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Thumbnail",
+          "path": "backend/pixbuf/pixbuf-document.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "thumbnail",
+          "path": "backend/ps/ev-spectre.c",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "thumbnail",
+          "path": "backend/ps/ev-spectre.c",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Thumbnail",
+          "path": "backend/ps/ev-spectre.c",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "thumbnail",
+          "path": "backend/tiff/tiff-document.c",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "thumbnail",
+          "path": "backend/tiff/tiff-document.c",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Thumbnail",
+          "path": "backend/tiff/tiff-document.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "thumbnail",
+          "path": "backend/xps/xps-document.c",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "thumbnail",
+          "path": "backend/xps/xps-document.c",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Thumbnail",
+          "path": "backend/xps/xps-document.c",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "gzip",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "cache",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "cache",
+          "path": "data/org.x.reader.gschema.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 25,
+        "source": 3009
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 753,
+          "matched_term": "conversion",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "conversion",
+          "path": "backend/dvi/mdvi-lib/sysdeps.h",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "conversion",
+          "path": "backend/dvi/mdvi-lib/sysdeps.h",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "conversion",
+          "path": "backend/dvi/mdvi-lib/tfm.c",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "ConvertEr",
+          "path": "libdocument/ev-document.c",
+          "role": "source"
+        },
+        {
+          "line": 620,
+          "matched_term": "Conversion",
+          "path": "po/ChangeLog",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 229,
+          "matched_term": "Accessibility",
+          "path": "libview/ev-view-private.h",
+          "role": "source"
+        },
+        {
+          "line": 2190,
+          "matched_term": "accessibility",
+          "path": "libview/ev-view.c",
+          "role": "source"
+        },
+        {
+          "line": 5253,
+          "matched_term": "Accessibility",
+          "path": "libview/ev-view.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "redis",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/comics/comics-document.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/comics/ev-archive.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/comics/ev-archive.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/comics/test-ev-archive.c",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-links.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/djvu/djvu-text-page.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/cairo-device.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/cairo-device.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/dvi-document.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/afmparse.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/afmparse.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/bitmap.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/bitmap.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/color.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/color.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/common.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/common.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/defaults.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/files.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/font.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/fontmap.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/fontsrch.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/gf.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/hash.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/list.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/pagesel.c",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "backend/dvi/mdvi-lib/paper.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 399
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 58,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 408,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 428,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/dviread.c",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/font.c",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/font.c",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/font.c",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/fontsrch.c",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/gf.c",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/gf.c",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/gf.c",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "duplicate",
+          "path": "backend/dvi/mdvi-lib/hash.c",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/mdvi.h",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/pk.c",
+          "role": "source"
+        },
+        {
+          "line": 361,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/pk.c",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/pk.c",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfm.c",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfm.c",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfm.c",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/vf.c",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/vf.c",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "checksum",
+          "path": "backend/dvi/mdvi-lib/vf.c",
+          "role": "source"
+        },
+        {
+          "line": 2722,
+          "matched_term": "duplicate",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "duplicate",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 358,
+          "matched_term": "duplicate",
+          "path": "po/cmn.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 96
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 598,
+          "matched_term": "systemd",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 609,
+          "matched_term": "systemd",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 69,
+          "matched_term": "translation",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 818,
+          "matched_term": "dictionary",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 804,
+          "matched_term": "TRANSLATION",
+          "path": "cut-n-paste/smclient/eggsmclient-xsmp.c",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "translation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "translation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "translation",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "translation",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "translation",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "translation",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/es/es.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/eu/eu.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "translation",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/it/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "translation",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "help/oc/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "translation",
+          "path": "help/oc/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/pt_BR/pt_BR.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/ru/ru.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/sl/sl.po",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Translation",
+          "path": "help/sl/sl.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/sr/sr.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/uk/uk.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "help/zh_CN/zh_CN.po",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "translation",
+          "path": "libdocument/ev-init.c",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "po/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "po/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "translation",
+          "path": "po/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "po/az.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "po/ber.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "po/en@shaw.po",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "anki",
+          "path": "po/et.po",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "anki",
+          "path": "po/et.po",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "translation",
+          "path": "po/fil.po",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "translation",
+          "path": "po/gnome-copyrights.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1186,
+        "source": 158
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 550,
+          "matched_term": "quic",
+          "path": "backend/dvi/mdvi-lib/afmparse.c",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "quic",
+          "path": "backend/dvi/mdvi-lib/afmparse.h",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "QUIC",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "quic",
+          "path": "po/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 428,
+          "matched_term": "quic",
+          "path": "po/oc.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "license document",
+          "path": "COPYING",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 1146,
+          "matched_term": "in place",
+          "path": "backend/dvi/mdvi-lib/fontmap.c",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "in place",
+          "path": "backend/dvi/mdvi-lib/sp-epsf.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "metadata",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "metadata",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 480,
+          "matched_term": "metadata",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 599,
+          "matched_term": "metadata",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "metadata",
+          "path": "data/icons/16x16/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-page.svg",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom-fit-width.svg",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "metadata",
+          "path": "data/icons/22x22/actions/zoom.svg",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-left.svg",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-left.svg",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-left.svg",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-right.svg",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-right.svg",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/actions/object-rotate-right.svg",
+          "role": "source"
+        },
+        {
+          "line": 374,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/apps/xreader.svg",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/apps/xreader.svg",
+          "role": "source"
+        },
+        {
+          "line": 408,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/apps/xreader.svg",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/mimetypes/x-office-presentation.svg",
+          "role": "source"
+        },
+        {
+          "line": 342,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/mimetypes/x-office-presentation.svg",
+          "role": "source"
+        },
+        {
+          "line": 373,
+          "matched_term": "metadata",
+          "path": "data/icons/scalable/mimetypes/x-office-presentation.svg",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": "metadata",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 436,
+          "matched_term": "metadata",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 442,
+          "matched_term": "metadata",
+          "path": "debian/changelog",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 529
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "authorization",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "authorization",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "authorization",
+          "path": "cut-n-paste/synctex/synctex_parser_local.h",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "authorization",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.c",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "authorization",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "djvu",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "djvu",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "DjVu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "DjVu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "djvu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Djvu",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-links.h",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-links.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-links.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Djvu",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-text-page.h",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "DJVU",
+          "path": "backend/djvu/djvu-text-page.h",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-text-page.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvudocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "DjVu",
+          "path": "backend/djvu/djvudocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvudocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "djvu",
+          "path": "backend/djvu/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "djvu",
+          "path": "backend/djvu/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "djvu",
+          "path": "backend/djvu/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DJVU",
+          "path": "data/xreader.1",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "DJVU",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "djvu",
+          "path": "data/xreader.desktop.in.in",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "Djvu",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1182,
+          "matched_term": "djvu",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1186,
+          "matched_term": "djvu",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "djvu",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "djvu",
+          "path": "debian/control",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 1867
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 636,
+          "matched_term": "Permission",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 636,
+          "matched_term": "permission",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 649,
+          "matched_term": "PERMISSION",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Permission",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": "backend/tiff/tiff2ps.c",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Permission",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Permission",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Permission",
+          "path": "cut-n-paste/synctex/synctex_parser_local.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "cut-n-paste/synctex/synctex_parser_local.h",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Permission",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.c",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Permission",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.h",
+          "role": "source"
+        },
+        {
+          "line": 723,
+          "matched_term": "Permission",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 731,
+          "matched_term": "permission",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 760,
+          "matched_term": "Permission",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Permission",
+          "path": "help/C/legal.xml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Permission",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Permission",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Permission",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Permission",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Permission",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Permission",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Permission",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Permission",
+          "path": "help/es/es.po",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Permission",
+          "path": "help/eu/eu.po",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Permission",
+          "path": "help/fi/fi.po",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Permission",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Permission",
+          "path": "help/fr/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Permission",
+          "path": "help/it/it.po",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Permission",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Permission",
+          "path": "help/nl/nl.po",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "Permission",
+          "path": "help/oc/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Permission",
+          "path": "help/pt_BR/pt_BR.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 97
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 241,
+          "matched_term": "font family",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 343,
+          "matched_term": "font family",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 520,
+          "matched_term": "font family",
+          "path": "backend/dvi/mdvi-lib/tfmfile.c",
+          "role": "source"
+        },
+        {
+          "line": 2154,
+          "matched_term": "font_size",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 2158,
+          "matched_term": "font_size",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 2158,
+          "matched_term": "font_size",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "theme",
+          "path": "cut-n-paste/smclient/eggdesktopfile.c",
+          "role": "source"
+        },
+        {
+          "line": 371,
+          "matched_term": "theme",
+          "path": "cut-n-paste/smclient/eggdesktopfile.c",
+          "role": "source"
+        },
+        {
+          "line": 371,
+          "matched_term": "Theme",
+          "path": "cut-n-paste/smclient/eggdesktopfile.c",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "theme",
+          "path": "data/icons/scalable/actions/object-rotate-left.svg",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "theme",
+          "path": "data/icons/scalable/actions/object-rotate-right.svg",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "dark mode",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "font-size",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "theme",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "theme",
+          "path": "help/ChangeLog",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "theme",
+          "path": "install-scripts/meson_update_icon_cache.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "theme",
+          "path": "install-scripts/meson_update_icon_cache.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "theme",
+          "path": "install-scripts/meson_update_icon_cache.py",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "font_size",
+          "path": "libdocument/ev-form-field.h",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "Theme",
+          "path": "libview/ev-annotation-window.c",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "theme",
+          "path": "libview/ev-annotation-window.c",
+          "role": "source"
+        },
+        {
+          "line": 266,
+          "matched_term": "theme",
+          "path": "libview/ev-annotation-window.c",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Theme",
+          "path": "libview/ev-stock-icons.c",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "theme",
+          "path": "libview/ev-stock-icons.c",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "theme",
+          "path": "libview/ev-stock-icons.c",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "previewer/xreader-previewer.css",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "theme",
+          "path": "previewer/xreader-previewer.css",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "Theme",
+          "path": "shell/ev-sidebar-annotations.c",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "theme",
+          "path": "shell/ev-sidebar-annotations.c",
+          "role": "source"
+        },
+        {
+          "line": 333,
+          "matched_term": "theme",
+          "path": "shell/ev-sidebar-annotations.c",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Theme",
+          "path": "shell/ev-sidebar-attachments.c",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "theme",
+          "path": "shell/ev-sidebar-attachments.c",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "theme",
+          "path": "shell/ev-sidebar-attachments.c",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "shell/xreader.css",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "theme",
+          "path": "shell/xreader.css",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "theme",
+          "path": "shell/xreader.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 85
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 81,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 81,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+          "role": "configuration"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "secret",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "AUTHORS",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "secret",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "https",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 223,
+          "matched_term": "https",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 351,
+          "matched_term": "csp",
+          "path": "backend/dvi/mdvi-lib/util.c",
+          "role": "source"
+        },
+        {
+          "line": 1078,
+          "matched_term": "https",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 1184,
+          "matched_term": "https",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 2750,
+          "matched_term": "https",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 1046,
+          "matched_term": "csp",
+          "path": "cut-n-paste/smclient/eggdesktopfile.c",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "path traversal",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "secret",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "symlink",
+          "path": "debian/xreader.postinst",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "symlink",
+          "path": "debian/xreader.postinst",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "symlink",
+          "path": "debian/xreader.prerm",
+          "role": "source"
+        },
+        {
+          "line": 592,
+          "matched_term": "https",
+          "path": "libview/ev-transition-animation.c",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "secret",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "secret",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "po/fr_CA.po",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "po/fr_CA.po",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "po/fr_CA.po",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "cors",
+          "path": "po/it.po",
+          "role": "source"
+        },
+        {
+          "line": 1225,
+          "matched_term": "cors",
+          "path": "po/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 1228,
+          "matched_term": "cors",
+          "path": "po/oc.po",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "previewer/xreader-previewer.1",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "secret",
+          "path": "shell/ev-keyring.c",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "secret",
+          "path": "shell/ev-keyring.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Secret",
+          "path": "shell/ev-keyring.c",
+          "role": "source"
+        },
+        {
+          "line": 616,
+          "matched_term": "https",
+          "path": "shell/ev-sidebar-thumbnails.c",
+          "role": "source"
+        },
+        {
+          "line": 887,
+          "matched_term": "https",
+          "path": "shell/ev-sidebar-thumbnails.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 7,
+        "source": 39
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-xreader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 9433921,
+    "scanned_text": 542,
+    "skipped_binary_or_empty": 55,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 597
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 43,
+          "matched_term": "CB7",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 310,
+          "matched_term": "cb7",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "cbt",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "cb7",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "cbt",
+          "path": "meson.build",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 302,
+          "matched_term": "cbr",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "cbr",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "cbr",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "cbr",
+          "path": "meson_options.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 4
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 306,
+          "matched_term": "cbz",
+          "path": "backend/comics/comics-document.c",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "cbz",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "cbz",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 1983,
+          "matched_term": "cbz",
+          "path": "shell/ev-window.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "djvu": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "djvu",
+          "path": "INSTALL.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "DjVu",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document-private.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.c",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-document.h",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Djvu",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-links.c",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-links.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Djvu",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "djvu",
+          "path": "backend/djvu/djvu-text-page.c",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "DjVu",
+          "path": "backend/djvu/djvudocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": ".djvu",
+          "path": "backend/djvu/djvudocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "djvu",
+          "path": "backend/djvu/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "djvu",
+          "path": "backend/djvu/meson.build",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DJVU",
+          "path": "data/xreader.1",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "DJVU",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "djvu",
+          "path": "data/xreader.desktop.in.in",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "Djvu",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1182,
+          "matched_term": "djvu",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "djvu",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "DJVU",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "djvu",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 247,
+          "matched_term": "djvu",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "djvu",
+          "path": "debian/rules",
+          "role": "source"
+        },
+        {
+          "line": 1205,
+          "matched_term": "Djvu",
+          "path": "help/sr/sr.po",
+          "role": "source"
+        },
+        {
+          "line": 1206,
+          "matched_term": "Djvu",
+          "path": "help/sr/sr.po",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "djvu",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "djvu",
+          "path": "meson.build",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "djvu",
+          "path": "meson_options.txt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "djvu",
+          "path": "meson_options.txt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "djvu",
+          "path": "po/POTFILES.in",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "djvu",
+          "path": "po/POTFILES.in",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "djvu",
+          "path": "po/ab.po",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "djvu",
+          "path": "po/ab.po",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "djvu",
+          "path": "po/af.po",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "djvu",
+          "path": "po/af.po",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "djvu",
+          "path": "po/am.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 1186
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 49,
+          "matched_term": ".doc",
+          "path": "shell/ev-window-title.c",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": ".doc",
+          "path": "shell/ev-window-title.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "epub ",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": "epub",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "epub",
+          "path": "po/ab.po",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "epub",
+          "path": "po/ab.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/af.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/af.po",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "epub",
+          "path": "po/am.po",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "epub",
+          "path": "po/am.po",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "epub",
+          "path": "po/ar.po",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "epub",
+          "path": "po/ar.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/as.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/as.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/ast.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/ast.po",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "epub",
+          "path": "po/az.po",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "epub",
+          "path": "po/az.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "po/be.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "po/be.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "epub",
+          "path": "po/be@latin.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "epub",
+          "path": "po/be@latin.po",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "epub",
+          "path": "po/ber.po",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "epub",
+          "path": "po/ber.po",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "epub",
+          "path": "po/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "epub",
+          "path": "po/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "epub",
+          "path": "po/bn.po",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "epub",
+          "path": "po/bn.po",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "po/bn_IN.po",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "po/bn_IN.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/br.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "epub",
+          "path": "po/br.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "po/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "epub",
+          "path": "po/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "po/ca@valencia.po",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "po/ca@valencia.po",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "epub",
+          "path": "po/cmn.po",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "epub",
+          "path": "po/cmn.po",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "epub",
+          "path": "po/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "epub",
+          "path": "po/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "epub",
+          "path": "po/cy.po",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "epub",
+          "path": "po/cy.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 5832
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 361,
+          "matched_term": ".html",
+          "path": "data/icons/scalable/mimetypes/x-office-presentation.svg",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "XHTML",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "xhtml",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": ".html",
+          "path": "help/ja/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".html",
+          "path": "help/reference/libdocument/libxreaderdocument-docs.xml",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".html",
+          "path": "help/reference/libview/libxreaderview-docs.xml",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".html",
+          "path": "help/reference/shell/xreader-docs.xml",
+          "role": "source"
+        },
+        {
+          "line": 925,
+          "matched_term": ".html",
+          "path": "po/gnome-copyrights.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 10
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 78,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1084,
+          "matched_term": ".md",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "markdown",
+          "path": "help/C/readme.txt",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "markdown",
+          "path": "help/C/readme.txt",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 5
+      }
+    },
+    "odt_rtf": {
+      "evidence": [
+        {
+          "line": 52,
+          "matched_term": ".rtf",
+          "path": "shell/ev-window-title.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "PDF",
+          "path": "backend/dvi/dvi-document.c",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "pdf",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": ".pdf",
+          "path": "backend/pdf/ev-poppler.cc",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "backend/pdf/ev-poppler.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "backend/pdf/pdfdocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "application/pdf",
+          "path": "backend/pdf/pdfdocument.xreader-backend.in",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "pdf",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "pdf",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "pdf",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "pdf",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "data/xreader.1",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": ".pdf",
+          "path": "data/xreader.1",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "PDF",
+          "path": "data/xreader.appdata.xml.in",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "pdf",
+          "path": "data/xreader.desktop.in.in",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "pdf",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 276,
+          "matched_term": "pdf",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "pdf",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "PDF",
+          "path": "debian/control",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "pdf",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "pdf",
+          "path": "debian/copyright",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "PDF",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "PDF",
+          "path": "help/C/index.docbook",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "PDF",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "PDF",
+          "path": "help/C/xreader.html",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "PDF",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "PDF",
+          "path": "help/C/xreader.md",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": "PDF",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "PDF",
+          "path": "help/bg/bg.po",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "PDF",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "PDF",
+          "path": "help/ca/ca.po",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "PDF",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "PDF",
+          "path": "help/cs/cs.po",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "PDF",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "PDF",
+          "path": "help/de/de.po",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "PDF",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "PDF",
+          "path": "help/el/el.po",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "PDF",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "PDF",
+          "path": "help/en_GB/en_GB.po",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 21,
+        "source": 2598,
+        "test": 19
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 116,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/synctex_parser.c",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/synctex_parser.h",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/synctex_parser_local.h",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.c",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/synctex_parser_utils.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".txt",
+          "path": "cut-n-paste/synctex/update-synctex-from-TL.sh",
+          "role": "source"
+        },
+        {
+          "line": 1101,
+          "matched_term": ".txt",
+          "path": "debian/changelog",
+          "role": "documentation"
+        },
+        {
+          "line": 468,
+          "matched_term": ".txt",
+          "path": "debian/copyright",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 13
+      }
+    }
+  },
+  "inventory_url": "https://github.com/linuxmint/xreader",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 139,
+    "C++": 1,
+    "C/C++ header": 130,
+    "CSS": 2,
+    "HTML": 1,
+    "Python": 13,
+    "Shell": 1,
+    "XML": 11
+  },
+  "license_review": {
+    "candidate_notices": [
+      "GPL-2.0"
+    ],
+    "notice_files": [
+      "COPYING"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/linuxmint/xreader",
+  "readme_files": [
+    "README.md",
+    "help/C/readme.txt"
+  ],
+  "revision": "a4e5ed2c916e6241efb7d9e86d01b709e45a18d8",
+  "schema_version": 1,
+  "slug": "xreader",
+  "support_claims_allowed": false,
+  "tree": "1a401a75c546121aea3a7d47b80e68cbcaa1c7e3"
+}

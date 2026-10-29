@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "pass": 13,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "source fixture creation",
+      "status": "PASS"
+    },
+    {
+      "name": "source fixture scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "source fixture ingestion",
+      "status": "PASS"
+    },
+    {
+      "name": "source catalog fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "source vector fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "source progress fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL backup created",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL restore into isolated database",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis backup created",
+      "status": "PASS"
+    },
+    {
+      "name": "isolated Redis restore started",
+      "status": "PASS"
+    },
+    {
+      "name": "restored catalog verified through fresh server",
+      "status": "PASS"
+    },
+    {
+      "name": "restored vector memory verified",
+      "status": "PASS"
+    },
+    {
+      "name": "restored reading progress verified",
+      "status": "PASS"
+    }
+  ]
+}

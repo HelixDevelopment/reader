@@ -1,0 +1,176 @@
+{
+  "status": "PASS",
+  "pass": 21,
+  "fail": 0,
+  "original_tree_unchanged": true,
+  "results": [
+    {
+      "id": "equal-clock-regresses-to-local",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestResolveEqualClocksFurthestAndCommutative",
+      "exit": 1,
+      "log": "equal-clock-regresses-to-local.log"
+    },
+    {
+      "id": "compressed-length-not-removed-before-write",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestCompressionNetworkContentLength",
+      "exit": 1,
+      "log": "compressed-length-not-removed-before-write.log"
+    },
+    {
+      "id": "opds-private-destination-policy-bypassed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault",
+      "exit": 1,
+      "log": "opds-private-destination-policy-bypassed.log"
+    },
+    {
+      "id": "if-range-validator-ignored",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestContentIfRangeHonorsETag",
+      "exit": 1,
+      "log": "if-range-validator-ignored.log"
+    },
+    {
+      "id": "active-source-deletion-guard-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestSourceDeletionWaitsForScanAndScanAdmission",
+      "exit": 1,
+      "log": "active-source-deletion-guard-removed.log"
+    },
+    {
+      "id": "redis-watch-never-executed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestRedisPutProgressRetriesWatchConflict",
+      "exit": 1,
+      "log": "redis-watch-never-executed.log"
+    },
+    {
+      "id": "cross-origin-redirect-rejection-bypassed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestHTTPRejectsCrossOriginRedirectBeforeRequest",
+      "exit": 1,
+      "log": "cross-origin-redirect-rejection-bypassed.log"
+    },
+    {
+      "id": "changed-file-current-bytes-ignored",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestMergeWorkReplacesChangedFileAtSameSourcePath",
+      "exit": 1,
+      "log": "changed-file-current-bytes-ignored.log"
+    },
+    {
+      "id": "source-reconciliation-disabled",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestMemoryFullScanReconcilesDeletedSourceFiles",
+      "exit": 1,
+      "log": "source-reconciliation-disabled.log"
+    },
+    {
+      "id": "opds-pagination-limit-ignored",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot",
+      "exit": 1,
+      "log": "opds-pagination-limit-ignored.log"
+    },
+    {
+      "id": "stale-etag-range-gating-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestContentStaleETagCannotSpliceChangedEqualSizeFile",
+      "exit": 1,
+      "log": "stale-etag-range-gating-removed.log"
+    },
+    {
+      "id": "stable-source-id-ignored",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestStableSourceIDReattachesCatalogAfterRestart",
+      "exit": 1,
+      "log": "stable-source-id-ignored.log"
+    },
+    {
+      "id": "embedded-isbn-normalization-discarded",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestValidEmbeddedISBNAccepted",
+      "exit": 1,
+      "log": "embedded-isbn-normalization-discarded.log"
+    },
+    {
+      "id": "isbn-identity-canonicalization-disabled",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestISBNIdentityCanonicalizesSchemePairAndOrder",
+      "exit": 1,
+      "log": "isbn-identity-canonicalization-disabled.log"
+    },
+    {
+      "id": "opds-query-collision-disambiguation-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities",
+      "exit": 1,
+      "log": "opds-query-collision-disambiguation-removed.log"
+    },
+    {
+      "id": "memory-file-validation-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestMemoryRejectsIncompleteFileIdentityLikePostgres",
+      "exit": 1,
+      "log": "memory-file-validation-removed.log"
+    },
+    {
+      "id": "opds-stable-collision-grouping-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+      "exit": 1,
+      "log": "opds-stable-collision-grouping-removed.log"
+    },
+    {
+      "id": "local-delete-not-found-translation-removed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestContentDeletedLocalFileReturns404",
+      "exit": 1,
+      "log": "local-delete-not-found-translation-removed.log"
+    },
+    {
+      "id": "opds-previous-generation-keys-ignored",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+      "exit": 1,
+      "log": "opds-previous-generation-keys-ignored.log"
+    },
+    {
+      "id": "content-single-handle-validation-bypassed",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestContentGETValidatesAndReadsSameOpenedHandle",
+      "exit": 1,
+      "log": "content-single-handle-validation-bypassed.log"
+    },
+    {
+      "id": "identity-response-closes-unused-compressor",
+      "status": "PASS",
+      "expected": "targeted test rejects mutant",
+      "test": "TestCompressionIdentityFallbackPreservesKeepAlive",
+      "exit": 1,
+      "log": "identity-response-closes-unused-compressor.log"
+    }
+  ]
+}

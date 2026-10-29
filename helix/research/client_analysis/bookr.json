@@ -1,0 +1,659 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 124,
+          "matched_term": "rag",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "rag",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 141,
+          "matched_term": "rag",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 755,
+          "matched_term": "rag",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 759,
+          "matched_term": "rag",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 59
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 138,
+          "matched_term": "highlight",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1661,
+          "matched_term": "highlight",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1754,
+          "matched_term": "highlight",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "restore",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "CACHE",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "Cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "CACHE",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "CACHE",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "cache",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 318,
+          "matched_term": "cache",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 322,
+          "matched_term": "cache",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 20,
+        "source": 18
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "conversion",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "fb2, epub",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "fb2/epub",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "epub/fb2: из метаданных, pdf/txt",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "fb2` / `epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1247,
+          "matched_term": "fb2\" || ext == \"epub",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1257,
+          "matched_term": "conversion",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1529,
+          "matched_term": "converter",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 15
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 2388,
+          "matched_term": "duplicate",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 2391,
+          "matched_term": "duplicate",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 193,
+          "matched_term": "nixos",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "NixOS",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "filesystem",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 2700,
+          "matched_term": "filesystem",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 122,
+          "matched_term": "metadata",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "metadata",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 137,
+          "matched_term": "Metadata",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 780,
+          "matched_term": "Metadata",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 782,
+          "matched_term": "Metadata",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 30
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 3251,
+          "matched_term": "reflow",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3265,
+          "matched_term": "reflow",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3284,
+          "matched_term": "reflow",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 2861,
+          "matched_term": "permission",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 193,
+          "matched_term": "https",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-bookr.jsonl.gz",
+  "files": {
+    "scanned_bytes": 148133,
+    "scanned_text": 7,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 7
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1233,
+          "matched_term": "epub",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1247,
+          "matched_term": "epub",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 22
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "fb2",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "fb2",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1236,
+          "matched_term": "fb2",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1247,
+          "matched_term": "fb2",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 18
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 780,
+          "matched_term": "xhtml",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 934,
+          "matched_term": "xhtml",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 2012,
+          "matched_term": "markdown",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "pdf",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "pdf",
+          "path": "HELP.txt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1253,
+          "matched_term": "pdf",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1529,
+          "matched_term": "pdf",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 16
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": ".txt",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": ".txt",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 1257,
+          "matched_term": "plain text",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 4
+      }
+    }
+  },
+  "inventory_url": "https://github.com/arimaforu/bookr",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C++": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/arimaforu/bookr",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "ec5da5a5b57b9d229caf85acc7e22caa31ff5f16",
+  "schema_version": 1,
+  "slug": "bookr",
+  "support_claims_allowed": false,
+  "tree": "9bdf964c0e6b1b341bc1e7d6d862c5bb0ecc2612"
+}

@@ -1,0 +1,6 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/86 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 86/86 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 1973 (657/sec), new interesting: 2 (total: 88)
+fuzz: elapsed: 4s, execs: 1973 (0/sec), new interesting: 2 (total: 88)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	4.122s

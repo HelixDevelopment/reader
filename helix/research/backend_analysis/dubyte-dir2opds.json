@@ -1,0 +1,2611 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "rag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "rag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "rag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 412,
+          "matched_term": "rag",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "rag",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "rag",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 15,
+        "test": 11
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "annotation",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 304,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "annotation",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "annotation",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "annotation",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 450,
+          "matched_term": "Annotation",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "annotation",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 473,
+          "matched_term": "annotation",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "annotation",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "annotation",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "annotation",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 4,
+        "test": 7
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": "snapshot",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 1240,
+          "matched_term": "backup",
+          "path": "internal/service/service.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 35,
+          "matched_term": "series",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "series",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "series",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "series",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 89,
+          "matched_term": "series",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "Series",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 98,
+          "matched_term": "Series",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "Series",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "series",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Series",
+          "path": "opds/atom.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "series",
+          "path": "opds/atom.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Series",
+          "path": "opds/atom.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "Series",
+          "path": "opds/entry_builder.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "series",
+          "path": "opds/entry_builder.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Series",
+          "path": "opds/entry_builder.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 34,
+        "test": 26
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 320,
+          "matched_term": "comic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 303,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 222,
+          "matched_term": "CBZ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 222,
+          "matched_term": "CBR",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 222,
+          "matched_term": "comic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "cbz",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cbz",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "cbr",
+          "path": "internal/service/service.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 4
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 156,
+          "matched_term": "gzip",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "Gzip",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "gzip",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Last-Modified",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "Last-Modified",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "ETag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "Last-Modified",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "gzip",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 205,
+          "matched_term": "Cache",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 206,
+          "matched_term": "ETag",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 206,
+          "matched_term": "Last-Modified",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "cache",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "cache",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "cache",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cache",
+          "path": "files/linux/systemd/dir2opds.service",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "gzip",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Gzip",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "ETag",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "gzip",
+          "path": "internal/service/gzip.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "gzip",
+          "path": "internal/service/gzip.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "gzip",
+          "path": "internal/service/gzip.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "gzip",
+          "path": "internal/service/gzip_test.go",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "Gzip",
+          "path": "internal/service/gzip_test.go",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "Gzip",
+          "path": "internal/service/gzip_test.go",
+          "role": "test"
+        },
+        {
+          "line": 330,
+          "matched_term": "Cache",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "Etag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 282,
+          "matched_term": "etag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 282,
+          "matched_term": "etag",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": "Cache",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "Cache",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "Last-Modified",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Cache",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 193,
+          "matched_term": "ETag",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 203,
+          "matched_term": "Cache",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "Cache",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "cache",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "cache",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "thumbnail",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Thumbnail",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 64,
+        "source": 92,
+        "test": 139
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 104,
+          "matched_term": "EPUB and PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB, PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "EPUB/PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "EPUB, PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "EPUB, PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "EPUB/PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "EpubMetadata()`, `extractPdf",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "EPUB and PDF",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB, PDF",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 3
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "redis",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "checksum",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "checksum",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "SHA-256",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sha256",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "sha256",
+          "path": "internal/service/service.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 55,
+          "matched_term": "docker",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "docker",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "docker",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "systemd",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "docker",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "docker",
+          "path": "Containerfile",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Docker",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "docker",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "docker",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "Docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 175,
+          "matched_term": "docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 198,
+          "matched_term": "Docker",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "systemd",
+          "path": "files/linux/install.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "systemd",
+          "path": "files/linux/install.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "systemd",
+          "path": "files/linux/install.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 7,
+        "source": 17
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 167,
+          "matched_term": "quic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 173,
+          "matched_term": "Quic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 376,
+          "matched_term": "Range request",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 389,
+          "matched_term": "Content-Range",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 393,
+          "matched_term": "Range request",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "test": 6
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 129,
+          "matched_term": "filesystem",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "filesystem",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "filesystem",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 186,
+          "matched_term": "filesystem",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "local files",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "filesystem",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "filesystem",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "filesystem",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "filesystem",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 6
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "Metadata",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "metadata",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "Metadata",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "metadata",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 219,
+          "matched_term": "metadata",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "metadata",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 303,
+          "matched_term": "Metadata",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "metadata",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": "metadata",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 86,
+          "matched_term": "Metadata",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": "Metadata",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "metadata",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "Metadata",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 800,
+          "matched_term": "metadata",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 802,
+          "matched_term": "metadata",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "Metadata",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 22,
+        "source": 58,
+        "test": 10
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": "metadata is now extracted and emitted as `<atom:summary>` in acquisition feeds, enabling richer book",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 100,
+          "matched_term": "multi-user",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "multi-user",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "multi-user",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "multi-user",
+          "path": "files/linux/systemd/dir2opds.service",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "opds",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "opds",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "opds",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "opds",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "OPDS",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "OPDS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "OPDS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "OPDS 1.2",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "OPDS",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "OPDS",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "OPDS",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "OPDS",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "OPDS",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS",
+          "path": "files/linux/systemd/dir2opds.service",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "OPDS",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "OPDS",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "OPDS",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 150,
+          "matched_term": "OPDS",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 195,
+          "matched_term": "OPDS",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "OPDS 1.2",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "opds",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "opds-1.2",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "application/atom+xml",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "opds",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "application/atom+xml",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": "opds",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "OPDS",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "opds",
+          "path": "main_test.go",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": "opds",
+          "path": "main_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "opds",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "OPDS",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS 1.2",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "opds",
+          "path": "opds/atom.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Opds",
+          "path": "opds/atom.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "opds",
+          "path": "opds/atom.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 55,
+        "source": 148,
+        "test": 86
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 84,
+          "matched_term": "OpenSearch",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "OpenSearch",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "OpenSearch",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 886,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 886,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 887,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 181,
+          "matched_term": "opensearch",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 183,
+          "matched_term": "OpenSearch",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 133,
+          "matched_term": "opensearch",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": "OpenSearch",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "OpenSearch",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "OpenSearch",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "OpenSearch",
+          "path": "opds/doc.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "OpenSearch",
+          "path": "opds/doc.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "application/opensearchdescription+xml",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 18,
+        "test": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 20
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "font-size",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "line-height",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "font-size",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "line-height",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "font-size",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "font-size",
+          "path": "internal/service/html.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 10,
+        "source": 7
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 35,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "path traversal",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "Symlink",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "https",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "path traversal",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "INSTALLATION.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "credential",
+          "path": "files/illumos/manifest/dir2opds.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "files/linux/systemd/dir2opds.service",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "symlink",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Path traversal",
+          "path": "internal/service/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "https",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 1311,
+          "matched_term": "path traversal",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 1312,
+          "matched_term": "https",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "https",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 143,
+          "matched_term": "https",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 144,
+          "matched_term": "https",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": "https",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "path traversal",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "https",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "https",
+          "path": "opds/doc.go",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "https",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 31,
+        "source": 25,
+        "test": 5
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "go test",
+          "path": ".github/workflows/go.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "go test",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "go test",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "go test",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "go test",
+          "path": "AGENTS.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 5
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-dubyte-dir2opds.jsonl.gz",
+  "files": {
+    "scanned_bytes": 212396,
+    "scanned_text": 47,
+    "skipped_binary_or_empty": 3,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 51
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 222,
+          "matched_term": "CBR",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": ".cbr",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "cbr",
+          "path": "internal/service/service.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 222,
+          "matched_term": "CBZ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": ".cbz",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cbz",
+          "path": "internal/service/service.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "EPUB",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "EPUB",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": ".epub",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 87,
+          "matched_term": "EPUB",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": ".epub",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": ".epub",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 319,
+          "matched_term": ".epub",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "EPUB ",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": ".epub",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".epub",
+          "path": "opds/AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 17,
+        "source": 13,
+        "test": 35
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "FB2",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": ".fb2",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 304,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 223,
+          "matched_term": "FB2",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "FB2",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 96,
+          "matched_term": ".fb2",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": ".fb2",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "fb2",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 333,
+          "matched_term": ".fb2",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 334,
+          "matched_term": ".fb2",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "FictionBook",
+          "path": "internal/service/testdata/mybook/mybook-win1251.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "fictionbook",
+          "path": "internal/service/testdata/mybook/mybook-win1251.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "FictionBook",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "fictionbook",
+          "path": "internal/service/testdata/mybook/mybook.fb2",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 15,
+        "test": 26
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 335,
+          "matched_term": ".html",
+          "path": "internal/service/html.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "xhtml",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 2,
+        "test": 1
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 197,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "MOBI",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 221,
+          "matched_term": "MOBI",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": ".mobi",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 1259,
+          "matched_term": "mobi",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".mobi",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".azw3",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "MOBI",
+          "path": "opds/doc.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "AZW3",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 6
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 168,
+          "matched_term": "Package document",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 243,
+          "matched_term": ".opf",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": ".opf",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": ".opf",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 494,
+          "matched_term": ".opf",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 972,
+          "matched_term": ".opf",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": ".opf",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 116,
+          "matched_term": ".opf",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4,
+        "test": 6
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 177,
+          "matched_term": "pdf",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "PDF",
+          "path": "AGENTS.md",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "pdf",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "pdf",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "pdf",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "PDF",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 133,
+          "matched_term": ".pdf",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": "pdf",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": ".pdf",
+          "path": "internal/service/service.go",
+          "role": "source"
+        },
+        {
+          "line": 354,
+          "matched_term": ".pdf",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 355,
+          "matched_term": ".pdf",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 46,
+          "matched_term": "PDF",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "opds/doc.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 12,
+        "source": 11,
+        "test": 8
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": ".txt",
+          "path": ".goreleaser.yml",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".txt",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 169,
+          "matched_term": "plain text",
+          "path": "internal/service/internal_test.go",
+          "role": "test"
+        },
+        {
+          "line": 48,
+          "matched_term": ".txt",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": ".txt",
+          "path": "internal/service/service_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 16
+      }
+    }
+  },
+  "inventory_url": "https://github.com/dubyte/dir2opds",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Go": 17,
+    "HTML": 1,
+    "Shell": 3,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/dubyte/dir2opds",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "9f40bc1fd587ec1c1ddbab9888529effa471ea79",
+  "schema_version": 1,
+  "slug": "dubyte-dir2opds",
+  "support_claims_allowed": false,
+  "tree": "0860254acdd81f71f5437ea532ab10adcadd6428"
+}

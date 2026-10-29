@@ -1,0 +1,2418 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": ".github/workflows/tests.yml",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": ".github/workflows/tests.yml",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "rag",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 407,
+          "matched_term": "rag",
+          "path": "src/epy_reader/parser.py",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "rag",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "RAG",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 498,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 534,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 633,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "rag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 7,
+        "source": 69,
+        "test": 2
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 579,
+          "matched_term": "highlight",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 701,
+          "matched_term": "highlight",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Bookmark",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "Bookmark",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Bookmark",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "bookmark",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 47
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 104,
+          "matched_term": "backup",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "backup",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Backup",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_sectioner.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 772,
+          "matched_term": "Collection",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "tests/test_utils.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 3,
+        "test": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 107,
+          "matched_term": "right to left",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cdn",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Thumbnail",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 683,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "eTag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "eTag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "eTag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "etag",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 33
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "epub\", \"epub3\", \"fb2",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "conversion",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "conversion",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Converter",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "Converter",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub, fb2",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 5
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "DAISY",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "daisy",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "DAISY",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "daisy",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "daisy",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 1344,
+          "matched_term": "sqlite",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "sqlite",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "sqlite",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "sqlite",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 967,
+          "matched_term": "redis",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Redis",
+          "path": "src/epy_reader/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 22
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "sha256",
+          "path": "build/gen_pkgbuild.sh",
+          "role": "source"
+        },
+        {
+          "line": 852,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 853,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 858,
+          "matched_term": "sha256",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "duplicate",
+          "path": "src/epy_reader/config.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "duplicate",
+          "path": "src/epy_reader/parser.py",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "duplicate",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 63
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 145,
+          "matched_term": "Dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 147,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 197,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 624,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_dict.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "DICTIONARY",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DICTIONARY",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "DICTIONARY",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "DICTIONARY",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "FURIGANA",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Furigana",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "FURIGANA",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "dictionary",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 54
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "brotli",
+          "path": "poetry.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "Drm",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 19
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 216,
+          "matched_term": "filesystem",
+          "path": "src/epy_reader/models.py",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "filesystem",
+          "path": "src/epy_reader/models.py",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "in place",
+          "path": "src/epy_reader/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "filesystem",
+          "path": "src/epy_reader/tools/KindleUnpack/compatibility_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "in place",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "in place",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_utils.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "filesystem",
+          "path": "src/epy_reader/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "filesystem",
+          "path": "src/epy_reader/tools/KindleUnpack/unipath.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 58,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 250,
+          "matched_term": "metadata",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/base.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/fictionbook.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/fictionbook.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/fictionbook.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/url.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/url.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/ebooks/url.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/models.py",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/state.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "ISBN",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 338
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 285,
+          "matched_term": "metadata, 'orientation-lock', 'orientation-lock",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "metadata, 'Review', 'review",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 583,
+          "matched_term": "metadata.get('orientation-lock",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 78,
+          "matched_term": "fixed-layout",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "fixed-layout",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "fixed-layout",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "fixed-layout",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 581,
+          "matched_term": "fixed-layout",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 20
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "Reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "reading progress",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 1516,
+          "matched_term": "reading progress",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 1519,
+          "matched_term": "reading progress",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 186,
+          "matched_term": "theme",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "font size",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 430,
+          "matched_term": "font size",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 7
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-aur.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-aur.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-aur.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-pypi.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "secret",
+          "path": ".github/workflows/release-win.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "build/gen_pkgbuild.sh",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "build/gen_pkgbuild.sh",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": "Secret",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 715,
+          "matched_term": "secret",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 717,
+          "matched_term": "Secret",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "src/epy_reader/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": "src/epy_reader/__main__.py",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "https",
+          "path": "src/epy_reader/board.py",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "https",
+          "path": "src/epy_reader/board.py",
+          "role": "source"
+        },
+        {
+          "line": 348,
+          "matched_term": "cSp",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "cSp",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 432,
+          "matched_term": "cSp",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 13,
+        "source": 14
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "pytest",
+          "path": ".github/workflows/tests.yml",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "pytest",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pytest",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "pytest",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "pytest",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 75,
+        "test": 1
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "Text-to-Speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "text-to-speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "Text-to-Speech",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 131,
+          "matched_term": "TTS",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "Text-to-Speech",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 483,
+          "matched_term": "Text-to-Speech",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "Text to Speech",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "Text-to-Speech",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "TTS",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 6
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-epy.jsonl.gz",
+  "files": {
+    "scanned_bytes": 542154,
+    "scanned_text": 62,
+    "skipped_binary_or_empty": 1,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 63
+  },
+  "format_keyword_evidence": {
+    "daisy": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "DAISY",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".daisy",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": ".daisy",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": ".daisy",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "Epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": ".epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub3",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".epub",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".epub",
+          "path": "src/epy_reader/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Epub\n",
+          "path": "src/epy_reader/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Epub",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "EPUB",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".epub",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Epub\n",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Epub",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "epub",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "epub3",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "epub2",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "epub",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "epub ",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub3",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "epub ",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8resc.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "epub",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "epub",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "EPUB3",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "epub2",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": ".epub",
+          "path": "src/epy_reader/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "epub",
+          "path": "src/epy_reader/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Epub",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".epub",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 4,
+        "source": 95
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "FictionBook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": ".fb2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "fb2",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "FictionBook",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "fictionbook",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "FictionBook",
+          "path": "src/epy_reader/ebooks/fictionbook.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "FB2",
+          "path": "src/epy_reader/ebooks/fictionbook.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "FictionBook",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".fb2",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 27
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": ".html",
+          "path": "src/epy_reader/__main__.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/ebooks/epub.py",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/ebooks/url.py",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "src/epy_reader/ebooks/url.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": ".html",
+          "path": "src/epy_reader/lib.py",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/parser.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": ".html",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".html",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_cover.py",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_html.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_nav.py",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": ".html",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": ".html",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_ncx.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 360,
+          "matched_term": ".xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "XHTML",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "xhtml",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".html",
+          "path": "tests/test_utils.py",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "tests/test_utils.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 89,
+        "test": 3
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 155,
+          "matched_term": "Markdown",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 701,
+          "matched_term": "markdown",
+          "path": "poetry.lock",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 2
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "Mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": ".mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "mobi",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "azw3",
+          "path": "pyproject.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Azw",
+          "path": "src/epy_reader/ebooks/__init__.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Azw",
+          "path": "src/epy_reader/ebooks/azw.py",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 222,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/parser.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Azw",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/reader.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Palmdoc",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "palmdoc",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_header.py",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_index.py",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_k8proc.py",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "palmdoc",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_split.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_split.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Palmdoc",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_uncompress.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "mobi",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Azw",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Mobi",
+          "path": "src/epy_reader/utils.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 5,
+        "source": 86
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/ebooks/mobi.py",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 377,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 553,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/mobiml2xhtml.py",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": ".opf",
+          "path": "src/epy_reader/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "PDF",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "PDF",
+          "path": "src/epy_reader/tools/KindleUnpack/kindleunpack.py",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": ".pdf",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 362,
+          "matched_term": "application/pdf",
+          "path": "src/epy_reader/tools/KindleUnpack/mobi_opf.py",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "pdf",
+          "path": "src/epy_reader/tools/KindleUnpack/unpack_structure.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 86,
+          "matched_term": "lpF",
+          "path": "src/epy_reader/cli.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/wustho/epy",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Python": 48,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/wustho/epy",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "6b0e9fe0773f05fdf844b574f0f28df3961f60ab",
+  "schema_version": 1,
+  "slug": "epy",
+  "support_claims_allowed": false,
+  "tree": "ccd69ae7c260422afe4c12b4482a46dd6bcbcc50"
+}

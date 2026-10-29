@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "pass": 37,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "health endpoint",
+      "status": "PASS"
+    },
+    {
+      "name": "admin authentication boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "catalog authentication boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "live local source creation",
+      "status": "PASS"
+    },
+    {
+      "name": "live scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "live in-place ingestion",
+      "status": "PASS"
+    },
+    {
+      "name": "live catalog query",
+      "status": "PASS"
+    },
+    {
+      "name": "file identity and source association",
+      "status": "PASS"
+    },
+    {
+      "name": "content identity and size",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 1.2 acquisition feed",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 2.0 publication feed",
+      "status": "PASS"
+    },
+    {
+      "name": "OpenSearch description",
+      "status": "PASS"
+    },
+    {
+      "name": "single-range content download",
+      "status": "PASS"
+    },
+    {
+      "name": "HEAD content metadata without body",
+      "status": "PASS"
+    },
+    {
+      "name": "stale If-Range returns complete representation",
+      "status": "PASS"
+    },
+    {
+      "name": "multi-range request uses complete-response fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "attachment remains identity encoded",
+      "status": "PASS"
+    },
+    {
+      "name": "gzip content negotiation",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync registration or deterministic rerun",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync authentication",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync progress write",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync progress read",
+      "status": "PASS"
+    },
+    {
+      "name": "pgvector memory write",
+      "status": "PASS"
+    },
+    {
+      "name": "pgvector scoped search",
+      "status": "PASS"
+    },
+    {
+      "name": "internal progress write",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL catalog survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync account survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis internal progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source identity reattaches after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "existing file identity serves after source re-registration",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart source rescan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart reconciliation preserves present file",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source rescan does not duplicate files",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test catalog cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test memory cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test progress cleanup",
+      "status": "PASS"
+    }
+  ]
+}

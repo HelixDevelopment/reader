@@ -1,0 +1,3240 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 293,
+          "matched_term": "rag",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 572,
+          "matched_term": "rag",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "rag",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "rag",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 687,
+          "matched_term": "rag",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 696,
+          "matched_term": "rag",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "RAG",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "RAG",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "RAG",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "rag",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "RAG",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "RAG",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "RAG",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "RAG",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "openai",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "openai",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 47
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 274,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "Bookmark",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "bookmark",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Bookmark",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 446,
+          "matched_term": "bookmark",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Bookmark",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "bookmark",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "bookmark",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "Bookmark",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "bookmark",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "highlight",
+          "path": "app/globals.css",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Bookmark",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "bookmark",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "Bookmark",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Bookmark",
+          "path": "backend/app/api/v1/galleries.py",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "backend/app/api/v1/galleries.py",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "bookmark",
+          "path": "backend/app/api/v1/galleries.py",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "bookmark",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Bookmark",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Bookmark",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "bookmark",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "Bookmark",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "Bookmark",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Bookmark",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "bookmark",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "Bookmark",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Bookmark",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "Bookmark",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": "bookmark",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 60,
+          "matched_term": "bookmark",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": "bookmark",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "bookmark",
+          "path": "components/Icon.tsx",
+          "role": "source"
+        },
+        {
+          "line": 239,
+          "matched_term": "bookmark",
+          "path": "components/Icon.tsx",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "bookmark",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "Bookmark",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "Bookmark",
+          "path": "lib/api.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 218,
+        "test": 19
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "backup",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "restore",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "Backup",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "restore",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 270,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "backup",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "Restore",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Backup",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "backup",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "Backup",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "BACKUP",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "backup",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "backup",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "backup",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "backup",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "backup",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "backup",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 183,
+          "matched_term": "restore",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 184,
+          "matched_term": "Backup",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 249,
+          "matched_term": "restore",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "restore",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "backup",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "Backup",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "backup",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "Restore",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 2081,
+          "matched_term": "snapshot",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 15,
+        "source": 148,
+        "test": 17
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "collection",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "reading list",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Collection",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "collection",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Collection",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Collection",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "shelves",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "shelves",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "collection",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Collection",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "Collection",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "collection",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "shelves",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "shelves",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "shelves",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 397,
+          "matched_term": "shelves",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "shelves",
+          "path": "app/manifest.ts",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "shelves",
+          "path": "app/offline/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "backend/app/api/v1/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Collection",
+          "path": "backend/app/api/v1/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Collection",
+          "path": "backend/app/api/v1/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "collection",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "collection",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "collection",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "Collection",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "collection",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "Collection",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Collection",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "Collection",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "Collection",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Collection",
+          "path": "backend/app/services/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Collection",
+          "path": "backend/app/services/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Collection",
+          "path": "backend/app/services/collections.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Collection",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 11,
+        "source": 314,
+        "test": 13
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "manga",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 636,
+          "matched_term": "comic",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "CBZ",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "manga",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "CBZ",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "CBZ",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "double page",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "right-to-left",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "Reading direction",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "Reading direction",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "Right to left",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "manga",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "manga",
+          "path": "app/manifest.ts",
+          "role": "source"
+        },
+        {
+          "line": 983,
+          "matched_term": "Double page",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1097,
+          "matched_term": "Reading direction",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1099,
+          "matched_term": "Right to left",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Comic",
+          "path": "backend/app/api/v1/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "CBZ",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "comic",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "cbz",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "manga",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "Manga",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "Manga",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "CBz",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 354,
+          "matched_term": "CBT",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 650,
+          "matched_term": "cbr",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 45
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "thumbnail",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 77,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 210,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 210,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "thumbnail",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "thumbnail",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "thumbnail",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 280,
+          "matched_term": "thumbnail",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "thumbnail",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "Thumbnail",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 584,
+          "matched_term": "Thumbnail",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Cache",
+          "path": "backend/app/api/v1/galleries.py",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "Cache",
+          "path": "backend/app/api/v1/galleries.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CACHE",
+          "path": "backend/app/api/v1/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "thumbnail",
+          "path": "backend/app/api/v1/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "cache",
+          "path": "backend/app/api/v1/settings.py",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "thumbnail",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "thumbnail",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "thumbnail",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "thumbnail",
+          "path": "backend/app/core/config.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "CACHE",
+          "path": "backend/app/core/config.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cache",
+          "path": "backend/app/core/config.py",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "thumbnail",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "THUMBNAIL",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "CDN",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "thumbnail",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 15,
+        "source": 105,
+        "test": 2
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 127,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "aria-",
+          "path": "app/(app)/collections/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "aria-",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "aria-",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "aria-",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "aria-",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "aria-",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 200,
+          "matched_term": "aria-",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "aria-",
+          "path": "app/(app)/history/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "aria-",
+          "path": "app/(app)/history/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "aria-",
+          "path": "app/(app)/history/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 197,
+          "matched_term": "aria-",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 222,
+          "matched_term": "aria-",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "aria-",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "aria-",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "aria-",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "aria-",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "aria-",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 250,
+          "matched_term": "aria-",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 263,
+          "matched_term": "aria-",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 309,
+          "matched_term": "aria-",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 324,
+          "matched_term": "aria-",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "aria-",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 561,
+          "matched_term": "aria-",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 610,
+          "matched_term": "aria-",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 628,
+          "matched_term": "aria-",
+          "path": "app/reader/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 331,
+          "matched_term": "aria-",
+          "path": "components/Icon.tsx",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "aria-",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "aria-",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "aria-",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "aria-",
+          "path": "components/ThemeToggle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "aria-",
+          "path": "components/ThemeToggle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "aria-",
+          "path": "components/ui.tsx",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "aria-",
+          "path": "components/ui.tsx",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "aria-",
+          "path": "components/ui.tsx",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "accessibility",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 108
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 39,
+          "matched_term": "SQLite",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "SQLite",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 53,
+          "matched_term": "SQLite",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "SQLite",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "sqlite",
+          "path": "backend/app/core/config.py",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "SQLite",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "SQLite",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "sqlite",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "SQLite",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "SQLite",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "Database migration",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 9,
+        "source": 20
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "sha256",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "SHA-256",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "sha256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "checksum",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "sha256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": "DUPLICATE",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "Duplicate",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Duplicate",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "duplicate",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "Duplicate",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "duplicate",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "duplicate",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "duplicate",
+          "path": "backend/app/api/v1/system.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "sha256",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "duplicate",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "duplicate",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/maintenance.py",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "duplicate",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "sha256",
+          "path": "backend/app/services/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "sha256",
+          "path": "backend/app/services/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "fingerprint",
+          "path": "backend/app/services/utils.py",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "duplicate",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 171,
+          "matched_term": "fingerprint",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 172,
+          "matched_term": "fingerprint",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "duplicate",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "duplicate",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "fingerprint",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "Duplicate",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "Duplicate",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 359,
+          "matched_term": "Duplicate",
+          "path": "lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": "scripts/package.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "checksum",
+          "path": "scripts/package.py",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "checksum",
+          "path": "scripts/package.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 15,
+        "source": 71,
+        "test": 4
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "docker",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "docker",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "docker",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "Docker",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 55,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 183,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "SystemD",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "systemD",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "systemD",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "healthcheck",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 386,
+          "matched_term": "docker",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Docker",
+          "path": "scripts/package.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 4,
+        "source": 12
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 112,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 2083,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 2527,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 87,
+          "matched_term": "drm",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 835,
+          "matched_term": "DRM",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1371,
+          "matched_term": "DrM",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 110,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "in place",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "in place",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "in place",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "in place",
+          "path": "backend/tests/test_library_features.py",
+          "role": "test"
+        },
+        {
+          "line": 273,
+          "matched_term": "Local library",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Local files",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "filesystem",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "local library",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 13,
+        "test": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 274,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Metadata",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Metadata",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Metadata",
+          "path": "app/(app)/discover/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Metadata",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "metadata",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Metadata",
+          "path": "app/(app)/gallery/[id]/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Metadata",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "Metadata",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Metadata",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Metadata",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Metadata",
+          "path": "app/manifest.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Metadata",
+          "path": "app/manifest.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "app/offline/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Metadata",
+          "path": "backend/app/api/v1/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Metadata",
+          "path": "backend/app/api/v1/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "backend/app/api/v1/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "metadata",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "backend/app/db/session.py",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "metadata",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "metadata",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "metadata",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "metadata",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "Metadata",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "metadata",
+          "path": "backend/app/models/models.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "metadata",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "Metadata",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "Metadata",
+          "path": "backend/app/schemas/schemas.py",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/library.py",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Metadata",
+          "path": "backend/app/services/metadata.py",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Metadata",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 133,
+        "test": 5
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 346,
+          "matched_term": "lock;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\\_r_1at\\_ .node .label-ic",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 585,
+          "matched_term": "metadata/jobs/{job_id}/apply`   | Apply approve",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 644,
+          "matched_term": "Metadata merge",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 49,
+          "matched_term": "multi-user",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 333,
+          "matched_term": "authentication",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "authentication",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 389,
+          "matched_term": "s3",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "opds_pse": {
+      "evidence": [
+        {
+          "line": 781,
+          "matched_term": "page streaming",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "permission",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "access control",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 333,
+          "matched_term": "access control",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 3
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 41,
+          "matched_term": "reading progress",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 538,
+          "matched_term": "Reading progress",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "reading progress",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "Dark mode",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "Theme",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Theme",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "Theme",
+          "path": "app/(app)/settings/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "app/globals.css",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Typography",
+          "path": "app/globals.css",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "theme",
+          "path": "app/globals.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Theme",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Theme",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "theme",
+          "path": "app/layout.tsx",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "theme",
+          "path": "app/manifest.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "Theme",
+          "path": "components/Sidebar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Theme",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "theme",
+          "path": "components/ThemeProvider.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "components/ThemeToggle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "components/ThemeToggle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "components/ThemeToggle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "Typography",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "theme",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 346,
+          "matched_term": "font-size",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "font-size",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "font-size",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "font-size",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "font-size",
+          "path": "scripts/capture-screenshots.mjs",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "line-height",
+          "path": "scripts/capture-screenshots.mjs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 105
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 462,
+          "matched_term": "FTS5",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "FTS5",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "cors",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "CORS",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "CORS",
+          "path": "backend/app/main.py",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "symlink",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "symlink",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "https",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "secret",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 57,
+          "matched_term": "secret",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 75,
+          "matched_term": "https",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "https",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "https",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 772,
+          "matched_term": "csP",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1114,
+          "matched_term": "https",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1735,
+          "matched_term": "cSp",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "public/mitsu-lovato-preview.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "scripts/install.ps1",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "scripts/install.ps1",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "scripts/install.sh",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "scripts/install.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 10,
+        "source": 35,
+        "test": 2
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "pytest",
+          "path": ".dockerignore",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "pytest",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "pytest",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 57,
+          "matched_term": "pytest",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "pytest",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "pytest",
+          "path": "backend/requirements-dev.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "pytest",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": "pytest",
+          "path": "backend/tests/conftest.py",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "pytest",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "pytest",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 404,
+          "matched_term": "Pytest",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 405,
+          "matched_term": "Vitest",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 406,
+          "matched_term": "Playwright",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 1618,
+          "matched_term": "playwright",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1626,
+          "matched_term": "playwright",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "pytest",
+          "path": "scripts/package.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 1,
+        "source": 14,
+        "test": 5
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-mitsu.jsonl.gz",
+  "files": {
+    "scanned_bytes": 629829,
+    "scanned_text": 91,
+    "skipped_binary_or_empty": 18,
+    "skipped_large": 5,
+    "skipped_sensitive_name": 1,
+    "tracked": 115
+  },
+  "format_keyword_evidence": {
+    "cbz": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 177,
+          "matched_term": "CBZ",
+          "path": "app/(app)/imports/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "CBZ",
+          "path": "app/(app)/library/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "CBZ",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 398,
+          "matched_term": "CBZ",
+          "path": "app/(app)/page.tsx",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "CBZ",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": ".cbz",
+          "path": "backend/app/services/importer.py",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "CBZ",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 531,
+          "matched_term": ".cbz",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 12
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 257,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 387,
+          "matched_term": ".md",
+          "path": "idea.md",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": ".md",
+          "path": "scripts/package.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": ".txt",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": ".txt",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": ".txt",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": ".txt",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 151,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": ".txt",
+          "path": "backend/app/services/providers.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".txt",
+          "path": "backend/requirements-dev.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": ".txt",
+          "path": "backend/requirements.txt",
+          "role": "configuration"
+        },
+        {
+          "line": 56,
+          "matched_term": ".txt",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 57,
+          "matched_term": ".txt",
+          "path": "backend/tests/test_smoke.py",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": ".txt",
+          "path": "run.py",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": ".txt",
+          "path": "scripts/install.ps1",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": ".txt",
+          "path": "scripts/install.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 2,
+        "source": 4,
+        "test": 2
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 164,
+          "matched_term": "lpf",
+          "path": "idea.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/chandu4143/mitsu",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 1,
+    "HTML": 1,
+    "JavaScript": 1,
+    "PowerShell": 1,
+    "Python": 34,
+    "Shell": 2,
+    "TypeScript": 3,
+    "TypeScript React": 19
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/chandu4143/mitsu",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "492d0cc71570936e195b8244efcc70102b5e5209",
+  "schema_version": 1,
+  "slug": "mitsu",
+  "support_claims_allowed": false,
+  "tree": "ddeb330bfdb590f58703652d7e1b86a4fe69b2c9"
+}

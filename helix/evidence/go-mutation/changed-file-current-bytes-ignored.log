@@ -1,0 +1,8 @@
+$ /tmp/helix-go-toolchain/bin/go test ./internal/catalog -run ^TestMergeWorkReplacesChangedFileAtSameSourcePath$ -count=1
+--- FAIL: TestMergeWorkReplacesChangedFileAtSameSourcePath (0.00s)
+    merge_test.go:87: changed file did not replace stale byte evidence: [{ID:file-stable SourceID:src Path:book.txt Format: MIMEType: Size:3 SHA256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Protected:false DRMScheme: LicenseHREF: ModifiedAt:2026-01-01 00:00:00 +0000 UTC}]
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.016s
+FAIL
+
+exit=1

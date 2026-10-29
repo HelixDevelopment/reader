@@ -1,0 +1,9 @@
+$ /tmp/helix-go-toolchain/bin/go test ./internal/identify -run ^TestValidEmbeddedISBNAccepted$ -count=1
+# github.com/helixreader/helix/server/internal/identify
+internal/identify/pipeline.go:14:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
+# github.com/helixreader/helix/server/internal/identify
+internal/identify/jev.go:12:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
+FAIL	github.com/helixreader/helix/server/internal/identify [setup failed]
+FAIL
+
+exit=1

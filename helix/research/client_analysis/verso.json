@@ -1,0 +1,2421 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 127,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 345,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 813,
+          "matched_term": "rag",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "RAG",
+          "path": "migrations/V1__initial.sql",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "rag",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "rag",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "src/reader/plaintext.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "rag",
+          "path": "src/ui/library_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 526,
+          "matched_term": "rag",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 531,
+          "matched_term": "rag",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 535,
+          "matched_term": "rag",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "rag",
+          "path": "src/ui/reader_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "src/ui/reader_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "tests/anchor.rs",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "tests/linebreak.rs",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "tests/linebreak.rs",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "tests/linebreak.rs",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "tests/reanchor.rs",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "tests/reanchor.rs",
+          "role": "test"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "tests/store_migrate.rs",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "RAG",
+          "path": "tests/store_migrate.rs",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "RAG",
+          "path": "tests/store_migrate.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 17,
+        "test": 11
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "highlight",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "Bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "bookmark",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "highlight",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "highlight",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "highlight",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "highlight",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "Cfi",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "highlight",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "highlight",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "highlight",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "bookmark",
+          "path": "migrations/V1__initial.sql",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "highlight",
+          "path": "migrations/V1__initial.sql",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "highlight",
+          "path": "migrations/V1__initial.sql",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "highlight",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "highlight",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "highlight",
+          "path": "src/config/schema.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "highlight",
+          "path": "src/export/markdown.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Highlight",
+          "path": "src/export/markdown.rs",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Highlight",
+          "path": "src/export/markdown.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "highlight",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "highlight",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "highlight",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "highlight",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "highlight",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "highlight",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "highlight",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "bookmark",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Bookmark",
+          "path": "src/store/bookmarks.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "bookmark",
+          "path": "src/store/bookmarks.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "src/store/bookmarks.rs",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Highlight",
+          "path": "src/store/highlights.rs",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Highlight",
+          "path": "src/store/highlights.rs",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "highlight",
+          "path": "src/store/highlights.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "src/store/mod.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 90,
+        "source": 111,
+        "test": 29
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": "restore",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "Snapshot",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "snapshot",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "restore",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 704,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 715,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1272,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "restore",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "restore",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "Restore",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "snapshot",
+          "path": "tests/export_markdown.rs",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "snapshot",
+          "path": "tests/reader_snapshots.rs",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "snapshot",
+          "path": "tests/snapshots/reader_snapshots__time_machine_chapter_1_at_68_dark.snap",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 10,
+        "test": 3
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 857,
+          "matched_term": "collection",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 889,
+          "matched_term": "collection",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 909,
+          "matched_term": "collection",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 813,
+          "matched_term": "series",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "src/config/schema.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "src/reader/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "src/ui/keymap/defaults.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "collection",
+          "path": "src/ui/library_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "collection",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "tests/keymap_merge.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 8,
+        "test": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 1895,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2535,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 1200,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1201,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2205,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 367,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Cache",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Cache",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cache",
+          "path": "src/reader/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "tests/cache.rs",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "tests/cache.rs",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "cache",
+          "path": "tests/cache.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 12,
+        "test": 12
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "EPUB only in v1. PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "conversion",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB only). PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "EPUB-only without real note workflows, or Kitty-locked PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 372,
+          "matched_term": "ebook-convert",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 710,
+          "matched_term": "EPUB only, for now</h3><p>PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 710,
+          "matched_term": "ebook-convert",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 1
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 306,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 307,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 313,
+          "matched_term": "aria-",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 16
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 59,
+          "matched_term": "SQLite",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "SQLite",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "SQLite",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1113,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1815,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1869,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "sqlite",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "sqlite",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 89,
+          "matched_term": "Redis",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "redis",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "redis",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 183,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 266,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 574,
+          "matched_term": "SQLite",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 712,
+          "matched_term": "SQLite",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "sqlite",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "sqlite",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "sqlite",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "sqlite",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "sqlite",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/bookmarks.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/books.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "SQLite",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "SQLITE",
+          "path": "src/store/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/highlights.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/library_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/migrate.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sqlite",
+          "path": "src/store/progress.rs",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "sqlite",
+          "path": "src/ui/library_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "sqlite",
+          "path": "src/ui/library_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 197,
+          "matched_term": "sqlite",
+          "path": "src/ui/library_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "sqlite",
+          "path": "tests/store_migrate.rs",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": "sqlite",
+          "path": "tests/store_progress.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 8,
+        "source": 27,
+        "test": 2
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 586,
+          "matched_term": "duplicate",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Sha256",
+          "path": "src/library/hashing.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": "src/library/hashing.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Sha256",
+          "path": "src/library/hashing.rs",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "sha256",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "sha256",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sha256",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Sha256",
+          "path": "src/reader/anchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "SHA-256",
+          "path": "src/reader/anchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Sha256",
+          "path": "src/reader/anchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sha256",
+          "path": "tests/hashing.rs",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": "tests/hashing.rs",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "tests/hashing.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 340,
+        "test": 3
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "translation",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "anki",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 100,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "quic",
+          "path": "tests/linebreak.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "test": 1
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 84,
+          "matched_term": "DRM",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 374,
+          "matched_term": "DRM",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 374,
+          "matched_term": "DRM",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 713,
+          "matched_term": "DRM",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 713,
+          "matched_term": "DRM",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 5
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 148,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 290,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 765,
+          "matched_term": "filesystem",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "in place",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 2746,
+          "matched_term": "metadata",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2939,
+          "matched_term": "metadata",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2973,
+          "matched_term": "metadata",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "src/library/epub_meta.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 367,
+          "matched_term": "Per-user",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "Markdown export",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "Markdown export",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 223,
+          "matched_term": "export` | Write `~/Books/highlights",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 233,
+          "matched_term": "Exporting highlights",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 289,
+          "matched_term": "export_subdir = \"highlights",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1182,
+          "matched_term": "highlights.length) { toast(\"no highlights to export",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 1185,
+          "matched_term": "exported: ~/Books/highlights",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "export` — export highlights",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Export highlights",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "export_subdir: \"highlights",
+          "path": "src/config/schema.rs",
+          "role": "source"
+        },
+        {
+          "line": 645,
+          "matched_term": "export_highlights",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 651,
+          "matched_term": "export_highlights",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 667,
+          "matched_term": "export_dir = dirs_home_books_highlights",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 5
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 371,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 369,
+          "matched_term": "MuPDF",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "permission",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "permission",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "permission",
+          "path": "LICENSE-APACHE",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE-MIT",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE-MIT",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 6
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 370,
+          "matched_term": "sync of progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 715,
+          "matched_term": "Sync is a v2 problem</h3><p>Progress",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 834,
+          "matched_term": "hyphenation",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 841,
+          "matched_term": "hyphenation",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 847,
+          "matched_term": "hyphenation",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "hyphenation",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 56,
+          "matched_term": "hyphenation",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 170,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": "sepia",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 294,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "font-size",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "line-height",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "theme",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "theme",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "sepia",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "theme",
+          "path": "src/config/schema.rs",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "theme",
+          "path": "src/config/schema.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "theme",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "theme",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "src/reader/cache.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "hyphenation",
+          "path": "src/reader/linebreak.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Hyphenation",
+          "path": "src/reader/linebreak.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Theme",
+          "path": "src/ui/keymap/actions.rs",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "theme",
+          "path": "src/ui/keymap/actions.rs",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "Theme",
+          "path": "src/ui/keymap/actions.rs",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "theme",
+          "path": "src/ui/keymap/defaults.rs",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "theme",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "theme",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "theme",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "theme",
+          "path": "src/ui/reader_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "theme",
+          "path": "src/ui/reader_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "src/ui/reader_view.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "tests/config.rs",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "tests/config.rs",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "sepia",
+          "path": "tests/config.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 89,
+        "source": 30,
+        "test": 5
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 36,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "secret",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "symlink",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 75,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 524,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "path traversal",
+          "path": "src/library/epub_guard.rs",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "symlink",
+          "path": "src/library/epub_guard.rs",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Symlink",
+          "path": "src/library/epub_guard.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "tests/fixtures/LICENSE.md",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 18,
+        "source": 343,
+        "test": 1
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "cargo test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "cargo test",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "cargo test",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "integration test",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 382,
+          "matched_term": "cargo test",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 978,
+          "matched_term": "inotify",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 984,
+          "matched_term": "inotify",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 989,
+          "matched_term": "inotify",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "watched folder",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 4
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-verso.jsonl.gz",
+  "files": {
+    "scanned_bytes": 379545,
+    "scanned_text": 103,
+    "skipped_binary_or_empty": 1,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 104
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "EPUB",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "EPUB ",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "EPUB ",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "EPUB ",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "EPUB ",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB",
+          "path": "src/library/epub_guard.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Epub",
+          "path": "src/library/epub_meta.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "EPUB",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Epub",
+          "path": "src/library/reanchor.rs",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "epub",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": ".epub",
+          "path": "src/library/scan.rs",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "epub",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "src/reader/plaintext.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "EPUB ",
+          "path": "src/reader/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".epub",
+          "path": "src/store/books.rs",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "EPUB",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "EPUB ",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".epub",
+          "path": "tests/epub_guard.rs",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": ".epub",
+          "path": "tests/epub_meta.rs",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": "EPUB ",
+          "path": "tests/epub_meta.rs",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": ".epub",
+          "path": "tests/export_markdown.rs",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": ".epub",
+          "path": "tests/fixtures/LICENSE.md",
+          "role": "test"
+        },
+        {
+          "line": 5,
+          "matched_term": ".epub",
+          "path": "tests/hashing.rs",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": ".epub",
+          "path": "tests/hashing.rs",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB ",
+          "path": "tests/library_reanchor_trigger.rs",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": ".epub",
+          "path": "tests/library_reanchor_trigger.rs",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": ".epub",
+          "path": "tests/library_scan.rs",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": ".epub",
+          "path": "tests/library_scan.rs",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": ".epub",
+          "path": "tests/library_scan_broken.rs",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "tests/library_scan_broken.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 36,
+        "source": 26,
+        "test": 28
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "html5",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 809,
+          "matched_term": "html5",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": ".xhtml",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": ".xhtml",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "Markdown",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "Markdown",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "Markdown",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "Markdown",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": ".md",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "Markdown",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "Markdown",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "Markdown",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "Markdown",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "Markdown",
+          "path": "docs/keymap.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Markdown",
+          "path": "src/cli.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "markdown",
+          "path": "src/export/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".md",
+          "path": "src/export/writer.rs",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "markdown",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "markdown",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 657,
+          "matched_term": "markdown",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 666,
+          "matched_term": "markdown",
+          "path": "src/ui/reader_app.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "markdown",
+          "path": "tests/export_markdown.rs",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "markdown",
+          "path": "tests/export_markdown.rs",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "markdown",
+          "path": "tests/snapshots/export_markdown__renders_frontmatter_and_quotes.snap",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 47,
+        "source": 7,
+        "test": 3
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "MOBI",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 372,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 710,
+          "matched_term": "MOBI",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 710,
+          "matched_term": "AZW3",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 710,
+          "matched_term": "PDF",
+          "path": "docs/index.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 5
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 194,
+          "matched_term": "plain text",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "plain text",
+          "path": "src/reader/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "plain text",
+          "path": "src/reader/page.rs",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "plain text",
+          "path": "src/reader/page.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".txt",
+          "path": "tests/epub_guard.rs",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": ".txt",
+          "path": "tests/library_reanchor_trigger.rs",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3,
+        "test": 2
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 312,
+          "matched_term": "lpf",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/romankhadka/verso",
+  "kind": "client",
+  "languages_by_file_count": {
+    "HTML": 1,
+    "Rust": 85,
+    "SQL": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0",
+      "CC0",
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE-APACHE",
+      "LICENSE-MIT",
+      "tests/fixtures/LICENSE.md"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/romankhadka/verso",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "65b4b48cc002661a2061f183640e957509647037",
+  "schema_version": 1,
+  "slug": "verso",
+  "support_claims_allowed": false,
+  "tree": "34077fd03a3f043745aa632d6a9b7ea930e55895"
+}

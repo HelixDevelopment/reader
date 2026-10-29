@@ -1,0 +1,8 @@
+$ go test ./pkg/parse/epub -run ^FuzzParse$ -fuzz ^FuzzParse$ -fuzztime=5s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/15 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 15/15 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 7516 (2505/sec), new interesting: 0 (total: 15)
+fuzz: elapsed: 6s, execs: 7516 (0/sec), new interesting: 0 (total: 15)
+fuzz: elapsed: 6s, execs: 7516 (0/sec), new interesting: 0 (total: 15)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	6.096s

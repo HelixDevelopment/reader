@@ -1,0 +1,2193 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 194,
+          "matched_term": "rag",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 298,
+          "matched_term": "rag",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1060,
+          "matched_term": "rag",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/EpubList/Epub.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/EpubList/EpubList.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/EpubList/EpubReader.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/EpubList/EpubToc.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/EpubList/State.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/ConsoleRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/EpdiyFrameBufferRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/EpdiyRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/ImageHelper.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/JPEGHelper.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/M5PaperRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/PNGHelper.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/Renderer/Renderer.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/Page.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/Block.h",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/Block.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/ImageBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/TextBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/RubbishHtmlParser/htmlEntities.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Epub/ZipFile/ZipFile.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Fonts/bold_font.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Fonts/bold_italic_font.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Fonts/italic_font.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Fonts/regular_font.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/Images/hourglass.h",
+          "role": "source"
+        },
+        {
+          "line": 2105,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 2106,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 2212,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 484,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 577,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/sd_card/src/SDCard.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "lib/spiffs/src/SPIFFS.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 66,
+        "test": 5
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "cfi",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3994,
+          "matched_term": "cfi",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 4017,
+          "matched_term": "CFI",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 5160,
+          "matched_term": "cfi",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 1022,
+          "matched_term": "CFI",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 1128,
+          "matched_term": "cfi",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 1148,
+          "matched_term": "cfi",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 17
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "restore",
+          "path": ".github/workflows/build-test-on-push.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 252,
+          "matched_term": "restore",
+          "path": "lib/Epub/Renderer/EpdiyFrameBufferRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "restore",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 734,
+          "matched_term": "Restore",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 755,
+          "matched_term": "Restore",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 896,
+          "matched_term": "restore",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 755,
+          "matched_term": "RESTORE",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 759,
+          "matched_term": "RESTORE",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 759,
+          "matched_term": "RESTORE",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "restore",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 8
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 1074,
+          "matched_term": "collection",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1076,
+          "matched_term": "collection",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 160,
+          "matched_term": "series",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 171,
+          "matched_term": "series",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "scripts/fontconvert.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 1,
+        "test": 2
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "Cache",
+          "path": ".github/workflows/build-test-on-push.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": ".github/workflows/build-test-on-push.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "cache",
+          "path": ".github/workflows/build-test-on-push.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 49,
+          "matched_term": "thumbnail",
+          "path": "lib/Epub/EpubList/EpubToc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "cache",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "cache",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 2784,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "cache",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "gzip",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "thumbnail",
+          "path": "lib/tjpgd3/doc/en/decomp.html",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "thumbnail",
+          "path": "scripts/imgconvert.py",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "CACHE",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 6,
+        "source": 57
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 78,
+          "matched_term": "Converter",
+          "path": "lib/m5Paper/src/IT8951_Defines.h",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 205,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Conversion",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/src/tjpgdcnf.h",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "conversion",
+          "path": "lib/tjpgd3/src/tjpgdcnf.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 1029,
+          "matched_term": "Redis",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1030,
+          "matched_term": "redis",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1047,
+          "matched_term": "Redis",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 91,
+          "matched_term": "SQLite",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "sqlite",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "sqlite",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "redis",
+          "path": "lib/tjpgd3/doc/00index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 224,
+          "matched_term": "redis",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 226,
+          "matched_term": "Redis",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 229,
+          "matched_term": "redis",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "redis",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Redis",
+          "path": "lib/tjpgd3/src/tjpgd.c",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 2,
+        "test": 3
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 5447,
+          "matched_term": "duplicate",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 775,
+          "matched_term": "checksum",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 778,
+          "matched_term": "checksum",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 801,
+          "matched_term": "Checksum",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 803,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 804,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "Checksum",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 807,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 808,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "Checksum",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 807,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 808,
+          "matched_term": "CHECKSUM",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 18
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 156,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/examples/example5.c",
+          "role": "documentation"
+        },
+        {
+          "line": 526,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 600,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 1729,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 588,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 589,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 589,
+          "matched_term": "dictionary",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 9
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 625,
+          "matched_term": "quic",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 328,
+          "matched_term": "Quic",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 367,
+          "matched_term": "Quic",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Quic",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2,
+        "test": 1
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 212,
+          "matched_term": "license document",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 229,
+          "matched_term": "license document",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "in_place",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "in_place",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "in place",
+          "path": "lib/miniz-2.2.0/examples/example2.c",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "IN-PLACE",
+          "path": "lib/miniz-2.2.0/examples/example2.c",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "in_place",
+          "path": "lib/miniz-2.2.0/examples/example2.c",
+          "role": "documentation"
+        },
+        {
+          "line": 3195,
+          "matched_term": "FILESYSTEM",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 6224,
+          "matched_term": "in-place",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 7365,
+          "matched_term": "in_place",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "in_place",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "in-place",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "in-place",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "filesystem",
+          "path": "lib/sd_card/src/SDCard.cpp",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "filesystem",
+          "path": "lib/sd_card/src/SDCard.cpp",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "in place",
+          "path": "lib/sd_card/src/SDCard.cpp",
+          "role": "source"
+        },
+        {
+          "line": 584,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 621,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 587,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 587,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "Filesystem",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "filesystem",
+          "path": "src/boards/Board.cpp",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "filesystem",
+          "path": "src/boards/Board.cpp",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "filesystem",
+          "path": "src/boards/Board.h",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "filesystem",
+          "path": "src/boards/Board.h",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "filesystem",
+          "path": "src/boards/Board.h",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "filesystem",
+          "path": "src/boards/M5Paper.cpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "src/boards/M5Paper.h",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "filesystem",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "filesystem",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "filesystem",
+          "path": "src/main.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 36
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 153,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 153,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 97,
+          "matched_term": "metadata",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "metadata",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "metadata",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 7
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 1017,
+          "matched_term": "permission",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Permission",
+          "path": "lib/miniz-2.2.0/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lib/miniz-2.2.0/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "Permission",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 647,
+          "matched_term": "Permission",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "scripts/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "scripts/LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 8,
+        "test": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 162,
+          "matched_term": "line_height",
+          "path": "lib/Epub/EpubList/EpubList.cpp",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "line_height",
+          "path": "lib/Epub/EpubList/EpubList.cpp",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "line_height",
+          "path": "lib/Epub/EpubList/EpubList.cpp",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "line_height",
+          "path": "lib/Epub/EpubList/EpubToc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "line_height",
+          "path": "lib/Epub/EpubList/EpubToc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/ConsoleRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/EpdiyFrameBufferRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/EpdiyFrameBufferRenderer.h",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/Renderer.cpp",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/Renderer.cpp",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "line_height",
+          "path": "lib/Epub/Renderer/Renderer.h",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "line_height",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.cpp",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "line_height",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.cpp",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "line_height",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.cpp",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "line-height",
+          "path": "lib/tjpgd3/doc/css_e.css",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "line-height",
+          "path": "lib/tjpgd3/doc/css_e.css",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "font-size",
+          "path": "lib/tjpgd3/doc/css_e.css",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "font size",
+          "path": "scripts/fontconvert.py",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "line_height",
+          "path": "test/rubbish_html_parser.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 17,
+        "source": 17,
+        "test": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": ".gitmodules",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "https",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 856,
+          "matched_term": "secret",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 1007,
+          "matched_term": "https",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "https",
+          "path": "include/README",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "lib/README",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "lib/README",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "https",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2109,
+          "matched_term": "https",
+          "path": "lib/miniz-2.2.0/miniz.c",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "https",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "https",
+          "path": "lib/tjpgd3/doc/00index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "platformio.ini",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "platformio.ini",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "https",
+          "path": "platformio.ini",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "https",
+          "path": "scripts/fontconvert.py",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "https",
+          "path": "scripts/fontconvert.py",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "scripts/generate_fonts.sh",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "scripts/generate_fonts.sh",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "scripts/generate_fonts.sh",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "TLS",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "TLS",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "TLS",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "TLS",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "TLS",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "TLS",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "TLS",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "TLS",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "TLS",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "https",
+          "path": "src/boards/battery/ADCBattery.h",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "test/README",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 34,
+        "source": 388,
+        "test": 4
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 1118,
+          "matched_term": "unit test",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 1126,
+          "matched_term": "unit test",
+          "path": "sdkconfig.epdiy",
+          "role": "source"
+        },
+        {
+          "line": 1122,
+          "matched_term": "unit test",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 1130,
+          "matched_term": "unit test",
+          "path": "sdkconfig.lilygo_t5_47",
+          "role": "source"
+        },
+        {
+          "line": 1122,
+          "matched_term": "unit test",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 1130,
+          "matched_term": "unit test",
+          "path": "sdkconfig.m5_paper",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Unit Test",
+          "path": "test/README",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "Unit Test",
+          "path": "test/README",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "Unit test",
+          "path": "test/README",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 6,
+        "test": 4
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-diy-esp32-epub-reader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 2681565,
+    "scanned_text": 121,
+    "skipped_binary_or_empty": 17,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 142
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "epub",
+          "path": "CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "ePub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "EPUB",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/Epub.h",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "EPUB ",
+          "path": "lib/Epub/EpubList/Epub.h",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".epub",
+          "path": "lib/Epub/EpubList/EpubList.cpp",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "epub",
+          "path": "lib/Epub/EpubList/EpubList.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubList.h",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubList.h",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubReader.cpp",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "epub ",
+          "path": "lib/Epub/EpubList/EpubReader.cpp",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubReader.h",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubReader.h",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub\n  ",
+          "path": "lib/Epub/EpubList/EpubToc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "lib/Epub/EpubList/EpubToc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubToc.h",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Epub",
+          "path": "lib/Epub/EpubList/EpubToc.h",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/Page.h",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "epub",
+          "path": "lib/Epub/RubbishHtmlParser/Page.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.cpp",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.cpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.h",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/Block.h",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/Block.h",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/ImageBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/ImageBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/TextBlock.cpp",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/TextBlock.cpp",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/TextBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "epub",
+          "path": "lib/Epub/RubbishHtmlParser/blocks/TextBlock.h",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".epub",
+          "path": "lib/Epub/RubbishHtmlParser/htmlEntities.cpp",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "epub ",
+          "path": "lib/Epub/ZipFile/ZipFile.cpp",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Epub",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "epub ",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Epub",
+          "path": "test/rubbish_html_parser.cpp",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": "Epub",
+          "path": "test/rubbish_html_parser.cpp",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "Epub",
+          "path": "test/test_epub_index_load.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 32,
+        "source": 141,
+        "test": 57
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 161,
+          "matched_term": "XHTML",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 214,
+          "matched_term": "XHTML",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "XHTML",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "xhtml",
+          "path": "fixtures/test.html",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": ".html",
+          "path": "include/README",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "xhtml",
+          "path": "lib/Epub/RubbishHtmlParser/RubbishHtmlParser.h",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "lib/README",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": ".html",
+          "path": "lib/README",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": ".html",
+          "path": "lib/miniz-2.2.0/ChangeLog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "lib/miniz-2.2.0/readme.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/00index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/00index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 232,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/appnote.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/decomp.html",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/decomp.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/input.html",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/input.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/jdec.html",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/jdec.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/output.html",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/output.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/prepare.html",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "lib/tjpgd3/doc/en/prepare.html",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "platformio.ini",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".html",
+          "path": "src/main.cpp",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "test/README",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "test/test_epub_index_load.cpp",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": ".html",
+          "path": "test/test_epub_index_load.cpp",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".html",
+          "path": "test/tinyxml_html_parser.cpp",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": ".html",
+          "path": "test/tinyxml_html_parser.cpp",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 30,
+        "source": 3,
+        "test": 12
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 151,
+          "matched_term": ".opf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": ".opf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": ".opf",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": ".opf",
+          "path": "lib/Epub/EpubList/Epub.cpp",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".opf",
+          "path": "lib/Epub/EpubList/Epub.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 7
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": ".txt",
+          "path": ".github/workflows/build-test-on-push.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 58,
+          "matched_term": ".txt",
+          "path": "lib/miniz-2.2.0/examples/example2.c",
+          "role": "documentation"
+        },
+        {
+          "line": 130,
+          "matched_term": ".txt",
+          "path": "lib/miniz-2.2.0/examples/example2.c",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".txt",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".txt",
+          "path": "lib/miniz-2.2.0/miniz.h",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".txt",
+          "path": "src/CMakeLists.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 3
+      }
+    }
+  },
+  "inventory_url": "https://github.com/atomic14/diy-esp32-epub-reader",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 8,
+    "C++": 29,
+    "C/C++ header": 46,
+    "CSS": 1,
+    "HTML": 8,
+    "Python": 3,
+    "Shell": 2
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "lib/miniz-2.2.0/LICENSE",
+      "scripts/LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/atomic14/diy-esp32-epub-reader",
+  "readme_files": [
+    "README.md",
+    "include/README",
+    "lib/README",
+    "lib/miniz-2.2.0/readme.md",
+    "scripts/README.md",
+    "test/README"
+  ],
+  "revision": "2c2f57fdd7e2a788d14a0bcb26b9e845a47aac42",
+  "schema_version": 1,
+  "slug": "diy-esp32-epub-reader",
+  "support_claims_allowed": false,
+  "tree": "33ccf7296bd10d458eca044eda53733c667ef79d"
+}

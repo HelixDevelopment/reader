@@ -1,0 +1,4175 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 221,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "rag",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "rag",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "rag",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "rag",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "rag",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "rag",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "rag",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "rag",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "RAG",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 1091,
+          "matched_term": "rag",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1092,
+          "matched_term": "rag",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1246,
+          "matched_term": "rag",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "rag",
+          "path": "frontend/webpublication/webpublication.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "rag",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 524,
+          "matched_term": "rag",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 596,
+          "matched_term": "rag",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "rag",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "rag",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "RAG",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "rag",
+          "path": "lcpserver/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "rag",
+          "path": "lcpserver/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "rag",
+          "path": "lcpserver/server/server.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 23,
+        "source": 255,
+        "test": 5
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "cFi",
+          "path": "frontend/manage/karma-test-shim.js",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "cFi",
+          "path": "frontend/manage/karma-test-shim.js",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "cFi",
+          "path": "frontend/manage/karma-test-shim.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 437,
+          "matched_term": "series",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": "series",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": "series",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "collection",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "collection",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "series",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "collection",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Collection",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Collection",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "collection",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 38
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3070,
+          "matched_term": "CbZ",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 4508,
+          "matched_term": "cB7",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5971,
+          "matched_term": "CBr",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 247,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 321,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 383,
+          "matched_term": "cache",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 555,
+          "matched_term": "cache",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 798,
+          "matched_term": "etag",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 832,
+          "matched_term": "etag",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CDN",
+          "path": "sign/cert/sample_ecdsa.crt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "cache",
+          "path": "test/config.yaml",
+          "role": "test"
+        },
+        {
+          "line": 62,
+          "matched_term": "cache",
+          "path": "test/config.yaml",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 66,
+        "test": 2
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "EPUB or PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "EPUB, PDF",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub, .pdf",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "epub\" || extension === \"pdf",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "EPUB, PDF",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "epub/pdf",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "epub/pdf",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 50,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/license/license-info.component.html",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/publication/publication-list.component.html",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/publication/publication-list.component.html",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/purchase/purchase-list.component.html",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/purchase/purchase-status.component.html",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/purchase/purchase-status.component.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/purchase/purchase-status.component.html",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/user/user-list.component.html",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "aria-",
+          "path": "frontend/manage/app/user/user-list.component.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "sqlite",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Redis",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "authentication/md5password/makeMd5Password.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "authentication/md5password/makeMd5Password.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "authentication/md5password/makeMd5Password.go",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "sqlite",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "sqlite",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Redis",
+          "path": "crypto/pad_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "Redis",
+          "path": "crypto/pad_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Redis",
+          "path": "crypto/pad_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "dbutils/dbutils_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 21,
+        "source": 93,
+        "test": 52
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "sha256",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 100,
+          "matched_term": "sha256",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "dbmodel/mysql_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "sha256",
+          "path": "dbmodel/postgres_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "dbmodel/sqlite_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "dbmodel/sqlserver_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Checksum",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "checksum",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "Checksum",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "sha256",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Checksum",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "checksum",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sha256",
+          "path": "frontend/manage/app/components/partialLicense.ts",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "checksum",
+          "path": "frontend/manage/app/components/partialLicense.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Sha256",
+          "path": "frontend/manage/app/components/resource-list.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": "frontend/manage/app/components/resource-list.html",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Sha256",
+          "path": "frontend/manage/app/components/resource.css",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "sha256",
+          "path": "frontend/manage/app/components/resource.service.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sha256",
+          "path": "frontend/manage/app/components/resource.ts",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "SHA-256",
+          "path": "frontend/manage/app/components/user.service.ts",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "SHA-256",
+          "path": "frontend/manage/app/components/user.service.ts",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "duplicate",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "duplicate",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "SHA-256",
+          "path": "frontend/manage/app/user/user.service.ts",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "sha256",
+          "path": "frontend/manage/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "duplicate",
+          "path": "frontend/manage/tslint.json",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "duplicate",
+          "path": "frontend/manage/tslint.json",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "sha256",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2921,
+          "matched_term": "sha256",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2923,
+          "matched_term": "sha256",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "sha256",
+          "path": "frontend/webpurchase/webpurchase.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Sha256",
+          "path": "index/index.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "sha256",
+          "path": "index/index.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Sha256",
+          "path": "index/index.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Sha256",
+          "path": "index/index_test.go",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": "Sha256",
+          "path": "index/index_test.go",
+          "role": "test"
+        },
+        {
+          "line": 130,
+          "matched_term": "sha256",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "Checksum",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "sha256",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "Sha256",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 6,
+        "source": 84,
+        "test": 13
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 212,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 214,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "quic",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Quic",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "quic",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "quic",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "frontend/manage/e2e/app.e2e-spec.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Quic",
+          "path": "frontend/manage/e2e/app.e2e-spec.ts",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "range request",
+          "path": "pack/pack.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "quic",
+          "path": "test/config.yaml",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 3,
+        "test": 2
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "lcp",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "DRM",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "lcp",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "lcp",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "LCP",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "LCP",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "lcp",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "lcp",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "lcp",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "lcpl",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "lcp",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "lcp",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "lcp",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "lcp",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "frontend/api/purchase.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "frontend/api/purchase.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "lcp",
+          "path": "frontend/api/purchase.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 94,
+        "source": 264,
+        "test": 20
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "in place",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 275,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 296,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "FileSystem",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "FileSystem",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "FileSystem",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "FileSystem",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "FileSystem",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "FileSystem",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "FileSystem",
+          "path": "license/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "in place",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "FileSystem",
+          "path": "storage/fs.go",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "FileSystem",
+          "path": "storage/fs.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "FileSystem",
+          "path": "storage/fs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": "FileSystem",
+          "path": "storage/fs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 42,
+          "matched_term": "filesystem",
+          "path": "test/config.yaml",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 11,
+        "test": 4
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 337,
+          "matched_term": "metadata",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 338,
+          "matched_term": "Metadata",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 339,
+          "matched_term": "Metadata",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Metadata",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Metadata",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Metadata",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "Metadata",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "metadata",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "frontend/manage/index.html",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "frontend/manage/karma.conf.js",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "frontend/manage/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "Metadata",
+          "path": "frontend/manage/tsconfig.json",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "metadata",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 270,
+          "matched_term": "metadata",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5279,
+          "matched_term": "metadata",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "metadata",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "metadata",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "Metadata",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "Metadata",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 437,
+          "matched_term": "metadata",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "Metadata",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 111,
+          "matched_term": "Metadata",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 112,
+          "matched_term": "Metadata",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 146,
+          "matched_term": "Metadata",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "Metadata",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "Metadata",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "metadata",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "Metadata",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "Metadata",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Metadata",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Metadata",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Metadata",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "rwpm/publication.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 109,
+        "test": 35
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "Authorization",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "Authorization",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "authentication",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "authentication",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "Authentication",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "Authorization",
+          "path": "frontend/manage/app/purchase/purchase.service.ts",
+          "role": "source"
+        },
+        {
+          "line": 3245,
+          "matched_term": "jWT",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5430,
+          "matched_term": "oauth",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5432,
+          "matched_term": "oauth",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "authentication",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "Authorization",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "authentication",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "authentication",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "jwt",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "authentication",
+          "path": "test/config.yaml",
+          "role": "test"
+        },
+        {
+          "line": 63,
+          "matched_term": "authentication",
+          "path": "test/config.yaml",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 24,
+        "test": 2
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "S3",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "s3",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "s3",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "S3",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "S3",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "S3",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "s3",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "s3",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "S3",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "s3",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "S3",
+          "path": "lcpserver/lcpserver.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "s3",
+          "path": "storage/s3.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "s3",
+          "path": "storage/s3.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "S3",
+          "path": "storage/s3.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 49
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "permission",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "authentication/md5password/makeMd5Password.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "crypto/pad_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "epub/utils.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/api/repository.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/api/user.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "frontend/manage/LICENSE-angular-quickstart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "frontend/manage/LICENSE-angular-quickstart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "users/add\" role",
+          "path": "frontend/manage/app/user/user-list.component.html",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "frontend/weblicense/weblicense.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lcpserver/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lcpserver/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lsdserver/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "sign/canon_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "sign/sign.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "sign/sign_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "storage/fs.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "storage/fs_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "storage/interface.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "storage/s3.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 22,
+        "test": 12
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 172,
+          "matched_term": "reading progress",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "font-size",
+          "path": "frontend/manage/app/components/purchases.css",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "font-size",
+          "path": "frontend/manage/app/components/resource.css",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "font-size",
+          "path": "frontend/manage/app/components/resource.css",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "font-size",
+          "path": "frontend/manage/app/components/resource.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "font-size",
+          "path": "frontend/manage/app/components/user.css",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "font-size",
+          "path": "frontend/manage/assets/sass/app.scss",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "font-size",
+          "path": "frontend/manage/assets/sass/app.scss",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "font-size",
+          "path": "frontend/manage/assets/sass/app.scss",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "font-size",
+          "path": "frontend/manage/styles.css",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "font-size",
+          "path": "frontend/manage/styles.css",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "font-size",
+          "path": "frontend/manage/styles.css",
+          "role": "source"
+        },
+        {
+          "line": 570,
+          "matched_term": "theme",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 19
+      }
+    },
+    "readium": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "readium",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Readium",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Readium",
+          "path": "LICENSE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "Readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "readium",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "readium",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "authentication/md5password/makeMd5Password.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "readium",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/aes_cbc.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/aes_cbc_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/aes_gcm.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/aes_gcm_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "readium",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "readium",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/key.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/key_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/pad.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "crypto/pad_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "readium",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "readium",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "readium",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Readium",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "readium",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "readium",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Readium",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "readium",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Readium",
+          "path": "epub/reader.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 88,
+        "source": 548,
+        "test": 83
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "cors",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "https",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "https",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Certificate",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Certificate",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "certificate",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "https",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "https",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "https",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "Secret",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 230,
+          "matched_term": "https",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "https",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "https",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "tls",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "https",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "Credential",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "frontend/manage/bs-config.js",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "https",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "https",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "https",
+          "path": "frontend/package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "tls",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "tls",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "Certificate",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 331,
+          "matched_term": "credential",
+          "path": "frontend/webpurchase/webpurchase.go",
+          "role": "source"
+        },
+        {
+          "line": 512,
+          "matched_term": "credential",
+          "path": "frontend/webpurchase/webpurchase.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cors",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 76,
+          "matched_term": "cors",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "cors",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "https",
+          "path": "lcpencrypt/get_content_key.go",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "certificate",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "Certificate",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 949,
+          "matched_term": "credential",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "tls",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Certificate",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "tls",
+          "path": "lcpserver/api/store.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 54,
+        "source": 1671,
+        "test": 11
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "unit test",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "unit test",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": "unit test",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 4
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": "audiobook",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 279,
+          "matched_term": "audiobook",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 281,
+          "matched_term": "audiobook",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "audiobook",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "audiobook",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "audiobook",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "audiobook",
+          "path": "pack/samples/w3cman1.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "audiobook",
+          "path": "pack/samples/w3cman1.json",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "audiobook",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "Audiobook",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "audiobook",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "audiobook",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 13,
+        "test": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-readium-readium-lcp-server.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1252602,
+    "scanned_text": 232,
+    "skipped_binary_or_empty": 3,
+    "skipped_large": 2,
+    "skipped_sensitive_name": 4,
+    "tracked": 241
+  },
+  "format_keyword_evidence": {
+    "audiobook": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".audiobook",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": ".audiobook",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 279,
+          "matched_term": ".audiobook",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".audiobook",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "divina": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".divina",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": ".divina",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": ".divina",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".divina",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "divina",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "dbmodel/mysql_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "epub",
+          "path": "dbmodel/postgres_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub",
+          "path": "dbmodel/sqlite_db_setup_lcpserver.sql",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": ".epub",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "epub\n\n",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "epub",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "EPUB 2",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "EPUB 3",
+          "path": "epub/opf/opf.go",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "epub\n\n",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "epub",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub\n\n",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": ".epub",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub\n\n",
+          "path": "epub/utils.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub\n\n",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Epub",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "epub\n\n",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": "EPUB",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 108,
+          "matched_term": "epub ",
+          "path": "frontend/manage/app/components/purchase-list-component.ts",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "EPUB",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".epub",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "epub",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "EPUB",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": ".epub",
+          "path": "frontend/manage/styles.css",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "epub",
+          "path": "index/index.go",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": ".epub",
+          "path": "index/index_test.go",
+          "role": "test"
+        },
+        {
+          "line": 40,
+          "matched_term": "epub",
+          "path": "index/index_test.go",
+          "role": "test"
+        },
+        {
+          "line": 30,
+          "matched_term": "epub",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "epub",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "epub",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 246,
+          "matched_term": "epub",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "epub",
+          "path": "pack/pack.go",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "EPUB ",
+          "path": "pack/pack.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "pack/pack_test.go",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": ".epub",
+          "path": "pack/pack_test.go",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "epub",
+          "path": "pack/pipeline.go",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "EPUB",
+          "path": "pack/pipeline.go",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": ".epub",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "epub",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 91,
+        "test": 23
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 329,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "XHTML",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "xhtml",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": ".xhtml",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": "XHTML",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": ".xhtml",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": "xhtml",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 125,
+          "matched_term": ".html",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/app.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/components/app.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/components/purchase-list-component.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/components/resource-list-component.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/components/user-component.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/components/user-list-component.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/dashboard/dashboard-info.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/dashboard/dashboard.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/license/license-info.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/license/license.component.ts",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/publication/publication-add.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/publication/publication-edit.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/publication/publication-list.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/purchase/purchase-add.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/purchase/purchase-edit.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/purchase/purchase-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/purchase/purchase-list.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/purchase/purchase-status.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/shared/header/header.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/shared/sidebar/sidebar.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/user/user-add.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/user/user-edit.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/user/user-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "frontend/manage/app/user/user-list.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": ".html",
+          "path": "frontend/manage/karma.conf.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "frontend/manage/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": ".html",
+          "path": "frontend/manage/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": ".xhtml",
+          "path": "pack/pack_test.go",
+          "role": "test"
+        },
+        {
+          "line": 125,
+          "matched_term": ".xhtml",
+          "path": "pack/pack_test.go",
+          "role": "test"
+        },
+        {
+          "line": 124,
+          "matched_term": ".html",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 3,
+        "source": 33,
+        "test": 16
+      }
+    },
+    "lcp_protected": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "lcp",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "LCP",
+          "path": "CONTRIBUTIONS.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "LCP",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "lcp",
+          "path": "api/common_server.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "lcp",
+          "path": "crypto/encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "LCP",
+          "path": "encrypt/notify_server.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "lcp",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "lcp",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "lcp",
+          "path": "encrypt/store_publication.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "epub/epub.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "lcp",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "lcp",
+          "path": "epub/reader.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "epub/writer.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "lcp",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "lcp",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "lcp",
+          "path": "frontend/api/purchase.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "lcp",
+          "path": "frontend/api/purchase.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "lcp",
+          "path": "frontend/api/repository.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "lcp",
+          "path": "frontend/api/repository.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "lcp",
+          "path": "frontend/api/user.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "lcp",
+          "path": "frontend/api/user.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "lcp",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "lcp",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "lcp",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "lcp",
+          "path": "frontend/manage/app/app.component.html",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "lcp",
+          "path": "frontend/manage/app/app.component.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 92,
+        "source": 255,
+        "test": 20
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": ".md",
+          "path": "frontend/manage/.editorconfig",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": ".opf",
+          "path": "epub/reader_test.go",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": ".opf",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        },
+        {
+          "line": 69,
+          "matched_term": ".opf",
+          "path": "epub/writer_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 4
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 144,
+          "matched_term": ".pdf",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": ".pdf",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "PDF",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".pdf",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "pdf",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "PDF",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "pdf",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "PDF",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "pdf",
+          "path": "pack/pack.go",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "application/pdf",
+          "path": "pack/pack.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "PDF",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 293,
+          "matched_term": "PDF",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".pdf",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": ".pdf",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": ".pdf",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "application/pdf",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 45,
+        "test": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 106,
+          "matched_term": ".txt",
+          "path": "frontend/manage/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": ".txt",
+          "path": "frontend/manage/protractor.config.js",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": ".txt",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 99,
+          "matched_term": ".txt",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1,
+        "test": 2
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "LPF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": ".lpf",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "LPF",
+          "path": "encrypt/process_encrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "webpub",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "webpub",
+          "path": "frontend/api/common.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "webpub",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "webpub",
+          "path": "frontend/api/dashboard.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "webpub",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "webpub",
+          "path": "frontend/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "webpub",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "webpub",
+          "path": "frontend/api/publication.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "webpub",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "webpub",
+          "path": "frontend/frontend.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "LPF",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".lpf",
+          "path": "frontend/manage/app/publication/publication-form.component.html",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "lpf",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "webpub",
+          "path": "frontend/manage/app/publication/publication-form.component.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "lpf",
+          "path": "frontend/manage/karma-test-shim.js",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "webpub",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "webpub",
+          "path": "frontend/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "webpub",
+          "path": "frontend/webpublication/webpublication.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "WebPub",
+          "path": "frontend/webpublication/webpublication.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "webpub",
+          "path": "frontend/webpurchase/webpurchase.go",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "webpub",
+          "path": "frontend/webpurchase/webpurchase.go",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "WebPub",
+          "path": "frontend/webrepository/webrepository.go",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "lPF",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "lpf",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "lpf",
+          "path": "lcpencrypt/lcpencrypt.go",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "WebPub",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 197,
+          "matched_term": "WebPub",
+          "path": "lcpserver/api/license.go",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "Readium Web Publication",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 472,
+          "matched_term": "webpub",
+          "path": "pack/rwppackage.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".webpub",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": ".webpub",
+          "path": "pack/rwppackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "LPF",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "LPF",
+          "path": "pack/w3cpackage.go",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "LPF",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 105,
+          "matched_term": "LPF",
+          "path": "pack/w3cpackage_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "WebPub",
+          "path": "rwpm/metadata.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 86,
+        "test": 22
+      }
+    }
+  },
+  "inventory_url": "https://github.com/readium/readium-lcp-server",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "CSS": 4,
+    "Go": 90,
+    "HTML": 26,
+    "JavaScript": 7,
+    "SCSS": 2,
+    "SQL": 12,
+    "TypeScript": 72
+  },
+  "license_review": {
+    "candidate_notices": [
+      "BSD-2-Clause",
+      "BSD-3-Clause",
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE.md",
+      "frontend/api/license.go",
+      "frontend/manage/LICENSE-angular-quickstart",
+      "frontend/manage/app/license/license-info.component.html",
+      "frontend/manage/app/license/license-info.component.ts",
+      "frontend/manage/app/license/license-routing.module.ts",
+      "frontend/manage/app/license/license.component.html",
+      "frontend/manage/app/license/license.component.ts",
+      "frontend/manage/app/license/license.module.ts",
+      "frontend/manage/app/license/license.service.ts",
+      "frontend/manage/app/license/license.ts",
+      "frontend/manage/app/lsd/license-status.ts",
+      "lcpserver/api/license.go",
+      "license/license.go",
+      "license/license_test.go",
+      "license_statuses/license_status.go",
+      "license_statuses/license_statuses.go",
+      "license_statuses/license_statuses_test.go",
+      "lsdserver/api/license_status.go"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/readium/readium-lcp-server",
+  "readme_files": [
+    "README.md",
+    "frontend/manage/README.md"
+  ],
+  "revision": "32570b69d02948801f161e7923648dcc0bbfb178",
+  "schema_version": 1,
+  "slug": "readium-readium-lcp-server",
+  "support_claims_allowed": false,
+  "tree": "cbf50f4a5ecd8986176a8d57d4ee5e12a472f6ae"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "pass": 5,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "verified TLS readiness",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP/3 Alt-Svc advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "TLS 1.2 HTTP/1.1 request",
+      "status": "PASS"
+    },
+    {
+      "name": "TLS HTTP/2 request",
+      "status": "PASS"
+    },
+    {
+      "name": "TLS 1.3 HTTP/3 QUIC request",
+      "status": "PASS"
+    }
+  ]
+}

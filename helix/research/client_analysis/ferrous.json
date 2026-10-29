@@ -1,0 +1,4303 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Embedding",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "rag",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "lib/core/errors/exceptions.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "rag",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "rag",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "rag",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "rag",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "rag",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "rag",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "rag",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "rag",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "rag",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 327,
+          "matched_term": "rag",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 343,
+          "matched_term": "rag",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 393,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 394,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/reader_mode_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "rag",
+          "path": "lib/features/reader/controllers/reader_mode_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 184
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "highlight",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "annotation",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "annotation",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Annotation",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Annotation",
+          "path": "lib/core/models/annotation.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Annotation",
+          "path": "lib/core/models/annotation.dart",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Annotation",
+          "path": "lib/core/models/annotation.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "highlight",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "highlight",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "highlight",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "annotation",
+          "path": "lib/data/models/annotation_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Annotation",
+          "path": "lib/data/models/annotation_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Annotation",
+          "path": "lib/data/models/annotation_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Highlight",
+          "path": "lib/data/models/tts_highlight_style.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "lib/data/repositories/annotation_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "annotation",
+          "path": "lib/data/repositories/annotation_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Annotation",
+          "path": "lib/data/repositories/annotation_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "highlight",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Highlight",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "highlight",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "highlight",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Highlight",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "highlight",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Annotation",
+          "path": "lib/features/annotations/annotation_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Annotation",
+          "path": "lib/features/annotations/annotation_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Annotation",
+          "path": "lib/features/annotations/annotation_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "lib/features/annotations/annotations_hub_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "annotation",
+          "path": "lib/features/annotations/annotations_hub_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Annotation",
+          "path": "lib/features/annotations/annotations_hub_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 1103,
+          "matched_term": "bookmark",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "bookmark",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "highlight",
+          "path": "lib/features/library/widgets/book_cover_shimmer.dart",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "Highlight",
+          "path": "lib/features/library/widgets/book_cover_shimmer.dart",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Highlight",
+          "path": "lib/features/library/widgets/book_cover_shimmer.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Highlight",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "highlight",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Highlight",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Highlight",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "highlight",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "Highlight",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 1,
+        "source": 685
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "restore",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 99,
+          "matched_term": "restore",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 55,
+          "matched_term": "restore",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 452,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 455,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 423,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 426,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "restore",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/controllers/reader_chrome_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "restore",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "restore",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "restore",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/mobi_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/mobi_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "Restore",
+          "path": "lib/features/reader/mobi_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "restore",
+          "path": "lib/features/reader/pdf_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "snapshot",
+          "path": "lib/features/reader/widgets/epub_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "snapshot",
+          "path": "lib/features/reader/widgets/epub_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "snapshot",
+          "path": "lib/features/reader/widgets/mobi_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "snapshot",
+          "path": "lib/features/reader/widgets/mobi_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "snapshot",
+          "path": "lib/features/settings/settings_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "snapshot",
+          "path": "lib/features/settings/settings_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "snapshot",
+          "path": "rust_builder/cargokit/run_build_tool.cmd",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "snapshot",
+          "path": "rust_builder/cargokit/run_build_tool.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 54
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "Collection",
+          "path": "lib/core/models/collection.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Collection",
+          "path": "lib/core/models/collection.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Collection",
+          "path": "lib/core/models/collection.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "lib/data/models/collection_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Collection",
+          "path": "lib/data/models/collection_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Collection",
+          "path": "lib/data/models/collection_adapter.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Collection",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "lib/data/repositories/collection_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "lib/data/repositories/collection_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "collection",
+          "path": "lib/data/repositories/collection_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "lib/features/collections/collection_detail_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "collection",
+          "path": "lib/features/collections/collection_detail_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Collection",
+          "path": "lib/features/collections/collection_detail_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "lib/features/collections/collections_tab.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "lib/features/collections/collections_tab.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "collection",
+          "path": "lib/features/collections/collections_tab.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Collection",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Collection",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Collection",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "collection",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "collection",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Collection",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "collection",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "collection",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "collection",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "collection",
+          "path": "rust/src/api/docx.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/android_environment.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/android_environment.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/builder.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/builder.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/options.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "collection",
+          "path": "rust_builder/cargokit/build_tool/lib/src/options.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 223
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "CBZ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "comic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "cbz",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": "lib/core/constants/app_constants.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cbz",
+          "path": "lib/core/constants/app_constants.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "webtoon",
+          "path": "lib/core/models/book.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "cbr",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "cbz",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "cbr",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CBZ",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/controllers/reader_mode_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/controllers/reader_mode_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/controllers/reader_mode_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Cbz",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/reading_mode_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Webtoon",
+          "path": "lib/features/reader/reading_mode_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "webtoon",
+          "path": "lib/features/reader/reading_mode_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/widgets/cbz_page_controls.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Cbz",
+          "path": "lib/features/reader/widgets/cbz_page_controls.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Cbz",
+          "path": "lib/features/reader/widgets/cbz_page_controls.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/widgets/cbz_page_image.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Cbz",
+          "path": "lib/features/reader/widgets/cbz_page_image.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 4,
+        "source": 288
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "CACHE",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "cache",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Cache",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "CACHE",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cache",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "Cache",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Cache",
+          "path": "lib/core/constants/app_constants.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Cache",
+          "path": "lib/core/constants/app_constants.dart",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Cache",
+          "path": "lib/data/services/book_file_resolver.dart",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "cache",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "Cache",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "Cache",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "cache",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "cache",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/cbz_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "cache",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Cache",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 16,
+        "source": 308
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "epub\", \"cbz\", \"docx\", \"txt",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "epub_cover_from_opf`, `extract_epub_cover`, `extract_first_image_ref_from_html`, `extract_pdf",
+          "path": "lib/src/rust/api/covers.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "conversion",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub\", \"cbz\", \"docx\", \"txt",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "conversion",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Conversion",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "Conversion",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 6
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "dtbook",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 305,
+          "matched_term": "duplicate",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "duplicate",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "duplicate",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "duplicate",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "duplicate",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "checksum",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "checksum",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "sha256",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "sha256",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "rust_builder/cargokit/build_tool/pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "sha256",
+          "path": "rust_builder/cargokit/build_tool/pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "sha256",
+          "path": "rust_builder/cargokit/build_tool/pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 480
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "dictionary",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "dictionary",
+          "path": "lib/core/models/word_definition.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Dictionary",
+          "path": "lib/data/repositories/dictionary_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "dictionary",
+          "path": "lib/data/repositories/dictionary_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "dictionary",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Dictionary",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Dictionary",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 632,
+          "matched_term": "translation",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 639,
+          "matched_term": "translation",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 640,
+          "matched_term": "translation",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "dictionary",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 19
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 1166,
+          "matched_term": "quic",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1811,
+          "matched_term": "quic",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1919,
+          "matched_term": "quic",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "quic",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Quic",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "quic",
+          "path": "rust_builder/cargokit/build_tool/lib/src/crate_hash.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 16
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "filesystem",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "directory scan",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "filesystem",
+          "path": "android/gradle.properties",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "FileSystem",
+          "path": "lib/core/utils/perf_logger.dart",
+          "role": "source"
+        },
+        {
+          "line": 393,
+          "matched_term": "in place",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "filesystem",
+          "path": "rust_builder/cargokit/build_tool/lib/src/file_copy.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "FileSystem",
+          "path": "rust_builder/cargokit/build_tool/lib/src/file_copy.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "FileSystem",
+          "path": "rust_builder/cargokit/build_tool/lib/src/file_copy.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 11
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 529,
+          "matched_term": "metadata",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 550,
+          "matched_term": "Metadata",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "metadata",
+          "path": "lib/core/utils/perf_logger.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "metadata",
+          "path": "lib/core/utils/perf_logger.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "metadata",
+          "path": "lib/core/utils/performance.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "lib/core/utils/performance.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "lib/core/utils/performance.dart",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "metadata",
+          "path": "lib/data/repositories/book_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": "metadata",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 449,
+          "matched_term": "metadata",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/api/library.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/api/library.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/api/library.dart",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 785,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 795,
+          "matched_term": "metadata",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "metadata",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "metadata",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "Metadata",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 452,
+          "matched_term": "metadata",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Metadata",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Metadata",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Metadata",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "metadata",
+          "path": "rust/src/api/pdf.rs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "metadata",
+          "path": "rust/src/api/pdf.rs",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "metadata",
+          "path": "rust/src/api/pdf.rs",
+          "role": "source"
+        },
+        {
+          "line": 1021,
+          "matched_term": "Metadata",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        },
+        {
+          "line": 1027,
+          "matched_term": "Metadata",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 92
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": "oidC",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "oidC",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 434,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 529,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 564,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "oAuth",
+          "path": "lib/features/library/library_state.dart",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/tts_controls_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/tts_controls_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/tts_controls_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/cbz_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/cbz_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/epub_continuous_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/epub_paged_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/epub_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/epub_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/epub_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/mobi_continuous_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/mobi_paged_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/mobi_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/mobi_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/mobi_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/pdf_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/pdf_reader_top_bar.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/reader_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/reader_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/tap_selection_overlay.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/tap_selection_overlay.dart",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "oidC",
+          "path": "lib/features/reader/widgets/tap_selection_overlay.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "oidC",
+          "path": "lib/features/settings/appearance_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "oidC",
+          "path": "lib/features/settings/settings_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Authentication",
+          "path": "rust_builder/cargokit/build_tool/lib/src/precompile_binaries.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 66
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "reflow",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 258,
+          "matched_term": "crop margin",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "permission",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "Permission",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Permission",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "library \"libc++_share",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "permission",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "permission",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "permission",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "permission",
+          "path": "lib/data/services/saf_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Permission",
+          "path": "rust_builder/cargokit/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "permission",
+          "path": "rust_builder/cargokit/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "permission",
+          "path": "rust_builder/cargokit/LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 7,
+        "source": 65
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "reading progress",
+          "path": "lib/data/services/reading_progress_tracker.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "reading progress",
+          "path": "lib/data/services/reading_progress_tracker.dart",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "reading progress",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "typography",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "typography",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Dark Mode",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Dark Mode",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "theme",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Theme",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "theme",
+          "path": "lib/app/app_shell.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "theme",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Theme",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "theme",
+          "path": "lib/core/widgets/update_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "hyphenation",
+          "path": "lib/data/models/reader_theme_config.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Theme",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Theme",
+          "path": "lib/data/models/reader_theme_config.g.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "lib/data/models/tts_highlight_style.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Theme",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "theme",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Theme",
+          "path": "lib/features/annotations/annotations_hub_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Theme",
+          "path": "lib/features/annotations/annotations_hub_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Theme",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Theme",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "Theme",
+          "path": "lib/features/dictionary/dictionary_dialog.dart",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "theme",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Theme",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "theme",
+          "path": "lib/features/library/library_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "Theme",
+          "path": "lib/features/library/widgets/book_cover_shimmer.dart",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "theme",
+          "path": "lib/features/library/widgets/book_cover_shimmer.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 881
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 160,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "android/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "https",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "android/gradle/wrapper/gradle-wrapper.properties",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "devtools_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "https",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "https",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "https",
+          "path": "lib/core/services/update_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "lib/data/repositories/dictionary_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "https",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "https",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 343,
+          "matched_term": "https",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 409,
+          "matched_term": "https",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "https",
+          "path": "rust/src/api/txt.rs",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": "rust_builder/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/README",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/README",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/README",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_pod.sh",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "symlink",
+          "path": "rust_builder/cargokit/build_pod.sh",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/bin/build_tool.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/lib/build_tool.dart",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "rust_builder/cargokit/build_tool/lib/src/android_environment.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 13,
+        "source": 534
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "unit test",
+          "path": "rust_builder/cargokit/build_tool/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "TTS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "TTS",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "TTS",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "text-to-speech",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "tts",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "tts",
+          "path": "lib/data/repositories/reader_theme_repository.dart",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "TTS",
+          "path": "lib/data/services/reading_progress_tracker.dart",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "TTS",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "TTS",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "TTS",
+          "path": "lib/data/services/tts_service.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "tts",
+          "path": "lib/features/reader/controllers/epub_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "tts",
+          "path": "lib/features/reader/controllers/html_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "tts",
+          "path": "lib/features/reader/controllers/mobi_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_document_text.dart",
+          "role": "source"
+        },
+        {
+          "line": 624,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 659,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 666,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 156,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/epub_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/highlighted_text_view.dart",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 479,
+          "matched_term": "tts",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 513,
+          "matched_term": "tts",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/pdf_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/pdf_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/pdf_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Text to Speech",
+          "path": "lib/features/reader/tts_controls_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "tts",
+          "path": "lib/features/reader/widgets/epub_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "tts",
+          "path": "lib/features/reader/widgets/epub_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "tts",
+          "path": "lib/features/reader/widgets/mobi_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "tts",
+          "path": "lib/features/reader/widgets/mobi_content_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 369,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/widgets/pdf_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 413,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/widgets/pdf_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "TTS",
+          "path": "lib/features/reader/widgets/reader_shell.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 65
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-ferrous.jsonl.gz",
+  "files": {
+    "scanned_bytes": 1130069,
+    "scanned_text": 202,
+    "skipped_binary_or_empty": 15,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 218
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "cbr",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cbr",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "cbr",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": ".cbr",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "cbr",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 13
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "CBZ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "cbz",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cbz",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "cbz",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "cbz",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CBZ",
+          "path": "lib/features/reader/controllers/cbz_cache_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/controllers/cbz_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".cbz",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/widgets/cbz_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "cbz",
+          "path": "lib/features/reader/widgets/cbz_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "CBZ",
+          "path": "lib/src/rust/api/cbz.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "cbz",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cbz",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "CBZ",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "CBZ",
+          "path": "rust/src/api/cbz.rs",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "CBZ",
+          "path": "rust/src/api/cbz.rs",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "cbz",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "CBZ",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "cbz",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cbz",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "cbz",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 351,
+          "matched_term": "cbz",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "cbz",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 46
+      }
+    },
+    "daisy": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "dtbook",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "DOCX",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "docx",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "docx",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "docx",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "docx",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "docx",
+          "path": "lib/features/reader/docx_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".docx",
+          "path": "lib/features/reader/docx_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "DOCX",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "docx",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": ".docx",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "docx",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "docx",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "docx",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 597,
+          "matched_term": "docx",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2003,
+          "matched_term": "docx",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "DOCX",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "docx",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 168,
+          "matched_term": "DOCX",
+          "path": "rust/src/api/docx.rs",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "DOCX",
+          "path": "rust/src/api/docx.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "docx",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "docx",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "docx",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 817,
+          "matched_term": "docx",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 1,
+        "source": 33
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "epub",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "epub",
+          "path": "lib/core/models/book.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "epub",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "epub",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "epub",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "EPUB",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "EPUB ",
+          "path": "lib/features/reader/controllers/epub_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "EPUB ",
+          "path": "lib/features/reader/controllers/pdf_document_text.dart",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "EPUB ",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "EPUB ",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".epub",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "EPUB",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 168,
+          "matched_term": "epub",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "EPUB ",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 27
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 139,
+          "matched_term": ".html",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": ".html",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "xhtml",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": ".xhtml",
+          "path": "lib/features/reader/epub_fallback_parser.dart",
+          "role": "source"
+        },
+        {
+          "line": 1084,
+          "matched_term": "html5",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2060,
+          "matched_term": "html5",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "rust_builder/ios/rust_lib_reader_app.podspec",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "rust_builder/macos/rust_lib_reader_app.podspec",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 137,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 145,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": ".md",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "MOBI",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "AZW",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "mobi",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "azw",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "mobi",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "azw",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "mobi",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "mobi",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "MOBI",
+          "path": "lib/features/reader/controllers/mobi_chapter_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "MOBI",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "mobi",
+          "path": "lib/features/reader/html_reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": ".mobi",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": ".azw",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".mobi",
+          "path": "lib/features/reader/txt_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "MOBI",
+          "path": "lib/features/reader/txt_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "mobi",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "mobi",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "mobi",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 1431,
+          "matched_term": "mobi",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2008,
+          "matched_term": "mobi",
+          "path": "rust/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "MOBI",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "AZW3",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "mobi",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "azw",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "mobi",
+          "path": "rust/src/api/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Mobi",
+          "path": "rust/src/api/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "mobi",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "mobi",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 497,
+          "matched_term": "mobi",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        },
+        {
+          "line": 532,
+          "matched_term": "mobi",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 2,
+        "source": 78
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "pdf",
+          "path": "android/app/src/main/kotlin/com/juansofly/ferrous/SafHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "docs/pdfium-setup.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "pdf",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 269,
+          "matched_term": "pdf",
+          "path": "lib/features/library/widgets/book_cover.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "lib/features/reader/controllers/pdf_document_text.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "PDF",
+          "path": "lib/features/reader/controllers/pdf_document_text.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/controllers/pdf_page_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/controllers/pdf_tts_controller.dart",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": ".pdf",
+          "path": "lib/features/reader/pdf_reader.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".pdf",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/reading_mode_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".pdf",
+          "path": "lib/features/reader/reading_mode_sheet.dart",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/widgets/pdf_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "pdf",
+          "path": "lib/features/reader/widgets/pdf_page_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "PDF",
+          "path": "lib/src/rust/api/pdf.dart",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "PDF",
+          "path": "lib/src/rust/api/pdf.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf",
+          "path": "lib/src/rust/frb_generated.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf",
+          "path": "lib/src/rust/frb_generated.io.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "pdf",
+          "path": "lib/src/rust/frb_generated.web.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "PDF",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "PDF",
+          "path": "rust/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "pdf",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "pdf",
+          "path": "rust/src/api/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "rust/src/api/crop.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "pdf",
+          "path": "rust/src/api/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf",
+          "path": "rust/src/api/mod.rs",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "PDF",
+          "path": "rust/src/api/pdf.rs",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "PDF",
+          "path": "rust/src/api/pdf.rs",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "pdf",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "pdf",
+          "path": "rust/src/frb_generated.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 11,
+        "source": 102
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": ".txt",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": ".txt",
+          "path": "lib/core/models/book_format.dart",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "plain text",
+          "path": "lib/core/utils/dom_text_utils.dart",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "plain text",
+          "path": "lib/features/reader/highlighted_text_view.dart",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "lib/features/reader/reader_screen.dart",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": ".txt",
+          "path": "rust/src/api/cbz.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10
+      }
+    }
+  },
+  "inventory_url": "https://github.com/juansofly/ferrous",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C": 2,
+    "Dart": 125,
+    "Kotlin": 2,
+    "PowerShell": 1,
+    "Rust": 14,
+    "Shell": 4,
+    "XML": 12
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0",
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "rust_builder/cargokit/LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/juansofly/ferrous",
+  "readme_files": [
+    "README.md",
+    "rust_builder/README.md",
+    "rust_builder/cargokit/README",
+    "rust_builder/cargokit/build_tool/README.md"
+  ],
+  "revision": "066cb49a2d42fc17064cf50a41ebc108b65f0d48",
+  "schema_version": 1,
+  "slug": "ferrous",
+  "support_claims_allowed": false,
+  "tree": "7217f536c18befc7407f2c11798c207027729213"
+}

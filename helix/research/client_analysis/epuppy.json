@@ -1,0 +1,38 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {},
+  "file_evidence_gzip": "file_evidence/client-epuppy.jsonl.gz",
+  "files": {
+    "scanned_bytes": 0,
+    "scanned_text": 0,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 4
+  },
+  "format_keyword_evidence": {},
+  "inventory_url": "https://github.com/epuppy/epuppy",
+  "kind": "client",
+  "languages_by_file_count": {},
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/tlinden/epuppy",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "a415f588a6ff2b5c8a354f56cf7e116a9a96afbe",
+  "schema_version": 1,
+  "slug": "epuppy",
+  "support_claims_allowed": false,
+  "tree": "735bfd418dec783f65ceb4f2fcdeabf9acd01429"
+}

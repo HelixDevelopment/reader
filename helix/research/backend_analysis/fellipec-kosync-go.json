@@ -1,0 +1,663 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 142,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "kosync.json",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "kosync.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": "Redis",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "Redis",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 64,
+          "matched_term": "checksum",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 67,
+          "matched_term": "SHA256",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 68,
+          "matched_term": "sha256",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 4
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "systemd",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "systemd",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Systemd",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": "systemd",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "healthcheck",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "healthcheck",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 4
+      }
+    },
+    "koreader_sync": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "kosync",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "kosync",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "kosync",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "kosync",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "koreader-sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "koreader-sync",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 130,
+          "matched_term": "/syncs/progress",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "/syncs/progress",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "kosync",
+          "path": "kosync-update.sh",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "kosync",
+          "path": "kosync-update.sh",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "kosync",
+          "path": "kosync-update.sh",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "KOReader Sync",
+          "path": "kosync.service",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "kosync",
+          "path": "kosync.service",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "kosync",
+          "path": "kosync.service",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "kosync",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "KOReader Sync",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Koreader Sync",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "kosync",
+          "path": "store.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "kosync",
+          "path": "tls.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 32,
+        "source": 41
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 98,
+          "matched_term": "multi-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "authentication",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 233,
+          "matched_term": "authentication",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "multi-user",
+          "path": "kosync.service",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "kosync-update.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 20,
+        "source": 1
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 130,
+          "matched_term": "syncs/progress",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "syncs/progress",
+          "path": "handlers.go",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "syncs/progress",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "syncs/progress",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "syncs/progress",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 76,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 648,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 667,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "TLS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "kosync-update.sh",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "tls",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "TLS",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "TLS",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "tls",
+          "path": "tls.go",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "certificate",
+          "path": "tls.go",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "tls",
+          "path": "tls.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 31,
+        "source": 40
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "go test",
+          "path": "Makefile",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-fellipec-kosync-go.jsonl.gz",
+  "files": {
+    "scanned_bytes": 64714,
+    "scanned_text": 14,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 14
+  },
+  "format_keyword_evidence": {
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": ".md",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 137,
+          "matched_term": "plain text",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": "plain text",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "LPF",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/fellipec/kosync-go",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Go": 4,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/fellipec/kosync-go",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "f74cc7409ff6035212f09be877963c1949145fdf",
+  "schema_version": 1,
+  "slug": "fellipec-kosync-go",
+  "support_claims_allowed": false,
+  "tree": "d48ba3e561aec4a805142a0055ddf4819afca71d"
+}

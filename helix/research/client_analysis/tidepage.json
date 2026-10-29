@@ -1,0 +1,6371 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "rag",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "rag",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "OpenAI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "Ollama",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "Anthropic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "rag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "rag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "rag",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 67,
+          "matched_term": "rag",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 68,
+          "matched_term": "rag",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": "src-tauri/capabilities/default.json",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "openai",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "openai",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "openai",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 570,
+          "matched_term": "rag",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 573,
+          "matched_term": "rag",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 1284,
+          "matched_term": "RAG",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1290,
+          "matched_term": "RAG",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "rag",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "rag",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 600,
+          "matched_term": "rag",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 670,
+          "matched_term": "rag",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 671,
+          "matched_term": "rag",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 267,
+          "matched_term": "rag",
+          "path": "src-tauri/src/fonts.rs",
+          "role": "source"
+        },
+        {
+          "line": 348,
+          "matched_term": "rag",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "rag",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 484,
+          "matched_term": "rag",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 1454,
+          "matched_term": "rag",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1531,
+          "matched_term": "rag",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1560,
+          "matched_term": "rag",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 421,
+          "matched_term": "rag",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 421,
+          "matched_term": "rag",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "rag",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 280,
+          "matched_term": "rag",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "rag",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 17,
+        "source": 880,
+        "test": 27
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "highlight",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "bookmark",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "highlight",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2776,
+          "matched_term": "CfI",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3018,
+          "matched_term": "cFi",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "cFi",
+          "path": "scripts/check-legacy-name.mjs",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "cFi",
+          "path": "scripts/check-legacy-name.mjs",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Bookmark",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Bookmark",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 898,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 899,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 900,
+          "matched_term": "bookmark",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 2280,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2284,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2293,
+          "matched_term": "highlight",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "Highlight",
+          "path": "src-tauri/src/models.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Highlight",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "highlight",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Highlight",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "HIGHLIGHT",
+          "path": "src/components/HighlightMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Highlight",
+          "path": "src/components/HighlightMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "highlight",
+          "path": "src/components/HighlightMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "HIGHLIGHT",
+          "path": "src/components/HighlightsPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Highlight",
+          "path": "src/components/HighlightsPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Highlight",
+          "path": "src/components/HighlightsPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Highlight",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "highlight",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "Highlight",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Highlight",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Highlight",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Highlight",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "Highlight",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "Highlight",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 1175,
+        "test": 15
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 63,
+          "matched_term": "restore",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "backup",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "backup",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1792,
+          "matched_term": "snapshot",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1794,
+          "matched_term": "snapshot",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1794,
+          "matched_term": "snapshot",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5238,
+          "matched_term": "snapshot",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "backup",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "BACKUP",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "backup",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "backup",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Backup",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "Backup",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "backup",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1463,
+          "matched_term": "restore",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1468,
+          "matched_term": "backup",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 2668,
+          "matched_term": "backup",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2668,
+          "matched_term": "restore",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 3768,
+          "matched_term": "snapshot",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "backup",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "backup",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "RESTORE",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 3242,
+          "matched_term": "snapshot",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5750,
+          "matched_term": "backup",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5757,
+          "matched_term": "backup",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2862,
+          "matched_term": "backup",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Restore",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "Restore",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "restore",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "restore",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "restore",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "BackUp",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2484,
+          "matched_term": "restore",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2496,
+          "matched_term": "restore",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "SNAPSHOT",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "restore",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1666,
+          "matched_term": "restore",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Backup",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Backup",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Backup",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 806,
+        "test": 32
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 1982,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2014,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2035,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "collection",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 1779,
+          "matched_term": "collection",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 1781,
+          "matched_term": "collection",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": "collection",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": "collection",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 668,
+          "matched_term": "collection",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "SHELVES",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "shelves",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 519,
+          "matched_term": "collection",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "SHELVES",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "shelves",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 817,
+          "matched_term": "collection",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 818,
+          "matched_term": "collection",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 835,
+          "matched_term": "collection",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "collection",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 839,
+          "matched_term": "collection",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 839,
+          "matched_term": "collection",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 2359,
+          "matched_term": "collection",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 2555,
+          "matched_term": "collection",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 421,
+          "matched_term": "collection",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "collection",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 424,
+          "matched_term": "collection",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "collection",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "collection",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "collection",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "collection",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 714,
+          "matched_term": "collection",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "collection",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "collection",
+          "path": "src-tauri/src/txt.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 324,
+        "test": 19
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "Comic",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "comic",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "Comic",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 594,
+          "matched_term": "CBT",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1337,
+          "matched_term": "cb7",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 783,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1150,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1843,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2076,
+          "matched_term": "CBZ",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 2077,
+          "matched_term": "cbz",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3034,
+          "matched_term": "manga",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 193,
+          "matched_term": "manga",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 795,
+          "matched_term": "manga",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 1794,
+          "matched_term": "Cbz",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1801,
+          "matched_term": "cbz",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1801,
+          "matched_term": "Cbz",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "manga",
+          "path": "src-tauri/src/models.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Manga",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "manga",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "Manga",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "manga",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "manga",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "manga",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "manga",
+          "path": "src/lib/bookcfg.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "manga",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "Manga",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "manga",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "manga",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "manga",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "manga",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "manga",
+          "path": "src/lib/pdfPage.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 195,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 198,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 288,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.ts",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.ts",
+          "role": "source"
+        },
+        {
+          "line": 329,
+          "matched_term": "manga",
+          "path": "src/lib/readerInput.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Manga",
+          "path": "src/lib/retryLimit.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "MANGA",
+          "path": "src/lib/retryLimit.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "Manga",
+          "path": "src/lib/retryLimit.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 1109,
+        "test": 27
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 104,
+          "matched_term": "cache",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2422,
+          "matched_term": "cache",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2424,
+          "matched_term": "cache",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2424,
+          "matched_term": "cache",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 396,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": "Cache",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": "cache",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": "Cache",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 503,
+          "matched_term": "thumbnail",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 505,
+          "matched_term": "thumbnail",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 513,
+          "matched_term": "thumbnail",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 413,
+          "matched_term": "ETag",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "etag",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 428,
+          "matched_term": "etag",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 884,
+          "matched_term": "ETag",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 914,
+          "matched_term": "ETag",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 915,
+          "matched_term": "etag",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "cache",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 394,
+          "matched_term": "cache",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 576,
+          "matched_term": "cache",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "cache",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "cache",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 421,
+          "matched_term": "cache",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Cache",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "CACHE",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Cache",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "cache",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 262,
+          "matched_term": "cache",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 266,
+          "matched_term": "cache",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cache",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "cache",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "CACHE",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 511,
+          "matched_term": "cache",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 516,
+          "matched_term": "cache",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 527,
+          "matched_term": "cache",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 1550,
+          "matched_term": "Cache",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 1560,
+          "matched_term": "cache",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 1561,
+          "matched_term": "cache",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 899,
+        "test": 36
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "EPUB · MOBI · AZW3 · PRC · PDF",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 80,
+          "matched_term": "conversion",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "EPUB, EPUB → TXT, and MOBI / AZW3 / PRC → TXT",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB · MOBI · AZW3 · PRC · PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "EPUB、EPUB → TXT、MOBI / AZW3 / PRC → TXT",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "EPUB、MOBI、AZW3、PRC、PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "epub_to_txt",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 894,
+          "matched_term": "EPUB→TXT",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 896,
+          "matched_term": "epub_to_txt",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 938,
+          "matched_term": "epub\", \"同名\", \"作者\", 100, \"pdf",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "epub\", \"mobi\", \"azw3\", \"prc\", \"pdf",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3105,
+          "matched_term": "epub` → `D:\\Pdf",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5044,
+          "matched_term": "epub\" && target == \"txt",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3437,
+          "matched_term": "EPUB/MOBI/TXT",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 3543,
+          "matched_term": "epub\" | \"mobi\" | \"azw3\" | \"prc\" | \"txt",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB 解析已够快）；不清理进程内 L1 缓存（txt",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub\"] as (\"txt",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "epub\"] as (\"txt",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "epub\" : \"txt",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2587,
+          "matched_term": "EPUB/TXT",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 4031,
+          "matched_term": "EPUB/TXT",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6498,
+          "matched_term": "EPUB/TXT",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "epub\", \"mobi\", \"azw3\", \"prc\", \"pdf",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub\", \"mobi\", \"azw3\", \"prc\", \"pdf",
+          "path": "src/lib/bookExt.ts",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "conversion",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 465,
+          "matched_term": "conversion",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1130,
+          "matched_term": "epub/mobi 的内嵌封面，PDF",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 27,
+        "test": 1
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 1873,
+          "matched_term": "aria-",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1875,
+          "matched_term": "aria-",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1875,
+          "matched_term": "aria-",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 412,
+          "matched_term": "daisy",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": "daisy",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 3612,
+          "matched_term": "daisy",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "daisy",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1273,
+          "matched_term": "aria-",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 903,
+          "matched_term": "aria-",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1003,
+          "matched_term": "aria-",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1004,
+          "matched_term": "aria-",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 222,
+          "matched_term": "aria-",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "aria-",
+          "path": "src/components/BookSearchPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "aria-",
+          "path": "src/components/ColorPalette.svelte",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "aria-",
+          "path": "src/components/ColorPicker.svelte",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "aria-",
+          "path": "src/components/ColorPicker.svelte",
+          "role": "source"
+        },
+        {
+          "line": 249,
+          "matched_term": "aria-",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "aria-",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "aria-",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "aria-",
+          "path": "src/components/ImageViewer.svelte",
+          "role": "source"
+        },
+        {
+          "line": 330,
+          "matched_term": "aria-",
+          "path": "src/components/ImageViewer.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2781,
+          "matched_term": "aria-",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2793,
+          "matched_term": "aria-",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2800,
+          "matched_term": "aria-",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "aria-",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "aria-",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "aria-",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "aria-",
+          "path": "src/components/ProgressRing.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7594,
+          "matched_term": "aria-",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7630,
+          "matched_term": "aria-",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7640,
+          "matched_term": "aria-",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "aria-",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "aria-",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 321,
+          "matched_term": "aria-",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 346,
+          "matched_term": "aria-",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "aria-",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        },
+        {
+          "line": 359,
+          "matched_term": "aria-",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "aria-",
+          "path": "src/components/WindowControls.svelte",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "aria-",
+          "path": "src/components/WindowControls.svelte",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "aria-",
+          "path": "src/components/WindowControls.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 129
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "SQLite",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "SQLite",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 178,
+          "matched_term": "sqlite",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2463,
+          "matched_term": "sqlite",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3686,
+          "matched_term": "sqlite",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3695,
+          "matched_term": "sqlite",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "sqlite",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 300,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 300,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "SQLite",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 810,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 657,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2530,
+          "matched_term": "sqlite",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2708,
+          "matched_term": "SQLite",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "SQLite",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 8,
+        "source": 131
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 92,
+          "matched_term": "SHA256",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "SHA256",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "SHA256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 184,
+          "matched_term": "SHA256",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "checksum",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "checksum",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "SHA256",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "Sha256",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 725,
+          "matched_term": "dedup",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 727,
+          "matched_term": "dedup",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "SHA256",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "SHA256",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Sha256",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Sha256",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 884,
+          "matched_term": "sha256",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 886,
+          "matched_term": "Sha256",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "fingerprint",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 402,
+          "matched_term": "fingerprint",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 467,
+          "matched_term": "fingerprint",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "SHA-256",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Sha256",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Duplicate",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "dedup",
+          "path": "src-tauri/src/fonts.rs",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "checksum",
+          "path": "src-tauri/src/fonts.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "duplicate",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "duplicate",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "duplicate",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 954,
+          "matched_term": "fingerprint",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 962,
+          "matched_term": "fingerprint",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 8154,
+          "matched_term": "sha256",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2588,
+          "matched_term": "dedup",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 2634,
+          "matched_term": "dedup",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Duplicate",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Duplicate",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Duplicate",
+          "path": "src/components/DuplicateBooksModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "dedup",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "Duplicate",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "Duplicate",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "Dedup",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 4,
+        "source": 959,
+        "test": 28
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 2187,
+          "matched_term": "docker",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2201,
+          "matched_term": "docker",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 240,
+          "matched_term": "dictionary",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 249,
+          "matched_term": "dictionary",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 301,
+          "matched_term": "dictionary",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1320,
+          "matched_term": "translation",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 178,
+          "matched_term": "quic",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 396,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 403,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "quic",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 346,
+          "matched_term": "quic",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 352,
+          "matched_term": "quic",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 386,
+          "matched_term": "quic",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "quic",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 748,
+          "matched_term": "quic",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3185,
+          "matched_term": "quic",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "quic",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "quic",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "quic",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "quic",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "quic",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "quic",
+          "path": "src/components/QuickAiPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "Quic",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "Quic",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 785,
+          "matched_term": "quic",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 3317,
+          "matched_term": "quic",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 613,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 622,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 623,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 655,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 665,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 666,
+          "matched_term": "quic",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 477,
+          "matched_term": "quic",
+          "path": "src/lib/stores.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 1247,
+          "matched_term": "quic",
+          "path": "src/lib/stores.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 1809,
+          "matched_term": "quic",
+          "path": "src/lib/stores.svelte.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 2,
+        "source": 77
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 192,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 203,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1825,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "DRM",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1732,
+          "matched_term": "DRM",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1735,
+          "matched_term": "drm",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "drm",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "DRM",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "DRM",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "drm",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "DRM",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "DRM",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 55
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 181,
+          "matched_term": "Local storage",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "FileSystem",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 6484,
+          "matched_term": "FileSystem",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 790,
+          "matched_term": "local files",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 791,
+          "matched_term": "local files",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 792,
+          "matched_term": "local files",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 41,
+          "matched_term": "metadata",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 502,
+          "matched_term": "metadata",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 4566,
+          "matched_term": "metadata",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2501,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 357,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 623,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 588,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 666,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 3274,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 4554,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 4578,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 447,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1864,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 356,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 746,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/memlog.rs",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 423,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 424,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 546,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 764,
+          "matched_term": "metadata",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 434,
+          "matched_term": "metadata",
+          "path": "src/lib/tts.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 462,
+          "matched_term": "metadata",
+          "path": "src/lib/tts.svelte.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 104
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 5471,
+          "matched_term": "locking(move || std::fs::metadata",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 764,
+          "matched_term": "metadata generation (does not block",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 913,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 1655,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 1992,
+          "matched_term": "oauth",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 7276,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7400,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7506,
+          "matched_term": "Authorization",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 3010,
+          "matched_term": "ftp",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 413,
+          "matched_term": "S3",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 453,
+          "matched_term": "S3",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 1230,
+          "matched_term": "s3",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1231,
+          "matched_term": "s3",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1231,
+          "matched_term": "s3",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 2048,
+          "matched_term": "S3",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2666,
+          "matched_term": "S3",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2700,
+          "matched_term": "S3",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "s3",
+          "path": "src/lib/libraryShelves.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 107,
+          "matched_term": "s3",
+          "path": "src/lib/libraryShelves.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 111,
+          "matched_term": "s3",
+          "path": "src/lib/libraryShelves.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "ftp",
+          "path": "src/lib/webdavSecurity.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 12,
+        "test": 5
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 856,
+          "matched_term": "exportAi(path, kind, ctx.title || t(\"ai.notes",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "ExportPreview loadRows={loadExportRows} defaultName={(bookTitle || \"tidepage\") + \"-highlights",
+          "path": "src/components/HighlightsPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "ExportPreview loadRows={loadAllExportRows} defaultName=\"tidepage-notes",
+          "path": "src/components/NotesPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "export function isBackupEmpty(p: Pick<DataBackupPreview, \"progress\" | \"bookmarks\" | \"highlights",
+          "path": "src/lib/dataBackup.ts",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "export function paintHighlights(root: HTMLElement, highlights",
+          "path": "src/lib/highlights.ts",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "export.dialogTitle\": \"Export highlights and notes",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "export.empty\": \"No highlights or notes",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "export const LIBRARY_TOPBAR_IDS = [\"webdav\", \"random\", \"notes",
+          "path": "src/lib/stores.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 3260,
+          "matched_term": "export type PanelKind = \"toc\" | \"bookmarks\" | \"highlights\" | \"stats\" | \"notes",
+          "path": "src/lib/stores.svelte.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 5548,
+          "matched_term": "openSearch",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 180,
+          "matched_term": "pdf.js",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "pdfjs",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 183,
+          "matched_term": "pdf.js",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 183,
+          "matched_term": "pdfjs",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2589,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2591,
+          "matched_term": "pdfjs",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 27,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdf.js",
+          "path": "scripts/copy-pdfjs-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "scripts/copy-pdfjs-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdfjs",
+          "path": "scripts/copy-pdfjs-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 311,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 318,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3976,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf.js",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdfjs",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1676,
+          "matched_term": "pdf.js",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 380,
+          "matched_term": "pdf.js",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1571,
+          "matched_term": "pdf.js",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1601,
+          "matched_term": "pdf.js",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "pdf.js",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": "pdf.js",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 241,
+          "matched_term": "pdf.js",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "pdfjs",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfCoverQueue.ts",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfPage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfPage.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfPage.ts",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfPage.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdf.js",
+          "path": "src/lib/pdfjs.d.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "pdfjs",
+          "path": "src/lib/pdfjs.d.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdfjs",
+          "path": "src/lib/pdfjs.d.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 4,
+        "source": 99,
+        "test": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "src-tauri/capabilities/default.json",
+          "role": "source"
+        },
+        {
+          "line": 1733,
+          "matched_term": "permission",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "Permission",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "permission",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "permission",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "Permission",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "src/lib/openError.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": "src/lib/openError.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "src/lib/openError.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": "src/lib/openError.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "permission",
+          "path": "src/lib/openError.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Permission",
+          "path": "src/lib/openError.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 13,
+        "test": 3
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 89,
+          "matched_term": "sync for reading progress",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 871,
+          "matched_term": "sync_progress",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 661,
+          "matched_term": "sync fn scan_folders(state: &AppState, progress",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 4564,
+          "matched_term": "sync fn save_progress(state: State<'_, Arc<AppState>>, book_id: i64, p: Progress",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5799,
+          "matched_term": "sync fn webdav_sync_progress",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1889,
+          "matched_term": "SyncProgress",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1896,
+          "matched_term": "sync function webdavSync(localP: Progress",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1904,
+          "matched_term": "SyncProgress",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 366,
+          "matched_term": "SyncProgress",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 369,
+          "matched_term": "sync_progress",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "sync_progress",
+          "path": "src/lib/davApply.ts",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "reading progress",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "Reading progress",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 152,
+          "matched_term": "SyncOnExit\": \"Progress",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 29
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "Typography",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "typography",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "theme",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 308,
+          "matched_term": "THEME",
+          "path": "scripts/check-legacy-name.mjs",
+          "role": "source"
+        },
+        {
+          "line": 312,
+          "matched_term": "theme",
+          "path": "scripts/check-legacy-name.mjs",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "line-height",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 389,
+          "matched_term": "font-size",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 648,
+          "matched_term": "line-height",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "font_size",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "font_size",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "font_size",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "theme",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "Theme",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Theme",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 1719,
+          "matched_term": "Theme",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1733,
+          "matched_term": "theme",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1735,
+          "matched_term": "theme",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2387,
+          "matched_term": "font size",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 2479,
+          "matched_term": "font size",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 3247,
+          "matched_term": "font size",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Theme",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "THEME",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "THEME",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 464,
+          "matched_term": "theme",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 398,
+          "matched_term": "font-size",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 406,
+          "matched_term": "font-size",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "font-size",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 256,
+          "matched_term": "font-size",
+          "path": "src/components/BookSearchPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "font-size",
+          "path": "src/components/BookSearchPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": "font-size",
+          "path": "src/components/BookSearchPopup.svelte",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "font-size",
+          "path": "src/components/BookStatsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "font-size",
+          "path": "src/components/BookStatsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "font-size",
+          "path": "src/components/BookStatsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "font-size",
+          "path": "src/components/ColorPalette.svelte",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "line-height",
+          "path": "src/components/ColorPalette.svelte",
+          "role": "source"
+        },
+        {
+          "line": 234,
+          "matched_term": "font-size",
+          "path": "src/components/ColorPalette.svelte",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "font-size",
+          "path": "src/components/ColorPicker.svelte",
+          "role": "source"
+        },
+        {
+          "line": 219,
+          "matched_term": "font-size",
+          "path": "src/components/ColorPicker.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 655,
+        "test": 10
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 103,
+          "matched_term": "FTS5",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "FTS5",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 203,
+          "matched_term": "fts5",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 388,
+          "matched_term": "FTS5",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "FTS5",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 7663,
+          "matched_term": "FTS5",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7664,
+          "matched_term": "FTS5",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7674,
+          "matched_term": "FTS5",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "full-text search",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 315,
+          "matched_term": "full-text search",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "Full-text search",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 29
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "https",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 322,
+          "matched_term": "https",
+          "path": "scripts/check-legacy-name.mjs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "tls",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 36,
+          "matched_term": "tls",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "tls",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 208,
+          "matched_term": "https",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "https",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "https",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "secret",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "secret",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "secret",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 841,
+          "matched_term": "https",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "https",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "TLS",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 826,
+          "matched_term": "https",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 827,
+          "matched_term": "https",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "secret",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 408,
+          "matched_term": "TLS",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 784,
+          "matched_term": "CORS",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 7165,
+          "matched_term": "secret",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7181,
+          "matched_term": "secret",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7181,
+          "matched_term": "secret",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3583,
+          "matched_term": "https",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 351,
+          "matched_term": "https",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "https",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "https",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "CSP",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 26,
+        "source": 1387,
+        "test": 58
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 159,
+          "matched_term": "vitest",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "vitest",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "vitest",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "vitest",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1716,
+          "matched_term": "vitest",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 3350,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 3379,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 1907,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3336,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3427,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 9880,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 10272,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 397,
+          "matched_term": "cargo test",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/aiPanelKeys.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/autoSync.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/bookList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/bookOverrideMerge.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/bookRatio.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/cachedImport.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/chapterCache.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/chapterTitle.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/chapterTx.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/color.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/configHost.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/configSyncGuard.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/countFormat.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/dataBackup.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/davApply.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/davSyncApply.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/directMetaCache.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/dragSort.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/dupHiddenCache.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/duplicates.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/highlightExport.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/layoutSwitch.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/lib/legacyJump.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 2,
+        "source": 94,
+        "test": 59
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "Text-to-speech",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "text-to-speech",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "text-to-speech",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "TTS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 216,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 343,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/ai.rs",
+          "role": "source"
+        },
+        {
+          "line": 7198,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7211,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 7346,
+          "matched_term": "TTS",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "TTS",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 698,
+          "matched_term": "TTS",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 786,
+          "matched_term": "TTS",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "tts",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "tts",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1104,
+          "matched_term": "TTS",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "tts",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "tts",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "tts",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "tts",
+          "path": "src/components/TtsBar.svelte",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "tts",
+          "path": "src/components/TtsBar.svelte",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "tts",
+          "path": "src/components/TtsBar.svelte",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "tts",
+          "path": "src/components/TtsStartMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "tts",
+          "path": "src/components/TtsStartMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "tts",
+          "path": "src/components/TtsStartMenu.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "TTS",
+          "path": "src/lib/bookOverrideMerge.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "TTS",
+          "path": "src/lib/bookOverrideMerge.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": "TTS",
+          "path": "src/lib/bookcfg.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "TTS",
+          "path": "src/lib/bookcfg.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "tts",
+          "path": "src/lib/highlights.ts",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "tts",
+          "path": "src/lib/highlights.ts",
+          "role": "source"
+        },
+        {
+          "line": 473,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 474,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 475,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/index.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 509,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 510,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 511,
+          "matched_term": "tts",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 504,
+        "test": 5
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 2152,
+          "matched_term": "inotify",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2158,
+          "matched_term": "inotify",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2163,
+          "matched_term": "inotify",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "webdav": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "WebDAV",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "WebDAV",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "WebDAV",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/backup.rs",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/bookmeta.rs",
+          "role": "source"
+        },
+        {
+          "line": 699,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "WEBDAV",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "WEBDAV",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 892,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 911,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 2679,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 841,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 868,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 869,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 568,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 608,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5741,
+          "matched_term": "webdav",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 500,
+          "matched_term": "WebDAV",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "WebDAV",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "WebDAV",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 746,
+          "matched_term": "WebDAV",
+          "path": "src/app.css",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "webdav",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "webdav",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 365,
+          "matched_term": "webdav",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 468,
+          "matched_term": "webdav",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 468,
+          "matched_term": "webdav",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 468,
+          "matched_term": "webdav",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Webdav",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "Webdav",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "webdav",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "webdav",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "webdav",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "webdav",
+          "path": "src/components/WebdavBrowser.svelte",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 10,
+        "source": 565,
+        "test": 26
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-tidepage.jsonl.gz",
+  "files": {
+    "scanned_bytes": 4449497,
+    "scanned_text": 215,
+    "skipped_binary_or_empty": 15,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 3,
+    "tracked": 233
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 1808,
+          "matched_term": "cbr",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 9380,
+          "matched_term": "cbr",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 2076,
+          "matched_term": "CBZ",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1794,
+          "matched_term": "Cbz",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1801,
+          "matched_term": "cbz",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "daisy": {
+      "evidence": [
+        {
+          "line": 412,
+          "matched_term": ".daisy",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": ".daisy",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 3612,
+          "matched_term": ".daisy",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": ".daisy",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 2092,
+          "matched_term": ".doc",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 2192,
+          "matched_term": ".doc",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 545,
+          "matched_term": ".doc",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 555,
+          "matched_term": ".doc",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 1741,
+          "matched_term": ".doc",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 1618,
+          "matched_term": ".doc",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1624,
+          "matched_term": ".doc",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".docx",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 26,
+          "matched_term": ".docx",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 236,
+          "matched_term": ".doc",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": ".doc",
+          "path": "src/lib/pdf.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 54,
+        "test": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "EPUB",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "EPUB",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "epub",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 517,
+          "matched_term": "epub ",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 959,
+          "matched_term": ".epub",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 960,
+          "matched_term": ".epub",
+          "path": "src-tauri/src/databackup.rs",
+          "role": "source"
+        },
+        {
+          "line": 1034,
+          "matched_term": ".epub",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 1037,
+          "matched_term": "epub",
+          "path": "src-tauri/src/davsync.rs",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 645,
+          "matched_term": "epub",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 935,
+          "matched_term": ".epub",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 935,
+          "matched_term": "epub",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 599,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "epub",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "epub",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "EPUB",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1979,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "EPUB",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "epub",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 930,
+          "matched_term": "epub",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "src/components/ConvertModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1638,
+          "matched_term": "EPUB ",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1813,
+          "matched_term": "EPUB ",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "EPUB ",
+          "path": "src/components/TocPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "EPUB",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "EPUB ",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "epub",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": ".epub",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub",
+          "path": "src/lib/bookExt.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "epub",
+          "path": "src/lib/bookList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "epub",
+          "path": "src/lib/bookList.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 20,
+        "source": 453,
+        "test": 26
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 1808,
+          "matched_term": "fb2",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 9380,
+          "matched_term": "fb2",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 1023,
+          "matched_term": "html5",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1840,
+          "matched_term": "html5",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "html5",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 109,
+          "matched_term": ".html",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 133,
+          "matched_term": ".html",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 746,
+          "matched_term": "XHTML",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1342,
+          "matched_term": "xhtml",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3610,
+          "matched_term": "XHTML",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3617,
+          "matched_term": "xhtml",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1889,
+          "matched_term": "html5",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 2055,
+          "matched_term": "html5",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "html5",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "html5",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": ".html",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": ".html",
+          "path": "src/components/AiPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1152,
+          "matched_term": ".html",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2033,
+          "matched_term": "xHtml",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "src/lib/chapterCache.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "src/lib/chapterTitle.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": ".xhtml",
+          "path": "src/lib/chapterTitle.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "xhtml",
+          "path": "src/lib/chapterTitle.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "xhtml",
+          "path": "src/lib/chapterTitle.ts",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": ".html",
+          "path": "src/lib/chapterTx.ts",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": ".html",
+          "path": "src/lib/i18n/index.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "src/lib/readerLinks.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": ".html",
+          "path": "src/lib/readerLinks.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "src/lib/readerLinks.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".xhtml",
+          "path": "src/lib/readerLinks.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "src/routes/+layout.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "svelte.config.js",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "svelte.config.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 196,
+        "test": 26
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": ".md",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9771,
+          "matched_term": ".md",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 9779,
+          "matched_term": ".md",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Markdown",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "Markdown",
+          "path": "src-tauri/src/update.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "Markdown",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Markdown",
+          "path": "src/components/ExportPreview.svelte",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Markdown",
+          "path": "src/lib/highlightExport.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 100,
+          "matched_term": "Markdown",
+          "path": "src/lib/highlightExport.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 81,
+          "matched_term": "Markdown",
+          "path": "src/lib/highlightExport.ts",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Markdown",
+          "path": "src/lib/highlightExport.ts",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "markdown",
+          "path": "src/lib/md.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 10,
+        "test": 7
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "MOBI",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "AZW3",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "MOBI",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "AZW3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2592,
+          "matched_term": "mobi",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 4682,
+          "matched_term": "mobi",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "MOBI",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 35,
+          "matched_term": "mobi",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 102,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "AZW3",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 3223,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "mobi",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 701,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "AZW",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "AZW3",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/sanitize.rs",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "MOBI",
+          "path": "src-tauri/src/txt.rs",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "mobi",
+          "path": "src-tauri/src/txt.rs",
+          "role": "source"
+        },
+        {
+          "line": 6142,
+          "matched_term": "MOBI",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 9319,
+          "matched_term": "MOBI",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1117,
+          "matched_term": "mobi",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 3591,
+          "matched_term": "MOBI",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "mobi",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "azw3",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "mobi",
+          "path": "src/lib/bookExt.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "azw3",
+          "path": "src/lib/bookExt.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "mobi",
+          "path": "src/lib/bookList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "mobi",
+          "path": "src/lib/bookList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 749,
+          "matched_term": "MOBI",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 749,
+          "matched_term": "AZW3",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "PalmDoc",
+          "path": "src/lib/i18n/index.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 154,
+          "matched_term": "palmDoc",
+          "path": "src/lib/i18n/index.svelte.ts",
+          "role": "source"
+        },
+        {
+          "line": 808,
+          "matched_term": "MOBI",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 808,
+          "matched_term": "AZW3",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "PalmDoc",
+          "path": "src/lib/openError.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 16,
+        "source": 477,
+        "test": 7
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 310,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 385,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 10910,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 10911,
+          "matched_term": ".opf",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 24
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "PDF",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "PDF",
+          "path": "README.en.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdf",
+          "path": "scripts/copy-pdfjs-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "scripts/copy-pdfjs-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "PDF",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "pdf",
+          "path": "src-tauri/Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 464,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 548,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/covers.rs",
+          "role": "source"
+        },
+        {
+          "line": 720,
+          "matched_term": "pdf",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 2074,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 938,
+          "matched_term": "pdf",
+          "path": "src-tauri/src/duplicates.rs",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 848,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "pdf",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf",
+          "path": "src-tauri/src/pdfnative.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "src-tauri/src/pdfscan.rs",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "pdf",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "pdf",
+          "path": "src/components/BookDetailModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "src/components/PdfSearchPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "pdf",
+          "path": "src/components/PdfSearchPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "PDF",
+          "path": "src/components/PdfThumbPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf",
+          "path": "src/components/PdfThumbPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "pdf",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "PDF",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 4040,
+          "matched_term": "PDF",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "pdf",
+          "path": "src/components/StandalonePanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "PDF",
+          "path": "src/components/StandalonePanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "PDF",
+          "path": "src/components/TocPanel.svelte",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "PDF",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "pdf",
+          "path": "src/lib/api.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "pdf",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 25,
+          "matched_term": ".pdf",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "pdf",
+          "path": "src/lib/bookExt.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 10,
+        "source": 669,
+        "test": 12
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 747,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 762,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/convert.rs",
+          "role": "source"
+        },
+        {
+          "line": 784,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 784,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/dav.rs",
+          "role": "source"
+        },
+        {
+          "line": 2293,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 3687,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/db.rs",
+          "role": "source"
+        },
+        {
+          "line": 3881,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 3888,
+          "matched_term": ".TXT",
+          "path": "src-tauri/src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 5098,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 5108,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/library.rs",
+          "role": "source"
+        },
+        {
+          "line": 3066,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 3072,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/mobi.rs",
+          "role": "source"
+        },
+        {
+          "line": 1005,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/parsecache.rs",
+          "role": "source"
+        },
+        {
+          "line": 1994,
+          "matched_term": ".txt",
+          "path": "src/components/SettingsModal.svelte",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": ".txt",
+          "path": "src/lib/bookExt.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 356,
+          "matched_term": "Plain text",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 371,
+          "matched_term": "plain text",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        },
+        {
+          "line": 1017,
+          "matched_term": ".txt",
+          "path": "src/lib/i18n/zh-CN.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 152,
+        "test": 1
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 805,
+          "matched_term": "lpF",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 822,
+          "matched_term": "lpF",
+          "path": "src/components/Library.svelte",
+          "role": "source"
+        },
+        {
+          "line": 629,
+          "matched_term": "lpF",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 643,
+          "matched_term": "lpF",
+          "path": "src/components/Reader.svelte",
+          "role": "source"
+        },
+        {
+          "line": 1467,
+          "matched_term": "lpf",
+          "path": "src/lib/i18n/en.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 15
+      }
+    }
+  },
+  "inventory_url": "https://github.com/miipa/tidepage",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 1,
+    "HTML": 1,
+    "JavaScript": 2,
+    "Rust": 26,
+    "Svelte": 33,
+    "TypeScript": 141
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/miipa/tidepage",
+  "readme_files": [
+    "README.en.md",
+    "README.md",
+    "docs/images/readme-appearance.jpg",
+    "docs/images/readme-hero2-en.jpg",
+    "docs/images/readme-hero2.jpg",
+    "docs/images/readme-panel-en.jpg",
+    "docs/images/readme-panel-zh.jpg",
+    "docs/images/readme-reading-en.jpg",
+    "docs/images/readme-reading-zh.jpg"
+  ],
+  "revision": "7e9caeb0ce4c7eb9922c5abf59cade2d86617004",
+  "schema_version": 1,
+  "slug": "tidepage",
+  "support_claims_allowed": false,
+  "tree": "1876b7071f88db3b48c2f6210819730dbd03abb2"
+}

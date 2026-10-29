@@ -1,0 +1,5019 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": ".editorconfig",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 538,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 624,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "rag",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "rag",
+          "path": "app/google-services.json",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "RAG",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetMangaDetails.graphql",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListSearchManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuFindLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsById.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsBySlug.graphql",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuSearchMangaByTitle.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/ShikimoriGetMangaDetails.graphql",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/ShikimoriSearchManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1623,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1653,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/SuwayomiGetManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 4619,
+          "matched_term": "rag",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 4621,
+          "matched_term": "RAG",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 1332,
+        "test": 1
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 372,
+          "matched_term": "bookmark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 190,
+          "matched_term": "annotation",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 246,
+          "matched_term": "annotation",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Annotation",
+          "path": "app/proguard-android-optimize.txt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "annotation",
+          "path": "app/proguard-android-optimize.txt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "annotation",
+          "path": "app/proguard-android-optimize.txt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Annotation",
+          "path": "app/proguard-rules.pro",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "annotation",
+          "path": "app/proguard-rules.pro",
+          "role": "source"
+        },
+        {
+          "line": 404,
+          "matched_term": "highlight",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 5111,
+          "matched_term": "highlight",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 5191,
+          "matched_term": "highlight",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 262,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 394,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 175,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/model/ChapterFilter.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/model/ChapterFilter.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/model/ChapterFilter.kt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseBadges.kt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseBadges.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "annotation",
+          "path": "app/src/main/java/eu/kanade/presentation/components/AdaptiveSheet.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "BOOKMARK",
+          "path": "app/src/main/java/eu/kanade/presentation/components/DownloadDropdownMenu.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/components/DownloadDropdownMenu.kt",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/library/LibrarySettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/library/LibrarySettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/library/LibrarySettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/ChapterSettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/ChapterSettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/ChapterSettingsDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/MangaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/MangaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/MangaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "BOOKMARK",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/MangaScreenConstants.kt",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaBottomActionMenu.kt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaBottomActionMenu.kt",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Bookmark",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaBottomActionMenu.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 838,
+        "test": 1
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 41,
+          "matched_term": "restore",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "restore",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "backup",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "Backup",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "backup",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "restore",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Backup",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Restore",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Backup",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/components/AppBar.kt",
+          "role": "source"
+        },
+        {
+          "line": 289,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/components/AppBar.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaNotesTextArea.kt",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaNotesTextArea.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Restore",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/GuidesStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/GuidesStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Restore",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/GuidesStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Restore",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/OnboardingScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/OnboardingScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Restore",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/OnboardingScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Restore",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsMainScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSearchScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 170,
+          "matched_term": "snapshot",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSearchScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/RestoreBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/RestoreBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/RestoreBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/BackupSchemaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/BackupSchemaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/BackupSchemaScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/DebugInfoScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/DebugInfoScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "backup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Backup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 37,
+        "source": 3520,
+        "test": 138
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 805,
+          "matched_term": "series",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "series",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 376,
+          "matched_term": "collection",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "collection",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Collection",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Collection",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "series",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "series",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1077,
+          "matched_term": "series",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "Series",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "Series",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "Series",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/core/util/CollectionUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/core/util/CollectionUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/core/util/CollectionUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "series",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "Series",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/domain/source/interactor/GetSourcesWithFavoriteCount.kt",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/domain/source/interactor/GetSourcesWithFavoriteCount.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseBadges.kt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseBadges.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/category/components/CategoryListItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/category/components/CategoryListItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/download/DownloadQueueList.kt",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "Series",
+          "path": "app/src/main/java/eu/kanade/presentation/download/DownloadQueueList.kt",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "Series",
+          "path": "app/src/main/java/eu/kanade/presentation/download/DownloadQueueList.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsMainScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsMainScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/more/stats/StatsScreenContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/presentation/more/stats/StatsScreenContent.kt",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "series",
+          "path": "app/src/main/java/eu/kanade/presentation/reader/settings/ReadingModePage.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/dto/BGMCollectionResponse.kt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/hikka/Hikka.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/hikka/Hikka.kt",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "Series",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/kavita/KavitaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "series",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/kavita/KavitaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "series",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/kavita/KavitaApi.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 442,
+        "test": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "right-to-left",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "Comic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "right to left",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "webtoon",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "manga",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "Comic",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "comic",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListAddManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListAddManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListAddManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListDeleteManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "MANGA",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetMangaDetails.graphql",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetMangaDetails.graphql",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListGetMangaDetails.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListSearchManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "MANGA",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListSearchManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListSearchManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/AniListUpdateManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 564,
+          "matched_term": "manga",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuAddLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "MANGA",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuAddLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuFindLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuFindLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuFindLibManga.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsById.graphql",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsById.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsById.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsBySlug.graphql",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsBySlug.graphql",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuGetMangaDetailsBySlug.graphql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuSearchMangaByTitle.graphql",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Manga",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/KitsuSearchMangaByTitle.graphql",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 60,
+        "source": 9846,
+        "test": 64
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 101,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "Cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 282,
+          "matched_term": "cache",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1409,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1411,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2427,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 963,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 965,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1399,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 793,
+          "matched_term": "cache",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/MangaFragment.graphql",
+          "role": "source"
+        },
+        {
+          "line": 455,
+          "matched_term": "Cache",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 456,
+          "matched_term": "cache",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 458,
+          "matched_term": "cache",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "cache",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseSourceComfortableGrid.kt",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseSourceCompactGrid.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BrowseSourceList.kt",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "cache",
+          "path": "app/src/main/java/eu/kanade/presentation/components/Banners.kt",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/library/components/LibraryComfortableGrid.kt",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/library/components/LibraryCompactGrid.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "thumbnail",
+          "path": "app/src/main/java/eu/kanade/presentation/library/components/LibraryList.kt",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaCoverDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaCoverDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaCoverDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAdvancedScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAdvancedScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAdvancedScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 286,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 286,
+          "matched_term": "Cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "cache",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "eTag",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/appearance/AppLanguageScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "eTag",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/appearance/AppLanguageScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "CACHE",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/DebugInfoScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "CACHE",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/DebugInfoScreen.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 4,
+        "source": 1278,
+        "test": 125
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "conversion",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 2286,
+          "matched_term": "Conversion",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2286,
+          "matched_term": "Conversion",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2378,
+          "matched_term": "Conversion",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "CONVERSION",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsReaderScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "CONVERSION",
+          "path": "app/src/main/java/eu/kanade/presentation/reader/settings/GeneralSettingsPage.kt",
+          "role": "source"
+        },
+        {
+          "line": 145,
+          "matched_term": "CONVERSION",
+          "path": "app/src/main/java/eu/kanade/presentation/reader/settings/GeneralSettingsPage.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "conversion",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "CONVERSION",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/setting/ReaderPreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 381,
+          "matched_term": "CONVERSION",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/setting/ReaderPreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "conversion",
+          "path": "domain/src/main/java/tachiyomi/domain/chapter/service/ChapterRecognition.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Converter",
+          "path": "presentation-core/src/main/java/tachiyomi/presentation/core/components/material/Button.kt",
+          "role": "source"
+        },
+        {
+          "line": 283,
+          "matched_term": "Converter",
+          "path": "presentation-core/src/main/java/tachiyomi/presentation/core/components/material/Button.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 36
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": "Accessibility",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/pager/PagerPageHolder.kt",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "daisy",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 89,
+          "matched_term": "Redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "sqlite",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 2828,
+          "matched_term": "reDis",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2828,
+          "matched_term": "reDis",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2838,
+          "matched_term": "reDis",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 587,
+          "matched_term": "POSTGRESQL",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "database migration",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "data/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "sqlite",
+          "path": "data/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "SQLite",
+          "path": "data/src/main/java/tachiyomi/data/DatabaseAdapter.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "sqlite",
+          "path": "data/src/main/java/tachiyomi/data/DatabaseBindings.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "SQLite",
+          "path": "data/src/main/java/tachiyomi/data/DatabaseBindings.kt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "sqlite",
+          "path": "data/src/main/java/tachiyomi/data/DatabaseBindings.kt",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "SQLite",
+          "path": "data/src/main/sqldelight/tachiyomi/migrations/17.sqm",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "SQLite",
+          "path": "data/src/main/sqldelight/tachiyomi/migrations/19.sqm",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "sqlite",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "sqlite",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "sqlite",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 41
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/1_request_feature.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 92,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/2_report_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1491,
+          "matched_term": "Checksum",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1908,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2330,
+          "matched_term": "Checksum",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "dedUp",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/GetExtensionsByType.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "dedUp",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/GetExtensionsByType.kt",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "dedUp",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/GetExtensionsByType.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "fingerprint",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/TrustExtension.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Fingerprint",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/TrustExtension.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "fingerprint",
+          "path": "app/src/main/java/eu/kanade/domain/extension/interactor/TrustExtension.kt",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/DuplicateMangaDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/DuplicateMangaDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/DuplicateMangaDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "DUPLICATE",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "DUPLICATE",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 248,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/CoverRequestInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "DeDup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/CoverRequestInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/DeDupeConcurrentRequests.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "DeDup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/DeDupeConcurrentRequests.kt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "DeDup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/DeDupeConcurrentRequests.kt",
+          "role": "source"
+        },
+        {
+          "line": 144,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/ImageDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 351,
+          "matched_term": "DeDup",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/MangaCoverFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadPendingDeleter.kt",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadProvider.kt",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/extension/util/ExtensionLoader.kt",
+          "role": "source"
+        },
+        {
+          "line": 488,
+          "matched_term": "SHA256",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/extension/util/ExtensionLoader.kt",
+          "role": "source"
+        },
+        {
+          "line": 502,
+          "matched_term": "sha256",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/extension/util/ExtensionLoader.kt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "Duplicate",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceViewModel.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 23,
+        "source": 403
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "GitHub Actions",
+          "path": ".github/renovate.json5",
+          "role": "configuration"
+        },
+        {
+          "line": 63,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/domain/manga/interactor/UpdateManga.kt",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/components/DateText.kt",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/history/HistoryviewModelStateProvider.kt",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/history/HistoryviewModelStateProvider.kt",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaDialogs.kt",
+          "role": "source"
+        },
+        {
+          "line": 195,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaInfoHeader.kt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAppearanceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 287,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/about/AboutScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/debug/WorkerInfoScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/restore/restorers/MangaRestorer.kt",
+          "role": "source"
+        },
+        {
+          "line": 186,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/LibraryUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 258,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/LibraryUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistUtils.kt",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/mangabaka/MangaBakaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "readiness",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/extension/installer/Installer.kt",
+          "role": "source"
+        },
+        {
+          "line": 608,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/manga/track/TrackInfoDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 614,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/manga/track/TrackInfoDialog.kt",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/updates/UpdatesViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/CrashLogUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/lang/DateExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/lang/DateExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/lang/DateExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/library/QueryNodeExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/upcoming/UpcomingViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/upcoming/UpcomingViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/upcoming/UpcomingViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/upcoming/components/calendar/CalendarDay.kt",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "SystemD",
+          "path": "app/src/main/java/mihon/feature/upcoming/components/calendar/CalendarHeader.kt",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "SystemD",
+          "path": "data/src/main/java/tachiyomi/data/manga/MangaRepositoryImpl.kt",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "SystemD",
+          "path": "presentation-widget/src/main/java/tachiyomi/presentation/widget/BaseUpdatesGridGlanceWidget.kt",
+          "role": "source"
+        },
+        {
+          "line": 284,
+          "matched_term": "SystemD",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 35
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 125,
+          "matched_term": "Translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "Translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "translation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1095,
+          "matched_term": "anki",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1097,
+          "matched_term": "anki",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1461,
+          "matched_term": "anki",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1086,
+          "matched_term": "anki",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 270,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/presentation/download/DownloadQueueList.kt",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 567,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "translation",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "i18n/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Translation",
+          "path": "i18n/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "translation",
+          "path": "i18n/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 887,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/eo/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/kmr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/lt/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 610,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/lt/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/tr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 832,
+          "matched_term": "anki",
+          "path": "i18n/src/commonMain/moko-resources/tr/strings.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 36
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 204,
+          "matched_term": "quic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 204,
+          "matched_term": "quic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 142,
+          "matched_term": "quic",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "quic",
+          "path": "app/proguard-rules.pro",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSearchScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/extension/util/ExtensionInstallReceiver.kt",
+          "role": "source"
+        },
+        {
+          "line": 798,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/ReaderViewModel.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/GestureDetectorWithLongTap.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonFrame.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonFrame.kt",
+          "role": "source"
+        },
+        {
+          "line": 229,
+          "matched_term": "Quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "Quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 308,
+          "matched_term": "Quic",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webtoon/WebtoonRecyclerView.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "brotli",
+          "path": "core/common/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "quic",
+          "path": "core/common/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "quic",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/network/JavaScriptEngine.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Quic",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/network/JavaScriptEngine.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Quic",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/network/JavaScriptEngine.kt",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "quic",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "brotli",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "brotli",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 28
+      }
+    },
+    "koreader_sync": {
+      "evidence": [
+        {
+          "line": 485,
+          "matched_term": "KoSync",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1475,
+          "matched_term": "KoSync",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1480,
+          "matched_term": "KoSync",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 25
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 72,
+          "matched_term": "ingPlace",
+          "path": "app/src/main/java/eu/kanade/presentation/components/Banners.kt",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "ingPlace",
+          "path": "app/src/main/java/eu/kanade/presentation/components/Banners.kt",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "ingPlace",
+          "path": "app/src/main/java/eu/kanade/presentation/components/Banners.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/BufferedSourceFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/BufferedSourceFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "FileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/MangaCoverFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "fileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/MangaCoverFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "FileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/coil/MangaCoverFetcher.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "filesystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "filesystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 515,
+          "matched_term": "in place",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 522,
+          "matched_term": "filesystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/Downloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 1332,
+          "matched_term": "in place",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webgpu/WebGpuViewer.kt",
+          "role": "source"
+        },
+        {
+          "line": 1449,
+          "matched_term": "in place",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webgpu/WebGpuViewer.kt",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "in place",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/viewer/webgpu/WebGpuViewerSettings.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "FileSystem",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/storage/FileExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "in place",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/network/ApolloExtensions.kt",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "filesystem",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/util/storage/DiskUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "filesystem",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/util/storage/DiskUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "filesystem",
+          "path": "core/common/src/main/kotlin/eu/kanade/tachiyomi/util/storage/DiskUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "in place",
+          "path": "core/common/src/main/kotlin/mihon/core/common/cache/TtlDiskCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "in place",
+          "path": "core/common/src/main/kotlin/tachiyomi/core/common/preference/Preference.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "in place",
+          "path": "core/common/src/main/kotlin/tachiyomi/core/common/preference/Preference.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "in place",
+          "path": "data/src/main/sqldelight/tachiyomi/migrations/17.sqm",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "in place",
+          "path": "domain/src/main/java/tachiyomi/domain/backup/repository/RestoreRepository.kt",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "in place",
+          "path": "domain/src/main/java/tachiyomi/domain/manga/interactor/ReleaseSchedule.kt",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "FileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "fileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "FileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "FileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/image/LocalCoverManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "fileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/image/LocalCoverManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "FileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/image/LocalCoverManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "FileSystem",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/LocalSourceFileSystem.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 47
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 298,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 428,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "metadata",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "Metadata",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "Metadata",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6023,
+          "matched_term": "isbn",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 6025,
+          "matched_term": "isbn",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2372,
+          "matched_term": "Metadata",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2566,
+          "matched_term": "Metadata",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 3108,
+          "matched_term": "Metadata",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/domain/manga/model/Manga.kt",
+          "role": "source"
+        },
+        {
+          "line": 361,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 401,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAdvancedScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 304,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsAdvancedScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsLibraryScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupDecoder.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupFileValidator.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupStream.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupStream.kt",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/BackupStream.kt",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/create/BackupCreator.kt",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/restore/BackupRestorer.kt",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/Downloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/Downloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "fetchDetails = libraryPreferences.autoUpdateMetadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/LibraryUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/MetadataUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/MetadataUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "Metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/MetadataUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/komga/KomgaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/komga/KomgaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/komga/KomgaApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/komga/KomgaModels.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 269,
+        "test": 12
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "Dry-run",
+          "path": "app/src/main/java/mihon/core/migration/MigrationJobFactory.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "Authorization",
+          "path": ".github/workflows/update_website.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 450,
+          "matched_term": "authentication",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 676,
+          "matched_term": "multi user",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 807,
+          "matched_term": "OAuth",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 416,
+          "matched_term": "oidC",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "oauth",
+          "path": "app/google-services.json",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "oauth",
+          "path": "app/google-services.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "oauth",
+          "path": "app/google-services.json",
+          "role": "source"
+        },
+        {
+          "line": 3944,
+          "matched_term": "Authorization",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 4878,
+          "matched_term": "Authorization",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 4883,
+          "matched_term": "Authorization",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1592,
+          "matched_term": "OAuth",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1600,
+          "matched_term": "OAuth",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2146,
+          "matched_term": "OAuth",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Authentication",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSecurityScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "Authentication",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSecurityScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/Anilist.kt",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/Anilist.kt",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/Anilist.kt",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/AnilistInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/anilist/dto/ALOAuth.kt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/Bangumi.kt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/Bangumi.kt",
+          "role": "source"
+        },
+        {
+          "line": 111,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/Bangumi.kt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "authorization",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/BangumiInterceptor.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/bangumi/dto/BGMOAuth.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/Comick.kt",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/Comick.kt",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "oauth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/Comick.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 235,
+          "matched_term": "OAuth",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "authorization",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickApi.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 408
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 48,
+          "matched_term": "S3",
+          "path": "domain/src/main/java/tachiyomi/domain/chapter/service/ChapterRecognition.kt",
+          "role": "source"
+        },
+        {
+          "line": 225,
+          "matched_term": "S3",
+          "path": "domain/src/test/java/tachiyomi/domain/chapter/service/ChapterRecognitionTest.kt",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "permission",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 258,
+          "matched_term": "permission",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 514,
+          "matched_term": "permission",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 670,
+          "matched_term": "permission",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "permission",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "permission",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "user's moderator role",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "permission",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Permission",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Permission",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/domain/base/BasePreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/OnboardingScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/PermissionStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/PermissionStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/onboarding/PermissionStep.kt",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsDataScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSecurityScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSecurityScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/SettingsSecurityScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/presentation/more/settings/screen/data/CreateBackupScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/presentation/util/Permissions.kt",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/notification/NotificationHandler.kt",
+          "role": "source"
+        },
+        {
+          "line": 512,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/notification/NotificationReceiver.kt",
+          "role": "source"
+        },
+        {
+          "line": 533,
+          "matched_term": "PERMISSION",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/notification/NotificationReceiver.kt",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickApi.kt",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "Permission",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/track/comick/ComickApi.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 9,
+        "source": 817
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 116,
+          "matched_term": "furthest",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 385,
+          "matched_term": "progress sync",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 561,
+          "matched_term": "reading progress",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2092,
+          "matched_term": "SyncProgress(input: PullKoSyncProgressInput!): PullKoSyncProgress",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2094,
+          "matched_term": "SyncProgress(input: PushKoSyncProgressInput!): PushKoSyncProgress",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2621,
+          "matched_term": "SyncProgress",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "syncChapterProgressWithTrack: SyncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/AddTracks.kt",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "SyncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/AddTracks.kt",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "syncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/AddTracks.kt",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "syncChapterProgressWithTrack: SyncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/RefreshTracks.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "syncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/RefreshTracks.kt",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "SyncChapterProgress",
+          "path": "app/src/main/java/eu/kanade/domain/track/interactor/SyncChapterProgressWithTrack.kt",
+          "role": "source"
+        },
+        {
+          "line": 448,
+          "matched_term": "furthest",
+          "path": "data/src/main/sqldelight/tachiyomi/migrations/17.sqm",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Sync your reading progress",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "progress sync",
+          "path": "i18n/src/commonMain/moko-resources/base/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 582,
+          "matched_term": "sync\">Update progress",
+          "path": "i18n/src/commonMain/moko-resources/base/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 585,
+          "matched_term": "sync to update the chapter progress",
+          "path": "i18n/src/commonMain/moko-resources/base/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "sync para mai-update ang progress",
+          "path": "i18n/src/commonMain/moko-resources/fil/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 228,
+          "matched_term": "sync\">I-update ang progress",
+          "path": "i18n/src/commonMain/moko-resources/fil/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 614,
+          "matched_term": "sync sa progress",
+          "path": "i18n/src/commonMain/moko-resources/fil/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "sync\">Synchroniser la progress",
+          "path": "i18n/src/commonMain/moko-resources/fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 361,
+          "matched_term": "Synchronisation à sens unique pour mettre à jour la progress",
+          "path": "i18n/src/commonMain/moko-resources/fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 615,
+          "matched_term": "Synchronisation unidirectionnelle de la progress",
+          "path": "i18n/src/commonMain/moko-resources/fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "sync\">Atualizar o progress",
+          "path": "i18n/src/commonMain/moko-resources/pt-rBR/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "sync\">Atualizar progress",
+          "path": "i18n/src/commonMain/moko-resources/pt/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "sync\">Agiorna su progress",
+          "path": "i18n/src/commonMain/moko-resources/sc/strings.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 29
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 255,
+          "matched_term": "Theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 319,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 478,
+          "matched_term": "Theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "theme",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 682,
+          "matched_term": "theme",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 684,
+          "matched_term": "Theme",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 687,
+          "matched_term": "theme",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "theme",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "Theme",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "Theme",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 787,
+          "matched_term": "Theme",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 789,
+          "matched_term": "theme",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/UiPreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/UiPreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/UiPreferences.kt",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/AppTheme.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/AppTheme.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/AppTheme.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/ThemeMode.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/ThemeMode.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/domain/ui/model/ThemeMode.kt",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionDetailsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionDetailsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 212,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionDetailsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/MigrateSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/MigrateSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/MigrateSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/SourcesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/SourcesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/SourcesScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BaseBrowseItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BaseBrowseItem.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Theme",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/components/BaseBrowseItem.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 7,
+        "source": 2928
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/1_request_feature.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 96,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/2_report_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 96,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/2_report_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 98,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/2_report_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": ".github/renovate.json5",
+          "role": "configuration"
+        },
+        {
+          "line": 45,
+          "matched_term": "secret",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 51,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 57,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "secret",
+          "path": ".github/workflows/update_website.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "https",
+          "path": ".github/workflows/update_website.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 267,
+          "matched_term": "TLS",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 330,
+          "matched_term": "https",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 345,
+          "matched_term": "https",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "https",
+          "path": "app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6313,
+          "matched_term": "https",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1725,
+          "matched_term": "https",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 6586,
+          "matched_term": "https",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 747,
+          "matched_term": "https",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1887,
+          "matched_term": "https",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1574,
+          "matched_term": "Credential",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1584,
+          "matched_term": "Credential",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 2144,
+          "matched_term": "Credential",
+          "path": "app/src/main/graphql/mihon/graphql/suwayomi/suwayomi.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "HttpS",
+          "path": "app/src/main/java/eu/kanade/domain/chapter/interactor/SyncChaptersWithSource.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 25,
+        "documentation": 1330,
+        "source": 460,
+        "test": 5
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 50,
+          "matched_term": "unit test",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 103,
+          "matched_term": "benchmark",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "benchmark",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "benchmark",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "Benchmark",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "Benchmark",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Benchmark",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/system/BuildConfig.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "benchmark",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/system/BuildConfig.kt",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/src/main/kotlin/mihon/baselineprofile/BaselineProfileGenerator.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/src/main/kotlin/mihon/baselineprofile/StartupBenchmarks.kt",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/src/main/kotlin/mihon/baselineprofile/StartupBenchmarks.kt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/src/main/kotlin/mihon/baselineprofile/StartupBenchmarks.kt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "benchmark",
+          "path": "baseline-profile/src/main/kotlin/mihon/baselineprofile/StartupProfileGenerator.kt",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "benchmark",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "benchmark",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "benchmark",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 50
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 613,
+          "matched_term": "chapter mark",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-mihon.jsonl.gz",
+  "files": {
+    "scanned_bytes": 9183662,
+    "scanned_text": 1449,
+    "skipped_binary_or_empty": 20,
+    "skipped_large": 4,
+    "skipped_sensitive_name": 0,
+    "tracked": 1473
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "cb7",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/Archive.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cbt",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/Archive.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "cbr",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/Archive.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 422,
+          "matched_term": "CBZ",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 423,
+          "matched_term": "cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 417,
+          "matched_term": ".cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadManager.kt",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": ".cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadProvider.kt",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": ".cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadProvider.kt",
+          "role": "source"
+        },
+        {
+          "line": 438,
+          "matched_term": ".cbz",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/Downloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 689,
+          "matched_term": "CBZ",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/download/Downloader.kt",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ar/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 430,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/as/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 575,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/base/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 455,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/be/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 595,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/bg/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 735,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/bn/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 536,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ca/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 293,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ceb/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 541,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/cs/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/de/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/el/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 614,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/eo/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/es/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 516,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/eu/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 523,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/fa/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 529,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/fi/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/fil/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 541,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/fr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 477,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/gl/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 393,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/he/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 539,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/hi/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 545,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/hr/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 502,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/hu/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 545,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/in/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/it/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ja/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/kk/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ko/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/lt/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 293,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/lv/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 542,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/ms/strings.xml",
+          "role": "source"
+        },
+        {
+          "line": 539,
+          "matched_term": "CBZ",
+          "path": "i18n/src/commonMain/moko-resources/nb-rNO/strings.xml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 65
+      }
+    },
+    "daisy": {
+      "evidence": [
+        {
+          "line": 72,
+          "matched_term": "daisy",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 463,
+          "matched_term": "EPUB ",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": ".Epub",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/loader/ChapterLoader.kt",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": ".epub",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/reader/loader/EpubPageLoader.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub ",
+          "path": "core/archive/src/main/kotlin/mihon/core/archive/EpubReader.kt",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "epub",
+          "path": "core/archive/src/main/kotlin/mihon/core/archive/EpubReader.kt",
+          "role": "source"
+        },
+        {
+          "line": 297,
+          "matched_term": "epub",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 313,
+          "matched_term": ".Epub",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/LocalSource.kt",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Epub",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/Format.kt",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "epub",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/io/Format.kt",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "epub ",
+          "path": "source-local/src/main/kotlin/tachiyomi/source/local/metadata/EpubReaderExtensions.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 20
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": ".html",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "xhtml",
+          "path": "core/archive/src/main/kotlin/mihon/core/archive/EpubReader.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": ".md",
+          "path": ".github/workflows/build.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 474,
+          "matched_term": "markdown",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 475,
+          "matched_term": "markdown",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": ".md",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "markdown",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "markdown",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "Markdown",
+          "path": "app/src/main/graphql/mihon/graphql/anilist/anilist.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1260,
+          "matched_term": "markdown",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 6586,
+          "matched_term": "Markdown",
+          "path": "app/src/main/graphql/mihon/graphql/kitsu/kitsu.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1887,
+          "matched_term": "Markdown",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 1887,
+          "matched_term": "markdown",
+          "path": "app/src/main/graphql/mihon/graphql/shikimori/shikimori.graphqls",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaInfoHeader.kt",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaInfoHeader.kt",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaNotesDisplay.kt",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "Markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaNotesTextArea.kt",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "Markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MangaNotesTextArea.kt",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MarkdownRender.kt",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/manga/components/MarkdownRender.kt",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/more/NewUpdateScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "markdown",
+          "path": "app/src/main/java/eu/kanade/presentation/more/NewUpdateScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Markdown",
+          "path": "data/src/main/java/tachiyomi/data/release/ReleaseServiceImpl.kt",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "markdown",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "markdown",
+          "path": "gradle/libs.versions.toml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 5,
+        "source": 192
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "package document",
+          "path": "core/archive/src/main/kotlin/mihon/core/archive/EpubReader.kt",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": ".opf",
+          "path": "core/archive/src/main/kotlin/mihon/core/archive/EpubReader.kt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "plain text",
+          "path": ".github/ISSUE_TEMPLATE/2_report_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 792,
+          "matched_term": ".txt",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 792,
+          "matched_term": ".txt",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": ".txt",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": ".txt",
+          "path": "app/build.gradle.kts",
+          "role": "source"
+        },
+        {
+          "line": 397,
+          "matched_term": "Plain text",
+          "path": "app/src/main/java/eu/kanade/presentation/browse/ExtensionsScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": ".txt",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/backup/restore/BackupRestorer.kt",
+          "role": "source"
+        },
+        {
+          "line": 401,
+          "matched_term": ".txt",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/data/library/LibraryUpdateWorker.kt",
+          "role": "source"
+        },
+        {
+          "line": 300,
+          "matched_term": ".txt",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 301,
+          "matched_term": ".txt",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/browse/BrowseSourceScreen.kt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".txt",
+          "path": "app/src/main/java/eu/kanade/tachiyomi/util/CrashLogUtil.kt",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": ".txt",
+          "path": "gradlew",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 4,
+        "source": 10
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 133,
+          "matched_term": "lpf",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/mihonapp/mihon",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Kotlin": 957,
+    "XML": 251
+  },
+  "license_review": {
+    "candidate_notices": [
+      "Apache-2.0"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/mihonapp/mihon",
+  "readme_files": [
+    "README.md",
+    "i18n/README.md"
+  ],
+  "revision": "e588e04359fe1058206a2cbac1b01018ad787359",
+  "schema_version": 1,
+  "slug": "mihon",
+  "support_claims_allowed": false,
+  "tree": "c4020f7b022d1d93a0d0a72e997091cb3582c054"
+}

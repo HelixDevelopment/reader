@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "mutation": "viewport declaration removed from built index.html",
+  "expected": "non-zero verifier exit and viewport-meta failure at all four viewports",
+  "verifier_exit": 1,
+  "failures": [
+    {
+      "viewport": "phone",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "tablet",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "desktop",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "wide",
+      "id": "viewport-meta"
+    }
+  ],
+  "status": "PASS"
+}

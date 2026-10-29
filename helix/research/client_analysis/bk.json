@@ -1,0 +1,395 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "rag",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "rag",
+          "path": "src/epub.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "collection",
+          "path": "src/main.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 185,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 47
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 57,
+          "matched_term": "dictionary",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 292,
+          "matched_term": "metadata",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Metadata",
+          "path": "src/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Metadata",
+          "path": "src/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "Metadata",
+          "path": "src/view.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "secret",
+          "path": ".github/workflows/main.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "https",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "https",
+          "path": "src/main.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 3,
+        "source": 49
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-bk.jsonl.gz",
+  "files": {
+    "scanned_bytes": 49842,
+    "scanned_text": 10,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 10
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "Epub ",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "epub",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB 2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "Epub",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Epub",
+          "path": "src/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "epub",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "epub",
+          "path": "src/main.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 3,
+        "source": 26
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "FictionBook",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": ".md",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": "Mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "AZW3",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/aeosynth/bk",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Rust": 3
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/aeosynth/bk",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "8d527788821faee1a2f961d576997351cd68767d",
+  "schema_version": 1,
+  "slug": "bk",
+  "support_claims_allowed": false,
+  "tree": "72f362f855d6dab4693369bb01a0d9fac5475bb5"
+}

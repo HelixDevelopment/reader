@@ -1,0 +1,16 @@
+=== RUN   TestLivePostgresVectorMemory
+--- PASS: TestLivePostgresVectorMemory (0.28s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.335s
+=== RUN   TestLivePostgresCatalogRoundTrip
+--- PASS: TestLivePostgresCatalogRoundTrip (0.15s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	0.165s
+=== RUN   TestLiveRedisKOSyncRoundTrip
+--- PASS: TestLiveRedisKOSyncRoundTrip (0.05s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	0.070s
+=== RUN   TestLiveRedisProgressConflictAndReconnect
+--- PASS: TestLiveRedisProgressConflictAndReconnect (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.023s

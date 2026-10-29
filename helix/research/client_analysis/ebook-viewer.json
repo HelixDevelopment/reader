@@ -1,0 +1,1082 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "src/components/viewer.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 6
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "bookmark",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "Bookmark",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "bookmark",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "bookmark",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "bookmark",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 5
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "CBZ",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CBR",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "cache",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "cache",
+          "path": "Makefile",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "cache",
+          "path": "src/components/viewer.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "cache",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "cache",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "cache",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 27
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "conversion",
+          "path": "src/components/file_chooser.py",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "ebook-convert",
+          "path": "src/components/file_chooser.py",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "ebook-convert",
+          "path": "src/components/header_bar.py",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "ebook-convert",
+          "path": "src/components/header_bar.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB\", \".FB2",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 250,
+          "matched_term": "ebook-convert",
+          "path": "src/main_window.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "redis",
+          "path": "po/es.po",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "redis",
+          "path": "po/es.po",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "redis",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "redis",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "redis",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "redis",
+          "path": "po/pl.po",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "redis",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/chapters_list.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/file_chooser.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/header_bar.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/preferences_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/components/viewer.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/main.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "redis",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 17
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 48,
+          "matched_term": "Translation",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "translation",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "translation",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "translation",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "translation",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "translation",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "DRM",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 4
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "metadata",
+          "path": "misc/easy-ebook-viewer-scalable.svg",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "metadata",
+          "path": "misc/easy-ebook-viewer-scalable.svg",
+          "role": "source"
+        },
+        {
+          "line": 172,
+          "matched_term": "metadata",
+          "path": "misc/easy-ebook-viewer-scalable.svg",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": "src/workers/config_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "metadata",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "metadata",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "metadata",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 31
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "DJVU",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 76,
+          "matched_term": "permission",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 20,
+        "source": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 48,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "css/day.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "css/night.css",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "theme",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "theme",
+          "path": "src/components/preferences_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "theme",
+          "path": "src/components/preferences_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "theme",
+          "path": "src/components/preferences_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "theme",
+          "path": "src/components/viewer.py",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "theme",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "theme",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "theme",
+          "path": "src/main_window.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 33
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "https",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 5,
+        "source": 3
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "Unit test",
+          "path": ".gitignore",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-ebook-viewer.jsonl.gz",
+  "files": {
+    "scanned_bytes": 144926,
+    "scanned_text": 25,
+    "skipped_binary_or_empty": 7,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 32
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".CBR",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".CBZ",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "djvu": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".DJVU",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".DOCX",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "ePub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "ePub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub",
+          "path": "misc/easy-ebook-viewer.desktop",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "ePub ",
+          "path": "po/es.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "ePub",
+          "path": "po/es.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "ePub ",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "ePub ",
+          "path": "po/fr.po",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "ePub ",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "ePub ",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "ePub ",
+          "path": "po/pl.po",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "ePub",
+          "path": "po/pl.po",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "ePub ",
+          "path": "src/components/about_dialog.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "ePub ",
+          "path": "src/components/file_chooser.py",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".epub",
+          "path": "src/components/file_chooser.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".EPUB",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".EPUB",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 250,
+          "matched_term": ".epub",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 255,
+          "matched_term": ".epub",
+          "path": "src/main_window.py",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "ePub ",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 24
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": ".FB2",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "po/ja.po",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "html5",
+          "path": "src/components/viewer.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".HTML",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "xhtml",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "xhtml",
+          "path": "src/workers/content_provider.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".AZW",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".AZW3",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 3
+      }
+    },
+    "odt_rtf": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": ".ODT",
+          "path": "src/constants.py",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".RTF",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": ".PDF",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": ".txt",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".TXT",
+          "path": "src/constants.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    }
+  },
+  "inventory_url": "https://github.com/michaldaniel/ebook-viewer",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 3,
+    "Python": 14,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/michaldaniel/ebook-viewer",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "975a7bcecabcf4739363cbd87a88c1c1b4551f1c",
+  "schema_version": 1,
+  "slug": "ebook-viewer",
+  "support_claims_allowed": false,
+  "tree": "3e7587d30152d306c3aef19e49b660dce61405e4"
+}

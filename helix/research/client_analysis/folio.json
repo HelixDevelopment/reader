@@ -1,0 +1,5035 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "rag",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 41,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": ".prettierignore",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 101,
+          "matched_term": "rag",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "LLM",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "rag",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "rag",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "rag",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 288,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 343,
+          "matched_term": "rag",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "rag",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "rag",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 261,
+          "matched_term": "rag",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 263,
+          "matched_term": "rag",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "rag",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "rag",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 227,
+          "matched_term": "rag",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Anthropic",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "anthropic",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "Anthropic",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "Anthropic",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "rag",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": "rag",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "rag",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "rag",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "rag",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "rag",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 166,
+        "source": 386,
+        "test": 99
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 52,
+          "matched_term": "Annotation",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 198,
+          "matched_term": "annotation",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 100,
+          "matched_term": "highlight",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 101,
+          "matched_term": "highlight",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "highlight",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "annotation",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 196,
+          "matched_term": "highlight",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "Bookmark",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "highlight",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "Annotation",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "highlight",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "annotation",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "annotation",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "highlight",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "annotation",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Highlight",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "highlight",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 490,
+          "matched_term": "annotation",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 498,
+          "matched_term": "bookmark",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 500,
+          "matched_term": "annotation",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "annotation",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "Annotation",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "annotation",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "annotation",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "highlight",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "annotation",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "annotation",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "annotation",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "Annotation",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "annotation",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "annotation",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "annotation",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "bookmark",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "highlight",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "annotation",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "annotation",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 101,
+          "matched_term": "Annotation",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 182,
+        "source": 496,
+        "test": 201
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 235,
+          "matched_term": "snapshot",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 289,
+          "matched_term": "snapshot",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "restore",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "snapshot",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 164,
+          "matched_term": "restore",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 322,
+          "matched_term": "restore",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 351,
+          "matched_term": "reStore",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 354,
+          "matched_term": "reStore",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 292,
+          "matched_term": "snapshot",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 309,
+          "matched_term": "snapshot",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 376,
+          "matched_term": "restore",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 203,
+          "matched_term": "restore",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 238,
+          "matched_term": "snapshot",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 356,
+          "matched_term": "snapshot",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "restore",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "restore",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 194,
+          "matched_term": "restore",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "reStore",
+          "path": "scripts/corpus/corpus.harness.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 110,
+          "matched_term": "reStore",
+          "path": "scripts/corpus/corpus.harness.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 4525,
+          "matched_term": "snapshot",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "Restore",
+          "path": "src-tauri/installer.nsh",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "backup",
+          "path": "src-tauri/installer.nsh",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "restore",
+          "path": "src-tauri/installer.nsh",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Restore",
+          "path": "src/a11y/focus.ts",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": "snapshot",
+          "path": "src/components/Toolbar/Toolbar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Restore",
+          "path": "src/components/common/ErrorBoundary.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "restore",
+          "path": "src/core/document/openFromQuery.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 120,
+          "matched_term": "restore",
+          "path": "src/core/pdf/PdfJsEngine.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 287,
+          "matched_term": "restore",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "snapshot",
+          "path": "src/features/annotations/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Snapshot",
+          "path": "src/features/combine/commands.ts",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "snapshot",
+          "path": "src/features/combine/store.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 120,
+          "matched_term": "snapshot",
+          "path": "src/features/combine/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "snapshot",
+          "path": "src/features/editing/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "reStore",
+          "path": "src/features/export/saveDocument.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 191,
+          "matched_term": "Restore",
+          "path": "src/features/export/saveDocument.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 302,
+          "matched_term": "reStore",
+          "path": "src/features/export/saveDocument.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "reStore",
+          "path": "src/features/export/saveDocument.ts",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "reStore",
+          "path": "src/features/export/saveDocument.ts",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "reStore",
+          "path": "src/features/export/saveDocument.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 16,
+        "source": 112,
+        "test": 66
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 85,
+          "matched_term": "series",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "series",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7625,
+          "matched_term": "collection",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 7635,
+          "matched_term": "collection",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 7637,
+          "matched_term": "collection",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1658,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1690,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1710,
+          "matched_term": "collection",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "collection",
+          "path": "src/features/annotations/store.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "collection",
+          "path": "src/features/annotations/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "collection",
+          "path": "src/features/editing/editing.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": "collection",
+          "path": "src/features/editing/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "series",
+          "path": "src/features/links/copyTarget.ts",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "collection",
+          "path": "src/features/ocr/ocr.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 38,
+          "matched_term": "collection",
+          "path": "src/features/ocr/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "collection",
+          "path": "src/features/pageops/pageState.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "collection",
+          "path": "src/features/pageops/pageState.ts",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "collection",
+          "path": "src/features/signatures/store.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "collection",
+          "path": "src/features/signatures/store.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 16,
+        "test": 5
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 1302,
+          "matched_term": "CBT",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1768,
+          "matched_term": "CbR",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 3543,
+          "matched_term": "cbT",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 649,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1518,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2071,
+          "matched_term": "cb7",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 80,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 130,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 50,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "thumbnail",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "thumbnail",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "thumbnail",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "thumbnail",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 198,
+          "matched_term": "cache",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "Thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "thumbnail",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Thumbnail",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Thumbnail",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "thumbnail",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "thumbnail",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 260,
+          "matched_term": "thumbnail",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 182,
+          "matched_term": "thumbnail",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 190,
+          "matched_term": "thumbnail",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 203,
+          "matched_term": "cache",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "cache",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "thumbnail",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "cache",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 393,
+          "matched_term": "CDN",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "Thumbnail",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "cache",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "cache",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "thumbnail",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "thumbnail",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "thumbnail",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 206,
+          "matched_term": "cache",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 260,
+          "matched_term": "cache",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 273,
+          "matched_term": "thumbnail",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 569,
+          "matched_term": "CDN",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 669,
+          "matched_term": "thumbnail",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "Thumbnail",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "Thumbnail",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "thumbnail",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "cache",
+          "path": "e2e/browser-extension.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "e2e/browser-extension.spec.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 58,
+        "source": 237,
+        "test": 27
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 50,
+          "matched_term": "conversion",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5426,
+          "matched_term": "conversion",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5990,
+          "matched_term": "conversion",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 5992,
+          "matched_term": "conversion",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "conversion",
+          "path": "src/core/pdf/viewportRect.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "conversion",
+          "path": "src/core/pdf/viewportRect.ts",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "conversion",
+          "path": "src/features/links/copyTarget.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 11,
+        "test": 1
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": "Accessibility",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "Accessibility",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 53,
+          "matched_term": "Screen reader",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "screen reader",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 298,
+          "matched_term": "screen reader",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 389,
+          "matched_term": "screen reader",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "Accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "accessibility",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Accessibility",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "screen reader",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Accessibility",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "accessibility",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "accessibility",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Accessibility",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "accessibility",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "screen reader",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Accessibility",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Accessibility",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "accessibility",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "Accessibility",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "Accessibility",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "screen reader",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "accessibility",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "accessibility",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "accessibility",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "accessibility",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "accessibility",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 213,
+          "matched_term": "Accessibility",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 153,
+          "matched_term": "accessibility",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 218,
+          "matched_term": "accessibility",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "accessibility",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 250,
+          "matched_term": "accessibility",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 348,
+          "matched_term": "screen reader",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 594,
+          "matched_term": "screen reader",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "accessibility",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "screen reader",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "accessibility",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "aria-",
+          "path": "e2e/accessibility.spec.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 155,
+        "source": 209,
+        "test": 41
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 113,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 85,
+          "matched_term": "duplicate",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 98,
+          "matched_term": "sha256",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 100,
+          "matched_term": "sha256",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 214,
+          "matched_term": "sha256",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": "sha256",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "checksum",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "SHA256",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "fingerprint",
+          "path": ".gitleaksignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "fingerprint",
+          "path": ".gitleaksignore",
+          "role": "source"
+        },
+        {
+          "line": 117,
+          "matched_term": "duplicate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 609,
+          "matched_term": "fingerprint",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 612,
+          "matched_term": "fingerprint",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": "sha256",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 224,
+          "matched_term": "duplicate",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "duplicate",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "duplicate",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 277,
+          "matched_term": "fingerprint",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 288,
+          "matched_term": "fingerprint",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "fingerprint",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 198,
+          "matched_term": "fingerprint",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "fingerprint",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "fingerprint",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "fingerprint",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "fingerprint",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 233,
+          "matched_term": "fingerprint",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 233,
+          "matched_term": "fingerprint",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 246,
+          "matched_term": "fingerprint",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 342,
+          "matched_term": "duplicate",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "duplicate",
+          "path": "extensions/chrome/background.js",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "dedup",
+          "path": "extensions/chrome/options.js",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "duplicate",
+          "path": "extensions/chrome/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "duplicate",
+          "path": "extensions/chrome/settings.test.js",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": "SHA-256",
+          "path": "scripts/setup-ocr-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "sha256",
+          "path": "scripts/setup-ocr-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "SHA256",
+          "path": "scripts/setup-ocr-assets.mjs",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "sha256",
+          "path": "scripts/sign-windows.ps1",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "sha256",
+          "path": "scripts/sign-windows.ps1",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 38,
+        "source": 651,
+        "test": 25
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 151,
+          "matched_term": "GitHub Actions",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 212,
+          "matched_term": "docker",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "GitHub Actions",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 505,
+          "matched_term": "GitHub Actions",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1106,
+          "matched_term": "GitHub Actions",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "CI/CD",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "GitHub Actions",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "GitHub Actions",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 82,
+          "matched_term": "GitHub Actions",
+          "path": "extensions/vscode/DISTRIBUTING.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 3,
+        "source": 4
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 694,
+          "matched_term": "dictionary",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 125,
+          "matched_term": "Translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "dictionary",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 283,
+          "matched_term": "dictionary",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 297,
+          "matched_term": "dictionary",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "dictionary",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 141,
+          "matched_term": "dictionary",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 89,
+          "matched_term": "dictionary",
+          "path": "e2e/annotations.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "dictionary",
+          "path": "src/core/pdf/types.ts",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": "dictionary",
+          "path": "src/features/annotations/bake.ts",
+          "role": "source"
+        },
+        {
+          "line": 422,
+          "matched_term": "dictionary",
+          "path": "src/features/imageedit/mutate.ts",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "dictionary",
+          "path": "src/features/pageops/mutate.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": "dictionary",
+          "path": "src/features/signing/verify.fuzz.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 160,
+          "matched_term": "dictionary",
+          "path": "src/features/signing/verify.fuzz.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 174,
+          "matched_term": "dictionary",
+          "path": "src/features/signing/verify.fuzz.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 213,
+          "matched_term": "dictionary",
+          "path": "src/features/signing/verify.ts",
+          "role": "source"
+        },
+        {
+          "line": 349,
+          "matched_term": "translation",
+          "path": "src/features/textedit/contentStream.ts",
+          "role": "source"
+        },
+        {
+          "line": 368,
+          "matched_term": "translation",
+          "path": "src/features/textedit/contentStream.ts",
+          "role": "source"
+        },
+        {
+          "line": 373,
+          "matched_term": "translation",
+          "path": "src/features/textedit/contentStream.ts",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "dictionary",
+          "path": "src/features/textedit/mutate.ts",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "dictionary",
+          "path": "src/features/textedit/mutate.ts",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "dictionary",
+          "path": "src/features/textedit/mutate.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 18,
+        "test": 6
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": "quic",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 136,
+          "matched_term": "quic",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 656,
+          "matched_term": "quic",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "quic",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 153,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "quic",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "quic",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "quic",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 274,
+          "matched_term": "quic",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 648,
+          "matched_term": "quic",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "quic",
+          "path": "extensions/vscode/build.mjs",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "quic",
+          "path": "extensions/vscode/build.mjs",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Brotli",
+          "path": "scripts/corpus/baseline.json",
+          "role": "source"
+        },
+        {
+          "line": 305,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 312,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 316,
+          "matched_term": "brotli",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "quic",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "quic",
+          "path": "src/features/ocr/ocr.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 20,
+          "matched_term": "quic",
+          "path": "src/features/ocr/ocr.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "quic",
+          "path": "src/features/ocr/ocr.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 65,
+          "matched_term": "quic",
+          "path": "vite.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "quic",
+          "path": "vite.config.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 7,
+        "source": 14,
+        "test": 5
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 241,
+          "matched_term": "drm",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 1599,
+          "matched_term": "drM",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 2140,
+          "matched_term": "Drm",
+          "path": "package-lock.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 7
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 87,
+          "matched_term": "local storage",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "in-place",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 129,
+          "matched_term": "local storage",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "in place",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "in place",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "in place",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "in place",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": "filesystem",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "in place",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "in-place",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 323,
+          "matched_term": "In-place",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "in place",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 261,
+          "matched_term": "in place",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 348,
+          "matched_term": "local storage",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 435,
+          "matched_term": "filesystem",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "in place",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "in place",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "in place",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "local storage",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "in-place",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "in place",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 147,
+          "matched_term": "in place",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "in place",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "in-place",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "filesystem",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "in-place",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 494,
+          "matched_term": "filesystem",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "in-place",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": "in place",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 516,
+          "matched_term": "in place",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 540,
+          "matched_term": "in place",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "local storage",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "local storage",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "in place",
+          "path": "eslint.config.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "in place",
+          "path": "extensions/chrome/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "in place",
+          "path": "extensions/chrome/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "in place",
+          "path": "extensions/chrome/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "Local files",
+          "path": "extensions/chrome/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "in place",
+          "path": "extensions/chrome/rules.js",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "filesystem",
+          "path": "extensions/chrome/zip.test.js",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 96,
+        "source": 54,
+        "test": 13
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "metadata",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 70,
+          "matched_term": "metadata",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 71,
+          "matched_term": "fetch-metadata",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 187,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 813,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1079,
+          "matched_term": "metadata",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 363,
+          "matched_term": "metadata",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "metadata",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 237,
+          "matched_term": "metadata",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "metadata",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "metadata",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 6536,
+          "matched_term": "metadata",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 6538,
+          "matched_term": "metadata",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "metadata",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 405,
+          "matched_term": "metadata",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3949,
+          "matched_term": "metadata",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "metadata",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 109,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 110,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.ts",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.ts",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "metadata",
+          "path": "src/core/document/openFromQuery.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/PdfEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "metadata",
+          "path": "src/core/pdf/PdfEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/PdfEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 503,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 503,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "src/core/pdf/types.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Metadata",
+          "path": "src/core/pdf/types.ts",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "Metadata",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "Metadata",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 199,
+          "matched_term": "metadata",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 111,
+          "matched_term": "Metadata",
+          "path": "src/features/combine/combineDocuments.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "documentation": 15,
+        "source": 59,
+        "test": 18
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "metadata and asks GitHub to merge",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 79,
+          "matched_term": "Merges two or more PDFs into one document via pdf-lib: pages, metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 361,
+          "matched_term": "locklist (loopback, RFC 1918, link-local incl. the `169.254.169.254` metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 386,
+          "matched_term": "lock SSRF against local/private/metadata",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 221,
+          "matched_term": "Metadata: false here too: loading the merge",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 224,
+          "matched_term": "merged = await PDFDocument.load(result.bytes, { updateMetadata",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 366,
+          "matched_term": "merged = await PDFDocument.load(result.bytes, { updateMetadata",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "test": 4
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 1043,
+          "matched_term": "per-user",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 122,
+          "matched_term": "JWT",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "per user",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "per-user",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "per-user",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "Per-user",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "per-user",
+          "path": "src-tauri/installer.nsh",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Per-user",
+          "path": "src-tauri/installer.nsh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 4
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 67,
+          "matched_term": "s3",
+          "path": "src/features/pageops/pageState.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 68,
+          "matched_term": "SMB",
+          "path": "src/features/updates/resumeAfterUpdate.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": "SMB",
+          "path": "src/features/updates/resumeAfterUpdate.ts",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "network share",
+          "path": "src/features/updates/resumeAfterUpdate.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 2
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 919,
+          "matched_term": "Highlights and sticky notes are no longer dropped when you save.** The export",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 223,
+          "matched_term": "annotations, editing, placement, textedit, imageedit, ocr, signatures, combine, pageops, links, upda",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "annotations/commands.ts`, but `file.save` and `file.saveAs` are declared in `src/features/export",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "export | `src/features/export/` | Writes the filled PDF (PDF.js `saveDocument`), then loads pdf-lib ",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 366,
+          "matched_term": "annotations in that order; see `src/features/export",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 158,
+          "matched_term": "annotations, editing (text/image/checkmarks), placement, in-place text & image edits, ocr, signature",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "export function formatNotesForAi(notes",
+          "path": "src/ai/notesContext.ts",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "export function Annotations",
+          "path": "src/features/annotations/AnnotationsPanel.tsx",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "export function Notes",
+          "path": "src/features/annotations/NotesLayer.tsx",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "export function stampAnnotations(pdf: PDFDocument, annotations",
+          "path": "src/features/annotations/bake.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "export { AnnotationsPanel } from './Annotations",
+          "path": "src/features/annotations/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "export { NotesLayer } from './Notes",
+          "path": "src/features/annotations/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "export { useNotesUi, textNearAnchor } from './notes",
+          "path": "src/features/annotations/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "export const useNotesUi = create<Notes",
+          "path": "src/features/annotations/notesUi.ts",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "export const useAnnotationStore = create<AnnotationS",
+          "path": "src/features/annotations/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "export type SidebarTab = 'thumbnails' | 'outline' | 'annotations",
+          "path": "src/state/viewerStore.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 12
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "pdfjs",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": "PDF.js",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "PDF.js",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "PDF.js",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "PDF.js",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "pdf.js",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "PDF.js",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "PDF.js",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "pdf.js",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "reflow",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF.js",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdfjs",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "PDF.js",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "PDF.js",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "PDF.js",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 147,
+          "matched_term": "PDF.js",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 240,
+          "matched_term": "PDF.js",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "PDF.js",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "reflow",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": "PDF.js",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 227,
+          "matched_term": "PDF.js",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "PDF.js",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF.js",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdfjs",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF.js",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "reflow",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "PDF.js",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "PDF.js",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "PDF.js",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "PDF.js",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "PDF.js",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF.js",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "pdfjs",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 157,
+          "matched_term": "PdfJs",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "PDF.js",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 171,
+          "matched_term": "PDF.js",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 233,
+          "matched_term": "PDF.js",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 130,
+          "matched_term": "pdf.js",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 130,
+          "matched_term": "pdfjs",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "PDFJS",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 141,
+        "source": 205,
+        "test": 64
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 64,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "permission",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "permission",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 125,
+          "matched_term": "permission",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 241,
+          "matched_term": "permission",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 262,
+          "matched_term": "permission",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "permission",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "permission",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "user input and system prompt are **structurally separated** in the API request body (Anthropic `syst",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "permission",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "permission",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 402,
+          "matched_term": "permission",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": "permission",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "permission",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 99,
+          "matched_term": "permission",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "permission",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 166,
+          "matched_term": "user (today: saving, printing, or signing while an OCR run is still filling in the text layer), it r",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 172,
+          "matched_term": "user is free to keep navigating a tree that is gone. `role",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 277,
+          "matched_term": "user mid-sentence. Messages that need attention go to a separate assertive region (`role",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 516,
+          "matched_term": "permission",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "permission",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 385,
+          "matched_term": "permission",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "Permission",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": "Permission",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 465,
+          "matched_term": "permission",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 498,
+          "matched_term": "permission",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 502,
+          "matched_term": "permission",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 125,
+          "matched_term": "permission",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 131,
+          "matched_term": "permission",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 132,
+          "matched_term": "permission",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 398,
+          "matched_term": "permission",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "Permission",
+          "path": "e2e/links.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 122,
+          "matched_term": "permission",
+          "path": "extensions/chrome/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "permission",
+          "path": "extensions/chrome/manifest.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 35,
+        "source": 24,
+        "test": 9
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "theme",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 449,
+          "matched_term": "dark mode",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 498,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 511,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "dark mode",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "dark mode",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "Dark mode",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "Dark mode",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Dark mode",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "theme",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "font size",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "font size",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "theme",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "dark mode",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "dark mode",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "theme",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "theme",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "theme",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 102,
+          "matched_term": "font size",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 143,
+          "matched_term": "font family",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "font size",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "theme",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "Theme",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 219,
+          "matched_term": "dark mode",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 191,
+          "matched_term": "theme",
+          "path": "docs/releasing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "theme",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 232,
+          "matched_term": "dark mode",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 232,
+          "matched_term": "theme",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "dark mode",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Dark mode",
+          "path": "docs/theming.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "font-size",
+          "path": "e2e/accessibility.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": "font size",
+          "path": "e2e/accessibility.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "font size",
+          "path": "e2e/accessibility.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "e2e/mobile.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "dark mode",
+          "path": "e2e/smoke.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "theme",
+          "path": "e2e/smoke.spec.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 170,
+        "source": 293,
+        "test": 66
+      }
+    },
+    "search": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "Full-text search",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 449,
+          "matched_term": "search index",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/CODEOWNERS",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 59,
+          "matched_term": "https",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "credential",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 74,
+          "matched_term": "credential",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 124,
+          "matched_term": "credential",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "secret",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 64,
+          "matched_term": "secret",
+          "path": ".github/workflows/dependabot-auto-merge.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "credential",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "secret",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "secret",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "secret",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "secret",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": ".pre-commit-config.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "certificate",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Secret",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "secret",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 125,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "Certificate",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "certificate",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "certificate",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "Certificate",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "certificate",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 25,
+        "documentation": 174,
+        "source": 1418,
+        "test": 107
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "vitest",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 63,
+          "matched_term": "vitest",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 63,
+          "matched_term": "vitest",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "unit test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "unit test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "Unit test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "playwright",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "playwright",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "fuzz test",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 477,
+          "matched_term": "Vitest",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 575,
+          "matched_term": "Playwright",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "Vitest",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 111,
+          "matched_term": "unit test",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "Playwright",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "Vitest",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "vitest",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 151,
+          "matched_term": "Playwright",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Vitest",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Playwright",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "Vitest",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 319,
+          "matched_term": "unit test",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 320,
+          "matched_term": "Playwright",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 234,
+          "matched_term": "unit test",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 361,
+          "matched_term": "benchmark",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "Vitest",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "unit test",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 131,
+          "matched_term": "Playwright",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Vitest",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "cargo test",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "unit test",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Unit test",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Vitest",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "Playwright",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "playwright",
+          "path": "e2e/accessibility.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "playwright",
+          "path": "e2e/annotations.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "playwright",
+          "path": "e2e/browser-extension.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "Playwright",
+          "path": "e2e/browser-extension.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "playwright",
+          "path": "e2e/browser-extension.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "playwright",
+          "path": "e2e/keyboard-manipulation.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "playwright",
+          "path": "e2e/links.spec.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 31,
+        "documentation": 80,
+        "source": 104,
+        "test": 117
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-folio.jsonl.gz",
+  "files": {
+    "scanned_bytes": 2722424,
+    "scanned_text": 395,
+    "skipped_binary_or_empty": 55,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 5,
+    "tracked": 455
+  },
+  "format_keyword_evidence": {
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 124,
+          "matched_term": ".doc",
+          "path": "scripts/corpus/corpus.harness.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 125,
+          "matched_term": ".doc",
+          "path": "scripts/corpus/corpus.harness.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 150,
+          "matched_term": ".doc",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": ".doc",
+          "path": "src/core/pdf/PdfJsEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 643,
+          "matched_term": ".doc",
+          "path": "src/features/combine/combineDocuments.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 447,
+          "matched_term": ".doc",
+          "path": "src/features/combine/combineDocuments.ts",
+          "role": "source"
+        },
+        {
+          "line": 475,
+          "matched_term": ".doc",
+          "path": "src/features/combine/combineDocuments.ts",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": ".doc",
+          "path": "src/features/combine/commands.ts",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": ".doc",
+          "path": "src/features/combine/store.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 157,
+          "matched_term": ".doc",
+          "path": "src/features/combine/store.ts",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": ".doc",
+          "path": "src/features/combine/store.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 17,
+        "test": 9
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 372,
+          "matched_term": ".html",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 119,
+          "matched_term": ".html",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": ".html",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 407,
+          "matched_term": ".html",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 260,
+          "matched_term": ".html",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 385,
+          "matched_term": ".html",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": ".html",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": ".html",
+          "path": "extensions/chrome/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "extensions/chrome/background.js",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".html",
+          "path": "extensions/chrome/background.js",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": ".html",
+          "path": "extensions/chrome/build.mjs",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": ".html",
+          "path": "extensions/chrome/build.mjs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".html",
+          "path": "extensions/chrome/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".html",
+          "path": "extensions/chrome/manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": ".html",
+          "path": "extensions/chrome/rules.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".html",
+          "path": "extensions/chrome/rules.test.js",
+          "role": "test"
+        },
+        {
+          "line": 65,
+          "matched_term": ".html",
+          "path": "extensions/chrome/zip.test.js",
+          "role": "test"
+        },
+        {
+          "line": 70,
+          "matched_term": ".html",
+          "path": "extensions/chrome/zip.test.js",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "extensions/vscode/.vscodeignore",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": ".html",
+          "path": "extensions/vscode/src/extension.ts",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".html",
+          "path": "scripts/check-extension-manifest.mjs",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": ".html",
+          "path": "scripts/check-extension-manifest.mjs",
+          "role": "source"
+        },
+        {
+          "line": 842,
+          "matched_term": "html5",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1515,
+          "matched_term": "html5",
+          "path": "src-tauri/Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": ".html",
+          "path": "src/components/common/ErrorBoundary.tsx",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "HTML5",
+          "path": "src/core/document/openDocument.ts",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "HTML5",
+          "path": "src/features/pageops/usePageDrag.ts",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "HTML5",
+          "path": "src/state/actions.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 8,
+        "source": 21,
+        "test": 3
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": ".md",
+          "path": ".editorconfig",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": ".md",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": ".md",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": ".md",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 195,
+          "matched_term": ".md",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": ".md",
+          "path": ".prettierignore",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": ".md",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": ".md",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": ".md",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": ".md",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": ".md",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": ".md",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": ".md",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": ".md",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": ".md",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": ".md",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "Markdown",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 520,
+          "matched_term": ".md",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": ".md",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": ".md",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": ".md",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".md",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".md",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": ".md",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": ".md",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 131,
+          "matched_term": ".md",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 131,
+          "matched_term": ".md",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".md",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": ".md",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 240,
+        "source": 56,
+        "test": 5
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": ".pdf",
+          "path": ".gitattributes",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "PDF",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 34,
+          "matched_term": "PDF",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 191,
+          "matched_term": "PDF",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 194,
+          "matched_term": "PDF",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 39,
+          "matched_term": "PDF",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "pdf",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "PDF",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "PDF",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "ROADMAP.md",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "PDF",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "PDF",
+          "path": "SECURITY.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "PDF",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "PDF",
+          "path": "docs/508-conformance.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "PDF",
+          "path": "docs/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": "PDF",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "PDF",
+          "path": "docs/accessibility.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "PDF",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "PDF",
+          "path": "docs/ai.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "PDF",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "docs/browser-extension-privacy.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "PDF",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "PDF",
+          "path": "docs/editing-and-ocr.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "PDF",
+          "path": "docs/forms-and-signatures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/getting-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "PDF",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "pdf",
+          "path": "docs/page-operations.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": "PDF",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 211,
+          "matched_term": "PDF",
+          "path": "docs/plugins.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": ".pdf",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "PDF",
+          "path": "docs/release-checklist.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "PDF",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 27,
+        "documentation": 459,
+        "source": 1671,
+        "test": 581
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 209,
+          "matched_term": ".txt",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 216,
+          "matched_term": ".txt",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 40,
+          "matched_term": ".txt",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": ".txt",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 781,
+          "matched_term": ".txt",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": "plain text",
+          "path": "CLAUDE.md",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": ".txt",
+          "path": "extensions/chrome/zip.test.js",
+          "role": "test"
+        },
+        {
+          "line": 77,
+          "matched_term": ".txt",
+          "path": "extensions/chrome/zip.test.js",
+          "role": "test"
+        },
+        {
+          "line": 58,
+          "matched_term": ".txt",
+          "path": "extensions/vscode/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 492,
+          "matched_term": ".txt",
+          "path": "src-tauri/src/lib.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "plain text",
+          "path": "src/ai/documentText.ts",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "plain text",
+          "path": "src/core/pdf/PdfEngine.ts",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "Plain text",
+          "path": "src/features/pageops/PageActionBar.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 4,
+        "source": 5,
+        "test": 4
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 2505,
+          "matched_term": "lPf",
+          "path": "package-lock.json",
+          "role": "source"
+        },
+        {
+          "line": 302,
+          "matched_term": "lpF",
+          "path": "run.py",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/owenpkent/folio",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 3,
+    "HTML": 2,
+    "JavaScript": 9,
+    "PowerShell": 1,
+    "Python": 1,
+    "Rust": 3,
+    "TypeScript": 228,
+    "TypeScript React": 66,
+    "XML": 2
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "extensions/vscode/LICENSE.txt"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/owenpkent/folio",
+  "readme_files": [
+    "README.md",
+    "docs/README.md",
+    "extensions/chrome/README.md",
+    "extensions/vscode/README.md",
+    "src-tauri/icons/README.md"
+  ],
+  "revision": "3da2b3d9157cc1eccdf39063533910ac8d558c41",
+  "schema_version": 1,
+  "slug": "folio",
+  "support_claims_allowed": false,
+  "tree": "3c2cd63743bbbda5c645a8dcdb1a3ccfd9de8add"
+}

@@ -1,0 +1,6 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/15 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 15/15 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 5866 (1935/sec), new interesting: 0 (total: 15)
+fuzz: elapsed: 4s, execs: 5866 (0/sec), new interesting: 0 (total: 15)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	4.104s

@@ -1,0 +1,9 @@
+goos: linux
+goarch: amd64
+pkg: github.com/helixreader/helix/core/pkg/sync
+cpu: AMD EPYC 9K65 192-Core Processor
+BenchmarkResolveProgress-2   	  776096	       486.7 ns/op	     264 B/op	       3 allocs/op
+BenchmarkResolveProgress-2   	  832306	       487.2 ns/op	     264 B/op	       3 allocs/op
+BenchmarkResolveProgress-2   	  719311	       422.9 ns/op	     264 B/op	       3 allocs/op
+PASS
+ok  	github.com/helixreader/helix/core/pkg/sync	1.966s

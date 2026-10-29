@@ -1,0 +1,349 @@
+#!/usr/bin/env bash
+# llmctl - local LLM orchestration: hardware probe, verified model downloads,
+# engine builds, multi-model scheduling, and OS-native services.
+# Portable bash targeting Linux (systemd --user) and macOS (launchd).
+set -euo pipefail
+
+LLMCTL_VERSION="3.2.2"
+
+# Resolve symlinks manually (portable across Linux + macOS/BSD, unlike
+# GNU-only `readlink -f` or a `realpath` that may not be installed) so
+# invoking this script via a PATH symlink (e.g. ~/.local/bin/llmctl ->
+# <repo>/bin/llmctl) still finds the real ../lib sibling directory,
+# instead of resolving against the symlink's own containing directory.
+_src="${BASH_SOURCE[0]}"
+while [ -h "${_src}" ]; do
+  _dir="$(cd -P "$(dirname "${_src}")" && pwd)"
+  _src="$(readlink "${_src}")"
+  [[ "${_src}" != /* ]] && _src="${_dir}/${_src}"
+done
+_bin_dir="$(cd -P "$(dirname "${_src}")" && pwd)"
+LLMCTL_ROOT="$(cd "${_bin_dir}/.." && pwd)"
+export LLMCTL_ROOT
+
+# shellcheck source=../lib/common.sh
+source "${LLMCTL_ROOT}/lib/common.sh"
+# shellcheck source=../lib/os_detect.sh
+source "${LLMCTL_ROOT}/lib/os_detect.sh"
+# shellcheck source=../lib/hardware.sh
+source "${LLMCTL_ROOT}/lib/hardware.sh"
+# shellcheck source=../lib/catalog.sh
+source "${LLMCTL_ROOT}/lib/catalog.sh"
+# shellcheck source=../lib/decide.sh
+source "${LLMCTL_ROOT}/lib/decide.sh"
+# shellcheck source=../lib/admit.sh
+source "${LLMCTL_ROOT}/lib/admit.sh"
+# shellcheck source=../lib/download.sh
+source "${LLMCTL_ROOT}/lib/download.sh"
+# shellcheck source=../lib/engine.sh
+source "${LLMCTL_ROOT}/lib/engine.sh"
+# shellcheck source=../lib/scheduler.sh
+source "${LLMCTL_ROOT}/lib/scheduler.sh"
+# shellcheck source=../lib/doctor.sh
+source "${LLMCTL_ROOT}/lib/doctor.sh"
+# shellcheck source=../lib/cluster.sh
+source "${LLMCTL_ROOT}/lib/cluster.sh"
+# shellcheck source=../lib/validate.sh
+source "${LLMCTL_ROOT}/lib/validate.sh"
+
+usage() {
+  cat <<'EOF'
+llmctl - local LLM orchestration (llama.cpp + colibri)
+
+USAGE
+  llmctl <command> [args]
+
+SETUP & DIAGNOSIS
+  setup                       doctor + build engines + print plan
+  doctor                      environment self-diagnosis
+  hw [--json]                 probe hardware (human-readable or JSON)
+
+PLANNING
+  plan [--json]               which catalog profiles fit this host, launch
+                              flags, and co-residency groups
+
+MODELS
+  models list                 list catalog profiles (port, engine, size, tier)
+  models download <profile>   verified download (resume, sha256, smoke test)
+  models verify <profile> [--live]
+                              re-verify checksums of a downloaded profile, check
+                              it names a validation suite (warns and exits 0 when
+                              it names none - NOT validated; with --live exits 2)
+                              and (when running or with --live) run that suite
+
+ENGINES
+  build <llama|colibri|onnx|decide|all>   build engines (a target is required; decide = Go decision binary)
+                              (backend auto-detect: CUDA / Metal / ROCm / CPU)
+
+RUNTIME (multi-model co-residency)
+  start <profile> [more...]   start profiles if the combined footprint fits
+  stop <profile|all>          stop services
+  switch <profile>            stop all, start exactly one (always works)
+  auto <chat|coder|vision>..  best set that fits now; LRU-evicts non-enabled
+                              services when room is needed
+  status                      show running services and reservations
+
+VALIDATION (deterministic known-answer gate - run BEFORE any use)
+  validate <profile> [--host URL] [--json] [--keep]
+                              run the profile's validation suite(s) against its
+                              llama-server (starts it if downloaded + idle);
+                              exit 0 pass / 1 wrong answer / 2 undetermined
+  vision validate [--profile vision|vision-pro] [--host URL] [--json] [--keep]
+                              golden screenshots with KNOWN content through the
+                              vision model; deterministic judge, golden-bad
+                              controls, determinism repeat
+  validate-all [--json]       validate every running profile
+  require-validated <profile> exit 0 only if the profile has a FRESH passing
+                              record (same model sha, engine build, launch
+                              flags, suite hash; younger than
+                              LLMCTL_VALIDATION_MAX_AGE) - for consumers
+                              start/switch/auto/enable/restart and systemd-
+                              started units run the suite once after the
+                              profile is ready; a FAIL stops the profile and
+                              exits non-zero, UNDETERMINED never stops or
+                              passes it (LLMCTL_VALIDATE_ON_START=0 disables;
+                              then require-validated refuses)
+  logs <profile> [lines]      tail a service log
+
+DECISION MODELS (typed noul/choice/score decisions)
+  decide ask --type {noul|choice|score} (--state S | --state-file F | --stdin) \
+      --instructions I [--criteria JSON] [--profile P] [--json]
+                              one typed decision through the HTTPS gateway
+  decide batch|models|key|cert|smoke ...   batch asks, served models, access
+                              key, certificates, one-question engine smoke
+  decide capacity [--json]    parallel-instance plan per decision profile
+  decide status [--json]      profiles, gateway and registry state
+  decide interactive          wizard (TTY, or decide ask --interactive)
+  decide serve [--stop|--status]   HTTPS gateway (POST /v1/systemone, port 8095)
+                              (full reference: llmctl decide help)
+  auto decide                 pick the best fitting decision profile
+                              (works via the existing 'auto' mechanism)
+  admit <hf-repo> [--paper-only] [--json]   run admission gates G1-G10 on a
+                              candidate model (also: admit --all | --summarize)
+
+PERSISTENT SERVICES (systemd --user on Linux, launchd on macOS)
+  install                     install/refresh unit templates (Linux) or
+                              prepare LaunchAgents dir (macOS)
+  enable <profile>            write env/plist, enable + start at login
+  disable <profile>           stop + disable autostart
+  restart <profile>           restart a service
+
+CLUSTER (opt-in, requires llmctld)
+  cluster join <peer-addr>    join this node to a running cluster
+  cluster leave               leave the cluster
+  cluster status              show cluster/Raft status
+  tenant create <name>        create a tenant namespace
+  tenant list                 list tenants
+  tenant quota <name> [...]   view/set a tenant's quota
+  apikey create <scope>       issue a new API key
+  apikey rotate <key-id>      rotate an existing API key
+                              All cluster commands hard-fail if llmctld is
+                              unreachable - single-host mode never depends on
+                              it and never silently substitutes for it.
+
+MISC
+  version                     print version
+  help                        this help
+
+ENVIRONMENT
+  LLMCTL_DRY_RUN=1            print service actions instead of executing them
+  LLMCTL_VALIDATE_STRICT=1    stop a profile whose validation is UNDETERMINED (default: only FAIL stops it)
+  LLMCTL_VALIDATE_ON_START=0  do not run the validation suite after start/switch/
+                              auto/enable/restart (require-validated then refuses)
+  LLMCTL_VALIDATION_MAX_AGE=<s>  freshness window of a passing validation
+                              record (default 604800 = 7 days)
+  LLMCTL_VALIDATE_TIMEOUT=<s> per-request timeout of the validator (default 180)
+  LLMCTL_FAKE_HW=<file.json>  use a hardware fixture (testing)
+  LLMCTL_MODELS_DIR=<dir>     override the model storage directory
+  LLMCTL_PORT_<PROFILE>=<port>   rebind ONE catalog profile to a free port
+                              on this host only (profile name upper-cased,
+                              '-' -> '_', e.g. LLMCTL_PORT_FAST=18080 for
+                              "fast") - never edit models/catalog.json for
+                              a host-local port collision
+  LLMCTL_CLUSTER_ENDPOINT=<url>  llmctld API endpoint (default https://127.0.0.1:9443)
+  LLMCTL_CLUSTER_TOKEN=<jwt>     bearer token for cluster/tenant/apikey commands
+EOF
+}
+
+cmd_models_list() {
+  catalog_check
+  printf '%-16s %-6s %-8s %-10s %-12s %s\n' "profile" "port" "engine" "size GiB" "min-tier" "capabilities"
+  local p
+  for p in $(catalog_profiles); do
+    local size_mb; size_mb="$(catalog_total_size_mb "${p}")"
+    printf '%-16s %-6s %-8s %-10s %-12s %s\n' \
+      "${p}" "$(catalog_port "${p}")" "$(catalog_engine "${p}")" \
+      "$(( (size_mb + 1023) / 1024 ))" "$(catalog_min_tier "${p}")" \
+      "$(catalog_capability "${p}")"
+  done
+}
+
+cmd_setup() {
+  log "llmctl setup: doctor -> build -> plan"
+  doctor_run || die "doctor reported failures; fix them and re-run 'llmctl setup'"
+  engine_build all
+  echo
+  hw_probe_json | catalog_plan_json | catalog_plan_human
+  echo
+  info "setup complete. Next: llmctl models download <profile>, then llmctl start <profile>"
+}
+
+main() {
+  local cmd="${1:-help}"
+  [[ "$#" -gt 0 ]] && shift
+  case "${cmd}" in
+    setup)    cmd_setup "$@" ;;
+    doctor)   doctor_run ;;
+    hw|probe)
+      if [[ "${1:-}" == "--json" ]]; then hw_probe_json; else hw_probe_human; fi
+      ;;
+    plan)
+      if [[ "${1:-}" == "--json" ]]; then
+        hw_probe_json | catalog_plan_json
+      else
+        hw_probe_json | catalog_plan_json | catalog_plan_human
+      fi
+      ;;
+    models)
+      local sub="${1:-list}"; [[ "$#" -gt 0 ]] && shift
+      case "${sub}" in
+        list)     cmd_models_list ;;
+        download) [[ "$#" -eq 1 ]] || die "usage: llmctl models download <profile>"
+                  download_profile "$1" ;;
+        verify)   [[ "$#" -ge 1 && "$#" -le 2 ]] || die "usage: llmctl models verify <profile> [--live]"
+                  [[ "$#" -eq 1 || "$2" == "--live" ]] || die "usage: llmctl models verify <profile> [--live]"
+                  verify_profile "$1"
+                  models_verify_gate "$1" "${2:-}" ;;
+        *)        die "unknown models subcommand: ${sub} (list|download|verify)" ;;
+      esac
+      ;;
+    build)
+      if [[ "$#" -eq 0 ]]; then
+        # G-078: a bare `llmctl build` used to start compiling everything (hours of CPU). It now
+        # prints usage; `llmctl build all` is the explicit spelling.
+        echo "usage: llmctl build <llama|colibri|onnx|decide|all>   (a target is required; 'all' builds llama + colibri + onnx + decide)" >&2
+        exit 2
+      fi
+      engine_build "$@" ;;
+    install)  sched_load_backend; svc_install ;;
+    enable)
+      [[ "$#" -eq 1 ]] || die "usage: llmctl enable <profile>"
+      # Moved into lib/scheduler.sh's _enable_impl, dispatched under the
+      # SAME scheduler lock `start` already holds (independent review,
+      # 2026-09-17: this logic used to run right here with NO lock at all,
+      # a genuine TOCTOU race on the exact read-budget-then-write-
+      # reservation sequence scheduler::with_lock exists to serialize).
+      sched_enable "$1"
+      validate_after_start "$1"
+      ;;
+    disable)
+      [[ "$#" -eq 1 ]] || die "usage: llmctl disable <profile>"
+      sched_load_backend; svc_disable "$1"
+      sched_registry_withdraw "$1"
+      rm -f "${LLMCTL_SERVICES_DIR}/$1.enabled" "${LLMCTL_RUNTIME_DIR}/$1.run"
+      ;;
+    start)    sched_start "$@"; validate_after_start "$@" ;;
+    stop)     sched_stop "$@" ;;
+    restart)
+      [[ "$#" -eq 1 ]] || die "usage: llmctl restart <profile>"
+      sched_load_backend; svc_restart "$1"
+      validate_after_start "$1"
+      ;;
+    switch)   [[ "$#" -eq 1 ]] || die "usage: llmctl switch <profile>"; sched_switch "$1"; validate_after_start "$1" ;;
+    auto)     validate_auto "$@" ;;
+    validate) _validate_cli "$@" ;;
+    vision)   cmd_vision "$@" ;;
+    validate-all) validate_all "$@" ;;
+    require-validated) require_validated "$@" ;;
+    validate-after-start) validate_after_start "$@" ;;
+    decide)   cmd_decide "$@" ;;
+    admit)    cmd_admit "$@" ;;
+    status)
+      if [[ "${1:-}" == "--json" ]]; then
+        sched_status_json
+      else
+        sched_status
+      fi
+      ;;
+    logs)     [[ "$#" -ge 1 ]] || die "usage: llmctl logs <profile> [lines]"
+              sched_load_backend; svc_logs "$@" ;;
+    cluster)
+      local csub="${1:-status}"; [[ "$#" -gt 0 ]] && shift
+      cluster::require_daemon
+      case "${csub}" in
+        join)   [[ "$#" -eq 1 ]] || die "usage: llmctl cluster join <peer-addr>"
+                # 006-cli-daemon-wiring FR-001: the daemon's real
+                # POST /v1/cluster/join route requires both peer_id and
+                # peer_addr (llmctld/internal/api/routes_cluster.go's
+                # joinRequest); usage() documents a single <peer-addr>
+                # argument, so peer_id is derived from this host's own
+                # stable hostname rather than adding an undocumented
+                # second positional argument.
+                cluster::request POST /v1/cluster/join "$(json_body peer_id="$(hostname)" peer_addr="$1")" ;;
+        leave)  cluster::request POST /v1/cluster/leave ;;
+        status) cluster::request GET /v1/cluster/status ;;
+        *)      die "unknown cluster subcommand: ${csub} (join|leave|status)" ;;
+      esac
+      ;;
+    tenant)
+      local tsub="${1:-list}"; [[ "$#" -gt 0 ]] && shift
+      cluster::require_daemon
+      case "${tsub}" in
+        create) [[ "$#" -eq 1 ]] || die "usage: llmctl tenant create <name>"
+                cluster::request POST /v1/tenants "$(json_body id="$1" name="$1")" ;;
+        list)   cluster::request_checked GET /v1/tenants \
+                  || die "llmctld returned an error for 'tenant list' (see above)" ;;
+        quota)  [[ "$#" -ge 1 ]] || die "usage: llmctl tenant quota <name> [--requests-per-second N] [--max-concurrent-requests N] [--max-gpu-bytes N] [--max-cpu-cores N] [--max-ram-bytes N] [--max-storage-bytes N]"
+                local qname="$1"; shift
+                if [[ "$#" -eq 0 ]]; then
+                  cluster::request_checked GET "/v1/tenants/${qname}/quota" \
+                    || die "llmctld returned an error for 'tenant quota' (see above)"
+                else
+                  local -a qkv=()
+                  while [[ "$#" -gt 0 ]]; do
+                    [[ "$#" -ge 2 ]] || die "usage: llmctl tenant quota <name> --<field> <value> [...]"
+                    case "$1" in
+                      --requests-per-second)     qkv+=("requests_per_second=$2") ;;
+                      --max-concurrent-requests) qkv+=("max_concurrent_requests=$2") ;;
+                      --max-gpu-bytes)           qkv+=("max_gpu_bytes=$2") ;;
+                      --max-cpu-cores)           qkv+=("max_cpu_cores=$2") ;;
+                      --max-ram-bytes)           qkv+=("max_ram_bytes=$2") ;;
+                      --max-storage-bytes)       qkv+=("max_storage_bytes=$2") ;;
+                      *) die "unknown 'tenant quota' flag: $1" ;;
+                    esac
+                    shift 2
+                  done
+                  cluster::request_checked PUT "/v1/tenants/${qname}/quota" "$(json_body "${qkv[@]}")" \
+                    || die "llmctld returned an error for 'tenant quota' (see above)"
+                fi ;;
+        *)      die "unknown tenant subcommand: ${tsub} (create|list|quota)" ;;
+      esac
+      ;;
+    apikey)
+      local asub="${1:-}"; [[ "$#" -gt 0 ]] && shift
+      cluster::require_daemon
+      case "${asub}" in
+        create) [[ "$#" -eq 1 ]] || die "usage: llmctl apikey create <scope>"
+                # 006-cli-daemon-wiring FR-003: the daemon's real
+                # POST /v1/auth/apikeys route requires owner_id
+                # (llmctld/internal/api/routes_auth.go's
+                # createAPIKeyRequest); usage() documents a single
+                # <scope> argument, so the given value is used as both
+                # the key's owner_id and its sole scope entry.
+                cluster::request POST /v1/auth/apikeys "$(json_body owner_id="$1" "scopes[]=$1")" ;;
+        rotate) [[ "$#" -eq 1 ]] || die "usage: llmctl apikey rotate <key-id>"
+                cluster::request POST "/v1/auth/apikeys/$1/rotate" ;;
+        *)      die "unknown apikey subcommand: ${asub} (create|rotate)" ;;
+      esac
+      ;;
+    version)  echo "llmctl ${LLMCTL_VERSION}" ;;
+    help|-h|--help) usage ;;
+    *)
+      err "unknown command: ${cmd}"
+      usage >&2
+      exit 2
+      ;;
+  esac
+}
+
+main "$@"

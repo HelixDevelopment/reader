@@ -1,0 +1,6 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/13 completed
+fuzz: elapsed: 1s, gathering baseline coverage: 13/13 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 4619 (1537/sec), new interesting: 0 (total: 13)
+fuzz: elapsed: 3s, execs: 4619 (0/sec), new interesting: 0 (total: 13)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	3.222s

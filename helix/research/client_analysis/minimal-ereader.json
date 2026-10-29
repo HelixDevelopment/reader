@@ -1,0 +1,1049 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "embedding",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/document.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/favoritesdialog.h",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "rag",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "rag",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 169,
+          "matched_term": "rag",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "rag",
+          "path": "src/mainwindow_events.cpp",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "rag",
+          "path": "src/mainwindow_events.cpp",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "rag",
+          "path": "src/mainwindow_events.cpp",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/selectionlabel.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/settings.h",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "src/viewerwidget.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 17
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "Annotation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "cFi",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "cFi",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_actions.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "cFi",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "cFi",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_notes.cpp",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_notes.cpp",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "highlight",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "highlight",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "highlight",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 256,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 257,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 462,
+          "matched_term": "Highlight",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "highlight",
+          "path": "src/selectionlabel.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "highlight",
+          "path": "src/selectionlabel.cpp",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "Highlight",
+          "path": "src/selectionlabel.cpp",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Highlight",
+          "path": "src/selectionlabel.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Highlight",
+          "path": "src/selectionlabel.h",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Highlight",
+          "path": "src/selectionlabel.h",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Highlight",
+          "path": "src/viewerwidget.cpp",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "Highlight",
+          "path": "src/viewerwidget.cpp",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "Highlight",
+          "path": "src/viewerwidget.cpp",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Highlight",
+          "path": "src/viewerwidget.h",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "Highlight",
+          "path": "src/viewerwidget.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 56
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 94,
+          "matched_term": "restore",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "restore",
+          "path": "src/mainwindow_events.cpp",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "restore",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "cbz",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "cbz",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "Cache",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "cache",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Cache",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "Cache",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "Cache",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "cache",
+          "path": "src/mainwindow_actions.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "cache",
+          "path": "src/mainwindow_actions.cpp",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Cache",
+          "path": "src/mainwindow_actions.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 17
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "EPUB, XPS, CBZ, FB2, SVG, and many other document and image formats thanks to the underlying MuPDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "epub *.xps *.cbz *.fb2",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "epub *.xps *.cbz *.fb2",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 23,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 70,
+          "matched_term": "Quic",
+          "path": "src/E-Reader.pro.user",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "Quic",
+          "path": "src/E-Reader.pro.user",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "Quic",
+          "path": "src/E-Reader.pro.user",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 3
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "MuPDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "MuPDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "MuPDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "MuPDF",
+          "path": "src/E-Reader.pro",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "MuPDF",
+          "path": "src/E-Reader.pro",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "mupdf",
+          "path": "src/E-Reader.pro",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "mupdf",
+          "path": "src/document.h",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "mupdf",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 9,
+        "source": 23
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "UserRole",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "UserRole",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_notes.cpp",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_notes.cpp",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_notes.cpp",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 246,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_text.cpp",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_toc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_toc.cpp",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "UserRole",
+          "path": "src/mainwindow_toc.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 20,
+        "source": 12
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "Theme",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Theme",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Theme",
+          "path": "src/mainwindow.cpp",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "Theme",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "Theme",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 115,
+          "matched_term": "theme",
+          "path": "src/mainwindow.h",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "Theme",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "Theme",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "Theme",
+          "path": "src/mainwindow_ui.cpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "src/settings.cpp",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "src/settings.cpp",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "theme",
+          "path": "src/settings.cpp",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "theme",
+          "path": "src/settings.h",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 63
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 648,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 667,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 17
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-minimal-ereader.jsonl.gz",
+  "files": {
+    "scanned_bytes": 164133,
+    "scanned_text": 25,
+    "skipped_binary_or_empty": 6,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 31
+  },
+  "format_keyword_evidence": {
+    "cbz": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": ".cbz",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".cbz",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": ".epub",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".epub",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "FB2",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": ".fb2",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".fb2",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 56,
+          "matched_term": ".md",
+          "path": "src/E-Reader.pro.user",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": ".MD",
+          "path": "src/E-Reader.pro.user",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 22,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": ".pdf",
+          "path": "src/favoritesdialog.cpp",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": ".pdf",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": ".txt",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 222,
+          "matched_term": ".txt",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": ".txt",
+          "path": "src/mainwindow_file.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/deminimis/minimal-ereader",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C++": 14,
+    "C/C++ header": 6
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/deminimis/minimal-ereader",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "bb47d6fcbb7d4648549fabdaddeb8c0cc6c20d96",
+  "schema_version": 1,
+  "slug": "minimal-ereader",
+  "support_claims_allowed": false,
+  "tree": "caee45d18751d7471302597daf1d0c40bf61dc00"
+}

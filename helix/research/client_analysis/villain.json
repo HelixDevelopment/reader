@@ -1,0 +1,2880 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1200,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1270,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 927,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 937,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 983,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "rag",
+          "path": "packages/villain-react/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 192,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/menu/index.js",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/menu/index.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/uncompress.js",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/components/uncompress.js",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/css/components/layout.css",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/css/components/layout.css",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/index.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "packages/villain-react/src/index.js",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "rag",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "rag",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1200,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1215,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1270,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 927,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 937,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 983,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "packages/villain-web/dist/5.style.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rAg",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "rAg",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 498
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Highlight",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "Highlight",
+          "path": "packages/villain-react/src/components/slider/handle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "annotation",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Highlight",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "highlight",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "highlight",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 347,
+          "matched_term": "highlight",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 282,
+          "matched_term": "Restore",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3757,
+          "matched_term": "Restore",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3757,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Snapshot",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "restore",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 5002,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3757,
+          "matched_term": "Restore",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1127,
+          "matched_term": "snapshot",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 3628,
+          "matched_term": "restore",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 3635,
+          "matched_term": "restore",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 68
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-web/dist/home.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "collection",
+          "path": "packages/villain-web/src/routes/home/view.js",
+          "role": "source"
+        },
+        {
+          "line": 1132,
+          "matched_term": "series",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 1290,
+          "matched_term": "series",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 1334,
+          "matched_term": "series",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 79
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": "cb7",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "cb7",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "cb7",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "Manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "Comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "docs/_coverpage.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "Manga",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "Comic",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "comic",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "comic",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "cbz",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "comic",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "cbz",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "comic",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "comic",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "comic",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 32,
+          "matched_term": "cb7",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "cb7",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "cb7",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "comic",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "comic",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "cbz",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "manga",
+          "path": "packages/villain-react/dev-sandbox/demo.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "manga",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Manga",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "comic",
+          "path": "packages/villain-react/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "comic",
+          "path": "packages/villain-react/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "comic",
+          "path": "packages/villain-react/package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/keyboard.js",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/keyboard.js",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/keyboard.js",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 214,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "manga",
+          "path": "packages/villain-react/src/components/toolbar/controls/navigation.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 52,
+        "source": 173
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cdn",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "cdn",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3694,
+          "matched_term": "Gzip",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2762,
+          "matched_term": "cache",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2773,
+          "matched_term": "gzip",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2825,
+          "matched_term": "gzip",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "Cache",
+          "path": "packages/villain-react/src/components/render.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cache",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "cache",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3694,
+          "matched_term": "Gzip",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2762,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2773,
+          "matched_term": "gzip",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2825,
+          "matched_term": "gzip",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3684,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3694,
+          "matched_term": "Gzip",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2762,
+          "matched_term": "cache",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2773,
+          "matched_term": "gzip",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2825,
+          "matched_term": "gzip",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cache",
+          "path": "packages/villain-web/dist/vendors~embed~error~home~reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 294
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 271,
+          "matched_term": "converter",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "converter",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "converter",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 274,
+          "matched_term": "converter",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 4301,
+          "matched_term": "converter",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 4303,
+          "matched_term": "converter",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 4303,
+          "matched_term": "converter",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 24
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 110,
+          "matched_term": "Aria-",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "Accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "accessibility",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "Accessibility",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "Accessibility",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": "Accessibility",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 110,
+          "matched_term": "Aria-",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "Accessibility",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/menu/index.js",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/slider/handle.js",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/slider/handle.js",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/slider/handle.js",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/toolbar/button.js",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/toolbar/controls/navigation.js",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/toolbar/controls/zoom.js",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/components/toolbar/index.js",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/css/components/button.css",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/css/components/button.css",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/css/components/button.css",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/css/components/menu.css",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "aria-",
+          "path": "packages/villain-react/src/css/components/menu.css",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "Accessibility",
+          "path": "packages/villain-web/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/5.style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/5.style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/5.style.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/embed.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/embed.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/error.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/home.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/home.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/home.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "aria-",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 10,
+        "source": 102
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "duplicate",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "role": "configuration"
+        },
+        {
+          "line": 615,
+          "matched_term": "duplicate",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 617,
+          "matched_term": "duplicate",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 617,
+          "matched_term": "duplicate",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 8
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 10
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "quic",
+          "path": ".huskyrc",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "quic",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "quic",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 3693,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2772,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 3693,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2772,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "quic",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 3693,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2772,
+          "matched_term": "Accept-Ranges",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "quic",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 3425,
+          "matched_term": "quic",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 6047,
+          "matched_term": "Quic",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 10350,
+          "matched_term": "quic",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 32
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 4383,
+          "matched_term": "DRM",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 4383,
+          "matched_term": "DRM",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 4383,
+          "matched_term": "DRM",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 6239,
+          "matched_term": "DRm",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 7724,
+          "matched_term": "dRM",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 2173,
+          "matched_term": "filesystem",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3449,
+          "matched_term": "filesystem",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1707,
+          "matched_term": "filesystem",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2578,
+          "matched_term": "filesystem",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2173,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3449,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1707,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2578,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2173,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 3449,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1707,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2578,
+          "matched_term": "filesystem",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 2042,
+          "matched_term": "metadata",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1592,
+          "matched_term": "metadata",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2042,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1592,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Metadata",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2042,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1592,
+          "matched_term": "metadata",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "lock:function(e){void 0===e&&(e=!1);var t=_.setPrompt(e);return D||(A(1),D=!0),function(){return D&&",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "authorization",
+          "path": "artworks/ARTWORKS_LICENSE.md",
+          "role": "source"
+        },
+        {
+          "line": 1630,
+          "matched_term": "jwt",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 4860,
+          "matched_term": "JWt",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 8419,
+          "matched_term": "jWt",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Permission",
+          "path": "artworks/ARTWORKS_LICENSE.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "packages/villain-react/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 620,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2168,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2388,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1702,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1895,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1899,
+          "matched_term": "Permission",
+          "path": "packages/villain-react/dev-sandbox/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "userLanguage)return e.userLanguage;if(e.browserLanguage)return e.browserLanguage}return\"en-US\"},t.ge",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "packages/villain-web/LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 620,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2168,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2388,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1702,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1895,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1899,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dev-server/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "userAgent).indexOf(\"Android 2.\")&&-1===t.indexOf(\"Android 4.0\")||-1===t.indexOf(\"Mobile Safari\")||-1",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "usercontent.com/btzr-io/Villain/master/logo-text.svg?sanitize=true\",className:\"header-logo\"}))),r.a.",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 620,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2168,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 2388,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/wasm-gen/libarchive.js",
+          "role": "source"
+        },
+        {
+          "line": 1702,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1895,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1899,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/static/worker-bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "userAgent.indexOf(e[t])>=0)return 1;return 0}();var o=n&&window.Promise?function(e){var t=!1;return ",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Permission",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js.LICENSE",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js.LICENSE",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 97
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "sync_mode\"):60111,u=e?Symbol.for(\"react.concurrent_mode\"):60111,h=e?Symbol.for(\"react.forward_ref\"):",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "sync autoFocus autoPlay controls default defer disabled disablePictureInPicture formNoValidate hidde",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "sync_mode\"):60111,u=e?Symbol.for(\"react.concurrent_mode\"):60111,h=e?Symbol.for(\"react.forward_ref\"):",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 103,
+          "matched_term": "theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "Theme",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "theme",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "theme",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "theme",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "theme",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "theme",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "Theme",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "theme",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/demo.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/demo.js",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/demo.js",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/index.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/theme.css",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/theme.css",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dev-sandbox/theme.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/dist/style.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/components/toolbar/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Theme",
+          "path": "packages/villain-react/src/components/toolbar/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/components/toolbar/settings.js",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/components/wrapp.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/components/wrapp.js",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/components/wrapp.js",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/context.js",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/input.css",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/input.css",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/layout.css",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/main.scss",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/menu.css",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/css/components/theme.css",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "theme",
+          "path": "packages/villain-react/src/css/components/theme.css",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "font-size",
+          "path": "packages/villain-react/src/css/components/tooltip.css",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "line-height",
+          "path": "packages/villain-react/src/css/components/tooltip.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 12,
+        "source": 161
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": ".github/FUNDING.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": ".github/workflows/npm-publish.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": ".github/workflows/npm-publish.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 33,
+          "matched_term": "secret",
+          "path": ".github/workflows/npm-publish.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "https",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "artworks/ARTWORKS_LICENSE.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "deploy.sh",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "docs/_coverpage.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "docs/_coverpage.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/_coverpage.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "docs/index.html",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 35,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "https",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "packages/villain-react/CHANGELOG.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 15,
+        "documentation": 251,
+        "source": 2032
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-villain.jsonl.gz",
+  "files": {
+    "scanned_bytes": 2731821,
+    "scanned_text": 147,
+    "skipped_binary_or_empty": 12,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 159
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 116,
+          "matched_term": ".cbr",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": ".cbr",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": ".cbr",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": ".cbr",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": ".cbr",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": ".cbr",
+          "path": "packages/villain-web/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 6
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 65,
+          "matched_term": ".cbz",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": ".cbz",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": ".cbz",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": ".cbz",
+          "path": "packages/villain-web/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".cbz",
+          "path": "packages/villain-web/dist/embed.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".cbz",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": ".cbz",
+          "path": "packages/villain-web/src/components/urlInput.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 3
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "docx",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "wordprocessingml",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "packages/villain-react/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "packages/villain-react/dist/villain.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "HTML5",
+          "path": "packages/villain-react/src/lib/full-screen.js",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "packages/villain-web/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": ".html",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": ".html",
+          "path": "packages/villain-web/dist/reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "HTML5",
+          "path": "packages/villain-web/src/index.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 19
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": ".md",
+          "path": ".github/FUNDING.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 59,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": "SUPPORT.md",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".md",
+          "path": "docs/_coverpage.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": ".md",
+          "path": "docs/_sidebar.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": ".md",
+          "path": "docs/_sidebar.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": ".md",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": ".md",
+          "path": "docs/get-started.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "docs/index.js",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "docs/index.js",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": ".md",
+          "path": "docs/villain-react.md",
+          "role": "documentation"
+        },
+        {
+          "line": 122,
+          "matched_term": ".md",
+          "path": "docs/villain-web.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": ".md",
+          "path": "packages/villain-react/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 122,
+          "matched_term": ".md",
+          "path": "packages/villain-web/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 18,
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "pdf",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "application/pdf",
+          "path": "packages/villain-web/dist/vendors~reader.chunk.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": ".txt",
+          "path": "packages/villain-web/src/routes/index.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "lpf",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "lpf",
+          "path": "packages/villain-web/dist/bundle.js",
+          "role": "source"
+        },
+        {
+          "line": 3823,
+          "matched_term": "LpF",
+          "path": "yarn.lock",
+          "role": "source"
+        },
+        {
+          "line": 7337,
+          "matched_term": "LpF",
+          "path": "yarn.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    }
+  },
+  "inventory_url": "https://github.com/btzr-io/villain",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 15,
+    "HTML": 4,
+    "JavaScript": 77,
+    "SCSS": 1,
+    "Shell": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "packages/villain-react/LICENSE",
+      "packages/villain-web/LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/btzr-io/villain",
+  "readme_files": [
+    "README.md",
+    "packages/villain-react/README.md",
+    "packages/villain-web/README.md"
+  ],
+  "revision": "8af69e32c3ba617e87dcd945126c2bef517302d5",
+  "schema_version": 1,
+  "slug": "villain",
+  "support_claims_allowed": false,
+  "tree": "4ea78a7992a1c6b703da6e483c20dc3c3ec84a26"
+}

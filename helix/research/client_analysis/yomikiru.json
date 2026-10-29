@@ -1,0 +1,6788 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 128,
+          "matched_term": "rag",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 129,
+          "matched_term": "rag",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 131,
+          "matched_term": "rag",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "rag",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 55,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "rag",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "rag",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "rag",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "rag",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "rag",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 144,
+          "matched_term": "rag",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "rag",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "rag",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 136,
+          "matched_term": "rag",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": "rag",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 219,
+          "matched_term": "rag",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 32,
+          "matched_term": "rag",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 313,
+          "matched_term": "rag",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 370,
+          "matched_term": "rag",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 426,
+          "matched_term": "rag",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 475,
+          "matched_term": "RAG",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "rag",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "RAG",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "RAG",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "rag",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "rag",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "RAG",
+          "path": "drizzle/0001_redundant_sentinel.sql",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "drizzle/0001_redundant_sentinel.sql",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "RAG",
+          "path": "drizzle/0001_redundant_sentinel.sql",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "rag",
+          "path": "package.json",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 63,
+        "source": 283,
+        "test": 79
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "bookmark",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "bookmark",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "bookmark",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Bookmark",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Bookmark",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Bookmark",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Highlight",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "highlight",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "bookmark",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "Bookmark",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "bookmark",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "Bookmark",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "Bookmark",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "bookmark",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 140,
+          "matched_term": "bookmark",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "bookmark",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "Bookmark",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 319,
+          "matched_term": "bookmark",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 319,
+          "matched_term": "bookmark",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 182,
+          "matched_term": "Bookmark",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "Bookmark",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 279,
+          "matched_term": "bookmark",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Bookmark",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Bookmark",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "Bookmark",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "bookmark",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": "bookmark",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "bookmark",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 199,
+          "matched_term": "bookmark",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "bookmark",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "bookmark",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "drizzle/0000_robust_the_professor.sql",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "bookmark",
+          "path": "drizzle/0000_robust_the_professor.sql",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "bookmark",
+          "path": "drizzle/0000_robust_the_professor.sql",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "bookmark",
+          "path": "drizzle/0001_redundant_sentinel.sql",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 204,
+        "source": 1522,
+        "test": 200
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 77,
+          "matched_term": "restore",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 121,
+          "matched_term": "restore",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 23,
+          "matched_term": "backup",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "snapshot",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "backup",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "backup",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "restore",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "restore",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "snapshot",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "snapshot",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "backup",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "backup",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "Backup",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "Backup",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "backup",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 245,
+          "matched_term": "Backup",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 245,
+          "matched_term": "restore",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "restore",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 246,
+          "matched_term": "snapshot",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 250,
+          "matched_term": "snapshot",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "backup",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "backup",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "backup",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "snapshot",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "snapshot",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "snapshot",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "snapshot",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "restore",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 164,
+          "matched_term": "snapshot",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1624,
+          "matched_term": "snapshot",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4719,
+          "matched_term": "restore",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4723,
+          "matched_term": "restore",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Snapshot",
+          "path": "src/common/http.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "snapshot",
+          "path": "src/common/http.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Snapshot",
+          "path": "src/common/http.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 187,
+          "matched_term": "Snapshot",
+          "path": "src/common/http.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 188,
+          "matched_term": "snapshot",
+          "path": "src/common/http.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 349,
+          "matched_term": "snapshot",
+          "path": "src/common/http.ts",
+          "role": "source"
+        },
+        {
+          "line": 350,
+          "matched_term": "snapshot",
+          "path": "src/common/http.ts",
+          "role": "source"
+        },
+        {
+          "line": 352,
+          "matched_term": "Snapshot",
+          "path": "src/common/http.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 173,
+        "source": 779,
+        "test": 489
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 85,
+          "matched_term": "series",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "collection",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "series",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "series",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "series",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "Collection",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 117,
+          "matched_term": "series",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 146,
+          "matched_term": "series",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "collection",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "collection",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "Series",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "series",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "series",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "series",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 203,
+          "matched_term": "series",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 412,
+          "matched_term": "series",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Series",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "series",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "series",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5678,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 8031,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 11701,
+          "matched_term": "collection",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "Series",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "series",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "series",
+          "path": "src/common/library/classify.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "series",
+          "path": "src/common/library/classify.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": "Series",
+          "path": "src/common/library/classify.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 18,
+          "matched_term": "series",
+          "path": "src/common/library/classify.ts",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "series",
+          "path": "src/common/library/classify.ts",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "series",
+          "path": "src/common/library/classify.ts",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "series",
+          "path": "src/common/library/images.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "Series",
+          "path": "src/common/library/images.ts",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "series",
+          "path": "src/electron/db/index.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 94,
+          "matched_term": "Series",
+          "path": "src/electron/db/index.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 70,
+        "source": 101,
+        "test": 294
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "manga",
+          "path": "PKGBUILD",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "comic",
+          "path": "PKGBUILD",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "manga",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "comic",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "manga",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "comic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "manga",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "manga",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "manga",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "manga",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "CBZ",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "CBR",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "CB7",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "manga",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "cbz",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "Webtoon",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "manga",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "comic",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "Manga",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "manga",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "CBZ",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "CBR",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Comic",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "manga",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "manga",
+          "path": "docs/i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "manga",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "manga",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "manga",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "manga",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "manga",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "manga",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "Manga",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "manga",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "Manga",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "manga",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 304,
+        "source": 1933,
+        "test": 934
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 72,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 73,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 116,
+          "matched_term": "cache",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 134,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 198,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "cache",
+          "path": ".husky/pre-commit",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "thumbnail",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "cache",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "cache",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "thumbnail",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "thumbnail",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "thumbnail",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 123,
+          "matched_term": "cache",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "thumbnail",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "thumbnail",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "Cache",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "thumbnail",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "thumbnail",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "cache",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": "thumbnail",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "thumbnail",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 141,
+          "matched_term": "Cover cache",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 114,
+          "matched_term": "cache",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 115,
+          "matched_term": "cache",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 185,
+          "matched_term": "cache",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "thumbnail",
+          "path": "docs/overlays.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "Cache",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "cache",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "Cover cache",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "thumbnail",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 197,
+          "matched_term": "thumbnail",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "cache",
+          "path": "drizzle/0002_null_library_covers.sql",
+          "role": "source"
+        },
+        {
+          "line": 1372,
+          "matched_term": "cache",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1432,
+          "matched_term": "cache",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1658,
+          "matched_term": "cDN",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "eTag",
+          "path": "src/common/epub/xml.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "CDN",
+          "path": "src/common/http.md",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Thumbnail",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Thumbnail",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 54,
+        "source": 366,
+        "test": 96
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "EPUBs, PDF",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "EPUB; not PDF",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "EPUB; not PDF",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 123,
+          "matched_term": "EPUBs, and rendered PDF",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "epub, pdf",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "EPUB, CBZ/CBR, PDF",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB / CBZ / CBR / PDF",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "conversion",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "epub` -> book (if the root allows books). Packed/PDF",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "EPUB files are added with title, author, and cover from the OPF (shared `fast-xml-parser` adapter). ",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2421,
+          "matched_term": "converter",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5607,
+          "matched_term": "conversion",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 5610,
+          "matched_term": "conversion",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "conversion",
+          "path": "src/common/epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "EPUB books. PDF",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 336,
+          "matched_term": "epub or render pdf",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "EPUB files only, not PDF",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "EPUB. After an upgrade that adds cover ids, the app may ask once whether to generate thumbnails for ",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "EPUBs, and rendered PDF",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Conversion",
+          "path": "src/common/keybindings/legacy.ts",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "epub\"])).toEqual([\"pdf",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "epub`, `.cbz`, `.zip`, `.pdf",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": "EPUB; PDF",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 288,
+          "matched_term": "epub`, `.cbz`, `.zip`, `.pdf",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "epub/zip/pdf",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "conversion",
+          "path": "src/renderer/store/trackers.ts",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "epub\"])).toEqual([\"pdf",
+          "path": "src/renderer/utils/file.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 19,
+        "test": 2
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 131,
+          "matched_term": "accessibility",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1360,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1824,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 1827,
+          "matched_term": "aria-",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "daisy",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": "daisy",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 42,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/LibraryScanStatusButton.tsx",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/LibraryScanStatusButton.tsx",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/LibraryScanStatusButton.tsx",
+          "role": "source"
+        },
+        {
+          "line": 597,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ListNavigator.tsx",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/UiBlockOverlay.tsx",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/UiBlockOverlay.tsx",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/UiBlockOverlay.tsx",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Combobox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Combobox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 227,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Combobox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 40,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 47,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.tsx",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.tsx",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/InputMultiSelect.tsx",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Modal.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Popover.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 30,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Popover.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Popover.tsx",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Popover.tsx",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/Popover.tsx",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/SelectionCheckbox.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/SelectionCheckbox.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 7,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/SelectionCheckbox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/SelectionCheckbox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "accessibility",
+          "path": "src/renderer/components/ui/SelectionCheckbox.tsx",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/TextDisplayModal.tsx",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/TextInputModal.tsx",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "aria-",
+          "path": "src/renderer/components/ui/TextInputModal.tsx",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "aria-",
+          "path": "src/renderer/features/anilist/AnilistBar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "aria-",
+          "path": "src/renderer/features/anilist/AnilistBar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "aria-",
+          "path": "src/renderer/features/home/classic/components/BookmarkTab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "aria-",
+          "path": "src/renderer/features/home/classic/components/HistoryTab.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 110,
+        "test": 21
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "drizzle",
+          "path": ".biomeignore",
+          "role": "source"
+        },
+        {
+          "line": 174,
+          "matched_term": "sqlite",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 19,
+          "matched_term": "SQLite",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "SQLite",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "Drizzle",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "drizzle",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "drizzle",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "SQLite",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "sqlite",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "drizzle",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "Drizzle",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "Drizzle",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "SQLite",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "Drizzle",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 78,
+          "matched_term": "Database migration",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "drizzle",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "SQLite",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "Drizzle",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "SQLite",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "drizzle",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "Drizzle",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "drizzle",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 195,
+          "matched_term": "SQLite",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "sqlite",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "drizzle",
+          "path": "drizzle.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "drizzle",
+          "path": "drizzle.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "sqlite",
+          "path": "drizzle.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Drizzle",
+          "path": "drizzle/0001_redundant_sentinel.sql",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "drizzle/meta/0000_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "drizzle/meta/0001_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "drizzle/meta/0003_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "sqlite",
+          "path": "drizzle/meta/_journal.json",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "sqlite",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 204,
+          "matched_term": "drizzle",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "sqlite",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "drizzle",
+          "path": "package.json",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 19,
+        "documentation": 99,
+        "source": 272,
+        "test": 61
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 60,
+          "matched_term": "duplicate",
+          "path": ".eslintrc.json.backup",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "duplicate",
+          "path": ".eslintrc.json.backup",
+          "role": "source"
+        },
+        {
+          "line": 259,
+          "matched_term": "checksum",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "sha256",
+          "path": "PKGBUILD",
+          "role": "source"
+        },
+        {
+          "line": 138,
+          "matched_term": "Duplicate",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "Duplicate",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "Duplicate",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Duplicate",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Duplicate",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 169,
+          "matched_term": "duplicate",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "dedup",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "checksum",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "checksum",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "checksum",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "Duplicate",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "Duplicate",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "duplicate",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": "duplicate",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 34,
+          "matched_term": "duplicate",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 307,
+          "matched_term": "duplicate",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 207,
+          "matched_term": "duplicate",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 494,
+          "matched_term": "Dedup",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "duplicate",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 126,
+          "matched_term": "duplicate",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "duplicate",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "CHECKSUM",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "checksum",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Checksum",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "CHECKSUM",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "checksum",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "sha256",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "duplicate",
+          "path": "src/common/epub/parsePackage.ts",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "duplicate",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "Duplicate",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "duplicate",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 419,
+          "matched_term": "duplicate",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "duplicate",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 165,
+          "matched_term": "duplicate",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 269,
+          "matched_term": "dedup",
+          "path": "src/common/keybindings/binding.ts",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "duplicate",
+          "path": "src/common/keybindings/diagnostics.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 31,
+        "source": 139,
+        "test": 22
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "Docker",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3528,
+          "matched_term": "docker",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9412,
+          "matched_term": "docker",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9492,
+          "matched_term": "docker",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Docker",
+          "path": "scripts/build-arch.sh",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "docker",
+          "path": "scripts/build-arch.sh",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Docker",
+          "path": "scripts/build-arch.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 127,
+          "matched_term": "Translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 128,
+          "matched_term": "translation",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "translation",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "translation",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Translation",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "Translation",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "Translation",
+          "path": "docs/i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "translation",
+          "path": "docs/i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "translation",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 238,
+          "matched_term": "translation",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 300,
+          "matched_term": "translation",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "translation",
+          "path": "docs/research-i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "translation",
+          "path": "docs/research-i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "translation",
+          "path": "docs/research-i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "Translation",
+          "path": "src/common/i18n/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "translation",
+          "path": "src/common/i18n/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "translation",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Translation",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "translation",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "translation",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "translation",
+          "path": "src/common/i18n/namespaces.ts",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "translation",
+          "path": "src/common/i18n/packSchema.ts",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "translation",
+          "path": "src/common/i18n/packSchema.ts",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "Translation",
+          "path": "src/common/i18n/packSchema.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Translation",
+          "path": "src/common/i18n/packValidate.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "translation",
+          "path": "src/common/i18n/packValidate.ts",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "Translation",
+          "path": "src/common/i18n/packValidate.ts",
+          "role": "source"
+        },
+        {
+          "line": 335,
+          "matched_term": "translation",
+          "path": "src/common/keybindings/types.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Translation",
+          "path": "src/electron/i18n/packs.ts",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Translation",
+          "path": "src/electron/i18n/packs.ts",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "Translation",
+          "path": "src/electron/i18n/packs.ts",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Translation",
+          "path": "src/renderer/TopBar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Translation",
+          "path": "src/renderer/TopBar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "Translation",
+          "path": "src/renderer/components/ItemDisplayTitle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Translation",
+          "path": "src/renderer/components/ItemDisplayTitle.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Translation",
+          "path": "src/renderer/components/LibraryScanStatusButton.tsx",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Translation",
+          "path": "src/renderer/components/LibraryScanStatusButton.tsx",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Translation",
+          "path": "src/renderer/components/ListNavigator.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 14,
+        "source": 218,
+        "test": 2
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": "quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "quic",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "quic",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "Quic",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4508,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 9278,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10345,
+          "matched_term": "quic",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "quic",
+          "path": "src/common/epub/types.ts",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "Quic",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 269,
+          "matched_term": "quic",
+          "path": "src/renderer/features/reader/epub/EPubReaderSettings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "quic",
+          "path": "src/renderer/features/reader/epub/EPubReaderSettings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": "quic",
+          "path": "src/renderer/features/reader/epub/EPubReaderSettings.tsx",
+          "role": "source"
+        },
+        {
+          "line": 312,
+          "matched_term": "quic",
+          "path": "src/renderer/utils/readerSettingsSchema.ts",
+          "role": "source"
+        },
+        {
+          "line": 313,
+          "matched_term": "quic",
+          "path": "src/renderer/utils/readerSettingsSchema.ts",
+          "role": "source"
+        },
+        {
+          "line": 419,
+          "matched_term": "quic",
+          "path": "src/renderer/utils/readerSettingsSchema.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 16
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 1213,
+          "matched_term": "dRm",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 20,
+          "matched_term": "file browser",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 136,
+          "matched_term": "Local storage",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 174,
+          "matched_term": "Local Storage",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "filesystem",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 242,
+          "matched_term": "filesystem",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 248,
+          "matched_term": "filesystem",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 283,
+          "matched_term": "filesystem",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 165,
+          "matched_term": "filesystem",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 206,
+          "matched_term": "filesystem",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "filesystem",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "filesystem",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 28,
+          "matched_term": "filesystem",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "filesystem",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "in place",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 124,
+          "matched_term": "in place",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "filesystem",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "filesystem",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "filesystem",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 198,
+          "matched_term": "filesystem",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "local storage",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "in place",
+          "path": "src/common/i18n/overlayLifecycle.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "filesystem",
+          "path": "src/common/keybindings/edit.ts",
+          "role": "source"
+        },
+        {
+          "line": 249,
+          "matched_term": "filesystem",
+          "path": "src/common/keybindings/migrate.ts",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "filesystem",
+          "path": "src/common/types/ipc.ts",
+          "role": "source"
+        },
+        {
+          "line": 187,
+          "matched_term": "FileSystem",
+          "path": "src/common/types/ipc.ts",
+          "role": "source"
+        },
+        {
+          "line": 358,
+          "matched_term": "FileSystem",
+          "path": "src/common/types/ipc.ts",
+          "role": "source"
+        },
+        {
+          "line": 416,
+          "matched_term": "in place",
+          "path": "src/electron/db/index.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "filesystem",
+          "path": "src/electron/ipc/fs.ts",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "filesystem",
+          "path": "src/electron/preload.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "filesystem",
+          "path": "src/electron/preload.ts",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "filesystem",
+          "path": "src/electron/preload.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "in place",
+          "path": "src/electron/util/file.ts",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": "FileSystem",
+          "path": "src/electron/util/handleSquirrelEvent.ts",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "file browser",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/EPubReader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/EPubReader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/EPubReader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/useBookCommandOwner.ts",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/useBookCommandOwner.ts",
+          "role": "source"
+        },
+        {
+          "line": 167,
+          "matched_term": "ingPlace",
+          "path": "src/renderer/features/reader/epub/useBookCommandOwner.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 19,
+        "source": 98,
+        "test": 7
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 19,
+          "matched_term": "metadata",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "metadata",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "metadata",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "metadata",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "metadata",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "metadata",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "metadata",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "metadata",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 86,
+          "matched_term": "metadata",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": "Metadata",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": "metadata",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "metadata",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 112,
+          "matched_term": "metadata",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "metadata",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 134,
+          "matched_term": "metadata",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 160,
+          "matched_term": "metadata",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "metadata",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "metadata",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "metadata",
+          "path": "drizzle/0003_zippy_lethal_legion.sql",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "metadata",
+          "path": "drizzle/meta/0003_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "metadata",
+          "path": "drizzle/meta/0003_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 461,
+          "matched_term": "metadata",
+          "path": "drizzle/meta/0003_snapshot.json",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "metadata",
+          "path": "scripts/build-arch.sh",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "Metadata",
+          "path": "scripts/build-arch.sh",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Metadata",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 135,
+          "matched_term": "Metadata",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 181,
+          "matched_term": "Metadata",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "metadata",
+          "path": "src/common/epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "Metadata",
+          "path": "src/common/epub/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Metadata",
+          "path": "src/common/epub/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "MetaData",
+          "path": "src/common/epub/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "metadata",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": "metadata",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 62,
+          "matched_term": "metadata",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "MetaData",
+          "path": "src/common/epub/parsePackage.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "Metadata",
+          "path": "src/common/epub/parsePackage.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "Metadata",
+          "path": "src/common/epub/parsePackage.ts",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "src/common/epub/types.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 60,
+        "source": 345,
+        "test": 167
+      }
+    },
+    "metadata_review": {
+      "evidence": [
+        {
+          "line": 432,
+          "matched_term": "metadata: Record<string, LibraryItemMetadata[]>` keyed by the same path. Favourite, note, and metada",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "locks richer metadata",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "Metadata` (user overlay > tracker snapshot > file overlay > `library_items` base). When the resolved",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "metadata block",
+          "path": "src/renderer/features/home/gallery/components/DetailsHero.tsx",
+          "role": "source"
+        },
+        {
+          "line": 632,
+          "matched_term": "lock ? <div className=\"details-catalog-metadata",
+          "path": "src/renderer/features/home/gallery/components/DetailsHero.tsx",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "merges a metadata",
+          "path": "src/renderer/store/library.metadata.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 90,
+          "matched_term": "metadata block",
+          "path": "src/renderer/utils/settingsSchema.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 4,
+        "test": 1
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "OAuth",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 370,
+          "matched_term": "OAuth",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 374,
+          "matched_term": "OAuth",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1343,
+          "matched_term": "Jwt",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Authorization",
+          "path": "src/common/http.md",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "authorization",
+          "path": "src/common/i18n/locales/en/anilist.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "authorization",
+          "path": "src/common/i18n/locales/en/anilist.json",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "oauth",
+          "path": "src/renderer/features/anilist/AniLogin.tsx",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "OAuth",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "Authentication",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "authentication",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "OAuth",
+          "path": "src/renderer/store/trackers.md",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "OAuth",
+          "path": "src/renderer/store/trackers.md",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "OAuth",
+          "path": "src/renderer/store/trackers.ts",
+          "role": "source"
+        },
+        {
+          "line": 137,
+          "matched_term": "Authorization",
+          "path": "src/renderer/utils/anilist.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 219,
+          "matched_term": "Authorization",
+          "path": "src/renderer/utils/anilist.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "OAuth",
+          "path": "src/renderer/utils/anilist.ts",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "Authorization",
+          "path": "src/renderer/utils/anilist.ts",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "OAuth",
+          "path": "src/renderer/utils/anilist.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 13,
+        "test": 2
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 242,
+          "matched_term": "SMB",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "NFS",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "SMB",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "ftp",
+          "path": "src/common/http.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 196,
+          "matched_term": "network share",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "network share",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 2,
+        "test": 1
+      }
+    },
+    "notes_export": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "export type BookNote = InferSelectModel<typeof bookNotes",
+          "path": "src/common/types/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "export type AddBookNoteData = z.infer<typeof AddBookNoteS",
+          "path": "src/common/types/db.ts",
+          "role": "source"
+        },
+        {
+          "line": 146,
+          "matched_term": "export const bookNotes",
+          "path": "src/electron/db/schema.ts",
+          "role": "source"
+        },
+        {
+          "line": 315,
+          "matched_term": "export const bookNotesRelations = relations(bookNotes",
+          "path": "src/electron/db/schema.ts",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "export const AddBookNoteSchema = createInsertSchema(bookNotes",
+          "path": "src/electron/db/validator.ts",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "export default Notes",
+          "path": "src/renderer/features/reader/epub/components/NotesList.tsx",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "export const highlightS",
+          "path": "src/renderer/features/settings/utils/navigateToSetting.ts",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "export const fetchAllNotes = createAsyncThunk(\"bookNotes",
+          "path": "src/renderer/store/bookNotes.ts",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "export const removeAllNotes",
+          "path": "src/renderer/store/bookNotes.ts",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": "export const { clearError: clearError_bookNotes, setNotes } = bookNotes",
+          "path": "src/renderer/store/bookNotes.ts",
+          "role": "source"
+        },
+        {
+          "line": 271,
+          "matched_term": "export const clearEpubFindHighlights",
+          "path": "src/renderer/utils/epub.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 12
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 41,
+          "matched_term": "pdfjs",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 107,
+          "matched_term": "reflow",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 94,
+          "matched_term": "pdfjs",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 79,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 79,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 111,
+          "matched_term": "pdfjs",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 130,
+          "matched_term": "pdfjs",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "pdfjs",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "pdfjs",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "Fixed-layout",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "pdfjs",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/continuous-scroll.md",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/continuous-scroll.md",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/continuous-scroll.md",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/useContinuousEpubScroll.ts",
+          "role": "source"
+        },
+        {
+          "line": 149,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/useContinuousEpubScroll.ts",
+          "role": "source"
+        },
+        {
+          "line": 221,
+          "matched_term": "reflow",
+          "path": "src/renderer/features/reader/epub/useContinuousEpubScroll.ts",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "reflow",
+          "path": "src/renderer/utils/epub.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "src/renderer/utils/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdfjs",
+          "path": "src/renderer/utils/pdf.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "pdf.js",
+          "path": "src/renderer/utils/pdf.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 4,
+        "source": 35
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 144,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 190,
+          "matched_term": "permission",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": ".github/workflows/greeting.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 35,
+          "matched_term": "permission",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 135,
+          "matched_term": "Permission",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": "permission",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 149,
+          "matched_term": "permission",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 104,
+          "matched_term": "library/            Share",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 188,
+          "matched_term": "Permission",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 217,
+          "matched_term": "library actions beyond the seams needed to share",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 353,
+          "matched_term": "library_tags`](../src/electron/db/schema.ts) is the global catalog (manga and book share",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 366,
+          "matched_term": "per library",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 415,
+          "matched_term": "library_items.cover` column stores only user-picked non-WebP paths (e.g. a `cover.jpg` in the manga ",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "Per-library",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "library scan in main and by the book reader after unzip. The share",
+          "path": "src/common/epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "library scan, so you can browse and open content through linked folders and files. The library store",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 183,
+          "matched_term": "per library",
+          "path": "src/electron/db/schema.ts",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "permission",
+          "path": "src/renderer/features/home/classic/components/LocationsTab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "library book: share",
+          "path": "src/renderer/features/home/gallery/components/BookDetailsPanel.tsx",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "library manga: share",
+          "path": "src/renderer/features/home/gallery/components/MangaDetailsPanel.tsx",
+          "role": "source"
+        },
+        {
+          "line": 148,
+          "matched_term": "per library",
+          "path": "src/renderer/utils/libraryCover.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 177,
+          "matched_term": "per library",
+          "path": "src/renderer/utils/libraryMetadata.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 14,
+        "source": 7,
+        "test": 1
+      }
+    },
+    "progress_sync": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "reading progress",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "reading progress",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "sync progress",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "Sync reading progress",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "progress sync",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "reading progress",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 132,
+          "matched_term": "progress sync",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "reading progress",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 184,
+          "matched_term": "Sync reading progress",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "reading progress",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 232,
+          "matched_term": "reading progress",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 159,
+          "matched_term": "reading progress",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "reading progress",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Reading Progress",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 211,
+          "matched_term": "Reading Progress",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "syncFailed\": \"Failed to sync AniList progress",
+          "path": "src/common/i18n/locales/en/anilist.json",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "reading progress",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "reading progress",
+          "path": "src/common/keybindings/keymap.ts",
+          "role": "source"
+        },
+        {
+          "line": 524,
+          "matched_term": "sync deleteProgress",
+          "path": "src/electron/db/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 595,
+          "matched_term": "sync updateMangaProgress(data: UpdateMangaProgressData): Promise<MangaProgress",
+          "path": "src/electron/db/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 642,
+          "matched_term": "sync updateBookProgress(data: UpdateBookProgressData): Promise<BookProgress",
+          "path": "src/electron/db/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 272,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 177,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/classic/components/HistoryTab.tsx",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/classic/listSelectionActions.ts",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/classic/listSelectionActions.ts",
+          "role": "source"
+        },
+        {
+          "line": 96,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/classic/listSelectionActions.ts",
+          "role": "source"
+        },
+        {
+          "line": 562,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/home/gallery/GalleryView.tsx",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "reading progress",
+          "path": "src/renderer/features/reader/epub/continuous-scroll.md",
+          "role": "source"
+        },
+        {
+          "line": 834,
+          "matched_term": "synced list progress",
+          "path": "src/renderer/features/reader/manga/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 839,
+          "matched_term": "sync AniList progress",
+          "path": "src/renderer/features/reader/manga/Reader.tsx",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "sync (progress: NonNullable<typeof content.progress>) => progress",
+          "path": "src/renderer/store/library.progress.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 28,
+          "matched_term": "syncThunk(\"library/getAllItemsWithProgress",
+          "path": "src/renderer/store/library.ts",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "sync (args: DatabaseChannels[\"db:manga:updateProgress",
+          "path": "src/renderer/store/library.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 13,
+        "source": 33,
+        "test": 1
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "theme",
+          "path": "PKGBUILD",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "theme",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 162,
+          "matched_term": "theme",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "Theme",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 161,
+          "matched_term": "theme",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 159,
+          "matched_term": "Theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "theme",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "Theme",
+          "path": "docs/i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 329,
+          "matched_term": "font size",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Theme",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Theme",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "theme",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "theme",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 38,
+          "matched_term": "font size",
+          "path": "src/common/i18n/locales/en/reader.json",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "font size",
+          "path": "src/common/i18n/locales/en/reader.json",
+          "role": "source"
+        },
+        {
+          "line": 251,
+          "matched_term": "Custom Font",
+          "path": "src/common/i18n/locales/en/reader.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Theme",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Theme",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "theme",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 141,
+          "matched_term": "theme",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "theme",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Theme",
+          "path": "src/renderer/App.tsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Theme",
+          "path": "src/renderer/App.tsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "theme",
+          "path": "src/renderer/App.tsx",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "theme",
+          "path": "src/renderer/TopBar.tsx",
+          "role": "source"
+        },
+        {
+          "line": 482,
+          "matched_term": "line height",
+          "path": "src/renderer/components/ListNavigator.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 217,
+          "matched_term": "theme",
+          "path": "src/renderer/features/home/gallery/components/mangaDetailsPanel.scss",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "font-size",
+          "path": "src/renderer/features/home/gallery/components/mangaDetailsPanel.scss",
+          "role": "source"
+        },
+        {
+          "line": 238,
+          "matched_term": "line-height",
+          "path": "src/renderer/features/home/gallery/components/mangaDetailsPanel.scss",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "font-size",
+          "path": "src/renderer/features/home/styles.scss",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "font-size",
+          "path": "src/renderer/features/home/styles.scss",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "line-height",
+          "path": "src/renderer/features/home/styles.scss",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "font/size",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 57,
+        "source": 662,
+        "test": 12
+      }
+    },
+    "readium": {
+      "evidence": [
+        {
+          "line": 2875,
+          "matched_term": "Rwpm",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/new_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/question.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": ".github/ISSUE_TEMPLATE/question.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 59,
+          "matched_term": "https",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 103,
+          "matched_term": "https",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": "secret",
+          "path": ".github/workflows/greeting.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 141,
+          "matched_term": "https",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 119,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "https",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "PKGBUILD",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "https",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "https",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "https",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "https",
+          "path": "announcements.txt",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "symlink",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "symlink",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 188,
+          "matched_term": "https",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "https",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "symlink",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 136,
+          "matched_term": "symlink",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "symlink",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "https",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "https",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "https",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "https",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 83,
+        "source": 170,
+        "test": 79
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 91,
+          "matched_term": "Unit Test",
+          "path": ".github/workflows/ci.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "playwright",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "playwright",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "vitest",
+          "path": "biome.jsonc",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "unit test",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "unit test",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Vitest",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "Playwright",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 326,
+          "matched_term": "Vitest",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 270,
+          "matched_term": "Vitest",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 270,
+          "matched_term": "Playwright",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 519,
+          "matched_term": "integration test",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 116,
+          "matched_term": "unit test",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Vitest",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Playwright",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 36,
+          "matched_term": "vitest",
+          "path": "docs/testing.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "playwright",
+          "path": "e2e/smoke.spec.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 43,
+          "matched_term": "vitest",
+          "path": "package.json",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "playwright",
+          "path": "playwright.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Playwright",
+          "path": "playwright.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 188,
+          "matched_term": "playwright",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 242,
+          "matched_term": "vitest",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 244,
+          "matched_term": "vitest",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "unit test",
+          "path": "scripts/tag-and-push.ts",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "unit test",
+          "path": "scripts/tag-and-push.ts",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "unit test",
+          "path": "scripts/tag-and-push.ts",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "vitest",
+          "path": "src/common/epub/chapter.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "vitest",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/epub/progress.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/http.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/i18n/overlayLifecycle.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/i18n/packValidate.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 21,
+          "matched_term": "unit test",
+          "path": "src/common/i18n/packValidate.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/i18n/sources.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/keybindings/binding.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "vitest",
+          "path": "src/common/keybindings/catalog.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "vitest",
+          "path": "src/common/keybindings/contexts.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 22,
+        "source": 76,
+        "test": 149
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "chapter mark",
+          "path": "src/common/epub/chapter.ts",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "chapter mark",
+          "path": "src/common/epub/chapter.ts",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": "chapter mark",
+          "path": "src/renderer/features/reader/epub/HTMLPart.tsx",
+          "role": "source"
+        },
+        {
+          "line": 158,
+          "matched_term": "chapter mark",
+          "path": "src/renderer/features/reader/epub/useContinuousEpubScroll.ts",
+          "role": "source"
+        },
+        {
+          "line": 84,
+          "matched_term": "chapter mark",
+          "path": "src/renderer/utils/epub.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 4,
+        "test": 1
+      }
+    },
+    "watch_import": {
+      "evidence": [
+        {
+          "line": 87,
+          "matched_term": "file watcher",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-yomikiru.jsonl.gz",
+  "files": {
+    "scanned_bytes": 4218686,
+    "scanned_text": 505,
+    "skipped_binary_or_empty": 3,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 508
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 106,
+          "matched_term": "CB7",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "CB7",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "CB7",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "CB7",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "CB7",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": ".cb7",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CB7",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "CB7",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": ".cb7",
+          "path": "src/common/library/formats.ts",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "CB7",
+          "path": "src/electron/util/archive.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 76,
+          "matched_term": ".cb7",
+          "path": "src/electron/util/archive.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 59,
+          "matched_term": ".cb7",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".cb7",
+          "path": "src/renderer/features/settings/components/FileExplorerOptions.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 5,
+        "test": 4
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "CBR",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": ".cbr",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "CBR",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "CBR",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "CBR",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "CBR",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "CBR",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": ".cbr",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "CBR",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "CBR",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBR",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "CBR",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "cbr",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "cbr",
+          "path": "scripts/demo-fixtures.checksums.json",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "cbr",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 209,
+          "matched_term": "CBR",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 439,
+          "matched_term": ".cbr",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 440,
+          "matched_term": "CBR",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": ".cbr",
+          "path": "src/common/library/formats.ts",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": ".cbr",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".cbr",
+          "path": "src/renderer/features/settings/components/FileExplorerOptions.tsx",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 16,
+        "source": 17
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 62,
+          "matched_term": "CBZ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 100,
+          "matched_term": ".cbz",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "CBZ",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "CBZ",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 66,
+          "matched_term": "CBZ",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "CBZ",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": ".cbz",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "CBZ",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "CBZ",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "CBZ",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBZ",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "CBZ",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "cbz",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "CBZ",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": ".cbz",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "CBZ",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 226,
+          "matched_term": "CBZ",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": ".cbz",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": ".cbz",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": ".cbz",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": ".cbz",
+          "path": "src/common/library/formats.ts",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/archive.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 91,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/archive.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 54,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 73,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": ".cbz",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 288,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/home/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "CBZ",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 57,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 138,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/reader/services/directoryValidator.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 163,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/reader/services/directoryValidator.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 221,
+          "matched_term": "cbz",
+          "path": "src/renderer/features/reader/services/directoryValidator.ts",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/settings/components/FileExplorerOptions.tsx",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": ".cbz",
+          "path": "src/renderer/features/settings/components/Usage.tsx",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": ".cbz",
+          "path": "src/renderer/utils/file.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 30,
+          "matched_term": ".cbz",
+          "path": "src/renderer/utils/file.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 53,
+          "matched_term": ".cbz",
+          "path": "src/renderer/utils/libraryMissingPath.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 25,
+        "source": 24,
+        "test": 43
+      }
+    },
+    "daisy": {
+      "evidence": [
+        {
+          "line": 120,
+          "matched_term": ".daisy",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 44,
+          "matched_term": ".daisy",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 2
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 37,
+          "matched_term": "epub",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 22,
+          "matched_term": "epub",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 65,
+          "matched_term": "EPUB ",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "EPUB",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "EPUB ",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB ",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "EPUB",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "EPUB",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": ".epub",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 53,
+          "matched_term": ".epub",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "EPUB ",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "EPUB ",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "EPUB",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "EPUB 3",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 127,
+          "matched_term": "EPUB ",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "epub",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 217,
+          "matched_term": "EPUB ",
+          "path": "docs/keybinding-refactor-spec.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": ".epub",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "EPUB ",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": ".epub",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": ".epub",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "EPUB ",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB",
+          "path": "docs/reader-scroll-perf.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "EPUB ",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": ".epub",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "EPUB",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub3",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "epub3",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "EPUB 3",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 436,
+          "matched_term": ".epub",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "EPUB ",
+          "path": "src/common/epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub",
+          "path": "src/common/epub/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "EPUB ",
+          "path": "src/common/epub/chapter.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "EPUB ",
+          "path": "src/common/epub/chapter.ts",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "EPUB ",
+          "path": "src/common/epub/chapter.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 169,
+        "source": 346,
+        "test": 154
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 119,
+          "matched_term": ".html",
+          "path": "CODE_OF_CONDUCT.md",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": ".html",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": ".xhtml",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": ".html",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": ".xhtml",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": ".html",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": ".html",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": ".html",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 219,
+          "matched_term": ".html",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 237,
+          "matched_term": ".html",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": ".html",
+          "path": "scripts/demo-fixtures.manifest.json",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".xhtml",
+          "path": "src/common/epub/chapter.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": ".xhtml",
+          "path": "src/common/epub/chapter.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".xhtml",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": ".xhtml",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 37,
+          "matched_term": ".xhtml",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 51,
+          "matched_term": ".html",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 66,
+          "matched_term": ".html",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 356,
+          "matched_term": ".html",
+          "path": "src/electron/db/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": ".html",
+          "path": "src/electron/db/index.ts",
+          "role": "source"
+        },
+        {
+          "line": 97,
+          "matched_term": ".xhtml",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 104,
+          "matched_term": ".xhtml",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 193,
+          "matched_term": ".xhtml",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": ".html",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "XHTML",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/features/reader/epub/HTMLPart.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 15,
+          "matched_term": "xhtml",
+          "path": "src/renderer/features/reader/epub/HTMLPart.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/features/reader/epub/components/ContentList.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/features/reader/epub/components/ContentList.test.tsx",
+          "role": "test"
+        },
+        {
+          "line": 101,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/features/reader/epub/contentList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 102,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/features/reader/epub/contentList.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 195,
+          "matched_term": "XHTML",
+          "path": "src/renderer/features/reader/epub/continuous-scroll.md",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/utils/epub.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 87,
+          "matched_term": "xhtml",
+          "path": "src/renderer/utils/epub.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 151,
+          "matched_term": "XHTML",
+          "path": "src/renderer/utils/epub.ts",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "XHTML",
+          "path": "src/renderer/utils/epub.ts",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/utils/highlight.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 17,
+          "matched_term": ".xhtml",
+          "path": "src/renderer/utils/highlight.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 28,
+        "test": 79
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/new_issue.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": "markdown",
+          "path": ".github/ISSUE_TEMPLATE/question.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 6,
+          "matched_term": ".md",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": ".md",
+          "path": ".github/pull_request_template.md",
+          "role": "configuration"
+        },
+        {
+          "line": 247,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 248,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 148,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".md",
+          "path": "docs/build.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": ".md",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": ".md",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": ".md",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": ".md",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": ".md",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 72,
+          "matched_term": ".md",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 192,
+          "matched_term": ".md",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 192,
+          "matched_term": ".md",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": ".md",
+          "path": "docs/research-i18n.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": ".md",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".md",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".md",
+          "path": "docs/research-library-fk.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": ".md",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": ".md",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "playwright.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 695,
+          "matched_term": ".md",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 696,
+          "matched_term": ".md",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "markdown",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 56,
+          "matched_term": ".md",
+          "path": "scripts/tag-and-push.ts",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "src/common/keybindings/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": ".md",
+          "path": "src/common/keybindings/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": ".md",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": ".md",
+          "path": "src/renderer/features/anilist/README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 12,
+        "documentation": 88,
+        "source": 17
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "package document",
+          "path": "docs/archive-backend.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": ".opf",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 39,
+          "matched_term": ".opf",
+          "path": "src/common/epub/parsePackage.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 230,
+          "matched_term": "package document",
+          "path": "src/common/epub/parsePackage.ts",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": ".opf",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 32,
+          "matched_term": ".opf",
+          "path": "src/common/epub/xml.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "package document",
+          "path": "src/common/epub/xml.ts",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": ".opf",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 102,
+          "matched_term": ".opf",
+          "path": "src/electron/util/contentSource.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 197,
+          "matched_term": ".opf",
+          "path": "src/renderer/features/reader/README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "package document",
+          "path": "src/renderer/utils/epub.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 3,
+        "test": 18
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 101,
+          "matched_term": ".pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 106,
+          "matched_term": "PDF",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 122,
+          "matched_term": "PDF",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "PDF",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 150,
+          "matched_term": "PDF",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": ".pdf",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 73,
+          "matched_term": "PDF",
+          "path": "docs/GUIDE.md",
+          "role": "documentation"
+        },
+        {
+          "line": 41,
+          "matched_term": "PDF",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 163,
+          "matched_term": "pdf",
+          "path": "docs/architecture.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "PDF",
+          "path": "docs/contribute.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "PDF",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 35,
+          "matched_term": "PDF",
+          "path": "docs/demo-fixtures.md",
+          "role": "documentation"
+        },
+        {
+          "line": 81,
+          "matched_term": "PDF",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 101,
+          "matched_term": "PDF",
+          "path": "docs/electron-upgrade-sharp-avif-cover-blocker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": "PDF",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "PDF",
+          "path": "docs/library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 162,
+          "matched_term": "PDF",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 408,
+          "matched_term": "PDF",
+          "path": "docs/library.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "PDF",
+          "path": "docs/research-library-discovery.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "PDF",
+          "path": "docs/settings.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "PDF",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 291,
+          "matched_term": "PDF",
+          "path": "scripts/fetch-demo-fixtures.ts",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/common.json",
+          "role": "source"
+        },
+        {
+          "line": 134,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/home.json",
+          "role": "source"
+        },
+        {
+          "line": 320,
+          "matched_term": "pdf",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 321,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/settings.json",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 87,
+          "matched_term": "PDF",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "PDF",
+          "path": "src/common/library/classify.ts",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "pdf",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".pdf",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "PDF",
+          "path": "src/common/library/formats.ts",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "PDF",
+          "path": "src/common/library/formats.ts",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "PDF",
+          "path": "src/common/types/ipc.ts",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "PDF",
+          "path": "src/common/types/ipc.ts",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "PDF",
+          "path": "src/electron/ipc/covers.ts",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "PDF",
+          "path": "src/electron/ipc/covers.ts",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "PDF",
+          "path": "src/electron/util/libraryScan.ts",
+          "role": "source"
+        },
+        {
+          "line": 65,
+          "matched_term": ".pdf",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 38,
+        "source": 110,
+        "test": 27
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 237,
+          "matched_term": ".txt",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 241,
+          "matched_term": ".txt",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 48,
+          "matched_term": ".txt",
+          "path": "PRIVACY.md",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": ".txt",
+          "path": "changelog-full.md",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": ".txt",
+          "path": "changelog.md",
+          "role": "documentation"
+        },
+        {
+          "line": 68,
+          "matched_term": ".txt",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 69,
+          "matched_term": ".txt",
+          "path": "forge.config.ts",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": ".txt",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".txt",
+          "path": "scripts/generate-release.ts",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "src/common/http.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "plain text",
+          "path": "src/common/i18n/locales/en/usage.json",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": ".txt",
+          "path": "src/common/i18n/packValidate.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 41,
+          "matched_term": ".txt",
+          "path": "src/common/library/formats.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 33,
+          "matched_term": ".txt",
+          "path": "src/common/library/images.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 34,
+          "matched_term": ".txt",
+          "path": "src/common/library/images.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": ".txt",
+          "path": "src/electron/updater.ts",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": ".txt",
+          "path": "src/electron/updater.ts",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": ".txt",
+          "path": "src/electron/util/file.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 43,
+          "matched_term": ".txt",
+          "path": "src/electron/util/file.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 190,
+          "matched_term": ".txt",
+          "path": "src/electron/util/shelloptions.ts",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": ".txt",
+          "path": "src/renderer/features/reader/services/directoryValidator.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 104,
+          "matched_term": ".txt",
+          "path": "src/renderer/features/reader/services/directoryValidator.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 27,
+          "matched_term": ".txt",
+          "path": "src/renderer/utils/file.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 176,
+          "matched_term": ".txt",
+          "path": "src/renderer/utils/libraryMissingPath.test.ts",
+          "role": "test"
+        },
+        {
+          "line": 76,
+          "matched_term": ".txt",
+          "path": "src/renderer/utils/mangaChapters.test.ts",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 1,
+        "source": 13,
+        "test": 13
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 1448,
+          "matched_term": "LPf",
+          "path": "pnpm-lock.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/mienaiyami/yomikiru",
+  "kind": "client",
+  "languages_by_file_count": {
+    "HTML": 2,
+    "JavaScript": 1,
+    "SCSS": 16,
+    "SQL": 4,
+    "Shell": 1,
+    "TypeScript": 272,
+    "TypeScript React": 133
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/mienaiyami/yomikiru",
+  "readme_files": [
+    ".husky/README.md",
+    "README.md",
+    "src/common/epub/README.md",
+    "src/common/keybindings/README.md",
+    "src/renderer/features/anilist/README.md",
+    "src/renderer/features/home/README.md",
+    "src/renderer/features/keybindings/README.md",
+    "src/renderer/features/reader/README.md",
+    "src/renderer/hooks/readme.md"
+  ],
+  "revision": "3087618628734ef7e986fcd26b331a80dd4f3b57",
+  "schema_version": 1,
+  "slug": "yomikiru",
+  "support_claims_allowed": false,
+  "tree": "033e120b7b9d4430c83c919eeb07f76cfb4d8d60"
+}

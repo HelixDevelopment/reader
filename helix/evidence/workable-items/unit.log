@@ -1,0 +1,17 @@
+test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok
+test_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... ok
+test_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok
+test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok
+test_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok
+test_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok
+test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... ok
+test_operator_block_command_round_trip (tests.test_workable_items.WorkableItemsTest.test_operator_block_command_round_trip) ... ok
+test_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok
+test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok
+test_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok
+test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.147s
+
+OK

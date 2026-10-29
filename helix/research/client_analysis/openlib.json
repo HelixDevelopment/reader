@@ -1,0 +1,2322 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 238,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 301,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 413,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "RAG",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "RAG",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "RAG",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/kotlin/com/app/openlib/MainActivity.kt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "embedding",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rAg",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "rAg",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "rag",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 108,
+          "matched_term": "rag",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "rag",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "rag",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "rag",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "rag",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "rAg",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 220,
+          "matched_term": "rag",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "rag",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "rag",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "rag",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "rag",
+          "path": "lib/ui/webview_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "rag",
+          "path": "lib/ui/webview_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "RAG",
+          "path": "macos/Runner/Configs/Warnings.xcconfig",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "rag",
+          "path": "pubspec.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "windows/runner/Runner.rc",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 7,
+        "source": 54
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 295,
+          "matched_term": "cfi",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 299,
+          "matched_term": "cfi",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 349,
+          "matched_term": "cfi",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "bookmark",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 199,
+          "matched_term": "highlight",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "EpubCfi",
+          "path": "lib/ui/epub_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 164,
+          "matched_term": "EpubCfi",
+          "path": "lib/ui/epub_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 176,
+          "matched_term": "EpubCfi",
+          "path": "lib/ui/epub_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 349,
+          "matched_term": "cfi",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "cfi",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 369,
+          "matched_term": "cfi",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 273,
+          "matched_term": "annotation",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 276,
+          "matched_term": "annotation",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 443,
+          "matched_term": "annotation",
+          "path": "pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 17
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 38,
+          "matched_term": "Restore",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "Snapshot",
+          "path": "lib/ui/mybook_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "snapshot",
+          "path": "lib/ui/mybook_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "snapshot",
+          "path": "lib/ui/mybook_page.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 16
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "Collection",
+          "path": "ios/Runner/Base.lproj/Main.storyboard",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "collection",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 213,
+          "matched_term": "collection",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "series",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 216,
+          "matched_term": "Series",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "collection",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "collection",
+          "path": "pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "cbz",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 61,
+          "matched_term": "cbr",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "CBT",
+          "path": "android/app/src/main/res/raw/annas_archive",
+          "role": "source"
+        },
+        {
+          "line": 194,
+          "matched_term": "CB7",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 360,
+          "matched_term": "CB7",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "cbr",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "cbr",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "cbz",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "Comic",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "comic",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Cbr",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cbr",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Cbr",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cbz",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Cbr",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Cbz",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "Cbr",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "cb7",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 567,
+          "matched_term": "cb7",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 687,
+          "matched_term": "cb7",
+          "path": "pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 25
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "cache",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 33,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "thumbnail",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "thumbnail",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "thumbnail",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "thumbnail",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "thumbnail",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "thumbnail",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "thumbnail",
+          "path": "lib/services/goodreads.dart",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "thumbnail",
+          "path": "lib/services/goodreads.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "thumbnail",
+          "path": "lib/services/goodreads.dart",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "thumbnail",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "thumbnail",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "thumbnail",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/services/share_book.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/services/share_book.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "Cache",
+          "path": "lib/services/share_book.dart",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cache",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "cache",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Cache",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/mybook_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/mylibrary_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/mylibrary_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/results_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "thumbnail",
+          "path": "lib/ui/results_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/trending_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "cache",
+          "path": "lib/ui/trending_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "Cache",
+          "path": "lib/ui/trending_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "CACHE",
+          "path": "linux/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "CACHE",
+          "path": "linux/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 100,
+          "matched_term": "CACHE",
+          "path": "linux/CMakeLists.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 130
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "Epub And Pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Epub And Pdf",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 442,
+          "matched_term": "CONVERSION",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 444,
+          "matched_term": "CONVERSION",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 448,
+          "matched_term": "CONVERSION",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Conversion",
+          "path": "lib/ui/search_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 524,
+          "matched_term": "CONVERSION",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 530,
+          "matched_term": "CONVERSION",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 531,
+          "matched_term": "CONVERSION",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "conversion",
+          "path": "macos/Runner/Configs/Warnings.xcconfig",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 48
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 627,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 637,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 657,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 87,
+          "matched_term": "sqlite",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 89,
+          "matched_term": "sqlite",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "sqlite",
+          "path": "lib/services/database.dart",
+          "role": "source"
+        },
+        {
+          "line": 848,
+          "matched_term": "sqlite",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 851,
+          "matched_term": "sqlite",
+          "path": "pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 5
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 459,
+          "matched_term": "DUPLICATE",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 580,
+          "matched_term": "DUPLICATE",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 635,
+          "matched_term": "DUPLICATE",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "CheckSum",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "CheckSum",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "checkSum",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 88,
+          "matched_term": "CheckSum",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "CheckSum",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "checkSum",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 300,
+          "matched_term": "checkSum",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "CHECKSUM",
+          "path": "macos/Podfile.lock",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "CHECKSUM",
+          "path": "macos/Podfile.lock",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "DUPLICATE",
+          "path": "macos/Runner/Configs/Warnings.xcconfig",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "sha256",
+          "path": "pubspec.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 173
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "Dictionary",
+          "path": "ios/Flutter/AppFrameworkInfo.plist",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Dictionary",
+          "path": "ios/Runner/Info.plist",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "anki",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Dictionary",
+          "path": "macos/Runner/Info.plist",
+          "role": "source"
+        },
+        {
+          "line": 104,
+          "matched_term": "Translation",
+          "path": "windows/runner/Runner.rc",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 392,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 395,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 3
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": "FileSystem",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "filesystem",
+          "path": "linux/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "in place",
+          "path": "windows/CMakeLists.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 12,
+          "matched_term": "metadata",
+          "path": ".metadata",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "metadata",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "metadata",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 197,
+          "matched_term": "Metadata",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "goodreads",
+          "path": "lib/services/goodreads.dart",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "OpenLibrary",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "OpenLibrary",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "openlibrary",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "goodreads",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "OpenLibrary",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "Goodreads",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "macos/Runner/Configs/AppInfo.xcconfig",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 21
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 311,
+          "matched_term": "authorization",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 285,
+          "matched_term": "oidC",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "oidC",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "oidC",
+          "path": "lib/ui/components/error_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 54,
+          "matched_term": "oidC",
+          "path": "lib/ui/home_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "oidC",
+          "path": "lib/ui/home_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "oidC",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/debug/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "permission",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "permission",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "permission",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "permission",
+          "path": "android/app/src/profile/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "Permission",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 659,
+          "matched_term": "permission",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 662,
+          "matched_term": "permission",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 667,
+          "matched_term": "permission",
+          "path": "pubspec.lock",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "permission",
+          "path": "pubspec.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "windows/flutter/generated_plugin_registrant.cc",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": "windows/flutter/generated_plugin_registrant.cc",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Permission",
+          "path": "windows/flutter/generated_plugin_registrant.cc",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "permission",
+          "path": "windows/flutter/generated_plugins.cmake",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 20,
+        "source": 54
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 35,
+          "matched_term": "theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "theme",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Dark Mode",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values-night/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Dark Mode",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "Theme",
+          "path": "android/app/src/main/res/values/styles.xml",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "theme",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "theme",
+          "path": "lib/main.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "theme",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Theme",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "Theme",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Theme",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Theme",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "Theme",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "Theme",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Theme",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "Theme",
+          "path": "lib/ui/book_info_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "theme",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 129,
+          "matched_term": "theme",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 136,
+          "matched_term": "theme",
+          "path": "lib/ui/categories_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 107,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/book_info_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/delete_dialog_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/delete_dialog_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/delete_dialog_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/error_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/error_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/error_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 67,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "Theme",
+          "path": "lib/ui/components/page_title_widget.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "source": 219
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 81,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 87,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 88,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "CONTRIBUTING.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 648,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 667,
+          "matched_term": "https",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "SETUP.md",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "https",
+          "path": "SETUP.md",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "https",
+          "path": "SETUP.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "https",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "https",
+          "path": "android/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "https",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "android/app/src/main/AndroidManifest.xml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "CERTIFICATE",
+          "path": "android/app/src/main/res/raw/annas_archive",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "CERTIFICATE",
+          "path": "android/app/src/main/res/raw/annas_archive",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "certificate",
+          "path": "android/app/src/main/res/xml/network_security_config.xml",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "certificate",
+          "path": "android/app/src/main/res/xml/network_security_config.xml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "android/gradle/wrapper/gradle-wrapper.properties",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "symlink",
+          "path": "ios/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "ios/RunnerTests/RunnerTests.swift",
+          "role": "test"
+        },
+        {
+          "line": 56,
+          "matched_term": "https",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "https",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "https",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "https",
+          "path": "lib/services/download_file.dart",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "https",
+          "path": "lib/services/goodreads.dart",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "lib/services/google_suggest_api.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "https",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "https",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "https",
+          "path": "lib/services/open_library.dart",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "https",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "https",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "https",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 13,
+        "documentation": 28,
+        "source": 219,
+        "test": 2
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-openlib.jsonl.gz",
+  "files": {
+    "scanned_bytes": 550882,
+    "scanned_text": 143,
+    "skipped_binary_or_empty": 74,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 217
+  },
+  "format_keyword_evidence": {
+    "cbr": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "cbr",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 75,
+          "matched_term": "cbr",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "cbr",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Cbr",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "cbr",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Cbr",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "cbz",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "cbz",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "cbz",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Cbz",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "cbz",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Cbz",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 6
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "Epub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Epub ",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "epub",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 143,
+          "matched_term": "EPUB",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "epub",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "Epub",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "Epub ",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "epub",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Epub",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "epub",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "epub",
+          "path": "lib/ui/epub_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "Epub ",
+          "path": "lib/ui/epub_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "Epub ",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 13
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 674,
+          "matched_term": ".html",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": ".html",
+          "path": "analysis_options.yaml",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": ".html",
+          "path": "android/app/build.gradle",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": ".html",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": ".html",
+          "path": "lib/ui/about_page.dart",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": ".html",
+          "path": "pubspec.yaml",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 4
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 135,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 136,
+          "matched_term": ".md",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 94,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 94,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 4
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 61,
+          "matched_term": "azw3",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 54,
+          "matched_term": "Pdf",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "Pdf",
+          "path": "fastlane/metadata/android/en-US/full_description.txt",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "pdf",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "pdf",
+          "path": "lib/services/annas_archieve.dart",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "pdf",
+          "path": "lib/services/files.dart",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "PDF",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "PDF",
+          "path": "lib/state/state.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "pdf",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "PDF",
+          "path": "lib/ui/components/book_card_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "pdf",
+          "path": "lib/ui/components/file_buttons_widget.dart",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "application/pdf",
+          "path": "lib/ui/pdf_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "PDF",
+          "path": "lib/ui/pdf_viewer.dart",
+          "role": "source"
+        },
+        {
+          "line": 99,
+          "matched_term": "PDF",
+          "path": "lib/ui/settings_page.dart",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 14
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 321,
+          "matched_term": ".txt",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 375,
+          "matched_term": ".txt",
+          "path": "ios/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 395,
+          "matched_term": ".txt",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 417,
+          "matched_term": ".txt",
+          "path": "macos/Runner.xcodeproj/project.pbxproj",
+          "role": "source"
+        },
+        {
+          "line": 52,
+          "matched_term": ".txt",
+          "path": "windows/CMakeLists.txt",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".txt",
+          "path": "windows/runner/CMakeLists.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 102,
+          "matched_term": "lpf",
+          "path": "windows/runner/win32_window.cpp",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/dstark5/openlib",
+  "kind": "client",
+  "languages_by_file_count": {
+    "C++": 8,
+    "C/C++ header": 8,
+    "Dart": 33,
+    "HTML": 1,
+    "Kotlin": 1,
+    "Swift": 6,
+    "XML": 8
+  },
+  "license_review": {
+    "candidate_notices": [
+      "AGPL-3.0",
+      "GPL-3.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/dstark5/openlib",
+  "readme_files": [
+    "README.md",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md"
+  ],
+  "revision": "fd779d7dd8dee1ab07aaf189f406dc00275c6321",
+  "schema_version": 1,
+  "slug": "openlib",
+  "support_claims_allowed": false,
+  "tree": "086aab6c054bbc685ea0ed8015e0f2539620efc5"
+}

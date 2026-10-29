@@ -1,0 +1,1798 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 131,
+          "matched_term": "rag",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 876,
+          "matched_term": "rag",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 880,
+          "matched_term": "rag",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 1166,
+          "matched_term": "rag",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "rag",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "rag",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 126,
+          "matched_term": "rag",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 282,
+          "matched_term": "rag",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 292,
+          "matched_term": "rag",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 689,
+          "matched_term": "rag",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "rag",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 414,
+          "matched_term": "rag",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 35
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 44,
+          "matched_term": "highlight",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "highlight",
+          "path": "assets/bright.toml",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "highlight",
+          "path": "assets/bright.toml",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "highlight",
+          "path": "assets/dark.toml",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "highlight",
+          "path": "assets/dark.toml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "highlight",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "highlight",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "highlight",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Highlight",
+          "path": "src/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "Highlight",
+          "path": "src/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 625,
+          "matched_term": "highlight",
+          "path": "src/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 207,
+          "matched_term": "highlight",
+          "path": "src/color.rs",
+          "role": "source"
+        },
+        {
+          "line": 208,
+          "matched_term": "highlight",
+          "path": "src/color.rs",
+          "role": "source"
+        },
+        {
+          "line": 218,
+          "matched_term": "highlight",
+          "path": "src/color.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "highlight",
+          "path": "src/controller.rs",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "Highlight",
+          "path": "src/controller.rs",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "highlight",
+          "path": "src/controller.rs",
+          "role": "source"
+        },
+        {
+          "line": 725,
+          "matched_term": "highlight",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "highlight",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "Highlight",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "highlight",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "highlight",
+          "path": "src/gui/find_list.rs",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "highlight",
+          "path": "src/gui/find_list.rs",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "highlight",
+          "path": "src/gui/find_list.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Highlight",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "highlight",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "highlight",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Highlight",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "Highlight",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 556,
+          "matched_term": "highlight",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Highlight",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "highlight",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "highlight",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "highlight",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "highlight",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 231,
+          "matched_term": "highlight",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "Highlight",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 285
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 29,
+          "matched_term": "restore",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 1172,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1805,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3393,
+          "matched_term": "snapshot",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 298,
+          "matched_term": "Snapshot",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "snapshot",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 454,
+          "matched_term": "snapshot",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 254,
+          "matched_term": "restore",
+          "path": "src/terminal.rs",
+          "role": "source"
+        },
+        {
+          "line": 258,
+          "matched_term": "restore",
+          "path": "src/terminal.rs",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "restore",
+          "path": "src/terminal/input_method.rs",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "restore",
+          "path": "src/terminal/input_method.rs",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "restore",
+          "path": "src/terminal/input_method.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 13
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "collection",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "collection",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "collection",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "collection",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "collection",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "collection",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "src/i18n.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 11
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 168,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1020,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1644,
+          "matched_term": "cb7",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "right to left",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 7
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 24,
+          "matched_term": "cache",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 25,
+          "matched_term": "cache",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 58,
+          "matched_term": "cache",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 1743,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1744,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2883,
+          "matched_term": "cache",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "Cache",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cache",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 178,
+          "matched_term": "cache",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 179,
+          "matched_term": "cache",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 311,
+          "matched_term": "cache",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": "src/book/html.rs",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "cache",
+          "path": "src/book/html.rs",
+          "role": "source"
+        },
+        {
+          "line": 103,
+          "matched_term": "cache",
+          "path": "src/book/html.rs",
+          "role": "source"
+        },
+        {
+          "line": 246,
+          "matched_term": "cache",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "cache",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 471,
+          "matched_term": "cache",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 210,
+          "matched_term": "cache",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 245,
+          "matched_term": "cache",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "cache",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 109,
+          "matched_term": "cache",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "cache",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "cache",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "cache",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 249,
+          "matched_term": "cache",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 499,
+          "matched_term": "cache",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 559,
+          "matched_term": "cache",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 560,
+          "matched_term": "cache",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "cache",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "cache",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 322,
+          "matched_term": "cache",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "cache",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "cache",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 355,
+          "matched_term": "cache",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 565,
+          "matched_term": "cache",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 938,
+          "matched_term": "cache",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 951,
+          "matched_term": "cache",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 278,
+          "matched_term": "eTag",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 286,
+          "matched_term": "eTag",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "source": 178
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 1662,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2515,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2524,
+          "matched_term": "sqlite",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "sqlite",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 37,
+          "matched_term": "sqlite",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 51,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "redis",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "sqlite",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 337,
+          "matched_term": "sqlite",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 505,
+          "matched_term": "sqlite",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "sqlite",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 8,
+        "source": 9
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "checksum",
+          "path": "Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 395
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 1537,
+          "matched_term": "docker",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 1551,
+          "matched_term": "docker",
+          "path": "Cargo.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 2851,
+          "matched_term": "stardict",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3020,
+          "matched_term": "stardict",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "stardict",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 78,
+          "matched_term": "stardict",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 79,
+          "matched_term": "stardict",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "translation",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "dictionary",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 252,
+          "matched_term": "dictionary",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 272,
+          "matched_term": "dictionary",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Dictionary",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Dictionary",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "dictionary",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "stardict",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "StarDict",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Dictionary",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "dictionary",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 304,
+          "matched_term": "dictionary",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 332,
+          "matched_term": "stardict",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 4,
+        "documentation": 1,
+        "source": 130
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 2327,
+          "matched_term": "quic",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 3012,
+          "matched_term": "quic",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "quic",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 644,
+          "matched_term": "quic",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 657,
+          "matched_term": "quic",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 839,
+          "matched_term": "quic",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "quic",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "quic",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 8
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "license document",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 513,
+          "matched_term": "Metadata",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 552,
+          "matched_term": "metadata",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 552,
+          "matched_term": "Metadata",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 1739,
+          "matched_term": "metadata",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 304,
+          "matched_term": "ISBN",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 353,
+          "matched_term": "ISBN",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 305,
+          "matched_term": "permission",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 306,
+          "matched_term": "permission",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 310,
+          "matched_term": "permission",
+          "path": "src/terminal/view/xi.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 8
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 18,
+          "matched_term": "Theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "theme",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "assets/bright.toml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "theme",
+          "path": "assets/dark.toml",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "font-size",
+          "path": "assets/gui/gtk.css",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "custom font",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "theme",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "font-size",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "font-size",
+          "path": "assets/i18n/zh_CN.ftl",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "font_size",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "font_size",
+          "path": "src/config.rs",
+          "role": "source"
+        },
+        {
+          "line": 290,
+          "matched_term": "font_size",
+          "path": "src/controller.rs",
+          "role": "source"
+        },
+        {
+          "line": 57,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "THEME",
+          "path": "src/gui.rs",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 268,
+          "matched_term": "font_size",
+          "path": "src/gui/dict.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "font_size",
+          "path": "src/gui/font.rs",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "font_size",
+          "path": "src/gui/font.rs",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "custom font",
+          "path": "src/gui/font.rs",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "theme",
+          "path": "src/gui/history.rs",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "font_size",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "font_size",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 159,
+          "matched_term": "font_size",
+          "path": "src/gui/render/han.rs",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "font_size",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 260,
+          "matched_term": "font_size",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 269,
+          "matched_term": "font_size",
+          "path": "src/gui/render/imp.rs",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "font_size",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "font_size",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 202,
+          "matched_term": "font_size",
+          "path": "src/gui/render/xi.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "FONT_SIZE",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "font_size",
+          "path": "src/gui/settings.rs",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "font_size",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "font_size",
+          "path": "src/gui/view.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 351
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "https",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 60,
+          "matched_term": "https",
+          "path": ".github/workflows/binary.yaml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 79,
+          "matched_term": "https",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 57,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 88,
+          "matched_term": "https",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "https",
+          "path": "src/open.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "src/xhtml_entities.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 8,
+        "documentation": 3,
+        "source": 401
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-tbr.jsonl.gz",
+  "files": {
+    "scanned_bytes": 654728,
+    "scanned_text": 72,
+    "skipped_binary_or_empty": 2,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 74
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "epub",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub",
+          "path": "assets/i18n/en_US.ftl",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "epub",
+          "path": "src/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "epub",
+          "path": "src/book.rs",
+          "role": "source"
+        },
+        {
+          "line": 124,
+          "matched_term": "epub ",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 127,
+          "matched_term": "epub ",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 16
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 1464,
+          "matched_term": "html5",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 2625,
+          "matched_term": "html5",
+          "path": "Cargo.lock",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "xhtml",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "xhtml",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "xhtml",
+          "path": "src/book/html.rs",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "xhtml",
+          "path": "src/book/html.rs",
+          "role": "source"
+        },
+        {
+          "line": 1379,
+          "matched_term": ".html",
+          "path": "src/html_parser.rs",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "xhtml",
+          "path": "src/main.rs",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "xhtml",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "xhtml",
+          "path": "src/xhtml_entities.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": ".html",
+          "path": "src/xhtml_entities.md",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 31
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 10,
+          "matched_term": ".md",
+          "path": "Cargo.toml",
+          "role": "configuration"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "src/xhtml.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 1
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 59,
+          "matched_term": "PALMDOC",
+          "path": "src/book/haodoo.rs",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "PalmDoc",
+          "path": "src/book/haodoo.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 9
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 511,
+          "matched_term": ".opf",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        },
+        {
+          "line": 658,
+          "matched_term": ".opf",
+          "path": "src/book/epub.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 28,
+          "matched_term": ".txt",
+          "path": "src/book/txt.rs",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/zangloo/tbr",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 1,
+    "Rust": 38,
+    "XML": 4
+  },
+  "license_review": {
+    "candidate_notices": [
+      "GPL-2.0",
+      "LGPL"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/zangloo/tbr",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "26504507d04f5408373ecc7fa5a68a85da3d8450",
+  "schema_version": 1,
+  "slug": "tbr",
+  "support_claims_allowed": false,
+  "tree": "6a00a996a4e040ddfdaf0f1c3c16c8be47c3d02d"
+}

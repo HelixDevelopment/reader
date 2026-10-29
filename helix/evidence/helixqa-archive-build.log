@@ -1,0 +1,637 @@
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/Azure/go-ansiterm@v0.0.0-20250102033503-faa5f7b0171c: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/Azure/go-ansiterm@v0.0.0-20250102033503-faa5f7b0171c: module lookup disabled by GOPROXY=off
+
+FETCH github.com/Azure/go-ansiterm v0.0.0-20250102033503-faa5f7b0171c
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/Microsoft/go-winio@v0.6.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/Microsoft/go-winio@v0.6.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/Microsoft/go-winio v0.6.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 2 pkg/testbank/manager.go:11:2: github.com/beevik/etree@v1.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/beevik/etree@v1.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/beevik/etree v1.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 3 pkg/testbank/manager.go:11:2: github.com/beorn7/perks@v1.0.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/beorn7/perks@v1.0.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/beorn7/perks v1.0.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 4 pkg/testbank/manager.go:11:2: github.com/bits-and-blooms/bitset@v1.24.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/bits-and-blooms/bitset@v1.24.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/bits-and-blooms/bitset v1.24.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 5 pkg/testbank/manager.go:11:2: github.com/cenkalti/backoff/v4@v4.3.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/cenkalti/backoff/v4@v4.3.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/cenkalti/backoff/v4 v4.3.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 6 pkg/testbank/manager.go:11:2: github.com/cenkalti/backoff/v5@v5.0.3: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/cenkalti/backoff/v5@v5.0.3: module lookup disabled by GOPROXY=off
+
+FETCH github.com/cenkalti/backoff/v5 v5.0.3
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 7 pkg/testbank/manager.go:11:2: github.com/chromedp/sysutil@v1.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/chromedp/sysutil@v1.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/chromedp/sysutil v1.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 8 pkg/testbank/manager.go:11:2: github.com/containerd/errdefs@v1.0.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/containerd/errdefs@v1.0.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/containerd/errdefs v1.0.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 9 pkg/testbank/manager.go:11:2: github.com/containerd/errdefs/pkg@v0.3.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/containerd/errdefs/pkg@v0.3.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/containerd/errdefs/pkg v0.3.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 10 pkg/testbank/manager.go:11:2: github.com/containerd/log@v0.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/containerd/log@v0.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/containerd/log v0.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 11 pkg/testbank/manager.go:11:2: github.com/containerd/platforms@v0.2.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/containerd/platforms@v0.2.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/containerd/platforms v0.2.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 12 pkg/testbank/manager.go:11:2: github.com/cpuguy83/dockercfg@v0.3.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/cpuguy83/dockercfg@v0.3.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/cpuguy83/dockercfg v0.3.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 13 pkg/testbank/manager.go:11:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc: module lookup disabled by GOPROXY=off
+
+FETCH github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+curl: (22) The requested URL returned error: 404
+FETCH FAIL github.com/davecgh/go-spew CalledProcessError(22, ['curl', '-L', '--fail', '--silent', '--show-error', '--connect-timeout', '15', '--max-time', '180', 'https://codeload.github.com/davecgh/go-spew/tar.gz/v1.1.2-0.20180830191138-d8f796af33cc', '-o', '/mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc.tar.gz'])
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc: module lookup disabled by GOPROXY=off
+
+FETCH github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+/mnt/agents/research/qa-deps/resolve_go_archives.py:31: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc (replaced by /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc): reading /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: open /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: no such file or directory
+pkg/testbank/loader.go:15:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc (replaced by /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc): reading /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: open /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: no such file or directory
+
+NO RESOLVABLE MISSING MODULE
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc (replaced by /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc): reading /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: open /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: no such file or directory
+pkg/testbank/loader.go:15:2: github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc (replaced by /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc): reading /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: open /mnt/agents/research/qa-deps/go-modules/github.com__davecgh__go-spew@v1.1.2-0.20180830191138-d8f796af33cc/go.mod: no such file or directory
+
+NO RESOLVABLE MISSING MODULE
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/distribution/reference@v0.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/distribution/reference@v0.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/distribution/reference v0.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/docker/go-connections@v0.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/docker/go-connections@v0.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/docker/go-connections v0.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 2 pkg/testbank/manager.go:11:2: github.com/docker/go-units@v0.5.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/docker/go-units@v0.5.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/docker/go-units v0.5.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 3 pkg/testbank/manager.go:11:2: github.com/dustin/go-humanize@v1.0.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/dustin/go-humanize@v1.0.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/dustin/go-humanize v1.0.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 4 pkg/testbank/manager.go:11:2: github.com/ebitengine/purego@v0.10.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ebitengine/purego@v0.10.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ebitengine/purego v0.10.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 5 pkg/testbank/manager.go:11:2: github.com/felixge/httpsnoop@v1.0.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/felixge/httpsnoop@v1.0.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/felixge/httpsnoop v1.0.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 6 pkg/testbank/manager.go:11:2: github.com/go-ini/ini@v1.67.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/go-ini/ini@v1.67.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/go-ini/ini v1.67.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 7 pkg/testbank/manager.go:11:2: github.com/go-jose/go-jose/v4@v4.1.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/go-jose/go-jose/v4@v4.1.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/go-jose/go-jose/v4 v4.1.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 8 pkg/testbank/manager.go:11:2: github.com/go-logr/logr@v1.4.3: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/go-logr/logr@v1.4.3: module lookup disabled by GOPROXY=off
+
+FETCH github.com/go-logr/logr v1.4.3
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 9 pkg/testbank/manager.go:11:2: github.com/go-logr/stdr@v1.2.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/go-logr/stdr@v1.2.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/go-logr/stdr v1.2.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 10 pkg/testbank/manager.go:11:2: github.com/go-ole/go-ole@v1.2.6: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/go-ole/go-ole@v1.2.6: module lookup disabled by GOPROXY=off
+
+FETCH github.com/go-ole/go-ole v1.2.6
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 11 pkg/testbank/manager.go:11:2: github.com/gobwas/httphead@v0.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/gobwas/httphead@v0.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/gobwas/httphead v0.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 12 pkg/testbank/manager.go:11:2: github.com/gobwas/pool@v0.2.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/gobwas/pool@v0.2.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/gobwas/pool v0.2.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 13 pkg/testbank/manager.go:11:2: github.com/gobwas/ws@v1.4.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/gobwas/ws@v1.4.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/gobwas/ws v1.4.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 14 pkg/testbank/manager.go:11:2: github.com/grpc-ecosystem/grpc-gateway/v2@v2.28.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/grpc-ecosystem/grpc-gateway/v2@v2.28.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 15 pkg/testbank/manager.go:11:2: github.com/jonboulle/clockwork@v0.5.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/jonboulle/clockwork@v0.5.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/jonboulle/clockwork v0.5.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 16 pkg/testbank/manager.go:11:2: github.com/klauspost/compress@v1.18.5: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/klauspost/compress@v1.18.5: module lookup disabled by GOPROXY=off
+
+FETCH github.com/klauspost/compress v1.18.5
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 17 pkg/testbank/manager.go:11:2: github.com/klauspost/cpuid/v2@v2.3.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/klauspost/cpuid/v2@v2.3.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/klauspost/cpuid/v2 v2.3.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 18 pkg/testbank/manager.go:11:2: github.com/klauspost/crc32@v1.3.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/klauspost/crc32@v1.3.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/klauspost/crc32 v1.3.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 19 pkg/testbank/manager.go:11:2: github.com/lufia/plan9stats@v0.0.0-20211012122336-39d0f177ccd0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/lufia/plan9stats@v0.0.0-20211012122336-39d0f177ccd0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 20 pkg/testbank/manager.go:11:2: github.com/magiconair/properties@v1.8.10: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/magiconair/properties@v1.8.10: module lookup disabled by GOPROXY=off
+
+FETCH github.com/magiconair/properties v1.8.10
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 21 pkg/testbank/manager.go:11:2: github.com/mattermost/xml-roundtrip-validator@v0.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/mattermost/xml-roundtrip-validator@v0.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/mattermost/xml-roundtrip-validator v0.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 22 pkg/testbank/manager.go:11:2: github.com/minio/crc64nvme@v1.1.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/minio/crc64nvme@v1.1.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/minio/crc64nvme v1.1.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 23 pkg/testbank/manager.go:11:2: github.com/minio/md5-simd@v1.1.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/minio/md5-simd@v1.1.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/minio/md5-simd v1.1.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 24 pkg/testbank/manager.go:11:2: github.com/moby/docker-image-spec@v1.3.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/docker-image-spec@v1.3.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/docker-image-spec v1.3.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 25 pkg/testbank/manager.go:11:2: github.com/moby/go-archive@v0.2.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/go-archive@v0.2.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/go-archive v0.2.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:34: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 26 pkg/testbank/manager.go:11:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/moby/api v1.54.1
+curl: (22) The requested URL returned error: 404
+FETCH FAIL github.com/moby/moby/api CalledProcessError(22, ['curl', '-L', '--fail', '--silent', '--show-error', '--connect-timeout', '15', '--max-time', '180', 'https://codeload.github.com/moby/moby/tar.gz/v1.54.1', '-o', '/mnt/agents/research/qa-deps/go-modules/github.com__moby__moby@v1.54.1.tar.gz'])
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/moby/api v1.54.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:38: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/moby/api@v1.54.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/moby/api v1.54.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:38: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+pkg/testbank/manager.go:11:2: github.com/moby/moby/client@v0.4.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/moby/client@v0.4.0: module lookup disabled by GOPROXY=off
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/moby/moby/client@v0.4.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/moby/client@v0.4.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/moby/client v0.4.0
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/moby/patternmatcher@v0.6.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/patternmatcher@v0.6.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/patternmatcher v0.6.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 2 pkg/testbank/manager.go:11:2: github.com/moby/sys/sequential@v0.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/sys/sequential@v0.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/sys/sequential v0.6.0
+curl: (22) The requested URL returned error: 404
+FETCH FAIL github.com/moby/sys/sequential CalledProcessError(22, ['curl', '-L', '--fail', '--silent', '--show-error', '--connect-timeout', '15', '--max-time', '180', 'https://codeload.github.com/moby/sys/tar.gz/v0.6.0', '-o', '/mnt/agents/research/qa-deps/go-modules/github.com__moby__sys__sequential@v0.6.0.tar.gz'])
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/moby/sys/sequential@v0.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/sys/sequential@v0.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/sys/sequential v0.6.0
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/moby/sys/user@v0.4.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/sys/user@v0.4.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/sys/user v0.4.0
+BUILD 2 pkg/testbank/manager.go:11:2: github.com/moby/sys/userns@v0.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/sys/userns@v0.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/sys/userns v0.1.0
+BUILD 3 pkg/testbank/manager.go:11:2: github.com/moby/term@v0.5.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/moby/term@v0.5.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/moby/term v0.5.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 4 pkg/testbank/manager.go:11:2: github.com/modelcontextprotocol/go-sdk@v1.6.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/modelcontextprotocol/go-sdk@v1.6.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/modelcontextprotocol/go-sdk v1.6.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 5 pkg/testbank/manager.go:11:2: github.com/munnerz/goautoneg@v0.0.0-20191010083416-a7dc8b61c822: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/munnerz/goautoneg@v0.0.0-20191010083416-a7dc8b61c822: module lookup disabled by GOPROXY=off
+
+FETCH github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 6 pkg/testbank/manager.go:11:2: github.com/nats-io/nkeys@v0.4.7: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/nats-io/nkeys@v0.4.7: module lookup disabled by GOPROXY=off
+
+FETCH github.com/nats-io/nkeys v0.4.7
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 7 pkg/testbank/manager.go:11:2: github.com/nats-io/nuid@v1.0.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/nats-io/nuid@v1.0.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/nats-io/nuid v1.0.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 8 pkg/testbank/manager.go:11:2: github.com/opencontainers/go-digest@v1.0.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/opencontainers/go-digest@v1.0.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/opencontainers/go-digest v1.0.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 9 pkg/testbank/manager.go:11:2: github.com/opencontainers/image-spec@v1.1.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/opencontainers/image-spec@v1.1.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/opencontainers/image-spec v1.1.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 10 pkg/testbank/manager.go:11:2: github.com/philhofer/fwd@v1.2.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/philhofer/fwd@v1.2.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/philhofer/fwd v1.2.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 11 pkg/testbank/manager.go:11:2: github.com/pion/datachannel@v1.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/datachannel@v1.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/datachannel v1.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 12 pkg/testbank/manager.go:11:2: github.com/pion/dtls/v3@v3.1.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/dtls/v3@v3.1.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/dtls/v3 v3.1.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 13 pkg/testbank/manager.go:11:2: github.com/pion/ice/v4@v4.2.2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/ice/v4@v4.2.2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/ice/v4 v4.2.2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 14 pkg/testbank/manager.go:11:2: github.com/pion/interceptor@v0.1.44: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/interceptor@v0.1.44: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/interceptor v0.1.44
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 15 pkg/testbank/manager.go:11:2: github.com/pion/logging@v0.2.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/logging@v0.2.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/logging v0.2.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 16 pkg/testbank/manager.go:11:2: github.com/pion/mdns/v2@v2.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/mdns/v2@v2.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/mdns/v2 v2.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 17 pkg/testbank/manager.go:11:2: github.com/pion/randutil@v0.1.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/randutil@v0.1.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/randutil v0.1.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 18 pkg/testbank/manager.go:11:2: github.com/pion/rtcp@v1.2.16: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/rtcp@v1.2.16: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/rtcp v1.2.16
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 19 pkg/testbank/manager.go:11:2: github.com/pion/rtp@v1.10.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/rtp@v1.10.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/rtp v1.10.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 20 pkg/testbank/manager.go:11:2: github.com/pion/sctp@v1.9.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/sctp@v1.9.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/sctp v1.9.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 21 pkg/testbank/manager.go:11:2: github.com/pion/sdp/v3@v3.0.18: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/sdp/v3@v3.0.18: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/sdp/v3 v3.0.18
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 22 pkg/testbank/manager.go:11:2: github.com/pion/srtp/v3@v3.0.10: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/srtp/v3@v3.0.10: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/srtp/v3 v3.0.10
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 23 pkg/testbank/manager.go:11:2: github.com/pion/stun/v3@v3.1.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/stun/v3@v3.1.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/stun/v3 v3.1.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 24 pkg/testbank/manager.go:11:2: github.com/pion/transport/v4@v4.0.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/transport/v4@v4.0.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/transport/v4 v4.0.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 25 pkg/testbank/manager.go:11:2: github.com/pion/turn/v4@v4.1.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pion/turn/v4@v4.1.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pion/turn/v4 v4.1.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 26 pkg/testbank/manager.go:11:2: github.com/pmezard/go-difflib@v1.0.1-0.20181226105442-5d4384ee4fb2: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/pmezard/go-difflib@v1.0.1-0.20181226105442-5d4384ee4fb2: module lookup disabled by GOPROXY=off
+
+FETCH github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 27 pkg/testbank/manager.go:11:2: github.com/power-devops/perfstat@v0.0.0-20240221224432-82ca36839d55: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/power-devops/perfstat@v0.0.0-20240221224432-82ca36839d55: module lookup disabled by GOPROXY=off
+
+FETCH github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 28 pkg/testbank/manager.go:11:2: github.com/prometheus/common@v0.67.5: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/prometheus/common@v0.67.5: module lookup disabled by GOPROXY=off
+
+FETCH github.com/prometheus/common v0.67.5
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 29 pkg/testbank/manager.go:11:2: github.com/prometheus/procfs@v0.20.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/prometheus/procfs@v0.20.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/prometheus/procfs v0.20.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 0 pkg/testbank/manager.go:11:2: github.com/prometheus/procfs@v0.20.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/prometheus/procfs@v0.20.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/prometheus/procfs v0.20.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 1 pkg/testbank/manager.go:11:2: github.com/rs/xid@v1.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/rs/xid@v1.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/rs/xid v1.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 2 pkg/testbank/manager.go:11:2: github.com/russellhaering/goxmldsig@v1.6.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/russellhaering/goxmldsig@v1.6.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/russellhaering/goxmldsig v1.6.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 3 pkg/testbank/manager.go:11:2: github.com/shirou/gopsutil/v4@v4.26.3: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/shirou/gopsutil/v4@v4.26.3: module lookup disabled by GOPROXY=off
+
+FETCH github.com/shirou/gopsutil/v4 v4.26.3
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 4 pkg/testbank/manager.go:11:2: github.com/sirupsen/logrus@v1.9.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/sirupsen/logrus@v1.9.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/sirupsen/logrus v1.9.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 5 pkg/testbank/manager.go:11:2: github.com/tinylib/msgp@v1.6.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/tinylib/msgp@v1.6.1: module lookup disabled by GOPROXY=off
+
+FETCH github.com/tinylib/msgp v1.6.1
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 6 pkg/testbank/manager.go:11:2: github.com/tklauser/go-sysconf@v0.3.16: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/tklauser/go-sysconf@v0.3.16: module lookup disabled by GOPROXY=off
+
+FETCH github.com/tklauser/go-sysconf v0.3.16
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 7 pkg/testbank/manager.go:11:2: github.com/tklauser/numcpus@v0.11.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/tklauser/numcpus@v0.11.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/tklauser/numcpus v0.11.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 8 pkg/testbank/manager.go:11:2: github.com/wlynxg/anet@v0.0.5: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/wlynxg/anet@v0.0.5: module lookup disabled by GOPROXY=off
+
+FETCH github.com/wlynxg/anet v0.0.5
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 9 pkg/testbank/manager.go:11:2: github.com/ysmood/fetchup@v0.2.3: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ysmood/fetchup@v0.2.3: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ysmood/fetchup v0.2.3
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 10 pkg/testbank/manager.go:11:2: github.com/ysmood/goob@v0.4.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ysmood/goob@v0.4.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ysmood/goob v0.4.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 11 pkg/testbank/manager.go:11:2: github.com/ysmood/got@v0.40.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ysmood/got@v0.40.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ysmood/got v0.40.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 12 pkg/testbank/manager.go:11:2: github.com/ysmood/gson@v0.7.3: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ysmood/gson@v0.7.3: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ysmood/gson v0.7.3
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 13 pkg/testbank/manager.go:11:2: github.com/ysmood/leakless@v0.9.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/ysmood/leakless@v0.9.0: module lookup disabled by GOPROXY=off
+
+FETCH github.com/ysmood/leakless v0.9.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 14 pkg/testbank/manager.go:11:2: github.com/yusufpapurcu/wmi@v1.2.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: github.com/yusufpapurcu/wmi@v1.2.4: module lookup disabled by GOPROXY=off
+
+FETCH github.com/yusufpapurcu/wmi v1.2.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:46: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 15 pkg/testbank/manager.go:11:2: go.opentelemetry.io/auto/sdk@v1.2.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/auto/sdk@v1.2.1: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/auto/sdk v1.2.1
+FETCH FAIL go.opentelemetry.io/auto/sdk RuntimeError('unsupported module host go.opentelemetry.io/auto/sdk')
+BUILD 0 pkg/testbank/manager.go:11:2: go.opentelemetry.io/auto/sdk@v1.2.1: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/auto/sdk@v1.2.1: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/auto/sdk v1.2.1
+BUILD 1 pkg/testbank/manager.go:11:2: go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.61.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.61.0: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0
+BUILD 2 pkg/testbank/manager.go:11:2: go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.43.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.43.0: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.43.0
+BUILD 3 pkg/testbank/manager.go:11:2: go.opentelemetry.io/otel/metric@v1.44.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/otel/metric@v1.44.0: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/otel/metric v1.44.0
+BUILD 4 pkg/testbank/manager.go:11:2: go.opentelemetry.io/proto/otlp@v1.10.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.opentelemetry.io/proto/otlp@v1.10.0: module lookup disabled by GOPROXY=off
+
+FETCH go.opentelemetry.io/proto/otlp v1.10.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 5 pkg/testbank/manager.go:11:2: go.yaml.in/yaml/v2@v2.4.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.yaml.in/yaml/v2@v2.4.4: module lookup disabled by GOPROXY=off
+
+FETCH go.yaml.in/yaml/v2 v2.4.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 6 pkg/testbank/manager.go:11:2: go.yaml.in/yaml/v3@v3.0.4: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: go.yaml.in/yaml/v3@v3.0.4: module lookup disabled by GOPROXY=off
+
+FETCH go.yaml.in/yaml/v3 v3.0.4
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 7 pkg/testbank/manager.go:11:2: golang.org/x/crypto@v0.53.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: golang.org/x/crypto@v0.53.0: module lookup disabled by GOPROXY=off
+
+FETCH golang.org/x/crypto v0.53.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 8 pkg/testbank/manager.go:11:2: golang.org/x/net@v0.56.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: golang.org/x/net@v0.56.0: module lookup disabled by GOPROXY=off
+
+FETCH golang.org/x/net v0.56.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 9 pkg/testbank/manager.go:11:2: golang.org/x/oauth2@v0.36.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: golang.org/x/oauth2@v0.36.0: module lookup disabled by GOPROXY=off
+
+FETCH golang.org/x/oauth2 v0.36.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 10 pkg/testbank/manager.go:11:2: golang.org/x/text@v0.38.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: golang.org/x/text@v0.38.0: module lookup disabled by GOPROXY=off
+
+FETCH golang.org/x/text v0.38.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 11 pkg/testbank/manager.go:11:2: golang.org/x/time@v0.14.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: golang.org/x/time@v0.14.0: module lookup disabled by GOPROXY=off
+
+FETCH golang.org/x/time v0.14.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)
+BUILD 12 pkg/testbank/manager.go:11:2: google.golang.org/genproto/googleapis/api@v0.0.0-20260401024825-9d38bb4040a9: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: google.golang.org/genproto/googleapis/api@v0.0.0-20260401024825-9d38bb4040a9: module lookup disabled by GOPROXY=off
+
+FETCH google.golang.org/genproto/googleapis/api v0.0.0-20260401024825-9d38bb4040a9
+BUILD 13 pkg/testbank/manager.go:11:2: google.golang.org/genproto/googleapis/rpc@v0.0.0-20260401024825-9d38bb4040a9: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: google.golang.org/genproto/googleapis/rpc@v0.0.0-20260401024825-9d38bb4040a9: module lookup disabled by GOPROXY=off
+
+FETCH google.golang.org/genproto/googleapis/rpc v0.0.0-20260401024825-9d38bb4040a9
+BUILD 14 pkg/testbank/manager.go:11:2: google.golang.org/grpc@v1.80.0: module lookup disabled by GOPROXY=off
+pkg/testbank/loader.go:15:2: google.golang.org/grpc@v1.80.0: module lookup disabled by GOPROXY=off
+
+FETCH google.golang.org/grpc v1.80.0
+/mnt/agents/research/qa-deps/resolve_go_archives.py:77: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tf.extractall(tmp)

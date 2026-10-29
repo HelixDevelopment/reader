@@ -1,0 +1,9 @@
+goos: linux
+goarch: amd64
+pkg: github.com/helixreader/helix/server/internal/httpapi
+cpu: AMD EPYC 9K65 192-Core Processor
+BenchmarkSingleRange-2   	 6484242	        47.80 ns/op	      32 B/op	       1 allocs/op
+BenchmarkSingleRange-2   	 7323751	        55.81 ns/op	      32 B/op	       1 allocs/op
+BenchmarkSingleRange-2   	 6777230	        45.21 ns/op	      32 B/op	       1 allocs/op
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	1.218s

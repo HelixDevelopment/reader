@@ -1,0 +1,4 @@
+{"time":"2026-10-28T17:46:19.40447542Z","level":"WARN","msg":"using volatile in-memory catalog; configure HELIX_POSTGRES_DSN for durable storage"}
+{"time":"2026-10-28T17:46:19.404947423Z","level":"INFO","msg":"TCP listener starting","address":"127.0.0.1:28443","tls":true}
+{"time":"2026-10-28T17:46:19.406509643Z","level":"INFO","msg":"HTTP/3 listener starting","address":"127.0.0.1:28443"}
+{"time":"2026-10-28T17:46:19.411301483Z","level":"ERROR","msg":"server stopped","error":"HTTP/3: listen udp 127.0.0.1:28443: bind: address already in use"}

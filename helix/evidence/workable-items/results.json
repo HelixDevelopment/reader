@@ -1,0 +1,84 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_workable_items"
+      ],
+      "detail": "test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok\ntest_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... ok\ntest_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok\ntest_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok\ntest_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok\ntest_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok\ntest_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... ok\ntest_operator_block_command_round_trip (tests.test_workable_items.WorkableItemsTest.test_operator_block_command_round_trip) ... ok\ntest_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok\ntest_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok\ntest_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok\ntest_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 1.263s\n\nOK\n",
+      "name": "registry-unit-integration",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "scripts/workable_items.py",
+        "validate"
+      ],
+      "detail": "{\"integrity_hash\": \"7d7a382a9a9030712b60bef44ca6471ee8d74c4a01749ed891a644392860915a\", \"items\": 33, \"status\": \"PASS\"}\n",
+      "name": "authoritative-registry-validation",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "scripts/workable_items.py",
+        "diff"
+      ],
+      "detail": "{\"differences\": [], \"status\": \"PASS\"}\n",
+      "name": "authoritative-export-drift",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "rows=1000 integrity=ok validation_errors=[]",
+      "name": "stress-1000-real-sqlite-rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "ready=READY committed_rows=1 integrity=ok child_returncode=-9",
+      "name": "sigkill-uncommitted-transaction-recovery",
+      "status": "PASS"
+    },
+    {
+      "detail": "corruption_detected=True error='database disk image is malformed' recovered_rows=33 validation_errors=[]",
+      "name": "corrupt-db-detection-and-md-recovery",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... FAIL\n\n======================================================================\nFAIL: test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/closure-vocabulary-gate/tests/test_workable_items.py\", line 78, in test_type_aware_closure_vocabulary\n    self.assertTrue(any(\"closure vocabulary\" in error for error in wi.validate(self.db)))\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 1 test in 0.173s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-closure-vocabulary-gate",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... FAIL\n\n======================================================================\nFAIL: test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/markdown-drift-gate/tests/test_workable_items.py\", line 85, in test_export_and_drift_detection\n    self.assertEqual([\"Issues.md\"], wi.diff(self.db, self.root))\nAssertionError: Lists differ: ['Issues.md'] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n'Issues.md'\n\n- ['Issues.md']\n+ []\n\n----------------------------------------------------------------------\nRan 1 test in 0.068s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-markdown-drift-gate",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... FAIL\n\n======================================================================\nFAIL: test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/remote-push-anti-bluff/tests/test_workable_items.py\", line 114, in test_outbox_never_claims_remote_push\n    self.assertEqual(\"NOT RUN\", envelope[\"records\"][0][\"remote_status\"])\nAssertionError: 'NOT RUN' != 'pushed'\n- NOT RUN\n+ pushed\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.042s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-remote-push-anti-bluff",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... FAIL\n\n======================================================================\nFAIL: test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/attribution-roundtrip/tests/test_workable_items.py\", line 170, in test_markdown_database_markdown_round_trip\n    self.assertEqual(content, wi.markdown_documents(recovered)[name], name)\nAssertionError: '# He[849 chars]d by AI; assigned to Operator\\n\\n**Created / m[138 chars]ed\\n' != '# He[849 chars]d by UNKNOWN; assigned to Operator\\n\\n**Create[143 chars]ed\\n'\nDiff is 1207 characters long. Set self.maxDiff to None to see it. : Fixed.md\n\n----------------------------------------------------------------------\nRan 1 test in 0.284s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-attribution-roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "schema": "helix.workable-items.qualification.v1",
+  "status": "PASS",
+  "summary": {
+    "fail": 0,
+    "pass": 10
+  }
+}

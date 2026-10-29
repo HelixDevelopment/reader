@@ -1,0 +1,243 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 16,
+          "matched_term": "cdn",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "Thumbnail",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 34,
+          "matched_term": "file browser",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 235,
+          "matched_term": "Metadata",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 257,
+          "matched_term": "Metadata",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 341,
+          "matched_term": "Metadata",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "reflow",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "reflow",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 5,
+          "matched_term": "Permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "permission",
+          "path": "LICENSE",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-termepub.jsonl.gz",
+  "files": {
+    "scanned_bytes": 18541,
+    "scanned_text": 7,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 1,
+    "skipped_sensitive_name": 0,
+    "tracked": 8
+  },
+  "format_keyword_evidence": {
+    "epub": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Epub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub ",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub ",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub ",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "epub ",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "epub",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 3,
+        "source": 7
+      }
+    },
+    "opf": {
+      "evidence": [
+        {
+          "line": 115,
+          "matched_term": ".Opf",
+          "path": "main.go",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": ".Opf",
+          "path": "main.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    }
+  },
+  "inventory_url": "https://github.com/mattllvw/termepub",
+  "kind": "client",
+  "languages_by_file_count": {
+    "Go": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "MIT"
+    ],
+    "notice_files": [
+      "LICENSE"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/mattllvw/termepub",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "70a1886f691bcfd87d05829a2839638b4ee24969",
+  "schema_version": 1,
+  "slug": "termepub",
+  "support_claims_allowed": false,
+  "tree": "e92a8ea187df295719fccb15385054af66dcca2e"
+}

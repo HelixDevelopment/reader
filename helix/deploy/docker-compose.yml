@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: helix
+      POSTGRES_PASSWORD: ${HELIX_DB_PASSWORD:?Set HELIX_DB_PASSWORD}
+      POSTGRES_DB: helix
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helix -d helix"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  helix:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    environment:
+      HELIX_ADDRESS: 0.0.0.0:8080
+      HELIX_ADMIN_TOKEN: ${HELIX_ADMIN_TOKEN:?Set HELIX_ADMIN_TOKEN}
+      HELIX_POSTGRES_DSN: postgres://helix:${HELIX_DB_PASSWORD}@postgres:5432/helix?sslmode=disable
+      HELIX_REDIS_URL: redis://redis:6379/0
+      HELIX_AI_MEMORY: ${HELIX_AI_MEMORY:-false}
+      HELIX_EMBEDDING_DIMENSIONS: ${HELIX_EMBEDDING_DIMENSIONS:-1536}
+      HELIX_KOSYNC_REGISTRATION: ${HELIX_KOSYNC_REGISTRATION:-false}
+      HELIX_OPDS_USERNAME: ${HELIX_OPDS_USERNAME:-}
+      HELIX_OPDS_PASSWORD: ${HELIX_OPDS_PASSWORD:-}
+      HELIX_TLS_CERT: ${HELIX_TLS_CERT:-}
+      HELIX_TLS_KEY: ${HELIX_TLS_KEY:-}
+      HELIX_EXTERNAL_URL: ${HELIX_EXTERNAL_URL:-}
+      HELIX_HTTP3: ${HELIX_HTTP3:-true}
+      HELIX_COVER_CACHE: /data/covers
+    ports:
+      - "127.0.0.1:8080:8080/tcp"
+      - "127.0.0.1:8080:8080/udp"
+    volumes:
+      - helix-data:/data
+      - ${HELIX_LIBRARY_PATH:-./library}:/library:ro
+      - ${HELIX_TLS_DIR:-./tls}:/data/tls:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  postgres-data:
+  redis-data:
+  helix-data:

@@ -1,0 +1,2609 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "rag",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 53,
+          "matched_term": "rag",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "rag",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 71,
+          "matched_term": "rag",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 72,
+          "matched_term": "rag",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 93,
+          "matched_term": "RAG",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "rag",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "RAG",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "rag",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "rag",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "RAG",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 62,
+          "matched_term": "rag",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 85,
+          "matched_term": "RAG",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "rag",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "RAG",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "RAG",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 39,
+          "matched_term": "RAG",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "RAG",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 98,
+          "matched_term": "rag",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "rag",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 23,
+          "matched_term": "RAG",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "RAG",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "rag",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "rag",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "rag",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 13,
+          "matched_term": "rag",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "rag",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "rag",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 6,
+        "documentation": 151,
+        "source": 165,
+        "test": 3
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 97,
+          "matched_term": "annotation",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "annotation",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 176,
+          "matched_term": "annotation",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 178,
+          "matched_term": "Annotation",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "annotation",
+          "path": "kubernetes/templates/ingress.yaml",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "annotation",
+          "path": "kubernetes/templates/ingress.yaml",
+          "role": "source"
+        },
+        {
+          "line": 215,
+          "matched_term": "annotation",
+          "path": "kubernetes/values.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 3
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 3,
+          "matched_term": "collection",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "collection",
+          "path": "internal/storage/filesystem.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 1
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 179,
+          "matched_term": "right-to-left",
+          "path": "internal/server/middleware.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "cache",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 42,
+          "matched_term": "cache",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "cache",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 47,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "cdn",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "cdn",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "cdn",
+          "path": "index.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "source": 13
+      }
+    },
+    "daisy_accessibility": {
+      "evidence": [
+        {
+          "line": 112,
+          "matched_term": "aria-",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 113,
+          "matched_term": "aria-",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 119,
+          "matched_term": "aria-",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "aria-",
+          "path": "internal/server/templates/error.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 6
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 42,
+          "matched_term": "checksum",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 73,
+          "matched_term": "checksum",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 74,
+          "matched_term": "checksum",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 2
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "docker",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "docker",
+          "path": ".github/dependabot.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 15,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 16,
+          "matched_term": "Docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 24,
+          "matched_term": "docker",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 30,
+          "matched_term": "HEALTHCHECK",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 31,
+          "matched_term": "healthcheck",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 11,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 29,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 37,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "docker",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "docker",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "docker",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "Docker",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "Kubernetes",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "healthcheck",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "healthcheck",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "healthcheck",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "Kubernetes",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 83,
+          "matched_term": "kubernetes",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "Kubernetes",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "Docker",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "docker",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 65,
+          "matched_term": "Kubernetes",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "Kubernetes",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Helm chart",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "docker",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "Docker",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Docker",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "docker",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "docker",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Kubernetes",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Helm chart",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "Kubernetes",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Docker",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "docker",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 19,
+        "documentation": 89,
+        "source": 36,
+        "test": 1
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "Quic",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "Quic",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 448,
+          "matched_term": "quic",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 33,
+          "matched_term": "Quic",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "brotli",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 2
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 21,
+          "matched_term": "Local files",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "filesystem",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "filesystem",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "Local files",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 173,
+          "matched_term": "Local files",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "filesystem",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Local files",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "local files",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "local files",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "Local Storage",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "FileSystem",
+          "path": "internal/server/dirlist.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "FileSystem",
+          "path": "internal/server/dirlist_test.go",
+          "role": "test"
+        },
+        {
+          "line": 49,
+          "matched_term": "FileSystem",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "FileSystem",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "local storage",
+          "path": "internal/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 31,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/azure.go",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/azure.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/azure.go",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/filesystem.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/gcs.go",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/gcs.go",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/gcs.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/local.go",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "local files",
+          "path": "internal/storage/local.go",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/local.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/s3.go",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/s3.go",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "FileSystem",
+          "path": "internal/storage/s3.go",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "Filesystem",
+          "path": "kubernetes/templates/deployment.yaml",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "filesystem",
+          "path": "kubernetes/templates/deployment.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 60,
+        "test": 2
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "metadata",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 103,
+          "matched_term": "metadata",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "metadata",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "metadata",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": "metadata",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "metadata",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 150,
+          "matched_term": "Metadata",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/configmap.yaml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/deployment.yaml",
+          "role": "source"
+        },
+        {
+          "line": 16,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/deployment.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/ingress.yaml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/pvc.yaml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "kubernetes/templates/service.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 2,
+        "source": 9
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 9,
+          "matched_term": "authentication",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "OAuth",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "OIDC",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 113,
+          "matched_term": "Authorization",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 74,
+          "matched_term": "per-user",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 95,
+          "matched_term": "Authentication",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 118,
+          "matched_term": "OpenID Connect",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "authentication",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 97,
+          "matched_term": "Per-user",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 252,
+          "matched_term": "authentication",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "Authentication",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "OAuth",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "OpenID Connect",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 103,
+          "matched_term": "OIDC",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "oidc",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 18,
+          "matched_term": "oauth",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 26,
+          "matched_term": "oauth",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "oauth",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "oauth",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 37,
+          "matched_term": "authentication",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "OIDC",
+          "path": "internal/auth/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "OIDC",
+          "path": "internal/auth/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "OIDC",
+          "path": "internal/auth/authenticator.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "oidc",
+          "path": "internal/auth/oidc.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "oidc",
+          "path": "internal/auth/oidc.go",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "oidc",
+          "path": "internal/auth/oidc.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "OIDC",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 41,
+          "matched_term": "OpenID Connect",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "OIDC",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "authentication",
+          "path": "internal/permissions/manager.go",
+          "role": "source"
+        },
+        {
+          "line": 160,
+          "matched_term": "Authorization",
+          "path": "internal/permissions/manager.go",
+          "role": "source"
+        },
+        {
+          "line": 171,
+          "matched_term": "Authentication",
+          "path": "internal/server/middleware.go",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "Authorization",
+          "path": "internal/server/middleware_test.go",
+          "role": "test"
+        },
+        {
+          "line": 169,
+          "matched_term": "Authorization",
+          "path": "internal/server/middleware_test.go",
+          "role": "test"
+        },
+        {
+          "line": 114,
+          "matched_term": "oAuth",
+          "path": "internal/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 16,
+          "matched_term": "oauth",
+          "path": "internal/storage/gcs.go",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "authentication",
+          "path": "kubernetes/Chart.yaml",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "OAUTH",
+          "path": "kubernetes/templates/configmap.yaml",
+          "role": "source"
+        },
+        {
+          "line": 44,
+          "matched_term": "oauth",
+          "path": "kubernetes/templates/configmap.yaml",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "OIDC",
+          "path": "kubernetes/templates/configmap.yaml",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 5,
+        "documentation": 46,
+        "source": 125,
+        "test": 3
+      }
+    },
+    "network_sources": {
+      "evidence": [
+        {
+          "line": 1,
+          "matched_term": "Cloud Storage",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "S3",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "Cloud Storage",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 93,
+          "matched_term": "s3",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "S3",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "s3",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "Cloud Storage",
+          "path": "_sidebar.md",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "S3",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "S3",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "S3",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "Cloud Storage",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Cloud Storage",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "cloud storage",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "S3",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "S3",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "S3",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "s3",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "s3",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "rclone",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "S3",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 77,
+          "matched_term": "s3",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 96,
+          "matched_term": "S3",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "S3",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 153,
+          "matched_term": "S3",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 155,
+          "matched_term": "S3",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "S3",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "s3",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 47,
+          "matched_term": "s3",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "S3",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 63,
+          "matched_term": "S3",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "S3",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": "s3",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 13,
+          "matched_term": "s3",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 63,
+          "matched_term": "s3",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 64,
+          "matched_term": "s3",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "s3",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "S3",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Cloud Storage",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "s3",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "S3",
+          "path": "internal/config/config.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 92,
+        "source": 66
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 14,
+          "matched_term": "permission",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 7,
+          "matched_term": "permission",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 10,
+          "matched_term": "permission",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 8,
+          "matched_term": "permission",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "permission",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "access control",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 22,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "permission",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 101,
+          "matched_term": "PERMISSION",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "PERMISSION",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 153,
+          "matched_term": "PERMISSION",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "permission",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 52,
+          "matched_term": "permission",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "PERMISSION",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 56,
+          "matched_term": "permission",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": "Permission",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 27,
+          "matched_term": "PERMISSION",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 43,
+          "matched_term": "PERMISSION",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "permission",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "PERMISSION",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 49,
+          "matched_term": "PERMISSION",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 105,
+          "matched_term": "permission",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "Permission",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "permission",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Permission",
+          "path": "internal/config/config.go",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "Permission",
+          "path": "internal/config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 8,
+          "matched_term": "Permission",
+          "path": "internal/config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 24,
+          "matched_term": "Permission",
+          "path": "internal/config/config_test.go",
+          "role": "test"
+        },
+        {
+          "line": 1,
+          "matched_term": "permission",
+          "path": "internal/permissions/manager.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "permission",
+          "path": "internal/permissions/manager.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "internal/permissions/manager.go",
+          "role": "source"
+        },
+        {
+          "line": 1,
+          "matched_term": "permission",
+          "path": "internal/permissions/manager_test.go",
+          "role": "test"
+        },
+        {
+          "line": 9,
+          "matched_term": "Permission",
+          "path": "internal/permissions/manager_test.go",
+          "role": "test"
+        },
+        {
+          "line": 11,
+          "matched_term": "Permission",
+          "path": "internal/permissions/manager_test.go",
+          "role": "test"
+        },
+        {
+          "line": 13,
+          "matched_term": "permission",
+          "path": "internal/server/middleware.go",
+          "role": "source"
+        },
+        {
+          "line": 147,
+          "matched_term": "permission",
+          "path": "internal/server/middleware.go",
+          "role": "source"
+        },
+        {
+          "line": 151,
+          "matched_term": "permission",
+          "path": "internal/server/middleware.go",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "permission",
+          "path": "internal/server/server.go",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "Permission",
+          "path": "internal/server/server.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 3,
+        "documentation": 42,
+        "source": 69,
+        "test": 34
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "theme",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "theme",
+          "path": "index.html",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "font-size",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "font-size",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "font-size",
+          "path": "internal/server/templates/dirlist.html",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "font-size",
+          "path": "internal/server/templates/error.html",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "line-height",
+          "path": "internal/server/templates/error.html",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "font-size",
+          "path": "internal/server/templates/error.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 13
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 43,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 69,
+          "matched_term": "secret",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "secret",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 42,
+          "matched_term": "secret",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "secret",
+          "path": ".github/workflows/security.yml",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "secret",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 6,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 20,
+          "matched_term": "certificate",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 64,
+          "matched_term": "secret",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "SECRET",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "CREDENTIAL",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 15,
+          "matched_term": "https",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "tls",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "CREDENTIAL",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 58,
+          "matched_term": "CREDENTIAL",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "https",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "credential",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "Secret",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "SECRET",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 30,
+          "matched_term": "Secret",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "CREDENTIAL",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 18,
+          "matched_term": "credential",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 67,
+          "matched_term": "SECRET",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "credential",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "credential",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 170,
+          "matched_term": "SECRET",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "Secret",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "https",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 50,
+          "matched_term": "secret",
+          "path": "docs/kubernetes.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": "https",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 90,
+          "matched_term": "credential",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "credential",
+          "path": "go.mod",
+          "role": "configuration"
+        },
+        {
+          "line": 54,
+          "matched_term": "https",
+          "path": "go.mod",
+          "role": "configuration"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 185,
+        "source": 233,
+        "test": 8
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 51,
+          "matched_term": "go test",
+          "path": ".github/workflows/quality.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 28,
+          "matched_term": "go test",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 71,
+          "matched_term": "go test",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "integration test",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "documentation": 1,
+        "source": 2
+      }
+    },
+    "webdav": {
+      "evidence": [
+        {
+          "line": 83,
+          "matched_term": "webdav",
+          "path": ".github/workflows/release.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 2,
+          "matched_term": "webdav",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "webdav",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "webdav",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "webdav",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 21,
+          "matched_term": "webdav",
+          "path": "Dockerfile",
+          "role": "configuration"
+        },
+        {
+          "line": 1,
+          "matched_term": "Webdav",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "WebDAV",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "webdav",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "WebDAV",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 75,
+          "matched_term": "webdav",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 80,
+          "matched_term": "webdav",
+          "path": "Taskfile.yml",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "webdav",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "webdav",
+          "path": "cmd/server/main.go",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "webdav",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "webdav",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "webdav",
+          "path": "docker-compose.azurite.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "webdav",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "webdav",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "webdav",
+          "path": "docker-compose.fake-gcs.yml",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "webdav",
+          "path": "docker-compose.minio.yml",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "webdav",
+          "path": "docker-compose.minio.yml",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "webdav",
+          "path": "docker-compose.minio.yml",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "webdav",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "webdav",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "webdav",
+          "path": "docker-compose.yml",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "webdav",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 21,
+          "matched_term": "webdav",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "webdav",
+          "path": "docs/cloud-azure.md",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "webdav",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 20,
+          "matched_term": "webdav",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "WebDAV",
+          "path": "docs/cloud-gcs.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "webdav",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "webdav",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "webdav",
+          "path": "docs/cloud-s3.md",
+          "role": "documentation"
+        },
+        {
+          "line": 17,
+          "matched_term": "webdav",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 19,
+          "matched_term": "WebDAV",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "WebDAV",
+          "path": "docs/configuration.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "webdav",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "webdav",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "configuration": 7,
+        "documentation": 171,
+        "source": 123,
+        "test": 9
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/backend-vaggeliskls-cloud-webdav-server.jsonl.gz",
+  "files": {
+    "scanned_bytes": 221671,
+    "scanned_text": 57,
+    "skipped_binary_or_empty": 0,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 3,
+    "tracked": 60
+  },
+  "format_keyword_evidence": {
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 17,
+          "matched_term": ".html",
+          "path": "internal/server/dirlist.go",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": ".html",
+          "path": "internal/server/errors.go",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 1,
+        "source": 2
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 8,
+          "matched_term": ".md",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 9,
+          "matched_term": ".md",
+          "path": ".github/workflows/pages.yml",
+          "role": "configuration"
+        },
+        {
+          "line": 44,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 44,
+          "matched_term": ".md",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 238,
+          "matched_term": ".md",
+          "path": "docs/docker.md",
+          "role": "documentation"
+        },
+        {
+          "line": 176,
+          "matched_term": ".md",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 219,
+          "matched_term": ".md",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".md",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": ".md",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": ".md",
+          "path": "index.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "configuration": 2,
+        "documentation": 23,
+        "source": 1
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 53,
+          "matched_term": ".pdf",
+          "path": "internal/server/middleware_test.go",
+          "role": "test"
+        },
+        {
+          "line": 61,
+          "matched_term": ".pdf",
+          "path": "internal/server/middleware_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "test": 3
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 60,
+          "matched_term": ".txt",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 60,
+          "matched_term": ".txt",
+          "path": "docs/examples.md",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": ".txt",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 46,
+          "matched_term": ".txt",
+          "path": "docs/local-development.md",
+          "role": "documentation"
+        },
+        {
+          "line": 26,
+          "matched_term": ".txt",
+          "path": "internal/permissions/manager_test.go",
+          "role": "test"
+        },
+        {
+          "line": 29,
+          "matched_term": ".txt",
+          "path": "internal/permissions/manager_test.go",
+          "role": "test"
+        },
+        {
+          "line": 52,
+          "matched_term": ".txt",
+          "path": "internal/server/server_test.go",
+          "role": "test"
+        },
+        {
+          "line": 64,
+          "matched_term": ".txt",
+          "path": "internal/server/server_test.go",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "test": 18
+      }
+    },
+    "webpub_lpf": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "LPf",
+          "path": "go.sum",
+          "role": "source"
+        },
+        {
+          "line": 55,
+          "matched_term": "lpF",
+          "path": "go.sum",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    }
+  },
+  "inventory_url": "https://github.com/vaggeliskls/cloud-webdav-server",
+  "kind": "backend",
+  "languages_by_file_count": {
+    "Go": 21,
+    "HTML": 3
+  },
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/vaggeliskls/cloud-webdav-server",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "31a43793da61e6554ec836a63fae66b25d0bc831",
+  "schema_version": 1,
+  "slug": "vaggeliskls-cloud-webdav-server",
+  "support_claims_allowed": false,
+  "tree": "102fa506f3866dc4e6d67b568d8cd5d5a4588e4b"
+}

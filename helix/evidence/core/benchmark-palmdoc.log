@@ -1,0 +1,9 @@
+goos: linux
+goarch: amd64
+pkg: github.com/helixreader/helix/core/pkg/parse/mobi
+cpu: AMD EPYC 9K65 192-Core Processor
+BenchmarkPalmDOCLiterals-2   	    1669	    244573 ns/op	 309.83 MB/s	  375348 B/op	      12 allocs/op
+BenchmarkPalmDOCLiterals-2   	    2463	    179922 ns/op	 421.16 MB/s	  375330 B/op	      12 allocs/op
+BenchmarkPalmDOCLiterals-2   	    2318	    217432 ns/op	 348.50 MB/s	  375331 B/op	      12 allocs/op
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/mobi	1.970s

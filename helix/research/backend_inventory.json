@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-27T21:25:00Z",
+  "status": "discovery_complete_code_review_pending",
+  "research_rounds": [
+    {
+      "round": 1,
+      "focus": "Calibre/OPDS/in-place baseline",
+      "source": "Backend_Side_Minimal_Research.md and provided repository inventory"
+    },
+    {
+      "round": 2,
+      "focus": "general library servers and OPDS implementations"
+    },
+    {
+      "round": 3,
+      "focus": "BookOrbit, Grimmory, Storyteller, Calibre-Web Automated and sync"
+    },
+    {
+      "round": 4,
+      "focus": "Go OPDS, LCP, audiobooks and major server feature matrices"
+    },
+    {
+      "round": 5,
+      "focus": "Komga, Kavita, Stump, COPS and interoperability limitations"
+    },
+    {
+      "round": 6,
+      "focus": "KOReader protocol, OPDS-PSE, metadata AI, WebDAV and vendor-neutral storage"
+    }
+  ],
+  "repositories": [
+    {
+      "owner_repo": "ab0oo/gopds",
+      "url": "https://github.com/ab0oo/gopds",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "OPDS 1.2",
+        "in-place filesystem scan",
+        "metadata provenance/review",
+        "cover quality",
+        "single Go binary"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "dubyte/dir2opds",
+      "url": "https://github.com/dubyte/dir2opds",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "OPDS 1.2",
+        "OpenSearch",
+        "ETag/Last-Modified",
+        "in-place filesystem",
+        "single Go binary"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "edrlab/lcp-server",
+      "url": "https://github.com/edrlab/lcp-server",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "LCP license/status server",
+        "watch-folder encryption",
+        "filesystem/cloud encrypted assets",
+        "Go"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "readium/readium-lcp-server",
+      "url": "https://github.com/readium/readium-lcp-server",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "LCP v1 reference",
+        "license/status separation",
+        "S3 encrypted assets",
+        "integration boundary"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "crocodilestick/calibre-web-automated",
+      "url": "https://github.com/crocodilestick/calibre-web-automated",
+      "discovery_round": 3,
+      "research_dimensions": [
+        "watch ingest",
+        "KOReader sync",
+        "OIDC",
+        "metadata providers",
+        "conversion automation"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "mikespub-org/seblucas-cops",
+      "url": "https://github.com/mikespub-org/seblucas-cops",
+      "discovery_round": 5,
+      "research_dimensions": [
+        "Calibre interop",
+        "OPDS/HTML",
+        "conditional proxy/download deployment",
+        "PHP 8.4"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "seblucas/cops",
+      "url": "https://github.com/seblucas/cops",
+      "discovery_round": 5,
+      "research_dimensions": [
+        "historical COPS baseline",
+        "lightweight Calibre OPDS"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "koreader/koreader-sync-server",
+      "url": "https://github.com/koreader/koreader-sync-server",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "KOReader protocol reference",
+        "Redis persistence",
+        "healthcheck"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "fellipec/kosync-go",
+      "url": "https://github.com/fellipec/kosync-go",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "Go KOReader protocol alternative",
+        "single binary"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "anansi-project/opds-pse",
+      "url": "https://github.com/anansi-project/opds-pse",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "OPDS-PSE 1.2 specification",
+        "implementation census"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "petr-prikryl/OPDS-ABS",
+      "url": "https://github.com/petr-prikryl/OPDS-ABS",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "Audiobookshelf OPDS bridge",
+        "API interoperability"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "cgillinger/colophon",
+      "url": "https://github.com/cgillinger/colophon",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "field-level metadata merge",
+        "propose-only AI",
+        "Kobo sync",
+        "explicit non-goals"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "Bornholm/go-webdav",
+      "url": "https://github.com/Bornholm/go-webdav",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "WebDAV server",
+        "S3/SQLite/local backends",
+        "authorization"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "vaggeliskls/cloud-webdav-server",
+      "url": "https://github.com/vaggeliskls/cloud-webdav-server",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "WebDAV",
+        "OIDC/LDAC/path permissions",
+        "S3/GCS/Azure"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "beyondstorage/go-storage",
+      "url": "https://github.com/beyondstorage/go-storage",
+      "discovery_round": 6,
+      "research_dimensions": [
+        "vendor-neutral storage abstraction",
+        "integration maturity tiers"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "gotson/komga",
+      "url": "https://github.com/gotson/komga",
+      "discovery_round": 5,
+      "research_dimensions": [
+        "OPDS 1.2/2.0",
+        "OPDS-PSE",
+        "Kobo/KOReader",
+        "per-library/age/label ACL",
+        "duplicate detection"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "Kareadita/Kavita",
+      "url": "https://github.com/Kareadita/Kavita",
+      "discovery_round": 5,
+      "research_dimensions": [
+        "scanner",
+        "OPDS/OPDS-PSE",
+        "KOReader",
+        "OIDC",
+        "annotations",
+        "reading profiles"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "stumpapp/stump",
+      "url": "https://github.com/stumpapp/stump",
+      "discovery_round": 5,
+      "research_dimensions": [
+        "OPDS 1.2/2.0",
+        "OPDS-PSE",
+        "Kobo/KOReader",
+        "OIDC",
+        "annotations"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "advplyr/audiobookshelf",
+      "url": "https://github.com/advplyr/audiobookshelf",
+      "discovery_round": 4,
+      "research_dimensions": [
+        "audio/podcast",
+        "per-user sync",
+        "watch updates",
+        "backup",
+        "chapter editor"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "bookorbit/bookorbit",
+      "url": "https://github.com/bookorbit/bookorbit",
+      "discovery_round": 3,
+      "research_dimensions": [
+        "three-way sync",
+        "annotations",
+        "Book Dock review",
+        "OIDC",
+        "reading analytics",
+        "metadata providers"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "grimmory-tools/grimmory",
+      "url": "https://github.com/grimmory-tools/grimmory",
+      "discovery_round": 3,
+      "research_dimensions": [
+        "smart shelves",
+        "BookDrop review",
+        "Kobo/KOReader",
+        "OIDC",
+        "network-storage safety",
+        "Komga-compatible API"
+      ],
+      "code_review_status": "pending"
+    },
+    {
+      "owner_repo": "smoores-dev/storyteller",
+      "url": "https://github.com/smoores-dev/storyteller",
+      "discovery_round": 3,
+      "research_dimensions": [
+        "ebook/audiobook alignment",
+        "EPUB 3 Media Overlays",
+        "Readium service boundary",
+        "REST API"
+      ],
+      "code_review_status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "security": {
+      "evidence": [
+        {
+          "line": 13,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 16,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 2
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-legado.jsonl.gz",
+  "files": {
+    "scanned_bytes": 707,
+    "scanned_text": 1,
+    "skipped_binary_or_empty": 1,
+    "skipped_large": 0,
+    "skipped_sensitive_name": 0,
+    "tracked": 2
+  },
+  "format_keyword_evidence": {},
+  "inventory_url": "https://github.com/gedoor/legado",
+  "kind": "client",
+  "languages_by_file_count": {},
+  "license_review": {
+    "candidate_notices": [],
+    "notice_files": [],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/gedoor/legado",
+  "readme_files": [
+    "README.md"
+  ],
+  "revision": "9bb0569269ed557753fc3866250970de6d454fcf",
+  "schema_version": 1,
+  "slug": "legado",
+  "support_claims_allowed": false,
+  "tree": "cbbe37d3788d2b90e78ece5f9f9fc0ecae9361f3"
+}

@@ -1,0 +1,15 @@
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+--- FAIL: TestPrepareDeterministicIdentityAndHash (0.00s)
+    store_test.go:22: identity not deterministic: {ID: Scope:library Kind:preference Content:Use serif fonts Metadata:{"source":"test"} Model:embedding-test ContentSHA256:3f5e9a59b672ddc3d14bdddf26c4743b6493187fd82a16e25e619fcb6590c200 CreatedAt:0001-01-01 00:00:00 +0000 UTC ExpiresAt:<nil>} {ID:4e0927adb22160c120a2b9cc79d182bed5f5cefd82eecdd51ea47bef71ef90e8 Scope:library Kind:preference Content:Use serif fonts Metadata:{"source":"test"} Model:embedding-test ContentSHA256:3f5e9a59b672ddc3d14bdddf26c4743b6493187fd82a16e25e619fcb6590c200 CreatedAt:2026-10-27 19:02:24.878937177 +0000 UTC ExpiresAt:<nil>}
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/aimemory	0.009s
+ok  	github.com/helixreader/helix/server/internal/catalog	(cached)
+?   	github.com/helixreader/helix/server/internal/config	[no test files]
+ok  	github.com/helixreader/helix/server/internal/covers	0.027s
+ok  	github.com/helixreader/helix/server/internal/httpapi	0.041s
+ok  	github.com/helixreader/helix/server/internal/identify	0.024s
+ok  	github.com/helixreader/helix/server/internal/ingest	0.011s
+ok  	github.com/helixreader/helix/server/internal/opds	0.012s
+ok  	github.com/helixreader/helix/server/internal/sources	(cached)
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.022s
+FAIL

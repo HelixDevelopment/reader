@@ -1,0 +1,3790 @@
+{
+  "analysis_status": "automated_static_index_complete",
+  "feature_keyword_evidence": {
+    "ai_llm": {
+      "evidence": [
+        {
+          "line": 2,
+          "matched_term": "rag",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "rag",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "rag",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 122,
+          "matched_term": "rag",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "rag",
+          "path": ".travis.yml",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "rag",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 11,
+          "matched_term": "rag",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "rag",
+          "path": "build.xml",
+          "role": "source"
+        },
+        {
+          "line": 832,
+          "matched_term": "rag",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 832,
+          "matched_term": "rag",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 1089,
+          "matched_term": "rag",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "rag",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "rag",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_af.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_ca.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_cs.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_da.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_de.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_es.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_eu.json",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "rag",
+          "path": "lang/Localization_fr.json",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "rag",
+          "path": "lang/Localization_fr.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_fr.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_gl.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_ht.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_hu.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_id.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_it.json",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "rag",
+          "path": "lang/Localization_nb.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_nb.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_nl.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_pl.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_pt_BR.json",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "rag",
+          "path": "lang/Localization_pt_PT.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_pt_PT.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_ro.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_sl.json",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "rag",
+          "path": "lang/Localization_sr.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 90,
+        "test": 14
+      }
+    },
+    "annotations": {
+      "evidence": [
+        {
+          "line": 160,
+          "matched_term": "annotation",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 975,
+          "matched_term": "annotation",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 824,
+          "matched_term": "Highlight",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 825,
+          "matched_term": "highlight",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 866,
+          "matched_term": "Highlight",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 155,
+          "matched_term": "highlight",
+          "path": "resources/monocle/styles/monoctrl.css",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "bookmark",
+          "path": "templates/bootstrap/bookdetail.html",
+          "role": "source"
+        },
+        {
+          "line": 22,
+          "matched_term": "bookmark",
+          "path": "templates/default/bookdetail.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "bookmark",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 217,
+          "matched_term": "bookmark",
+          "path": "templates/default/webfonts/fa-solid-900.svg",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "cFi",
+          "path": "tools/export_file.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 14
+      }
+    },
+    "backup_restore": {
+      "evidence": [
+        {
+          "line": 2011,
+          "matched_term": "Snapshot",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 1671,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1676,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1686,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 330,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 340,
+          "matched_term": "restore",
+          "path": "resources/monocle/scripts/monoctrl.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "restore",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 1876,
+          "matched_term": "restore",
+          "path": "templates/default/webfonts/fa-solid-900.svg",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 32
+      }
+    },
+    "collections_smart": {
+      "evidence": [
+        {
+          "line": 85,
+          "matched_term": "series",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 157,
+          "matched_term": "series",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 172,
+          "matched_term": "series",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 218,
+          "matched_term": "series",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 759,
+          "matched_term": "collection",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 832,
+          "matched_term": "collection",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 1142,
+          "matched_term": "collection",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 92,
+          "matched_term": "series",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 285,
+          "matched_term": "series",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_af.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_af.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_af.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_bg.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_bg.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_bg.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_ca.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Series",
+          "path": "lang/Localization_ca.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_ca.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_cs.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_cs.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_cs.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_da.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Series",
+          "path": "lang/Localization_da.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_da.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_de.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_de.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_de.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_el.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_el.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_el.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Series",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_es.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "Series",
+          "path": "lang/Localization_es.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_es.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_eu.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "series",
+          "path": "lang/Localization_eu.json",
+          "role": "source"
+        },
+        {
+          "line": 34,
+          "matched_term": "series",
+          "path": "lang/Localization_eu.json",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "series",
+          "path": "lang/Localization_fr.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 686,
+        "test": 53
+      }
+    },
+    "comics_manga": {
+      "evidence": [
+        {
+          "line": 110,
+          "matched_term": "CBR",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "CBZ",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cbz",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cbz",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cbr",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 3872,
+          "matched_term": "cBt",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 3873,
+          "matched_term": "cBt",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 8
+      }
+    },
+    "compression_cache": {
+      "evidence": [
+        {
+          "line": 4,
+          "matched_term": "thumbnail",
+          "path": ".gitignore",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "cache",
+          "path": ".travis.yml",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "cache",
+          "path": ".travis.yml",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "cache",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "cache",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 59,
+          "matched_term": "thumbnail",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": "cache",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "thumbnail",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "thumbnail",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "thumbnail",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 77,
+          "matched_term": "Cache",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "Cache",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "cache",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "thumbnail",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 189,
+          "matched_term": "Cache",
+          "path": "lang/Localization_es.json",
+          "role": "source"
+        },
+        {
+          "line": 395,
+          "matched_term": "Thumbnail",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 438,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Cache",
+          "path": "lib/CustomColumnType.php",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "Cache",
+          "path": "lib/CustomColumnType.php",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "Cache",
+          "path": "lib/CustomColumnType.php",
+          "role": "source"
+        },
+        {
+          "line": 168,
+          "matched_term": "Thumbnail",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 173,
+          "matched_term": "thumbnail",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 177,
+          "matched_term": "thumbnail",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/Entry.php",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "Thumbnail",
+          "path": "lib/EntryBook.php",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/EntryBook.php",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "thumbnail",
+          "path": "lib/JSON_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/JSON_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "thumbnail",
+          "path": "lib/JSON_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "THUMBNAIL",
+          "path": "lib/Link.php",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "thumbnail",
+          "path": "lib/Link.php",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "eTag",
+          "path": "lib/Page.php",
+          "role": "source"
+        },
+        {
+          "line": 9,
+          "matched_term": "eTag",
+          "path": "lib/PageTagDetail.php",
+          "role": "source"
+        },
+        {
+          "line": 182,
+          "matched_term": "cache",
+          "path": "resources/epub-loader/BaseExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 184,
+          "matched_term": "Last-Modified",
+          "path": "resources/epub-loader/BaseExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 185,
+          "matched_term": "Cache",
+          "path": "resources/epub-loader/BaseExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 264,
+          "matched_term": "Cache",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "Cache",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1703,
+          "matched_term": "eTag",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "thumbnail",
+          "path": "templates/bootstrap/bookdetail.html",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 181,
+        "test": 37
+      }
+    },
+    "conversion": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": "kepub",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "kepub",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "kepub",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "Kepub",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 213,
+          "matched_term": "kepub",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 213,
+          "matched_term": "kepub",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub, mobi, pdf",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "EPUB', 'PDF",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 205,
+          "matched_term": "kepub",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "Kepub",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "EPUB', 'PDF",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 383,
+          "matched_term": "kepub",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 384,
+          "matched_term": "Kepub",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "kepub",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "KEPUB",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 105,
+          "matched_term": "Kepub",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "epub_path' => '/opt/ebooks/epub/demo', 'pdf",
+          "path": "resources/epub-loader/app/epub-loader-config.php.example",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "epub_path' => '/opt/ebooks/epub/bnr', 'pdf",
+          "path": "resources/epub-loader/app/epub-loader-config.php.example",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "epub_path' => '/opt/ebooks/epub/bibebook', 'pdf",
+          "path": "resources/epub-loader/app/epub-loader-config.php.example",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "conversion",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "conversion",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 277,
+          "matched_term": "conversion",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 363,
+          "matched_term": "kepub",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 363,
+          "matched_term": "Kepub",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 367,
+          "matched_term": "kepub",
+          "path": "test/bookTest.php",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 28,
+        "test": 4
+      }
+    },
+    "database": {
+      "evidence": [
+        {
+          "line": 129,
+          "matched_term": "mysql",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 130,
+          "matched_term": "postgresql",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 131,
+          "matched_term": "redis",
+          "path": ".scrutinizer.yml",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 189,
+          "matched_term": "redis",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "SQLite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 51,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 54,
+          "matched_term": "sqlite",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "redis",
+          "path": "about.html",
+          "role": "source"
+        },
+        {
+          "line": 79,
+          "matched_term": "Sqlite",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 82,
+          "matched_term": "sqlite",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 85,
+          "matched_term": "sqlite",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "sqlite",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 805,
+          "matched_term": "sqlite",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 2620,
+          "matched_term": "sqlite",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 116,
+          "matched_term": "sqlite",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "sqlite",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeBool.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeComment.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeDate.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeEnumeration.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeEnumeration.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeFloat.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeInteger.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeRating.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeRating.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeSeries.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeSeries.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeText.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "sqlite",
+          "path": "lib/CustomColumnTypeText.php",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "sqlite",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "sqlite",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "sqlite",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "redis",
+          "path": "test/opds-relax-ng/opensearchdescription.rng",
+          "role": "test"
+        },
+        {
+          "line": 10,
+          "matched_term": "sqlite",
+          "path": "tools/alpinePrepare.sh",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 11,
+        "source": 36,
+        "test": 1
+      }
+    },
+    "deduplication": {
+      "evidence": [
+        {
+          "line": 780,
+          "matched_term": "duplicate",
+          "path": "composer.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 1
+      }
+    },
+    "deployment": {
+      "evidence": [
+        {
+          "line": 66,
+          "matched_term": "Docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 66,
+          "matched_term": "docker",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "docker",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 1
+      }
+    },
+    "dictionary_language": {
+      "evidence": [
+        {
+          "line": 6,
+          "matched_term": "translation",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "translation",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 8,
+          "matched_term": "translation",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 69,
+          "matched_term": "translation",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 109,
+          "matched_term": "translation",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 250,
+          "matched_term": "translation",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 253,
+          "matched_term": "Translation",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 295,
+          "matched_term": "translation",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 166,
+          "matched_term": "translation",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 423,
+          "matched_term": "translation",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 425,
+          "matched_term": "translation",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 4839,
+          "matched_term": "translation",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 91,
+          "matched_term": "Translation",
+          "path": "test/baseTest.php",
+          "role": "test"
+        },
+        {
+          "line": 93,
+          "matched_term": "Translation",
+          "path": "test/baseTest.php",
+          "role": "test"
+        },
+        {
+          "line": 96,
+          "matched_term": "Translation",
+          "path": "test/baseTest.php",
+          "role": "test"
+        },
+        {
+          "line": 2,
+          "matched_term": "translation",
+          "path": "tools/export_file.txt",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "translation",
+          "path": "tools/export_file.txt",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 29,
+        "source": 25,
+        "test": 4
+      }
+    },
+    "http_protocols": {
+      "evidence": [
+        {
+          "line": 830,
+          "matched_term": "quic",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Quic",
+          "path": "lang/Localization_pt_BR.json",
+          "role": "source"
+        },
+        {
+          "line": 192,
+          "matched_term": "Quic",
+          "path": "lang/Localization_pt_PT.json",
+          "role": "source"
+        },
+        {
+          "line": 11,
+          "matched_term": "quic",
+          "path": "transliteration.php",
+          "role": "source"
+        },
+        {
+          "line": 68,
+          "matched_term": "quic",
+          "path": "transliteration.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 5
+      }
+    },
+    "lcp_drm": {
+      "evidence": [
+        {
+          "line": 7,
+          "matched_term": "license document",
+          "path": "COPYING",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 1
+      }
+    },
+    "local_library": {
+      "evidence": [
+        {
+          "line": 165,
+          "matched_term": "filesystem",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 1193,
+          "matched_term": "filesystem",
+          "path": "composer.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "metadata_enrichment": {
+      "evidence": [
+        {
+          "line": 194,
+          "matched_term": "metadata",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 202,
+          "matched_term": "metadata",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 208,
+          "matched_term": "metadata",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 48,
+          "matched_term": "metadata",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 318,
+          "matched_term": "metadata",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 323,
+          "matched_term": "metadata",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "metadata",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "metadata",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 161,
+          "matched_term": "metadata",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "config_local.php.example",
+          "role": "source"
+        },
+        {
+          "line": 48,
+          "matched_term": "MetaData",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "metadata",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "metadata",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 196,
+          "matched_term": "metadata",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 90,
+          "matched_term": "Isbn",
+          "path": "resources/epub-loader/BookExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 114,
+          "matched_term": "Isbn",
+          "path": "resources/epub-loader/BookExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "Isbn",
+          "path": "resources/epub-loader/BookInfos.class.php",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "Isbn",
+          "path": "resources/epub-loader/BookInfos.class.php",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "ISBN",
+          "path": "resources/epub-loader/BookInfos.class.php",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 206,
+          "matched_term": "ISBN",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/README",
+          "role": "documentation"
+        },
+        {
+          "line": 10,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/app/action_csv_export.php",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/app/action_db_load.php",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "isbn",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 94,
+          "matched_term": "isbn",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 106,
+          "matched_term": "metadata",
+          "path": "resources/epub-loader/metadata_sqlite.sql",
+          "role": "source"
+        },
+        {
+          "line": 1162,
+          "matched_term": "metadata",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1176,
+          "matched_term": "MetaData",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1177,
+          "matched_term": "metadata",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "MetaData",
+          "path": "styles/cops-monocle.js",
+          "role": "source"
+        },
+        {
+          "line": 81,
+          "matched_term": "MetaData",
+          "path": "styles/cops-monocle.js",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "goodreads",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "goodreads",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "metadata",
+          "path": "test/BaseWithSomeBooks/Lewis Carroll/Alice's Adventures in Wonderland (17)/metadata.opf",
+          "role": "test"
+        },
+        {
+          "line": 22,
+          "matched_term": "metadata",
+          "path": "test/BaseWithSomeBooks/Lewis Carroll/Alice's Adventures in Wonderland (17)/metadata.opf",
+          "role": "test"
+        },
+        {
+          "line": 23,
+          "matched_term": "metadata",
+          "path": "test/BaseWithSomeBooks/Lewis Carroll/Alice's Adventures in Wonderland (17)/metadata.opf",
+          "role": "test"
+        },
+        {
+          "line": 6,
+          "matched_term": "metadata",
+          "path": "test/config_local.php.sauce",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 7,
+        "source": 35,
+        "test": 9
+      }
+    },
+    "multiuser_auth": {
+      "evidence": [
+        {
+          "line": 27,
+          "matched_term": "Authorization",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "AUTHORIZATION",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 78,
+          "matched_term": "authentication",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "oauth",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "OAUTH",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 180,
+          "matched_term": "authentication",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "authentication",
+          "path": "config.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "authentication",
+          "path": "config.php",
+          "role": "source"
+        },
+        {
+          "line": 28,
+          "matched_term": "authentication",
+          "path": "config.php",
+          "role": "source"
+        },
+        {
+          "line": 317,
+          "matched_term": "authentication",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "sso",
+          "path": "resources/transliteration-data/xa3.php",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "sso",
+          "path": "resources/transliteration-data/xc3.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 16
+      }
+    },
+    "opds": {
+      "evidence": [
+        {
+          "line": 33,
+          "matched_term": "OPDS",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 38,
+          "matched_term": "OPDS",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 45,
+          "matched_term": "OPDS",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "opds",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 24,
+          "matched_term": "OPDS",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 14,
+          "matched_term": "opds",
+          "path": "about.html",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "OPDS",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "config.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 76,
+          "matched_term": "OPDS",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 86,
+          "matched_term": "OPDS",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "OPDS",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "feed.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "getJSON.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 13,
+          "matched_term": "OPDS",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Author.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumn.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnType.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeBool.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeComment.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeDate.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeEnumeration.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeFloat.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeInteger.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeRating.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeSeries.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/CustomColumnTypeText.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Entry.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/EntryBook.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/JSON_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "OPDS",
+          "path": "lib/Language.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 27,
+        "source": 92,
+        "test": 111
+      }
+    },
+    "opensearch": {
+      "evidence": [
+        {
+          "line": 307,
+          "matched_term": "opensearch",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 31,
+          "matched_term": "Opensearch",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 18,
+          "matched_term": "OPENSEARCH",
+          "path": "feed.php",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "OPENSEARCH",
+          "path": "feed.php",
+          "role": "source"
+        },
+        {
+          "line": 33,
+          "matched_term": "OpenSearch",
+          "path": "feed.php",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "OPENSEARCH",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "OPENSEARCH",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 32,
+          "matched_term": "OpenSearch",
+          "path": "lib/OPDS_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 38,
+          "matched_term": "OpenSearch",
+          "path": "lib/OPDS_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 39,
+          "matched_term": "opensearch",
+          "path": "lib/OPDS_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 62,
+          "matched_term": "OPENSEARCH",
+          "path": "lib/Page.php",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "OPENSEARCH",
+          "path": "lib/PageQueryResult.php",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "OPENSEARCH",
+          "path": "test/OPDSTest.php",
+          "role": "test"
+        },
+        {
+          "line": 12,
+          "matched_term": "opensearch",
+          "path": "test/OPDSTest.php",
+          "role": "test"
+        },
+        {
+          "line": 108,
+          "matched_term": "OPENSEARCH",
+          "path": "test/OPDSTest.php",
+          "role": "test"
+        },
+        {
+          "line": 471,
+          "matched_term": "OPENSEARCH",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 488,
+          "matched_term": "OPENSEARCH",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 506,
+          "matched_term": "OPENSEARCH",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 3,
+          "matched_term": "OpenSearch",
+          "path": "test/opds-relax-ng/opensearchdescription.rng",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "opensearch",
+          "path": "test/opds-relax-ng/opensearchdescription.rng",
+          "role": "test"
+        },
+        {
+          "line": 4,
+          "matched_term": "OpenSearch",
+          "path": "test/opds-relax-ng/opensearchdescription.rng",
+          "role": "test"
+        },
+        {
+          "line": 45,
+          "matched_term": "OPENSEARCH",
+          "path": "test/pageMultidatabaseTest.php",
+          "role": "test"
+        },
+        {
+          "line": 698,
+          "matched_term": "OPENSEARCH",
+          "path": "test/pageTest.php",
+          "role": "test"
+        },
+        {
+          "line": 717,
+          "matched_term": "OPENSEARCH",
+          "path": "test/pageTest.php",
+          "role": "test"
+        },
+        {
+          "line": 739,
+          "matched_term": "OPENSEARCH",
+          "path": "test/pageTest.php",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 18,
+        "test": 38
+      }
+    },
+    "pdf_fixed_layout": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": "djvu",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "djvu",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "djvu",
+          "path": "lib/Data.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "permissions": {
+      "evidence": [
+        {
+          "line": 40,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 121,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        },
+        {
+          "line": 181,
+          "matched_term": "permission",
+          "path": "COPYING",
+          "role": "documentation"
+        }
+      ],
+      "roles": {
+        "documentation": 4
+      }
+    },
+    "reader_typography": {
+      "evidence": [
+        {
+          "line": 179,
+          "matched_term": "theme",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 180,
+          "matched_term": "theme",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 25,
+          "matched_term": "theme",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": "theme",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "theme",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "font-size",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Theme",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 49,
+          "matched_term": "Theme",
+          "path": "lang/Localization_sl.json",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "font-size",
+          "path": "login.html",
+          "role": "source"
+        },
+        {
+          "line": 60,
+          "matched_term": "font-size",
+          "path": "login.html",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "font-size",
+          "path": "resources/epub-loader/app/header.php",
+          "role": "source"
+        },
+        {
+          "line": 73,
+          "matched_term": "font-size",
+          "path": "resources/epub-loader/app/header.php",
+          "role": "source"
+        },
+        {
+          "line": 121,
+          "matched_term": "line-height",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1629,
+          "matched_term": "font-size",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 1835,
+          "matched_term": "font-size",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 101,
+          "matched_term": "line-height",
+          "path": "resources/monocle/styles/monocore.css",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": "line-height",
+          "path": "resources/monocle/styles/monocore.css",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "line-height",
+          "path": "resources/monocle/styles/monoctrl.css",
+          "role": "source"
+        },
+        {
+          "line": 59,
+          "matched_term": "font-size",
+          "path": "resources/monocle/styles/monoctrl.css",
+          "role": "source"
+        },
+        {
+          "line": 63,
+          "matched_term": "font-size",
+          "path": "resources/monocle/styles/monoctrl.css",
+          "role": "source"
+        },
+        {
+          "line": 98,
+          "matched_term": "font-size",
+          "path": "styles/cops-monocle.css",
+          "role": "source"
+        },
+        {
+          "line": 163,
+          "matched_term": "line-height",
+          "path": "styles/cops-monocle.css",
+          "role": "source"
+        },
+        {
+          "line": 35,
+          "matched_term": "theme",
+          "path": "templates/bootstrap/file.html",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "theme",
+          "path": "templates/bootstrap/file.html",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "line-height",
+          "path": "templates/bootstrap/file.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "line-height",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "font-size",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "line-height",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 12,
+          "matched_term": "font-size",
+          "path": "templates/default/styles/style-base.css",
+          "role": "source"
+        },
+        {
+          "line": 17,
+          "matched_term": "line-height",
+          "path": "templates/default/styles/style-base.css",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "Typography",
+          "path": "templates/default/styles/style-base.css",
+          "role": "source"
+        },
+        {
+          "line": 36,
+          "matched_term": "line-height",
+          "path": "templates/default/styles/style-default.css",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "font-size",
+          "path": "templates/default/styles/style-eink.css",
+          "role": "source"
+        },
+        {
+          "line": 485,
+          "matched_term": "theme",
+          "path": "util.js",
+          "role": "source"
+        },
+        {
+          "line": 486,
+          "matched_term": "theme",
+          "path": "util.js",
+          "role": "source"
+        },
+        {
+          "line": 487,
+          "matched_term": "theme",
+          "path": "util.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 2,
+        "source": 83
+      }
+    },
+    "security": {
+      "evidence": [
+        {
+          "line": 25,
+          "matched_term": "https",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "HTTPS",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 84,
+          "matched_term": "https",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 261,
+          "matched_term": "https",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 7,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 9,
+          "matched_term": "https",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 6,
+          "matched_term": "https",
+          "path": "about.html",
+          "role": "source"
+        },
+        {
+          "line": 191,
+          "matched_term": "https",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "https",
+          "path": "composer-dl.sh",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "https",
+          "path": "composer-dl.sh",
+          "role": "source"
+        },
+        {
+          "line": 8,
+          "matched_term": "https",
+          "path": "composer-dl.sh",
+          "role": "source"
+        },
+        {
+          "line": 43,
+          "matched_term": "https",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 58,
+          "matched_term": "https",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 70,
+          "matched_term": "https",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 4,
+          "matched_term": "https",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": "https",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 19,
+          "matched_term": "https",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 236,
+          "matched_term": "tls",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 240,
+          "matched_term": "tls",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 314,
+          "matched_term": "secret",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_bg.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_ca.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_da.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_en.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_eu.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_fr.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_ht.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_id.json",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "TLS",
+          "path": "lang/Localization_it.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_it.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_nb.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_nl.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_pl.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_ro.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_sl.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_sr.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_uk.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_zh_CN.json",
+          "role": "source"
+        },
+        {
+          "line": 142,
+          "matched_term": "Cors",
+          "path": "lang/Localization_zh_TW.json",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 30,
+        "source": 228,
+        "test": 8
+      }
+    },
+    "testing": {
+      "evidence": [
+        {
+          "line": 70,
+          "matched_term": "unit test",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 108,
+          "matched_term": "unit test",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 120,
+          "matched_term": "unit test",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 833,
+          "matched_term": "Unit Test",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 1406,
+          "matched_term": "Unit Test",
+          "path": "composer.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 3,
+        "source": 2
+      }
+    },
+    "tts_audio": {
+      "evidence": [
+        {
+          "line": 15,
+          "matched_term": "Tts",
+          "path": "resources/transliteration-data/x04.php",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "tts",
+          "path": "resources/transliteration-data/x04.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "podcast",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 1246,
+          "matched_term": "podcast",
+          "path": "templates/default/webfonts/fa-solid-900.svg",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    }
+  },
+  "file_evidence_gzip": "file_evidence/client-cops.jsonl.gz",
+  "files": {
+    "scanned_bytes": 2223575,
+    "scanned_text": 361,
+    "skipped_binary_or_empty": 25,
+    "skipped_large": 2,
+    "skipped_sensitive_name": 0,
+    "tracked": 388
+  },
+  "format_keyword_evidence": {
+    "cb7_cbt_cba": {
+      "evidence": [
+        {
+          "line": 199,
+          "matched_term": "CBA",
+          "path": "styles/cops-monocle.css",
+          "role": "source"
+        },
+        {
+          "line": 201,
+          "matched_term": "CBA",
+          "path": "styles/cops-monocle.css",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 4
+      }
+    },
+    "cbr": {
+      "evidence": [
+        {
+          "line": 110,
+          "matched_term": "CBR",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cbr",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 25,
+          "matched_term": "cbr",
+          "path": "lib/Data.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "cbz": {
+      "evidence": [
+        {
+          "line": 110,
+          "matched_term": "CBZ",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cbz",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 24,
+          "matched_term": "cbz",
+          "path": "lib/Data.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "djvu": {
+      "evidence": [
+        {
+          "line": 26,
+          "matched_term": ".djvu",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 27,
+          "matched_term": "djvu",
+          "path": "lib/Data.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 3
+      }
+    },
+    "doc_docx": {
+      "evidence": [
+        {
+          "line": 3364,
+          "matched_term": ".doc",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        },
+        {
+          "line": 3365,
+          "matched_term": ".doc",
+          "path": "resources/monocle/scripts/monocore.js",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 7
+      }
+    },
+    "epub": {
+      "evidence": [
+        {
+          "line": 31,
+          "matched_term": ".epub",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": "epub",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "Epub ",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 194,
+          "matched_term": "epub",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 91,
+          "matched_term": "epub",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 40,
+          "matched_term": "epub",
+          "path": "build.xml",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "epub",
+          "path": "build.xml",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "epub",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 21,
+          "matched_term": "epub",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 275,
+          "matched_term": "epub",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 279,
+          "matched_term": "epub",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "EPUB",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 157,
+          "matched_term": "Epub ",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "EPub",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 61,
+          "matched_term": "EPUB",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": "epub ",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "EPub",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 102,
+          "matched_term": "epub",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "EPUB",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 364,
+          "matched_term": "epub",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 29,
+          "matched_term": "epub",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 95,
+          "matched_term": "EPUB",
+          "path": "lib/JSON_renderer.php",
+          "role": "source"
+        },
+        {
+          "line": 40,
+          "matched_term": "epub ",
+          "path": "resources/epub-loader/BookExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 42,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/BookExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/BookInfos.class.php",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/BookInfos.class.php",
+          "role": "source"
+        },
+        {
+          "line": 118,
+          "matched_term": "epub ",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 120,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/CalibreDbLoader.class.php",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/README",
+          "role": "documentation"
+        },
+        {
+          "line": 5,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/README",
+          "role": "documentation"
+        },
+        {
+          "line": 1,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/app/.gitignore",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/app/action_csv_export.php",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub ",
+          "path": "resources/epub-loader/app/action_csv_export.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/app/action_db_load.php",
+          "role": "source"
+        },
+        {
+          "line": 15,
+          "matched_term": "epub ",
+          "path": "resources/epub-loader/app/action_db_load.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/app/cops-feed.php",
+          "role": "source"
+        },
+        {
+          "line": 10,
+          "matched_term": "epub",
+          "path": "resources/epub-loader/app/cops-feed.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "Epub ",
+          "path": "resources/epub-loader/app/epub-loader-config.php.example",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 14,
+        "source": 103,
+        "test": 39
+      }
+    },
+    "fb2": {
+      "evidence": [
+        {
+          "line": 30,
+          "matched_term": "fb2",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 30,
+          "matched_term": "fb2",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 423,
+          "matched_term": "FB2",
+          "path": "test/bookTest.php",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 2,
+        "test": 1
+      }
+    },
+    "html_xhtml": {
+      "evidence": [
+        {
+          "line": 48,
+          "matched_term": "xhtml",
+          "path": ".htaccess",
+          "role": "source"
+        },
+        {
+          "line": 31,
+          "matched_term": ".html",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 168,
+          "matched_term": ".html",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 128,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 129,
+          "matched_term": ".html",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 12,
+          "matched_term": ".html",
+          "path": "about.html",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 26,
+          "matched_term": ".html",
+          "path": "base.php",
+          "role": "source"
+        },
+        {
+          "line": 2,
+          "matched_term": "xhtml",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 7,
+          "matched_term": ".html",
+          "path": "checkconfig.php",
+          "role": "source"
+        },
+        {
+          "line": 112,
+          "matched_term": ".html",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "config.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "epubfs.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "XHTML",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 3,
+          "matched_term": "xhtml",
+          "path": "epubreader.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "feed.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "fetch.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "getJSON.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 51,
+          "matched_term": ".html",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/Author.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/Base.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 319,
+          "matched_term": "xhtml",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumn.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnType.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeBool.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeComment.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeDate.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeEnumeration.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeFloat.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeInteger.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeRating.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeSeries.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/CustomColumnTypeText.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 53,
+          "matched_term": "xhtml",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": ".html",
+          "path": "lib/Entry.php",
+          "role": "source"
+        },
+        {
+          "line": 50,
+          "matched_term": "Xhtml",
+          "path": "lib/Entry.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 6,
+        "source": 139,
+        "test": 44
+      }
+    },
+    "markdown": {
+      "evidence": [
+        {
+          "line": 46,
+          "matched_term": ".md",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 4,
+          "matched_term": ".md",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 83,
+          "matched_term": ".md",
+          "path": "composer.lock",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 5
+      }
+    },
+    "mobi_azw": {
+      "evidence": [
+        {
+          "line": 74,
+          "matched_term": "AZW3",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 316,
+          "matched_term": "MOBI",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "mobi",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 92,
+          "matched_term": "azw",
+          "path": "README.md",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "mobi",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "AZW3",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "AZW",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "AZW3",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "MOBI",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 20,
+          "matched_term": "azw",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 23,
+          "matched_term": "azw3",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 325,
+          "matched_term": "MOBI",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 328,
+          "matched_term": "MOBI",
+          "path": "test/bookTest.php",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 4,
+        "source": 9,
+        "test": 22
+      }
+    },
+    "odt_rtf": {
+      "evidence": [
+        {
+          "line": 47,
+          "matched_term": "rtf",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 47,
+          "matched_term": "rtf",
+          "path": "lib/Data.php",
+          "role": "source"
+        }
+      ],
+      "roles": {
+        "source": 2
+      }
+    },
+    "pdf": {
+      "evidence": [
+        {
+          "line": 316,
+          "matched_term": "PDF",
+          "path": "CHANGELOG",
+          "role": "documentation"
+        },
+        {
+          "line": 3,
+          "matched_term": "pdf",
+          "path": "composer.json",
+          "role": "source"
+        },
+        {
+          "line": 110,
+          "matched_term": "PDF",
+          "path": "config_default.php",
+          "role": "source"
+        },
+        {
+          "line": 14,
+          "matched_term": ".pdf",
+          "path": "index.php",
+          "role": "source"
+        },
+        {
+          "line": 265,
+          "matched_term": "PDF",
+          "path": "lib/Book.php",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "pdf",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 45,
+          "matched_term": "application/pdf",
+          "path": "lib/Data.php",
+          "role": "source"
+        },
+        {
+          "line": 139,
+          "matched_term": "pdf",
+          "path": "resources/epub-loader/BaseExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 140,
+          "matched_term": "application/pdf",
+          "path": "resources/epub-loader/BaseExport.class.php",
+          "role": "source"
+        },
+        {
+          "line": 46,
+          "matched_term": "pdf",
+          "path": "resources/epub-loader/app/epub-loader-config.php.example",
+          "role": "source"
+        },
+        {
+          "line": 5,
+          "matched_term": "pdf",
+          "path": "templates/default/styles/fontawesome.min.css",
+          "role": "source"
+        },
+        {
+          "line": 697,
+          "matched_term": "pdf",
+          "path": "templates/default/webfonts/fa-solid-900.svg",
+          "role": "source"
+        },
+        {
+          "line": 325,
+          "matched_term": "PDF",
+          "path": "test/bookTest.php",
+          "role": "test"
+        },
+        {
+          "line": 333,
+          "matched_term": "PDF",
+          "path": "test/bookTest.php",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "documentation": 1,
+        "source": 11,
+        "test": 18
+      }
+    },
+    "txt": {
+      "evidence": [
+        {
+          "line": 84,
+          "matched_term": ".txt",
+          "path": "composer.lock",
+          "role": "source"
+        },
+        {
+          "line": 190,
+          "matched_term": "plain text",
+          "path": "test/opds-relax-ng/opensearchdescription.rng",
+          "role": "test"
+        }
+      ],
+      "roles": {
+        "source": 1,
+        "test": 1
+      }
+    }
+  },
+  "inventory_url": "https://github.com/seblucas/cops",
+  "kind": "client",
+  "languages_by_file_count": {
+    "CSS": 12,
+    "HTML": 16,
+    "JavaScript": 5,
+    "PHP": 266,
+    "SQL": 1,
+    "Shell": 3,
+    "XML": 1
+  },
+  "license_review": {
+    "candidate_notices": [
+      "GPL-2.0"
+    ],
+    "notice_files": [
+      "COPYING"
+    ],
+    "status": "heuristic_requires_legal_review"
+  },
+  "manual_review_status": "pending",
+  "method": {
+    "keyword_evidence_is_not_support_proof": true,
+    "max_text_bytes_per_file": 1048576,
+    "source_lines_retained": false,
+    "tracked_tree": "git ls-tree -rz -l HEAD"
+  },
+  "origin_url": "https://github.com/seblucas/cops",
+  "readme_files": [
+    "README.md",
+    "resources/epub-loader/README"
+  ],
+  "revision": "7828cc600e904941583227071b8f4efd3b9385fb",
+  "schema_version": 1,
+  "slug": "cops",
+  "support_claims_allowed": false,
+  "tree": "0d40e71de7933585d91284da6b96384311f53571"
+}
