@@ -1,0 +1,136 @@
+{
+ "campaign": "ATM-024 containerized build/deploy/restart/upgrade/rollback/teardown",
+ "date_utc": "2026-11-20T17:46Z",
+ "defects_found": [
+  {
+   "id": "ATM-024-D1",
+   "severity": "blocker-at-the-time",
+   "summary": "First container build failed: server/internal/httpapi/jobs.go used slog without importing log/slog (tree-level compile break, concurrent agent fixed the import; second build passed). Not a deploy/ defect; no deploy/ change required."
+  },
+  {
+   "detected_by": "the probes themselves returning manifest-unknown / 404 / unexpected 200",
+   "id": "ATM-024-D2",
+   "resolution": "corrected in run-distribution-and-compose.sh and run-digest-and-auth-probes.sh; superseded log was truncated before the authoritative run and the wrong premise is documented in credential_gating_needles instead of being deleted",
+   "severity": "evidence-quality, self-inflicted",
+   "summary": "first distribution probe script used unsupported podman flags (--remove-signature), wrong podman-compose container names (hyphen vs underscore), a nonexistent OPDS path (/opds/1.2/navigation), and an auth premise that assumed bearer-admin protects the read API. The push therefore never happened and three probes were vacuous."
+  }
+ ],
+ "deploy_changes_made": [
+  "deploy/docker-compose.yml: name: ${COMPOSE_PROJECT_NAME:-helix}; explicit helix image: ${HELIX_IMAGE:-helix-helix:latest} (tagged upgrade/rollback); loopback publish port parameterized HELIX_PUBLISH_PORT (default 8080); helix service healthcheck on /healthz",
+  "server/Dockerfile: ARG HELIX_BUILD_REVISION + org.opencontainers.image.revision label to trace containers to image revisions",
+  ".gitignore: evidence logs re-included (un-ignore evidence/**/*.log) so campaign artifacts can be committed"
+ ],
+ "host_toolchain": {
+  "docker": "not installed",
+  "note": "docker-compose parity claims could not be executed on this host; podman-compose results below are authoritative for this qualification",
+  "podman": "5.7.0 (rootless)",
+  "podman_compose": "1.5.0"
+ },
+ "images": {
+  "postgres": "docker.io/pgvector/pgvector:pg17",
+  "redis": "docker.io/library/redis:7.4-alpine",
+  "server_v1": "localhost/helixqual-deploy-helix:v1 b567c4fb27c732b982a1e8e580dada182295e5ab85c1fb9573215307cd8ea810 (label revision=v1-coldstart)",
+  "server_v2": "localhost/helixqual-deploy-helix:v2 c1ddd56547075ec7059cb810fa4afe3b9779d156d430005ec935f65725775d9b (label revision=v2-upgrade)"
+ },
+ "isolation": {
+  "container_names": [
+   "helixqual-deploy_postgres_1",
+   "helixqual-deploy_redis_1",
+   "helixqual-deploy_helix_1"
+  ],
+  "network": "podman-compose project network helixqual-deploy_default (created and removed by the stack)",
+  "project_name": "helixqual-deploy",
+  "protected_services_untouched": [
+   "helixqual-pg",
+   "helixqual-redis"
+  ],
+  "published_ports": "127.0.0.1:39080/tcp + 39080/udp (loopback-only)",
+  "volumes": "fresh helixqual-deploy_{postgres-data,redis-data,helix-data}; removed with down -v"
+ },
+ "podman_compose_vs_docker_compose": [
+  "container naming: podman-compose uses project_service_N (underscores); docker-compose uses project-service-N (hyphens)",
+  "top-level name: key took precedence over -p in podman-compose 1.5.0; compose file now interpolates COMPOSE_PROJECT_NAME so isolated prefixes are honored by both tools",
+  "up -d recreated every service on any change (observed on upgrade and rollback), not just the changed service",
+  "depends_on condition: service_healthy was honored in practice: postgres/redis reported healthy before helix started on cold up; helix restart_count stayed 0",
+  "config prints resolved secret values to stdout; treat as sensitive",
+  "down --rmi local left localhost-tagged built images in place"
+ ],
+ "sanitize": "No credentials, DSN userinfo, or tokens in any artifact; secret values verified absent by automated grep over all evidence files",
+ "second_pass": {
+  "artifact": "distribution.log",
+  "date_utc": "2026-11-20T19:28\u201319:34Z",
+  "reason": "distribution (registry push/pull) and compose execution named in acceptance were still uncovered after the first pass",
+  "scripts": [
+   "run-distribution-and-compose.sh",
+   "run-digest-and-auth-probes.sh"
+  ]
+ },
+ "stages": {
+  "api_real_endpoints": {
+   "artifact": "cold-start.log",
+   "detail": "GET /healthz 200; GET /readyz 200; POST /v1/sources 201 (local protocol, /library bind mount); POST /v1/scans -> job succeeded; GET /v1/works 200 with ingested work-0368dfcdf7e3187f5bed78b2 (title helixqual-deploy-book, sha256 file row); GET /v1/works/:id 200; GET /opds/1.2 200 application/atom+xml;profile=opds-catalog;kind=navigation; GET /opds/2.0 200 application/opds+json; GET /opds/2.0/publications 200; DELETE /v1/sources/qual-source 204 (catalog rows retained); unauthenticated /v1/works and POST /v1/sources -> 401",
+   "result": "PASS"
+  },
+  "build_v1": {
+   "artifact": "build.log",
+   "attempt_1": "FAIL (tree defect, not containerization): go build error internal/httpapi/jobs.go:74 undefined: slog; concurrent agent added the missing log/slog import; rebuild --no-cache succeeded",
+   "attempts": 2,
+   "result": "PASS"
+  },
+  "cold_start_healthy": {
+   "artifact": "cold-start.log",
+   "detail": "fresh volumes; helix container reached healthcheck status=healthy in ~8s, restart_count=0",
+   "result": "PASS"
+  },
+  "compose_execution_parity": {
+   "artifact": "distribution.log",
+   "detail": "podman-compose up -d brought up postgres (pgvector/pg17, healthy), redis (7.4-alpine, healthy) and helix; /healthz 200 and /readyz {\"status\":\"ready\"} 200 from the host loopback port 18181; /v1/works, /opds/1.2 and /opds/2.0 all 200 through the stack; psql inside the stack's postgres returned helix_schema_migrations=1 and works table present, proving the app consumed HELIX_POSTGRES_DSN and migrated the stack database; redis-cli ping PONG; 3 project-scoped named volumes. podman-compose restart: /readyz still ready, migrations row still 1, volumes intact. Tag-driven upgrade to :v2 then rollback to :v1 both left /healthz 200. Teardown left 0 containers, 0 images, 0 volumes from this project; helixqual-pg/helixqual-redis still up.",
+   "result": "PASS (podman-compose)"
+  },
+  "container_restart_persistence": {
+   "artifact": "restart.log",
+   "detail": "podman restart helixqual-deploy_helix_1; healthy again ~8s; work readable via API with no rescan; works=1 files=1 in PostgreSQL; migrations not re-applied",
+   "result": "PASS"
+  },
+  "credential_gating_needles": {
+   "artifact": "distribution.log",
+   "detail": "with HELIX_OPDS_USERNAME/HELIX_OPDS_PASSWORD set, each of /v1/works, /opds/2.0, /opds/1.2, /opds/1.2/publications returned 401 with no credentials and 401 with a wrong password, 200 with correct credentials; GET /v1/scans returned 401 without and with a wrong bearer token and 200 with the configured admin token; DELETE /v1/works/<unknown> returned 401/401 then 404 'work not found' with the token (proves authorization passes and the store answers); POST /users/create returned 503 'KOReader sync is not configured' because HELIX_KOSYNC_REGISTRATION defaults false; /healthz stays 200 unauthenticated by design. The first pass had reported 200 for unauthenticated /v1/works; that is the documented behavior of Basic()/Bearer() when the credential is empty (server/internal/httpapi/middleware.go:59-64,44-48), not a regression \u2014 the needle was re-cut with credentials present.",
+   "result": "PASS"
+  },
+  "defect_001_cold_migration": {
+   "artifact": "cold-start.log",
+   "detail": "empty-schema migration ran inside the container image: helix_schema_migrations contains exactly version=1 rows=1, 6 public tables created, no duplicate-key error; image carries the fixed 001_catalog.sql (no self-insert) and ON CONFLICT DO NOTHING runner",
+   "result": "PASS"
+  },
+  "distribution_registry_round_trip": {
+   "artifact": "distribution.log",
+   "detail": "podman build (config id ea83760a44f3) -> tag -> push to a local registry:2 on 127.0.0.1:15000 (registry /v2/ 200, catalog lists helix-reader, tags list v1) -> both local tags force-deleted (matching local images=0) -> pull over the network -> manifest bytes sha256 equals the registry Docker-Content-Digest (sha256:ccfab78db1ba6e2ffbb14cf608a83ed393c966e698e04034dffa8209938d6d90) before and after the pull, and the pulled config id equals the built config id. podman push 5.7 rejects --remove-signature, and podman's local inspect digest differs from the registry manifest digest (different manifest representation), so equality is asserted against the registry response, not against podman's local value.",
+   "result": "PASS"
+  },
+  "docker_compose_cli_parity": {
+   "artifact": "distribution.log",
+   "detail": "docker/docker-compose is not installed on this host; only podman-compose execution is evidenced. No claim is made about docker-compose behavior beyond the file semantics already recorded in the first pass.",
+   "result": "NOT RUN"
+  },
+  "pulled_artifact_runtime": {
+   "artifact": "distribution.log",
+   "detail": "the pulled image (not the local build) was run: /healthz 200, GET /v1/works 200 with cursor-shaped body {\"works\":[],\"total\":0,\"offset\":0,\"limit\":2,\"has_next\":false}, /opds/1.2 200 application/atom+xml;profile=opds-catalog;kind=navigation, /opds/2.0 200 application/opds+json, id -un inside the container = helix, startup log warns about volatile in-memory catalog because no DSN was supplied.",
+   "result": "PASS"
+  },
+  "rollback": {
+   "artifact": "rollback.log",
+   "detail": "HELIX_IMAGE=v1 + podman-compose up -d; running image returned to b567c4fb27c7 label v1-coldstart; healthy; data intact",
+   "result": "PASS"
+  },
+  "teardown": {
+   "artifact": "rollback.log (teardown section)",
+   "detail": "podman-compose down then down -v; 0 residual containers/volumes/networks matching helixqual-deploy; port 39080 closed; helixqual-pg and helixqual-redis still Up; qualification images localhost/helixqual-deploy-helix:v1/v2 explicitly removed after logging (podman-compose down --rmi local did NOT remove them)",
+   "result": "PASS"
+  },
+  "upgrade": {
+   "artifact": "upgrade.log",
+   "detail": "rebuilt image v2 (label v2-upgrade); HELIX_IMAGE repoint + podman-compose up -d; container runs image c1ddd5654707; healthy; data survived; divergence observed: podman-compose recreated postgres and redis containers too (docker-compose recreates only the changed service); no data loss because state lives in named volumes",
+   "result": "PASS"
+  }
+ }
+}

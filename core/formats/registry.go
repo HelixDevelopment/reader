@@ -54,9 +54,17 @@ type Descriptor struct {
 	Capabilities Capabilities `json:"capabilities"`
 }
 
-var parsedCaps = Capabilities{Detect: true, Metadata: true, Stream: true, Convert: true, ContentAI: true}
+// parsedCaps: full HDM parse plus on-device conversion. ContentAI stays
+// false: parsing text is not AI support (constitution §7.1); an AI engine
+// must be registered and tested before this flag can ever turn true.
+var parsedCaps = Capabilities{Detect: true, Metadata: true, Stream: true, Convert: true}
 var streamCaps = Capabilities{Detect: true, Stream: true}
-var cbzCaps = Capabilities{Detect: true, Metadata: true, Stream: true}
+
+// cbzCaps: Detect/Metadata/Stream plus Convert — page enumeration without
+// inflation (cbz.Pages), HDM parse of PNG/JPEG/GIF/WebP payloads, and the
+// CBZ packaging exporter (convert.FormatCBZ). Render stays false: the core
+// stores bytes and never lays out or decodes a pixel for display.
+var cbzCaps = Capabilities{Detect: true, Metadata: true, Stream: true, Convert: true}
 var detectCaps = Capabilities{Detect: true}
 var registry = []Descriptor{
 	{EPUB, []string{".epub", ".epub3"}, []string{"application/epub+zip"}, KindEBook, StrategyNative, false, true, parsedCaps},

@@ -13,7 +13,7 @@ import (
 
 func fixturePage() catalog.Page {
 	now := time.Date(2026, 1, 2, 3, 4, 5, 0, time.UTC)
-	return catalog.Page{Total: 3, Offset: 0, Limit: 1, Works: []catalog.Work{{ID: "w1", CanonicalTitle: "A work", Subjects: []string{"Fiction"}, UpdatedAt: now, Editions: []catalog.Edition{{ID: "e1", Title: "A work — first edition", Authors: []string{"A. Author"}, Language: "en", Description: "Description", State: catalog.Identified, UpdatedAt: now, Identifiers: []catalog.Identifier{{Scheme: "isbn", Value: "9780441478125"}}, CoverHREF: "/v1/covers/e1", Files: []catalog.File{{ID: "f1", Format: "epub", MIMEType: "application/epub+zip"}}}, {ID: "e2", Title: "A work — revised edition", Authors: []string{"A. Author"}, UpdatedAt: now, Files: []catalog.File{{ID: "f2", Format: "pdf", MIMEType: "application/pdf"}}}}}}}
+	return catalog.Page{Total: 3, Offset: 0, Limit: 1, HasNext: true, Works: []catalog.Work{{ID: "w1", CanonicalTitle: "A work", Subjects: []string{"Fiction"}, UpdatedAt: now, Editions: []catalog.Edition{{ID: "e1", Title: "A work — first edition", Authors: []string{"A. Author"}, Language: "en", Description: "Description", State: catalog.Identified, UpdatedAt: now, Identifiers: []catalog.Identifier{{Scheme: "isbn", Value: "9780441478125"}}, CoverHREF: "/v1/covers/e1", Files: []catalog.File{{ID: "f1", Format: "epub", MIMEType: "application/epub+zip"}}}, {ID: "e2", Title: "A work — revised edition", Authors: []string{"A. Author"}, UpdatedAt: now, Files: []catalog.File{{ID: "f2", Format: "pdf", MIMEType: "application/pdf"}}}}}}}
 }
 
 func TestOPDS12WellFormedMultiEditionAndPaging(t *testing.T) {

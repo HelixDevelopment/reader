@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadRemoteSource
+    load_remote_test.go:229: remote load-remote-f0 advertised "bytes" while the route cannot honour a range
+--- FAIL: TestLiveLoadRemoteSource (0.01s)
+FAIL

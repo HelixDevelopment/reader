@@ -1,0 +1,42 @@
+# Sanitized for evidence: secret values replaced with [REDACTED]; none of these values
+# ever appeared in this file by design (credentials live only in gitignored scratch env).
+
+Rebuilt image: localhost/helixqual-deploy-helix:v2 id c1ddd56547075ec7059cb810fa4afe3b9779d156d430005ec935f65725775d9b,
+label org.opencontainers.image.revision=v2-upgrade (build output appended in build.log).
+Upgrade = repoint HELIX_IMAGE env to v2, then `podman-compose up -d`.
+
+## OBSERVED podman-compose divergence from docker-compose
+`podman-compose up -d` recreated ALL THREE containers on upgrade (postgres/redis included, not only the
+changed helix service). No data loss (named volumes survive recreation) and migrations were not re-run
+(helix_schema_migrations still exactly version 1), but docker-compose would recreate only the changed
+service. podman-compose also recreated containers even when nothing changed (rollback ran clean again).
+Also observed: podman-compose `config` prints fully resolved secrets to stdout (docker-compose masks
+nothing either, but treat `config` output as sensitive); top-level `name:` in the compose file beat
+`-p helixqual-deploy` in podman-compose, so deploy/docker-compose.yml now interpolates
+`name: ${COMPOSE_PROJECT_NAME:-helix}` to keep isolated runs prefixable.
+
+=== 4. UPGRADE v1 -> v2 ===
+helixqual-deploy_redis_1
+helixqual-deploy_postgres_1
+helixqual-deploy_helix_1
+helixqual-deploy_helix_1
+helixqual-deploy_redis_1
+helixqual-deploy_postgres_1
+360600978d1f44f877d48f113754ee7cee5107ab7e38414733a575daae6664a4
+helixqual-deploy_default
+2f8eb970d95c4d085bb5723399d9c585add14347907e453c2d97c7a891965493
+b9ba0ca318b1dba42840f5f900a0fd90b4cadf67419aec2e3cda2c5fb390abe5
+05e1c7a0ca84ec4d938692a1a63be66a289757c1a3c925d5f33d0a820cb13f48
+6304f9e4482f0bb1fa4448e115e62c6356453aed4d23cfee4e7e1776f74b63de
+helixqual-deploy_postgres_1
+helixqual-deploy_redis_1
+helixqual-deploy_helix_1
+up_exit=0
+health_after_upgrade=healthy
+running_image_id=c1ddd56547075ec7059cb810fa4afe3b9779d156d430005ec935f65725775d9b
+revision_label=v2-upgrade
+NOTE recreated: helixqual-deploy_postgres_1 | Up 1 second (healthy)
+NOTE recreated: helixqual-deploy_redis_1 | Up Less than a second (healthy)
+NOTE recreated: helixqual-deploy_helix_1 | Up Less than a second (healthy)
+works_after_upgrade: ['work-0368dfcdf7e3187f5bed78b2']
+migration_versions=1

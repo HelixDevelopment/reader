@@ -1,0 +1,100 @@
+=== live fuzz -fuzztime 8s each (2026-11-20T18:02:59Z) ===
+--- go test ./formats -fuzz FuzzDetect -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/105 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 105/105 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 571946 (190518/sec), new interesting: 6 (total: 111)
+fuzz: elapsed: 6s, execs: 1104734 (177654/sec), new interesting: 7 (total: 112)
+fuzz: elapsed: 9s, execs: 1399027 (98131/sec), new interesting: 7 (total: 112)
+fuzz: elapsed: 9s, execs: 1399027 (0/sec), new interesting: 7 (total: 112)
+PASS
+ok  	github.com/helixreader/helix/core/formats	9.048s
+PASS formats/FuzzDetect
+--- go test ./pkg/parse/txt -fuzz FuzzParse -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/119 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 119/119 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 95972 (31984/sec), new interesting: 17 (total: 136)
+fuzz: elapsed: 6s, execs: 96542 (190/sec), new interesting: 17 (total: 136)
+fuzz: elapsed: 9s, execs: 96542 (0/sec), new interesting: 17 (total: 136)
+fuzz: elapsed: 9s, execs: 96542 (0/sec), new interesting: 17 (total: 136)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	9.106s
+PASS pkg/parse/txt/FuzzParse
+--- go test ./pkg/parse/fb2 -fuzz FuzzParse -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/85 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 85/85 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 104335 (34775/sec), new interesting: 44 (total: 129)
+fuzz: elapsed: 6s, execs: 139260 (11638/sec), new interesting: 45 (total: 130)
+fuzz: elapsed: 9s, execs: 139260 (0/sec), new interesting: 45 (total: 130)
+fuzz: elapsed: 9s, execs: 139260 (0/sec), new interesting: 45 (total: 130)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/fb2	9.108s
+PASS pkg/parse/fb2/FuzzParse
+--- go test ./pkg/parse/cbz -fuzz FuzzParse -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/18 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 18/18 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 42287 (14093/sec), new interesting: 2 (total: 20)
+fuzz: elapsed: 6s, execs: 42287 (0/sec), new interesting: 2 (total: 20)
+fuzz: elapsed: 9s, execs: 42287 (0/sec), new interesting: 2 (total: 20)
+fuzz: elapsed: 9s, execs: 42287 (0/sec), new interesting: 2 (total: 20)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	9.096s
+PASS pkg/parse/cbz/FuzzParse
+--- go test ./pkg/parse/cbz -fuzz FuzzPages -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/16 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 16/16 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 50858 (16945/sec), new interesting: 4 (total: 20)
+fuzz: elapsed: 6s, execs: 50858 (0/sec), new interesting: 4 (total: 20)
+fuzz: elapsed: 9s, execs: 50858 (0/sec), new interesting: 4 (total: 20)
+fuzz: elapsed: 9s, execs: 50858 (0/sec), new interesting: 4 (total: 20)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	9.081s
+PASS pkg/parse/cbz/FuzzPages
+--- go test ./pkg/parse/epub -fuzz FuzzParse -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/16 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 16/16 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 56260 (18751/sec), new interesting: 5 (total: 21)
+fuzz: elapsed: 6s, execs: 56260 (0/sec), new interesting: 5 (total: 21)
+fuzz: elapsed: 9s, execs: 56260 (0/sec), new interesting: 5 (total: 21)
+fuzz: elapsed: 9s, execs: 56260 (0/sec), new interesting: 5 (total: 21)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	9.084s
+PASS pkg/parse/epub/FuzzParse
+--- go test ./pkg/parse/epub -fuzz FuzzSpine -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/17 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 17/17 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 30981 (10321/sec), new interesting: 0 (total: 17)
+fuzz: elapsed: 6s, execs: 30981 (0/sec), new interesting: 0 (total: 17)
+fuzz: elapsed: 9s, execs: 30981 (0/sec), new interesting: 0 (total: 17)
+fuzz: elapsed: 9s, execs: 30981 (0/sec), new interesting: 0 (total: 17)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	9.100s
+PASS pkg/parse/epub/FuzzSpine
+--- go test ./pkg/parse/mobi -fuzz FuzzParse -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/16 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 16/16 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 22920 (7635/sec), new interesting: 0 (total: 16)
+fuzz: elapsed: 6s, execs: 22920 (0/sec), new interesting: 0 (total: 16)
+fuzz: elapsed: 9s, execs: 22920 (0/sec), new interesting: 0 (total: 16)
+fuzz: elapsed: 9s, execs: 22920 (0/sec), new interesting: 0 (total: 16)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/mobi	9.102s
+PASS pkg/parse/mobi/FuzzParse
+--- go test ./pkg/convert -fuzz FuzzExportEPUB -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/287 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 287/287 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 46289 (15427/sec), new interesting: 20 (total: 307)
+fuzz: elapsed: 6s, execs: 159536 (37752/sec), new interesting: 29 (total: 316)
+fuzz: elapsed: 9s, execs: 237435 (25968/sec), new interesting: 32 (total: 319)
+fuzz: elapsed: 9s, execs: 237435 (0/sec), new interesting: 32 (total: 319)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/convert	9.077s
+PASS pkg/convert/FuzzExportEPUB
+--- go test ./pkg/sync -fuzz FuzzPaginate -fuzztime 8s ---
+fuzz: elapsed: 0s, gathering baseline coverage: 0/32 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 32/32 completed, now fuzzing with 16 workers
+fuzz: elapsed: 3s, execs: 667200 (222123/sec), new interesting: 0 (total: 32)
+fuzz: elapsed: 6s, execs: 1354406 (229351/sec), new interesting: 0 (total: 32)
+fuzz: elapsed: 8s, execs: 1807766 (214480/sec), new interesting: 0 (total: 32)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/sync	8.121s
+PASS pkg/sync/FuzzPaginate

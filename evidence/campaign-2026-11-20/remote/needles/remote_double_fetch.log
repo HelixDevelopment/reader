@@ -1,0 +1,5 @@
+=== RUN   TestLiveLoadRemoteSource
+    load_remote_test.go:250: REMOTE RANGE COST size=262144 client_window=65536 origin_bytes=524288 amplification=8.0x
+    load_remote_test.go:311: remote size 262144 level 1: 12 client requests caused 24 origin requests; the connector is not one-for-one
+--- FAIL: TestLiveLoadRemoteSource (0.02s)
+FAIL

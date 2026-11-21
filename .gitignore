@@ -196,3 +196,19 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Gitignored scratch directory for verification scripts (built test binaries,
+# disposable libraries, cover caches, TLS material, redis/mutation work dirs).
+.helix-verify/
+.helix-verify/*
+
+# Campaign evidence logs must survive the global *.log ignores above so
+# recorded verification (EVIDENCE.md pointers) is committable.
+!evidence/**/*.log
+
+# Local CLI settings, python bytecode, and SQLite scratch beside the registry DB.
+.qwen/settings.local.json
+__pycache__/
+*.pyc
+*.db-shm
+*.db-wal

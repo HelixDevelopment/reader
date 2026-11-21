@@ -10,7 +10,7 @@
 - `evidence/` — machine output from checks that actually ran. A missing result is not a pass.
 - `spec/` — constitution and product specifications. Specifications describe targets and must not be used as executable-capability evidence.
 - `submodules/` — constitution, containers, QA, and CodeGraph development resources.
-- `/mnt/agents/output/app` in the project workspace — React/Vite responsive prototype. It is intentionally disconnected from the server and uses sample data.
+- `demos/interactive_static_demo/` — React/Vite responsive prototype. It is intentionally disconnected from the server and uses sample data.
 
 ## Toolchains
 
@@ -21,6 +21,47 @@
 - Docker Compose for the supplied deployment template.
 
 Never place populated `.env` files, DSNs, access tokens, password digests, private keys, or credential-bearing URLs in source, test fixtures, logs, screenshots, evidence, or release archives.
+
+## Configuration
+
+The server reads configuration from the environment only (`server/internal/config`).
+There is no config file and no flag parsing. Startup exits with status `2` on any
+rejected value, so an invalid deployment fails instead of running with a silently
+different setting.
+
+| Variable | Default | Behavior when set |
+| --- | --- | --- |
+| `HELIX_ADDRESS` | `127.0.0.1:8080` | TCP (and HTTP/3) listen address. |
+| `HELIX_TLS_CERT`, `HELIX_TLS_KEY` | unset | Serves TLS and enables HTTP/3. Must be configured together; one without the other is rejected. Minimum TLS 1.2 over TCP, 1.3 over QUIC. |
+| `HELIX_ADMIN_TOKEN` | empty | Bearer credential for management routes. Required whenever `HELIX_ADDRESS` is not a loopback IP, unless the insecure override below is set. |
+| `HELIX_ALLOW_INSECURE_ADMIN` | `false` | Permitting an empty admin token on a non-loopback listener. Unset this for any real deployment. |
+| `HELIX_OPDS_USERNAME`, `HELIX_OPDS_PASSWORD` | empty | Basic credential for catalog reads, content, covers, and OPDS. Must be configured together. An empty username logs a startup warning; those routes are then unauthenticated. |
+| `HELIX_EXTERNAL_URL` | empty | Public origin used to build absolute feed links. Trailing slashes are trimmed. |
+| `HELIX_POSTGRES_DSN` | empty | Durable catalog. Empty falls back to a volatile in-memory catalog with a startup warning. |
+| `HELIX_COVER_CACHE` | `./data/covers` | Directory for validated rendered covers. |
+| `HELIX_REDIS_URL` | empty | Enables internal progress sync and KOReader sync. Without it those routes return `503`. An unparseable URL or an unreachable server aborts startup. |
+| `HELIX_KOSYNC_REGISTRATION` | `false` | Allows `POST /users/create`. Keep disabled outside provisioning. |
+| `HELIX_AI_MEMORY` | `false` | Enables the pgvector memory store. Rejected unless `HELIX_POSTGRES_DSN` is also set. |
+| `HELIX_EMBEDDING_DIMENSIONS` | `1536` | Vector column width; accepted range `1`–`2000`. A store migrated at a different width is rejected at startup rather than silently reused. |
+| `HELIX_HTTP3` | `true` | Disables the QUIC listener when false. A non-boolean value is rejected. HTTP/3 still requires a TLS certificate. |
+| `HELIX_BROTLI_LEVEL` | `4` | Brotli level `0`–`11` for compressible responses. Out-of-range or non-integer is rejected. |
+| `HELIX_CATALOG_POOL_MAX_OPEN_CONNS` | `20` | Catalog pool ceiling. Must be ≥ 1. |
+| `HELIX_CATALOG_POOL_MAX_IDLE_CONNS` | `5` | Must be ≥ 0 and ≤ the open limit. |
+| `HELIX_CATALOG_POOL_LIFETIME_SECONDS` | `1800` | Connection reuse deadline; must be ≥ 1. |
+| `HELIX_AI_MEMORY_POOL_MAX_OPEN_CONNS` | `10` | AI-memory pool ceiling; same rules as the catalog pool. |
+| `HELIX_AI_MEMORY_POOL_MAX_IDLE_CONNS` | `3` | |
+| `HELIX_AI_MEMORY_POOL_LIFETIME_SECONDS` | `1800` | |
+
+Two sharp edges worth knowing: `HELIX_KOSYNC_REGISTRATION`, `HELIX_AI_MEMORY`, and
+`HELIX_ALLOW_INSECURE_ADMIN` parse booleans leniently, so an unrecognized value
+such as `yes` becomes `false` without an error, while `HELIX_HTTP3` rejects the same
+input. The shutdown drain budget is fixed at 15 seconds in `config.Config` and is not
+configurable from the environment.
+
+Pool limits are shared-process budgets: the catalog and AI-memory stores each open
+their own pool against the same PostgreSQL instance, so their combined maxima must
+stay inside the server's `max_connections` alongside every other client. Raise them
+only with evidence from `pg_stat_activity`, not by default.
 
 ## Build and test
 
@@ -37,7 +78,7 @@ go test ./... -count=1
 go test -race ./... -count=1
 go vet ./...
 
-cd /mnt/agents/output/app
+cd ../demos/interactive_static_demo
 npm ci
 npm run lint
 npm run build
@@ -48,12 +89,15 @@ The pinned sandbox toolchain and module cache are environment details, not proje
 
 ## Browser verification
 
-Build the prototype, serve `dist/` on loopback, then run:
+Build the prototype, serve `dist/` on loopback, then run the verifier from the
+repository root. Both arguments are optional and already default to these values.
 
 ```bash
-python3 /mnt/agents/output/helix/scripts/verify_ui.py \
-  http://127.0.0.1:4173/ \
-  /mnt/agents/output/helix/evidence/ui
+cd demos/interactive_static_demo
+npm run preview -- --host 127.0.0.1 --port 4173
+
+cd ../..
+python3 scripts/verify_ui.py http://127.0.0.1:4173/ evidence/ui
 ```
 
 The suite uses fresh browser contexts at 375×812, 768×1024, 1024×900, and 1440×1000. It checks viewport metadata, horizontal overflow, disclosure text, search, reader navigation and typography deltas, passage state, metadata decisions, source validation/addition/scan state, conflict resolution, theme changes, console errors, and missing assets. It writes `ui-results.json` even when a viewport aborts unexpectedly.

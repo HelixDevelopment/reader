@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1
+--- FAIL: TestParseAcceptsAndReportsUnknownMembers (0.00s)
+    license_test.go:188: UnknownMembers = [], want [alpha_future zeta_future] in sorted order
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
+FAIL
+
+exit=1

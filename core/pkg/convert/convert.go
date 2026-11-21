@@ -17,6 +17,8 @@ const (
 	FormatTXT   Format = "txt"
 	FormatXHTML Format = "xhtml"
 	FormatFB2   Format = "fb2"
+	FormatEPUB  Format = "epub"
+	FormatCBZ   Format = "cbz"
 )
 
 // Options controls conversion (docs/31 options/presets).
@@ -41,6 +43,10 @@ func Convert(doc *hdm.Document, target Format, opt Options) ([]byte, error) {
 		return toXHTML(doc, opt), nil
 	case FormatFB2:
 		return toFB2(doc, opt), nil
+	case FormatEPUB:
+		return toEPUB(doc, opt)
+	case FormatCBZ:
+		return toCBZ(doc, opt)
 	}
 	return nil, fmt.Errorf("convert: unsupported target %q", target)
 }

@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadContentDelivery
+    load_delivery_test.go:340: range GET load-dlv-f0 (bytes=87381-152916) returned 200, not 206: the range path is not being taken, so every client would pay for 262144 bytes
+--- FAIL: TestLiveLoadContentDelivery (0.05s)
+FAIL

@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestKeyCheckDetectsTamperedLicenseID$ -count=1
+--- FAIL: TestKeyCheckDetectsTamperedLicenseID (0.00s)
+    keys_test.go:65: tampered id error = <nil>, want ErrWrongUserKey
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL
+
+exit=1

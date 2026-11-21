@@ -1,0 +1,5 @@
+=== RUN   TestLiveLoadContentDelivery
+    load_delivery_test.go:428: DELIVERY LADDER size=262144 clients=1 rounds=2 completed=2 wall_ms=5.0 req_per_sec=400.0 gbit_per_sec=0.524 mib_per_sec=62.5 p50_ms=2.16 p95_ms=2.58 p99_ms=2.58 max_ms=2.58 peak_inflight=1 bytes=327680
+    load_delivery_test.go:416: size 262144, level 4: only 1 requests were open at the same instant, so the 4-client number is a serial measurement
+--- FAIL: TestLiveLoadContentDelivery (1.57s)
+FAIL

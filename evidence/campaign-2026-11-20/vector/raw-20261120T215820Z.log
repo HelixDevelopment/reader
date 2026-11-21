@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadVectorSearch
+    vector_load_test.go:265: ping: failed to connect to `user=helixqual database=helix_test`: 127.0.0.1:34320 (127.0.0.1): dial error: dial tcp 127.0.0.1:34320: connect: connection refused
+--- FAIL: TestLiveLoadVectorSearch (0.00s)
+FAIL

@@ -94,6 +94,11 @@ type Query struct {
 	State  IdentificationState
 	Offset int
 	Limit  int
+	// After requests the page following a keyset position. When it is set,
+	// Offset is ignored: the two are alternative ways of saying where a page
+	// starts, and honoring both would let a client ask for a position and an
+	// offset at once and get one of them silently.
+	After *Cursor
 }
 
 // Page contains stable pagination metadata.
@@ -102,6 +107,11 @@ type Page struct {
 	Total  int    `json:"total"`
 	Offset int    `json:"offset"`
 	Limit  int    `json:"limit"`
+	// HasNext reports that at least one more work follows this page in the same
+	// ordering. Offset pages derive it from Total, cursor pages from the row the
+	// repository read past the end of the page, so a client following cursors
+	// never needs Total to know when to stop.
+	HasNext bool `json:"has_next"`
 }
 
 // Repository is the storage seam used by all protocol handlers.
@@ -115,6 +125,9 @@ type Repository interface {
 	GetWork(context.Context, string) (Work, error)
 	FindFile(context.Context, string) (Work, Edition, File, error)
 	FindEdition(context.Context, string) (Work, Edition, error)
+	// Search returns one page and whether any work follows it. Implementations
+	// must populate Page.HasNext: the protocol layers page from it, and inferring
+	// it from Total would require a count they are allowed to skip.
 	Search(context.Context, Query) (Page, error)
 	DeleteWork(context.Context, string) error
 	Close() error

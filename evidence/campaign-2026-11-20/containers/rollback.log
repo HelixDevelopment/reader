@@ -1,0 +1,58 @@
+# Sanitized for evidence: secret values replaced with [REDACTED]; none of these values
+# ever appeared in this file by design (credentials live only in gitignored scratch env).
+
+Rollback = repoint HELIX_IMAGE env to v1, then `podman-compose up -d`; running image id returns to v1.
+
+=== 5. ROLLBACK v2 -> v1 ===
+helixqual-deploy_redis_1
+helixqual-deploy_helix_1
+helixqual-deploy_postgres_1
+helixqual-deploy_helix_1
+helixqual-deploy_redis_1
+helixqual-deploy_postgres_1
+2f8eb970d95c4d085bb5723399d9c585add14347907e453c2d97c7a891965493
+helixqual-deploy_default
+78f39d4bcf986820ebb3a6727f2fefa668eb1ddbd10b1d63528dfaac17c15b38
+7632fa45f04ee8434899d05620ab58c09721eb3f371a6c7477fd98a13e258e00
+7ed877d7a191f67660fe625285b95024940c1af6400250d4fea65c2b26a5862c
+2660d94a147dd47440cbea314ea6cb4a66f77af2022f54e0b750a7ed4eaeb110
+helixqual-deploy_postgres_1
+helixqual-deploy_redis_1
+helixqual-deploy_helix_1
+up_exit=0
+health_after_rollback=healthy
+running_image_id=b567c4fb27c732b982a1e8e580dada182295e5ab85c1fb9573215307cd8ea810
+v1_image_id=b567c4fb27c732b982a1e8e580dada182295e5ab85c1fb9573215307cd8ea810
+revision_label=v1-coldstart
+works_after_rollback: ['work-0368dfcdf7e3187f5bed78b2']
+{"status":"ok","time":"2026-11-20T17:46:58.311206466Z"}
+
+## Teardown (final stage)
+=== 6. TEARDOWN ===
+helixqual-deploy_helix_1
+helixqual-deploy_postgres_1
+helixqual-deploy_redis_1
+helixqual-deploy_helix_1
+helixqual-deploy_redis_1
+helixqual-deploy_postgres_1
+78f39d4bcf986820ebb3a6727f2fefa668eb1ddbd10b1d63528dfaac17c15b38
+helixqual-deploy_default
+down_exit=0
+Error: no container with name or ID "helixqual-deploy_postgres_1" found: no such container
+Error: no container with name or ID "helixqual-deploy_redis_1" found: no such container
+Error: no container with name or ID "helixqual-deploy_helix_1" found: no such container
+Error: no container with ID or name "helixqual-deploy_helix_1" found: no such container
+Error: no container with ID or name "helixqual-deploy_redis_1" found: no such container
+Error: no container with ID or name "helixqual-deploy_postgres_1" found: no such container
+helixqual-deploy_postgres-data
+helixqual-deploy_redis-data
+helixqual-deploy_helix-data
+Error: no pod with name or ID pod_helixqual-deploy found: no such pod
+down_v_exit=0
+residual_containers=0
+residual_volumes=0
+residual_networks=0
+port_39080_listeners=0
+protected_services_still_up:
+helixqual-redis Up 11 hours
+helixqual-pg Up 11 hours

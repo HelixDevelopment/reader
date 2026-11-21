@@ -1,0 +1,113 @@
+# Sanitized for evidence: secret values replaced with [REDACTED]; none of these values
+# ever appeared in this file by design (credentials live only in gitignored scratch env).
+
+# ATM-024 build.log — podman build -f server/Dockerfile (context repo root), 2026-11-20
+# NOTE (DEFECT found during this campaign): the FIRST build attempt from this tree FAILED:
+#   internal/httpapi/jobs.go:74:3: undefined: slog   (Go compile error, image not buildable)
+# A concurrent fix landed in server/internal/httpapi/jobs.go (added "log/slog" import) and the
+# rebuild below (attempt 2, --no-cache) succeeded. Timeline preserved; see summary.md.
+
+[1/2] STEP 1/6: FROM golang:1.27.3-alpine AS build
+[1/2] STEP 2/6: WORKDIR /src
+--> 06b125ee361a
+[1/2] STEP 3/6: COPY core ./core
+--> ad342a2245cc
+[1/2] STEP 4/6: COPY server ./server
+--> 238d3c02f98e
+[1/2] STEP 5/6: WORKDIR /src/server
+--> d4641f615ca0
+[1/2] STEP 6/6: RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags='-s -w' -o /out/helix-server ./cmd/helix-server
+go: downloading github.com/redis/go-redis/v9 v9.23.0
+go: downloading github.com/quic-go/quic-go v0.59.0
+go: downloading github.com/gin-gonic/gin v1.12.0
+go: downloading github.com/jackc/pgx/v5 v5.11.0
+go: downloading golang.org/x/crypto v0.48.0
+go: downloading github.com/andybalholm/brotli v1.2.1
+go: downloading golang.org/x/image v0.47.0
+go: downloading golang.org/x/net v0.51.0
+go: downloading golang.org/x/sys v0.49.0
+go: downloading github.com/quic-go/qpack v0.6.0
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading go.uber.org/atomic v1.12.0
+go: downloading github.com/gin-contrib/sse v1.1.0
+go: downloading github.com/mattn/go-isatty v0.0.20
+go: downloading github.com/go-playground/validator/v10 v10.30.1
+go: downloading github.com/goccy/go-yaml v1.19.2
+go: downloading github.com/pelletier/go-toml/v2 v2.2.4
+go: downloading github.com/ugorji/go/codec v1.3.1
+go: downloading go.mongodb.org/mongo-driver/v2 v2.5.0
+go: downloading google.golang.org/protobuf v1.36.10
+go: downloading github.com/jackc/pgpassfile v1.0.0
+go: downloading github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761
+go: downloading golang.org/x/text v0.43.0
+go: downloading github.com/jackc/puddle/v2 v2.2.2
+go: downloading github.com/go-playground/universal-translator v0.18.1
+go: downloading github.com/gabriel-vasile/mimetype v1.4.12
+go: downloading github.com/leodido/go-urn v1.4.0
+go: downloading golang.org/x/sync v0.24.0
+go: downloading github.com/go-playground/locales v0.14.1
+--> 57928d842b2e
+[2/2] STEP 1/10: FROM alpine:3.22
+[2/2] STEP 2/10: ARG HELIX_BUILD_REVISION=dev
+--> 94e8d5900208
+[2/2] STEP 3/10: LABEL org.opencontainers.image.revision="${HELIX_BUILD_REVISION}"
+--> 1ee3de1e58cd
+[2/2] STEP 4/10: RUN apk add --no-cache ca-certificates rclone && addgroup -S helix && adduser -S -G helix helix
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+(1/2) Installing ca-certificates (20261020-r0)
+(2/2) Installing rclone (1.69.3-r5)
+Executing busybox-1.37.0-r20.trigger
+Executing ca-certificates-20261020-r0.trigger
+OK: 95 MiB in 18 packages
+--> 8beaf21793a5
+[2/2] STEP 5/10: COPY --from=build /out/helix-server /usr/local/bin/helix-server
+--> 6281bf7d36bf
+[2/2] STEP 6/10: USER helix
+--> 435d2d387358
+[2/2] STEP 7/10: ENV HELIX_ADDRESS=0.0.0.0:8080 HELIX_COVER_CACHE=/data/covers
+--> 19fb8f18ea21
+[2/2] STEP 8/10: VOLUME ["/data"]
+--> eb6f64ff0029
+[2/2] STEP 9/10: EXPOSE 8080/tcp 8080/udp
+--> 8410f98e3a34
+[2/2] STEP 10/10: ENTRYPOINT ["/usr/local/bin/helix-server"]
+[2/2] COMMIT localhost/helixqual-deploy-helix:v1
+--> b567c4fb27c7
+Successfully tagged localhost/helixqual-deploy-helix:v1
+b567c4fb27c732b982a1e8e580dada182295e5ab85c1fb9573215307cd8ea810
+
+## v2 rebuild (upgrade image) tail
+ng github.com/go-playground/locales v0.14.1
+--> 62ce61258aab
+[2/2] STEP 1/10: FROM alpine:3.22
+[2/2] STEP 2/10: ARG HELIX_BUILD_REVISION=dev
+--> Using cache 94e8d59002083ba52f57ca4ee6bbdd14c84694f610ef18d8e8bb75994238232a
+--> 94e8d5900208
+[2/2] STEP 3/10: LABEL org.opencontainers.image.revision="${HELIX_BUILD_REVISION}"
+--> Using cache 1ee3de1e58cd40925405ece90b4283c829051f73efe2cf838d72374065231350
+--> 1ee3de1e58cd
+[2/2] STEP 4/10: RUN apk add --no-cache ca-certificates rclone && addgroup -S helix && adduser -S -G helix helix
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+(1/2) Installing ca-certificates (20261020-r0)
+(2/2) Installing rclone (1.69.3-r5)
+Executing busybox-1.37.0-r20.trigger
+Executing ca-certificates-20261020-r0.trigger
+OK: 95 MiB in 18 packages
+--> fc54c38a1f43
+[2/2] STEP 5/10: COPY --from=build /out/helix-server /usr/local/bin/helix-server
+--> 444d827a25d0
+[2/2] STEP 6/10: USER helix
+--> cecbe104574b
+[2/2] STEP 7/10: ENV HELIX_ADDRESS=0.0.0.0:8080 HELIX_COVER_CACHE=/data/covers
+--> 291073081305
+[2/2] STEP 8/10: VOLUME ["/data"]
+--> f1a662deae93
+[2/2] STEP 9/10: EXPOSE 8080/tcp 8080/udp
+--> 5bb8f7d209ad
+[2/2] STEP 10/10: ENTRYPOINT ["/usr/local/bin/helix-server"]
+[2/2] COMMIT localhost/helixqual-deploy-helix:v2
+--> c1ddd5654707
+Successfully tagged localhost/helixqual-deploy-helix:v2
+c1ddd56547075ec7059cb810fa4afe3b9779d156d430005ec935f65725775d9b

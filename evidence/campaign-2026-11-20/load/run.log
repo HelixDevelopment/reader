@@ -1,0 +1,101 @@
+2026-11-20T20:46:37+01:00
+task start
+2026-11-20T21:01:12+01:00 === run_load.sh mode=contention ===
+2026-11-20T21:01:12+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 4796ef14d5979013d320cdf3758636fca00133ccc203fd20cbf4da80af293764  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 
+2026-11-20T21:01:12+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:01:26+01:00 step catalog_contention: copying /tmp/helix-catalog-load.test
+2026-11-20T21:01:26+01:00 step catalog_contention: running TestLiveLoadWriteContention measurement_path=in_container_clean
+exit=0
+results.json: 1 payload(s)
+2026-11-20T21:01:27+01:00 step catalog_contention: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.log
+2026-11-20T21:01:27+01:00 fingerprint stable across run
+2026-11-20T21:01:27+01:00 === run_load.sh mode=contention done rc=0 ===
+2026-11-20T21:02:00+01:00 === run_load.sh mode=all ===
+2026-11-20T21:02:00+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 4796ef14d5979013d320cdf3758636fca00133ccc203fd20cbf4da80af293764  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 
+2026-11-20T21:02:00+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:02:00+01:00 step catalog_contention: copying /tmp/helix-catalog-load.test
+2026-11-20T21:02:01+01:00 step catalog_contention: running TestLiveLoadWriteContention measurement_path=in_container_clean
+exit=0
+results.json: 1 payload(s)
+2026-11-20T21:02:02+01:00 step catalog_contention: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.log
+2026-11-20T21:02:02+01:00 step catalog_ladder: copying /tmp/helix-catalog-load.test
+2026-11-20T21:02:03+01:00 step catalog_ladder: running TestLiveLoadConcurrencyLadder measurement_path=in_container_clean
+exit=0
+results.json: 2 payload(s)
+2026-11-20T21:02:32+01:00 step catalog_ladder: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_ladder.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_ladder.log
+2026-11-20T21:02:32+01:00 step http_ladder: copying /tmp/helix-httpapi-load.test
+2026-11-20T21:02:33+01:00 step http_ladder: running TestLiveLoadHTTPLadder measurement_path=in_container_clean
+exit=0
+results.json: 3 payload(s)
+2026-11-20T21:03:02+01:00 step http_ladder: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/http_ladder.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/http_ladder.log
+2026-11-20T21:03:02+01:00 fingerprint stable across run
+2026-11-20T21:03:02+01:00 === run_load.sh mode=all done rc=0 ===
+2026-11-20T21:05:12+01:00 === restart_queue.sh start ===
+2026-11-20T21:05:12+01:00 build helix-server
+2026-11-20T21:05:15+01:00 server(1) up pid=1581426
+2026-11-20T21:05:15+01:00 register load-restart-src-1: {"id":"load-restart-src-1","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:05:15+01:00 register load-restart-src-2: {"id":"load-restart-src-2","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:05:15+01:00 register load-restart-src-3: {"id":"load-restart-src-3","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:05:16+01:00 pre-kill snapshot saved (12 job records)
+2026-11-20T21:05:17+01:00 pre-kill persisted catalog: files=146 works=170
+2026-11-20T21:05:17+01:00 server(1) SIGKILLed
+2026-11-20T21:05:18+01:00 post-kill persisted catalog (no rollback of committed merges): files=180
+2026-11-20T21:05:18+01:00 server(2) up pid=1582452
+2026-11-20T21:05:19+01:00 post-restart snapshot saved
+2026-11-20T21:05:19+01:00 post-restart rescan id=scan-991ff391ca47a286b567e7bb28622750
+2026-11-20T21:05:20+01:00 rescan final state=succeeded
+2026-11-20T21:05:20+01:00 final catalog after completed rescan: files=180 works=180
+2026-11-20T21:05:20+01:00 harness finished
+2026-11-20T21:05:21+01:00 cleanup done (fixture dirs, redis db 13, catalog rows)
+2026-11-20T21:06:03+01:00 === restart_queue.sh start ===
+2026-11-20T21:06:04+01:00 build helix-server
+2026-11-20T21:06:04+01:00 server(1) up pid=1606748
+2026-11-20T21:06:04+01:00 register load-restart-src-1: {"id":"load-restart-src-1","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:06:05+01:00 register load-restart-src-2: {"id":"load-restart-src-2","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:06:05+01:00 register load-restart-src-3: {"id":"load-restart-src-3","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:06:06+01:00 pre-kill snapshot saved (12 job records)
+2026-11-20T21:06:07+01:00 pre-kill persisted catalog: files=171 works=220
+2026-11-20T21:06:07+01:00 server(1) SIGKILLed
+2026-11-20T21:06:08+01:00 post-kill persisted catalog (no rollback of committed merges): files=231
+2026-11-20T21:06:09+01:00 server(2) up pid=1610809
+2026-11-20T21:06:09+01:00 post-restart snapshot saved
+2026-11-20T21:06:09+01:00 post-restart rescan id=scan-8c576aa8d05e0e6c08de77f8a631e702
+2026-11-20T21:06:10+01:00 rescan final state=succeeded
+2026-11-20T21:06:10+01:00 per-source committed files pre-kill: load-restart-src-1=120;load-restart-src-2=75 ; final: load-restart-src-1=120;load-restart-src-2=111
+2026-11-20T21:06:10+01:00 final catalog after completed rescan: files=231 works=231
+2026-11-20T21:06:10+01:00 harness finished
+2026-11-20T21:06:11+01:00 cleanup done (fixture dirs, redis db 13, catalog rows)
+2026-11-20T21:06:49+01:00 === run_load.sh mode=host-ladder ===
+2026-11-20T21:06:49+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 4796ef14d5979013d320cdf3758636fca00133ccc203fd20cbf4da80af293764  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 
+2026-11-20T21:06:49+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:06:49+01:00 host step host_catalog_ladder: running TestLiveLoadConcurrencyLadder through pasta (non-authoritative)
+2026-11-20T21:07:19+01:00 host step host_catalog_ladder: rc=0 1 payload lines; transport labels: 
+results.json: 6 payload(s)
+2026-11-20T21:07:19+01:00 fingerprint stable across run
+2026-11-20T21:07:19+01:00 === run_load.sh mode=host-ladder done rc=0 ===
+2026-11-20T21:09:29+01:00 README finalized; host-ladder appended; gates green
+2026-11-20T21:09:48+01:00 cleanup verified: no helixqual-load-* containers, no stray processes, redis db13 flushed, load fixtures removed, scale fixture intact (50000)
+2026-11-20T21:30:28+01:00 === run_load.sh mode=lock-scope ===
+2026-11-20T21:30:28+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 579b0b6978a4ad42bc3b785a3599bef302fa2772c8aa77ec42e2b8a89890843d  server/internal/catalog/lock_scope_test.go 
+2026-11-20T21:30:28+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:30:32+01:00 step catalog_lock_scope: copying /tmp/helix-catalog-load.test
+2026-11-20T21:30:32+01:00 step catalog_lock_scope: running TestCatalogIdentityLockScopeThroughput measurement_path=in_container_clean
+exit=0
+results.json: 7 payload(s)
+2026-11-20T21:30:35+01:00 step catalog_lock_scope: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_lock_scope.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_lock_scope.log
+2026-11-20T21:30:35+01:00 fingerprint stable across run
+2026-11-20T21:30:35+01:00 === run_load.sh mode=lock-scope done rc=0 ===
+2026-11-20T21:31:11+01:00 === run_load.sh mode=contention-sharded ===
+2026-11-20T21:31:11+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 579b0b6978a4ad42bc3b785a3599bef302fa2772c8aa77ec42e2b8a89890843d  server/internal/catalog/lock_scope_test.go 
+2026-11-20T21:31:11+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:31:12+01:00 step catalog_contention_sharded: copying /tmp/helix-catalog-load.test
+2026-11-20T21:31:12+01:00 step catalog_contention_sharded: running TestLiveLoadWriteContention measurement_path=in_container_clean
+exit=0
+results.json: 8 payload(s)
+2026-11-20T21:31:13+01:00 step catalog_contention_sharded: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention_sharded.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention_sharded.log
+2026-11-20T21:31:13+01:00 fingerprint stable across run
+2026-11-20T21:31:13+01:00 === run_load.sh mode=contention-sharded done rc=0 ===
+2026-11-21T02:15:00+01:00 === addendum (recorded by hand, not by run_load.sh) ===
+2026-11-21T02:15:00+01:00 http_ladder re-runs x3 + contention investigation; load_test.go sha256(16)=2b3b5e9fbca93e2a
+2026-11-21T02:15:00+01:00 artifacts http_ladder_repeat_{1,2,3}.jsonl http_ladder_contention_needle_{quiet,loaded}.jsonl http_ladder_host_gate_needle_{a,b}.jsonl
+2026-11-21T02:15:00+01:00 note co-tenant lava-android-builder Gradle build held 2-16 of 16 cores throughout; no run after 2026-11-20T20:03Z qualifies as authoritative under the host_quiet gate

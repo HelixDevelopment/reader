@@ -1,0 +1,136 @@
+# ATM-024 distribution + compose parity, 2026-11-20T20:28:06+01:00
+# podman: podman version 5.7.0
+## step 1: build the shipped recipe
+[2/2] COMMIT localhost/helixqual-dist-helix:v1
+--> 4f7481d9460d
+Successfully tagged localhost/helixqual-dist-helix:v1
+4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+
+real	0m42.024s
+user	0m4.266s
+sys	0m4.463s
+built_config_id=4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+created=2026-11-20 19:28:48.730604367 +0000 UTC size_bytes=137188321 user=helix entrypoint=[/usr/local/bin/helix-server]
+## step 2: local registry, push, and a pull that cannot be served from cache
+registry_v2_endpoint=200
+--- push ---
+Copying blob sha256:ef03fd3d049855df92038525097058c5fa83693df9a3e391fc9a1b45d01512b1
+Copying config sha256:4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+Writing manifest to image destination
+catalog={"repositories":["helix-reader"]}
+tags={"name":"helix-reader","tags":["v1"]}
+push_manifest_digest=
+--- deleting every local copy (both tags) so the pull must come from the registry ---
+Deleted: 567ed76218eaa8dad53571cc669521f95fd46504e832e527d3b026c2576928c2
+Deleted: 0139a6d719ae29e8dc3a184eac8f556c0903e8e4459d488baecc789b3c758d0a
+local_helixqual_images_after_delete=0
+--- pull ---
+Writing manifest to image destination
+4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+pull_manifest_digest=
+pulled_config_id=4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+digest_match=no
+config_id_matches_build=yes
+## step 3: run the pulled artifact, not the local build
+pulled_healthz_ready=yes
+pulled_healthz={"status":"ok","time":"2026-11-20T19:28:53.016516346Z"}
+pulled_works={"works":[],"total":0,"offset":0,"limit":2,"has_next":false}
+pulled_opds20=application/opds+json http=200
+pulled_opds12=application/atom+xml;profile=opds-catalog;kind=navigation http=200
+runs_as=helix
+pulled_image_used=4f7481d9460d44e2fabfd3ed5e2b98f43d4f44f6ef51a1e1bee37af6efe0313a
+{"time":"2026-11-20T19:28:52.967755035Z","level":"WARN","msg":"read API and OPDS authentication are disabled; configure HELIX_OPDS_USERNAME and HELIX_OPDS_PASSWORD before non-local exposure"}
+{"time":"2026-11-20T19:28:52.967827285Z","level":"WARN","msg":"using volatile in-memory catalog; configure HELIX_POSTGRES_DSN for durable storage"}
+{"time":"2026-11-20T19:28:52.968004855Z","level":"INFO","msg":"TCP listener starting","address":"0.0.0.0:8080","tls":false}
+## step 4: compose execution parity (podman-compose; docker-compose is not installed on this host)
+rebuild_for_compose_exit=0
+82a04e221b98f1a6b82dc312d189c2c0e068c32e5dd3f2c7af0ef70a90c9848a
+helixqual-dist_postgres_1
+helixqual-dist_redis_1
+helixqual-dist_helix_1
+compose_healthz_ready=yes
+compose_healthz={"status":"ok","time":"2026-11-20T19:29:29.955579197Z"}
+compose_readyz={"status":"ready"} http=200
+compose_works={"works":[],"total":0,"offset":0,"limit":3,"has_next":false}
+compose_opds12=content_type=application/atom+xml;profile=opds-catalog;kind=navigation http=200
+compose_opds20=content_type=application/opds+json http=200
+compose_statuses=helixqual-dist-registry=Up 41 seconds;helixqual-dist_postgres_1=Up 7 seconds (healthy);helixqual-dist_redis_1=Up 7 seconds (healthy);helixqual-dist_helix_1=Up 1 second (starting);
+compose_scoped_volumes=3
+--- stack-internal Postgres reached by the app (proves HELIX_POSTGRES_DSN wiring) ---
+compose_migrations=1
+compose_works_table=1
+compose_redis_ping=PONG
+--- restart persistence: recreate containers, data must survive ---
+helixqual-dist_redis_1
+helixqual-dist_helix_1
+helixqual-dist_postgres_1
+after_restart_readyz={"status":"ready"} http=200
+after_restart_migrations=1
+after_restart_volumes=3
+--- upgrade and rollback by tag, same stack ---
+helixqual-dist_redis_1
+helixqual-dist_helix_1
+upgraded_image=localhost/helixqual-dist-helix:v2
+upgraded_healthz=200
+helixqual-dist_redis_1
+helixqual-dist_helix_1
+rolled_back_image=localhost/helixqual-dist-helix:v1
+rolled_back_healthz=200
+## step 5: rejection probes (needle checks that the stack is not vacuously up)
+unauth_works=200
+wrong_token_works=200
+good_token_works=200
+published_ports=8080/tcp -> 127.0.0.1:18181;8080/udp -> 127.0.0.1:18181;
+--- cleanup ---
+helixqual-dist_helix-data
+0b907f0a33a228f53a219dbc34ce0aef4b4276aa9bede5a85fe734eec466fb4f
+helixqual-dist_default
+
+## step 6: manifest digest equality on a cache-free pull (follow-up, 2026-11-20T20:31:55+01:00)
+build_exit=0
+built_config_id=ea83760a44f3f9bc87f24dad9c84d880a47ba8cf814be8b99c78da6c89d33a44
+Writing manifest to image destination
+--- GET manifest, capture headers ---
+HTTP/1.1 200 OK
+Content-Length: 1362
+Content-Type: application/vnd.oci.image.manifest.v1+json
+Docker-Content-Digest: sha256:ccfab78db1ba6e2ffbb14cf608a83ed393c966e698e04034dffa8209938d6d90
+push_manifest_digest=sha256:ccfab78db1ba6e2ffbb14cf608a83ed393c966e698e04034dffa8209938d6d90 manifest_content_type=application/vnd.oci.image.manifest.v1+json
+local_inspect_digest=sha256:13c74e053b5512d20803d1db82a7114e36202e9bb617749f52558353de690a84
+sha256_of_fetched_manifest=sha256:ccfab78db1ba6e2ffbb14cf608a83ed393c966e698e04034dffa8209938d6d90
+--- remove both local tags so the pull must traverse the network ---
+local_images_matching=0
+ea83760a44f3f9bc87f24dad9c84d880a47ba8cf814be8b99c78da6c89d33a44
+pull_manifest_digest=sha256:ccfab78db1ba6e2ffbb14cf608a83ed393c966e698e04034dffa8209938d6d90
+pulled_config_id=ea83760a44f3f9bc87f24dad9c84d880a47ba8cf814be8b99c78da6c89d33a44
+digest_match=yes
+config_id_matches_build=yes
+manifest_digest_equals_config_id_note=digest is the manifest bytes hash; config id is the config blob hash — both are compared independently above
+
+## step 7: credential-gated read surface in the container (needle proofs)
+container_ready=yes
+auth_enabled_log=0
+no_creds /v1/works -> 401
+wrong_password /v1/works -> 401
+right_creds /v1/works -> 200
+no_creds /opds/2.0 -> 401
+wrong_password /opds/2.0 -> 401
+right_creds /opds/2.0 -> 200
+no_creds /opds/1.2 -> 401
+wrong_password /opds/1.2 -> 401
+right_creds /opds/1.2 -> 200
+no_creds /opds/1.2/publications -> 401
+wrong_password /opds/1.2/publications -> 401
+right_creds /opds/1.2/publications -> 200
+admin_no_token GET /v1/scans -> 401
+admin_wrong_token GET /v1/scans -> 401
+admin_right_token GET /v1/scans -> 200
+admin_delete_no_token -> 401
+admin_delete_wrong_token -> 401
+admin_delete_right_token -> {"error":"work not found","request_id":"d9e7437a923cc5528f1c02fb9250ff0e"} http=404
+kosync_register_when_disabled -> {"error":"KOReader sync is not configured","request_id":"f37ccf2db8401d215f42428831459fb3"} http=503
+opds_feed_head={
+  "@context": "https://readium.org/webpub-manifest/context.jsonld",
+  "metadata": {
+    
+healthz_still_open=200

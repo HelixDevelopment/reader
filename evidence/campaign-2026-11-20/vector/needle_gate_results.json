@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-11-20T22:16:16Z",
+  "harness": "server/internal/aimemory/vector_load_test.go",
+  "environment": {
+    "HELIX_TEST_POSTGRES_DSN": "postgres://helixqual@127.0.0.1:34320/helix_test?sslmode=disable",
+    "HELIX_LOAD_RUN": "1",
+    "HELIX_MEASUREMENT_PATH": "needle_gate",
+    "HELIX_VECTOR_ROWS": "5000",
+    "HELIX_VECTOR_DIMS": "64",
+    "HELIX_VECTOR_QUERIES": "20",
+    "HELIX_VECTOR_K": "10",
+    "HELIX_LOAD_LEVELS": "1,8",
+    "HELIX_LOAD_TIMEOUT_SECONDS": "90"
+  },
+  "mutations": [
+    {
+      "id": "M1_hnsw_index_never_created",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "create bench index",
+        "drifted from production",
+        "did not read the HNSW index"
+      ],
+      "what": "the bench schema is created without the HNSW index at all",
+      "find": "\t\tfmt.Sprintf(\"CREATE INDEX %s ON %s.%s USING hnsw(embedding vector_cosine_ops)\", benchHNSWIndex, benchSchema, benchTable),\n",
+      "replace": "",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "drifted from production"
+      ],
+      "first_failure": "vector_load_test.go:607: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]"
+    },
+    {
+      "id": "M2_index_forced_profile_neutralized",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "did not read the HNSW index",
+        "but the profile requires",
+        "not reaching the session"
+      ],
+      "what": "the index_forced profile keeps its label but loses its planner settings",
+      "find": "{name: \"index_forced\", gucs: []string{pathGUC, \"enable_seqscan=off\", \"enable_bitmapscan=off\"}, ladder: true,",
+      "replace": "{name: \"index_forced\", gucs: []string{pathGUC}, ladder: true,",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "but the profile requires"
+      ],
+      "first_failure": "vector_load_test.go:727: production/index_forced: connection 0 reports enable_seqscan=\"on\" but the profile requires \"off\", so its figures would describe a different access path than the one they are labelled with"
+    },
+    {
+      "id": "M3_ladder_secretly_serial",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "never had a second backend active",
+        "throughput needle"
+      ],
+      "what": "the concurrent ladder runs one client at a time but still labels the level by its client count",
+      "find": "lats, errs, err := benchRun(ctx, clients, ops,",
+      "replace": "lats, errs, err := benchRun(ctx, 1, ops,",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "throughput needle"
+      ],
+      "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1582.3 req/s against 1641.0 req/s for 1 client (0.96x), so nothing here demonstrates concurrent capacity"
+    },
+    {
+      "id": "M4_queries_ask_for_k_minus_1",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "want 10 (cardinality"
+      ],
+      "what": "every query silently asks for one fewer row than the configured k",
+      "find": "q.QueryContext(ctx, sh.query, scope, VectorLiteral(vec), k)",
+      "replace": "q.QueryContext(ctx, sh.query, scope, VectorLiteral(vec), k-1)",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "want 10 (cardinality"
+      ],
+      "first_failure": "vector_load_test.go:723: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)"
+    },
+    {
+      "id": "M5_fixture_collapsed_to_one_vector",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "returned the probe row itself",
+        "recall@10 is"
+      ],
+      "what": "the synthetic corpus is all one repeated vector, so nothing has a nearest neighbour",
+      "find": "x := next()*2 - 1",
+      "replace": "x := next()*0 + 0.5",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "recall@10 is"
+      ],
+      "first_failure": "vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: at or near the k/rows chance rate, so the fixture or the comparison is broken"
+    },
+    {
+      "id": "M6_search_path_never_applied",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "want 10 (cardinality",
+        "drifted from production",
+        "unclassified",
+        "measuring production's table rather than this fixture"
+      ],
+      "what": "profiles connect without the bench search_path, so the unqualified statement runs against production's 3-row table",
+      "find": "arguments = append(arguments, \"-c \"+setting)",
+      "replace": "if !strings.Contains(setting, \"search_path\") {\n\t\t\t\targuments = append(arguments, \"-c \"+setting)\n\t\t\t}",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "measuring production's table rather than this fixture"
+      ],
+      "first_failure": "vector_load_test.go:729: production/exact: connection 0 searches \"\\\"$user\\\", public\" instead of \"helix_bench,public,pg_catalog\", so it is measuring production's table rather than this fixture"
+    },
+    {
+      "id": "M7_column_list_drifts",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "drifted from production"
+      ],
+      "what": "the bench table is created without the model column production selects",
+      "find": "metadata JSONB NOT NULL DEFAULT '{}'::jsonb,model TEXT NOT NULL,",
+      "replace": "metadata JSONB NOT NULL DEFAULT '{}'::jsonb,",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "drifted from production"
+      ],
+      "first_failure": "vector_load_test.go:602: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time"
+    },
+    {
+      "id": "M9_serial_ladder_with_blind_sampler",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "throughput needle"
+      ],
+      "what": "the ladder runs one client while the sampler also counts idle backends, so the peak-backend needle can no longer see the serialization",
+      "find": "lats, errs, err := benchRun(ctx, clients, ops,",
+      "replace": "lats, errs, err := benchRun(ctx, 1, ops,",
+      "also": [
+        {
+          "find": "AND state = 'active'",
+          "replace": "AND state IN ('active','idle')"
+        }
+      ],
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "throughput needle"
+      ],
+      "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1536.6 req/s against 1430.6 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity"
+    },
+    {
+      "id": "M8_index_opclass_drifts",
+      "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+      "expect": [
+        "drifted from production"
+      ],
+      "what": "the bench HNSW index is built on L2 distance instead of cosine",
+      "find": "USING hnsw(embedding vector_cosine_ops)",
+      "replace": "USING hnsw(embedding vector_l2_ops)",
+      "outcome": "detected",
+      "detected": true,
+      "exit": 1,
+      "matched": [
+        "drifted from production"
+      ],
+      "first_failure": "vector_load_test.go:608: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]"
+    }
+  ],
+  "all_detected": true
+}

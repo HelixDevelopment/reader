@@ -1,0 +1,4 @@
+=== RUN   TestCatalogMultiProcessMerges
+    lock_scope_test.go:839: LOADJSON {"contended_pool":8,"contested_work":{"errors":0,"ops_per_second":5.130295071416921},"disjoint":{"errors":0,"ops_per_second":150.24199703825948},"emitted_at":"2026-11-20T20:53:25Z","measurement_path":"in_container_clean","ops_per_arm":60,"process_index":5,"processes":8,"role":"worker","run_tag":"sharded207982","shared_file_row":{"errors":0,"ops_per_second":8.69661147191694},"test":"catalog_multiprocess"}
+--- PASS: TestCatalogMultiProcessMerges (19.02s)
+PASS

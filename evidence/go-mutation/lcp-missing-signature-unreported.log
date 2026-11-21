@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestCanonicalForSigningRemovesOnlyTopLevelSignature$ -count=1
+--- FAIL: TestCanonicalForSigningRemovesOnlyTopLevelSignature (0.00s)
+    canonical_test.go:423: missing signature object must be reported
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL
+
+exit=1

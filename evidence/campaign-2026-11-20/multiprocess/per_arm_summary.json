@@ -1,0 +1,967 @@
+{
+  "runs": [
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 147.54
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 274.71
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 0,
+          "sum_ops_per_second": null
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "global207361",
+      "total_merges": 720,
+      "variant": "global"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 29.94
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 192.0
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 79.37
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "global207444",
+      "total_merges": 720,
+      "variant": "global"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 27.06
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 261.69
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 125.91
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "global207537",
+      "total_merges": 720,
+      "variant": "global"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 29.44
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 265.58
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 180.58
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "global207640",
+      "total_merges": 720,
+      "variant": "global"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 15.29
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 342.7
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 128.19
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "global207704",
+      "total_merges": 1440,
+      "variant": "global"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 12.62
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 220.37
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 79.51
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "global207824",
+      "total_merges": 1440,
+      "variant": "global",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": null,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": null,
+        "shared_source_expected": null,
+        "shared_source_file_rows": null
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 19.05
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 337.44
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 143.33
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "global207982",
+      "total_merges": 1440,
+      "variant": "global",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 23.8
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 458.95
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 187.11
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "global209138",
+      "total_merges": 1440,
+      "variant": "global",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 573.19
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 764.62
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 0,
+          "sum_ops_per_second": null
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "sharded207361",
+      "total_merges": 720,
+      "variant": "sharded"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 103.04
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 614.82
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 473.04
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "sharded207444",
+      "total_merges": 720,
+      "variant": "sharded"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 132.01
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 866.07
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 116.57
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "sharded207537",
+      "total_merges": 720,
+      "variant": "sharded"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 108.79
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 758.17
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 101.86
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "sharded207640",
+      "total_merges": 720,
+      "variant": "sharded"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 132.26
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1199.76
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 126.34
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "sharded207704",
+      "total_merges": 1440,
+      "variant": "sharded"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 41.85
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 583.76
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 105.16
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "sharded207824",
+      "total_merges": 1440,
+      "variant": "sharded",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": null,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": null,
+        "shared_source_expected": null,
+        "shared_source_file_rows": null
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 47.15
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1146.87
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 66.02
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "sharded207982",
+      "total_merges": 1440,
+      "variant": "sharded",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 79.19
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1832.44
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 80.04
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "sharded209138",
+      "total_merges": 1440,
+      "variant": "sharded",
+      "verify": {
+        "contested_works_lost": 0,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 480,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 547.38
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 898.23
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 0,
+          "sum_ops_per_second": null
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "unlocked207361",
+      "total_merges": 720,
+      "variant": "unlocked"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 168.41
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 539.09
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 595.41
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "unlocked207444",
+      "total_merges": 720,
+      "variant": "unlocked"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 160.49
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 903.45
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 569.32
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "unlocked207537",
+      "total_merges": 720,
+      "variant": "unlocked"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 117.87
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 681.21
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 4,
+          "sum_ops_per_second": 553.82
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 4,
+      "run_tag": "unlocked207640",
+      "total_merges": 720,
+      "variant": "unlocked"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 72.97
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1070.83
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 404.86
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "unlocked207704",
+      "total_merges": 1440,
+      "variant": "unlocked"
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 63.08
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 662.32
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 474.66
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "unlocked207824",
+      "total_merges": 1440,
+      "variant": "unlocked",
+      "verify": {
+        "contested_works_lost": 1,
+        "duplicate_file_rows": null,
+        "editions_expected": 480,
+        "editions_found": 472,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": null,
+        "shared_source_expected": null,
+        "shared_source_file_rows": null
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 130.6
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1786.08
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": null,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1006.26
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "unlocked207982",
+      "total_merges": 1440,
+      "variant": "unlocked",
+      "verify": {
+        "contested_works_lost": 1,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 472,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    },
+    {
+      "arms": {
+        "contested_work": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "contested_work",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 153.83
+        },
+        "disjoint": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "disjoint",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 1176.76
+        },
+        "shared_file_row": {
+          "db_deadlocks_lower_bound": 0,
+          "errors": 0,
+          "payload_key": "shared_file_row",
+          "per_process_deadlock_deltas": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "processes_reporting": 8,
+          "sum_ops_per_second": 838.81
+        }
+      },
+      "ops_per_arm_per_process": 60,
+      "processes": 8,
+      "run_tag": "unlocked209138",
+      "total_merges": 1440,
+      "variant": "unlocked",
+      "verify": {
+        "contested_works_lost": 1,
+        "duplicate_file_rows": 0,
+        "editions_expected": 480,
+        "editions_found": 473,
+        "missing_disjoint_works": 0,
+        "orphan_file_rows": 0,
+        "shared_source_expected": 8,
+        "shared_source_file_rows": 8
+      }
+    }
+  ]
+}

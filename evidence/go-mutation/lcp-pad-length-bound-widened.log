@@ -1,0 +1,24 @@
+$ go test ./pkg/lcp -run ^TestDecryptCBCRejectsMalformedCiphertext$ -count=1
+--- FAIL: TestDecryptCBCRejectsMalformedCiphertext (0.00s)
+    keys_test.go:159: pad length 25 over two blocks: error = <nil>, want ErrBadPadding
+panic: runtime error: slice bounds out of range [:-1] [recovered, repanicked]
+
+goroutine 23 [running]:
+testing.tRunner.func1.2({0x94f078, 0x2c4e3e764138})
+	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2128 +0x329
+panic({0x94f078?, 0x2c4e3e764138?})
+	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/runtime/panic.go:859 +0x125
+github.com/helixreader/helix/core/pkg/lcp.DecryptCBC({0x2c4e3e6c0cd7?, 0x2c4e3e77a488?, 0x2c4e3e6c0cd7?}, {0x2c4e3e75c1e0, 0x20, 0x20})
+	/home/milosvasic/Projects/helix_reader/.helix-verify/go-mutation/lcp-pad-length-bound-widened/core/pkg/lcp/keys.go:135 +0x1fe
+github.com/helixreader/helix/core/pkg/lcp.TestDecryptCBCRejectsMalformedCiphertext(0x2c4e3e77a488)
+	/home/milosvasic/Projects/helix_reader/.helix-verify/go-mutation/lcp-pad-length-bound-widened/core/pkg/lcp/keys_test.go:158 +0x5b8
+testing.tRunner(0x2c4e3e77a488, 0x960280)
+	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.010s
+FAIL
+
+exit=1

@@ -7,7 +7,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:4173/"
-OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("/mnt/agents/output/helix/evidence/ui")
+OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(__file__).resolve().parents[1] / "evidence" / "ui"
 OUT.mkdir(parents=True, exist_ok=True)
 VIEWPORTS = [("phone", 375, 812), ("tablet", 768, 1024), ("desktop", 1024, 900), ("wide", 1440, 1000)]
 

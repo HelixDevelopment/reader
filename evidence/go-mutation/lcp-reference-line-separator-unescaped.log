@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestCanonicalSpecModeEscaping$ -count=1
+--- FAIL: TestCanonicalSpecModeEscaping (0.00s)
+    canonical_test.go:305: reference mode should escape U+2028/U+2029: "{\"h\":\"<x>&y\",\"s\":\"a\u2028b\u2029c\\u001f\"}"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
+FAIL
+
+exit=1

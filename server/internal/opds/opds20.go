@@ -12,16 +12,16 @@ func Navigation20() ([]byte, error) {
 }
 
 func Acquisition20(path string, page catalog.Page, q catalog.Query) ([]byte, error) {
-	f := Feed2{Context: "https://readium.org/webpub-manifest/context.jsonld", Metadata: Metadata2{Title: "Helix Publications", NumberOfItems: page.Total}, Links: []Link2{{HREF: pageURL(path, q, q.Offset), Rel: "self", Type: MIME2Feed}, {HREF: "/opds/2.0", Rel: "start", Type: MIME2Feed}, {HREF: "/opds/2.0/publications?q={searchTerms}", Rel: "search", Type: MIME2Feed, Templated: true}}, Publications: []Publication2{}}
-	if q.Offset > 0 {
+	f := Feed2{Context: "https://readium.org/webpub-manifest/context.jsonld", Metadata: Metadata2{Title: "Helix Publications", NumberOfItems: page.Total}, Links: []Link2{{HREF: pageURL(path, q, selfPos(q)), Rel: "self", Type: MIME2Feed}, {HREF: "/opds/2.0", Rel: "start", Type: MIME2Feed}, {HREF: "/opds/2.0/publications?q={searchTerms}", Rel: "search", Type: MIME2Feed, Templated: true}}, Publications: []Publication2{}}
+	if q.After == nil && q.Offset > 0 {
 		prev := q.Offset - q.Limit
 		if prev < 0 {
 			prev = 0
 		}
-		f.Links = append(f.Links, Link2{HREF: pageURL(path, q, prev), Rel: "previous", Type: MIME2Feed})
+		f.Links = append(f.Links, Link2{HREF: pageURL(path, q, pagePos{offset: prev}), Rel: "previous", Type: MIME2Feed})
 	}
-	if q.Offset+len(page.Works) < page.Total {
-		f.Links = append(f.Links, Link2{HREF: pageURL(path, q, q.Offset+q.Limit), Rel: "next", Type: MIME2Feed})
+	if next := nextPos(q, page); next != nil {
+		f.Links = append(f.Links, Link2{HREF: pageURL(path, q, *next), Rel: "next", Type: MIME2Feed})
 	}
 	for _, w := range page.Works {
 		for _, e := range w.Editions {

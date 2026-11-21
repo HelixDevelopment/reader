@@ -1,0 +1,31 @@
+2026-11-20T21:06:03+01:00 === restart_queue.sh start ===
+DELETE 0
+2026-11-20T21:06:04+01:00 build helix-server
+2026-11-20T21:06:04+01:00 server(1) up pid=1606748
+2026-11-20T21:06:04+01:00 register load-restart-src-1: {"id":"load-restart-src-1","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:06:05+01:00 register load-restart-src-2: {"id":"load-restart-src-2","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+2026-11-20T21:06:05+01:00 register load-restart-src-3: {"id":"load-restart-src-3","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+scan_post http=202
+2026-11-20T21:06:06+01:00 pre-kill snapshot saved (12 job records)
+2026-11-20T21:06:07+01:00 pre-kill persisted catalog: files=171 works=220
+2026-11-20T21:06:07+01:00 server(1) SIGKILLed
+2026-11-20T21:06:08+01:00 post-kill persisted catalog (no rollback of committed merges): files=231
+2026-11-20T21:06:09+01:00 server(2) up pid=1610809
+2026-11-20T21:06:09+01:00 post-restart snapshot saved
+2026-11-20T21:06:09+01:00 post-restart rescan id=scan-8c576aa8d05e0e6c08de77f8a631e702
+2026-11-20T21:06:10+01:00 rescan final state=succeeded
+2026-11-20T21:06:10+01:00 per-source committed files pre-kill: load-restart-src-1=120;load-restart-src-2=75 ; final: load-restart-src-1=120;load-restart-src-2=111
+2026-11-20T21:06:10+01:00 final catalog after completed rescan: files=231 works=231
+2026-11-20T21:06:10+01:00 harness finished
+2026-11-20T21:06:11+01:00 cleanup done (fixture dirs, redis db 13, catalog rows)

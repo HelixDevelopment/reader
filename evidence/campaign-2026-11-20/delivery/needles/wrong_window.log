@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadContentDelivery
+    load_delivery_test.go:347: range GET load-dlv-f0 returned the right length but the wrong window (sha256 8647b1a4f4ceb29445e7401ada36376143891f08d7764cfa3e569722880072c4, want 2cb249f7e35d050fef7beebc13f91a0b7560c5585a2ccd1a70637f8d9e610fbe)
+--- FAIL: TestLiveLoadContentDelivery (0.04s)
+FAIL

@@ -1,0 +1,10 @@
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:264: JOBS BURST #0 submitted=96 queue_full=32 peak_pending=64 submit_ms=31.6 drain_ms=674.3 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #1 submitted=96 queue_full=32 peak_pending=64 submit_ms=4.5 drain_ms=673.1 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #2 submitted=96 queue_full=32 peak_pending=64 submit_ms=3.6 drain_ms=693.0 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #3 submitted=96 queue_full=32 peak_pending=64 submit_ms=11.3 drain_ms=700.3 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #4 submitted=96 queue_full=32 peak_pending=64 submit_ms=13.4 drain_ms=703.8 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #5 submitted=96 queue_full=32 peak_pending=64 submit_ms=8.9 drain_ms=724.5 timed_out=false
+    load_jobs_test.go:366: journal lost or misrepresented 128 accepted scans that the index still lists: [scan-29c6fe3a9f6a37faeeb0308081f23567 (indexed but not restored) scan-adea62d80d6b3125f93ab549bc659787 (indexed but not restored) scan-df15370315886488afcaa6244cd3133a (indexed but not restored) scan-b893b72c510ef1f5a03d76b82691c69d (indexed but not restored) scan-e1f8851224b3f0eb71769d3685effafd (indexed but not restored)]
+--- FAIL: TestLiveLoadJobQueueDurability (4.36s)
+FAIL

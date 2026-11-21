@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestContainerHonoursDeclaredOriginalLength$ -count=1
+--- FAIL: TestContainerHonoursDeclaredOriginalLength (0.13s)
+    container_negative_test.go:198: OriginalLength -1: error = <nil>, want ErrOriginalLengthMismatch
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.139s
+FAIL
+
+exit=1

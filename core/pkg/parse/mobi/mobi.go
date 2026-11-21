@@ -147,6 +147,10 @@ func (Parser) Parse(r io.ReaderAt, size int64) (*hdm.Document, error) {
 }
 
 func stripTags(s string) string {
+	// MOBI text is record-concatenated HTML with no guaranteed newlines:
+	// </p> and <br> become block breaks BEFORE tag stripping, otherwise
+	// adjacent paragraphs merge.
+	s = strings.NewReplacer("</p>", "</p>\n", "<br/>", "<br/>\n", "<br>", "<br>\n", "\r", "\n").Replace(s)
 	var b strings.Builder
 	inTag := false
 	for _, r := range s {
@@ -159,6 +163,5 @@ func stripTags(s string) string {
 			b.WriteRune(r)
 		}
 	}
-	// MOBI uses <p> as block breaks; approximate with newlines before strip
-	return strings.ReplaceAll(b.String(), "\r", "\n")
+	return b.String()
 }

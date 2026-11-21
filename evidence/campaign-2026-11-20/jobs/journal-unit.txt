@@ -1,0 +1,8 @@
+--- PASS: TestJournalSurvivesStoreReconstruction (0.00s)
+--- PASS: TestRestoreMarksInFlightScansInterrupted (0.00s)
+--- PASS: TestRestoreSkipsUnreadableAndStaleRecords (0.00s)
+--- PASS: TestRestorePreservesLiveRecords (0.00s)
+--- PASS: TestJournalFailureDoesNotFailScans (3.41s)
+--- PASS: TestJournalIndexIsBounded (0.08s)
+--- PASS: TestJournalRejectsRecordWithoutIdentity (0.00s)
+ok  	github.com/helixreader/helix/server/internal/httpapi	3.509s

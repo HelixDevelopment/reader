@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestVerifyRejectsForeignChain$ -count=1
+--- FAIL: TestVerifyRejectsForeignChain (0.49s)
+    signature_test.go:152: foreign chain error = <nil>, want ErrUntrustedRoot
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.495s
+FAIL
+
+exit=1

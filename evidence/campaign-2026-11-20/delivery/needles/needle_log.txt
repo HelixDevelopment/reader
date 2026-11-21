@@ -1,0 +1,12 @@
+range_ignored rc=1 status=FIRED expected=not 206
+    load_delivery_test.go:340: range GET load-dlv-f0 (bytes=87381-152916) returned 200, not 206: the range path is not being taken, so every client would pay for 262144 bytes
+wrong_window rc=1 status=FIRED expected=the right length but the wrong window
+    load_delivery_test.go:347: range GET load-dlv-f0 returned the right length but the wrong window (sha256 8647b1a4f4ceb29445e7401ada36376143891f08d7764cfa3e569722880072c4, want 2cb249f7e35d050fef7beebc13f91a0b7560c5585a2ccd1a70637f8d9e610fbe)
+remote_validator_lie rc=1 status=FIRED expected=from a catalog size the source was not asked to confirm
+    load_remote_test.go:232: remote load-remote-f0 sent Content-Length "262144" from a catalog size the source was not asked to confirm
+progress_rewind_serial rc=1 status=FIRED expected=rewound stored progress
+    load_delivery_test.go:885: a lower percentage rewound stored progress to 0.25, want 0.75
+progress_ack_lie rc=1 status=FIRED expected=acknowledged progress is not the persisted state
+    load_delivery_test.go:961: the acknowledged progress is not the persisted state: ack says (0.1000,ack-low), the store says (0.9000,ack-high)
+serialised_concurrency rc=1 status=FIRED expected=requests were open at the same instant
+    load_delivery_test.go:416: size 262144, level 4: only 1 requests were open at the same instant, so the 4-client number is a serial measurement

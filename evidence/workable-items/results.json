@@ -2,37 +2,42 @@
   "checks": [
     {
       "command": [
-        "/usr/local/bin/python3",
+        "/usr/bin/python3",
         "-m",
         "unittest",
         "-v",
         "tests.test_workable_items"
       ],
-      "detail": "test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok\ntest_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... ok\ntest_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok\ntest_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok\ntest_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok\ntest_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok\ntest_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... ok\ntest_operator_block_command_round_trip (tests.test_workable_items.WorkableItemsTest.test_operator_block_command_round_trip) ... ok\ntest_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok\ntest_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok\ntest_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok\ntest_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 1.263s\n\nOK\n",
+      "detail": "test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok\ntest_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... ok\ntest_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok\ntest_derived_documents_carry_history_and_lifecycle_details (tests.test_workable_items.WorkableItemsTest.test_derived_documents_carry_history_and_lifecycle_details) ... ok\ntest_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok\ntest_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok\ntest_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok\ntest_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... ok\ntest_operator_block_command_round_trip (tests.test_workable_items.WorkableItemsTest.test_operator_block_command_round_trip) ... ok\ntest_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok\ntest_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok\ntest_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok\ntest_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.514s\n\nOK\n",
       "name": "registry-unit-integration",
       "returncode": 0,
       "status": "PASS"
     },
     {
       "command": [
-        "/usr/local/bin/python3",
+        "/usr/bin/python3",
         "scripts/workable_items.py",
         "validate"
       ],
-      "detail": "{\"integrity_hash\": \"7d7a382a9a9030712b60bef44ca6471ee8d74c4a01749ed891a644392860915a\", \"items\": 33, \"status\": \"PASS\"}\n",
+      "detail": "{\"integrity_hash\": \"c36fa8d7dc9d6fed7bae5df229e26fc8e05f71a5a06ac0f6340c1a32bacb2602\", \"items\": 35, \"status\": \"PASS\"}\n",
       "name": "authoritative-registry-validation",
       "returncode": 0,
       "status": "PASS"
     },
     {
       "command": [
-        "/usr/local/bin/python3",
+        "/usr/bin/python3",
         "scripts/workable_items.py",
         "diff"
       ],
       "detail": "{\"differences\": [], \"status\": \"PASS\"}\n",
       "name": "authoritative-export-drift",
       "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"Fixed.md\": {\"bytes\": 42604, \"identifiers\": 24, \"pages\": 23}, \"Fixed_Summary.md\": {\"bytes\": 4270, \"identifiers\": 23, \"pages\": 1}, \"Issues.md\": {\"bytes\": 23231, \"identifiers\": 13, \"pages\": 12}, \"Issues_Summary.md\": {\"bytes\": 3275, \"identifiers\": 12, \"pages\": 1}, \"problems\": []}",
+      "name": "pdf-documents-current",
       "status": "PASS"
     },
     {
@@ -46,32 +51,44 @@
       "status": "PASS"
     },
     {
-      "detail": "corruption_detected=True error='database disk image is malformed' recovered_rows=33 validation_errors=[]",
+      "detail": "corruption_detected=True error='database disk image is malformed' recovered_rows=35 validation_errors=[]",
       "name": "corrupt-db-detection-and-md-recovery",
       "status": "PASS"
     },
     {
-      "detail": "test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... FAIL\n\n======================================================================\nFAIL: test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/closure-vocabulary-gate/tests/test_workable_items.py\", line 78, in test_type_aware_closure_vocabulary\n    self.assertTrue(any(\"closure vocabulary\" in error for error in wi.validate(self.db)))\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 1 test in 0.173s\n\nFAILED (failures=1)\n",
+      "detail": "test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... FAIL\n\n======================================================================\nFAIL: test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/closure-vocabulary-gate/tests/test_workable_items.py\", line 150, in test_type_aware_closure_vocabulary\n    self.assertTrue(any(\"closure vocabulary\" in error for error in wi.validate(self.db)),\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                    \"a Feature carrying the Bug closure word must be reported\")\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true : a Feature carrying the Bug closure word must be reported\n\n----------------------------------------------------------------------\nRan 1 test in 0.106s\n\nFAILED (failures=1)\n",
       "mutant_rejected": true,
       "name": "mutation-closure-vocabulary-gate",
       "status": "PASS"
     },
     {
-      "detail": "test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... FAIL\n\n======================================================================\nFAIL: test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/markdown-drift-gate/tests/test_workable_items.py\", line 85, in test_export_and_drift_detection\n    self.assertEqual([\"Issues.md\"], wi.diff(self.db, self.root))\nAssertionError: Lists differ: ['Issues.md'] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n'Issues.md'\n\n- ['Issues.md']\n+ []\n\n----------------------------------------------------------------------\nRan 1 test in 0.068s\n\nFAILED (failures=1)\n",
+      "detail": "test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... FAIL\n\n======================================================================\nFAIL: test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/markdown-drift-gate/tests/test_workable_items.py\", line 295, in test_export_and_drift_detection\n    self.assertEqual(sorted(wi.diff(self.db, self.docs)), sorted(\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        [\"Issues.md\", \"Fixed.md\", \"Issues_Summary.md\", \"Fixed_Summary.md\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         \"Issues.html\", \"Fixed.html\", \"Issues_Summary.html\", \"Fixed_Summary.html\"]))\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['Fixed.html', 'Fixed_Summary.html', 'Issues.html', 'Issues_Summary.html'] != ['Fixed.html', 'Fixed.md', 'Fixed_Summary.html', 'Fixed_Summar[73 chars].md']\n\nFirst differing element 1:\n'Fixed_Summary.html'\n'Fixed.md'\n\nSecond list contains 4 additional elements.\nFirst extra element 4:\n'Issues.html'\n\n- ['Fixed.html', 'Fixed_Summary.html', 'Issues.html', 'Issues_Summary.html']\n+ ['Fixed.html',\n+  'Fixed.md',\n+  'Fixed_Summary.html',\n+  'Fixed_Summary.md',\n+  'Issues.html',\n+  'Issues.md',\n+  'Issues_Summary.html',\n+  'Issues_Summary.md']\n\n----------------------------------------------------------------------\nRan 1 test in 0.067s\n\nFAILED (failures=1)\n",
       "mutant_rejected": true,
       "name": "mutation-markdown-drift-gate",
       "status": "PASS"
     },
     {
-      "detail": "test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... FAIL\n\n======================================================================\nFAIL: test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/remote-push-anti-bluff/tests/test_workable_items.py\", line 114, in test_outbox_never_claims_remote_push\n    self.assertEqual(\"NOT RUN\", envelope[\"records\"][0][\"remote_status\"])\nAssertionError: 'NOT RUN' != 'pushed'\n- NOT RUN\n+ pushed\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.042s\n\nFAILED (failures=1)\n",
+      "detail": "test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... FAIL\n\n======================================================================\nFAIL: test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/remote-push-anti-bluff/tests/test_workable_items.py\", line 341, in test_outbox_never_claims_remote_push\n    self.assertEqual(envelope[\"records\"][0][\"remote_status\"], \"NOT RUN\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'pushed' != 'NOT RUN'\n- pushed\n+ NOT RUN\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.078s\n\nFAILED (failures=1)\n",
       "mutant_rejected": true,
       "name": "mutation-remote-push-anti-bluff",
       "status": "PASS"
     },
     {
-      "detail": "test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... FAIL\n\n======================================================================\nFAIL: test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/helix-wi-qualification-90wuqmd4/attribution-roundtrip/tests/test_workable_items.py\", line 170, in test_markdown_database_markdown_round_trip\n    self.assertEqual(content, wi.markdown_documents(recovered)[name], name)\nAssertionError: '# He[849 chars]d by AI; assigned to Operator\\n\\n**Created / m[138 chars]ed\\n' != '# He[849 chars]d by UNKNOWN; assigned to Operator\\n\\n**Create[143 chars]ed\\n'\nDiff is 1207 characters long. Set self.maxDiff to None to see it. : Fixed.md\n\n----------------------------------------------------------------------\nRan 1 test in 0.284s\n\nFAILED (failures=1)\n",
+      "detail": "test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... FAIL\n\n======================================================================\nFAIL: test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/attribution-roundtrip/tests/test_workable_items.py\", line 326, in test_markdown_database_markdown_round_trip\n    self.assertEqual(wi.integrity(recovered), wi.integrity(self.db), \"recovered registry diverges from the source\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: '6bd8c4d555962b0853f3bbf7874ddf11a90bda8d0f2277031f161d7a05aacdca' != '1af499d0b81d2818b5760ad2ecb8e88867b5d5f5b38db434a6823921aa70b077'\n- 6bd8c4d555962b0853f3bbf7874ddf11a90bda8d0f2277031f161d7a05aacdca\n+ 1af499d0b81d2818b5760ad2ecb8e88867b5d5f5b38db434a6823921aa70b077\n : recovered registry diverges from the source\n\n----------------------------------------------------------------------\nRan 1 test in 0.181s\n\nFAILED (failures=1)\n",
       "mutant_rejected": true,
       "name": "mutation-attribution-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... FAIL\n\n======================================================================\nFAIL: test_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/update-evidence-gate/tests/test_workable_items.py\", line 200, in test_close_reopen_and_update_lifecycle\n    self.assertEqual(updated[\"evidence_path\"], \"evidence/campaign-2026-11-20/lock-scope/summary.md\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: '' != 'evidence/campaign-2026-11-20/lock-scope/summary.md'\n+ evidence/campaign-2026-11-20/lock-scope/summary.md\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.098s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-update-evidence-gate",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_derived_documents_carry_history_and_lifecycle_details (tests.test_workable_items.WorkableItemsTest.test_derived_documents_carry_history_and_lifecycle_details) ... FAIL\n\n======================================================================\nFAIL: test_derived_documents_carry_history_and_lifecycle_details (tests.test_workable_items.WorkableItemsTest.test_derived_documents_carry_history_and_lifecycle_details)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-k_00tlbo/html-history-gate/tests/test_workable_items.py\", line 281, in test_derived_documents_carry_history_and_lifecycle_details\n    self.assertIn(tracked, fixed_html, \"closure history is missing from HTML\")\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ATM-001' not found in '<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>Helix Closed Workable Items</title><style>body{font:15px/1.55 system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #bbb;padding:.45rem;text-align:left;vertical-align:top}section{border-top:2px solid #345;margin-top:2rem}h1,h2{color:#234}code{overflow-wrap:anywhere}@media print{body{max-width:none;margin:0}section{break-inside:avoid}}</style></head><body><h1>Helix Closed Workable Items</h1><p>Generated from <code>docs/workable_items.db</code>; remote synchronization is not implied.</p><section id=\"ATM-002\"><h2>[ATM-002] Registry behaviour under test</h2><h3>Status</h3><p>Implemented (\u2192 Fixed.md)</p><h3>Type</h3><p>Feature</p><h3>Severity</h3><p>High</p><h3>Reopens</h3><p>0</p><h3>Description</h3><p>A complete registry description with enough words and characters to satisfy validation.</p><h3>Affected scope</h3><p>The registry tooling and its generated documents.</p><h3>Reproduction / current observation</h3><p>Add an item and inspect the lifecycle tables.</p><h3>Acceptance</h3><p>Lifecycle transitions validate and are recorded in history.</p><h3>Closure criteria</h3><p>Lifecycle transitions validate and are recorded in history.</p><h3>Evidence</h3><p>evidence/campaign-2026-11-20/containers</p><h3>Forensic anchor</h3><p>tests/test_workable_items.py</p><h3>Composes with</h3><p>None recorded</p><h3>Attribution</h3><p>created by AI; assigned to Operator</p><h3>Created / modified</h3><p>2026-11-20T20:40:32Z / 2026-11-20T20:40:32Z</p></section></body></html>' : closure history is missing from HTML\n\n----------------------------------------------------------------------\nRan 1 test in 0.096s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-html-history-gate",
       "status": "PASS"
     }
   ],
@@ -79,6 +96,6 @@
   "status": "PASS",
   "summary": {
     "fail": 0,
-    "pass": 10
+    "pass": 13
   }
 }

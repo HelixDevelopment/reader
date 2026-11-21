@@ -1,0 +1,89 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_workable_items"
+      ],
+      "detail": "test_add_allocates_monotonic_identifier (tests.test_workable_items.WorkableItemsTest.test_add_allocates_monotonic_identifier) ... ok\ntest_close_reopen_and_update_lifecycle (tests.test_workable_items.WorkableItemsTest.test_close_reopen_and_update_lifecycle) ... ok\ntest_concurrent_writers_preserve_unique_ids (tests.test_workable_items.WorkableItemsTest.test_concurrent_writers_preserve_unique_ids) ... ok\ntest_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... ok\ntest_html_and_markdown_escape_content (tests.test_workable_items.WorkableItemsTest.test_html_and_markdown_escape_content) ... ok\ntest_invalid_status_type_and_location_fail_closed (tests.test_workable_items.WorkableItemsTest.test_invalid_status_type_and_location_fail_closed) ... ok\ntest_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... ok\ntest_operator_block_command_round_trip (tests.test_workable_items.WorkableItemsTest.test_operator_block_command_round_trip) ... ok\ntest_operator_block_requires_exhaustion_and_details (tests.test_workable_items.WorkableItemsTest.test_operator_block_requires_exhaustion_and_details) ... ok\ntest_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... ok\ntest_schema_and_valid_item (tests.test_workable_items.WorkableItemsTest.test_schema_and_valid_item) ... ok\ntest_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 1.331s\n\nOK\n",
+      "name": "registry-unit-integration",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "scripts/workable_items.py",
+        "validate"
+      ],
+      "detail": "{\"integrity_hash\": \"1f0ded5baa69a333f479baeb308f252f0a67b6cadc11b1fea3ea0695f2507c1e\", \"items\": 34, \"status\": \"PASS\"}\n",
+      "name": "authoritative-registry-validation",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "scripts/workable_items.py",
+        "diff"
+      ],
+      "detail": "{\"differences\": [], \"status\": \"PASS\"}\n",
+      "name": "authoritative-export-drift",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"Fixed.md\": {\"bytes\": 33975, \"identifiers\": 22, \"pages\": 22}, \"Fixed_Summary.md\": {\"bytes\": 4161, \"identifiers\": 22, \"pages\": 1}, \"Issues.md\": {\"bytes\": 19334, \"identifiers\": 13, \"pages\": 12}, \"Issues_Summary.md\": {\"bytes\": 3275, \"identifiers\": 12, \"pages\": 1}, \"problems\": [\"Fixed.md: identifiers differ from Markdown (only in PDF: [], only in Markdown: ['ATM-034'])\"]}",
+      "name": "pdf-documents-current",
+      "status": "FAIL"
+    },
+    {
+      "detail": "rows=1000 integrity=ok validation_errors=[]",
+      "name": "stress-1000-real-sqlite-rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "ready=READY committed_rows=1 integrity=ok child_returncode=-9",
+      "name": "sigkill-uncommitted-transaction-recovery",
+      "status": "PASS"
+    },
+    {
+      "detail": "corruption_detected=True error='database disk image is malformed' recovered_rows=34 validation_errors=[]",
+      "name": "corrupt-db-detection-and-md-recovery",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary) ... FAIL\n\n======================================================================\nFAIL: test_type_aware_closure_vocabulary (tests.test_workable_items.WorkableItemsTest.test_type_aware_closure_vocabulary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-w_j57bp4/closure-vocabulary-gate/tests/test_workable_items.py\", line 150, in test_type_aware_closure_vocabulary\n    self.assertTrue(any(\"closure vocabulary\" in error for error in wi.validate(self.db)),\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                    \"a Feature carrying the Bug closure word must be reported\")\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true : a Feature carrying the Bug closure word must be reported\n\n----------------------------------------------------------------------\nRan 1 test in 0.084s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-closure-vocabulary-gate",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection) ... FAIL\n\n======================================================================\nFAIL: test_export_and_drift_detection (tests.test_workable_items.WorkableItemsTest.test_export_and_drift_detection)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-w_j57bp4/markdown-drift-gate/tests/test_workable_items.py\", line 261, in test_export_and_drift_detection\n    self.assertEqual(sorted(wi.diff(self.db, self.docs)), sorted(\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        [\"Issues.md\", \"Fixed.md\", \"Issues_Summary.md\", \"Fixed_Summary.md\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         \"Issues.html\", \"Fixed.html\", \"Issues_Summary.html\", \"Fixed_Summary.html\"]))\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['Fixed.html', 'Fixed_Summary.html', 'Issues.html', 'Issues_Summary.html'] != ['Fixed.html', 'Fixed.md', 'Fixed_Summary.html', 'Fixed_Summar[73 chars].md']\n\nFirst differing element 1:\n'Fixed_Summary.html'\n'Fixed.md'\n\nSecond list contains 4 additional elements.\nFirst extra element 4:\n'Issues.html'\n\n- ['Fixed.html', 'Fixed_Summary.html', 'Issues.html', 'Issues_Summary.html']\n+ ['Fixed.html',\n+  'Fixed.md',\n+  'Fixed_Summary.html',\n+  'Fixed_Summary.md',\n+  'Issues.html',\n+  'Issues.md',\n+  'Issues_Summary.html',\n+  'Issues_Summary.md']\n\n----------------------------------------------------------------------\nRan 1 test in 0.060s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-markdown-drift-gate",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push) ... FAIL\n\n======================================================================\nFAIL: test_outbox_never_claims_remote_push (tests.test_workable_items.WorkableItemsTest.test_outbox_never_claims_remote_push)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-w_j57bp4/remote-push-anti-bluff/tests/test_workable_items.py\", line 307, in test_outbox_never_claims_remote_push\n    self.assertEqual(envelope[\"records\"][0][\"remote_status\"], \"NOT RUN\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'pushed' != 'NOT RUN'\n- pushed\n+ NOT RUN\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.063s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-remote-push-anti-bluff",
+      "status": "PASS"
+    },
+    {
+      "detail": "test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip) ... FAIL\n\n======================================================================\nFAIL: test_markdown_database_markdown_round_trip (tests.test_workable_items.WorkableItemsTest.test_markdown_database_markdown_round_trip)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/milosvasic/.cache/claude-tmp/helix-wi-qualification-w_j57bp4/attribution-roundtrip/tests/test_workable_items.py\", line 292, in test_markdown_database_markdown_round_trip\n    self.assertEqual(wi.integrity(recovered), wi.integrity(self.db), \"recovered registry diverges from the source\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'fd310868c054d6356e1458ae3497c71afbfa496337dbae965352a298dcb767fb' != '66be1b0f9f8e9bbd8dba21e6fe9dbd7337149ce2559ccc52f4b4ed69b37c0395'\n- fd310868c054d6356e1458ae3497c71afbfa496337dbae965352a298dcb767fb\n+ 66be1b0f9f8e9bbd8dba21e6fe9dbd7337149ce2559ccc52f4b4ed69b37c0395\n : recovered registry diverges from the source\n\n----------------------------------------------------------------------\nRan 1 test in 0.163s\n\nFAILED (failures=1)\n",
+      "mutant_rejected": true,
+      "name": "mutation-attribution-roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "schema": "helix.workable-items.qualification.v1",
+  "status": "FAIL",
+  "summary": {
+    "fail": 1,
+    "pass": 10
+  }
+}

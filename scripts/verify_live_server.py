@@ -10,6 +10,7 @@ from __future__ import annotations
 import getpass
 import json
 import os
+import shutil
 import signal
 import subprocess
 import sys
@@ -18,16 +19,24 @@ from pathlib import Path
 
 import requests
 
-ROOT = Path("/mnt/agents/output/helix")
+ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "evidence" / "live-server"
-BINARY = Path("/mnt/agents/research/helix-server-live")
-GO = os.environ.get("HELIX_GO", "/tmp/helix-go-toolchain/bin/go" if Path("/tmp/helix-go-toolchain/bin/go").exists() else "go")
-LIBRARY = Path("/mnt/agents/research/live-server-library")
+SCRATCH = ROOT / ".helix-verify"
+BINARY = SCRATCH / "bin" / "helix-server-live"
+GO = os.environ.get("HELIX_GO", "go")
+LIBRARY = SCRATCH / "live-server-library"
 BASE = "http://127.0.0.1:28080"
 # Match the operating-system peer identity used to launch the disposable server.
 # Both root and kimi have local test roles in the qualification environment; no
-# password or production credential is embedded in this verifier.
-DSN = f"postgres:///helix_test?host=/var/run/postgresql&user={getpass.getuser()}"
+# password or production credential is embedded in this verifier. When the
+# qualification environment exposes its test database elsewhere, HELIX_TEST_POSTGRES_DSN
+# wins over the local peer-auth default.
+DSN = os.environ.get("HELIX_TEST_POSTGRES_DSN") or f"postgres:///helix_test?host=/var/run/postgresql&user={getpass.getuser()}"
+# Redis endpoint for the disposable test daemon. HELIX_TEST_REDIS_ADDR (host:port)
+# points the verifier at an externally managed loopback service; the fallback is
+# the historical local default.
+REDIS_ADDR = os.environ.get("HELIX_TEST_REDIS_ADDR", "127.0.0.1:6379")
+_redis_host, _redis_port = REDIS_ADDR.rsplit(":", 1)
 checks: list[dict] = []
 RESTART_DAEMONS = "--restart-daemons" in sys.argv[1:]
 
@@ -43,7 +52,7 @@ def server_environment() -> dict:
     env.update({
         "HELIX_ADDRESS": "127.0.0.1:28080",
         "HELIX_POSTGRES_DSN": DSN,
-        "HELIX_REDIS_URL": "redis://127.0.0.1:6379",
+        "HELIX_REDIS_URL": "redis://" + REDIS_ADDR,
         "HELIX_AI_MEMORY": "true",
         "HELIX_EMBEDDING_DIMENSIONS": "3",
         "HELIX_ADMIN_TOKEN": "live-admin-token",
@@ -51,7 +60,7 @@ def server_environment() -> dict:
         "HELIX_OPDS_PASSWORD": "live-password",
         "HELIX_KOSYNC_REGISTRATION": "true",
         "HELIX_HTTP3": "false",
-        "HELIX_COVER_CACHE": "/mnt/agents/research/live-server-covers",
+        "HELIX_COVER_CACHE": str(SCRATCH / "live-server-covers"),
         "GIN_MODE": "release",
     })
     return env
@@ -84,17 +93,30 @@ def stop_server(process) -> None:
     process.wait(timeout=20)
 
 
+def redis_cli_arguments() -> list[str]:
+    return ["redis-cli", "-h", _redis_host, "-p", _redis_port]
+
+
 def redis_ready() -> bool:
-    return subprocess.run(["redis-cli", "ping"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=2).returncode == 0
+    return subprocess.run(redis_cli_arguments() + ["ping"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=2).returncode == 0
 
 
 def start_redis() -> None:
     if redis_ready():
         return
-    # Match the disposable qualification daemon's current data directory and
-    # explicit-save policy. No application or user credentials are involved.
+    if os.environ.get("HELIX_TEST_REDIS_ADDR"):
+        raise RuntimeError("Redis not reachable at HELIX_TEST_REDIS_ADDR=" + REDIS_ADDR)
+    # An externally managed daemon (for example in a container) is addressed via
+    # HELIX_TEST_REDIS_ADDR. Without it we may launch a disposable local daemon
+    # whose data directory stays inside the repository scratch tree. No
+    # application or user credentials are involved. When redis-server is not
+    # installed, record an honest SKIP; never simulate a pass.
+    if shutil.which("redis-server") is None:
+        checks.append({"name": "redis daemon start: NOT RUN (redis-server not installed; set HELIX_TEST_REDIS_ADDR to an externally managed loopback Redis)", "status": "SKIP"})
+        return
+    SCRATCH.mkdir(parents=True, exist_ok=True)
     subprocess.run([
-        "redis-server", "--daemonize", "yes", "--dir", "/mnt/agents",
+        "redis-server", "--daemonize", "yes", "--dir", str(SCRATCH),
         "--dbfilename", "dump.rdb", "--appendonly", "no", "--save", "",
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
     for _ in range(100):
@@ -105,8 +127,8 @@ def start_redis() -> None:
 
 
 def restart_daemons() -> None:
-    subprocess.run(["redis-cli", "SAVE"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
-    subprocess.run(["redis-cli", "SHUTDOWN", "SAVE"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+    subprocess.run(redis_cli_arguments() + ["SAVE"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+    subprocess.run(redis_cli_arguments() + ["SHUTDOWN", "SAVE"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
     for _ in range(100):
         if not redis_ready():
             break
@@ -217,6 +239,13 @@ def main() -> int:
             process, session = start_server(log)
             persisted = session.get(BASE + "/v1/works", params={"q": "live-server-book"}, auth=basic, timeout=3).json()
             require(len(persisted.get("works", [])) == 1, "PostgreSQL catalog survives server restart")
+            # The scan finished before the process stopped, so its record must be
+            # readable by the new one. With --restart-daemons this also proves the
+            # record survived a Redis save and reload, not only a client restart.
+            restored_job = session.get(BASE + "/v1/scans/" + job_id, headers=admin, timeout=3)
+            require(restored_job.status_code == 200 and restored_job.json().get("state") == "succeeded", "completed scan job survives server restart")
+            listed = session.get(BASE + "/v1/scans", headers=admin, timeout=3).json().get("jobs", [])
+            require(any(entry.get("id") == job_id for entry in listed), "restored scan job appears in the scan list")
             require(session.get(BASE + "/users/auth", headers=credentials, timeout=5).status_code == 200, "Redis KOSync account survives server restart")
             require(session.get(BASE + "/syncs/progress/live-server-document", headers=credentials, timeout=5).json()["progress"] == "42", "Redis KOSync progress survives server restart")
             internal_saved = session.get(BASE + "/v1/sync/progress/live-user/live-book", headers=admin, timeout=5)

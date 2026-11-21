@@ -1,0 +1,34 @@
+[21:58:20] === run_vector mode=main tag=20261120T215820Z rows=50000 dims=384 levels=1,8,32 ===
+[21:58:20] fingerprint internal/aimemory/postgres.go sha256=dc55c4f1e06b1d699fb6529bb1ea63ba8e6b9ffbb73736ec7421e0d7dbb3fad5
+[21:58:20] fingerprint internal/aimemory/vector_load_test.go sha256=3f6790e252e025cfbcacec18e5c77bc8de4020ba7a80edef8e617996afbed537
+[21:58:20] building test binary on the host
+NOTICE:  schema "helix_bench" does not exist, skipping
+[21:58:21] running TestLiveLoadVectorSearch inside helixqual-pg (this seeds 50000 rows, expect minutes)
+exit=1
+Error: "/tmp/vector-20261120T215820Z.jsonl" could not be found on container helixqual-pg: no such file or directory
+[21:58:21] copy-back failed
+[21:58:22] run_vector finished rc=0 tag=20261120T215820Z
+[21:59:00] === run_vector mode=smoke tag=20261120T215900Z rows=1000 dims=64 levels=1,8 ===
+[21:59:00] fingerprint internal/aimemory/postgres.go sha256=dc55c4f1e06b1d699fb6529bb1ea63ba8e6b9ffbb73736ec7421e0d7dbb3fad5
+[21:59:00] fingerprint internal/aimemory/vector_load_test.go sha256=3f6790e252e025cfbcacec18e5c77bc8de4020ba7a80edef8e617996afbed537
+[21:59:00] building test binary on the host
+NOTICE:  schema "helix_bench" does not exist, skipping
+[21:59:01] running TestLiveLoadVectorSearch inside helixqual-pg (this seeds 1000 rows, expect minutes)
+exit=0
+[21:59:21] run_vector finished rc=0 tag=20261120T215900Z
+[21:59:26] === run_vector mode=main tag=20261120T215926Z rows=50000 dims=384 levels=1,8,32 ===
+[21:59:26] fingerprint internal/aimemory/postgres.go sha256=dc55c4f1e06b1d699fb6529bb1ea63ba8e6b9ffbb73736ec7421e0d7dbb3fad5
+[21:59:26] fingerprint internal/aimemory/vector_load_test.go sha256=3f6790e252e025cfbcacec18e5c77bc8de4020ba7a80edef8e617996afbed537
+[21:59:26] building test binary on the host
+NOTICE:  schema "helix_bench" does not exist, skipping
+[21:59:26] running TestLiveLoadVectorSearch inside helixqual-pg (this seeds 50000 rows, expect minutes)
+exit=1
+[22:02:24] run_vector finished rc=1 tag=20261120T215926Z
+[22:06:11] === run_vector mode=main tag=20261120T220611Z rows=50000 dims=384 levels=1,8,32 ===
+[22:06:11] fingerprint internal/aimemory/postgres.go sha256=dc55c4f1e06b1d699fb6529bb1ea63ba8e6b9ffbb73736ec7421e0d7dbb3fad5
+[22:06:11] fingerprint internal/aimemory/vector_load_test.go sha256=83ec6bcc11b2b591e128315d7f071e23a7f541171df570b514fed4c18821dfa4
+[22:06:11] building test binary on the host
+NOTICE:  schema "helix_bench" does not exist, skipping
+[22:06:12] running TestLiveLoadVectorSearch inside helixqual-pg (this seeds 50000 rows, expect minutes)
+exit=0
+[22:10:15] run_vector finished rc=0 tag=20261120T220611Z

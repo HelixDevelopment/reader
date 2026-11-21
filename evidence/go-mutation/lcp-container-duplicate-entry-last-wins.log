@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestContainerFirstLicenseEntryWins$ -count=1
+--- FAIL: TestContainerFirstLicenseEntryWins (0.29s)
+    container_negative_test.go:324: Unlock with a trailing imposter license: lcp: provider certificate is not signed by a trusted root: Helix Test License Authority
+    container_negative_test.go:331: Unlock under the imposter chain error = <nil>, want ErrUntrustedRoot
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.299s
+FAIL
+
+exit=1

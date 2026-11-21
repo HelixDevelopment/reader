@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestParseRejectsIncompleteLicenses$ -count=1
+--- FAIL: TestParseRejectsIncompleteLicenses (0.00s)
+    --- FAIL: TestParseRejectsIncompleteLicenses/issued (0.00s)
+        license_test.go:69: Parse without issued error = lcp: license document is not valid JSON: issued is not an RFC 3339 date-time: parsing time "" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "2006", want ErrIncomplete
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.009s
+FAIL
+
+exit=1

@@ -1,0 +1,34 @@
+# Cursor predicate plan, 2026-11-20, taken inside helixqual-pg against 50,000-work fixture (VACUUM'd).
+# DSN host-port 34320 in the psql client inside the container is the same server; run via podman exec to avoid the pasta forwarder.
+
+$ psql -c "explain (analyze,buffers,costs off) SELECT w.id FROM works w WHERE w.updated_at < '2026-01-01 02:46:41+00' OR (w.updated_at = '2026-01-01 02:46:41+00' AND w.id > 'scale-work-10001') ORDER BY w.updated_at DESC,w.id LIMIT 20"
+                                                                                           QUERY PLAN                                                                                           
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit (actual time=4.346..4.350 rows=20 loops=1)
+   Buffers: shared hit=434
+   ->  Index Only Scan using works_updated_id on works w (actual time=4.344..4.347 rows=20 loops=1)
+         Filter: ((updated_at < '2026-01-01 02:46:41+00'::timestamp with time zone) OR ((updated_at = '2026-01-01 02:46:41+00'::timestamp with time zone) AND (id > 'scale-work-10001'::text)))
+         Rows Removed by Filter: 40001
+         Heap Fetches: 0
+         Buffers: shared hit=434
+ Planning:
+   Buffers: shared hit=109
+ Planning Time: 0.397 ms
+ Execution Time: 4.415 ms
+(11 rows)
+
+
+# Same statement via OFFSET, for comparison:
+                                              QUERY PLAN                                               
+-------------------------------------------------------------------------------------------------------
+ Limit (actual time=7.670..7.674 rows=20 loops=1)
+   Buffers: shared hit=434
+   ->  Index Only Scan using works_updated_id on works w (actual time=0.044..6.247 rows=40020 loops=1)
+         Heap Fetches: 0
+         Buffers: shared hit=434
+ Planning:
+   Buffers: shared hit=99
+ Planning Time: 0.390 ms
+ Execution Time: 7.701 ms
+(9 rows)
+

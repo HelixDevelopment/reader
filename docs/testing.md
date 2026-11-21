@@ -39,7 +39,7 @@ Paths below are relative to the project root. The generated result index is auth
 | Browser UI | PASS: 64/64 across four viewports | `evidence/ui/final-run.log`; sample-only prototype, not a backend-connected or native-client claim |
 | Microbenchmarks | Recorded for three focused targets | `evidence/core/benchmark-*.log`; `evidence/server/benchmark-range.log`; not enterprise-load evidence |
 | HelixQA | FAIL | `evidence/helixqa-build-test.log`; declared own-org dependencies are incomplete |
-| Repository research | PARTIAL | 106/111 static analyses; five unavailable targets; manual architecture/license review remains open |
+| Repository research | PARTIAL | 111/111 preserved static analyses with complete file ledgers; current checkouts at exact pinned revisions cover 97/111 rows (91/105 unique URLs), 93 rows matching the analysis revision; 14 large targets remain UNAVAILABLE (unpinned, not unreachable); 40 per-repository architecture/license/porting reports under `research/reports/`; manual review remains open |
 | Enterprise scalability | NOT RUN | `docs/scalability-review.md`; functional tests do not prove capacity or horizontal scale |
 | Native clients | NOT DELIVERED | No native OS application or device matrix exists |
 | Container deployment | NOT RUN | Recipes exist; no Docker/Podman cold start, restart, upgrade, or rollback result |
@@ -64,23 +64,23 @@ go test -race ./... -count=1
 go vet ./...
 ```
 
-Frontend:
+Frontend (the React/Vite prototype lives at `demos/interactive_static_demo`):
 
 ```bash
-cd /mnt/agents/output/app
+cd demos/interactive_static_demo
 npm ci --dry-run
 npm run lint
 npm run build
 # Serve the production build on 127.0.0.1:4173 before running:
-python3 /mnt/agents/output/helix/scripts/verify_ui.py \
-  http://127.0.0.1:4173/ \
-  /mnt/agents/output/helix/evidence/ui
+python3 scripts/verify_ui.py http://127.0.0.1:4173/   # evidence written to evidence/ui
 ```
 
-Live current-tree verification:
+Live current-tree verification (run from the repository root; all verification
+scripts derive the repository root from their own location and build binaries
+and scratch data under the gitignored `.helix-verify/` directory):
 
 ```bash
-cd /mnt/agents/output/helix
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/verify_live_server.py
 python3 scripts/verify_live_server.py --restart-daemons
 python3 scripts/verify_live_transport.py
@@ -88,6 +88,16 @@ python3 scripts/verify_backup_restore.py
 python3 scripts/verify_go_mutation.py
 python3 scripts/verify_workable_items.py
 ```
+
+Service endpoints are supplied through the environment, falling back to the
+historical loopback defaults when unset: `HELIX_TEST_POSTGRES_DSN` selects the
+disposable test database for the verifiers (passed to the server as
+`HELIX_POSTGRES_DSN`), `HELIX_TEST_REDIS_ADDR` (`host:port`) selects the Redis
+endpoint (passed to the server as `HELIX_REDIS_URL`), and `HELIX_GO` overrides
+the `go` binary used to build the exact tree under test (otherwise `go` from
+`PATH`). When `redis-server` is not installed locally and no
+`HELIX_TEST_REDIS_ADDR` is provided, the daemon-restart path records an honest
+SKIP instead of starting a daemon.
 
 The live scripts use disposable loopback-only credentials and local test services. The daemon-restart option requires permission to restart qualification PostgreSQL and Redis services; it must never target production. TLS uses a disposable IP-SAN certificate and a verified HTTP/3 client, not insecure certificate skipping.
 

@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestCanonicalIsDeterministicAcrossMapOrder$ -count=1
+--- FAIL: TestCanonicalIsDeterministicAcrossMapOrder (0.01s)
+    canonical_test.go:166: canonical form depends on map iteration order: 198 distinct outputs over 200 runs
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.014s
+FAIL
+
+exit=1

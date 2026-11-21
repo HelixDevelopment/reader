@@ -17,19 +17,31 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from urllib.parse import parse_qsl, unquote, urlsplit, urlunsplit
 
 import requests
 
-ROOT = Path("/mnt/agents/output/helix")
-WORK = Path("/mnt/agents/research/backup-restore")
+ROOT = Path(__file__).resolve().parents[1]
+SCRATCH = ROOT / ".helix-verify"
+WORK = SCRATCH / "backup-restore"
 EVIDENCE = ROOT / "evidence" / "backup-restore"
-BINARY = Path("/mnt/agents/research/helix-server-live")
-GO = os.environ.get("HELIX_GO", "/tmp/helix-go-toolchain/bin/go" if Path("/tmp/helix-go-toolchain/bin/go").exists() else "go")
+BINARY = SCRATCH / "bin" / "helix-server-live"
+GO = os.environ.get("HELIX_GO", "go")
 LIBRARY = WORK / "library"
 USER = getpass.getuser()
 MAIN_DB = "helix_test"
 RESTORE_DB = "helix_restore_test"
 RESTORE_REDIS_PORT = 26379
+# Optional env overrides keep the verifier host-portable. HELIX_TEST_POSTGRES_DSN
+# points at the disposable test database (peer-auth socket default below); the
+# restore database is derived from it by swapping the database name. Credentials
+# from the DSN are passed to child processes via environment only and are never
+# written to any file or log.
+TEST_DSN = os.environ.get("HELIX_TEST_POSTGRES_DSN")
+# Redis endpoint of the running source daemon. HELIX_TEST_REDIS_ADDR (host:port)
+# wins; the fallback is the historical local default.
+REDIS_ADDR = os.environ.get("HELIX_TEST_REDIS_ADDR", "127.0.0.1:6379")
+REDIS_HOST, REDIS_PORT = REDIS_ADDR.rsplit(":", 1)
 checks: list[dict] = []
 processes: list[subprocess.Popen] = []
 work_id = ""
@@ -41,12 +53,51 @@ def require(condition: bool, name: str) -> None:
     checks.append({"name": name, "status": "PASS"})
 
 
-def run(command: list[str], timeout: int = 60) -> None:
-    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=timeout)
+def run(command: list[str], timeout: int = 60, env: dict | None = None) -> None:
+    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=timeout, env=env)
 
 
 def dsn(database: str) -> str:
+    if TEST_DSN:
+        parsed = urlsplit(TEST_DSN)
+        return urlunsplit((parsed.scheme, parsed.netloc, "/" + database, parsed.query, parsed.fragment))
     return f"postgres:///{database}?host=/var/run/postgresql&user={USER}"
+
+
+def pg_environment(database: str) -> dict:
+    """Environment for psql/pg_dump/createdb/dropdb/pg_restore so maintenance
+    commands reach the same endpoint selected by HELIX_TEST_POSTGRES_DSN."""
+    env = os.environ.copy()
+    env["PGDATABASE"] = database
+    if TEST_DSN:
+        parsed = urlsplit(TEST_DSN)
+        if parsed.username:
+            env["PGUSER"] = unquote(parsed.username)
+        if parsed.password:
+            env["PGPASSWORD"] = unquote(parsed.password)
+        if parsed.hostname:
+            env["PGHOST"] = parsed.hostname
+        if parsed.port:
+            env["PGPORT"] = str(parsed.port)
+        for key, value in parse_qsl(parsed.query, keep_blank_values=True):
+            if key == "host":
+                env["PGHOST"] = value
+            elif key == "port":
+                env["PGPORT"] = value
+            elif key == "user":
+                env["PGUSER"] = value
+            elif key == "password":
+                env["PGPASSWORD"] = value
+    else:
+        env["PGHOST"] = "/var/run/postgresql"
+        env["PGUSER"] = USER
+    return env
+
+
+def redis_cli(port: str | int | None = None) -> list[str]:
+    if port in (None, ""):
+        return ["redis-cli", "-h", REDIS_HOST, "-p", REDIS_PORT]
+    return ["redis-cli", "-h", "127.0.0.1", "-p", str(port)]
 
 
 def start_server(port: int, database: str, redis_url: str, log_name: str):
@@ -96,32 +147,33 @@ def stop_server(process) -> None:
 
 
 def redis_ready(port: int) -> bool:
-    return subprocess.run(["redis-cli", "-p", str(port), "ping"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=2).returncode == 0
+    return subprocess.run(redis_cli(port) + ["ping"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=2).returncode == 0
 
 
 def stop_restore_redis() -> None:
     if redis_ready(RESTORE_REDIS_PORT):
-        subprocess.run(["redis-cli", "-p", str(RESTORE_REDIS_PORT), "SHUTDOWN", "NOSAVE"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
+        subprocess.run(redis_cli(RESTORE_REDIS_PORT) + ["SHUTDOWN", "NOSAVE"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
 
 
 def cleanup_main_data() -> None:
+    env = pg_environment(MAIN_DB)
     if work_id:
         subprocess.run([
-            "psql", "-h", "/var/run/postgresql", "-U", USER, "-d", MAIN_DB,
+            "psql", "-d", MAIN_DB,
             "-v", "ON_ERROR_STOP=1", "-v", "work_id=" + work_id,
             "-c", "DELETE FROM works WHERE id=:'work_id'",
-        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15, env=env)
     subprocess.run([
-        "psql", "-h", "/var/run/postgresql", "-U", USER, "-d", MAIN_DB,
+        "psql", "-d", MAIN_DB,
         "-v", "ON_ERROR_STOP=1", "-c", "DELETE FROM ai_memories WHERE id='backup-restore-memory'",
-    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15, env=env)
     part = lambda value: base64.urlsafe_b64encode(value.encode()).decode().rstrip("=")
     key = "helix:v1:progress:" + part("backup-restore-user") + ":" + part("backup-restore-book")
-    subprocess.run(["redis-cli", "DEL", key], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
+    subprocess.run(redis_cli() + ["DEL", key], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
 
 
 def drop_restore_db() -> None:
-    subprocess.run(["dropdb", "-h", "/var/run/postgresql", "-U", USER, "--if-exists", RESTORE_DB], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
+    subprocess.run(["dropdb", "--if-exists", RESTORE_DB], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30, env=pg_environment("postgres"))
 
 
 def build_server() -> None:
@@ -143,7 +195,7 @@ def main() -> int:
         build_server()
         stop_restore_redis()
         drop_restore_db()
-        process, session, base = start_server(28080, MAIN_DB, "redis://127.0.0.1:6379", "source-server.log")
+        process, session, base = start_server(28080, MAIN_DB, "redis://" + REDIS_ADDR, "source-server.log")
         admin = {"Authorization": "Bearer backup-admin-token"}
         basic = requests.auth.HTTPBasicAuth("backup-reader", "backup-password")
         # Deterministic rerun cleanup through the public management surface.
@@ -172,15 +224,22 @@ def main() -> int:
         require(session.put(base + "/v1/sync/progress/backup-restore-user/backup-restore-book", headers=admin, json=progress, timeout=5).status_code == 200, "source progress fixture")
         stop_server(process)
 
-        run(["pg_dump", "--format=custom", "--file=" + str(WORK / "catalog.dump"), "--host=/var/run/postgresql", "--username=" + USER, MAIN_DB], 90)
+        run(["pg_dump", "--format=custom", "--file=" + str(WORK / "catalog.dump"), "-d", MAIN_DB], 90, env=pg_environment(MAIN_DB))
         require((WORK / "catalog.dump").stat().st_size > 0, "PostgreSQL backup created")
-        run(["createdb", "-h", "/var/run/postgresql", "-U", USER, RESTORE_DB], 30)
-        run(["pg_restore", "--exit-on-error", "--no-owner", "--no-privileges", "--host=/var/run/postgresql", "--username=" + USER, "--dbname=" + RESTORE_DB, str(WORK / "catalog.dump")], 90)
+        run(["createdb", RESTORE_DB], 30, env=pg_environment("postgres"))
+        run(["pg_restore", "--exit-on-error", "--no-owner", "--no-privileges", "--dbname=" + RESTORE_DB, str(WORK / "catalog.dump")], 90, env=pg_environment(RESTORE_DB))
         require(True, "PostgreSQL restore into isolated database")
 
-        run(["redis-cli", "SAVE"], 20)
-        shutil.copy2("/mnt/agents/dump.rdb", WORK / "restore.rdb")
+        run(redis_cli() + ["SAVE"], 20)
+        # Copy the snapshot the source daemon just flushed. Its data directory
+        # is discovered from the running daemon instead of assuming a fixed
+        # path from a retired qualification machine.
+        config_reply = subprocess.check_output(redis_cli() + ["CONFIG", "GET", "dir"], text=True, timeout=15)
+        source_rdb = Path(config_reply.splitlines()[-1].strip()) / "dump.rdb"
+        shutil.copy2(source_rdb, WORK / "restore.rdb")
         require((WORK / "restore.rdb").stat().st_size > 0, "Redis backup created")
+        if shutil.which("redis-server") is None:
+            raise RuntimeError("redis-server binary unavailable for the isolated restore daemon")
         run([
             "redis-server", "--bind", "127.0.0.1", "--port", str(RESTORE_REDIS_PORT),
             "--daemonize", "yes", "--dir", str(WORK), "--dbfilename", "restore.rdb",

@@ -1,7 +1,7 @@
 {
-  "status": "PASS",
-  "pass": 38,
-  "fail": 0,
+  "status": "FAIL",
+  "pass": 26,
+  "fail": 1,
   "checks": [
     {
       "name": "health endpoint",
@@ -104,56 +104,12 @@
       "status": "PASS"
     },
     {
-      "name": "Redis and PostgreSQL daemons restarted",
-      "status": "PASS"
-    },
-    {
       "name": "PostgreSQL catalog survives server restart",
       "status": "PASS"
     },
     {
-      "name": "Redis KOSync account survives server restart",
-      "status": "PASS"
-    },
-    {
-      "name": "Redis KOSync progress survives server restart",
-      "status": "PASS"
-    },
-    {
-      "name": "Redis internal progress survives server restart",
-      "status": "PASS"
-    },
-    {
-      "name": "stable source identity reattaches after restart",
-      "status": "PASS"
-    },
-    {
-      "name": "existing file identity serves after source re-registration",
-      "status": "PASS"
-    },
-    {
-      "name": "post-restart source rescan accepted",
-      "status": "PASS"
-    },
-    {
-      "name": "post-restart reconciliation preserves present file",
-      "status": "PASS"
-    },
-    {
-      "name": "stable source rescan does not duplicate files",
-      "status": "PASS"
-    },
-    {
-      "name": "post-test catalog cleanup",
-      "status": "PASS"
-    },
-    {
-      "name": "post-test memory cleanup",
-      "status": "PASS"
-    },
-    {
-      "name": "post-test progress cleanup",
-      "status": "PASS"
+      "name": "completed scan job survives server restart",
+      "status": "FAIL"
     }
   ]
 }

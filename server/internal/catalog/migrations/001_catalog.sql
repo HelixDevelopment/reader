@@ -63,4 +63,3 @@ CREATE TABLE IF NOT EXISTS metadata_evidence (
     PRIMARY KEY (edition_id, field, provider, observed_at)
 );
 CREATE INDEX IF NOT EXISTS works_updated_id ON works(updated_at DESC, id);
-INSERT INTO helix_schema_migrations(version) VALUES (1) ON CONFLICT DO NOTHING;

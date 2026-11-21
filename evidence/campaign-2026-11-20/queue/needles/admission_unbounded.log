@@ -1,0 +1,5 @@
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:264: JOBS BURST #0 submitted=96 queue_full=0 peak_pending=96 submit_ms=33.2 drain_ms=1012.1 timed_out=false
+    load_jobs_test.go:269: burst 0 held 96 non-terminal jobs, above maxPendingScans=64: admission is not bounded
+--- FAIL: TestLiveLoadJobQueueDurability (1.05s)
+FAIL

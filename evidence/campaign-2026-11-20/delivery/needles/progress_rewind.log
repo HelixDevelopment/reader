@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadKOSync
+    load_delivery_test.go:850: a lower percentage rewound stored progress to 0.25, want 0.75
+--- FAIL: TestLiveLoadKOSync (0.57s)
+FAIL

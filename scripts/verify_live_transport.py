@@ -12,12 +12,13 @@ from pathlib import Path
 
 import requests
 
-ROOT = Path("/mnt/agents/output/helix")
-WORK = Path("/mnt/agents/research/helix-transport-tls")
+ROOT = Path(__file__).resolve().parents[1]
+SCRATCH = ROOT / ".helix-verify"
+WORK = SCRATCH / "helix-transport-tls"
 EVIDENCE = ROOT / "evidence" / "live-transport"
-BINARY = Path("/mnt/agents/research/helix-server-live")
-H3CHECK = Path("/mnt/agents/research/helix-http3-check")
-GO = os.environ.get("HELIX_GO", "/tmp/helix-go-toolchain/bin/go" if Path("/tmp/helix-go-toolchain/bin/go").exists() else "go")
+BINARY = SCRATCH / "bin" / "helix-server-live"
+H3CHECK = SCRATCH / "bin" / "helix-http3-check"
+GO = os.environ.get("HELIX_GO", "go")
 BASE = "https://127.0.0.1:28443"
 checks: list[dict] = []
 

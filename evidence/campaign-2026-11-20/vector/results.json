@@ -1,0 +1,1809 @@
+{
+  "test": "vector_search",
+  "source_rows": 22,
+  "runs": {
+    "20261120T215900Z": {
+      "roles": {
+        "plan_at_cardinality": 2,
+        "production_path": 1,
+        "summary": 1
+      },
+      "measurement_path": [
+        "smoke_host_build_in_container"
+      ],
+      "plan_at_cardinality": [
+        {
+          "cardinality": 1000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 64
+        },
+        {
+          "cardinality": 1000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 64
+        }
+      ],
+      "summaries": [
+        {
+          "cardinality": 1000,
+          "dimensions": 64,
+          "emitted_at": "2026-11-20T21:59:21Z",
+          "guc_control_default_plan": "Limit  (cost=0.00..0.29 rows=5 width=9) | ->  Seq Scan on helix_bench.ai_memories  (cost=0.00..58.50 rows=1000 width=9)",
+          "guc_control_forced_plan": "Limit  (cost=0.15..0.82 rows=5 width=9) | ->  Index Scan using ai_memories_scope on helix_bench.ai_memories  (cost=0.15..133.71 rows=1000 width=9)",
+          "hnsw_index_used": false,
+          "index_build_seconds": 0.016,
+          "k": 10,
+          "levels": [
+            1,
+            8
+          ],
+          "limits": "synthetic unit vectors uniform on the sphere with a fixed seed, one scope matching every row, no deletes, no concurrent writers during the ladder, no real embedding model in the loop; recall measured against an exhaustive scan of the same fixture, so it bounds the index's approximation error on separable data, not on production embeddings. HNSW search parameters (ef_search, ef_construction, m) are the compiled-in defaults because none is configurable in this product.",
+          "measurement_path": "smoke_host_build_in_container",
+          "production_path": "measured-small-fixture",
+          "production_plan_default": "seq_scan_topn",
+          "production_plan_index": "ann_index",
+          "production_rows": 1,
+          "queries": 20,
+          "released_plan_default": "seq_scan_topn",
+          "released_plan_index": "other_index_then_sort",
+          "role": "summary",
+          "schema_equivalence": "columns and indexes identical to public.ai_memories (10 columns, 4 indexes; embedding dimension deliberately different)",
+          "seed_seconds": 0.811,
+          "statements": [
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_indexscan=off"
+              ],
+              "ladder": [],
+              "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+              "order_stable": true,
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Incremental Sort  (cost=87.62..88.11 rows=10 width=75) (actual time=0.747..0.748 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=87.61..87.66 rows=10 width=75) (actual time=0.679..0.682 rows=10 loops=1)",
+              "profile": "exact",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.661,
+                "p95_ms": 0.992,
+                "p99_ms": 1.193,
+                "req_per_sec": 1378.07,
+                "wall_ms": 14.51
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "off",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production"
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 1593,
+                  "errors_by_class": {},
+                  "ops": 1593,
+                  "p50_ms": 0.642,
+                  "p95_ms": 0.967,
+                  "p99_ms": 1.337,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 1459.46,
+                  "wall_ms": 1091.5
+                },
+                {
+                  "clients": 8,
+                  "completed": 12739,
+                  "errors_by_class": {},
+                  "ops": 12739,
+                  "p50_ms": 0.889,
+                  "p95_ms": 2.133,
+                  "p99_ms": 8.713,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 6650.88,
+                  "wall_ms": 1915.38
+                }
+              ],
+              "note": "no planner override: whichever path the server picks for an ordinary production connection",
+              "order_stable": true,
+              "p99_over_exact": 1.025,
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Incremental Sort  (cost=87.62..88.11 rows=10 width=75) (actual time=0.993..0.994 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=87.61..87.66 rows=10 width=75) (actual time=0.902..0.906 rows=10 loops=1)",
+              "profile": "default",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.942,
+                "p95_ms": 1.195,
+                "p99_ms": 1.223,
+                "req_per_sec": 1085.6,
+                "wall_ms": 18.42
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "on",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production",
+              "throughput_gain_at_top_x": 4.56
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_seqscan=off",
+                "enable_bitmapscan=off"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 4202,
+                  "errors_by_class": {},
+                  "ops": 4202,
+                  "p50_ms": 0.434,
+                  "p95_ms": 0.751,
+                  "p99_ms": 0.996,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 2094.95,
+                  "wall_ms": 2005.78
+                },
+                {
+                  "clients": 8,
+                  "completed": 33614,
+                  "errors_by_class": {},
+                  "ops": 33614,
+                  "p50_ms": 0.586,
+                  "p95_ms": 1.366,
+                  "p99_ms": 8.003,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 9227.47,
+                  "wall_ms": 3642.82
+                }
+              ],
+              "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+              "order_stable": true,
+              "p99_over_exact": 0.601,
+              "plan_class": "ann_index",
+              "plan_head": "Incremental Sort  (cost=118.76..122.62 rows=10 width=75) (actual time=0.515..0.516 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=118.37..122.17 rows=10 width=75) (actual time=0.441..0.456 rows=10 loops=1)",
+              "profile": "index_forced",
+              "recall_at_k": 0.99,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.357,
+                "p95_ms": 0.421,
+                "p99_ms": 0.717,
+                "req_per_sec": 2606.88,
+                "wall_ms": 7.67
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "off",
+                "enable_indexscan": "on",
+                "enable_seqscan": "off",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production",
+              "throughput_gain_at_top_x": 4.4
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_indexscan=off"
+              ],
+              "ladder": [],
+              "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+              "order_stable": "",
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Limit  (cost=92.61..92.63 rows=10 width=75) (actual time=0.875..0.877 rows=10 loops=1) | ->  Sort  (cost=92.61..95.11 rows=1000 width=75) (actual time=0.874..0.875 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+              "profile": "exact",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.714,
+                "p95_ms": 0.954,
+                "p99_ms": 1.022,
+                "req_per_sec": 1310.62,
+                "wall_ms": 15.26
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "off",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak"
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 2381,
+                  "errors_by_class": {},
+                  "ops": 2381,
+                  "p50_ms": 0.664,
+                  "p95_ms": 0.935,
+                  "p99_ms": 1.29,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 1435.26,
+                  "wall_ms": 1658.93
+                },
+                {
+                  "clients": 8,
+                  "completed": 19048,
+                  "errors_by_class": {},
+                  "ops": 19048,
+                  "p50_ms": 0.874,
+                  "p95_ms": 1.486,
+                  "p99_ms": 7.474,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 7678.42,
+                  "wall_ms": 2480.72
+                }
+              ],
+              "note": "no planner override: whichever path the server picks for an ordinary production connection",
+              "order_stable": "",
+              "p99_over_exact": 0.844,
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Limit  (cost=92.61..92.63 rows=10 width=75) (actual time=0.729..0.730 rows=10 loops=1) | ->  Sort  (cost=92.61..95.11 rows=1000 width=75) (actual time=0.728..0.729 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+              "profile": "default",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.63,
+                "p95_ms": 0.688,
+                "p99_ms": 0.863,
+                "req_per_sec": 1572.33,
+                "wall_ms": 12.72
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "on",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak",
+              "throughput_gain_at_top_x": 5.35
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_seqscan=off",
+                "enable_bitmapscan=off"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 2087,
+                  "errors_by_class": {},
+                  "ops": 2087,
+                  "p50_ms": 0.725,
+                  "p95_ms": 1.947,
+                  "p99_ms": 2.482,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 1067.61,
+                  "wall_ms": 1954.83
+                },
+                {
+                  "clients": 8,
+                  "completed": 16690,
+                  "errors_by_class": {},
+                  "ops": 16690,
+                  "p50_ms": 1.168,
+                  "p95_ms": 5.064,
+                  "p99_ms": 9.931,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 4241.37,
+                  "wall_ms": 3935.05
+                }
+              ],
+              "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+              "order_stable": "",
+              "p99_over_exact": 0.893,
+              "plan_class": "other_index_then_sort",
+              "plan_head": "Limit  (cost=167.82..167.85 rows=10 width=75) (actual time=0.674..0.676 rows=10 loops=1) | ->  Sort  (cost=167.82..170.32 rows=1000 width=75) (actual time=0.673..0.674 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+              "profile": "index_forced",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 20,
+                "errors_by_class": {},
+                "p50_ms": 0.719,
+                "p95_ms": 0.785,
+                "p99_ms": 0.913,
+                "req_per_sec": 1374.57,
+                "wall_ms": 14.55
+              },
+              "session_settings": {
+                "connections_checked": "8",
+                "enable_bitmapscan": "off",
+                "enable_indexscan": "on",
+                "enable_seqscan": "off",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak",
+              "throughput_gain_at_top_x": 3.97
+            }
+          ],
+          "table": "public.ai_memories' column list, types, index set and index names, rebuilt in schema helix_bench at this run's dimension; the unqualified production statement resolves to it through search_path",
+          "test": "vector_search",
+          "vacuum_analyze": true,
+          "run_tag": "20261120T215900Z",
+          "run_mode": "smoke"
+        }
+      ],
+      "headline": {
+        "cardinality": 1000,
+        "dimensions": 64,
+        "emitted_at": "2026-11-20T21:59:21Z",
+        "guc_control_default_plan": "Limit  (cost=0.00..0.29 rows=5 width=9) | ->  Seq Scan on helix_bench.ai_memories  (cost=0.00..58.50 rows=1000 width=9)",
+        "guc_control_forced_plan": "Limit  (cost=0.15..0.82 rows=5 width=9) | ->  Index Scan using ai_memories_scope on helix_bench.ai_memories  (cost=0.15..133.71 rows=1000 width=9)",
+        "hnsw_index_used": false,
+        "index_build_seconds": 0.016,
+        "k": 10,
+        "levels": [
+          1,
+          8
+        ],
+        "limits": "synthetic unit vectors uniform on the sphere with a fixed seed, one scope matching every row, no deletes, no concurrent writers during the ladder, no real embedding model in the loop; recall measured against an exhaustive scan of the same fixture, so it bounds the index's approximation error on separable data, not on production embeddings. HNSW search parameters (ef_search, ef_construction, m) are the compiled-in defaults because none is configurable in this product.",
+        "measurement_path": "smoke_host_build_in_container",
+        "production_path": "measured-small-fixture",
+        "production_plan_default": "seq_scan_topn",
+        "production_plan_index": "ann_index",
+        "production_rows": 1,
+        "queries": 20,
+        "released_plan_default": "seq_scan_topn",
+        "released_plan_index": "other_index_then_sort",
+        "role": "summary",
+        "schema_equivalence": "columns and indexes identical to public.ai_memories (10 columns, 4 indexes; embedding dimension deliberately different)",
+        "seed_seconds": 0.811,
+        "statements": [
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_indexscan=off"
+            ],
+            "ladder": [],
+            "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+            "order_stable": true,
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Incremental Sort  (cost=87.62..88.11 rows=10 width=75) (actual time=0.747..0.748 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=87.61..87.66 rows=10 width=75) (actual time=0.679..0.682 rows=10 loops=1)",
+            "profile": "exact",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.661,
+              "p95_ms": 0.992,
+              "p99_ms": 1.193,
+              "req_per_sec": 1378.07,
+              "wall_ms": 14.51
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "off",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production"
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 1593,
+                "errors_by_class": {},
+                "ops": 1593,
+                "p50_ms": 0.642,
+                "p95_ms": 0.967,
+                "p99_ms": 1.337,
+                "peak_active_backends": 1,
+                "req_per_sec": 1459.46,
+                "wall_ms": 1091.5
+              },
+              {
+                "clients": 8,
+                "completed": 12739,
+                "errors_by_class": {},
+                "ops": 12739,
+                "p50_ms": 0.889,
+                "p95_ms": 2.133,
+                "p99_ms": 8.713,
+                "peak_active_backends": 8,
+                "req_per_sec": 6650.88,
+                "wall_ms": 1915.38
+              }
+            ],
+            "note": "no planner override: whichever path the server picks for an ordinary production connection",
+            "order_stable": true,
+            "p99_over_exact": 1.025,
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Incremental Sort  (cost=87.62..88.11 rows=10 width=75) (actual time=0.993..0.994 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=87.61..87.66 rows=10 width=75) (actual time=0.902..0.906 rows=10 loops=1)",
+            "profile": "default",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.942,
+              "p95_ms": 1.195,
+              "p99_ms": 1.223,
+              "req_per_sec": 1085.6,
+              "wall_ms": 18.42
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "on",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production",
+            "throughput_gain_at_top_x": 4.56
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_seqscan=off",
+              "enable_bitmapscan=off"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 4202,
+                "errors_by_class": {},
+                "ops": 4202,
+                "p50_ms": 0.434,
+                "p95_ms": 0.751,
+                "p99_ms": 0.996,
+                "peak_active_backends": 1,
+                "req_per_sec": 2094.95,
+                "wall_ms": 2005.78
+              },
+              {
+                "clients": 8,
+                "completed": 33614,
+                "errors_by_class": {},
+                "ops": 33614,
+                "p50_ms": 0.586,
+                "p95_ms": 1.366,
+                "p99_ms": 8.003,
+                "peak_active_backends": 8,
+                "req_per_sec": 9227.47,
+                "wall_ms": 3642.82
+              }
+            ],
+            "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+            "order_stable": true,
+            "p99_over_exact": 0.601,
+            "plan_class": "ann_index",
+            "plan_head": "Incremental Sort  (cost=118.76..122.62 rows=10 width=75) (actual time=0.515..0.516 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=118.37..122.17 rows=10 width=75) (actual time=0.441..0.456 rows=10 loops=1)",
+            "profile": "index_forced",
+            "recall_at_k": 0.99,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.357,
+              "p95_ms": 0.421,
+              "p99_ms": 0.717,
+              "req_per_sec": 2606.88,
+              "wall_ms": 7.67
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "off",
+              "enable_indexscan": "on",
+              "enable_seqscan": "off",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production",
+            "throughput_gain_at_top_x": 4.4
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_indexscan=off"
+            ],
+            "ladder": [],
+            "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+            "order_stable": "",
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Limit  (cost=92.61..92.63 rows=10 width=75) (actual time=0.875..0.877 rows=10 loops=1) | ->  Sort  (cost=92.61..95.11 rows=1000 width=75) (actual time=0.874..0.875 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+            "profile": "exact",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.714,
+              "p95_ms": 0.954,
+              "p99_ms": 1.022,
+              "req_per_sec": 1310.62,
+              "wall_ms": 15.26
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "off",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak"
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 2381,
+                "errors_by_class": {},
+                "ops": 2381,
+                "p50_ms": 0.664,
+                "p95_ms": 0.935,
+                "p99_ms": 1.29,
+                "peak_active_backends": 1,
+                "req_per_sec": 1435.26,
+                "wall_ms": 1658.93
+              },
+              {
+                "clients": 8,
+                "completed": 19048,
+                "errors_by_class": {},
+                "ops": 19048,
+                "p50_ms": 0.874,
+                "p95_ms": 1.486,
+                "p99_ms": 7.474,
+                "peak_active_backends": 8,
+                "req_per_sec": 7678.42,
+                "wall_ms": 2480.72
+              }
+            ],
+            "note": "no planner override: whichever path the server picks for an ordinary production connection",
+            "order_stable": "",
+            "p99_over_exact": 0.844,
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Limit  (cost=92.61..92.63 rows=10 width=75) (actual time=0.729..0.730 rows=10 loops=1) | ->  Sort  (cost=92.61..95.11 rows=1000 width=75) (actual time=0.728..0.729 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+            "profile": "default",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.63,
+              "p95_ms": 0.688,
+              "p99_ms": 0.863,
+              "req_per_sec": 1572.33,
+              "wall_ms": 12.72
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "on",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak",
+            "throughput_gain_at_top_x": 5.35
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_seqscan=off",
+              "enable_bitmapscan=off"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 2087,
+                "errors_by_class": {},
+                "ops": 2087,
+                "p50_ms": 0.725,
+                "p95_ms": 1.947,
+                "p99_ms": 2.482,
+                "peak_active_backends": 1,
+                "req_per_sec": 1067.61,
+                "wall_ms": 1954.83
+              },
+              {
+                "clients": 8,
+                "completed": 16690,
+                "errors_by_class": {},
+                "ops": 16690,
+                "p50_ms": 1.168,
+                "p95_ms": 5.064,
+                "p99_ms": 9.931,
+                "peak_active_backends": 8,
+                "req_per_sec": 4241.37,
+                "wall_ms": 3935.05
+              }
+            ],
+            "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+            "order_stable": "",
+            "p99_over_exact": 0.893,
+            "plan_class": "other_index_then_sort",
+            "plan_head": "Limit  (cost=167.82..167.85 rows=10 width=75) (actual time=0.674..0.676 rows=10 loops=1) | ->  Sort  (cost=167.82..170.32 rows=1000 width=75) (actual time=0.673..0.674 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.22492911,-0.20358968,-0.1890292,-0.15670523,-0.053816345,-0.123755746,0.01704808,-0.06310675,0.17851269,-0.03517611,0.047900412,0.1713275,0.01393656,\u2026 | Sort Method: top-N heapsort  Memory: 27kB",
+            "profile": "index_forced",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 20,
+              "errors_by_class": {},
+              "p50_ms": 0.719,
+              "p95_ms": 0.785,
+              "p99_ms": 0.913,
+              "req_per_sec": 1374.57,
+              "wall_ms": 14.55
+            },
+            "session_settings": {
+              "connections_checked": "8",
+              "enable_bitmapscan": "off",
+              "enable_indexscan": "on",
+              "enable_seqscan": "off",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak",
+            "throughput_gain_at_top_x": 3.97
+          }
+        ],
+        "table": "public.ai_memories' column list, types, index set and index names, rebuilt in schema helix_bench at this run's dimension; the unqualified production statement resolves to it through search_path",
+        "test": "vector_search",
+        "vacuum_analyze": true,
+        "run_tag": "20261120T215900Z",
+        "run_mode": "smoke"
+      }
+    },
+    "20261120T215926Z": {
+      "roles": {
+        "plan_at_cardinality": 8
+      },
+      "measurement_path": [
+        "in_container_clean"
+      ],
+      "plan_at_cardinality": [
+        {
+          "cardinality": 1000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 1000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 5000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 5000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 20000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 20000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 50000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 50000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        }
+      ],
+      "summaries": []
+    },
+    "20261120T220611Z": {
+      "roles": {
+        "plan_at_cardinality": 8,
+        "production_path": 1,
+        "summary": 1
+      },
+      "measurement_path": [
+        "in_container_clean"
+      ],
+      "plan_at_cardinality": [
+        {
+          "cardinality": 1000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 1000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 5000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 5000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 20000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 20000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 50000,
+          "statement": "production",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        },
+        {
+          "cardinality": 50000,
+          "statement": "released_tiebreak",
+          "plan_class": "seq_scan_topn",
+          "dimensions": 384
+        }
+      ],
+      "summaries": [
+        {
+          "cardinality": 50000,
+          "dimensions": 384,
+          "emitted_at": "2026-11-20T22:10:14Z",
+          "guc_control_default_plan": "Limit  (cost=0.00..1.31 rows=5 width=11) | ->  Seq Scan on helix_bench.ai_memories  (cost=0.00..13125.00 rows=50000 width=11)",
+          "guc_control_forced_plan": "Limit  (cost=0.29..3.29 rows=5 width=11) | ->  Index Scan using ai_memories_scope on helix_bench.ai_memories  (cost=0.29..29951.23 rows=50000 width=11)",
+          "hnsw_index_used": true,
+          "index_build_seconds": 0.015,
+          "k": 10,
+          "levels": [
+            1,
+            8,
+            32
+          ],
+          "limits": "synthetic unit vectors uniform on the sphere with a fixed seed, one scope matching every row, no deletes, no concurrent writers during the ladder, no real embedding model in the loop; recall measured against an exhaustive scan of the same fixture, so it bounds the index's approximation error on separable data, not on production embeddings. HNSW search parameters (ef_search, ef_construction, m) are the compiled-in defaults because none is configurable in this product.",
+          "measurement_path": "in_container_clean",
+          "production_path": "measured-small-fixture",
+          "production_plan_default": "ann_index",
+          "production_plan_index": "ann_index",
+          "production_rows": 1,
+          "queries": 100,
+          "recall_vs_ef_search": [
+            {
+              "ef_search": 40,
+              "probes": 40,
+              "recall_at_k": 0.1025,
+              "reported_back": "40"
+            },
+            {
+              "ef_search": 100,
+              "probes": 40,
+              "recall_at_k": 0.215,
+              "reported_back": "100"
+            },
+            {
+              "ef_search": 400,
+              "probes": 40,
+              "recall_at_k": 0.5475,
+              "reported_back": "400"
+            }
+          ],
+          "released_plan_default": "seq_scan_topn",
+          "released_plan_index": "other_index_then_sort",
+          "role": "summary",
+          "schema_equivalence": "columns and indexes identical to public.ai_memories (10 columns, 4 indexes; embedding dimension deliberately different)",
+          "seed_seconds": 165.814,
+          "statements": [
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_indexscan=off"
+              ],
+              "ladder": [],
+              "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+              "order_stable": true,
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Incremental Sort  (cost=14367.01..14368.52 rows=10 width=77) (actual time=26.199..32.631 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=14366.88..14368.07 rows=10 width=77) (actual time=26.138..32.573 rows=10 loops=1)",
+              "profile": "exact",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 29.833,
+                "p95_ms": 36.403,
+                "p99_ms": 39.194,
+                "req_per_sec": 32.63,
+                "wall_ms": 3064.63
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "off",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production"
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 806,
+                  "errors_by_class": {},
+                  "ops": 806,
+                  "p50_ms": 1.615,
+                  "p95_ms": 2.338,
+                  "p99_ms": 3.077,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 590.35,
+                  "wall_ms": 1365.3
+                },
+                {
+                  "clients": 8,
+                  "completed": 6442,
+                  "errors_by_class": {},
+                  "ops": 6442,
+                  "p50_ms": 2.607,
+                  "p95_ms": 9.397,
+                  "p99_ms": 18.949,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 2248.27,
+                  "wall_ms": 2865.31
+                },
+                {
+                  "clients": 32,
+                  "completed": 25765,
+                  "errors_by_class": {},
+                  "ops": 25765,
+                  "p50_ms": 8.26,
+                  "p95_ms": 37.834,
+                  "p99_ms": 69.655,
+                  "peak_active_backends": 30,
+                  "req_per_sec": 2748.49,
+                  "wall_ms": 9374.24
+                }
+              ],
+              "note": "no planner override: whichever path the server picks for an ordinary production connection",
+              "order_stable": true,
+              "p99_over_exact": 0.18,
+              "plan_class": "ann_index",
+              "plan_head": "Incremental Sort  (cost=640.75..659.35 rows=10 width=77) (actual time=8.856..8.858 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=638.72..658.90 rows=10 width=77) (actual time=8.743..8.816 rows=10 loops=1)",
+              "profile": "default",
+              "recall_at_k": 0.114,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 1.863,
+                "p95_ms": 5.185,
+                "p99_ms": 7.047,
+                "req_per_sec": 435.33,
+                "wall_ms": 229.71
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "on",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production",
+              "throughput_gain_at_top_x": 4.66
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_seqscan=off",
+                "enable_bitmapscan=off"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 908,
+                  "errors_by_class": {},
+                  "ops": 908,
+                  "p50_ms": 1.632,
+                  "p95_ms": 2.4,
+                  "p99_ms": 3.204,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 581.23,
+                  "wall_ms": 1562.2
+                },
+                {
+                  "clients": 8,
+                  "completed": 7260,
+                  "errors_by_class": {},
+                  "ops": 7260,
+                  "p50_ms": 2.606,
+                  "p95_ms": 7.364,
+                  "p99_ms": 19.105,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 2268.66,
+                  "wall_ms": 3200.12
+                },
+                {
+                  "clients": 32,
+                  "completed": 29039,
+                  "errors_by_class": {},
+                  "ops": 29039,
+                  "p50_ms": 8.207,
+                  "p95_ms": 36.023,
+                  "p99_ms": 66.828,
+                  "peak_active_backends": 30,
+                  "req_per_sec": 2780.64,
+                  "wall_ms": 10443.27
+                }
+              ],
+              "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+              "order_stable": true,
+              "p99_over_exact": 0.084,
+              "plan_class": "ann_index",
+              "plan_head": "Incremental Sort  (cost=640.75..659.35 rows=10 width=77) (actual time=4.390..4.392 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=638.72..658.90 rows=10 width=77) (actual time=4.267..4.346 rows=10 loops=1)",
+              "profile": "index_forced",
+              "recall_at_k": 0.114,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 1.653,
+                "p95_ms": 2.768,
+                "p99_ms": 3.279,
+                "req_per_sec": 562.99,
+                "wall_ms": 177.62
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "off",
+                "enable_indexscan": "on",
+                "enable_seqscan": "off",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "production",
+              "throughput_gain_at_top_x": 4.78
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_indexscan=off"
+              ],
+              "ladder": [],
+              "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+              "order_stable": "",
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Limit  (cost=14471.05..14472.21 rows=10 width=77) (actual time=27.023..31.041 rows=10 loops=1) | ->  Sort  (cost=13471.02..13523.11 rows=20833 width=77) (actual time=23.931..23.932 rows=8 loops=3) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+              "profile": "exact",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 31.238,
+                "p95_ms": 35.416,
+                "p99_ms": 36.666,
+                "req_per_sec": 31.64,
+                "wall_ms": 3160.1
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "off",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak"
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 100,
+                  "errors_by_class": {},
+                  "ops": 100,
+                  "p50_ms": 29.928,
+                  "p95_ms": 32.92,
+                  "p99_ms": 36.268,
+                  "peak_active_backends": 4,
+                  "req_per_sec": 32.97,
+                  "wall_ms": 3033.52
+                },
+                {
+                  "clients": 8,
+                  "completed": 424,
+                  "errors_by_class": {},
+                  "ops": 424,
+                  "p50_ms": 62.698,
+                  "p95_ms": 114.919,
+                  "p99_ms": 151.959,
+                  "peak_active_backends": 15,
+                  "req_per_sec": 117.47,
+                  "wall_ms": 3609.49
+                },
+                {
+                  "clients": 32,
+                  "completed": 1696,
+                  "errors_by_class": {},
+                  "ops": 1696,
+                  "p50_ms": 168.912,
+                  "p95_ms": 317.135,
+                  "p99_ms": 399.919,
+                  "peak_active_backends": 39,
+                  "req_per_sec": 172.82,
+                  "wall_ms": 9813.92
+                }
+              ],
+              "note": "no planner override: whichever path the server picks for an ordinary production connection",
+              "order_stable": "",
+              "p99_over_exact": 0.867,
+              "plan_class": "seq_scan_topn",
+              "plan_head": "Limit  (cost=14471.05..14472.21 rows=10 width=77) (actual time=28.834..36.369 rows=10 loops=1) | ->  Sort  (cost=13471.02..13523.11 rows=20833 width=77) (actual time=23.868..23.870 rows=9 loops=3) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+              "profile": "default",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 28.311,
+                "p95_ms": 30.982,
+                "p99_ms": 31.8,
+                "req_per_sec": 34.86,
+                "wall_ms": 2868.7
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "on",
+                "enable_indexscan": "on",
+                "enable_seqscan": "on",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak",
+              "throughput_gain_at_top_x": 5.24
+            },
+            {
+              "errors": 0,
+              "gucs": [
+                "search_path=helix_bench,public,pg_catalog",
+                "enable_seqscan=off",
+                "enable_bitmapscan=off"
+              ],
+              "ladder": [
+                {
+                  "clients": 1,
+                  "completed": 100,
+                  "errors_by_class": {},
+                  "ops": 100,
+                  "p50_ms": 44.703,
+                  "p95_ms": 53.075,
+                  "p99_ms": 61.365,
+                  "peak_active_backends": 1,
+                  "req_per_sec": 21.96,
+                  "wall_ms": 4554.3
+                },
+                {
+                  "clients": 8,
+                  "completed": 281,
+                  "errors_by_class": {},
+                  "ops": 281,
+                  "p50_ms": 55.97,
+                  "p95_ms": 69.161,
+                  "p99_ms": 94.993,
+                  "peak_active_backends": 8,
+                  "req_per_sec": 135.84,
+                  "wall_ms": 2068.62
+                },
+                {
+                  "clients": 32,
+                  "completed": 1121,
+                  "errors_by_class": {},
+                  "ops": 1121,
+                  "p50_ms": 152.152,
+                  "p95_ms": 294.52,
+                  "p99_ms": 360.66,
+                  "peak_active_backends": 32,
+                  "req_per_sec": 193.39,
+                  "wall_ms": 5796.46
+                }
+              ],
+              "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+              "order_stable": "",
+              "p99_over_exact": 1.383,
+              "plan_class": "other_index_then_sort",
+              "plan_head": "Limit  (cost=31656.71..31656.73 rows=10 width=77) (actual time=54.221..54.223 rows=10 loops=1) | ->  Sort  (cost=31656.71..31781.71 rows=50000 width=77) (actual time=54.220..54.221 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386,0.005\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+              "profile": "index_forced",
+              "recall_at_k": 1,
+              "self_top1": "20/20",
+              "sequential": {
+                "completed": 100,
+                "errors_by_class": {},
+                "p50_ms": 42.844,
+                "p95_ms": 46.36,
+                "p99_ms": 50.726,
+                "req_per_sec": 23.11,
+                "wall_ms": 4326.2
+              },
+              "session_settings": {
+                "connections_checked": "32",
+                "enable_bitmapscan": "off",
+                "enable_indexscan": "on",
+                "enable_seqscan": "off",
+                "search_path": "helix_bench,public,pg_catalog"
+              },
+              "statement": "released_tiebreak",
+              "throughput_gain_at_top_x": 8.81
+            }
+          ],
+          "table": "public.ai_memories' column list, types, index set and index names, rebuilt in schema helix_bench at this run's dimension; the unqualified production statement resolves to it through search_path",
+          "test": "vector_search",
+          "vacuum_analyze": true,
+          "run_tag": "20261120T220611Z",
+          "run_mode": "main"
+        }
+      ],
+      "headline": {
+        "cardinality": 50000,
+        "dimensions": 384,
+        "emitted_at": "2026-11-20T22:10:14Z",
+        "guc_control_default_plan": "Limit  (cost=0.00..1.31 rows=5 width=11) | ->  Seq Scan on helix_bench.ai_memories  (cost=0.00..13125.00 rows=50000 width=11)",
+        "guc_control_forced_plan": "Limit  (cost=0.29..3.29 rows=5 width=11) | ->  Index Scan using ai_memories_scope on helix_bench.ai_memories  (cost=0.29..29951.23 rows=50000 width=11)",
+        "hnsw_index_used": true,
+        "index_build_seconds": 0.015,
+        "k": 10,
+        "levels": [
+          1,
+          8,
+          32
+        ],
+        "limits": "synthetic unit vectors uniform on the sphere with a fixed seed, one scope matching every row, no deletes, no concurrent writers during the ladder, no real embedding model in the loop; recall measured against an exhaustive scan of the same fixture, so it bounds the index's approximation error on separable data, not on production embeddings. HNSW search parameters (ef_search, ef_construction, m) are the compiled-in defaults because none is configurable in this product.",
+        "measurement_path": "in_container_clean",
+        "production_path": "measured-small-fixture",
+        "production_plan_default": "ann_index",
+        "production_plan_index": "ann_index",
+        "production_rows": 1,
+        "queries": 100,
+        "recall_vs_ef_search": [
+          {
+            "ef_search": 40,
+            "probes": 40,
+            "recall_at_k": 0.1025,
+            "reported_back": "40"
+          },
+          {
+            "ef_search": 100,
+            "probes": 40,
+            "recall_at_k": 0.215,
+            "reported_back": "100"
+          },
+          {
+            "ef_search": 400,
+            "probes": 40,
+            "recall_at_k": 0.5475,
+            "reported_back": "400"
+          }
+        ],
+        "released_plan_default": "seq_scan_topn",
+        "released_plan_index": "other_index_then_sort",
+        "role": "summary",
+        "schema_equivalence": "columns and indexes identical to public.ai_memories (10 columns, 4 indexes; embedding dimension deliberately different)",
+        "seed_seconds": 165.814,
+        "statements": [
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_indexscan=off"
+            ],
+            "ladder": [],
+            "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+            "order_stable": true,
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Incremental Sort  (cost=14367.01..14368.52 rows=10 width=77) (actual time=26.199..32.631 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=14366.88..14368.07 rows=10 width=77) (actual time=26.138..32.573 rows=10 loops=1)",
+            "profile": "exact",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 29.833,
+              "p95_ms": 36.403,
+              "p99_ms": 39.194,
+              "req_per_sec": 32.63,
+              "wall_ms": 3064.63
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "off",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production"
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 806,
+                "errors_by_class": {},
+                "ops": 806,
+                "p50_ms": 1.615,
+                "p95_ms": 2.338,
+                "p99_ms": 3.077,
+                "peak_active_backends": 1,
+                "req_per_sec": 590.35,
+                "wall_ms": 1365.3
+              },
+              {
+                "clients": 8,
+                "completed": 6442,
+                "errors_by_class": {},
+                "ops": 6442,
+                "p50_ms": 2.607,
+                "p95_ms": 9.397,
+                "p99_ms": 18.949,
+                "peak_active_backends": 8,
+                "req_per_sec": 2248.27,
+                "wall_ms": 2865.31
+              },
+              {
+                "clients": 32,
+                "completed": 25765,
+                "errors_by_class": {},
+                "ops": 25765,
+                "p50_ms": 8.26,
+                "p95_ms": 37.834,
+                "p99_ms": 69.655,
+                "peak_active_backends": 30,
+                "req_per_sec": 2748.49,
+                "wall_ms": 9374.24
+              }
+            ],
+            "note": "no planner override: whichever path the server picks for an ordinary production connection",
+            "order_stable": true,
+            "p99_over_exact": 0.18,
+            "plan_class": "ann_index",
+            "plan_head": "Incremental Sort  (cost=640.75..659.35 rows=10 width=77) (actual time=8.856..8.858 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=638.72..658.90 rows=10 width=77) (actual time=8.743..8.816 rows=10 loops=1)",
+            "profile": "default",
+            "recall_at_k": 0.114,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 1.863,
+              "p95_ms": 5.185,
+              "p99_ms": 7.047,
+              "req_per_sec": 435.33,
+              "wall_ms": 229.71
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "on",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production",
+            "throughput_gain_at_top_x": 4.66
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_seqscan=off",
+              "enable_bitmapscan=off"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 908,
+                "errors_by_class": {},
+                "ops": 908,
+                "p50_ms": 1.632,
+                "p95_ms": 2.4,
+                "p99_ms": 3.204,
+                "peak_active_backends": 1,
+                "req_per_sec": 581.23,
+                "wall_ms": 1562.2
+              },
+              {
+                "clients": 8,
+                "completed": 7260,
+                "errors_by_class": {},
+                "ops": 7260,
+                "p50_ms": 2.606,
+                "p95_ms": 7.364,
+                "p99_ms": 19.105,
+                "peak_active_backends": 8,
+                "req_per_sec": 2268.66,
+                "wall_ms": 3200.12
+              },
+              {
+                "clients": 32,
+                "completed": 29039,
+                "errors_by_class": {},
+                "ops": 29039,
+                "p50_ms": 8.207,
+                "p95_ms": 36.023,
+                "p99_ms": 66.828,
+                "peak_active_backends": 30,
+                "req_per_sec": 2780.64,
+                "wall_ms": 10443.27
+              }
+            ],
+            "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+            "order_stable": true,
+            "p99_over_exact": 0.084,
+            "plan_class": "ann_index",
+            "plan_head": "Incremental Sort  (cost=640.75..659.35 rows=10 width=77) (actual time=4.390..4.392 rows=10 loops=1) | Sort Key: ranked.distance, ranked.id | Full-sort Groups: 1  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB | ->  Subquery Scan on ranked  (cost=638.72..658.90 rows=10 width=77) (actual time=4.267..4.346 rows=10 loops=1)",
+            "profile": "index_forced",
+            "recall_at_k": 0.114,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 1.653,
+              "p95_ms": 2.768,
+              "p99_ms": 3.279,
+              "req_per_sec": 562.99,
+              "wall_ms": 177.62
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "off",
+              "enable_indexscan": "on",
+              "enable_seqscan": "off",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "production",
+            "throughput_gain_at_top_x": 4.78
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_indexscan=off"
+            ],
+            "ladder": [],
+            "note": "exhaustive scan: the recall ground truth, and the cost of the same statement without any index",
+            "order_stable": "",
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Limit  (cost=14471.05..14472.21 rows=10 width=77) (actual time=27.023..31.041 rows=10 loops=1) | ->  Sort  (cost=13471.02..13523.11 rows=20833 width=77) (actual time=23.931..23.932 rows=8 loops=3) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+            "profile": "exact",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 31.238,
+              "p95_ms": 35.416,
+              "p99_ms": 36.666,
+              "req_per_sec": 31.64,
+              "wall_ms": 3160.1
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "off",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak"
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 100,
+                "errors_by_class": {},
+                "ops": 100,
+                "p50_ms": 29.928,
+                "p95_ms": 32.92,
+                "p99_ms": 36.268,
+                "peak_active_backends": 4,
+                "req_per_sec": 32.97,
+                "wall_ms": 3033.52
+              },
+              {
+                "clients": 8,
+                "completed": 424,
+                "errors_by_class": {},
+                "ops": 424,
+                "p50_ms": 62.698,
+                "p95_ms": 114.919,
+                "p99_ms": 151.959,
+                "peak_active_backends": 15,
+                "req_per_sec": 117.47,
+                "wall_ms": 3609.49
+              },
+              {
+                "clients": 32,
+                "completed": 1696,
+                "errors_by_class": {},
+                "ops": 1696,
+                "p50_ms": 168.912,
+                "p95_ms": 317.135,
+                "p99_ms": 399.919,
+                "peak_active_backends": 39,
+                "req_per_sec": 172.82,
+                "wall_ms": 9813.92
+              }
+            ],
+            "note": "no planner override: whichever path the server picks for an ordinary production connection",
+            "order_stable": "",
+            "p99_over_exact": 0.867,
+            "plan_class": "seq_scan_topn",
+            "plan_head": "Limit  (cost=14471.05..14472.21 rows=10 width=77) (actual time=28.834..36.369 rows=10 loops=1) | ->  Sort  (cost=13471.02..13523.11 rows=20833 width=77) (actual time=23.868..23.870 rows=9 loops=3) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+            "profile": "default",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 28.311,
+              "p95_ms": 30.982,
+              "p99_ms": 31.8,
+              "req_per_sec": 34.86,
+              "wall_ms": 2868.7
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "on",
+              "enable_indexscan": "on",
+              "enable_seqscan": "on",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak",
+            "throughput_gain_at_top_x": 5.24
+          },
+          {
+            "errors": 0,
+            "gucs": [
+              "search_path=helix_bench,public,pg_catalog",
+              "enable_seqscan=off",
+              "enable_bitmapscan=off"
+            ],
+            "ladder": [
+              {
+                "clients": 1,
+                "completed": 100,
+                "errors_by_class": {},
+                "ops": 100,
+                "p50_ms": 44.703,
+                "p95_ms": 53.075,
+                "p99_ms": 61.365,
+                "peak_active_backends": 1,
+                "req_per_sec": 21.96,
+                "wall_ms": 4554.3
+              },
+              {
+                "clients": 8,
+                "completed": 281,
+                "errors_by_class": {},
+                "ops": 281,
+                "p50_ms": 55.97,
+                "p95_ms": 69.161,
+                "p99_ms": 94.993,
+                "peak_active_backends": 8,
+                "req_per_sec": 135.84,
+                "wall_ms": 2068.62
+              },
+              {
+                "clients": 32,
+                "completed": 1121,
+                "errors_by_class": {},
+                "ops": 1121,
+                "p50_ms": 152.152,
+                "p95_ms": 294.52,
+                "p99_ms": 360.66,
+                "peak_active_backends": 32,
+                "req_per_sec": 193.39,
+                "wall_ms": 5796.46
+              }
+            ],
+            "note": "scan-and-sort denied, so this is the HNSW path wherever a statement is able to take it",
+            "order_stable": "",
+            "p99_over_exact": 1.383,
+            "plan_class": "other_index_then_sort",
+            "plan_head": "Limit  (cost=31656.71..31656.73 rows=10 width=77) (actual time=54.221..54.223 rows=10 loops=1) | ->  Sort  (cost=31656.71..31781.71 rows=50000 width=77) (actual time=54.220..54.221 rows=10 loops=1) | Sort Key: ((ai_memories.embedding <=> '[-0.08799297,-0.07964492,-0.07394882,-0.061303582,-0.021053122,-0.048413638,0.0066692624,-0.02468756,0.06983473,-0.013761004,0.018738791,0.06702386,0.005\u2026 | Sort Method: top-N heapsort  Memory: 26kB",
+            "profile": "index_forced",
+            "recall_at_k": 1,
+            "self_top1": "20/20",
+            "sequential": {
+              "completed": 100,
+              "errors_by_class": {},
+              "p50_ms": 42.844,
+              "p95_ms": 46.36,
+              "p99_ms": 50.726,
+              "req_per_sec": 23.11,
+              "wall_ms": 4326.2
+            },
+            "session_settings": {
+              "connections_checked": "32",
+              "enable_bitmapscan": "off",
+              "enable_indexscan": "on",
+              "enable_seqscan": "off",
+              "search_path": "helix_bench,public,pg_catalog"
+            },
+            "statement": "released_tiebreak",
+            "throughput_gain_at_top_x": 8.81
+          }
+        ],
+        "table": "public.ai_memories' column list, types, index set and index names, rebuilt in schema helix_bench at this run's dimension; the unqualified production statement resolves to it through search_path",
+        "test": "vector_search",
+        "vacuum_analyze": true,
+        "run_tag": "20261120T220611Z",
+        "run_mode": "main"
+      }
+    }
+  },
+  "needle_gate": {
+    "generated_at": "2026-11-20T21:58:06Z",
+    "harness": "server/internal/aimemory/vector_load_test.go",
+    "environment": {
+      "HELIX_TEST_POSTGRES_DSN": "postgres://helixqual@127.0.0.1:34320/helix_test?sslmode=disable",
+      "HELIX_LOAD_RUN": "1",
+      "HELIX_MEASUREMENT_PATH": "needle_gate",
+      "HELIX_VECTOR_ROWS": "5000",
+      "HELIX_VECTOR_DIMS": "64",
+      "HELIX_VECTOR_QUERIES": "20",
+      "HELIX_VECTOR_K": "10",
+      "HELIX_LOAD_LEVELS": "1,8",
+      "HELIX_LOAD_TIMEOUT_SECONDS": "90"
+    },
+    "mutations": [
+      {
+        "id": "M1_hnsw_index_never_created",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "create bench index",
+          "drifted from production",
+          "did not read the HNSW index"
+        ],
+        "what": "the bench schema is created without the HNSW index at all",
+        "find": "\t\tfmt.Sprintf(\"CREATE INDEX %s ON %s.%s USING hnsw(embedding vector_cosine_ops)\", benchHNSWIndex, benchSchema, benchTable),\n",
+        "replace": "",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "drifted from production"
+        ],
+        "first_failure": "vector_load_test.go:607: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]"
+      },
+      {
+        "id": "M2_index_forced_profile_neutralized",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "did not read the HNSW index",
+          "but the profile requires",
+          "not reaching the session"
+        ],
+        "what": "the index_forced profile keeps its label but loses its planner settings",
+        "find": "{name: \"index_forced\", gucs: []string{pathGUC, \"enable_seqscan=off\", \"enable_bitmapscan=off\"}, ladder: true,",
+        "replace": "{name: \"index_forced\", gucs: []string{pathGUC}, ladder: true,",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "but the profile requires"
+        ],
+        "first_failure": "vector_load_test.go:727: production/index_forced: connection 0 reports enable_seqscan=\"on\" but the profile requires \"off\", so its figures would describe a different access path than the one they are labelled with"
+      },
+      {
+        "id": "M3_ladder_secretly_serial",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "never had a second backend active",
+          "throughput needle"
+        ],
+        "what": "the concurrent ladder runs one client at a time but still labels the level by its client count",
+        "find": "lats, errs, err := benchRun(ctx, clients, ops,",
+        "replace": "lats, errs, err := benchRun(ctx, 1, ops,",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "never had a second backend active"
+        ],
+        "first_failure": "vector_load_test.go:723: statement production profile default ladder 8 clients never had a second backend active at the same time (peak 1), so the ladder measured serialization and not concurrency"
+      },
+      {
+        "id": "M4_queries_ask_for_k_minus_1",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "want 10 (cardinality"
+        ],
+        "what": "every query silently asks for one fewer row than the configured k",
+        "find": "q.QueryContext(ctx, sh.query, scope, VectorLiteral(vec), k)",
+        "replace": "q.QueryContext(ctx, sh.query, scope, VectorLiteral(vec), k-1)",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "want 10 (cardinality"
+        ],
+        "first_failure": "vector_load_test.go:723: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)"
+      },
+      {
+        "id": "M5_fixture_collapsed_to_one_vector",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "returned the probe row itself",
+          "recall@10 is"
+        ],
+        "what": "the synthetic corpus is all one repeated vector, so nothing has a nearest neighbour",
+        "find": "x := next()*2 - 1",
+        "replace": "x := next()*0 + 0.5",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "recall@10 is"
+        ],
+        "first_failure": "vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: below any plausible approximation error, so the fixture or the comparison is broken"
+      },
+      {
+        "id": "M6_search_path_never_applied",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "want 10 (cardinality",
+          "drifted from production",
+          "unclassified",
+          "measuring production's table rather than this fixture"
+        ],
+        "what": "profiles connect without the bench search_path, so the unqualified statement runs against production's 3-row table",
+        "find": "arguments = append(arguments, \"-c \"+setting)",
+        "replace": "if !strings.Contains(setting, \"search_path\") {\n\t\t\t\targuments = append(arguments, \"-c \"+setting)\n\t\t\t}",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "measuring production's table rather than this fixture"
+        ],
+        "first_failure": "vector_load_test.go:729: production/exact: connection 0 searches \"\\\"$user\\\", public\" instead of \"helix_bench,public,pg_catalog\", so it is measuring production's table rather than this fixture"
+      },
+      {
+        "id": "M7_column_list_drifts",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "drifted from production"
+        ],
+        "what": "the bench table is created without the model column production selects",
+        "find": "metadata JSONB NOT NULL DEFAULT '{}'::jsonb,model TEXT NOT NULL,",
+        "replace": "metadata JSONB NOT NULL DEFAULT '{}'::jsonb,",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "drifted from production"
+        ],
+        "first_failure": "vector_load_test.go:602: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time"
+      },
+      {
+        "id": "M9_serial_ladder_with_blind_sampler",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "throughput needle"
+        ],
+        "what": "the ladder runs one client while the sampler also counts idle backends, so the peak-backend needle can no longer see the serialization",
+        "find": "lats, errs, err := benchRun(ctx, clients, ops,",
+        "replace": "lats, errs, err := benchRun(ctx, 1, ops,",
+        "also": [
+          {
+            "find": "AND state = 'active'",
+            "replace": "AND state IN ('active','idle')"
+          }
+        ],
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "throughput needle"
+        ],
+        "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1401.9 req/s against 1307.1 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity"
+      },
+      {
+        "id": "M8_index_opclass_drifts",
+        "file": "/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go",
+        "expect": [
+          "drifted from production"
+        ],
+        "what": "the bench HNSW index is built on L2 distance instead of cosine",
+        "find": "USING hnsw(embedding vector_cosine_ops)",
+        "replace": "USING hnsw(embedding vector_l2_ops)",
+        "outcome": "detected",
+        "detected": true,
+        "exit": 1,
+        "matched": [
+          "drifted from production"
+        ],
+        "first_failure": "vector_load_test.go:608: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]"
+      }
+    ],
+    "all_detected": true
+  }
+}

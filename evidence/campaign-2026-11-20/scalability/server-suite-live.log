@@ -1,0 +1,20 @@
+build=0
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.056s
+ok  	github.com/helixreader/helix/server/internal/catalog	60.421s
+ok  	github.com/helixreader/helix/server/internal/config	0.007s
+ok  	github.com/helixreader/helix/server/internal/covers	0.015s
+ok  	github.com/helixreader/helix/server/internal/httpapi	4.430s
+ok  	github.com/helixreader/helix/server/internal/identify	0.021s
+ok  	github.com/helixreader/helix/server/internal/ingest	0.128s
+ok  	github.com/helixreader/helix/server/internal/kosync	0.459s
+ok  	github.com/helixreader/helix/server/internal/opds	0.008s
+ok  	github.com/helixreader/helix/server/internal/sources	0.257s
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.012s
+test=0
+ok  	github.com/helixreader/helix/server/internal/catalog	1.022s
+ok  	github.com/helixreader/helix/server/internal/httpapi	17.223s
+ok  	github.com/helixreader/helix/server/internal/opds	1.031s
+ok  	github.com/helixreader/helix/server/internal/ingest	1.058s
+race=0

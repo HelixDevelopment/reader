@@ -1,0 +1,15 @@
+$ go test ./pkg/lcp -run ^TestParseRejectsIncompleteLicenses$ -count=1
+--- FAIL: TestParseRejectsIncompleteLicenses (0.00s)
+    --- FAIL: TestParseRejectsIncompleteLicenses/signature (0.00s)
+        license_test.go:69: Parse without signature error = <nil>, want ErrIncomplete
+    --- FAIL: TestParseRejectsIncompleteLicenses/signature/algorithm (0.00s)
+        license_test.go:69: Parse without signature/algorithm error = <nil>, want ErrIncomplete
+    --- FAIL: TestParseRejectsIncompleteLicenses/signature/certificate (0.00s)
+        license_test.go:69: Parse without signature/certificate error = <nil>, want ErrIncomplete
+    --- FAIL: TestParseRejectsIncompleteLicenses/signature/value (0.00s)
+        license_test.go:69: Parse without signature/value error = <nil>, want ErrIncomplete
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.010s
+FAIL
+
+exit=1

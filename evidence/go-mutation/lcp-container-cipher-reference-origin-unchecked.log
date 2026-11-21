@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestContainerKeepsCipherReferencesInsideTheContainer$ -count=1
+--- FAIL: TestContainerKeepsCipherReferencesInsideTheContainer (0.18s)
+    container_negative_test.go:168: CipherReference "http://example.org/ch1.html" error = <nil>, want ErrLicenseSyntax
+    container_negative_test.go:168: CipherReference "file:///etc/passwd" error = <nil>, want ErrLicenseSyntax
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.190s
+FAIL
+
+exit=1

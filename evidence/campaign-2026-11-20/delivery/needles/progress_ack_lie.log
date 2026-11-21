@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadKOSync
+    load_delivery_test.go:961: the acknowledged progress is not the persisted state: ack says (0.1000,ack-low), the store says (0.9000,ack-high)
+--- FAIL: TestLiveLoadKOSync (0.97s)
+FAIL

@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestCheckPassphraseRefusesUnsupportedProfile$ -count=1
+--- FAIL: TestCheckPassphraseRefusesUnsupportedProfile (0.00s)
+    license_test.go:269: ContentKey error = <nil>, want ErrUnsupportedProfile
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
+FAIL
+
+exit=1

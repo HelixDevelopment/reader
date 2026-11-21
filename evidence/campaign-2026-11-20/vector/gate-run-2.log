@@ -1,0 +1,22 @@
+[2026-11-20T21:55:23Z] backed up ['/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go', '/home/milosvasic/Projects/helix_reader/server/internal/aimemory/postgres.go'] to /tmp/helix-vector-go-files.json
+[2026-11-20T21:55:24Z] M1_hnsw_index_never_created: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:24Z]     first failure: vector_load_test.go:612: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:55:30Z] M2_index_forced_profile_neutralized: DETECTED exit=1 matched=['never asks for']
+[2026-11-20T21:55:30Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:36Z] M3_ladder_secretly_serial: BLIND exit=1 matched=[]
+[2026-11-20T21:55:36Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_seqscan=on but its connection never asks for enable_seqscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:42Z] M4_queries_ask_for_k_minus_1: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T21:55:42Z]     first failure: vector_load_test.go:728: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T21:55:45Z] M5_fixture_collapsed_to_one_vector: BLIND exit=1 matched=[]
+[2026-11-20T21:55:45Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:50Z] M6_search_path_never_applied: BLIND exit=1 matched=[]
+[2026-11-20T21:55:50Z]     first failure: vector_load_test.go:734: production/exact: connection 0 searches "\"$user\", public" instead of "helix_bench,public,pg_catalog", so it is measuring production's table rather than this fixture
+[2026-11-20T21:55:51Z] M7_column_list_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:51Z]     first failure: vector_load_test.go:607: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time
+[2026-11-20T21:55:57Z] M9_serial_ladder_with_blind_sampler: BLIND exit=1 matched=[]
+[2026-11-20T21:55:57Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:58Z] M8_index_opclass_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:58Z]     first failure: vector_load_test.go:613: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:55:58Z] tree restored byte-for-byte from the backup
+[2026-11-20T21:55:59Z] post-restore build exit=0
+[2026-11-20T21:55:59Z] results: /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/vector/needle_gate_results.json

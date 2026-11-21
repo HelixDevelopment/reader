@@ -7,6 +7,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import resource
 import shutil
 import signal
@@ -116,6 +117,15 @@ def mutations(root: Path):
         ("markdown-drift-gate", 'if not path.exists() or path.read_bytes() != content.encode("utf-8"):', 'if False:', "test_export_and_drift_detection"),
         ("remote-push-anti-bluff", '"payload": payload, "remote_status": "NOT RUN",', '"payload": payload, "remote_status": "pushed",', "test_outbox_never_claims_remote_push"),
         ("attribution-roundtrip", 'created_by = "" if created_by == "UNKNOWN" else created_by', 'created_by = ""', "test_markdown_database_markdown_round_trip"),
+        # HTML history rendering is the fix for the pdf-documents-current defect: if the
+        # generator drops history from one format again, this mutant must be rejected.
+        # A progress event that loses its artifact pointer would make the history
+        # uncheckable, so dropping it on update must break a test.
+        ("update-evidence-gate",
+         'history(db, args.atm_id, "Updated", args.actor, args.reason, args.evidence)',
+         'history(db, args.atm_id, "Updated", args.actor, args.reason, "")',
+         "test_close_reopen_and_update_lifecycle"),
+        ("html-history-gate", '                events = history_lines(db, i["atm_id"])\n                if events:', '                events = []\n                if events:', "test_derived_documents_carry_history_and_lifecycle_details"),
     ]
     for name, old, new, test in cases:
         case = root / name
@@ -134,11 +144,44 @@ def mutations(root: Path):
         record("mutation-" + name, "PASS" if completed.returncode != 0 else "FAIL", completed.stdout[-3000:], mutant_rejected=completed.returncode != 0)
 
 
+def pdf_currency():
+    """`diff()` compares generated Markdown and HTML only, so a PDF left behind by an
+    export that died partway is invisible to the drift gate. This checks each PDF
+    against the registry that produced it: it must exist, be non-trivial, and carry
+    exactly the ATM identifiers its Markdown sibling carries."""
+    if shutil.which("pdftotext") is None or shutil.which("pdfinfo") is None:
+        record("pdf-documents-current", "FAIL", "poppler pdftotext/pdfinfo absent; PDF currency cannot be verified rather than assumed")
+        return
+    db = wi.connect(ROOT / "docs" / "workable_items.db")
+    documents = wi.markdown_documents(db)
+    db.close()
+    problems = []
+    detail = {}
+    for name, markdown in documents.items():
+        pdf = ROOT / "docs" / (name[:-3] + ".pdf")
+        if not pdf.exists():
+            problems.append(f"{name}: PDF missing")
+            continue
+        size = pdf.stat().st_size
+        pages = subprocess.run(["pdfinfo", str(pdf)], text=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
+        page_count = next((int(line.split()[-1]) for line in pages.splitlines() if line.startswith("Pages:")), 0)
+        text = subprocess.run(["pdftotext", str(pdf), "-"], text=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
+        in_pdf = set(re.findall(r"ATM-\d{3,}", text))
+        in_markdown = set(re.findall(r"ATM-\d{3,}", markdown))
+        detail[name] = {"bytes": size, "pages": page_count, "identifiers": len(in_pdf)}
+        if size < 1024 or page_count < 1:
+            problems.append(f"{name}: PDF is {size} bytes / {page_count} pages")
+        if in_pdf != in_markdown:
+            problems.append(f"{name}: identifiers differ from Markdown (only in PDF: {sorted(in_pdf - in_markdown)}, only in Markdown: {sorted(in_markdown - in_pdf)})")
+    record("pdf-documents-current", "PASS" if not problems else "FAIL", json.dumps({"problems": problems, **detail}, sort_keys=True))
+
+
 def main():
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     run("registry-unit-integration", [sys.executable, "-m", "unittest", "-v", "tests.test_workable_items"])
     run("authoritative-registry-validation", [sys.executable, "scripts/workable_items.py", "validate"])
     run("authoritative-export-drift", [sys.executable, "scripts/workable_items.py", "diff"])
+    pdf_currency()
     with tempfile.TemporaryDirectory(prefix="helix-wi-qualification-") as temp:
         root = Path(temp)
         stress(root)

@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestVerifyWithoutRootsConfigured$ -count=1
+--- FAIL: TestVerifyWithoutRootsConfigured (0.20s)
+    signature_test.go:260: error = lcp: provider certificate is not signed by a trusted root: Helix Test License Authority, want it to say "no root certificate configured"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.211s
+FAIL
+
+exit=1

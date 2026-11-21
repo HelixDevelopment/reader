@@ -61,7 +61,42 @@ func OpenSearch12(base string) ([]byte, error) {
 	return xml.MarshalIndent(d, "", "  ")
 }
 
-func pageURL(path string, q catalog.Query, offset int) string {
+// pagePos is where a generated link starts: an offset in offset paging, a
+// cursor in keyset paging. The two cannot be mixed in one link because the
+// server ignores the offset once a cursor is present.
+type pagePos struct {
+	offset int
+	after  *catalog.Cursor
+}
+
+// selfPos is the position of the page being rendered.
+func selfPos(q catalog.Query) pagePos {
+	if q.After != nil {
+		return pagePos{after: q.After}
+	}
+	return pagePos{offset: q.Offset}
+}
+
+// nextPos is where the following page starts, or nil when this page is the last.
+// It trusts the repository's HasNext rather than arithmetic on the total: a
+// client paging by cursor must be able to reach the end without the feed having
+// to know how many rows match, and a count that is wrong or absent must not be
+// able to advertise a page that does not exist.
+func nextPos(q catalog.Query, page catalog.Page) *pagePos {
+	if !page.HasNext {
+		return nil
+	}
+	if q.After != nil {
+		cursor := catalog.CursorAfter(page.Works)
+		if cursor == nil {
+			return nil
+		}
+		return &pagePos{after: cursor}
+	}
+	return &pagePos{offset: q.Offset + q.Limit}
+}
+
+func pageURL(path string, q catalog.Query, pos pagePos) string {
 	v := url.Values{}
 	if q.Text != "" {
 		v.Set("q", q.Text)
@@ -72,7 +107,11 @@ func pageURL(path string, q catalog.Query, offset int) string {
 	if q.State != "" {
 		v.Set("state", string(q.State))
 	}
-	v.Set("offset", strconv.Itoa(offset))
+	if pos.after != nil {
+		v.Set("after", pos.after.Encode())
+	} else {
+		v.Set("offset", strconv.Itoa(pos.offset))
+	}
 	v.Set("limit", strconv.Itoa(q.Limit))
 	return path + "?" + v.Encode()
 }
@@ -82,18 +121,21 @@ func Acquisition12(path string, page catalog.Page, q catalog.Query) ([]byte, err
 	if len(page.Works) > 0 {
 		updated = page.Works[0].UpdatedAt
 	}
-	f := feed12(pageURL(path, q, q.Offset), "Helix Publications", updated, MIME12Acquisition)
+	f := feed12(pageURL(path, q, selfPos(q)), "Helix Publications", updated, MIME12Acquisition)
 	f.TotalResults, f.ItemsPerPage = page.Total, page.Limit
 	f.Links = append(f.Links, Link12{Rel: "search", HREF: "/opds/1.2/opensearch.xml", Type: MIMEOpenSearch})
-	if q.Offset > 0 {
+	// A previous page is only addressable in offset mode: a cursor points after a
+	// row the client has already left, and the first row of the page before this
+	// one is not something the current request can reconstruct.
+	if q.After == nil && q.Offset > 0 {
 		prev := q.Offset - q.Limit
 		if prev < 0 {
 			prev = 0
 		}
-		f.Links = append(f.Links, Link12{Rel: "previous", HREF: pageURL(path, q, prev), Type: MIME12Acquisition})
+		f.Links = append(f.Links, Link12{Rel: "previous", HREF: pageURL(path, q, pagePos{offset: prev}), Type: MIME12Acquisition})
 	}
-	if q.Offset+len(page.Works) < page.Total {
-		f.Links = append(f.Links, Link12{Rel: "next", HREF: pageURL(path, q, q.Offset+q.Limit), Type: MIME12Acquisition})
+	if next := nextPos(q, page); next != nil {
+		f.Links = append(f.Links, Link12{Rel: "next", HREF: pageURL(path, q, *next), Type: MIME12Acquisition})
 	}
 	for _, w := range page.Works {
 		for _, e := range w.Editions {

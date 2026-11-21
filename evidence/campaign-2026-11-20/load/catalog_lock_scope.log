@@ -1,0 +1,8 @@
+=== RUN   TestCatalogIdentityLockScopeThroughput
+    lock_scope_test.go:638: SCOPE legacy-global completed=320/320 errors=0 elapsed=1.18s ops_per_sec=271.94
+    lock_scope_test.go:638: SCOPE production completed=320/320 errors=0 elapsed=0.20s ops_per_sec=1592.21
+    lock_scope_test.go:638: SCOPE removed completed=320/320 errors=0 elapsed=0.18s ops_per_sec=1789.00
+    lock_scope_test.go:647: LOADJSON {"clients":8,"emitted_at":"2026-11-20T20:30:34Z","measurement_path":"in_container_clean","ops_per_client":40,"phases":{"legacy-global":{"completed":320,"elapsed_seconds":1.176714486,"errors":0,"ops":320,"ops_per_second":271.94362252458916},"production":{"completed":320,"elapsed_seconds":0.20097837,"errors":0,"ops":320,"ops_per_second":1592.2111419253724},"removed":{"completed":320,"elapsed_seconds":0.178871197,"errors":0,"ops":320,"ops_per_second":1788.9968053380892}},"sharded_vs_global":{"global_ops_per_second":271.94362252458916,"headroom_ratio":0.8900022276029008,"ratio":5.8549309858568375,"sharded_ops_per_second":1592.2111419253724,"unlocked_ops_per_second":1788.9968053380892},"test":"catalog_identity_lock_scope"}
+    lock_scope_test.go:664: VERDICT sharded 1592.21 ops/s vs global 271.94 ops/s = 5.85x; unlocked ceiling 1789.00 ops/s, sharded reaches 89% of it
+--- PASS: TestCatalogIdentityLockScopeThroughput (1.77s)
+PASS

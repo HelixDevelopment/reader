@@ -1,0 +1,12 @@
+admission_unbounded rc=1 status=FIRED expected=admission is not bounded
+    load_jobs_test.go:269: burst 0 held 96 non-terminal jobs, above maxPendingScans=64: admission is not bounded
+workers_unbounded rc=1 status=FIRED expected=the worker semaphore is not holding
+    load_jobs_test.go:279: 64 scans ran concurrently, above maxConcurrentScans=2: the worker semaphore is not holding
+terminal_write_lost rc=1 status=FIRED expected=journaled fewer than 3 times
+    load_jobs_test.go:325: 192 accepted scans were journaled fewer than 3 times (queued/running/terminal); the mirror is not a record of the queue: [scan-bd8b0cab37775420b5824d26ea5404ca journal=[queued running] store="succeeded" scan-f3bf17fc9e150756896d57a319e266dd journal=[queued running] store="succeeded" scan-2ed056d3f7b5a8f919e77b9d10478e5b journal=[queued running] store="succeeded" scan-cd2458a40b064664e534b7c60abbc5ed journal=[queued running] store="succeeded" scan-bd9d028f9979d41611382ddc66611eed journal=[queued running] store="succeeded"]
+interrupted_not_reconciled rc=1 status=FIRED expected=restore reported
+    load_jobs_test.go:405: restore reported 0 interrupted, want at least 64 written as in flight
+index_unbounded rc=1 status=FIRED expected=indexed but not restored
+    load_jobs_test.go:366: journal lost or misrepresented 128 accepted scans that the index still lists: [scan-29c6fe3a9f6a37faeeb0308081f23567 (indexed but not restored) scan-adea62d80d6b3125f93ab549bc659787 (indexed but not restored) scan-df15370315886488afcaa6244cd3133a (indexed but not restored) scan-b893b72c510ef1f5a03d76b82691c69d (indexed but not restored) scan-e1f8851224b3f0eb71769d3685effafd (indexed but not restored)]
+serial_submissions_refused rc=1 status=FIRED expected=nothing was rejected
+    load_jobs_test.go:273: burst 0 submitted 96 simultaneously and nothing was rejected: either the bound is unreachable or the barrier released serially, and this harness proves neither

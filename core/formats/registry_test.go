@@ -89,3 +89,14 @@ func TestEveryDescriptorHasDetectionAndMIME(t *testing.T) {
 		}
 	}
 }
+
+// TestNoDescriptorClaimsUnimplementedAI or Render/DRM companions: the core
+// contains no AI inference engine, so no format may claim ContentAI from a
+// parser alone (constitution §7.1).
+func TestNoDescriptorClaimsUnimplementedAI(t *testing.T) {
+	for _, d := range All() {
+		if d.Capabilities.ContentAI {
+			t.Errorf("%s claims AI support without a registered, tested AI engine", d.Format)
+		}
+	}
+}

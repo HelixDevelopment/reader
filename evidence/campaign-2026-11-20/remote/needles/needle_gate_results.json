@@ -1,0 +1,8 @@
+[
+  {"case": "remote_etag_lie", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "advertised strong validator", "status": "FIRED"},
+  {"case": "remote_ranges_lie", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "while the route cannot honour a range", "status": "FIRED"},
+  {"case": "remote_range_unvalidated", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "must get a full 200", "status": "FIRED"},
+  {"case": "remote_double_fetch", "target": "/home/milosvasic/Projects/helix_reader/server/internal/sources/http.go", "expected_failure": "not one-for-one", "status": "FIRED"},
+  {"case": "remote_bytes_corrupt", "target": "/home/milosvasic/Projects/helix_reader/server/internal/sources/http.go", "expected_failure": "catalog recorded", "status": "FIRED"},
+  {"summary": "PASS", "cases": 5}
+]

@@ -6,6 +6,7 @@ import (
 	"sort"
 	"strings"
 	"sync"
+	"time"
 )
 
 // Memory is a deterministic, concurrency-safe development and test store.
@@ -222,21 +223,43 @@ func (m *Memory) Search(_ context.Context, q Query) (Page, error) {
 		all = append(all, cloneWork(w))
 	}
 	m.mu.RUnlock()
+	// Ordering and cursor comparisons happen at microsecond precision, the unit
+	// PostgreSQL stores, so the same page boundaries fall in this implementation
+	// as in the database-backed one.
+	key := func(t time.Time) time.Time { return t.Truncate(time.Microsecond) }
 	sort.Slice(all, func(i, j int) bool {
-		if !all[i].UpdatedAt.Equal(all[j].UpdatedAt) {
-			return all[i].UpdatedAt.After(all[j].UpdatedAt)
+		if !key(all[i].UpdatedAt).Equal(key(all[j].UpdatedAt)) {
+			return key(all[i].UpdatedAt).After(key(all[j].UpdatedAt))
 		}
 		return all[i].ID < all[j].ID
 	})
 	total := len(all)
-	if q.Offset > total {
-		q.Offset = total
+	if q.After != nil {
+		after := *q.After
+		afterAt := key(after.UpdatedAt)
+		kept := all[:0]
+		for _, w := range all {
+			at := key(w.UpdatedAt)
+			if at.Before(afterAt) || (at.Equal(afterAt) && w.ID > after.ID) {
+				kept = append(kept, w)
+			}
+		}
+		all = kept
 	}
-	end := q.Offset + q.Limit
-	if end > total {
-		end = total
+	// HasNext is decided by looking one row past the page, matching the Postgres
+	// implementation, so a cursor client sees identical metadata from either.
+	start := 0
+	if q.After == nil {
+		start = q.Offset
+		if start > total {
+			start = total
+		}
 	}
-	return Page{Works: all[q.Offset:end], Total: total, Offset: q.Offset, Limit: q.Limit}, nil
+	end := start + q.Limit
+	if end > len(all) {
+		end = len(all)
+	}
+	return Page{Works: all[start:end], Total: total, Offset: q.Offset, Limit: q.Limit, HasNext: len(all) > end}, nil
 }
 
 func (m *Memory) DeleteWork(_ context.Context, id string) error {

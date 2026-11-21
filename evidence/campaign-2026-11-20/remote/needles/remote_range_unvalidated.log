@@ -1,0 +1,4 @@
+=== RUN   TestLiveLoadRemoteSource
+    load_remote_test.go:239: remote range GET load-remote-f0 returned 206; this source must get a full 200, because nothing confirmed the scanned size is still true
+--- FAIL: TestLiveLoadRemoteSource (0.01s)
+FAIL

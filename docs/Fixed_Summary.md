@@ -22,5 +22,8 @@ Generated from the authoritative SQLite registry.
 | ATM-016 | Task | High | Completed (→ Fixed.md) | 0 | Verify backup and restore recovery against the current tree |
 | ATM-017 | Task | Critical | Completed (→ Fixed.md) | 0 | Prevent credentials and sensitive values from entering source and evidence |
 | ATM-018 | Feature | High | Implemented (→ Fixed.md) | 0 | Keep deterministic metadata evidence authoritative over AI proposals |
+| ATM-024 | Feature | Critical | Implemented (→ Fixed.md) | 0 | Qualify containerized build, deployment, restart, and distribution workflows |
 | ATM-028 | Task | Critical | Completed (→ Fixed.md) | 0 | Operate the SQLite workable-items single source of truth and synchronized exports |
 | ATM-030 | Task | High | Completed (→ Fixed.md) | 0 | Publish all current test results and limitations under docs/testing/results |
+| ATM-032 | Feature | Critical | Implemented (→ Fixed.md) | 0 | Complete rendering, conversion, and content-AI fulfillment for every required format |
+| ATM-035 | Bug | High | Fixed (→ Fixed.md) | 0 | Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown |

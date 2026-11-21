@@ -98,3 +98,26 @@ func TestFlatTOC(t *testing.T) {
 		t.Fatalf("unexpected flat TOC: %v", flat)
 	}
 }
+
+// TestValidateRejectsNilChapter: nil spine entries are an explicit error,
+// never a panic (fuzz regression guard for the walker added alongside).
+func TestValidateRejectsNilChapter(t *testing.T) {
+	d := sampleDoc()
+	d.Chapters = append(d.Chapters, nil)
+	if err := d.Validate(); err == nil || !strings.Contains(err.Error(), "nil chapter") {
+		t.Fatalf("want nil chapter error, got %v", err)
+	}
+	d2 := sampleDoc()
+	d2.Chapters[0].Children = []*Chapter{nil}
+	if err := d2.Validate(); err == nil || !strings.Contains(err.Error(), "nil chapter") {
+		t.Fatalf("want nil child error, got %v", err)
+	}
+	// Walkers stay panic-free on nil children even without Validate.
+	if n := d2.WordCount(); n != 16 {
+		t.Fatalf("word count with nil child: %d", n)
+	}
+	if got := len(d2.FlatTOC()); got != 2 {
+		t.Fatalf("flattoc with nil child: %d", got)
+	}
+	_ = d2.Fingerprint()
+}

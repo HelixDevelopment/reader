@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestContainerDetectsByEachMeans$ -count=1
+--- FAIL: TestContainerDetectsByEachMeans (0.12s)
+    container_test.go:422: encryption.xml referencing an LCP Content Key did not register as protection
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.132s
+FAIL
+
+exit=1

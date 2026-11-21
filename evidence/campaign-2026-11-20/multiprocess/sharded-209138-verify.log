@@ -1,0 +1,5 @@
+=== RUN   TestCatalogMultiProcessMerges
+    lock_scope_test.go:938: LOADJSON {"contended_pool":8,"contested_works_lost":0,"duplicate_file_rows":0,"editions_expected":480,"editions_found":480,"emitted_at":"2026-11-20T21:12:33Z","measurement_path":"in_container_clean","missing_disjoint_works":0,"ops_per_arm":60,"orphan_file_rows":0,"processes":8,"role":"verify","run_tag":"sharded209138","shared_source_expected":8,"shared_source_file_rows":8,"test":"catalog_multiprocess"}
+    lock_scope_test.go:951: VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+--- PASS: TestCatalogMultiProcessMerges (0.05s)
+PASS

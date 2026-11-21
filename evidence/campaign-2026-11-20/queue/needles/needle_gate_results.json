@@ -1,0 +1,9 @@
+[
+  {"case": "admission_unbounded", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/jobs.go", "expected_failure": "admission is not bounded", "status": "FIRED"},
+  {"case": "workers_unbounded", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/jobs.go", "expected_failure": "the worker semaphore is not holding", "status": "FIRED"},
+  {"case": "terminal_write_lost", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/jobs.go", "expected_failure": "journaled fewer than 3 times", "status": "FIRED"},
+  {"case": "interrupted_not_reconciled", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/jobs_journal.go", "expected_failure": "restore reported", "status": "FIRED"},
+  {"case": "index_unbounded", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/jobs_journal.go", "expected_failure": "indexed but not restored", "status": "FIRED"},
+  {"case": "serial_submissions_refused", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/load_jobs_test.go", "expected_failure": "nothing was rejected", "status": "FIRED"},
+  {"summary": "PASS", "cases": 6}
+]

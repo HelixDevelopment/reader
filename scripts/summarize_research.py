@@ -11,10 +11,15 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import os
 import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_OUTPUT = str(REPO_ROOT / "research")
+DEFAULT_CLONES = os.environ.get("HELIX_CLONES_ROOT", str(REPO_ROOT / ".helix-verify" / "git-repos"))
 
 BACKEND_ALIASES = {
     "stumpapp-stump": "stump",
@@ -48,8 +53,8 @@ def checkout_revision(path: Path) -> str | None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="/mnt/agents/output/helix/research")
-    parser.add_argument("--clones", default="/mnt/agents/research/git-repos")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT)
+    parser.add_argument("--clones", default=DEFAULT_CLONES)
     args = parser.parse_args()
     out = Path(args.output)
     clones = Path(args.clones)

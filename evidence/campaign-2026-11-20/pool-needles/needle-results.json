@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-11-20T20:02:07+0100",
+  "dsn_host": "127.0.0.1:34320 (helixqual-pg, in-host client)",
+  "verdict": "PASS",
+  "needles": [
+    {
+      "id": "N1-catalog-validate-noop",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestPoolSettingsValidation (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/zero_max_open (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/negative_max_open (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/idle_above_open (0.00s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/catalog\t0.005s"
+    },
+    {
+      "id": "N2-catalog-drop-setmaxopen",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestWithPoolAppliesLimits (0.01s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/catalog\t0.024s"
+    },
+    {
+      "id": "N3-aimemory-validate-noop",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestPoolSettingsValidation (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/zero_max_open (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/negative_max_open (0.00s)",
+        "--- FAIL: TestPoolSettingsValidation/idle_above_open (0.00s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/aimemory\t0.006s"
+    },
+    {
+      "id": "N4-aimemory-drop-setmaxopen",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestWithPoolAppliesLimits (0.01s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/aimemory\t0.024s"
+    },
+    {
+      "id": "N5-config-applyPoolEnv-noop",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestPoolConfiguration (0.00s)",
+        "--- FAIL: TestPoolConfiguration/catalog_override (0.00s)",
+        "--- FAIL: TestPoolConfiguration/idle_above_open_rejected (0.00s)",
+        "--- FAIL: TestPoolConfiguration/zero_max_open_rejected (0.00s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/config\t0.006s"
+    },
+    {
+      "id": "N6-config-drop-idle-crosscheck",
+      "needle": "killed",
+      "fail_lines": [
+        "--- FAIL: TestPoolConfiguration (0.00s)",
+        "--- FAIL: TestPoolConfiguration/idle_above_open_rejected (0.00s)"
+      ],
+      "restored_pass": true,
+      "restored_tail": "ok  \tgithub.com/helixreader/helix/server/internal/config\t0.005s"
+    }
+  ],
+  "note": "Each needle deletes the behavior under test. SURVIVED means the test has no detection power. restored_pass confirms the mutation was reverted and the suite is green again."
+}

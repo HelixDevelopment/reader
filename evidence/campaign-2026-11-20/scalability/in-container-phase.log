@@ -1,0 +1,9 @@
+=== RUN   TestLiveScaleBatchPhases
+    catalog_phase_test.go:130: VARIANT in_200_params        client_median_ms=    3.60 client_first_ms=    3.43 client_min_ms=    3.00 client_max_ms=    5.49 server_exec_ms=  3.09 transport=clean
+    catalog_phase_test.go:130: VARIANT any_array_param      client_median_ms=    3.03 client_first_ms=    4.03 client_min_ms=    2.74 client_max_ms=    4.03 server_exec_ms=  2.83 transport=clean
+    catalog_phase_test.go:130: VARIANT in_20_params         client_median_ms=    0.42 client_first_ms=    0.55 client_min_ms=    0.39 client_max_ms=    0.55 server_exec_ms=  0.32 transport=clean
+    catalog_phase_test.go:130: VARIANT probe_gen_200_rows   client_median_ms=    0.76 client_first_ms=    1.05 client_min_ms=    0.55 client_max_ms=    1.05 server_exec_ms=  0.27 transport=clean
+    catalog_phase_test.go:130: VARIANT probe_in_200_no_rows client_median_ms=    1.38 client_first_ms=    1.34 client_min_ms=    1.27 client_max_ms=    2.26 server_exec_ms=  1.28 transport=clean
+    catalog_phase_test.go:146: LOADER batched_getWorks_100 median_ms=27.11  perwork_GetWork_100 median_ms=99.21
+--- PASS: TestLiveScaleBatchPhases (0.86s)
+PASS

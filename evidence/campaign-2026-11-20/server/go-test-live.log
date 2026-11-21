@@ -1,0 +1,372 @@
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+=== RUN   TestLivePostgresVectorMemory
+--- PASS: TestLivePostgresVectorMemory (0.08s)
+=== RUN   TestPrepareDeterministicIdentityAndHash
+--- PASS: TestPrepareDeterministicIdentityAndHash (0.00s)
+=== RUN   TestPrepareRejectsInvalidMetadata
+--- PASS: TestPrepareRejectsInvalidMetadata (0.00s)
+=== RUN   TestPrepareRecomputesContentHashWithContent
+--- PASS: TestPrepareRecomputesContentHashWithContent (0.00s)
+=== RUN   TestVectorValidation
+--- PASS: TestVectorValidation (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.091s
+=== RUN   TestMemorySearchDeterministicAndDeepCopy
+--- PASS: TestMemorySearchDeterministicAndDeepCopy (0.00s)
+=== RUN   TestMemoryRepeatMergeIsIdempotent
+--- PASS: TestMemoryRepeatMergeIsIdempotent (0.00s)
+=== RUN   TestFindEditionAndFindFileReturnDeepClones
+--- PASS: TestFindEditionAndFindFileReturnDeepClones (0.00s)
+=== RUN   TestMemoryRejectsInvalidIdentificationState
+--- PASS: TestMemoryRejectsInvalidIdentificationState (0.00s)
+=== RUN   TestMemoryValidationAndDelete
+--- PASS: TestMemoryValidationAndDelete (0.00s)
+=== RUN   TestMemoryRejectsIncompleteFileIdentityLikePostgres
+--- PASS: TestMemoryRejectsIncompleteFileIdentityLikePostgres (0.00s)
+=== RUN   TestMergeWorkDedupsEvidenceAndIsIdempotent
+--- PASS: TestMergeWorkDedupsEvidenceAndIsIdempotent (0.00s)
+=== RUN   TestMergeWorkDoesNotAliasCallerSlices
+--- PASS: TestMergeWorkDoesNotAliasCallerSlices (0.00s)
+=== RUN   TestMergeWorkUnionsEditionsFilesIdentifiers
+--- PASS: TestMergeWorkUnionsEditionsFilesIdentifiers (0.00s)
+=== RUN   TestMergeWorkReplacesChangedFileAtSameSourcePath
+--- PASS: TestMergeWorkReplacesChangedFileAtSameSourcePath (0.00s)
+=== RUN   TestLivePostgresCatalogRoundTrip
+    postgres_live_test.go:20: catalog migration record 001_catalog.sql: ERROR: duplicate key value violates unique constraint "helix_schema_migrations_pkey" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresCatalogRoundTrip (0.10s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.111s
+=== RUN   TestLoopbackClassification
+--- PASS: TestLoopbackClassification (0.00s)
+=== RUN   TestEnvironmentValidation
+=== RUN   TestEnvironmentValidation/non-loopback_requires_admin_token
+=== RUN   TestEnvironmentValidation/TLS_certificate_without_key
+=== RUN   TestEnvironmentValidation/OPDS_user_without_password
+=== RUN   TestEnvironmentValidation/invalid_HTTP3
+=== RUN   TestEnvironmentValidation/invalid_Brotli
+=== RUN   TestEnvironmentValidation/invalid_dimensions
+=== RUN   TestEnvironmentValidation/AI_memory_requires_PostgreSQL
+--- PASS: TestEnvironmentValidation (0.00s)
+    --- PASS: TestEnvironmentValidation/non-loopback_requires_admin_token (0.00s)
+    --- PASS: TestEnvironmentValidation/TLS_certificate_without_key (0.00s)
+    --- PASS: TestEnvironmentValidation/OPDS_user_without_password (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_HTTP3 (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_Brotli (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_dimensions (0.00s)
+    --- PASS: TestEnvironmentValidation/AI_memory_requires_PostgreSQL (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/config	0.005s
+=== RUN   TestCacheValidatesAndReusesImage
+--- PASS: TestCacheValidatesAndReusesImage (0.01s)
+=== RUN   TestCacheRejectsNonImage
+--- PASS: TestCacheRejectsNonImage (0.00s)
+=== RUN   TestPublicIPRejectsLocalAndPrivate
+--- PASS: TestPublicIPRejectsLocalAndPrivate (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/covers	0.017s
+=== RUN   TestContentRevalidatesSizeAfterGrowthAndShrink
+--- PASS: TestContentRevalidatesSizeAfterGrowthAndShrink (0.00s)
+=== RUN   TestContentIfRangeHonorsETag
+--- PASS: TestContentIfRangeHonorsETag (0.00s)
+=== RUN   TestContentStaleETagCannotSpliceChangedEqualSizeFile
+--- PASS: TestContentStaleETagCannotSpliceChangedEqualSizeFile (0.00s)
+=== RUN   TestContentMultiRangeFallsBackToFull200
+--- PASS: TestContentMultiRangeFallsBackToFull200 (0.00s)
+=== RUN   TestContentUnknownSizeSafeFallback
+--- PASS: TestContentUnknownSizeSafeFallback (0.00s)
+=== RUN   TestContentAndCoverHEAD
+--- PASS: TestContentAndCoverHEAD (0.00s)
+=== RUN   TestContentStaysIdentityUnderAcceptEncoding
+--- PASS: TestContentStaysIdentityUnderAcceptEncoding (0.00s)
+=== RUN   TestContentDeletedLocalFileReturns404
+--- PASS: TestContentDeletedLocalFileReturns404 (0.00s)
+=== RUN   TestContentGETValidatesAndReadsSameOpenedHandle
+--- PASS: TestContentGETValidatesAndReadsSameOpenedHandle (0.00s)
+=== RUN   TestJobStoreBoundsConcurrencyAndCancelsQueuedWork
+--- PASS: TestJobStoreBoundsConcurrencyAndCancelsQueuedWork (0.03s)
+=== RUN   TestJobStoreRecoversPanicAndReportsFailure
+--- PASS: TestJobStoreRecoversPanicAndReportsFailure (0.00s)
+=== RUN   TestJobStoreSanitizesScanFailureCredentials
+--- PASS: TestJobStoreSanitizesScanFailureCredentials (0.00s)
+=== RUN   TestJobStoreQueueCapAndShutdownDrain
+--- PASS: TestJobStoreQueueCapAndShutdownDrain (0.00s)
+=== RUN   TestJobStoreRetentionAndSnapshotIsolation
+--- PASS: TestJobStoreRetentionAndSnapshotIsolation (0.00s)
+=== RUN   TestJobStoreShutdownTimeout
+--- PASS: TestJobStoreShutdownTimeout (0.02s)
+=== RUN   TestContentRangeAndTraversalSafeDisposition
+--- PASS: TestContentRangeAndTraversalSafeDisposition (0.00s)
+=== RUN   TestCompressionBrotliGzipAndIdentityRefusal
+--- PASS: TestCompressionBrotliGzipAndIdentityRefusal (0.00s)
+=== RUN   TestCompressionNetworkContentLength
+--- PASS: TestCompressionNetworkContentLength (0.00s)
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/br
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/gzip
+--- PASS: TestCompressionIdentityFallbackPreservesKeepAlive (0.00s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/br (0.00s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/gzip (0.00s)
+=== RUN   TestAdminAuthenticationAndOPDS
+--- PASS: TestAdminAuthenticationAndOPDS (0.00s)
+=== RUN   TestSourceRegistrationAndScanJob
+--- PASS: TestSourceRegistrationAndScanJob (0.01s)
+=== RUN   TestSourceDeletionWaitsForScanAndScanAdmission
+--- PASS: TestSourceDeletionWaitsForScanAndScanAdmission (0.01s)
+=== RUN   TestSingleRangeForms
+--- PASS: TestSingleRangeForms (0.00s)
+=== RUN   TestKOReaderSyncProtocol
+--- PASS: TestKOReaderSyncProtocol (0.53s)
+=== RUN   TestKOReaderSyncRejectsInvalidAndOversizeProgress
+--- PASS: TestKOReaderSyncRejectsInvalidAndOversizeProgress (0.36s)
+=== RUN   TestScanRequestBodyLimit
+--- PASS: TestScanRequestBodyLimit (0.00s)
+=== RUN   TestStableSourceIDReattachesCatalogAfterRestart
+--- PASS: TestStableSourceIDReattachesCatalogAfterRestart (0.00s)
+=== RUN   FuzzSingleRange
+=== RUN   FuzzSingleRange/seed#0
+=== RUN   FuzzSingleRange/seed#1
+=== RUN   FuzzSingleRange/seed#2
+=== RUN   FuzzSingleRange/seed#3
+=== RUN   FuzzSingleRange/seed#4
+=== RUN   FuzzSingleRange/seed#5
+--- PASS: FuzzSingleRange (0.00s)
+    --- PASS: FuzzSingleRange/seed#0 (0.00s)
+    --- PASS: FuzzSingleRange/seed#1 (0.00s)
+    --- PASS: FuzzSingleRange/seed#2 (0.00s)
+    --- PASS: FuzzSingleRange/seed#3 (0.00s)
+    --- PASS: FuzzSingleRange/seed#4 (0.00s)
+    --- PASS: FuzzSingleRange/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	1.007s
+=== RUN   TestRequireSecureEndpoint
+=== RUN   TestRequireSecureEndpoint/https_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_loopback_IP_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_localhost_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_without_credentials
+=== RUN   TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local
+--- PASS: TestRequireSecureEndpoint (0.00s)
+    --- PASS: TestRequireSecureEndpoint/https_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_loopback_IP_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_localhost_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_without_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local (0.00s)
+=== RUN   TestSanitizeError
+--- PASS: TestSanitizeError (0.00s)
+=== RUN   TestGoogleBooksErrorDoesNotLeakAPIKey
+--- PASS: TestGoogleBooksErrorDoesNotLeakAPIKey (0.00s)
+=== RUN   TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo
+--- PASS: TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo (0.00s)
+=== RUN   TestGoogleBooksCrossOriginRedirectDoesNotLeakKey
+--- PASS: TestGoogleBooksCrossOriginRedirectDoesNotLeakKey (0.00s)
+=== RUN   TestLLMRejectsCleartextEndpointWithCredentials
+--- PASS: TestLLMRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestLLMLoopbackCleartextAllowed
+--- PASS: TestLLMLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevRejectsCleartextEndpointWithCredentials
+--- PASS: TestJevRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestJevLoopbackCleartextAllowed
+--- PASS: TestJevLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevErrorDoesNotLeakUserinfo
+--- PASS: TestJevErrorDoesNotLeakUserinfo (0.00s)
+=== RUN   TestPipelineStoredErrorsAreSanitized
+--- PASS: TestPipelineStoredErrorsAreSanitized (0.00s)
+=== RUN   TestValidEmbeddedISBNAccepted
+--- PASS: TestValidEmbeddedISBNAccepted (0.00s)
+=== RUN   TestLLMCandidateCannotAutoAccept
+--- PASS: TestLLMCandidateCannotAutoAccept (0.00s)
+=== RUN   TestDecisionModelCanOnlyDowngrade
+--- PASS: TestDecisionModelCanOnlyDowngrade (0.00s)
+=== RUN   TestInvalidISBNRejected
+--- PASS: TestInvalidISBNRejected (0.00s)
+=== RUN   TestOpenLibraryClientAndNoKeyLeak
+--- PASS: TestOpenLibraryClientAndNoKeyLeak (0.00s)
+=== RUN   TestOpenAICompatibleContract
+--- PASS: TestOpenAICompatibleContract (0.00s)
+=== RUN   TestModelResponseBodiesAreBounded
+=== RUN   TestModelResponseBodiesAreBounded/llm
+=== RUN   TestModelResponseBodiesAreBounded/jev
+--- PASS: TestModelResponseBodiesAreBounded (0.01s)
+    --- PASS: TestModelResponseBodiesAreBounded/llm (0.01s)
+    --- PASS: TestModelResponseBodiesAreBounded/jev (0.00s)
+=== RUN   TestLLMRedirectDoesNotLeakProviderKey
+--- PASS: TestLLMRedirectDoesNotLeakProviderKey (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/identify	0.020s
+=== RUN   TestFileIdentityIsCaseSensitive
+--- PASS: TestFileIdentityIsCaseSensitive (0.00s)
+=== RUN   TestScanDifferentBytesWithSameISBNShareWorkAndEdition
+--- PASS: TestScanDifferentBytesWithSameISBNShareWorkAndEdition (0.00s)
+=== RUN   TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork
+--- PASS: TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork (0.00s)
+=== RUN   TestMemoryFullScanReconcilesDeletedSourceFiles
+--- PASS: TestMemoryFullScanReconcilesDeletedSourceFiles (0.00s)
+=== RUN   TestLivePostgresFullScanReconcilesDeletedSourceFiles
+    identity_regression_test.go:177: catalog migration record 001_catalog.sql: ERROR: duplicate key value violates unique constraint "helix_schema_migrations_pkey" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresFullScanReconcilesDeletedSourceFiles (0.09s)
+=== RUN   TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork
+    identity_regression_test.go:204: catalog migration record 001_catalog.sql: ERROR: duplicate key value violates unique constraint "helix_schema_migrations_pkey" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork (0.09s)
+=== RUN   TestMemoryRescanRehomesLegacyCaseFoldedFileID
+--- PASS: TestMemoryRescanRehomesLegacyCaseFoldedFileID (0.00s)
+=== RUN   TestLivePostgresRescanRehomesLegacyCaseFoldedFileID
+    identity_regression_test.go:319: catalog migration record 001_catalog.sql: ERROR: duplicate key value violates unique constraint "helix_schema_migrations_pkey" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresRescanRehomesLegacyCaseFoldedFileID (0.09s)
+=== RUN   TestLivePostgresDifferentBytesWithSameISBNShareEdition
+    identity_regression_test.go:324: catalog migration record 001_catalog.sql: ERROR: duplicate key value violates unique constraint "helix_schema_migrations_pkey" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresDifferentBytesWithSameISBNShareEdition (0.09s)
+=== RUN   TestISBNIdentityCanonicalizesSchemePairAndOrder
+--- PASS: TestISBNIdentityCanonicalizesSchemePairAndOrder (0.00s)
+=== RUN   TestEPUBISBNHyphenationDoesNotForkIdentity
+--- PASS: TestEPUBISBNHyphenationDoesNotForkIdentity (0.00s)
+=== RUN   TestScanTextIndexesInPlaceAndReportsUnknown
+--- PASS: TestScanTextIndexesInPlaceAndReportsUnknown (0.00s)
+=== RUN   TestScanSameContentAtDistinctPathsSharesOneWork
+--- PASS: TestScanSameContentAtDistinctPathsSharesOneWork (0.00s)
+=== RUN   TestRescanKeepsStableWorkEditionFileIdentity
+--- PASS: TestRescanKeepsStableWorkEditionFileIdentity (0.00s)
+=== RUN   TestPrefixScanNeverPrunesOutsideListingScope
+--- PASS: TestPrefixScanNeverPrunesOutsideListingScope (0.00s)
+=== RUN   TestFullScanRetainsListedFileWhenIngestFails
+--- PASS: TestFullScanRetainsListedFileWhenIngestFails (0.00s)
+=== RUN   TestScanReportCountsWorksTouchedByThisScan
+--- PASS: TestScanReportCountsWorksTouchedByThisScan (0.00s)
+=== RUN   TestIdentityIDsStableAgainstMetadataImprovement
+--- PASS: TestIdentityIDsStableAgainstMetadataImprovement (0.00s)
+=== RUN   TestSanitizeErrorStripsURLCredentials
+--- PASS: TestSanitizeErrorStripsURLCredentials (0.00s)
+=== RUN   TestScanSanitizesConnectorErrorsInReport
+--- PASS: TestScanSanitizesConnectorErrorsInReport (0.00s)
+=== RUN   TestSanitizeLocationStripsOnlyAbsoluteURLCredentials
+--- PASS: TestSanitizeLocationStripsOnlyAbsoluteURLCredentials (0.00s)
+=== RUN   TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs
+--- PASS: TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs (0.00s)
+=== RUN   TestScanSanitizesURLEntryLocationsInReport
+--- PASS: TestScanSanitizesURLEntryLocationsInReport (0.00s)
+=== RUN   TestScanSourceListErrorPreservesSemantics
+--- PASS: TestScanSourceListErrorPreservesSemantics (0.00s)
+=== RUN   TestReadBoundedRejectsOverflow
+--- PASS: TestReadBoundedRejectsOverflow (0.00s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/ingest	0.380s
+=== RUN   TestLiveRedisKOSyncRoundTrip
+--- PASS: TestLiveRedisKOSyncRoundTrip (0.00s)
+=== RUN   TestRedisPutProgressRetriesWatchConflict
+--- PASS: TestRedisPutProgressRetriesWatchConflict (0.00s)
+=== RUN   TestRedisStoreRoundTripAndIsolation
+--- PASS: TestRedisStoreRoundTripAndIsolation (0.00s)
+=== RUN   TestAccountValidationAuthenticationAndProgress
+--- PASS: TestAccountValidationAuthenticationAndProgress (0.33s)
+=== RUN   TestStaleProgressCannotRewindReader
+--- PASS: TestStaleProgressCannotRewindReader (0.05s)
+=== RUN   TestRegistrationAndProgressRejection
+--- PASS: TestRegistrationAndProgressRejection (0.05s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	0.452s
+=== RUN   TestOPDS12WellFormedMultiEditionAndPaging
+--- PASS: TestOPDS12WellFormedMultiEditionAndPaging (0.00s)
+=== RUN   TestOPDS20WellFormedAndTyped
+--- PASS: TestOPDS20WellFormedAndTyped (0.00s)
+=== RUN   TestStandaloneEditionDocuments
+--- PASS: TestStandaloneEditionDocuments (0.00s)
+=== RUN   TestOpenSearchTemplateEscaped
+--- PASS: TestOpenSearchTemplateEscaped (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/opds	0.007s
+=== RUN   TestValidateAcquisitionIP
+=== RUN   TestValidateAcquisitionIP/loopback_v4
+=== RUN   TestValidateAcquisitionIP/loopback_v6
+=== RUN   TestValidateAcquisitionIP/private_10/8
+=== RUN   TestValidateAcquisitionIP/private_192.168
+=== RUN   TestValidateAcquisitionIP/private_172.16
+=== RUN   TestValidateAcquisitionIP/private_v6_ula
+=== RUN   TestValidateAcquisitionIP/cgnat
+=== RUN   TestValidateAcquisitionIP/link-local_metadata
+=== RUN   TestValidateAcquisitionIP/link-local_v6
+=== RUN   TestValidateAcquisitionIP/unspecified_v4
+=== RUN   TestValidateAcquisitionIP/unspecified_v6
+=== RUN   TestValidateAcquisitionIP/multicast_v4
+=== RUN   TestValidateAcquisitionIP/multicast_v6
+=== RUN   TestValidateAcquisitionIP/broadcast
+=== RUN   TestValidateAcquisitionIP/public_v4
+=== RUN   TestValidateAcquisitionIP/public_v6
+--- PASS: TestValidateAcquisitionIP (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_10/8 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_192.168 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_172.16 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_v6_ula (0.00s)
+    --- PASS: TestValidateAcquisitionIP/cgnat (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_metadata (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/broadcast (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v6 (0.00s)
+=== RUN   TestSameOriginAddress
+--- PASS: TestSameOriginAddress (0.00s)
+=== RUN   TestHTTPRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestHTTPRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestHTTPAllowsSameOriginRedirect
+--- PASS: TestHTTPAllowsSameOriginRedirect (0.00s)
+=== RUN   TestHTTPBodyStreamingHasNoWholeTransferDeadline
+--- PASS: TestHTTPBodyStreamingHasNoWholeTransferDeadline (0.05s)
+=== RUN   TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders
+--- PASS: TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders (0.00s)
+=== RUN   TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault
+--- PASS: TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault (0.00s)
+=== RUN   TestOPDSSameOriginLoopbackAllowedWithoutFlag
+--- PASS: TestOPDSSameOriginLoopbackAllowedWithoutFlag (0.00s)
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true
+--- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true (0.00s)
+=== RUN   TestOPDSRejectsRedirectToCrossOriginLoopback
+--- PASS: TestOPDSRejectsRedirectToCrossOriginLoopback (0.00s)
+=== RUN   TestOPDSRejectsOversizedFeed
+--- PASS: TestOPDSRejectsOversizedFeed (0.13s)
+=== RUN   TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot
+--- PASS: TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot (0.01s)
+=== RUN   TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths
+--- PASS: TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths (0.00s)
+=== RUN   TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities
+--- PASS: TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities (0.00s)
+=== RUN   TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval
+--- PASS: TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval (0.00s)
+=== RUN   TestRcloneOpenBoundsStderr
+--- PASS: TestRcloneOpenBoundsStderr (0.01s)
+=== RUN   TestRcloneOpenRangeBoundsStderr
+--- PASS: TestRcloneOpenRangeBoundsStderr (0.01s)
+=== RUN   TestLocalListOpenAndTraversal
+--- PASS: TestLocalListOpenAndTraversal (0.00s)
+=== RUN   TestDefaultRegistryCoverage
+--- PASS: TestDefaultRegistryCoverage (0.00s)
+=== RUN   TestWebDAVList
+--- PASS: TestWebDAVList (0.00s)
+=== RUN   TestWebDAVListAppliesConfiguredHeaders
+--- PASS: TestWebDAVListAppliesConfiguredHeaders (0.00s)
+=== RUN   TestWebDAVRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestWebDAVRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestWebDAVRejectsOversizedResponse
+--- PASS: TestWebDAVRejectsOversizedResponse (0.02s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/sources	0.278s
+=== RUN   TestLiveRedisProgressConflictAndReconnect
+--- PASS: TestLiveRedisProgressConflictAndReconnect (0.00s)
+=== RUN   TestRedisProgressConflictResolutionAndPersistence
+--- PASS: TestRedisProgressConflictResolutionAndPersistence (0.00s)
+=== RUN   TestProgressValidation
+--- PASS: TestProgressValidation (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.013s
+FAIL

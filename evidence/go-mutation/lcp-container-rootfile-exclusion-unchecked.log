@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestContainerRefusesEncryptedExcludedResources$ -count=1
+--- FAIL: TestContainerRefusesEncryptedExcludedResources (0.64s)
+    --- FAIL: TestContainerRefusesEncryptedExcludedResources/the_package_document_is_an_EPUB_rootfile (0.17s)
+        container_negative_test.go:53: EncryptionErr = <nil>, want ErrExcludedResourceEncrypted
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.647s
+FAIL
+
+exit=1

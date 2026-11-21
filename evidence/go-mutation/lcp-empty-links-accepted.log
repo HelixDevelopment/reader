@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestParseRejectsIncompleteLicenses$ -count=1
+--- FAIL: TestParseRejectsIncompleteLicenses (0.00s)
+    --- FAIL: TestParseRejectsIncompleteLicenses/links (0.00s)
+        license_test.go:69: Parse without links error = <nil>, want ErrIncomplete
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.006s
+FAIL
+
+exit=1

@@ -2,8 +2,8 @@
   "coverage": {
     "analysis_missing": 0,
     "analysis_present": 111,
-    "current_checkout_matches_analysis": 53,
-    "current_checkout_present": 56,
+    "current_checkout_matches_analysis": 93,
+    "current_checkout_present": 97,
     "expected": 111,
     "file_ledger_present": 111
   },
@@ -32,7 +32,7 @@
     {
       "analysis_file": "backend_analysis/advplyr-audiobookshelf.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-advplyr-audiobookshelf.jsonl.gz",
       "file_ledger_records": 954,
       "kind": "backend",
@@ -42,7 +42,9 @@
       "support_claims_allowed": false,
       "tracked_files": 954,
       "tree": "666720e07a48f0d3ea1e84c318793af60b6dfd95",
-      "url": "https://github.com/advplyr/audiobookshelf"
+      "url": "https://github.com/advplyr/audiobookshelf",
+      "current_checkout_revision": "edb1f7efc92ecacdef51aafb4d9d5054ce10604f",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/anansi-project-opds-pse.json",
@@ -64,7 +66,7 @@
     {
       "analysis_file": "backend_analysis/beyondstorage-go-storage.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-beyondstorage-go-storage.jsonl.gz",
       "file_ledger_records": 691,
       "kind": "backend",
@@ -74,7 +76,9 @@
       "support_claims_allowed": false,
       "tracked_files": 691,
       "tree": "ae0f7e79bf3c786fca37c895e855c304435eea4d",
-      "url": "https://github.com/beyondstorage/go-storage"
+      "url": "https://github.com/beyondstorage/go-storage",
+      "current_checkout_revision": "1d5ce66ccc0132bcb6d8a224e93a0c2d3963a460",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/bookorbit-bookorbit.json",
@@ -113,7 +117,7 @@
     {
       "analysis_file": "backend_analysis/cgillinger-colophon.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-cgillinger-colophon.jsonl.gz",
       "file_ledger_records": 475,
       "kind": "backend",
@@ -123,7 +127,9 @@
       "support_claims_allowed": false,
       "tracked_files": 475,
       "tree": "45be07c70fe3e89d8e41565bd667e1ae1af3b783",
-      "url": "https://github.com/cgillinger/colophon"
+      "url": "https://github.com/cgillinger/colophon",
+      "current_checkout_revision": "3676404ab253c7e0ef78fcda973a27424056114d",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/crocodilestick-calibre-web-automated.json",
@@ -196,7 +202,7 @@
     {
       "analysis_file": "backend_analysis/gotson-komga.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-gotson-komga.jsonl.gz",
       "file_ledger_records": 1908,
       "kind": "backend",
@@ -206,12 +212,14 @@
       "support_claims_allowed": false,
       "tracked_files": 1908,
       "tree": "911e94870cc5b3e5d74635272cebaacf99fc8785",
-      "url": "https://github.com/gotson/komga"
+      "url": "https://github.com/gotson/komga",
+      "current_checkout_revision": "023ec905c10a35bbb8e29095420d266cd3adad60",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/grimmory-tools-grimmory.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-grimmory-tools-grimmory.jsonl.gz",
       "file_ledger_records": 2887,
       "kind": "backend",
@@ -221,12 +229,14 @@
       "support_claims_allowed": false,
       "tracked_files": 2887,
       "tree": "a6754edfc2830cb8c8a79239c4816677c2b9dc50",
-      "url": "https://github.com/grimmory-tools/grimmory"
+      "url": "https://github.com/grimmory-tools/grimmory",
+      "current_checkout_revision": "021cb138dc7f19583142c55fd5070201c40b403b",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/kareadita-kavita.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-kareadita-kavita.jsonl.gz",
       "file_ledger_records": 3917,
       "kind": "backend",
@@ -236,7 +246,9 @@
       "support_claims_allowed": false,
       "tracked_files": 3917,
       "tree": "cae66499aa7d134a2589981df03c7dace2c2853c",
-      "url": "https://github.com/Kareadita/Kavita"
+      "url": "https://github.com/Kareadita/Kavita",
+      "current_checkout_revision": "d549d5b1609086c8190b9bee6eb48ebfed71e1df",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/koreader-koreader-sync-server.json",
@@ -309,7 +321,7 @@
     {
       "analysis_file": "backend_analysis/seblucas-cops.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-seblucas-cops.jsonl.gz",
       "file_ledger_records": 388,
       "kind": "backend",
@@ -319,7 +331,9 @@
       "support_claims_allowed": false,
       "tracked_files": 388,
       "tree": "0d40e71de7933585d91284da6b96384311f53571",
-      "url": "https://github.com/seblucas/cops"
+      "url": "https://github.com/seblucas/cops",
+      "current_checkout_revision": "7828cc600e904941583227071b8f4efd3b9385fb",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/smoores-dev-storyteller.json",
@@ -339,7 +353,7 @@
     {
       "analysis_file": "backend_analysis/stumpapp-stump.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/backend-stumpapp-stump.jsonl.gz",
       "file_ledger_records": 2808,
       "kind": "backend",
@@ -349,7 +363,9 @@
       "support_claims_allowed": false,
       "tracked_files": 2808,
       "tree": "3f706a85fd26e6d2409112779bf7fe6f4fd1d0f1",
-      "url": "https://github.com/stumpapp/stump"
+      "url": "https://github.com/stumpapp/stump",
+      "current_checkout_revision": "d0f51c8e6da74d584a2a4cda8d9db02337de73ca",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "backend_analysis/vaggeliskls-cloud-webdav-server.json",
@@ -418,7 +434,7 @@
     {
       "analysis_file": "client_analysis/audiobookshelf.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-audiobookshelf.jsonl.gz",
       "file_ledger_records": 954,
       "kind": "client",
@@ -428,7 +444,9 @@
       "support_claims_allowed": false,
       "tracked_files": 954,
       "tree": "666720e07a48f0d3ea1e84c318793af60b6dfd95",
-      "url": "https://github.com/advplyr/audiobookshelf"
+      "url": "https://github.com/advplyr/audiobookshelf",
+      "current_checkout_revision": "edb1f7efc92ecacdef51aafb4d9d5054ce10604f",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/baca.json",
@@ -467,7 +485,7 @@
     {
       "analysis_file": "client_analysis/book-s-story.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-book-s-story.jsonl.gz",
       "file_ledger_records": 766,
       "kind": "client",
@@ -477,12 +495,14 @@
       "support_claims_allowed": false,
       "tracked_files": 766,
       "tree": "0443d9addaea6b913bb242e054d3642ac35d7a2c",
-      "url": "https://github.com/acclorite/book-story"
+      "url": "https://github.com/acclorite/book-story",
+      "current_checkout_revision": "464891ec8cb00196d10b6dbaba3b7409c8fd27a8",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/booklore.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-booklore.jsonl.gz",
       "file_ledger_records": 2786,
       "kind": "client",
@@ -492,12 +512,14 @@
       "support_claims_allowed": false,
       "tracked_files": 2786,
       "tree": "33ba9addae792b76eee8326c03bbdba496726ab9",
-      "url": "https://github.com/booklore-app/booklore"
+      "url": "https://github.com/booklore-app/booklore",
+      "current_checkout_revision": "01b3407528a6ce00d064dbb9aa3f69b72d82641b",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/bookokrat.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-bookokrat.jsonl.gz",
       "file_ledger_records": 371,
       "kind": "client",
@@ -507,7 +529,9 @@
       "support_claims_allowed": false,
       "tracked_files": 371,
       "tree": "c1fd0a9fbc6cb5af4052e85af4e2da42c07c9fac",
-      "url": "https://github.com/bugzmanov/bookokrat"
+      "url": "https://github.com/bugzmanov/bookokrat",
+      "current_checkout_revision": "9c02ee3b3a0f86791b3917cb1a93436d92a8603e",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/bookorbit.json",
@@ -578,7 +602,7 @@
     {
       "analysis_file": "client_analysis/calibre-web.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-calibre-web.jsonl.gz",
       "file_ledger_records": 972,
       "kind": "client",
@@ -588,12 +612,14 @@
       "support_claims_allowed": false,
       "tracked_files": 972,
       "tree": "2e853a39d7f62fe0290b3538a77aa53130dd1bd2",
-      "url": "https://github.com/janeczku/calibre-web"
+      "url": "https://github.com/janeczku/calibre-web",
+      "current_checkout_revision": "6e840acbda8d62fdd159bf3855c01872d629a914",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/candela.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-candela.jsonl.gz",
       "file_ledger_records": 2099,
       "kind": "client",
@@ -603,12 +629,14 @@
       "support_claims_allowed": false,
       "tracked_files": 2099,
       "tree": "6f285adb0e8e57e8f6edd85a8e74ffda4bb1e8e1",
-      "url": "https://github.com/techempower-org/candela"
+      "url": "https://github.com/techempower-org/candela",
+      "current_checkout_revision": "26f079bc6d3dda3e30b8a6fc511990084cc0c838",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/chytanka.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-chytanka.jsonl.gz",
       "file_ledger_records": 390,
       "kind": "client",
@@ -618,12 +646,14 @@
       "support_claims_allowed": false,
       "tracked_files": 390,
       "tree": "430975039b150373c601144878a7ca5e452ae9a7",
-      "url": "https://github.com/chytanka/chytanka.github.io"
+      "url": "https://github.com/chytanka/chytanka.github.io",
+      "current_checkout_revision": "39b23eeb2abc0b9205695fd7b773ae616e2c3db5",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/codexa.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-codexa.jsonl.gz",
       "file_ledger_records": 358,
       "kind": "client",
@@ -633,12 +663,14 @@
       "support_claims_allowed": false,
       "tracked_files": 358,
       "tree": "8f1f38f437284d64f37c7a6f399499c9f0184742",
-      "url": "https://github.com/thehijacker/codexa"
+      "url": "https://github.com/thehijacker/codexa",
+      "current_checkout_revision": "083dffe43e2fcd31a1222ea09196909f78e7fc2c",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/cops.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-cops.jsonl.gz",
       "file_ledger_records": 388,
       "kind": "client",
@@ -648,7 +680,9 @@
       "support_claims_allowed": false,
       "tracked_files": 388,
       "tree": "0d40e71de7933585d91284da6b96384311f53571",
-      "url": "https://github.com/seblucas/cops"
+      "url": "https://github.com/seblucas/cops",
+      "current_checkout_revision": "7828cc600e904941583227071b8f4efd3b9385fb",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/crossmux.json",
@@ -683,7 +717,7 @@
     {
       "analysis_file": "client_analysis/diy-esp32-epub-reader.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-diy-esp32-epub-reader.jsonl.gz",
       "file_ledger_records": 142,
       "kind": "client",
@@ -693,12 +727,14 @@
       "support_claims_allowed": false,
       "tracked_files": 142,
       "tree": "33ccf7296bd10d458eca044eda53733c667ef79d",
-      "url": "https://github.com/atomic14/diy-esp32-epub-reader"
+      "url": "https://github.com/atomic14/diy-esp32-epub-reader",
+      "current_checkout_revision": "2c2f57fdd7e2a788d14a0bcb26b9e845a47aac42",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/diy-esp32s3-epub-reader.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-diy-esp32s3-epub-reader.jsonl.gz",
       "file_ledger_records": 1458,
       "kind": "client",
@@ -708,7 +744,9 @@
       "support_claims_allowed": false,
       "tracked_files": 1458,
       "tree": "5b164f41c4581c547e25a693d84970ea8f872da3",
-      "url": "https://github.com/juicecultus/diy-esp32s3-epub-reader"
+      "url": "https://github.com/juicecultus/diy-esp32s3-epub-reader",
+      "current_checkout_revision": "3b35576127dd2e3b27a46336e301c7b4793f95b7",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/dyslibria.json",
@@ -881,7 +919,7 @@
     {
       "analysis_file": "client_analysis/foliate.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-foliate.jsonl.gz",
       "file_ledger_records": 140,
       "kind": "client",
@@ -891,7 +929,9 @@
       "support_claims_allowed": false,
       "tracked_files": 140,
       "tree": "0410ade27bc5a3705a1c3192c2642d976ba32a0a",
-      "url": "https://github.com/johnfactotum/foliate"
+      "url": "https://github.com/johnfactotum/foliate",
+      "current_checkout_revision": "67b6676d3f936c5edea91d4d903385ef39dd25c0",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/foliate-js.json",
@@ -964,7 +1004,7 @@
     {
       "analysis_file": "client_analysis/grimmory.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-grimmory.jsonl.gz",
       "file_ledger_records": 2887,
       "kind": "client",
@@ -974,7 +1014,9 @@
       "support_claims_allowed": false,
       "tracked_files": 2887,
       "tree": "a6754edfc2830cb8c8a79239c4816677c2b9dc50",
-      "url": "https://github.com/grimmory-tools/grimmory"
+      "url": "https://github.com/grimmory-tools/grimmory",
+      "current_checkout_revision": "021cb138dc7f19583142c55fd5070201c40b403b",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/inkmod.json",
@@ -996,7 +1038,7 @@
     {
       "analysis_file": "client_analysis/jellybook.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-jellybook.jsonl.gz",
       "file_ledger_records": 419,
       "kind": "client",
@@ -1006,12 +1048,14 @@
       "support_claims_allowed": false,
       "tracked_files": 419,
       "tree": "434e04612b613fed1f1b713a7cb4dab9b079d45d",
-      "url": "https://github.com/jellybookorg/jellybook"
+      "url": "https://github.com/jellybookorg/jellybook",
+      "current_checkout_revision": "505684a96fd2529cf17697a97824064b74671297",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/kavita.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-kavita.jsonl.gz",
       "file_ledger_records": 3917,
       "kind": "client",
@@ -1021,12 +1065,14 @@
       "support_claims_allowed": false,
       "tracked_files": 3917,
       "tree": "cae66499aa7d134a2589981df03c7dace2c2853c",
-      "url": "https://github.com/kareadita/kavita"
+      "url": "https://github.com/kareadita/kavita",
+      "current_checkout_revision": "d549d5b1609086c8190b9bee6eb48ebfed71e1df",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/komga.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-komga.jsonl.gz",
       "file_ledger_records": 1908,
       "kind": "client",
@@ -1036,12 +1082,14 @@
       "support_claims_allowed": false,
       "tracked_files": 1908,
       "tree": "911e94870cc5b3e5d74635272cebaacf99fc8785",
-      "url": "https://github.com/gotson/komga"
+      "url": "https://github.com/gotson/komga",
+      "current_checkout_revision": "023ec905c10a35bbb8e29095420d266cd3adad60",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/koodo-reader.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-koodo-reader.jsonl.gz",
       "file_ledger_records": 851,
       "kind": "client",
@@ -1051,7 +1099,9 @@
       "support_claims_allowed": false,
       "tracked_files": 851,
       "tree": "c34ae6456ca97612119a5450944684f249dc73c3",
-      "url": "https://github.com/koodo-reader/koodo-reader"
+      "url": "https://github.com/koodo-reader/koodo-reader",
+      "current_checkout_revision": "4eadb2ec9fe98abd02e2f31712b95f8c0306e298",
+      "current_checkout_matches_analysis": false
     },
     {
       "analysis_file": "client_analysis/koreader.json",
@@ -1073,7 +1123,7 @@
     {
       "analysis_file": "client_analysis/lanraragi.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-lanraragi.jsonl.gz",
       "file_ledger_records": 462,
       "kind": "client",
@@ -1083,7 +1133,9 @@
       "support_claims_allowed": false,
       "tracked_files": 462,
       "tree": "f5877cb353f3ca068bf4a2019e8ae1486e281163",
-      "url": "https://github.com/difegue/lanraragi"
+      "url": "https://github.com/difegue/lanraragi",
+      "current_checkout_revision": "adfe9e75cbb8dd4db0fef2c2e35698d557c5a59b",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/lector.json",
@@ -1235,7 +1287,7 @@
     {
       "analysis_file": "client_analysis/mitsu.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-mitsu.jsonl.gz",
       "file_ledger_records": 115,
       "kind": "client",
@@ -1245,12 +1297,14 @@
       "support_claims_allowed": false,
       "tracked_files": 115,
       "tree": "ddeb330bfdb590f58703652d7e1b86a4fe69b2c9",
-      "url": "https://github.com/chandu4143/mitsu"
+      "url": "https://github.com/chandu4143/mitsu",
+      "current_checkout_revision": "492d0cc71570936e195b8244efcc70102b5e5209",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/myne.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-myne.jsonl.gz",
       "file_ledger_records": 299,
       "kind": "client",
@@ -1260,7 +1314,9 @@
       "support_claims_allowed": false,
       "tracked_files": 299,
       "tree": "c0ec58c2e980c25b4719fae7740f5e1ede78a6b7",
-      "url": "https://github.com/pool-of-tears/myne"
+      "url": "https://github.com/pool-of-tears/myne",
+      "current_checkout_revision": "7ec1fdb19ebf19de13d7b61bcb52b3ce4878a579",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/novelist.json",
@@ -1346,7 +1402,7 @@
     {
       "analysis_file": "client_analysis/openlib.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-openlib.jsonl.gz",
       "file_ledger_records": 217,
       "kind": "client",
@@ -1356,7 +1412,9 @@
       "support_claims_allowed": false,
       "tracked_files": 217,
       "tree": "086aab6c054bbc685ea0ed8015e0f2539620efc5",
-      "url": "https://github.com/dstark5/openlib"
+      "url": "https://github.com/dstark5/openlib",
+      "current_checkout_revision": "fd779d7dd8dee1ab07aaf189f406dc00275c6321",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/paperpaw.json",
@@ -1376,7 +1434,7 @@
     {
       "analysis_file": "client_analysis/polka.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-polka.jsonl.gz",
       "file_ledger_records": 209,
       "kind": "client",
@@ -1386,12 +1444,14 @@
       "support_claims_allowed": false,
       "tracked_files": 209,
       "tree": "0c3ab0a2cd9ea1f57ab45a73870cf1263f617210",
-      "url": "https://github.com/vestigiumincaligne/polka"
+      "url": "https://github.com/vestigiumincaligne/polka",
+      "current_checkout_revision": "01c2712a771fc72b7eced5887eea68e6bb1876a0",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/quill.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-quill.jsonl.gz",
       "file_ledger_records": 279,
       "kind": "client",
@@ -1401,12 +1461,14 @@
       "support_claims_allowed": false,
       "tracked_files": 279,
       "tree": "c322c0a7134d5a6d3caf62ed46a2c92ba33e6ca9",
-      "url": "https://github.com/quill-os/quill"
+      "url": "https://github.com/quill-os/quill",
+      "current_checkout_revision": "790ffd6fb73318a76888d66cb32c88b2477f09dd",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/quire.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-quire.jsonl.gz",
       "file_ledger_records": 3233,
       "kind": "client",
@@ -1416,7 +1478,9 @@
       "support_claims_allowed": false,
       "tracked_files": 3233,
       "tree": "e677bb0973d091eb1854f45297fa356bbdf1efe8",
-      "url": "https://github.com/bats-lang/quire"
+      "url": "https://github.com/bats-lang/quire",
+      "current_checkout_revision": "4cbb7dd401dae870e71468665b9bd3e66b4a583e",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/r2d2bc.json",
@@ -1453,7 +1517,7 @@
     {
       "analysis_file": "client_analysis/read-cat.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-read-cat.jsonl.gz",
       "file_ledger_records": 347,
       "kind": "client",
@@ -1463,12 +1527,14 @@
       "support_claims_allowed": false,
       "tracked_files": 347,
       "tree": "301eff21e434997520a0712fb7652834aaba3dcb",
-      "url": "https://github.com/read-cat/read-cat"
+      "url": "https://github.com/read-cat/read-cat",
+      "current_checkout_revision": "da008dced50c56a3fd58f3a7240d811f56e88ce4",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/read-pico-reader.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-read-pico-reader.jsonl.gz",
       "file_ledger_records": 1320,
       "kind": "client",
@@ -1478,12 +1544,14 @@
       "support_claims_allowed": false,
       "tracked_files": 1320,
       "tree": "5c951fc5f7c7507a06d3dcd9dd1244d05ada9fc2",
-      "url": "https://github.com/wegooo-cell/read-pico-reader"
+      "url": "https://github.com/wegooo-cell/read-pico-reader",
+      "current_checkout_revision": "2f1ef29d446b66ec1d0bf1afa39f1caa8622bbc8",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/readany.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-readany.jsonl.gz",
       "file_ledger_records": 1414,
       "kind": "client",
@@ -1493,12 +1561,14 @@
       "support_claims_allowed": false,
       "tracked_files": 1414,
       "tree": "e26794bbb1db5f5cc144eb27343e1af82f536590",
-      "url": "https://github.com/codedogqby/readany"
+      "url": "https://github.com/codedogqby/readany",
+      "current_checkout_revision": "fce44689e1377df1ae99a35e8e71d5e8b3a639d1",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/readest.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-readest.jsonl.gz",
       "file_ledger_records": 4492,
       "kind": "client",
@@ -1508,7 +1578,9 @@
       "support_claims_allowed": false,
       "tracked_files": 4492,
       "tree": "3d99e4d5d97fa2e9f271b54731cc8b153ce06a12",
-      "url": "https://github.com/readest/readest"
+      "url": "https://github.com/readest/readest",
+      "current_checkout_revision": "2f260ee10ff3500f77a43cfbb24254b7ac422aa7",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/repy.json",
@@ -1615,7 +1687,7 @@
     {
       "analysis_file": "client_analysis/stump.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-stump.jsonl.gz",
       "file_ledger_records": 2808,
       "kind": "client",
@@ -1625,7 +1697,9 @@
       "support_claims_allowed": false,
       "tracked_files": 2808,
       "tree": "3f706a85fd26e6d2409112779bf7fe6f4fd1d0f1",
-      "url": "https://github.com/stumpapp/stump"
+      "url": "https://github.com/stumpapp/stump",
+      "current_checkout_revision": "d0f51c8e6da74d584a2a4cda8d9db02337de73ca",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/sumatrapdf.json",
@@ -1664,7 +1738,7 @@
     {
       "analysis_file": "client_analysis/termepub.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-termepub.jsonl.gz",
       "file_ledger_records": 8,
       "kind": "client",
@@ -1674,7 +1748,9 @@
       "support_claims_allowed": false,
       "tracked_files": 8,
       "tree": "e92a8ea187df295719fccb15385054af66dcca2e",
-      "url": "https://github.com/mattllvw/termepub"
+      "url": "https://github.com/mattllvw/termepub",
+      "current_checkout_revision": "70a1886f691bcfd87d05829a2839638b4ee24969",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/thorium-reader.json",
@@ -1696,7 +1772,7 @@
     {
       "analysis_file": "client_analysis/thorium-web.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-thorium-web.jsonl.gz",
       "file_ledger_records": 678,
       "kind": "client",
@@ -1706,12 +1782,14 @@
       "support_claims_allowed": false,
       "tracked_files": 678,
       "tree": "501bb47c08b2167c6756becfe69352107ecd2f5b",
-      "url": "https://github.com/edrlab/thorium-web"
+      "url": "https://github.com/edrlab/thorium-web",
+      "current_checkout_revision": "8d49c2b116e93ca50d4ccfdcb3226efde7bc49c8",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/tidepage.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-tidepage.jsonl.gz",
       "file_ledger_records": 233,
       "kind": "client",
@@ -1721,7 +1799,9 @@
       "support_claims_allowed": false,
       "tracked_files": 233,
       "tree": "1876b7071f88db3b48c2f6210819730dbd03abb2",
-      "url": "https://github.com/miipa/tidepage"
+      "url": "https://github.com/miipa/tidepage",
+      "current_checkout_revision": "7e9caeb0ce4c7eb9922c5abf59cade2d86617004",
+      "current_checkout_matches_analysis": true
     },
     {
       "analysis_file": "client_analysis/verso.json",
@@ -1777,7 +1857,7 @@
     {
       "analysis_file": "client_analysis/yomikiru.json",
       "analysis_status": "automated_static_index_complete",
-      "current_checkout_status": "unavailable",
+      "current_checkout_status": "valid",
       "file_evidence_gzip": "file_evidence/client-yomikiru.jsonl.gz",
       "file_ledger_records": 508,
       "kind": "client",
@@ -1787,7 +1867,9 @@
       "support_claims_allowed": false,
       "tracked_files": 508,
       "tree": "033e120b7b9d4430c83c919eeb07f76cfb4d8d60",
-      "url": "https://github.com/mienaiyami/yomikiru"
+      "url": "https://github.com/mienaiyami/yomikiru",
+      "current_checkout_revision": "3087618628734ef7e986fcd26b331a80dd4f3b57",
+      "current_checkout_matches_analysis": true
     }
   ],
   "schema_version": 2,

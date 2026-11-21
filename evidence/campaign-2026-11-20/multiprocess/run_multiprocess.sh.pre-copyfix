@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+# ATM-027: catalog write behavior across PROCESSES, not threads.
+#
+# Every other contention number in this campaign came from one process holding
+# one connection pool, where a Go mutex could in principle have done the same
+# job. Here separate OS processes write one PostgreSQL, so the advisory lock is
+# the only coordination that exists. Three variants of the same shipped binary
+# are measured in one window on one machine:
+#
+#   sharded   the code as committed — one lock per touched work/edition/source
+#   global    every catalog writer asking for one shared key (previous behavior)
+#   unlocked  no advisory lock at all, the needle: verify must fail here
+#
+# The global and unlocked arms are produced by temporarily editing one function
+# in postgres.go, rebuilding, and restoring; the script verifies the file against
+# its pre-run SHA-256 before it exits, and refuses to report anything if the
+# restore did not land byte-for-byte.
+#
+# All measurement happens inside the disposable helixqual-pg container against
+# 127.0.0.1:5432, because latency through podman's userspace forwarder is not
+# query latency (see ../load/README.md).
+set -uo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$HERE/../../.." && pwd)"
+SERVER="$ROOT/server"
+SRC="$ROOT/server/internal/catalog/postgres.go"
+PG=helixqual-pg
+CONTAINER_DSN='postgres://helixqual@127.0.0.1:5432/helix_test?sslmode=disable'
+PROCS=${PROCS:-4}
+OPS=${OPS:-60}
+RUN=$(date +%s | tail -c 7)
+RESULTS="$HERE/results.json"
+LOG="$HERE/run.log"
+BAK="$HERE/postgres.go.pre-mutation"
+mkdir -p "$HERE"
+ORIG_SHA=$(sha256sum "$SRC" | awk '{print $1}')
+cp "$SRC" "$BAK"
+restore() { cp "$BAK" "$SRC"; }
+trap 'restore' EXIT INT TERM
+log() { printf '%s %s\n' "$(date -Is)" "$*" | tee -a "$LOG"; }
+
+mutate() { # mutate <anchor-unique-string> <replacement>
+  restore
+  python3 - "$SRC" "$1" "$2" <<'PY'
+import sys
+path, old, new = sys.argv[1], sys.argv[2], sys.argv[3]
+s = open(path).read()
+if s.count(old) != 1:
+    sys.exit("anchor occurs %d times, need exactly 1" % s.count(old))
+open(path, 'w').write(s.replace(old, new))
+PY
+}
+
+# run_variant <label> <expect-verify-pass:yes|no>
+run_variant() {
+  local label=$1 expect=$2
+  local bin=/tmp/helix-mp-$label.test
+  log "variant $label: building"
+  ( cd "$SERVER" && CGO_ENABLED=0 go test -c -o "$bin" ./internal/catalog ) >>"$LOG" 2>&1 || { log "build FAILED"; return 1; }
+  podman cp "$bin" "$PG:/tmp/mp.test" >>"$LOG" 2>&1 || { log "cp FAILED"; return 1; }
+  local pids=() start end
+  start=$(date +%s.%N)
+  for i in $(seq 0 $((PROCS - 1))); do
+    podman exec -i \
+      -e HELIX_TEST_POSTGRES_DSN="$CONTAINER_DSN" -e HELIX_LOAD_RUN=1 \
+      -e HELIX_MEASUREMENT_PATH=in_container_clean \
+      -e HELIX_LOAD_OUTPUT="/tmp/mp-$label-w$i.jsonl" \
+      -e HELIX_MP_ROLE=worker -e HELIX_MP_INDEX="$i" -e HELIX_MP_PROCESSES="$PROCS" \
+      -e HELIX_MP_OPS="$OPS" -e HELIX_MP_RUN="$label$RUN" \
+      "$PG" /tmp/mp.test -test.run TestCatalogMultiProcessMerges -test.v -test.count=1 -test.timeout 20m \
+      >"$HERE/$label-$RUN-worker-$i.log" 2>&1 &
+    pids+=($!)
+  done
+  local worker_rc=0
+  for p in "${pids[@]}"; do wait "$p" || worker_rc=1; done
+  end=$(date +%s.%N)
+  local wall
+  wall=$(python3 -c "print(f'{$end-$start:.3f}')")
+  local per_ops=$((PROCS * OPS * 3))
+  local agg
+  agg=$(python3 -c "print(f'{$per_ops/$wall:.2f}')")
+  log "variant $label: $PROCS workers x $OPS ops x 3 arms = $per_ops merges in ${wall}s aggregate ${agg} ops/s (worker_errors_observed=$worker_rc)"
+  podman exec -i \
+    -e HELIX_TEST_POSTGRES_DSN="$CONTAINER_DSN" -e HELIX_LOAD_RUN=1 \
+    -e HELIX_MEASUREMENT_PATH=in_container_clean \
+    -e HELIX_LOAD_OUTPUT="/tmp/mp-$label-verify.jsonl" \
+    -e HELIX_MP_ROLE=verify -e HELIX_MP_INDEX=0 -e HELIX_MP_PROCESSES="$PROCS" \
+    -e HELIX_MP_OPS="$OPS" -e HELIX_MP_RUN="$label$RUN" \
+    "$PG" /tmp/mp.test -test.run TestCatalogMultiProcessMerges -test.v -test.count=1 -test.timeout 20m \
+    >"/tmp/mp-$label-verify.log" 2>&1
+  local vrc=$?
+  log "variant $label: verify exit=$vrc $(grep -o 'VERIFY [^\"]*' "/tmp/mp-$label-verify.log" | tail -1)"
+  # Copy every payload and log back before the container files are removed.
+  for f in /tmp/mp-$label-*.jsonl /tmp/mp-$label-*.log; do
+    podman cp "$PG:${f#/}" "$HERE/${label}-${RUN}-$(basename "$f" | sed "s/^mp-$label-//")" 2>/dev/null || true
+  done
+  podman exec "$PG" bash -c "rm -f /tmp/mp-$label-* /tmp/mp.test" 2>/dev/null
+  # Drop the fixture rows this variant wrote; cascade takes editions and files.
+  podman exec "$PG" psql -U helixqual -d helix_test -Atc \
+    "DELETE FROM works WHERE id LIKE 'scope-mp-$label$RUN-%'" >>"$LOG" 2>&1 || log "variant $label: cleanup FAILED"
+  if [ "$expect" = yes ] && [ "$worker_rc" != 0 ]; then
+    log "variant $label: UNEXPECTED — a worker process reported failed merges"
+    return 1
+  fi
+  if [ "$expect" = yes ] && [ $vrc -ne 0 ]; then
+    log "variant $label: UNEXPECTED — verify failed on a variant that must preserve every write"
+    return 1
+  fi
+  if [ "$expect" = no ] && [ $vrc -eq 0 ]; then
+    log "variant $label: NEEDLE BLIND — verify passed with the lock removed, so the multi-process assertions have no detection power"
+    return 1
+  fi
+  python3 - "$RESULTS" "$label" "$expect" "$vrc" "$wall" "$agg" "$per_ops" "$PROCS" "$OPS" "$RUN" <<'PY'
+import json, os, sys, datetime
+_a = list(sys.argv[1:]) + ["0"] * (10 - len(sys.argv) + 1)
+path, label, expect, vrc, wall, agg, per_ops, procs, ops, run = _a[:10]
+runs = {"generated_at": None, "note": None, "variants": []}
+if os.path.exists(path):
+    with open(path) as fh:
+        runs = json.load(fh)
+runs["variants"].append({
+    "variant": label, "verify_expected": "pass" if expect == "yes" else "fail",
+    "verify_exit": int(vrc), "verify_ok": (int(vrc) == 0) == (expect == "yes"),
+    "processes": int(procs), "ops_per_arm_per_process": int(ops), "arms": 3,
+    "total_merges": int(per_ops), "worker_phase_seconds": float(wall),
+    "aggregate_ops_per_second": float(agg),
+    "run_tag_suffix": label, "run_tag": run, "sync": "cross-process DB barrier before arms 2 and 3", "recorded_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+})
+runs["generated_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+runs["note"] = ("Separate OS processes against one PostgreSQL, inside the helixqual-pg "
+                "container. sharded is the shipped code; global and unlocked are temporary "
+                "single-function edits of identityLockKeys/lockIdentities rebuilt from source, "
+                "restored and hash-verified by this script.")
+with open(path, "w") as fh:
+    json.dump(runs, fh, indent=1, sort_keys=True)
+    fh.write("\n")
+PY
+  return 0
+}
+
+STATUS=0
+log "=== multiprocess run tag=$RUN procs=$PROCS ops_per_arm=$OPS ==="
+log "fingerprint before: $ORIG_SHA"
+
+if ! run_variant sharded yes; then STATUS=1; fi
+SIGNATURE='func lockIdentities(ctx context.Context, tx *sql.Tx, keys []string) error {'
+if ! mutate "$SIGNATURE" "$SIGNATURE"'
+	keys = []string{"global-identity-lock"}'; then
+  log "global arm: mutation anchor did not apply"; STATUS=1
+elif ! run_variant global yes; then STATUS=1; fi
+if ! mutate "$SIGNATURE" "$SIGNATURE"'
+	keys = nil'; then
+  log "unlocked arm: mutation anchor did not apply"; STATUS=1
+elif ! run_variant unlocked no; then STATUS=1; fi
+
+restore
+FINAL_SHA=$(sha256sum "$SRC" | awk '{print $1}')
+if [ "$FINAL_SHA" != "$ORIG_SHA" ]; then
+  log "RESTORE FAILED — $SRC differs ($FINAL_SHA != $ORIG_SHA); results above were measured against edited source and must not be trusted"
+  exit 3
+fi
+log "restored byte-identical: $FINAL_SHA"
+# Rebuild the shipped binary and confirm the shipped invariants still hold in one
+# process, so the file on disk is the one the report describes.
+( cd "$SERVER" && HELIX_TEST_POSTGRES_DSN='postgres://helixqual@127.0.0.1:34320/helix_test?sslmode=disable' \
+  go test ./internal/catalog -run 'TestCatalog(MergePreserves|MergeNeedle|FileClaim|ReconcileExcludes|EditionOwnership|IdentityLockKeys)' -count=1 -timeout 15m ) >>"$LOG" 2>&1 \
+  && log "post-restore single-process suite: PASS" || { log "post-restore single-process suite: FAILED"; STATUS=1; }
+log "=== multiprocess status=$STATUS ==="
+exit $STATUS

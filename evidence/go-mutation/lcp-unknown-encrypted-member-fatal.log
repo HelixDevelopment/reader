@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestDecryptUserIgnoresUnknownEncryptedMembers$ -count=1
+--- FAIL: TestDecryptUserIgnoresUnknownEncryptedMembers (0.00s)
+    keys_test.go:306: unknown encrypted member should be ignored, got lcp: unsupported encrypted member telepathy
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
+FAIL
+
+exit=1

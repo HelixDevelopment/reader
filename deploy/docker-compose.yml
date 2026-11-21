@@ -1,3 +1,6 @@
+# docker-compose CLI -p overrides this; podman-compose 1.5.0 does not override
+# a literal name, so keep it interpolable for isolated/qualification runs.
+name: ${COMPOSE_PROJECT_NAME:-helix}
 services:
   postgres:
     image: pgvector/pgvector:pg17
@@ -25,6 +28,9 @@ services:
       retries: 30
     restart: unless-stopped
   helix:
+    # Explicit image reference so a rebuilt image is a tagged upgrade and a
+    # previous tag is an instant rollback. Defaults to the compose-built name.
+    image: ${HELIX_IMAGE:-helix-helix:latest}
     build:
       context: ..
       dockerfile: server/Dockerfile
@@ -44,8 +50,10 @@ services:
       HELIX_HTTP3: ${HELIX_HTTP3:-true}
       HELIX_COVER_CACHE: /data/covers
     ports:
-      - "127.0.0.1:8080:8080/tcp"
-      - "127.0.0.1:8080:8080/udp"
+      # Loopback-only publish; HELIX_PUBLISH_PORT avoids host port clashes in
+      # shared environments (docker-compose and podman-compose both honor it).
+      - "127.0.0.1:${HELIX_PUBLISH_PORT:-8080}:8080/tcp"
+      - "127.0.0.1:${HELIX_PUBLISH_PORT:-8080}:8080/udp"
     volumes:
       - helix-data:/data
       - ${HELIX_LIBRARY_PATH:-./library}:/library:ro
@@ -55,6 +63,14 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    healthcheck:
+      # BusyBox wget ships in the alpine runtime image; /healthz is the
+      # unauthenticated liveness endpoint.
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8080/healthz || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 20s
     restart: unless-stopped
 volumes:
   postgres-data:

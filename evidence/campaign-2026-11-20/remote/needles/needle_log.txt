@@ -1,0 +1,10 @@
+remote_etag_lie rc=1 status=FIRED expected=advertised strong validator
+    load_remote_test.go:226: remote load-remote-f0 advertised strong validator "\"sha256-b5f5f6a81cdc56589df82abaef5e0f4092a7fdce4c5604b88f19025d24df7ae2\"" without live revalidation
+remote_ranges_lie rc=1 status=FIRED expected=while the route cannot honour a range
+    load_remote_test.go:229: remote load-remote-f0 advertised "bytes" while the route cannot honour a range
+remote_range_unvalidated rc=1 status=FIRED expected=must get a full 200
+    load_remote_test.go:239: remote range GET load-remote-f0 returned 206; this source must get a full 200, because nothing confirmed the scanned size is still true
+remote_double_fetch rc=1 status=FIRED expected=not one-for-one
+    load_remote_test.go:311: remote size 262144 level 1: 12 client requests caused 24 origin requests; the connector is not one-for-one
+remote_bytes_corrupt rc=1 status=FIRED expected=catalog recorded
+    load_remote_test.go:223: remote full GET load-remote-f0 delivered sha256 352c99632813087fb1d704178ed992797f58e9adf65caea16c1b25dfae93466a, catalog recorded 219e2c53425bc0c285807be340ff7f6491f43da08596166799db37739bc51836

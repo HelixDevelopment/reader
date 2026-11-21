@@ -1,0 +1,7 @@
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:264: JOBS BURST #0 submitted=96 queue_full=32 peak_pending=64 submit_ms=23.7 drain_ms=666.5 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #1 submitted=96 queue_full=32 peak_pending=64 submit_ms=4.1 drain_ms=678.7 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #2 submitted=96 queue_full=32 peak_pending=64 submit_ms=10.9 drain_ms=695.5 timed_out=false
+    load_jobs_test.go:325: 192 accepted scans were journaled fewer than 3 times (queued/running/terminal); the mirror is not a record of the queue: [scan-bd8b0cab37775420b5824d26ea5404ca journal=[queued running] store="succeeded" scan-f3bf17fc9e150756896d57a319e266dd journal=[queued running] store="succeeded" scan-2ed056d3f7b5a8f919e77b9d10478e5b journal=[queued running] store="succeeded" scan-cd2458a40b064664e534b7c60abbc5ed journal=[queued running] store="succeeded" scan-bd9d028f9979d41611382ddc66611eed journal=[queued running] store="succeeded"]
+--- FAIL: TestLiveLoadJobQueueDurability (2.13s)
+FAIL

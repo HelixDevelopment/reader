@@ -1,6 +1,9 @@
 package config
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 var configKeys = []string{
 	"HELIX_ADDRESS", "HELIX_TLS_CERT", "HELIX_TLS_KEY", "HELIX_ADMIN_TOKEN",
@@ -8,6 +11,10 @@ var configKeys = []string{
 	"HELIX_POSTGRES_DSN", "HELIX_COVER_CACHE", "HELIX_REDIS_URL",
 	"HELIX_KOSYNC_REGISTRATION", "HELIX_AI_MEMORY", "HELIX_EMBEDDING_DIMENSIONS",
 	"HELIX_HTTP3", "HELIX_BROTLI_LEVEL", "HELIX_ALLOW_INSECURE_ADMIN",
+	"HELIX_CATALOG_POOL_MAX_OPEN_CONNS", "HELIX_CATALOG_POOL_MAX_IDLE_CONNS",
+	"HELIX_CATALOG_POOL_LIFETIME_SECONDS",
+	"HELIX_AI_MEMORY_POOL_MAX_OPEN_CONNS", "HELIX_AI_MEMORY_POOL_MAX_IDLE_CONNS",
+	"HELIX_AI_MEMORY_POOL_LIFETIME_SECONDS",
 }
 
 func cleanEnvironment(t *testing.T) {
@@ -66,4 +73,53 @@ func TestEnvironmentValidation(t *testing.T) {
 			t.Fatal("AI memory without PostgreSQL accepted")
 		}
 	})
+}
+
+func TestPoolConfiguration(t *testing.T) {
+	t.Run("defaults match the historical hardcoded limits", func(t *testing.T) {
+		cleanEnvironment(t)
+		c, err := FromEnv()
+		if err != nil {
+			t.Fatal(err)
+		}
+		if want := (Pool{MaxOpenConns: 20, MaxIdleConns: 5, ConnMaxLifetime: 30 * time.Minute}); c.CatalogPool != want {
+			t.Fatalf("catalog pool = %+v, want %+v", c.CatalogPool, want)
+		}
+		if want := (Pool{MaxOpenConns: 10, MaxIdleConns: 3, ConnMaxLifetime: 30 * time.Minute}); c.AIMemoryPool != want {
+			t.Fatalf("AI memory pool = %+v, want %+v", c.AIMemoryPool, want)
+		}
+	})
+	t.Run("catalog override", func(t *testing.T) {
+		cleanEnvironment(t)
+		t.Setenv("HELIX_CATALOG_POOL_MAX_OPEN_CONNS", "64")
+		t.Setenv("HELIX_CATALOG_POOL_MAX_IDLE_CONNS", "16")
+		t.Setenv("HELIX_CATALOG_POOL_LIFETIME_SECONDS", "900")
+		c, err := FromEnv()
+		if err != nil {
+			t.Fatal(err)
+		}
+		want := Pool{MaxOpenConns: 64, MaxIdleConns: 16, ConnMaxLifetime: 15 * time.Minute}
+		if c.CatalogPool != want {
+			t.Fatalf("catalog pool = %+v, want %+v", c.CatalogPool, want)
+		}
+		if c.AIMemoryPool.MaxOpenConns != 10 {
+			t.Fatalf("AI memory pool changed with catalog override: %+v", c.AIMemoryPool)
+		}
+	})
+	for _, test := range []struct{ name, key, value string }{
+		{"idle above open", "HELIX_CATALOG_POOL_MAX_IDLE_CONNS", "21"},
+		{"zero max open", "HELIX_CATALOG_POOL_MAX_OPEN_CONNS", "0"},
+		{"negative idle", "HELIX_AI_MEMORY_POOL_MAX_IDLE_CONNS", "-1"},
+		{"zero lifetime", "HELIX_AI_MEMORY_POOL_LIFETIME_SECONDS", "0"},
+		{"non-integer max open", "HELIX_CATALOG_POOL_MAX_OPEN_CONNS", "many"},
+		{"non-integer lifetime", "HELIX_AI_MEMORY_POOL_LIFETIME_SECONDS", "30m"},
+	} {
+		t.Run(test.name+" rejected", func(t *testing.T) {
+			cleanEnvironment(t)
+			t.Setenv(test.key, test.value)
+			if _, err := FromEnv(); err == nil {
+				t.Fatalf("%s=%s accepted", test.key, test.value)
+			}
+		})
+	}
 }

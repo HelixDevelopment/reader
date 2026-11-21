@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestProtectRefusesContainersItCannotHonestlyReturn$ -count=1
+--- FAIL: TestProtectRefusesContainersItCannotHonestlyReturn (0.12s)
+    --- FAIL: TestProtectRefusesContainersItCannotHonestlyReturn/a_zip_that_is_not_a_publication (0.00s)
+        packager_test.go:292: Protect error = <nil>, want lcp: container is not a publication
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.131s
+FAIL
+
+exit=1

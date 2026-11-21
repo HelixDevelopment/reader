@@ -107,6 +107,9 @@ func (d *Document) Validate() error {
 	var walk func(cs []*Chapter) error
 	walk = func(cs []*Chapter) error {
 		for _, c := range cs {
+			if c == nil {
+				return errors.New("hdm: nil chapter in spine")
+			}
 			if c.ID == "" {
 				return errors.New("hdm: chapter with empty id")
 			}
@@ -136,6 +139,9 @@ func (d *Document) WordCount() int {
 	var walk func(cs []*Chapter)
 	walk = func(cs []*Chapter) {
 		for _, c := range cs {
+			if c == nil {
+				continue
+			}
 			for _, b := range c.Blocks {
 				if b.Kind == BlockImage || b.Kind == BlockSeparator {
 					continue
@@ -159,6 +165,9 @@ func (d *Document) Fingerprint() string {
 	var walk func(cs []*Chapter)
 	walk = func(cs []*Chapter) {
 		for _, c := range cs {
+			if c == nil {
+				continue
+			}
 			flat = append(flat, c)
 			walk(c.Children)
 		}
@@ -188,6 +197,9 @@ func (d *Document) FlatTOC() []*Chapter {
 	var walk func(cs []*Chapter)
 	walk = func(cs []*Chapter) {
 		for _, c := range cs {
+			if c == nil {
+				continue
+			}
 			out = append(out, c)
 			walk(c.Children)
 		}

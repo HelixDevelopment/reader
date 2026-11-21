@@ -5,8 +5,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-001] Establish core document, cache, settings, and synchronization primitives
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Establish core document, cache, settings, and synchronization primitives. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -37,8 +40,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-002] Implement multi-format detection and bounded document parsing
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Implement multi-format detection and bounded document parsing. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -69,8 +75,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-003] Canonicalize ISBN identity across equivalent representations
 
 **Status:** Fixed (→ Fixed.md)
+
 **Type:** Bug
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Canonicalize ISBN identity across equivalent representations. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -101,8 +110,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-004] Index local and remote libraries in place without reorganizing source bytes
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Index local and remote libraries in place without reorganizing source bytes. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -133,8 +145,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-005] Make OPDS acquisition identity collision-safe and atomically replaceable
 
 **Status:** Fixed (→ Fixed.md)
+
 **Type:** Bug
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Make OPDS acquisition identity collision-safe and atomically replaceable. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -165,8 +180,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-006] Revalidate content before strong ETag and byte-range responses
 
 **Status:** Fixed (→ Fixed.md)
+
 **Type:** Bug
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Revalidate content before strong ETag and byte-range responses. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -197,8 +215,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-007] Preserve persistent HTTP connections during identity compression fallback
 
 **Status:** Fixed (→ Fixed.md)
+
 **Type:** Bug
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Preserve persistent HTTP connections during identity compression fallback. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -229,8 +250,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-008] Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -261,8 +285,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-009] Reconcile durable PostgreSQL catalogs atomically after source scans
 
 **Status:** Fixed (→ Fixed.md)
+
 **Type:** Bug
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Reconcile durable PostgreSQL catalogs atomically after source scans. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -293,8 +320,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-010] Implement monotonic KOReader progress synchronization with Redis
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Implement monotonic KOReader progress synchronization with Redis. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -325,8 +355,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-011] Deliver an honest responsive web catalog prototype
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** Medium
+
 **Reopens:** 0
 
 **Description:** Deliver an honest responsive web catalog prototype. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -357,8 +390,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-012] Establish repeatable deterministic core and server qualification
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Establish repeatable deterministic core and server qualification. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -389,8 +425,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-013] Fuzz all exposed format and byte-range parsers
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Fuzz all exposed format and byte-range parsers. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -421,8 +460,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-014] Prove regression tests reject targeted restoration of fixed defects
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Prove regression tests reject targeted restoration of fixed defects. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -453,8 +495,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-015] Exercise real PostgreSQL, pgvector, and Redis integrations
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Exercise real PostgreSQL, pgvector, and Redis integrations. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -485,8 +530,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-016] Verify backup and restore recovery against the current tree
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Verify backup and restore recovery against the current tree. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -517,8 +565,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-017] Prevent credentials and sensitive values from entering source and evidence
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Prevent credentials and sensitive values from entering source and evidence. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -549,8 +600,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-018] Keep deterministic metadata evidence authoritative over AI proposals
 
 **Status:** Implemented (→ Fixed.md)
+
 **Type:** Feature
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Keep deterministic metadata evidence authoritative over AI proposals. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
@@ -578,11 +632,52 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/identify; server/internal/ingest; docs/architecture.md
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: server/internal/identify; server/internal/ingest; docs/architecture.md
 
+## [ATM-024] Qualify containerized build, deployment, restart, and distribution workflows
+
+**Status:** Implemented (→ Fixed.md)
+
+**Type:** Feature
+
+**Severity:** Critical
+
+**Reopens:** 0
+
+**Description:** podman 5.7.0 rootless: build, cold start on fresh volumes, container restart with data survival, upgrade to rebuilt image, rollback, endpoint and OPDS checks all PASS (evidence/campaign-2026-11-20/containers/ build.log cold-start.log restart.log upgrade.log rollback.log). The second pass adds the two dimensions this record previously admitted were missing: image distribution, proven by pushing the built server image to a local registry:2, deleting both local tags so the pull cannot be served from cache, and pulling it back with an identical manifest digest and config id, then running that pulled artifact (health, /v1/works cursor body, OPDS 1.2 and 2.0 content types, process user helix); and compose execution, run through podman-compose with all three services healthy, /readyz ready, stack-internal psql showing helix_schema_migrations=1 plus the works table (so the application consumed HELIX_POSTGRES_DSN), redis PONG, restart and tag-driven upgrade/rollback intact, and clean teardown. Credential-gating needles were re-cut with OPDS credentials set: 401 without and with a wrong secret, 200 with the correct one, on /v1/works, /opds/2.0, /opds/1.2 and /opds/1.2/publications, plus bearer-gated /v1/scans and /v1/works DELETE. Residual, tracked as its own record rather than hidden here: docker-compose CLI runtime parity needs a Docker host that this machine does not have, and distribution was exercised against a local registry rather than a hosted registry with authentication, signing or attestation.
+
+**Affected scope:** Containers submodule, Docker or Podman, compose, and distribution providers.
+
+**Reproduction / current observation:** Dockerfiles and compose configuration exist, but container tooling is unavailable and no container run has occurred.
+
+**Acceptance:** Cold start, health, restart, upgrade, rollback, and distribution tests pass in actual container runtimes.
+
+**Closure criteria:** Cold start, health, restart, upgrade, rollback, and distribution tests pass in actual container runtimes.
+
+**Evidence:** evidence/campaign-2026-11-20/containers/distribution.log; evidence/campaign-2026-11-20/containers/results.json; evidence/campaign-2026-11-20/containers/summary.md; evidence/campaign-2026-11-20/containers/run-distribution-and-compose.sh; evidence/campaign-2026-11-20/containers/run-digest-and-auth-probes.sh; evidence/campaign-2026-11-20/containers/build.log; evidence/campaign-2026-11-20/containers/cold-start.log; evidence/campaign-2026-11-20/containers/restart.log; evidence/campaign-2026-11-20/containers/upgrade.log; evidence/campaign-2026-11-20/containers/rollback.log; deploy/docker-compose.yml; server/Dockerfile
+
+**Forensic anchor:** Retrospective evidence-backed baseline imported on 2026-10-29; registry timestamps are import times, not claimed original implementation dates.
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-20T19:34:29Z
+
+**History:**
+
+- 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: deploy/docker-compose.yml; server/Dockerfile; submodules/containers
+- 2026-11-20 — Updated by AI: registry-detail-update; evidence: none recorded
+- 2026-11-20 — Updated by AI: description already records build/cold-start/restart/upgrade/rollback PASS in evidence/campaign-2026-11-20/containers/; Queued understated work that has landed and machine evidence; evidence: evidence/campaign-2026-11-20/containers/results.json
+- 2026-11-20 — Updated by AI: second-pass distribution and compose evidence captured; evidence: none recorded
+- 2026-11-20 — Implemented by AI: all six acceptance dimensions executed in a real container runtime; docker-compose CLI and hosted-registry signing residuals moved to ATM-034; evidence: evidence/campaign-2026-11-20/containers/distribution.log; evidence/campaign-2026-11-20/containers/results.json; evidence/campaign-2026-11-20/containers/summary.md; evidence/campaign-2026-11-20/containers/run-distribution-and-compose.sh; evidence/campaign-2026-11-20/containers/run-digest-and-auth-probes.sh; evidence/campaign-2026-11-20/containers/build.log; evidence/campaign-2026-11-20/containers/cold-start.log; evidence/campaign-2026-11-20/containers/restart.log; evidence/campaign-2026-11-20/containers/upgrade.log; evidence/campaign-2026-11-20/containers/rollback.log; deploy/docker-compose.yml; server/Dockerfile
+
 ## [ATM-028] Operate the SQLite workable-items single source of truth and synchronized exports
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** Critical
+
 **Reopens:** 0
 
 **Description:** Operate the authoritative SQLite registry with complete lifecycle commands, evidence-linked history, deterministic document exports, drift detection, disaster recovery, and an explicitly offline HelixTrack outbox.
@@ -614,8 +709,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 ## [ATM-030] Publish all current test results and limitations under docs/testing/results
 
 **Status:** Completed (→ Fixed.md)
+
 **Type:** Task
+
 **Severity:** High
+
 **Reopens:** 0
 
 **Description:** Publish a unified machine-readable and Markdown result index covering current passes, preserved failures, partial research, unavailable runtimes, unexecuted external checks, and withheld final archives.
@@ -643,3 +741,73 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/testing/results
 - 2026-10-28 — Updated by AI: unified-results-publication-completed; evidence: none recorded
 - 2026-10-28 — Completed by AI: all-current-result-surfaces-published; evidence: docs/testing/results/summary.json; docs/testing/results/index.md; scripts/publish_test_results.py
+
+## [ATM-032] Complete rendering, conversion, and content-AI fulfillment for every required format
+
+**Status:** Implemented (→ Fixed.md)
+
+**Type:** Feature
+
+**Severity:** Critical
+
+**Reopens:** 0
+
+**Description:** Complete rendering, conversion, and content-AI fulfillment for every required format. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+
+**Affected scope:** All formats in Additional_Formats_We_MUST_Support.jpg and their fulfillment stages.
+
+**Reproduction / current observation:** Current detection and parsing coverage must not be confused with complete rendering, conversion, AI, or DRM support.
+
+**Acceptance:** The per-format matrix has live tests for every claimed stage and explicit non-pass entries for the rest.
+
+**Closure criteria:** The per-format matrix has live tests for every claimed stage and explicit non-pass entries for the rest.
+
+**Evidence:** docs/formats.md; evidence/campaign-2026-11-20/formats/; core/formats/formats_test.go(TestMatrixNeverOutrunsTheCode,TestSameFormatRepackIsHonest)
+
+**Forensic anchor:** Retrospective evidence-backed baseline imported on 2026-10-29; registry timestamps are import times, not claimed original implementation dates.
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-20T18:52:25Z
+
+**History:**
+
+- 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/formats.md; Additional_Formats_We_MUST_Support.jpg
+- 2026-11-20 — Implemented by AI: matrix cells each backed by a passing test or an explicit NOT IMPLEMENTED; guard tests pin the matrix against the code; evidence: docs/formats.md; evidence/campaign-2026-11-20/formats/; core/formats/formats_test.go(TestMatrixNeverOutrunsTheCode,TestSameFormatRepackIsHonest)
+
+## [ATM-035] Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown
+
+**Status:** Fixed (→ Fixed.md)
+
+**Type:** Bug
+
+**Severity:** High
+
+**Reopens:** 0
+
+**Description:** The registry generator rendered the audit trail only into Markdown. render_item emitted the item_history block, the Reopened-Details line and the Operator-Block-Details line, while html_documents enumerated six item fields and pdf_documents seven, in both cases with no history and no lifecycle detail. The consequence surfaced as a failed qualification gate rather than as a review finding: closing ATM-024 with a reason that named ATM-034 put that identifier into Fixed.md, and scripts/verify_workable_items.py check pdf-documents-current, which extracts ATM identifiers from each PDF with pdftotext and requires the set its Markdown sibling carries, reported Fixed.pdf as stale even though export had written it one second earlier. The PDF was current and simply did not render the text, so the gate was describing a generator defect as a currency defect. Fixed by giving all three long-form renderers one source of truth: long_form_fields(item, db) returns every label and value an item carries, including conditional reopen and operator-block details, and history_lines(db, atm_id) formats the audit trail once for Markdown, HTML and PDF.
+
+**Affected scope:** scripts/workable_items.py render_item, html_documents and pdf_documents; scripts/verify_workable_items.py mutation cases; tests/test_workable_items.py; every derived document under docs/.
+
+**Reproduction / current observation:** Close any item with a reason naming a different ATM identifier, run export with PDF enabled, then compare identifier sets: pdftotext docs/Fixed.pdf carries fewer ATM identifiers than docs/Fixed.md, and verify_workable_items.py reports pdf-documents-current FAIL with the missing identifier attributed to the Markdown side.
+
+**Acceptance:** Markdown, HTML and PDF long-form documents each render every field long_form_fields returns plus the full item history; tests.test_workable_items.test_derived_documents_carry_history_and_lifecycle_details passes against the generator and fails against a copy whose HTML history call is removed, that copy being registered as the html-history-gate mutation case; verify_workable_items.py reports pdf-documents-current PASS with equal identifier sets for Issues and Fixed.
+
+**Closure criteria:** Markdown, HTML and PDF long-form documents each render every field long_form_fields returns plus the full item history; tests.test_workable_items.test_derived_documents_carry_history_and_lifecycle_details passes against the generator and fails against a copy whose HTML history call is removed, that copy being registered as the html-history-gate mutation case; verify_workable_items.py reports pdf-documents-current PASS with equal identifier sets for Issues and Fixed.
+
+**Evidence:** scripts/workable_items.py(long_form_fields, history_lines); tests/test_workable_items.py(test_derived_documents_carry_history_and_lifecycle_details); scripts/verify_workable_items.py(html-history-gate mutation case); evidence/workable-items/results-2026-11-20T2036-before-pdf-history-fix.json; evidence/campaign-2026-11-20/containers/distribution.log
+
+**Forensic anchor:** pdf-documents-current FAIL during the 2026-11-20 ATM-024 documentation export
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-20T19:39:09Z / 2026-11-20T19:39:19Z
+
+**History:**
+
+- 2026-11-20 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-20 — Fixed by AI: one field source feeds Markdown, HTML and PDF; identifier sets now agree across formats and the history drop is a rejected mutant; evidence: scripts/workable_items.py(long_form_fields, history_lines); tests/test_workable_items.py(test_derived_documents_carry_history_and_lifecycle_details); scripts/verify_workable_items.py(html-history-gate mutation case); evidence/workable-items/results-2026-11-20T2036-before-pdf-history-fix.json; evidence/campaign-2026-11-20/containers/distribution.log

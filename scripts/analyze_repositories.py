@@ -22,6 +22,13 @@ from pathlib import Path
 MAX_TEXT_BYTES = 1_048_576
 MAX_EVIDENCE_PER_FEATURE = 40
 
+# Self-locating defaults: evidence is written under the repository's research/
+# tree; revision-pinned clones are read from a gitignored scratch checkout root
+# (overridable with --clones or HELIX_CLONES_ROOT).
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_OUTPUT = str(REPO_ROOT / "research")
+DEFAULT_CLONES = os.environ.get("HELIX_CLONES_ROOT", str(REPO_ROOT / ".helix-verify" / "git-repos"))
+
 FEATURE_PATTERNS = {
     "opds": r"\bOPDS(?:[-_ ]?(?:1\.2|2\.0|PSE))?\b|application/atom\+xml|application/opds\+json",
     "opds_pse": r"OPDS[-_ ]?PSE|page[-_ ]?streaming|pageStreaming",
@@ -258,13 +265,14 @@ def render_markdown(r: dict) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--output", default="/mnt/agents/output/helix/research")
+    ap.add_argument("--output", default=DEFAULT_OUTPUT)
+    ap.add_argument("--clones", default=DEFAULT_CLONES)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--only", default="")
     args = ap.parse_args()
     out = Path(args.output); out.mkdir(parents=True, exist_ok=True)
     jobs = []
-    base = Path("/mnt/agents/research/git-repos")
+    base = Path(args.clones)
     backend_aliases = {"stumpapp-stump": "stump", "advplyr-audiobookshelf": "audiobookshelf", "bookorbit-bookorbit": "bookorbit", "grimmory-tools-grimmory": "grimmory", "kareadita-kavita": "kavita", "seblucas-cops": "cops"}
     for kind, inv in [("client", out / "repository_inventory.json"), ("backend", out / "backend_inventory.json")]:
         for r in json.loads(inv.read_text())["repositories"]:

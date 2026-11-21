@@ -1,0 +1,9 @@
+[
+  {"case": "range_ignored", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "not 206", "status": "FIRED"},
+  {"case": "wrong_window", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "the right length but the wrong window", "status": "FIRED"},
+  {"case": "remote_validator_lie", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/router.go", "expected_failure": "from a catalog size the source was not asked to confirm", "status": "FIRED"},
+  {"case": "progress_rewind_serial", "target": "/home/milosvasic/Projects/helix_reader/server/internal/kosync/redis.go", "expected_failure": "rewound stored progress", "status": "FIRED"},
+  {"case": "progress_ack_lie", "target": "/home/milosvasic/Projects/helix_reader/server/internal/kosync/service.go", "expected_failure": "acknowledged progress is not the persisted state", "status": "FIRED"},
+  {"case": "serialised_concurrency", "target": "/home/milosvasic/Projects/helix_reader/server/internal/httpapi/load_delivery_test.go", "expected_failure": "requests were open at the same instant", "status": "FIRED"},
+  {"summary": "PASS", "cases": 6}
+]

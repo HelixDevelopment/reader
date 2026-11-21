@@ -229,6 +229,9 @@ func xhtmlToBlocks(xhtml string) []hdm.Block {
 		switch t := tok.(type) {
 		case xml.StartElement:
 			switch t.Name.Local {
+			case "hr":
+				flush()
+				blocks = append(blocks, hdm.Block{Kind: hdm.BlockSeparator})
 			case "p", "li", "dt", "dd", "div", "tr", "figcaption", "pre":
 				flush()
 				cur = &hdm.Block{Kind: hdm.BlockParagraph}

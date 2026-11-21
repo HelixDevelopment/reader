@@ -128,7 +128,10 @@ func (s *Server) Router() *gin.Engine {
 		s.data(c, data, opds.MIMEOpenSearch, err)
 	})
 	feeds.GET("/1.2/publications", func(c *gin.Context) {
-		q := query(c)
+		q, ok := searchQuery(c)
+		if !ok {
+			return
+		}
 		page, err := s.Catalog.Search(c.Request.Context(), q)
 		if err != nil {
 			Error(c, 500, "catalog query failed")
@@ -155,7 +158,10 @@ func (s *Server) Router() *gin.Engine {
 		s.data(c, data, opds.MIME2Publication, err)
 	})
 	feeds.GET("/2.0/publications", func(c *gin.Context) {
-		q := query(c)
+		q, ok := searchQuery(c)
+		if !ok {
+			return
+		}
 		page, err := s.Catalog.Search(c.Request.Context(), q)
 		if err != nil {
 			Error(c, 500, "catalog query failed")
@@ -186,22 +192,46 @@ func (s *Server) data(c *gin.Context, data []byte, mime string, err error) {
 	}
 	c.Data(http.StatusOK, mime, data)
 }
-func query(c *gin.Context) catalog.Query {
-	offset, _ := strconv.Atoi(c.Query("offset"))
+func searchQuery(c *gin.Context) (catalog.Query, bool) {
+	// Parsing the query string here rather than reading parameters one by one is
+	// deliberate. A percent-escape the standard library cannot decode makes the
+	// whole query unreadable, and reading parameters individually would report the
+	// absent ones as empty — a client with a corrupted cursor would be handed the
+	// first page and a 200 saying it worked.
+	values, err := url.ParseQuery(c.Request.URL.RawQuery)
+	if err != nil {
+		Error(c, http.StatusBadRequest, "query string is malformed")
+		return catalog.Query{}, false
+	}
+	offset, _ := strconv.Atoi(values.Get("offset"))
 	if offset < 0 {
 		offset = 0
 	}
-	limit, _ := strconv.Atoi(c.Query("limit"))
+	limit, _ := strconv.Atoi(values.Get("limit"))
 	if limit <= 0 {
 		limit = 20
 	}
 	if limit > 100 {
 		limit = 100
 	}
-	return catalog.Query{Text: c.Query("q"), Author: c.Query("author"), State: catalog.IdentificationState(c.Query("state")), Offset: offset, Limit: limit}
+	q := catalog.Query{Text: values.Get("q"), Author: values.Get("author"), State: catalog.IdentificationState(values.Get("state")), Offset: offset, Limit: limit}
+	// A malformed cursor is rejected rather than ignored, for the same reason.
+	if raw := values.Get("after"); raw != "" {
+		cursor, err := catalog.ParseCursor(raw)
+		if err != nil {
+			Error(c, http.StatusBadRequest, "after must be a cursor from a previous page")
+			return q, false
+		}
+		q.After = &cursor
+	}
+	return q, true
 }
 func (s *Server) works(c *gin.Context) {
-	page, err := s.Catalog.Search(c.Request.Context(), query(c))
+	q, ok := searchQuery(c)
+	if !ok {
+		return
+	}
+	page, err := s.Catalog.Search(c.Request.Context(), q)
 	if err != nil {
 		Error(c, 500, "catalog query failed")
 		return

@@ -7,10 +7,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
 
+	"github.com/jackc/pgx/v5/pgconn"
 	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
@@ -21,17 +23,63 @@ var migrations embed.FS
 // database; only in-place file references and metadata provenance are stored.
 type Postgres struct{ db *sql.DB }
 
-func NewPostgres(ctx context.Context, dsn string) (*Postgres, error) {
+// Option tunes a repository at construction. Pool limits are deployment inputs:
+// they must be raised in step with PostgreSQL capacity, never blindly.
+type Option func(*poolSettings)
+
+type poolSettings struct {
+	maxOpenConns    int
+	maxIdleConns    int
+	connMaxLifetime time.Duration
+}
+
+func defaultPoolSettings() poolSettings {
+	return poolSettings{maxOpenConns: 20, maxIdleConns: 5, connMaxLifetime: 30 * time.Minute}
+}
+
+// WithPool sets connection limits. A non-positive maxOpenConns, an idle count
+// above the open count, or a non-positive lifetime is rejected at construction.
+func WithPool(maxOpenConns, maxIdleConns int, connMaxLifetime time.Duration) Option {
+	return func(s *poolSettings) {
+		s.maxOpenConns, s.maxIdleConns, s.connMaxLifetime = maxOpenConns, maxIdleConns, connMaxLifetime
+	}
+}
+
+// validate rejects pool settings database/sql would silently reinterpret. It is
+// a method instead of inline checks because construction also fails on an
+// unreachable DSN: a test asserting only that NewPostgres returned an error
+// would keep passing with these checks deleted.
+func (s poolSettings) validate() error {
+	if s.maxOpenConns < 1 {
+		return fmt.Errorf("catalog: MaxOpenConns must be at least 1")
+	}
+	if s.maxIdleConns < 0 || s.maxIdleConns > s.maxOpenConns {
+		return fmt.Errorf("catalog: MaxIdleConns %d outside 0..MaxOpenConns %d", s.maxIdleConns, s.maxOpenConns)
+	}
+	if s.connMaxLifetime <= 0 {
+		return fmt.Errorf("catalog: ConnMaxLifetime must be positive")
+	}
+	return nil
+}
+
+func NewPostgres(ctx context.Context, dsn string, options ...Option) (*Postgres, error) {
 	if strings.TrimSpace(dsn) == "" {
 		return nil, fmt.Errorf("catalog: empty PostgreSQL DSN")
+	}
+	settings := defaultPoolSettings()
+	for _, option := range options {
+		option(&settings)
+	}
+	if err := settings.validate(); err != nil {
+		return nil, err
 	}
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return nil, err
 	}
-	db.SetMaxOpenConns(20)
-	db.SetMaxIdleConns(5)
-	db.SetConnMaxLifetime(30 * time.Minute)
+	db.SetMaxOpenConns(settings.maxOpenConns)
+	db.SetMaxIdleConns(settings.maxIdleConns)
+	db.SetConnMaxLifetime(settings.connMaxLifetime)
 	p := &Postgres{db: db}
 	if err := db.PingContext(ctx); err != nil {
 		db.Close()
@@ -84,7 +132,7 @@ func (p *Postgres) Migrate(ctx context.Context) error {
 		if _, err := tx.ExecContext(ctx, string(data)); err != nil {
 			return fmt.Errorf("catalog migration %s: %w", entry.Name(), err)
 		}
-		if _, err := tx.ExecContext(ctx, "INSERT INTO helix_schema_migrations(version) VALUES($1)", version); err != nil {
+		if _, err := tx.ExecContext(ctx, "INSERT INTO helix_schema_migrations(version) VALUES($1) ON CONFLICT (version) DO NOTHING", version); err != nil {
 			return fmt.Errorf("catalog migration record %s: %w", entry.Name(), err)
 		}
 	}
@@ -124,51 +172,147 @@ type querier interface {
 	QueryRowContext(context.Context, string, ...any) *sql.Row
 }
 
-func (p *Postgres) UpsertWork(ctx context.Context, w Work) error {
-	if err := validateWork(w); err != nil {
-		return err
+// identityLockSpace is the advisory-lock class for catalog identity writes.
+// It is passed as the first argument of the two-argument pg_advisory_xact_lock
+// form, so these locks share neither key space with the migration (731451) or
+// AI memory (731453) locks.
+const identityLockSpace = 731452
+
+// identityLockKeys lists every catalog identity one work write can touch:
+// the work row, each edition row, and each source namespace whose file rows it
+// claims or moves. All keys are known before the transaction begins, so taking
+// them in a deterministic order gives concurrent writers a shared acquisition
+// order and therefore no deadlock among themselves.
+//
+// The work key comes first, then the remaining keys sorted. Works and editions
+// are keyed by content and files by source plus path, so two scans of different
+// books in different sources have no shared row and no reason to wait for each
+// other. Two scans of the same bytes from different sources collide on the work
+// and edition keys and are serialized as a single global lock would have been.
+func identityLockKeys(w Work) []string {
+	keys := make(map[string]struct{}, 1+len(w.Editions))
+	for _, e := range w.Editions {
+		keys["e:"+e.ID] = struct{}{}
+		for _, f := range e.Files {
+			keys["s:"+f.SourceID] = struct{}{}
+		}
 	}
-	tx, err := p.db.BeginTx(ctx, nil)
+	out := make([]string, 0, len(keys)+1)
+	out = append(out, "w:"+w.ID)
+	rest := make([]string, 0, len(keys))
+	for k := range keys {
+		rest = append(rest, k)
+	}
+	sort.Strings(rest)
+	return append(out, rest...)
+}
+
+// lockIdentities takes the transaction-scoped advisory locks for keys. Locks
+// already held by this transaction are returned immediately, so re-running the
+// acquisition over a merged key set only adds the newly discovered locks.
+// hashtext collisions serialize unrelated writes; distinct keys never share a
+// lock.
+func lockIdentities(ctx context.Context, tx *sql.Tx, keys []string) error {
+	for _, key := range keys {
+		if _, err := tx.ExecContext(ctx, "SELECT pg_advisory_xact_lock($1, hashtext($2))", identityLockSpace, key); err != nil {
+			return fmt.Errorf("catalog: identity lock %q: %w", key, err)
+		}
+	}
+	return nil
+}
+
+// transientConcurrencyCodes are the PostgreSQL failures that mean "the row you
+// wanted moved under you", not "your request is wrong". Every retried operation
+// is an idempotent, content-keyed write inside its own transaction, so a retry
+// after rollback is safe and cheaper than surfacing a scan failure that an
+// operator would otherwise have to re-run by hand.
+var transientConcurrencyCodes = map[string]bool{
+	"40001": true, // serialization_failure
+	"40P01": true, // deadlock_detected
+	"23503": true, // foreign_key_violation: a prune raced a concurrent re-home
+}
+
+func transientConcurrency(err error) bool {
+	var pgErr *pgconn.PgError
+	return errors.As(err, &pgErr) && transientConcurrencyCodes[pgErr.Code]
+}
+
+// inTx runs fn in its own transaction and retries while it fails for a
+// transient concurrency reason. fn is called again from a fresh transaction, so
+// every retried operation has to be idempotent; the catalog writes are, because
+// their identity comes from content and source paths rather than from a
+// sequence.
+func inTx(ctx context.Context, db *sql.DB, fn func(context.Context, *sql.Tx) error) error {
+	var err error
+	for attempt := 0; attempt < 4; attempt++ {
+		if attempt > 0 {
+			select {
+			case <-time.After(time.Duration(attempt) * 15 * time.Millisecond):
+			case <-ctx.Done():
+				return ctx.Err()
+			}
+		}
+		err = oneTx(ctx, db, fn)
+		if err == nil || !transientConcurrency(err) {
+			return err
+		}
+	}
+	return err
+}
+
+func oneTx(ctx context.Context, db *sql.DB, fn func(context.Context, *sql.Tx) error) error {
+	tx, err := db.BeginTx(ctx, nil)
 	if err != nil {
 		return err
 	}
 	defer tx.Rollback()
-	if _, err := tx.ExecContext(ctx, "SELECT pg_advisory_xact_lock(731452)"); err != nil {
-		return err
-	}
-	if err := upsertTx(ctx, tx, w); err != nil {
+	if err := fn(ctx, tx); err != nil {
 		return err
 	}
 	return tx.Commit()
+}
+
+func (p *Postgres) UpsertWork(ctx context.Context, w Work) error {
+	if err := validateWork(w); err != nil {
+		return err
+	}
+	keys := identityLockKeys(w)
+	return inTx(ctx, p.db, func(ctx context.Context, tx *sql.Tx) error {
+		if err := lockIdentities(ctx, tx, keys); err != nil {
+			return err
+		}
+		return upsertTx(ctx, tx, w)
+	})
 }
 func (p *Postgres) MergeWork(ctx context.Context, incoming Work) error {
 	if err := validateWork(incoming); err != nil {
 		return err
 	}
-	tx, err := p.db.BeginTx(ctx, nil)
-	if err != nil {
-		return err
-	}
-	defer tx.Rollback()
-	if _, err := tx.ExecContext(ctx, "SELECT pg_advisory_xact_lock(731452)"); err != nil {
-		return err
-	}
-	existing, err := getWork(ctx, tx, incoming.ID, true)
-	if err != nil && !errors.Is(err, ErrNotFound) {
-		return err
-	}
-	if err == nil {
-		incoming = MergeWork(existing, incoming)
-	}
-	if err := upsertTx(ctx, tx, incoming); err != nil {
-		return err
-	}
-	return tx.Commit()
+	keys := identityLockKeys(incoming)
+	return inTx(ctx, p.db, func(ctx context.Context, tx *sql.Tx) error {
+		if err := lockIdentities(ctx, tx, keys); err != nil {
+			return err
+		}
+		existing, err := getWork(ctx, tx, incoming.ID, true)
+		if err != nil && !errors.Is(err, ErrNotFound) {
+			return err
+		}
+		if err == nil {
+			// Editions the stored work carries but this scan does not are protected
+			// by the work key: upsertTx rewrites every edition of one work, and no
+			// other writer can reach those rows without sharing that key or the key
+			// of the source owning the file. No further locks are taken after the
+			// read, so advisory locks always precede row locks in this transaction.
+			incoming = MergeWork(existing, incoming)
+		}
+		return upsertTx(ctx, tx, incoming)
+	})
 }
 func upsertTx(ctx context.Context, tx *sql.Tx, w Work) error {
-	// A source/path file keeps its ID when its bytes change. The write lock
-	// serializes cross-work re-homing so concurrent content-keyed scans cannot
-	// leave duplicate file rows or orphan an emptied work.
+	// A source/path file keeps its ID when its bytes change. The identity locks
+	// taken by the caller serialize cross-work re-homing, so concurrent
+	// content-keyed scans cannot leave duplicate file rows or orphan an
+	// emptied work.
 	rehomedEditions := map[string]struct{}{}
 	subjects, err := stringsJSON(w.Subjects)
 	if err != nil {
@@ -266,25 +410,46 @@ func (p *Postgres) ReconcileSource(ctx context.Context, sourceID string, present
 	if err != nil {
 		return 0, err
 	}
-	tx, err := p.db.BeginTx(ctx, nil)
+	removed := 0
+	err = inTx(ctx, p.db, func(ctx context.Context, tx *sql.Tx) error {
+		removed = 0
+		// Reconciliation owns one source namespace: it removes and moves file rows
+		// of that source, then prunes the editions and works they left behind. Merge
+		// writes touching the same source take the same key, so a file cannot be
+		// pruned mid-move. Cross-source writers share a row only through a content
+		// keyed edition, and the prune is guarded by its own emptiness test plus the
+		// foreign key on files.edition_id, so the worst remaining interleaving is a
+		// transient error the retry turns into a second attempt.
+		if err := lockIdentities(ctx, tx, []string{"s:" + sourceID}); err != nil {
+			return err
+		}
+		count, err := reconcileTx(ctx, tx, sourceID, presentJSON)
+		if err != nil {
+			return err
+		}
+		removed = count
+		return nil
+	})
 	if err != nil {
 		return 0, err
 	}
-	defer tx.Rollback()
-	// Reconciliation shares the catalog identity lock with merge/re-homing so
-	// deletion and file movement cannot interleave inside PostgreSQL.
-	if _, err := tx.ExecContext(ctx, "SELECT pg_advisory_xact_lock(731452)"); err != nil {
-		return 0, err
-	}
+	return removed, nil
+}
+
+// reconcileTx removes the file rows of one source that a listing no longer
+// reports, then prunes the editions and works those rows left empty. It is
+// separated from its transaction and lock acquisition so the contention tests
+// can run the identical statement sequence under different locking disciplines.
+func reconcileTx(ctx context.Context, tx *sql.Tx, sourceID string, presentJSON []byte) (int, error) {
 	rows, err := tx.QueryContext(ctx, `DELETE FROM files AS f
-		WHERE f.source_id=$1 AND NOT EXISTS (
-			SELECT 1 FROM jsonb_array_elements_text($2::jsonb) AS present(path)
-			WHERE present.path=f.path
-		) RETURNING edition_id`, sourceID, presentJSON)
+			WHERE f.source_id=$1 AND NOT EXISTS (
+				SELECT 1 FROM jsonb_array_elements_text($2::jsonb) AS present(path)
+				WHERE present.path=f.path
+			) RETURNING edition_id`, sourceID, presentJSON)
 	if err != nil {
 		return 0, err
 	}
-	rehomedEditions := map[string]struct{}{}
+	rehomedEditions := []string{}
 	removed := 0
 	for rows.Next() {
 		var editionID string
@@ -292,7 +457,7 @@ func (p *Postgres) ReconcileSource(ctx context.Context, sourceID string, present
 			rows.Close()
 			return 0, err
 		}
-		rehomedEditions[editionID] = struct{}{}
+		rehomedEditions = append(rehomedEditions, editionID)
 		removed++
 	}
 	if err := rows.Err(); err != nil {
@@ -302,7 +467,10 @@ func (p *Postgres) ReconcileSource(ctx context.Context, sourceID string, present
 	if err := rows.Close(); err != nil {
 		return 0, err
 	}
-	for editionID := range rehomedEditions {
+	// Sorted so two reconciliations that overlap on editions prune in the
+	// same order instead of circling.
+	sort.Strings(rehomedEditions)
+	for _, editionID := range rehomedEditions {
 		var workID string
 		err := tx.QueryRowContext(ctx, `DELETE FROM editions e WHERE e.id=$1
 			AND NOT EXISTS (SELECT 1 FROM files f WHERE f.edition_id=e.id) RETURNING work_id`, editionID).Scan(&workID)
@@ -316,9 +484,6 @@ func (p *Postgres) ReconcileSource(ctx context.Context, sourceID string, present
 			AND NOT EXISTS (SELECT 1 FROM editions e WHERE e.work_id=w.id)`, workID); err != nil {
 			return 0, err
 		}
-	}
-	if err := tx.Commit(); err != nil {
-		return 0, err
 	}
 	return removed, nil
 }
@@ -494,7 +659,18 @@ func (p *Postgres) Search(ctx context.Context, q Query) (Page, error) {
 	if err := p.db.QueryRowContext(ctx, "SELECT count(*) FROM works w WHERE "+clause, args...).Scan(&total); err != nil {
 		return Page{}, err
 	}
-	queryArgs := append(append([]any{}, args...), q.Limit, q.Offset)
+	// The keyset predicate is written out rather than expressed as a tuple
+	// comparison because the ordering mixes directions: updated_at descends while
+	// id ascends, and (updated_at,id) < (x,y) would also require id to descend.
+	offset := q.Offset
+	if q.After != nil {
+		args = append(args, q.After.UpdatedAt, q.After.ID)
+		clause = fmt.Sprintf("(%s) AND (w.updated_at < $%d OR (w.updated_at = $%d AND w.id > $%d))", clause, len(args)-1, len(args)-1, len(args))
+		offset = 0
+	}
+	// One row past the page is read so HasNext does not depend on the count: a
+	// cursor client can stop paging without ever learning the total.
+	queryArgs := append(append([]any{}, args...), q.Limit+1, offset)
 	rows, err := p.db.QueryContext(ctx, fmt.Sprintf("SELECT w.id FROM works w WHERE %s ORDER BY w.updated_at DESC,w.id LIMIT $%d OFFSET $%d", clause, len(args)+1, len(args)+2), queryArgs...)
 	if err != nil {
 		return Page{}, err
@@ -512,14 +688,16 @@ func (p *Postgres) Search(ctx context.Context, q Query) (Page, error) {
 	if err := rows.Err(); err != nil {
 		return Page{}, err
 	}
-	page := Page{Works: []Work{}, Total: total, Offset: q.Offset, Limit: q.Limit}
-	for _, id := range ids {
-		w, err := p.GetWork(ctx, id)
-		if err != nil {
-			return Page{}, err
-		}
-		page.Works = append(page.Works, w)
+	hasMore := len(ids) > q.Limit
+	if hasMore {
+		ids = ids[:q.Limit]
 	}
+	page := Page{Total: total, Offset: q.Offset, Limit: q.Limit, HasNext: hasMore}
+	works, err := p.getWorks(ctx, ids)
+	if err != nil {
+		return Page{}, err
+	}
+	page.Works = works
 	return page, nil
 }
 func (p *Postgres) DeleteWork(ctx context.Context, id string) error {

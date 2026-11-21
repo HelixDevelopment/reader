@@ -45,7 +45,14 @@ python3 scripts/workable_items.py --db /path/to/recovered.db import-md --input d
 python3 scripts/workable_items.py --db /path/to/recovered.db export --output /path/to/recovered-docs
 ```
 
-PDF export requires ReportLab. A missing PDF dependency fails export rather than silently omitting a mandatory document.
+PDF export requires ReportLab. A missing PDF dependency fails export rather than silently omitting a mandatory document. On an externally managed (PEP 668) host, install it out of tree instead of overriding the marker:
+
+```bash
+python3 -m pip install --target ~/.cache/helix-docs-deps reportlab
+PYTHONPATH=~/.cache/helix-docs-deps python3 scripts/workable_items.py export --output docs
+```
+
+`diff()` compares generated Markdown and HTML; it cannot see a PDF left behind by an export that died partway. `verify_workable_items.py` therefore adds `pdf-documents-current`, which extracts the ATM identifiers from each PDF with `pdftotext` and requires the same set its Markdown sibling carries, plus a non-trivial byte size and page count. A PDF set that predates the current registry fails that check rather than passing the drift gate — verified against the 2026-10-28 set, which still showed ATM-032 as open.
 
 ## HelixTrack boundary
 

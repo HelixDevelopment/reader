@@ -1,0 +1,13 @@
+$ go test ./pkg/lcp -run ^TestCanonicalSortingAndArrayOrder$ -count=1
+--- FAIL: TestCanonicalSortingAndArrayOrder (0.00s)
+    canonical_test.go:357: Canonical({"k":[3,{"x":1},2]})
+         got: {"k":[2,3,{"x":1}]}
+        want: {"k":[3,{"x":1},2]}
+    canonical_test.go:357: Canonical({"l":[{"n":2},{"n":1}]})
+         got: {"l":[{"n":1},{"n":2}]}
+        want: {"l":[{"n":2},{"n":1}]}
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL
+
+exit=1

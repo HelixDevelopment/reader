@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestParseDefaultsUpdatedToIssued$ -count=1
+--- FAIL: TestParseDefaultsUpdatedToIssued (0.00s)
+    license_test.go:129: Updated = 0001-01-01 00:00:00 +0000 UTC, want it to default to Issued 2026-11-21 00:00:00 +0000 +0000
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL
+
+exit=1

@@ -1,0 +1,88 @@
+[2026-11-20T21:45:56Z] backed up ['/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go', '/home/milosvasic/Projects/helix_reader/server/internal/aimemory/postgres.go'] to /tmp/helix-vector-go-files.json
+[2026-11-20T21:45:57Z] M1_hnsw_index_never_created: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:45:57Z]     first failure: vector_load_test.go:535: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:46:22Z] M2_index_forced_profile_neutralized: BLIND exit=0 matched=[]
+[2026-11-20T21:46:22Z]     first failure: vector_load_test.go:966: VECTOR 5000 rows x 64 dims, k=10 | production plan by default: ann_index | index path p50 0.569 ms vs released-statement p50 3.213 ms | index recall@k 0.87
+[2026-11-20T21:46:37Z] M3_ladder_secretly_serial: DETECTED exit=1 matched=['throughput needle']
+[2026-11-20T21:46:37Z]     first failure: vector_load_test.go:644: statement production profile default throughput needle: 8 clients reached 1482.0 req/s against 1413.8 req/s for 1 client (1.05x), so nothing here demonstrates concurrent capacity
+[2026-11-20T21:46:43Z] M4_queries_ask_for_k_minus_1: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T21:46:43Z]     first failure: vector_load_test.go:644: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T21:46:43Z] M5_fixture_collapsed_to_one_vector: build failed after mutation, which is itself a signal but not a needle result
+# github.com/helixreader/helix/server/internal/aimemory [github.com/helixreader/helix/server/internal/aimemory.test]
+internal/aimemory/vector_load_test.go:110:2: declared and not used: next
+
+[2026-11-20T21:46:49Z] M6_search_path_never_applied: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T21:46:49Z]     first failure: vector_load_test.go:646: statement production profile exact query 0 returned 0 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T21:46:50Z] M7_column_list_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:46:50Z]     first failure: vector_load_test.go:530: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time
+[2026-11-20T21:46:51Z] M8_index_opclass_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:46:51Z]     first failure: vector_load_test.go:536: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:46:51Z] tree restored byte-for-byte from the backup
+[2026-11-20T21:46:51Z] post-restore build exit=0
+[2026-11-20T21:46:51Z] results: /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/vector/needle_gate_results.json
+[2026-11-20T21:55:23Z] backed up ['/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go', '/home/milosvasic/Projects/helix_reader/server/internal/aimemory/postgres.go'] to /tmp/helix-vector-go-files.json
+[2026-11-20T21:55:24Z] M1_hnsw_index_never_created: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:24Z]     first failure: vector_load_test.go:612: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:55:30Z] M2_index_forced_profile_neutralized: DETECTED exit=1 matched=['never asks for']
+[2026-11-20T21:55:30Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:36Z] M3_ladder_secretly_serial: BLIND exit=1 matched=[]
+[2026-11-20T21:55:36Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_seqscan=on but its connection never asks for enable_seqscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:42Z] M4_queries_ask_for_k_minus_1: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T21:55:42Z]     first failure: vector_load_test.go:728: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T21:55:45Z] M5_fixture_collapsed_to_one_vector: BLIND exit=1 matched=[]
+[2026-11-20T21:55:45Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:50Z] M6_search_path_never_applied: BLIND exit=1 matched=[]
+[2026-11-20T21:55:50Z]     first failure: vector_load_test.go:734: production/exact: connection 0 searches "\"$user\", public" instead of "helix_bench,public,pg_catalog", so it is measuring production's table rather than this fixture
+[2026-11-20T21:55:51Z] M7_column_list_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:51Z]     first failure: vector_load_test.go:607: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time
+[2026-11-20T21:55:57Z] M9_serial_ladder_with_blind_sampler: BLIND exit=1 matched=[]
+[2026-11-20T21:55:57Z]     first failure: vector_load_test.go:732: production/default: the profile is labelled as needing enable_indexscan=on but its connection never asks for enable_indexscan at all, so every figure under this label measures the server's default path
+[2026-11-20T21:55:58Z] M8_index_opclass_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:55:58Z]     first failure: vector_load_test.go:613: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:55:58Z] tree restored byte-for-byte from the backup
+[2026-11-20T21:55:59Z] post-restore build exit=0
+[2026-11-20T21:55:59Z] results: /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/vector/needle_gate_results.json
+[2026-11-20T21:56:55Z] backed up ['/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go', '/home/milosvasic/Projects/helix_reader/server/internal/aimemory/postgres.go'] to /tmp/helix-vector-go-files.json
+[2026-11-20T21:56:56Z] M1_hnsw_index_never_created: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:56:56Z]     first failure: vector_load_test.go:607: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:57:06Z] M2_index_forced_profile_neutralized: DETECTED exit=1 matched=['but the profile requires']
+[2026-11-20T21:57:06Z]     first failure: vector_load_test.go:727: production/index_forced: connection 0 reports enable_seqscan="on" but the profile requires "off", so its figures would describe a different access path than the one they are labelled with
+[2026-11-20T21:57:23Z] M3_ladder_secretly_serial: DETECTED exit=1 matched=['never had a second backend active']
+[2026-11-20T21:57:23Z]     first failure: vector_load_test.go:723: statement production profile default ladder 8 clients never had a second backend active at the same time (peak 1), so the ladder measured serialization and not concurrency
+[2026-11-20T21:57:30Z] M4_queries_ask_for_k_minus_1: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T21:57:30Z]     first failure: vector_load_test.go:723: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T21:57:33Z] M5_fixture_collapsed_to_one_vector: DETECTED exit=1 matched=['recall@10 is']
+[2026-11-20T21:57:33Z]     first failure: vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: below any plausible approximation error, so the fixture or the comparison is broken
+[2026-11-20T21:57:40Z] M6_search_path_never_applied: DETECTED exit=1 matched=["measuring production's table rather than this fixture"]
+[2026-11-20T21:57:40Z]     first failure: vector_load_test.go:729: production/exact: connection 0 searches "\"$user\", public" instead of "helix_bench,public,pg_catalog", so it is measuring production's table rather than this fixture
+[2026-11-20T21:57:41Z] M7_column_list_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:57:41Z]     first failure: vector_load_test.go:602: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time
+[2026-11-20T21:58:05Z] M9_serial_ladder_with_blind_sampler: DETECTED exit=1 matched=['throughput needle']
+[2026-11-20T21:58:05Z]     first failure: vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1401.9 req/s against 1307.1 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity
+[2026-11-20T21:58:05Z] M8_index_opclass_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T21:58:05Z]     first failure: vector_load_test.go:608: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T21:58:05Z] tree restored byte-for-byte from the backup
+[2026-11-20T21:58:06Z] post-restore build exit=0
+[2026-11-20T21:58:06Z] results: /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/vector/needle_gate_results.json
+[2026-11-20T22:15:13Z] backed up ['/home/milosvasic/Projects/helix_reader/server/internal/aimemory/vector_load_test.go', '/home/milosvasic/Projects/helix_reader/server/internal/aimemory/postgres.go'] to /tmp/helix-vector-go-files.json
+[2026-11-20T22:15:14Z] M1_hnsw_index_never_created: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T22:15:14Z]     first failure: vector_load_test.go:607: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T22:15:24Z] M2_index_forced_profile_neutralized: DETECTED exit=1 matched=['but the profile requires']
+[2026-11-20T22:15:24Z]     first failure: vector_load_test.go:727: production/index_forced: connection 0 reports enable_seqscan="on" but the profile requires "off", so its figures would describe a different access path than the one they are labelled with
+[2026-11-20T22:15:40Z] M3_ladder_secretly_serial: DETECTED exit=1 matched=['throughput needle']
+[2026-11-20T22:15:40Z]     first failure: vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1582.3 req/s against 1641.0 req/s for 1 client (0.96x), so nothing here demonstrates concurrent capacity
+[2026-11-20T22:15:46Z] M4_queries_ask_for_k_minus_1: DETECTED exit=1 matched=['want 10 (cardinality']
+[2026-11-20T22:15:46Z]     first failure: vector_load_test.go:723: statement production profile exact query 0 returned 9 rows, want 10 (cardinality 5000, k 10)
+[2026-11-20T22:15:49Z] M5_fixture_collapsed_to_one_vector: DETECTED exit=1 matched=['recall@10 is']
+[2026-11-20T22:15:49Z]     first failure: vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: at or near the k/rows chance rate, so the fixture or the comparison is broken
+[2026-11-20T22:15:54Z] M6_search_path_never_applied: DETECTED exit=1 matched=["measuring production's table rather than this fixture"]
+[2026-11-20T22:15:54Z]     first failure: vector_load_test.go:729: production/exact: connection 0 searches "\"$user\", public" instead of "helix_bench,public,pg_catalog", so it is measuring production's table rather than this fixture
+[2026-11-20T22:15:55Z] M7_column_list_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T22:15:55Z]     first failure: vector_load_test.go:602: bench table has drifted from production: bench [id:text scope:text kind:text content:text metadata:jsonb embedding:USER-DEFINED content_sha256:text created_at:timestamp with time zone expires_at:timestamp with time zone], production [id:text scope:text kind:text content:text metadata:jsonb model:text embedding:USER-DEFINED content_sha256:text created_at:timestamp with time
+[2026-11-20T22:16:15Z] M9_serial_ladder_with_blind_sampler: DETECTED exit=1 matched=['throughput needle']
+[2026-11-20T22:16:15Z]     first failure: vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1536.6 req/s against 1430.6 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity
+[2026-11-20T22:16:16Z] M8_index_opclass_drifts: DETECTED exit=1 matched=['drifted from production']
+[2026-11-20T22:16:16Z]     first failure: vector_load_test.go:608: bench indexes have drifted from production: bench [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_l2_ops)], production [USING btree (expires_at) WHERE (expires_at IS NOT NULL) USING btree (id) USING btree (scope, kind) USING hnsw (embedding vector_cosine_ops)]
+[2026-11-20T22:16:16Z] tree restored byte-for-byte from the backup
+[2026-11-20T22:16:16Z] post-restore build exit=0
+[2026-11-20T22:16:16Z] results: /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/vector/needle_gate_results.json

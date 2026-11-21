@@ -1,0 +1,5 @@
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:265: JOBS BURST #0 submitted=96 queue_full=0 peak_pending=2 submit_ms=2376.5 drain_ms=22.0 timed_out=false
+    load_jobs_test.go:273: burst 0 submitted 96 simultaneously and nothing was rejected: either the bound is unreachable or the barrier released serially, and this harness proves neither
+--- FAIL: TestLiveLoadJobQueueDurability (2.40s)
+FAIL

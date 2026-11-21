@@ -1,0 +1,51 @@
+# Sanitized for evidence: secret values replaced with [REDACTED]; none of these values
+# ever appeared in this file by design (credentials live only in gitignored scratch env).
+
+ATM-024 cold start — podman 5.7.0, podman-compose 1.5.0 (rootless), 2026-11-20T17:46Z
+Project name: helixqual-deploy (containers helixqual-deploy_postgres_1/_redis_1/_helix_1;
+podman-compose uses underscore naming, docker-compose uses hyphens).
+Compose file: deploy/docker-compose.yml. Fresh named volumes (genuine cold start).
+Published: 127.0.0.1:39080/tcp + /udp (loopback-only; 8080 occupied on this host, 39080 chosen
+after `ss -ltnp`; 5432/6379/34320/34379 avoided by policy).
+Image: localhost/helixqual-deploy-helix:v1 id b567c4fb27c732b982a1e8e580dada182295e5ab85c1fb9573215307cd8ea810 (see build.log)
+
+## podman-compose up -d
+=== 1. COLD START 2026-11-20T18:46:24+01:00 ===
+360600978d1f44f877d48f113754ee7cee5107ab7e38414733a575daae6664a4
+edaaa5cc82147273a0e8f1e56de992657dbd652ae73b6b9eed2c06be7f17515f
+cb941e15a3d8448cc5e2a2841b062db7483dcac7c37e28cdb433fa51f825713f
+1acbc4098912dfdd54e177e0243f8f1076a05cc16dbc1e350f61cc2ac9768469
+helixqual-deploy_postgres_1
+helixqual-deploy_redis_1
+helixqual-deploy_helix_1
+up_exit=0
+
+## health + DEFECT-001 verification on empty schema
+helix_health=healthy (poll iterations=4, ~8s)
+helixqual-deploy_postgres_1 | docker.io/pgvector/pgvector:pg17 | Up 13 seconds (healthy)
+helixqual-deploy_redis_1 | docker.io/library/redis:7.4-alpine | Up 13 seconds (healthy)
+helixqual-deploy_helix_1 | localhost/helixqual-deploy-helix:v1 | Up 7 seconds (healthy)
+-- DEFECT-001 check: schema_migrations rows after genuine cold start on empty volume
+version=1 rows=1
+public_tables=6
+-- health endpoints
+{"status":"ok","time":"2026-11-20T17:46:38.367761191Z"}
+{"status":"ready"}
+
+## API probes: catalog CRUD (source create 201, scan, works read, source delete 204), OPDS 1.2/2.0, auth negatives
+=== 2. API PROBES (catalog CRUD + OPDS) ===
+POST /v1/sources -> 201 : {"id":"qual-source","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}}
+POST /v1/scans -> id=scan-3e59c8a0f101ca4c81c9c4bba9d55752 state=queued
+GET /v1/scans/scan-3e59c8a0f101ca4c81c9c4bba9d55752 -> final state=succeeded
+GET /v1/works -> HTTP ok, work_id=work-0368dfcdf7e3187f5bed78b2, title=helixqual-deploy-book
+GET /v1/works/:id -> HTTP 200
+GET /opds/1.2 -> HTTP 200 type=application/atom+xml;profile=opds-catalog;kind=navigation
+GET /opds/2.0 -> HTTP 200 type=application/opds+json
+GET /opds/2.0/publications -> HTTP 200
+GET /v1/works (no auth) -> HTTP 401 (expect 401)
+POST /v1/sources (no auth) -> HTTP 401 (expect 401)
+DELETE /v1/sources/qual-source -> HTTP 204
+after source delete, works still present: 
+
+works_after_source_delete: ['work-0368dfcdf7e3187f5bed78b2'] (verified from raw/works-after-delete.json;
+the in-run python one-liner printing this field had a paren bug, fixed post-run, claim verified separately)

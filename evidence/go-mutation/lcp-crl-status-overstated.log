@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestVerifyAcceptsARealChain$ -count=1
+--- FAIL: TestVerifyAcceptsARealChain (0.16s)
+    signature_test.go:117: CRLChecked is true without a CRL being supplied
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.172s
+FAIL
+
+exit=1

@@ -1,0 +1,148 @@
+2026-11-20T21:42:35+01:00 === multiprocess run tag=207355 procs=4 ops_per_arm=60 ===
+2026-11-20T21:42:35+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:42:41+01:00 === multiprocess run tag=207361 procs=4 ops_per_arm=60 ===
+2026-11-20T21:42:41+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:42:41+01:00 variant sharded: building
+2026-11-20T21:42:44+01:00 variant sharded: 4 workers x 60 ops x 2 arms = 480 merges in 1.447s aggregate 331.72 ops/s (worker_errors_observed=0)
+2026-11-20T21:42:44+01:00 variant sharded: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 contested works lost an edition
+DELETE 300
+2026-11-20T21:42:45+01:00 variant global: building
+2026-11-20T21:42:49+01:00 variant global: 4 workers x 60 ops x 2 arms = 480 merges in 3.010s aggregate 159.47 ops/s (worker_errors_observed=0)
+2026-11-20T21:42:49+01:00 variant global: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 contested works lost an edition
+DELETE 300
+2026-11-20T21:42:50+01:00 variant unlocked: building
+2026-11-20T21:42:52+01:00 variant unlocked: 4 workers x 60 ops x 2 arms = 480 merges in 1.334s aggregate 359.82 ops/s (worker_errors_observed=0)
+2026-11-20T21:42:53+01:00 variant unlocked: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 contested works lost an edition
+DELETE 300
+2026-11-20T21:42:53+01:00 variant unlocked: NEEDLE BLIND — verify passed with the lock removed, so the multi-process assertions have no detection power
+2026-11-20T21:42:53+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.573s
+2026-11-20T21:42:56+01:00 post-restore single-process suite: PASS
+2026-11-20T21:42:56+01:00 === multiprocess status=1 ===
+2026-11-20T21:44:04+01:00 === multiprocess run tag=207444 procs=4 ops_per_arm=60 ===
+2026-11-20T21:44:04+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:44:04+01:00 variant sharded: building
+2026-11-20T21:44:10+01:00 variant sharded: 4 workers x 60 ops x 3 arms = 720 merges in 4.535s aggregate 158.77 ops/s (worker_errors_observed=0)
+2026-11-20T21:44:10+01:00 variant sharded: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 256
+2026-11-20T21:44:11+01:00 variant global: building
+2026-11-20T21:44:26+01:00 variant global: 4 workers x 60 ops x 3 arms = 720 merges in 13.858s aggregate 51.96 ops/s (worker_errors_observed=0)
+2026-11-20T21:44:26+01:00 variant global: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 256
+2026-11-20T21:44:27+01:00 variant unlocked: building
+2026-11-20T21:44:31+01:00 variant unlocked: 4 workers x 60 ops x 3 arms = 720 merges in 3.160s aggregate 227.85 ops/s (worker_errors_observed=0)
+2026-11-20T21:44:31+01:00 variant unlocked: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 256
+2026-11-20T21:44:32+01:00 variant unlocked: NEEDLE BLIND — verify passed with the lock removed, so the multi-process assertions have no detection power
+2026-11-20T21:44:32+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.459s
+2026-11-20T21:44:34+01:00 post-restore single-process suite: PASS
+2026-11-20T21:44:34+01:00 === multiprocess status=1 ===
+2026-11-20T21:45:37+01:00 === multiprocess run tag=207537 procs=4 ops_per_arm=60 ===
+2026-11-20T21:45:37+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:45:37+01:00 variant sharded: building
+2026-11-20T21:45:43+01:00 variant sharded: 4 workers x 60 ops x 3 arms = 720 merges in 4.866s aggregate 147.97 ops/s (worker_errors_observed=0)
+2026-11-20T21:45:44+01:00 variant sharded: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 264
+2026-11-20T21:45:44+01:00 variant global: building
+2026-11-20T21:45:58+01:00 variant global: 4 workers x 60 ops x 3 arms = 720 merges in 12.317s aggregate 58.46 ops/s (worker_errors_observed=0)
+2026-11-20T21:45:58+01:00 variant global: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 264
+2026-11-20T21:45:59+01:00 variant unlocked: building
+2026-11-20T21:46:03+01:00 variant unlocked: 4 workers x 60 ops x 3 arms = 720 merges in 2.766s aggregate 260.30 ops/s (worker_errors_observed=0)
+2026-11-20T21:46:03+01:00 variant unlocked: verify exit=1 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (237/240 present)
+DELETE 264
+2026-11-20T21:46:04+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.483s
+2026-11-20T21:46:06+01:00 post-restore single-process suite: PASS
+2026-11-20T21:46:06+01:00 === multiprocess status=0 ===
+2026-11-20T21:47:20+01:00 === multiprocess run tag=207640 procs=4 ops_per_arm=60 ===
+2026-11-20T21:47:20+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:47:20+01:00 variant sharded: building
+2026-11-20T21:47:27+01:00 variant sharded: 4 workers x 60 ops x 3 arms = 720 merges in 5.729s aggregate 125.68 ops/s (worker_errors_observed=0)
+2026-11-20T21:47:27+01:00 variant sharded: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 264
+2026-11-20T21:47:27+01:00 variant global: building
+2026-11-20T21:47:39+01:00 variant global: 4 workers x 60 ops x 3 arms = 720 merges in 10.970s aggregate 65.63 ops/s (worker_errors_observed=0)
+2026-11-20T21:47:39+01:00 variant global: verify exit=0 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (240/240 present)
+DELETE 264
+2026-11-20T21:47:40+01:00 variant unlocked: building
+2026-11-20T21:47:44+01:00 variant unlocked: 4 workers x 60 ops x 3 arms = 720 merges in 3.639s aggregate 197.86 ops/s (worker_errors_observed=0)
+2026-11-20T21:47:44+01:00 variant unlocked: verify exit=1 VERIFY 4 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (237/240 present)
+DELETE 264
+2026-11-20T21:47:44+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.653s
+2026-11-20T21:47:47+01:00 post-restore single-process suite: PASS
+2026-11-20T21:47:47+01:00 === multiprocess status=0 ===
+2026-11-20T21:48:24+01:00 === multiprocess run tag=207704 procs=8 ops_per_arm=60 ===
+2026-11-20T21:48:24+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:48:24+01:00 variant sharded: building
+2026-11-20T21:48:34+01:00 variant sharded: 8 workers x 60 ops x 3 arms = 1440 merges in 9.348s aggregate 154.04 ops/s (worker_errors_observed=0)
+2026-11-20T21:48:34+01:00 variant sharded: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:48:35+01:00 variant global: building
+2026-11-20T21:49:13+01:00 variant global: 8 workers x 60 ops x 3 arms = 1440 merges in 38.088s aggregate 37.81 ops/s (worker_errors_observed=0)
+2026-11-20T21:49:13+01:00 variant global: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:49:14+01:00 variant unlocked: building
+2026-11-20T21:49:25+01:00 variant unlocked: 8 workers x 60 ops x 3 arms = 1440 merges in 10.564s aggregate 136.31 ops/s (worker_errors_observed=0)
+2026-11-20T21:49:26+01:00 variant unlocked: verify exit=1 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (472/480 present)
+DELETE 512
+2026-11-20T21:49:27+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	2.735s
+2026-11-20T21:49:30+01:00 post-restore single-process suite: PASS
+2026-11-20T21:49:30+01:00 === multiprocess status=0 ===
+2026-11-20T21:50:24+01:00 === multiprocess run tag=207824 procs=8 ops_per_arm=60 ===
+2026-11-20T21:50:24+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:50:24+01:00 variant sharded: building
+2026-11-20T21:50:45+01:00 variant sharded: 8 workers x 60 ops x 3 arms = 1440 merges in 19.561s aggregate 73.62 ops/s (worker_errors_observed=0)
+2026-11-20T21:50:45+01:00 variant sharded: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:50:49+01:00 variant global: building
+2026-11-20T21:51:39+01:00 variant global: 8 workers x 60 ops x 3 arms = 1440 merges in 48.563s aggregate 29.65 ops/s (worker_errors_observed=0)
+2026-11-20T21:51:39+01:00 variant global: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:51:44+01:00 variant unlocked: building
+2026-11-20T21:51:57+01:00 variant unlocked: 8 workers x 60 ops x 3 arms = 1440 merges in 11.617s aggregate 123.96 ops/s (worker_errors_observed=0)
+2026-11-20T21:51:57+01:00 variant unlocked: verify exit=1 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (472/480 present)
+DELETE 512
+2026-11-20T21:51:59+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.930s
+2026-11-20T21:52:02+01:00 post-restore single-process suite: PASS
+2026-11-20T21:52:02+01:00 === multiprocess status=0 ===
+2026-11-20T21:53:02+01:00 === multiprocess run tag=207982 procs=8 ops_per_arm=60 ===
+2026-11-20T21:53:02+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T21:53:02+01:00 variant sharded: building
+2026-11-20T21:53:26+01:00 variant sharded: 8 workers x 60 ops x 3 arms = 1440 merges in 20.543s aggregate 70.10 ops/s (worker_errors_observed=0)
+2026-11-20T21:53:27+01:00 variant sharded: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:53:29+01:00 variant global: building
+2026-11-20T21:54:01+01:00 variant global: 8 workers x 60 ops x 3 arms = 1440 merges in 31.515s aggregate 45.69 ops/s (worker_errors_observed=0)
+2026-11-20T21:54:02+01:00 variant global: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T21:54:03+01:00 variant unlocked: building
+2026-11-20T21:54:11+01:00 variant unlocked: 8 workers x 60 ops x 3 arms = 1440 merges in 5.746s aggregate 250.61 ops/s (worker_errors_observed=0)
+2026-11-20T21:54:11+01:00 variant unlocked: verify exit=1 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (472/480 present)
+DELETE 512
+2026-11-20T21:54:13+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.720s
+2026-11-20T21:54:16+01:00 post-restore single-process suite: PASS
+2026-11-20T21:54:16+01:00 === multiprocess status=0 ===
+2026-11-20T22:12:18+01:00 === multiprocess run tag=209138 procs=8 ops_per_arm=60 ===
+2026-11-20T22:12:18+01:00 fingerprint before: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+2026-11-20T22:12:18+01:00 variant sharded: building
+2026-11-20T22:12:33+01:00 variant sharded: 8 workers x 60 ops x 3 arms = 1440 merges in 14.101s aggregate 102.12 ops/s (worker_errors_observed=0)
+2026-11-20T22:12:33+01:00 variant sharded: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T22:12:35+01:00 variant global: building
+2026-11-20T22:13:01+01:00 variant global: 8 workers x 60 ops x 3 arms = 1440 merges in 25.185s aggregate 57.18 ops/s (worker_errors_observed=0)
+2026-11-20T22:13:01+01:00 variant global: verify exit=0 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 0 of 8 contended works lost editions (480/480 present)
+DELETE 512
+2026-11-20T22:13:03+01:00 variant unlocked: building
+2026-11-20T22:13:10+01:00 variant unlocked: 8 workers x 60 ops x 3 arms = 1440 merges in 5.723s aggregate 251.62 ops/s (worker_errors_observed=0)
+2026-11-20T22:13:10+01:00 variant unlocked: verify exit=1 VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (473/480 present)
+DELETE 512
+2026-11-20T22:13:12+01:00 restored byte-identical: ba76993dcb73b39f7609bda4ad29d1f699acc98d627e706d2aee2f83253f7d4e
+ok  	github.com/helixreader/helix/server/internal/catalog	1.435s
+2026-11-20T22:13:14+01:00 post-restore single-process suite: PASS
+2026-11-20T22:13:14+01:00 === multiprocess status=0 ===

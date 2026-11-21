@@ -1,0 +1,9 @@
+$ go test ./pkg/lcp -run ^TestProtectDeclaresCompressionAndStoresCiphertext$ -count=1
+--- FAIL: TestProtectDeclaresCompressionAndStoresCiphertext (0.17s)
+    packager_test.go:233: OEBPS/chapter1.xhtml: ciphertext is stored with zip method 8, want Store
+    packager_test.go:233: OEBPS/media/track.mp3: ciphertext is stored with zip method 8, want Store
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.174s
+FAIL
+
+exit=1

@@ -1,0 +1,6 @@
+=== RUN   TestCatalogMultiProcessMerges
+    lock_scope_test.go:898: verify: 1 of 8 contended works lost concurrently merged editions (472 of 480 editions present); first: work scope-mp-unlocked207824-c-p0-0 holds 56 editions, want 64
+    lock_scope_test.go:915: LOADJSON {"contended_pool":8,"contested_works_lost":1,"editions_expected":480,"editions_found":472,"emitted_at":"2026-11-20T20:51:57Z","measurement_path":"in_container_clean","missing_disjoint_works":0,"ops_per_arm":60,"processes":8,"role":"verify","run_tag":"unlocked207824","test":"catalog_multiprocess"}
+    lock_scope_test.go:924: VERIFY 8 processes x 60 ops per arm: 0 disjoint works missing, 1 of 8 contended works lost editions (472/480 present)
+--- FAIL: TestCatalogMultiProcessMerges (0.07s)
+FAIL

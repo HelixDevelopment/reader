@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"log/slog"
 	"sort"
 	"sync"
 	"time"
@@ -37,15 +38,42 @@ type ScanJob struct {
 }
 
 type jobStore struct {
-	mu     sync.RWMutex
-	jobs   map[string]*ScanJob
-	sem    chan struct{}
-	wg     sync.WaitGroup
-	closed bool
+	mu      sync.RWMutex
+	jobs    map[string]*ScanJob
+	sem     chan struct{}
+	wg      sync.WaitGroup
+	closed  bool
+	journal scanJournal
 }
 
 func newJobStore() *jobStore {
 	return &jobStore{jobs: map[string]*ScanJob{}, sem: make(chan struct{}, maxConcurrentScans)}
+}
+
+// attachJournal makes scan records outlive this process. It is called during
+// wiring, before any scan can be admitted.
+func (s *jobStore) attachJournal(journal scanJournal) {
+	s.mu.Lock()
+	s.journal = journal
+	s.mu.Unlock()
+}
+
+// journalSave mirrors a record without involving the caller in Redis latency or
+// availability. Losing a historical scan record is not a reason to fail a scan
+// that is running fine, so failures are recorded and ingestion proceeds.
+// Callers must not hold s.mu: this method takes a read lock itself.
+func (s *jobStore) journalSave(job ScanJob) {
+	s.mu.RLock()
+	journal := s.journal
+	s.mu.RUnlock()
+	if journal == nil {
+		return
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	if err := journal.save(ctx, job); err != nil {
+		slog.Warn("scan journal write failed", "job", job.ID, "state", job.State, "error", err)
+	}
 }
 
 func randomID(prefix string) (string, error) {
@@ -97,8 +125,8 @@ func (s *jobStore) create(sourceID string) (ScanJob, context.Context, error) {
 	now := time.Now().UTC()
 	j := &ScanJob{ID: id, SourceID: sourceID, State: "queued", CreatedAt: now, cancel: cancel}
 	s.mu.Lock()
-	defer s.mu.Unlock()
 	if s.closed {
+		s.mu.Unlock()
 		cancel()
 		return ScanJob{}, nil, errScanStoreClosed
 	}
@@ -110,12 +138,16 @@ func (s *jobStore) create(sourceID string) (ScanJob, context.Context, error) {
 		}
 	}
 	if pending >= maxPendingScans || len(s.jobs) >= maxRetainedScans {
+		s.mu.Unlock()
 		cancel()
 		return ScanJob{}, nil, errScanQueueFull
 	}
 	s.jobs[id] = j
 	s.wg.Add(1)
-	return cloneJob(j), ctx, nil
+	queued := cloneJob(j)
+	s.mu.Unlock()
+	s.journalSave(queued)
+	return queued, ctx, nil
 }
 
 func cloneReport(report *ingest.Report) *ingest.Report {
@@ -142,9 +174,9 @@ func cloneJob(j *ScanJob) ScanJob {
 func (s *jobStore) finish(id string, report ingest.Report, err error, canceled bool) {
 	now := time.Now().UTC()
 	s.mu.Lock()
-	defer s.mu.Unlock()
 	j := s.jobs[id]
 	if j == nil {
+		s.mu.Unlock()
 		return
 	}
 	j.FinishedAt = &now
@@ -153,19 +185,30 @@ func (s *jobStore) finish(id string, report ingest.Report, err error, canceled b
 		j.State = "canceled"
 		j.Report = nil
 		j.Error = ""
+		done := cloneJob(j)
+		s.mu.Unlock()
+		s.journalSave(done)
 		return
 	}
 	if err != nil {
 		j.State = "failed"
 		// Scan failures surface connector errors (for example *url.Error from
 		// HTTP sources); never persist credentials in the admin-visible record.
+		// The journal shares the visibility rules of the API response, so the
+		// value written there is already sanitized.
 		j.Error = ingest.SanitizeError(err)
 		j.Report = nil
+		done := cloneJob(j)
+		s.mu.Unlock()
+		s.journalSave(done)
 		return
 	}
 	j.State = "succeeded"
 	j.Error = ""
 	j.Report = cloneReport(&report)
+	done := cloneJob(j)
+	s.mu.Unlock()
+	s.journalSave(done)
 }
 
 func executeScan(ctx context.Context, fn func(context.Context) (ingest.Report, error)) (report ingest.Report, err error) {
@@ -202,7 +245,11 @@ func (s *jobStore) run(ctx context.Context, id string, fn func(context.Context) 
 		return
 	}
 	j.State = "running"
+	running := cloneJob(j)
 	s.mu.Unlock()
+	// Recording the start means a process that dies mid-scan leaves a record to
+	// reconcile, instead of a queue entry that restore has to reinterpret.
+	s.journalSave(running)
 	report, err := executeScan(ctx, fn)
 	s.finish(id, report, err, ctx.Err() != nil)
 }

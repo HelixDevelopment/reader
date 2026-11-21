@@ -1,0 +1,13 @@
+$ go test ./pkg/lcp -run ^TestCanonicalMatchesReferenceProducer$ -count=1
+--- FAIL: TestCanonicalMatchesReferenceProducer (0.00s)
+    canonical_test.go:277: reference-mode divergence
+         got: {"e":1E2,"scaled":1E2,"w":1.5E0}
+        want: {"e":1e2,"scaled":100.0,"w":1.5}
+    canonical_test.go:277: reference-mode divergence
+         got: {"n":1.23456789012345678905E19,"neg":0}
+        want: {"n":12345678901234567890.5,"neg":-0}
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
+FAIL
+
+exit=1

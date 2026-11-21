@@ -6,6 +6,10 @@ WORKDIR /src/server
 RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags='-s -w' -o /out/helix-server ./cmd/helix-server
 
 FROM alpine:3.22
+# Stamped at build time so running containers can be traced to the exact
+# image revision (upgrade/rollback evidence).
+ARG HELIX_BUILD_REVISION=dev
+LABEL org.opencontainers.image.revision="${HELIX_BUILD_REVISION}"
 RUN apk add --no-cache ca-certificates rclone && addgroup -S helix && adduser -S -G helix helix
 COPY --from=build /out/helix-server /usr/local/bin/helix-server
 USER helix

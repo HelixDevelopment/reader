@@ -1,0 +1,10 @@
+$ go test ./pkg/lcp -run ^TestCanonicalRejectsDuplicateMembers$ -count=1
+--- FAIL: TestCanonicalRejectsDuplicateMembers (0.00s)
+    canonical_test.go:433: Canonical error = <nil>, want ErrAmbiguousLicense
+    canonical_test.go:438: CanonicalForSigning error = <nil>, want ErrAmbiguousLicense
+    canonical_test.go:442: nested duplicate error = <nil>, want ErrAmbiguousLicense
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL
+
+exit=1

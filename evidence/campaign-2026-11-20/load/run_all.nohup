@@ -1,0 +1,20 @@
+2026-11-20T21:02:00+01:00 === run_load.sh mode=all ===
+2026-11-20T21:02:00+01:00 fingerprint before: f0a5f1834707ff26b2b2178cd7d17ca1f8e8fb48 4796ef14d5979013d320cdf3758636fca00133ccc203fd20cbf4da80af293764  server/internal/catalog/postgres.go 7bcab9d381d438b4607da010917e9d95fa50d39b33b60363b0b4e8d989ad2338  server/internal/catalog/postgres_batch.go 15c59364c57263cc9b5fec854ec931c99e84784cb430105efd83a89346443382  server/internal/httpapi/jobs.go 330542e003605ae31c85c74111192c2e91b4bf0301ca93e60fc27e89c4ae6bc7  server/internal/httpapi/router.go 89bf8e2d0b5a96934638142223f00e8b9453c251e6bee2334b8a779ec59975c0  server/internal/ingest/service.go 
+2026-11-20T21:02:00+01:00 build: go test -c (catalog + httpapi load binaries)
+2026-11-20T21:02:00+01:00 step catalog_contention: copying /tmp/helix-catalog-load.test
+2026-11-20T21:02:01+01:00 step catalog_contention: running TestLiveLoadWriteContention measurement_path=in_container_clean
+exit=0
+results.json: 1 payload(s)
+2026-11-20T21:02:02+01:00 step catalog_contention: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_contention.log
+2026-11-20T21:02:02+01:00 step catalog_ladder: copying /tmp/helix-catalog-load.test
+2026-11-20T21:02:03+01:00 step catalog_ladder: running TestLiveLoadConcurrencyLadder measurement_path=in_container_clean
+exit=0
+results.json: 2 payload(s)
+2026-11-20T21:02:32+01:00 step catalog_ladder: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_ladder.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/catalog_ladder.log
+2026-11-20T21:02:32+01:00 step http_ladder: copying /tmp/helix-httpapi-load.test
+2026-11-20T21:02:33+01:00 step http_ladder: running TestLiveLoadHTTPLadder measurement_path=in_container_clean
+exit=0
+results.json: 3 payload(s)
+2026-11-20T21:03:02+01:00 step http_ladder: rc=0 artifacts=/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/http_ladder.jsonl /home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-20/load/http_ladder.log
+2026-11-20T21:03:02+01:00 fingerprint stable across run
+2026-11-20T21:03:02+01:00 === run_load.sh mode=all done rc=0 ===

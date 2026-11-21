@@ -231,50 +231,59 @@ def md_escape(text: str) -> str:
     return text.replace("|", "\\|").replace("\n", " ")
 
 
-def render_item(item: dict, db: sqlite3.Connection) -> str:
-    lines = [
-        f'## [{item["atm_id"]}] {item["title"]}',
-        "",
-        f'**Status:** {item["status"]}',
-        f'**Type:** {item["type"]}',
-        f'**Severity:** {item["severity"]}',
-        f'**Reopens:** {item["reopens_count"]}',
+def history_lines(db: sqlite3.Connection, atm_id: str) -> list[str]:
+    """Audit trail for one item, formatted identically wherever it is rendered.
+
+    Markdown, HTML and PDF are all generated from this, so an event recorded in the
+    registry cannot appear in one derived document and silently vanish from another.
+    """
+    return [
+        f'- {event["on_date"]} — {event["event_type"]} by {event["actor"]}: {event["reason"]}; evidence: {event["evidence_path"] or "none recorded"}'
+        for event in db.execute("SELECT * FROM item_history WHERE atm_id=? ORDER BY sequence", (atm_id,))
+    ]
+
+
+def long_form_fields(item: dict, db: sqlite3.Connection) -> list[tuple[str, str]]:
+    """Every field a derived long-form document must carry for one item.
+
+    Markdown, HTML and PDF all iterate this list, so a value recorded in the
+    registry — including lifecycle details and history cross-references — cannot
+    reach one format and be dropped by another.
+    """
+    fields = [
+        ("Status", item["status"]),
+        ("Type", item["type"]),
+        ("Severity", item["severity"]),
+        ("Reopens", str(item["reopens_count"])),
     ]
     if item["status"] == "Reopened":
         detail = db.execute("SELECT * FROM reopen_details WHERE atm_id=?", (item["atm_id"],)).fetchone()
-        lines.append(f'**Reopened-Details:** By: {detail["actor"]}; On: {detail["on_date"]}; Reason: {detail["reason"]}; Evidence: {detail["evidence_path"]}')
+        fields.append(("Reopened-Details", f'By: {detail["actor"]}; On: {detail["on_date"]}; Reason: {detail["reason"]}; Evidence: {detail["evidence_path"]}'))
     if item["status"] == "Operator-blocked":
         detail = db.execute("SELECT * FROM operator_block_details WHERE atm_id=?", (item["atm_id"],)).fetchone()
-        lines.append(f'**Operator-Block-Details:** WHAT: {detail["what"]} WHY: {detail["why_exhausted_alternatives"]} UNBLOCK CONDITION: {detail["unblock_condition"]} WHO: {detail["who"]}')
-    lines += [
-        "",
-        f'**Description:** {item["description"]}',
-        "",
-        f'**Affected scope:** {item["affected_scope"]}',
-        "",
-        f'**Reproduction / current observation:** {item["reproduction"]}',
-        "",
-        f'**Acceptance:** {item["acceptance"]}',
-        "",
-        f'**Closure criteria:** {item["closure_criteria"]}',
-        "",
-        f'**Evidence:** {item["evidence_path"] or "Not yet available; no pass is claimed."}',
-        "",
-        f'**Forensic anchor:** {item["forensic_anchor"]}',
-        "",
-        f'**Composes with:** {", ".join(item["composes_with"]) or "None recorded"}',
-        "",
-        f'**Attribution:** created by {item["created_by"] or "UNKNOWN"}; assigned to {item["assigned_to"] or "UNKNOWN"}',
-        "",
-        f'**Created / modified:** {item["created_at"]} / {item["last_modified"]}',
-        "",
+        fields.append(("Operator-Block-Details", f'WHAT: {detail["what"]} WHY: {detail["why_exhausted_alternatives"]} UNBLOCK CONDITION: {detail["unblock_condition"]} WHO: {detail["who"]}'))
+    fields += [
+        ("Description", item["description"]),
+        ("Affected scope", item["affected_scope"]),
+        ("Reproduction / current observation", item["reproduction"]),
+        ("Acceptance", item["acceptance"]),
+        ("Closure criteria", item["closure_criteria"]),
+        ("Evidence", item["evidence_path"] or "Not yet available; no pass is claimed."),
+        ("Forensic anchor", item["forensic_anchor"]),
+        ("Composes with", ", ".join(item["composes_with"]) or "None recorded"),
+        ("Attribution", f'created by {item["created_by"] or "UNKNOWN"}; assigned to {item["assigned_to"] or "UNKNOWN"}'),
+        ("Created / modified", f'{item["created_at"]} / {item["last_modified"]}'),
     ]
-    history = list(db.execute("SELECT * FROM item_history WHERE atm_id=? ORDER BY sequence", (item["atm_id"],)))
-    if history:
-        lines += ["**History:**", ""]
-        for event in history:
-            lines.append(f'- {event["on_date"]} — {event["event_type"]} by {event["actor"]}: {event["reason"]}; evidence: {event["evidence_path"] or "none recorded"}')
-        lines.append("")
+    return fields
+
+
+def render_item(item: dict, db: sqlite3.Connection) -> str:
+    lines = [f'## [{item["atm_id"]}] {item["title"]}', ""]
+    for label, value in long_form_fields(item, db):
+        lines += [f"**{label}:** {value}", ""]
+    events = history_lines(db, item["atm_id"])
+    if events:
+        lines += ["**History:**", ""] + events + [""]
     return "\n".join(lines)
 
 
@@ -312,9 +321,11 @@ def html_documents(db: sqlite3.Connection) -> dict[str, str]:
             body = []
             for i in rows:
                 body.append(f'<section id="{i["atm_id"]}"><h2>[{i["atm_id"]}] {html.escape(i["title"])}</h2>')
-                body.append(f'<p><strong>Status:</strong> {html.escape(i["status"])}<br><strong>Type:</strong> {i["type"]}<br><strong>Severity:</strong> {i["severity"]}<br><strong>Reopens:</strong> {i["reopens_count"]}</p>')
-                for label, key in (("Description", "description"), ("Affected scope", "affected_scope"), ("Reproduction / current observation", "reproduction"), ("Acceptance", "acceptance"), ("Closure criteria", "closure_criteria"), ("Evidence", "evidence_path")):
-                    body.append(f'<h3>{label}</h3><p>{html.escape(i[key]) or "Not yet available; no pass is claimed."}</p>')
+                for label, value in long_form_fields(i, db):
+                    body.append(f'<h3>{label}</h3><p>{html.escape(value) or "Not yet available; no pass is claimed."}</p>')
+                events = history_lines(db, i["atm_id"])
+                if events:
+                    body.append("<h3>History</h3><ul>" + "".join(f"<li>{html.escape(event)}</li>" for event in events) + "</ul>")
                 body.append("</section>")
         result[name[:-3] + ".html"] = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>{title}</title><style>body{{font:15px/1.55 system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#222}}table{{border-collapse:collapse;width:100%;font-size:13px}}th,td{{border:1px solid #bbb;padding:.45rem;text-align:left;vertical-align:top}}section{{border-top:2px solid #345;margin-top:2rem}}h1,h2{{color:#234}}code{{overflow-wrap:anywhere}}@media print{{body{{max-width:none;margin:0}}section{{break-inside:avoid}}}}</style></head><body><h1>{title}</h1><p>Generated from <code>docs/workable_items.db</code>; remote synchronization is not implied.</p>{''.join(body)}</body></html>'''
     return result
@@ -364,10 +375,13 @@ def pdf_documents(db: sqlite3.Connection, output_dir: Path) -> list[Path]:
                     if index:
                         story.append(PageBreak())
                     story.append(Paragraph(f'[{i["atm_id"]}] {html.escape(i["title"])}', heading))
-                    story.append(Paragraph(f'<b>Status:</b> {html.escape(i["status"])} &nbsp; <b>Type:</b> {i["type"]} &nbsp; <b>Severity:</b> {i["severity"]} &nbsp; <b>Reopens:</b> {i["reopens_count"]}', body))
-                    for label, key in (("Description", "description"), ("Affected scope", "affected_scope"), ("Reproduction / current observation", "reproduction"), ("Acceptance", "acceptance"), ("Closure criteria", "closure_criteria"), ("Evidence", "evidence_path"), ("Forensic anchor", "forensic_anchor")):
-                        value = i[key] or "Not yet available; no pass is claimed."
+                    for label, value in long_form_fields(i, db):
                         story.append(Paragraph(f"<b>{label}:</b> {html.escape(value)}", body))
+                    events = history_lines(db, i["atm_id"])
+                    if events:
+                        story.append(Paragraph("<b>History:</b>", body))
+                        for event in events:
+                            story.append(Paragraph(html.escape(event), small))
             doc.build(story, onFirstPage=footer, onLaterPages=footer)
             paths.append(path)
     return paths
@@ -594,7 +608,7 @@ def update_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
     db.execute("BEGIN IMMEDIATE")
     try:
         db.execute("UPDATE items SET " + ",".join(f"{key}=?" for key in changes) + " WHERE atm_id=?", [*changes.values(), args.atm_id])
-        history(db, args.atm_id, "Updated", args.actor, args.reason, "")
+        history(db, args.atm_id, "Updated", args.actor, args.reason, args.evidence)
         update_meta(db, "update")
         db.execute("COMMIT")
     except Exception:
@@ -650,6 +664,7 @@ def main() -> int:
     update_parser.add_argument("--severity", choices=sorted(SEVERITIES))
     update_parser.add_argument("--actor", choices=("AI", "User"), default="AI")
     update_parser.add_argument("--reason", default="registry-detail-update")
+    update_parser.add_argument("--evidence", default="", help="Artifact path recorded on the history event for this update")
     args = parser.parse_args()
     db = connect(args.db)
     try:

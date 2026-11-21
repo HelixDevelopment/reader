@@ -1,0 +1,8 @@
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:264: JOBS BURST #0 submitted=96 queue_full=32 peak_pending=62 submit_ms=67.4 drain_ms=670.9 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #1 submitted=96 queue_full=32 peak_pending=64 submit_ms=5.0 drain_ms=674.0 timed_out=false
+    load_jobs_test.go:264: JOBS BURST #2 submitted=96 queue_full=32 peak_pending=64 submit_ms=4.0 drain_ms=673.4 timed_out=false
+    load_jobs_test.go:375: JOBS RECONSTRUCT accepted=192 evicted_by_retention=0 index=256 cap=256
+    load_jobs_test.go:405: restore reported 0 interrupted, want at least 64 written as in flight
+--- FAIL: TestLiveLoadJobQueueDurability (2.21s)
+FAIL

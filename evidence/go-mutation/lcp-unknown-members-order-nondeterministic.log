@@ -1,0 +1,8 @@
+$ go test ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1
+--- FAIL: TestParseAcceptsAndReportsUnknownMembers (0.00s)
+    license_test.go:185: UnknownMembers order is not deterministic: 2 distinct reports over 50 parses of one document
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.011s
+FAIL
+
+exit=1

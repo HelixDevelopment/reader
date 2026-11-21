@@ -40,7 +40,7 @@ func main() {
 	var repo catalog.Repository
 	if cfg.CatalogDSN != "" {
 		ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
-		postgres, err := catalog.NewPostgres(ctx, cfg.CatalogDSN)
+		postgres, err := catalog.NewPostgres(ctx, cfg.CatalogDSN, catalog.WithPool(cfg.CatalogPool.MaxOpenConns, cfg.CatalogPool.MaxIdleConns, cfg.CatalogPool.ConnMaxLifetime))
 		cancel()
 		if err != nil {
 			slog.Error("PostgreSQL initialization", "error", err)
@@ -56,7 +56,7 @@ func main() {
 	defer api.Close()
 	if cfg.AIMemory {
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-		memory, err := aimemory.NewPostgres(ctx, cfg.CatalogDSN, cfg.EmbeddingDimensions)
+		memory, err := aimemory.NewPostgres(ctx, cfg.CatalogDSN, cfg.EmbeddingDimensions, aimemory.WithPool(cfg.AIMemoryPool.MaxOpenConns, cfg.AIMemoryPool.MaxIdleConns, cfg.AIMemoryPool.ConnMaxLifetime))
 		cancel()
 		if err != nil {
 			slog.Error("AI memory initialization", "error", err)
@@ -97,6 +97,19 @@ func main() {
 		}
 		api.KOSync = kosync.NewService(kosync.NewRedis(kosyncClient), cfg.KOSyncRegistration)
 		defer api.KOSync.Close()
+
+		// Scan records get their own client for the same one-store-one-lifetime
+		// reason. Restore runs before the listeners start so an operator sees the
+		// previous process's scans, including any that were interrupted, from the
+		// first request onward.
+		scanClient := redis.NewClient(options)
+		defer scanClient.Close()
+		api.UseScanJournal(scanClient)
+		ctx, cancel = context.WithTimeout(context.Background(), 10*time.Second)
+		if err := api.RestoreScans(ctx); err != nil {
+			slog.Warn("scan record restore", "error", err)
+		}
+		cancel()
 	}
 	if err := run(cfg, api); err != nil {
 		slog.Error("server stopped", "error", err)
