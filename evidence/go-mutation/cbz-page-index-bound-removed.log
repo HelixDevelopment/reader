@@ -1,0 +1,23 @@
+$ go test -trimpath ./pkg/parse/cbz -run ^TestPageIndexOutOfRange$ -count=1 -timeout 240s
+--- FAIL: TestPageIndexOutOfRange (0.00s)
+panic: runtime error: index out of range [2] with length 2 [recovered, repanicked]
+
+goroutine 7 [running]:
+testing.tRunner.func1.2({0x835f88, 0x2b3bbec342a0})
+	testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	testing/testing.go:2128 +0x329
+panic({0x835f88?, 0x2b3bbec342a0?})
+	runtime/panic.go:859 +0x125
+github.com/helixreader/helix/core/pkg/parse/cbz.Page({0x843c10, 0x2b3bbecdc8a0}, 0x110, 0x2)
+	github.com/helixreader/helix/core/pkg/parse/cbz/pages.go:166 +0x70a
+github.com/helixreader/helix/core/pkg/parse/cbz.TestPageIndexOutOfRange(0x2b3bbed88248)
+	github.com/helixreader/helix/core/pkg/parse/cbz/page_test.go:93 +0x150
+testing.tRunner(0x2b3bbed88248, 0x845e50)
+	testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	testing/testing.go:2260 +0x4d4
+FAIL	github.com/helixreader/helix/core/pkg/parse/cbz	0.005s
+FAIL
+
+exit=1

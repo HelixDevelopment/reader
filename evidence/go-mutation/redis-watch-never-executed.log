@@ -1,8 +1,8 @@
-$ go test ./internal/kosync -run ^TestRedisPutProgressRetriesWatchConflict$ -count=1
+$ go test -trimpath ./internal/kosync -run ^TestRedisPutProgressRetriesWatchConflict$ -count=1 -timeout 240s
 --- FAIL: TestRedisPutProgressRetriesWatchConflict (0.00s)
     redis_test.go:81: stale lower-percentage update rewound progress: got {Document:hash Progress:70 Percentage:0.7 Device:stale DeviceID: Timestamp:12} want {Document:hash Progress:90 Percentage:0.9 Device:phone DeviceID: Timestamp:11}
 FAIL
-FAIL	github.com/helixreader/helix/server/internal/kosync	0.008s
+FAIL	github.com/helixreader/helix/server/internal/kosync	0.009s
 FAIL
 
 exit=1

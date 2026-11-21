@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/catalog -run ^TestMemoryRejectsIncompleteFileIdentityLikePostgres$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/catalog	0.006s
+
+exit=0

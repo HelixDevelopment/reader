@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/helixreader/helix/core/pkg/pse"
 	"github.com/helixreader/helix/server/internal/catalog"
 )
 
@@ -20,6 +21,7 @@ func feed12(id, title string, updated time.Time, kind string) Feed12 {
 	return Feed12{
 		XMLNS: "http://www.w3.org/2005/Atom", XMLNSDC: "http://purl.org/dc/terms/",
 		XMLNSOPDS: "http://opds-spec.org/2010/catalog", XMLNSTHR: "http://purl.org/syndication/thread/1.0",
+		XMLPSE:          pse.NamespaceURI,
 		XMLNSOpenSearch: "http://a9.com/-/spec/opensearch/1.1/", ID: id, Title: title,
 		Updated: stamp(updated), Author: Author12{Name: "Helix Reader"},
 		Links: []Link12{{Rel: "self", HREF: id, Type: kind}, {Rel: "start", HREF: "/opds/1.2", Type: MIME12Navigation}},
@@ -116,7 +118,7 @@ func pageURL(path string, q catalog.Query, pos pagePos) string {
 	return path + "?" + v.Encode()
 }
 
-func Acquisition12(path string, page catalog.Page, q catalog.Query) ([]byte, error) {
+func Acquisition12(path string, page catalog.Page, q catalog.Query, streams map[string]PageStream) ([]byte, error) {
 	updated := time.Time{}
 	if len(page.Works) > 0 {
 		updated = page.Works[0].UpdatedAt
@@ -139,7 +141,7 @@ func Acquisition12(path string, page catalog.Page, q catalog.Query) ([]byte, err
 	}
 	for _, w := range page.Works {
 		for _, e := range w.Editions {
-			f.Entries = append(f.Entries, entry12(w, e))
+			f.Entries = append(f.Entries, entry12(w, e, streams))
 		}
 	}
 	return xml.MarshalIndent(f, "", "  ")

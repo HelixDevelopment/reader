@@ -1,6 +1,6 @@
-$ go test ./pkg/sync -run ^TestResolveEqualClocksFurthestAndCommutative$ -count=1
+$ go test -trimpath ./pkg/sync -run ^TestResolveEqualClocksFurthestAndCommutative$ -count=1 -timeout 240s
 --- FAIL: TestResolveEqualClocksFurthestAndCommutative (0.00s)
-    sync_test.go:100: furthest equal-clock position must win: {BookID:b1 DeviceID:phone Pos:{Chapter:2 Block:0 Offset:0} Clock:0x2a3d05902090} <nil>
+    sync_test.go:100: furthest equal-clock position must win: {BookID:b1 DeviceID:phone Pos:{Chapter:2 Block:0 Offset:0} Clock:0x35ce00bda0b0} <nil>
 FAIL
 FAIL	github.com/helixreader/helix/core/pkg/sync	0.004s
 FAIL

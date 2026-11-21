@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestParseAcquisitionLinkErrors$ -count=1 -timeout 240s
+--- FAIL: TestParseAcquisitionLinkErrors (0.00s)
+    --- FAIL: TestParseAcquisitionLinkErrors/lastRead_zero_violates_numbering_starts_at_1 (0.00s)
+        link_test.go:102: got err <nil>, want message containing "pse: pse:lastRead must be an integer >= 1 (numbering starts at 1), got \"0\""
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.003s
+FAIL
+
+exit=1

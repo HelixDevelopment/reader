@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestCanonicalSpecModeEscaping$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCanonicalSpecModeEscaping$ -count=1 -timeout 240s
 --- FAIL: TestCanonicalSpecModeEscaping (0.00s)
     canonical_test.go:305: reference mode should escape U+2028/U+2029: "{\"h\":\"<x>&y\",\"s\":\"a\u2028b\u2029c\\u001f\"}"
 FAIL

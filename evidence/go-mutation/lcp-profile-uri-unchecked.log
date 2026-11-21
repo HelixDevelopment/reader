@@ -1,9 +1,9 @@
-$ go test ./pkg/lcp -run ^TestCheckProfileMatrix$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCheckProfileMatrix$ -count=1 -timeout 240s
 --- FAIL: TestCheckProfileMatrix (0.00s)
     --- FAIL: TestCheckProfileMatrix/profile (0.00s)
         license_test.go:246: CheckProfile error = <nil>, want lcp: unsupported encryption profile
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.009s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
 FAIL
 
 exit=1

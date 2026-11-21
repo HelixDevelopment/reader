@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/lcp -run ^TestContainerFirstLicenseEntryWins$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/lcp	0.425s
+
+exit=0

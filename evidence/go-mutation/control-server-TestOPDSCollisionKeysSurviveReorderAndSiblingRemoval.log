@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/sources -run ^TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/sources	0.009s
+
+exit=0

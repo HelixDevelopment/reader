@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/pse -run ^TestPageURL$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/pse	0.004s
+
+exit=0

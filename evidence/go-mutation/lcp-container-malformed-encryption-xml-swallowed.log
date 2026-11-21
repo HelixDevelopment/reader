@@ -1,19 +1,19 @@
-$ go test ./pkg/lcp -run ^TestContainerRejectsMalformedEncryptionXML$ -count=1
---- FAIL: TestContainerRejectsMalformedEncryptionXML (0.85s)
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/truncated_document (0.11s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerRejectsMalformedEncryptionXML$ -count=1 -timeout 240s
+--- FAIL: TestContainerRejectsMalformedEncryptionXML (1.04s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/truncated_document (0.17s)
         container_negative_test.go:98: malformed encryption.xml reported no error
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/wrong_root_element (0.17s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/wrong_root_element (0.14s)
         container_negative_test.go:98: malformed encryption.xml reported no error
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer (0.13s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer (0.17s)
         container_negative_test.go:98: malformed encryption.xml reported no error
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target (0.19s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target (0.21s)
         container_negative_test.go:98: malformed encryption.xml reported no error
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number (0.16s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number (0.25s)
         container_negative_test.go:98: malformed encryption.xml reported no error
-    --- FAIL: TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number (0.09s)
+    --- FAIL: TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number (0.11s)
         container_negative_test.go:98: malformed encryption.xml reported no error
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.859s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	1.053s
 FAIL
 
 exit=1

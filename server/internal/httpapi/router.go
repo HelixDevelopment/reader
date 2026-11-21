@@ -120,6 +120,11 @@ func (s *Server) Router() *gin.Engine {
 	admin.GET("/sync/progress/:user/:book", s.getProgress)
 	admin.PUT("/sync/progress/:user/:book", s.putProgress)
 	admin.DELETE("/sync/progress/:user/:book", s.deleteProgress)
+	// The prefix is the one constant opds.PageStreamHREF builds from, so the
+	// advertised href and the registered route cannot drift apart.
+	streams := r.Group(opds.PageStreamPrefix)
+	streams.Use(Basic(s.Config.OPDSUsername, s.Config.OPDSPassword))
+	streams.GET(":file/:page", s.streamPage)
 	feeds := r.Group("/opds")
 	feeds.Use(Basic(s.Config.OPDSUsername, s.Config.OPDSPassword))
 	feeds.GET("/1.2", func(c *gin.Context) { data, err := opds.Navigation12(); s.data(c, data, opds.MIME12Navigation, err) })
@@ -137,7 +142,7 @@ func (s *Server) Router() *gin.Engine {
 			Error(c, 500, "catalog query failed")
 			return
 		}
-		data, err := opds.Acquisition12(c.Request.URL.Path, page, q)
+		data, err := opds.Acquisition12(c.Request.URL.Path, page, q, s.pageStreams(c.Request.Context(), page))
 		s.data(c, data, opds.MIME12Acquisition, err)
 	})
 	feeds.GET("/2.0", func(c *gin.Context) { data, err := opds.Navigation20(); s.data(c, data, opds.MIME2Feed, err) })
@@ -146,7 +151,7 @@ func (s *Server) Router() *gin.Engine {
 		if !ok {
 			return
 		}
-		data, err := opds.Edition12(w, e)
+		data, err := opds.Edition12(w, e, s.editionStreams(c.Request.Context(), e))
 		s.data(c, data, opds.MIME12Entry, err)
 	})
 	feeds.GET("/2.0/editions/:id", func(c *gin.Context) {

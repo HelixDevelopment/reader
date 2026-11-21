@@ -6,10 +6,14 @@ import (
 	"fmt"
 	"net/url"
 
+	"github.com/helixreader/helix/core/pkg/pse"
 	"github.com/helixreader/helix/server/internal/catalog"
 )
 
-func entry12(w catalog.Work, e catalog.Edition) Entry12 {
+// entry12 projects one edition. streams carries the page-stream facts the
+// caller resolved from the archives themselves; a file absent from it is
+// simply not advertised as streamable.
+func entry12(w catalog.Work, e catalog.Edition, streams map[string]PageStream) Entry12 {
 	entry := Entry12{Title: e.Title, ID: "urn:helix:edition:" + e.ID, Updated: stamp(e.UpdatedAt), Language: e.Language, Issued: e.Published, Publisher: e.Publisher}
 	for _, a := range e.Authors {
 		entry.Authors = append(entry.Authors, Author12{Name: a})
@@ -29,15 +33,19 @@ func entry12(w catalog.Work, e catalog.Edition) Entry12 {
 	entry.Links = append(entry.Links, Link12{Rel: "alternate", HREF: "/opds/1.2/editions/" + url.PathEscape(e.ID), Type: MIME12Entry, Title: "Complete catalog entry"})
 	for _, file := range e.Files {
 		entry.Links = append(entry.Links, Link12{Rel: RelAcquisition, HREF: "/v1/files/" + url.PathEscape(file.ID) + "/content", Type: file.MIMEType, Title: fmt.Sprintf("%s (%s)", e.Title, file.Format)})
+		if link, ok := streamLink(file.ID, streams[file.ID]); ok {
+			entry.Links = append(entry.Links, link)
+		}
 	}
 	return entry
 }
-func Edition12(w catalog.Work, e catalog.Edition) ([]byte, error) {
-	entry := entry12(w, e)
+func Edition12(w catalog.Work, e catalog.Edition, streams map[string]PageStream) ([]byte, error) {
+	entry := entry12(w, e, streams)
 	entry.XMLNS = "http://www.w3.org/2005/Atom"
 	entry.XMLNSDC = "http://purl.org/dc/terms/"
 	entry.XMLNSOPDS = "http://opds-spec.org/2010/catalog"
 	entry.XMLNSTHR = "http://purl.org/syndication/thread/1.0"
+	entry.XMLPSE = pse.NamespaceURI
 	return xml.MarshalIndent(entry, "", "  ")
 }
 

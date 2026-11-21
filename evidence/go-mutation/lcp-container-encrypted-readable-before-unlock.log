@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestContainerWrongPassphraseLeavesResourcesLocked$ -count=1
---- FAIL: TestContainerWrongPassphraseLeavesResourcesLocked (0.22s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerWrongPassphraseLeavesResourcesLocked$ -count=1 -timeout 240s
+--- FAIL: TestContainerWrongPassphraseLeavesResourcesLocked (0.18s)
     container_test.go:452: Resource error = lcp: OEBPS/chapter1.xhtml: crypto/aes: invalid key size 0, want ErrLocked
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.234s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.186s
 FAIL
 
 exit=1

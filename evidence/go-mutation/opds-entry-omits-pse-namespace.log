@@ -1,0 +1,17 @@
+$ go test -trimpath ./internal/opds -run ^TestEditionEntryStandaloneCarriesNamespaceAndLink$ -count=1 -timeout 240s
+--- FAIL: TestEditionEntryStandaloneCarriesNamespaceAndLink (0.00s)
+    pse_test.go:141: a standalone entry must declare the namespace itself:
+        <entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog" xmlns:thr="http://purl.org/syndication/thread/1.0">
+          <title>Comic</title>
+          <id>urn:helix:edition:e1</id>
+          <updated>2026-01-02T03:04:05Z</updated>
+          <link rel="alternate" href="/opds/1.2/editions/e1" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+          <link rel="http://opds-spec.org/acquisition" href="/v1/files/f1/content" type="application/vnd.comicbook+zip" title="Comic (cbz)"></link>
+          <link rel="http://vaemendis.net/opds-pse/stream" href="/opds-pse/stream/f1/{pageNumber}" type="image/jpeg" xmlns:ns="http://vaemendis.net/opds-pse/ns" ns:count="35"></link>
+          <link rel="http://opds-spec.org/acquisition" href="/v1/files/f2/content" type="text/plain" title="Comic (txt)"></link>
+        </entry>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/opds	0.005s
+FAIL
+
+exit=1

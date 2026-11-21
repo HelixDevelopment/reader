@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestParseRejectsIncompleteLicenses$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestParseRejectsIncompleteLicenses$ -count=1 -timeout 240s
 --- FAIL: TestParseRejectsIncompleteLicenses (0.00s)
     --- FAIL: TestParseRejectsIncompleteLicenses/encryption/user_key/text_hint (0.00s)
         license_test.go:69: Parse without encryption/user_key/text_hint error = <nil>, want ErrIncomplete

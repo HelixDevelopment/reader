@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestCanonicalRejectsMalformedInput$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCanonicalRejectsMalformedInput$ -count=1 -timeout 240s
 --- FAIL: TestCanonicalRejectsMalformedInput (0.00s)
     canonical_test.go:449: Canonical("{\"a\":1} {\"b\":2}") error = <nil>, want ErrLicenseSyntax
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
 FAIL
 
 exit=1

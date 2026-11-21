@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1 -timeout 240s
 --- FAIL: TestParseAcceptsAndReportsUnknownMembers (0.00s)
     license_test.go:188: UnknownMembers = [], want [alpha_future zeta_future] in sorted order
 FAIL

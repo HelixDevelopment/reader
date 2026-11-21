@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestParseAcceptsAndReportsUnknownMembers$ -count=1 -timeout 240s
 --- FAIL: TestParseAcceptsAndReportsUnknownMembers (0.00s)
     license_test.go:185: UnknownMembers order is not deterministic: 2 distinct reports over 50 parses of one document
 FAIL

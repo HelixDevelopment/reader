@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/parse/cbz -run ^TestStreamMediaTypeCases$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	0.003s
+
+exit=0

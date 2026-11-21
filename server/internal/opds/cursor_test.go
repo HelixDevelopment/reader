@@ -47,7 +47,7 @@ func TestAcquisition12CursorLinksRoundTrip(t *testing.T) {
 	page := cursorPage(at)
 	anchor := catalog.CursorAfter(page.Works)
 	q := catalog.Query{Limit: 2, After: anchor}
-	raw, err := Acquisition12("/opds/1.2/publications", page, q)
+	raw, err := Acquisition12("/opds/1.2/publications", page, q, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -114,7 +114,7 @@ func TestNextLinkFollowsHasNextNotTheTotal(t *testing.T) {
 		{Limit: 2, Offset: 0},
 		{Limit: 1, Offset: 9},
 	} {
-		raw, err := Acquisition12("/opds/1.2/publications", page, q)
+		raw, err := Acquisition12("/opds/1.2/publications", page, q, nil)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -132,7 +132,7 @@ func TestNextLinkFollowsHasNextNotTheTotal(t *testing.T) {
 	// And the converse: HasNext true in offset mode must advance by exactly one
 	// page width.
 	page.HasNext = true
-	raw, err := Acquisition12("/opds/1.2/publications", page, catalog.Query{Limit: 2, Offset: 4})
+	raw, err := Acquisition12("/opds/1.2/publications", page, catalog.Query{Limit: 2, Offset: 4}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}

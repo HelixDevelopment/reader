@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestContainerDetectsByEachMeans$ -count=1
---- FAIL: TestContainerDetectsByEachMeans (0.30s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerDetectsByEachMeans$ -count=1 -timeout 240s
+--- FAIL: TestContainerDetectsByEachMeans (0.11s)
     container_test.go:428: Unlock error = lcp: publication is not LCP protected, want ErrMissingLicense
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.305s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.118s
 FAIL
 
 exit=1

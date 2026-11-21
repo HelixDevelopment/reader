@@ -1,9 +1,9 @@
-$ go test ./pkg/lcp -run ^TestCanonicalSpecModeEscaping$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCanonicalSpecModeEscaping$ -count=1 -timeout 240s
 --- FAIL: TestCanonicalSpecModeEscaping (0.00s)
     canonical_test.go:310: reference mode should use lower-case hex: "{\"h\":\"<x>&y\",\"s\":\"a\\u2028b\\u2029c\\u001F\"}"
     canonical_test.go:313: reference mode leaked the upper-case form: "{\"h\":\"<x>&y\",\"s\":\"a\\u2028b\\u2029c\\u001F\"}"
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.005s
 FAIL
 
 exit=1

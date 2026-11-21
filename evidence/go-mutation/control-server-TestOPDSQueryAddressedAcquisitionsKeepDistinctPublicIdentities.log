@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/sources -run ^TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/sources	0.008s
+
+exit=0

@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestParseAcquisitionLinkErrors$ -count=1 -timeout 240s
+--- FAIL: TestParseAcquisitionLinkErrors (0.00s)
+    --- FAIL: TestParseAcquisitionLinkErrors/count_zero_invalid (0.00s)
+        link_test.go:102: got err <nil>, want message containing "pse: pse:count attribute is required and must be a positive integer, got \"0\""
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.004s
+FAIL
+
+exit=1

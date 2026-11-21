@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/sources -run ^TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/sources	0.015s
+
+exit=0

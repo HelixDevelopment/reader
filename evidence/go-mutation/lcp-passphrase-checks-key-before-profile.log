@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestCheckPassphraseRefusesUnsupportedProfile$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCheckPassphraseRefusesUnsupportedProfile$ -count=1 -timeout 240s
 --- FAIL: TestCheckPassphraseRefusesUnsupportedProfile (0.00s)
     license_test.go:266: error = <nil>, want ErrUnsupportedProfile
 FAIL

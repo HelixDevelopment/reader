@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/lcp -run ^TestVerifyAcceptsARealChain$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/lcp	0.201s
+
+exit=0

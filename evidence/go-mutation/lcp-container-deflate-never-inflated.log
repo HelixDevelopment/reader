@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestContainerUnlocksAndReadsEveryResource$ -count=1
---- FAIL: TestContainerUnlocksAndReadsEveryResource (0.08s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerUnlocksAndReadsEveryResource$ -count=1 -timeout 240s
+--- FAIL: TestContainerUnlocksAndReadsEveryResource (0.12s)
     container_test.go:340: Resource(OEBPS/chapter1.xhtml): lcp: decrypted length does not match encryption.xml: OEBPS/chapter1.xhtml: 86 bytes, encryption.xml declares 1986
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.085s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.131s
 FAIL
 
 exit=1

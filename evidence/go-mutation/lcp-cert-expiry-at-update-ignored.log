@@ -1,9 +1,9 @@
-$ go test ./pkg/lcp -run ^TestCertificateValidityWindows$ -count=1
---- FAIL: TestCertificateValidityWindows (0.86s)
-    --- FAIL: TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update (0.47s)
+$ go test -trimpath ./pkg/lcp -run ^TestCertificateValidityWindows$ -count=1 -timeout 240s
+--- FAIL: TestCertificateValidityWindows (0.56s)
+    --- FAIL: TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update (0.27s)
         signature_test.go:340: valid at issue, expired by the last update: error = <nil>, want lcp: provider certificate was not valid for this license period
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.865s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.569s
 FAIL
 
 exit=1

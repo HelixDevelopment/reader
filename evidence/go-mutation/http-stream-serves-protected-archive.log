@@ -1,0 +1,9 @@
+$ go test -trimpath ./internal/httpapi -run ^TestPageStreamRefusesProtectedAndUnknownFormats$ -count=1 -timeout 240s
+--- FAIL: TestPageStreamRefusesProtectedAndUnknownFormats (0.00s)
+    pse_test.go:235: a protected archive was advertised for plaintext page streaming: {Rel:http://vaemendis.net/opds-pse/stream Type:image/png Href:/opds-pse/stream/locked/{pageNumber} Count:2 LastRead:0 HasLastRead:false LastReadDate: HasLastReadDt:false}
+    pse_test.go:239: protected page request: 200 "\x89PNG\r\n\x1a\npng-page"
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.009s
+FAIL
+
+exit=1

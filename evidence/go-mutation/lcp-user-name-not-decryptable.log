@@ -1,6 +1,6 @@
-$ go test ./pkg/lcp -run ^TestDecryptUserFields$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestDecryptUserFields$ -count=1 -timeout 240s
 --- FAIL: TestDecryptUserFields (0.00s)
-    keys_test.go:286: decrypted user = {ID:user-42 Email:emile@example.org Name:ct97fIYqnQShicursO1HASgKxxJChCfq7F9CtKnWVjbL0fTVWT54RkBQL9K+llFy Encrypted:[name email]}
+    keys_test.go:286: decrypted user = {ID:user-42 Email:emile@example.org Name:d5xs0wLEZYM2Py77YU/K8a7kzja8vCl/GS6O0OL731LmbPtmjivyC6Xfz5fYPSbw Encrypted:[name email]}
 FAIL
 FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
 FAIL

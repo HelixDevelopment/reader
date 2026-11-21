@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/catalog -run ^TestMergeWorkReplacesChangedFileAtSameSourcePath$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/catalog	0.005s
+
+exit=0

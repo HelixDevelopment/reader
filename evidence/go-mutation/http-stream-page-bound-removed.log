@@ -1,0 +1,8 @@
+$ go test -trimpath ./internal/httpapi -run ^TestPageStreamFeedAndServe$ -count=1 -timeout 240s
+--- FAIL: TestPageStreamFeedAndServe (0.00s)
+    pse_test.go:170: beyond-count page: 502 "{\"error\":\"page could not be read from the archive\",\"request_id\":\"22483782da217a3e8cdc92d66f6dea91\"}"
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.009s
+FAIL
+
+exit=1

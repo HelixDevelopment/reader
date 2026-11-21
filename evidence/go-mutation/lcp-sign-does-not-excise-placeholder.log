@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestSignExcisesAPlaceholderSignature$ -count=1
---- FAIL: TestSignExcisesAPlaceholderSignature (0.05s)
+$ go test -trimpath ./pkg/lcp -run ^TestSignExcisesAPlaceholderSignature$ -count=1 -timeout 240s
+--- FAIL: TestSignExcisesAPlaceholderSignature (0.18s)
     signature_test.go:203: Verify after re-signing in place: lcp: signature does not match the license document
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.061s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.191s
 FAIL
 
 exit=1

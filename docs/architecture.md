@@ -22,7 +22,7 @@ flowchart LR
     ING --> SRC[Local / mounts / HTTP(S)\nWebDAV / OPDS / rclone]
 ```
 
-The web prototype does not call the API. Native desktop/mobile applications, real content renderers, external conversion engines, OIDC, Kobo sync, OPDS-PSE, and LCP fulfillment are not shown as connected because they are not implemented.
+The web prototype does not call the API. Native desktop/mobile applications, real content renderers, external conversion engines, OIDC, Kobo sync, and LCP license fulfillment are not shown as connected because they are not implemented. OPDS-PSE is a served route. LCP exists only as a core library (`core/pkg/lcp`: license/crypto and protected-publication packaging, covered by its own tests); no server route consumes it, so the format registry keeps `drm_fulfill` false for every protected format.
 
 ## Catalog identity
 
@@ -104,9 +104,11 @@ flowchart TB
     E12 --> ACQ[Acquisition and cover links]
     E20 --> ACQ
     ACQ --> RANGE[Single-range file download]
+    E12 --> PSE[OPDS-PSE 1.2 stream link]
+    PSE --> PAGE[One page image by index]
 ```
 
-OPDS-PSE links and page extraction are not currently emitted. Detection or streaming of CBZ/PDF does not establish page rendering.
+OPDS-PSE v1.2 stream links are emitted in the OPDS 1.2 acquisition feed and standalone 1.2 edition entries, and `GET /opds-pse/stream/{file}/{page}` serves the pages they describe. A stream is advertised only for what the archive itself proves: a CBZ whose catalogued size still matches the source, that is not DRM-protected, and whose every image page carries the same payload signature (JPEG, PNG or GIF sniffed from the first bytes, never inferred from a file name). `pse:count` is the page count derived from the ZIP central directory in the same lexicographic order the parser uses, so enumeration never inflates a payload. Anything that cannot answer "which single image type?" with one value gets no stream link, and keeps its whole-file acquisition link; the href carries `{pageNumber}` only, because this server does not resize, and no OPDS 2.0 form of the extension is invented. Detection or streaming of PDF does not establish page rendering: PDFs are not pageable here.
 
 ## Internal progress and KOReader compatibility
 

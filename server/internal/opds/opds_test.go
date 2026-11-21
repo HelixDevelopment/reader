@@ -17,7 +17,7 @@ func fixturePage() catalog.Page {
 }
 
 func TestOPDS12WellFormedMultiEditionAndPaging(t *testing.T) {
-	raw, err := Acquisition12("/opds/1.2/publications", fixturePage(), catalog.Query{Limit: 1})
+	raw, err := Acquisition12("/opds/1.2/publications", fixturePage(), catalog.Query{Limit: 1}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -80,7 +80,7 @@ func TestOPDS20WellFormedAndTyped(t *testing.T) {
 
 func TestStandaloneEditionDocuments(t *testing.T) {
 	w := fixturePage().Works[0]
-	raw12, err := Edition12(w, w.Editions[0])
+	raw12, err := Edition12(w, w.Editions[0], nil)
 	if err != nil {
 		t.Fatal(err)
 	}

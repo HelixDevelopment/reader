@@ -16,6 +16,8 @@ import (
 
 type Parser struct{}
 
+// imageExts selects the entries treated as pages. A page's media type is
+// never inferred from this table: StreamMediaType proves it from the payload.
 var imageExts = map[string]bool{
 	".jpg": true, ".jpeg": true, ".png": true, ".webp": true, ".gif": true, ".avif": true,
 }

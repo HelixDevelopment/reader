@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/ingest -run ^TestMemoryFullScanReconcilesDeletedSourceFiles$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/ingest	0.007s
+
+exit=0

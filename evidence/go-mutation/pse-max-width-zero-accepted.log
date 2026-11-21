@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestPageURL$ -count=1 -timeout 240s
+--- FAIL: TestPageURL (0.00s)
+    --- FAIL: TestPageURL/maxWidth_required_when_template_present (0.00s)
+        link_test.go:137: got err <nil>, want message containing "pse: href contains {maxWidth} but maxWidth 0 is not positive"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.003s
+FAIL
+
+exit=1

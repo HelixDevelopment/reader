@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestUserKeyIsRawSHA256OfPassphrase$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestUserKeyIsRawSHA256OfPassphrase$ -count=1 -timeout 240s
 --- FAIL: TestUserKeyIsRawSHA256OfPassphrase (0.00s)
     keys_test.go:23: UserKey("") = 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126, want e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
     keys_test.go:23: UserKey("pasSED1!") = c716048ae9a9dbfd5cea04406f888281d9b6fc315368c0a2c6548a3e17301e39, want d4ded11a2f816033a07e0215c1be089338607a277f6673530658174740fbbb15
@@ -6,7 +6,7 @@ $ go test ./pkg/lcp -run ^TestUserKeyIsRawSHA256OfPassphrase$ -count=1
     keys_test.go:23: UserKey("éŒ… ñ") = 5a7940436ebd91efab3da9e81b4ff664307c21d85cb4642e7d3fd4dbaa653a55, want 57f22b6e872b0c84731d9e9b64d07f91707ea61316b7473d1192f1d78c5dbe11
     keys_test.go:23: UserKey("a\nc\td") = 4d6c7a630c820680fb0cd3464c32899c6d8bc30bab43670590c87f73415c5e95, want a4f16752c5d199a7d916a68eeb3a849fd3473ad9bedb4441bfd24acbc9049b36
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.004s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
 FAIL
 
 exit=1

@@ -1,7 +1,8 @@
-$ go test ./internal/sources -run ^TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot$ -count=1
-# github.com/helixreader/helix/server/internal/sources
-internal/sources/opds.go:15:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-FAIL	github.com/helixreader/helix/server/internal/sources [setup failed]
+$ go test -trimpath ./internal/sources -run ^TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot$ -count=1 -timeout 240s
+--- FAIL: TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot (0.02s)
+    opds_test.go:253: truncated OPDS listing must fail closed: entries=[] err=<nil>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/sources	0.023s
 FAIL
 
 exit=1

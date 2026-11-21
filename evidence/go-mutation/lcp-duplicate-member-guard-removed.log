@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestCanonicalRejectsDuplicateMembers$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCanonicalRejectsDuplicateMembers$ -count=1 -timeout 240s
 --- FAIL: TestCanonicalRejectsDuplicateMembers (0.00s)
     canonical_test.go:433: Canonical error = <nil>, want ErrAmbiguousLicense
     canonical_test.go:438: CanonicalForSigning error = <nil>, want ErrAmbiguousLicense

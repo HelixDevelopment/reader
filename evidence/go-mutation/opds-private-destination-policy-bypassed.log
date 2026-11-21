@@ -1,7 +1,8 @@
-$ go test ./internal/sources -run ^TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault$ -count=1
-# github.com/helixreader/helix/server/internal/sources
-internal/sources/opds.go:15:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-FAIL	github.com/helixreader/helix/server/internal/sources [setup failed]
+$ go test -trimpath ./internal/sources -run ^TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault$ -count=1 -timeout 240s
+--- FAIL: TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault (0.00s)
+    opds_test.go:97: cross-origin loopback acquisition must be rejected, got <nil>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/sources	0.009s
 FAIL
 
 exit=1

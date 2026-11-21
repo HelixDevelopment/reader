@@ -1,0 +1,9 @@
+$ go test -trimpath ./internal/httpapi -run ^TestPageStreamRefusesFileChangedAfterScan$ -count=1 -timeout 240s
+--- FAIL: TestPageStreamRefusesFileChangedAfterScan (0.00s)
+    pse_test.go:281: a stale catalog record was advertised as a stream: {Rel:http://vaemendis.net/opds-pse/stream Type:image/png Href:/opds-pse/stream/grew/{pageNumber} Count:2 LastRead:0 HasLastRead:false LastReadDate: HasLastReadDt:false}
+    pse_test.go:285: stale page request: 200 "\x89PNG\r\n\x1a\npng-page", want 409
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.012s
+FAIL
+
+exit=1

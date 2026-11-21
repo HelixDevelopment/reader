@@ -1,14 +1,17 @@
 {
   "status": "PASS",
-  "pass": 87,
+  "pass": 104,
   "fail": 0,
+  "mutants": 104,
+  "controls": 76,
+  "with_predicted_assertion": 104,
   "original_tree_unchanged": true,
   "results": [
     {
       "id": "equal-clock-regresses-to-local",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "furthest equal-clock position must win",
       "test": "TestResolveEqualClocksFurthestAndCommutative",
       "exit": 1,
       "log": "equal-clock-regresses-to-local.log"
@@ -16,8 +19,8 @@
     {
       "id": "compressed-length-not-removed-before-write",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "br truncated network response",
       "test": "TestCompressionNetworkContentLength",
       "exit": 1,
       "log": "compressed-length-not-removed-before-write.log"
@@ -25,8 +28,8 @@
     {
       "id": "opds-private-destination-policy-bypassed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "cross-origin loopback acquisition must be rejected",
       "test": "TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault",
       "exit": 1,
       "log": "opds-private-destination-policy-bypassed.log"
@@ -34,8 +37,8 @@
     {
       "id": "if-range-validator-ignored",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must force full 200",
       "test": "TestContentIfRangeHonorsETag",
       "exit": 1,
       "log": "if-range-validator-ignored.log"
@@ -43,8 +46,8 @@
     {
       "id": "active-source-deletion-guard-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "delete during active scan",
       "test": "TestSourceDeletionWaitsForScanAndScanAdmission",
       "exit": 1,
       "log": "active-source-deletion-guard-removed.log"
@@ -52,8 +55,8 @@
     {
       "id": "redis-watch-never-executed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale lower-percentage update rewound progress",
       "test": "TestRedisPutProgressRetriesWatchConflict",
       "exit": 1,
       "log": "redis-watch-never-executed.log"
@@ -61,8 +64,8 @@
     {
       "id": "cross-origin-redirect-rejection-bypassed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "before rejection",
       "test": "TestHTTPRejectsCrossOriginRedirectBeforeRequest",
       "exit": 1,
       "log": "cross-origin-redirect-rejection-bypassed.log"
@@ -70,8 +73,8 @@
     {
       "id": "changed-file-current-bytes-ignored",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "changed file did not replace stale byte evidence",
       "test": "TestMergeWorkReplacesChangedFileAtSameSourcePath",
       "exit": 1,
       "log": "changed-file-current-bytes-ignored.log"
@@ -79,8 +82,8 @@
     {
       "id": "source-reconciliation-disabled",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "deletion rescan: report={Works:1 Files:1 Removed:0",
       "test": "TestMemoryFullScanReconcilesDeletedSourceFiles",
       "exit": 1,
       "log": "source-reconciliation-disabled.log"
@@ -88,8 +91,8 @@
     {
       "id": "opds-pagination-limit-ignored",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "truncated OPDS listing must fail closed",
       "test": "TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot",
       "exit": 1,
       "log": "opds-pagination-limit-ignored.log"
@@ -97,8 +100,8 @@
     {
       "id": "stale-etag-range-gating-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale validator produced unsafe response",
       "test": "TestContentStaleETagCannotSpliceChangedEqualSizeFile",
       "exit": 1,
       "log": "stale-etag-range-gating-removed.log"
@@ -106,8 +109,8 @@
     {
       "id": "stable-source-id-ignored",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stable source creation",
       "test": "TestStableSourceIDReattachesCatalogAfterRestart",
       "exit": 1,
       "log": "stable-source-id-ignored.log"
@@ -115,8 +118,8 @@
     {
       "id": "embedded-isbn-normalization-discarded",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "embedded ISBN normalization was discarded",
       "test": "TestValidEmbeddedISBNAccepted",
       "exit": 1,
       "log": "embedded-isbn-normalization-discarded.log"
@@ -124,8 +127,8 @@
     {
       "id": "isbn-identity-canonicalization-disabled",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "ISBN-10 and equivalent ISBN-13 forked identity",
       "test": "TestISBNIdentityCanonicalizesSchemePairAndOrder",
       "exit": 1,
       "log": "isbn-identity-canonicalization-disabled.log"
@@ -133,8 +136,8 @@
     {
       "id": "opds-query-collision-disambiguation-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OPDS acquisition identity collision",
       "test": "TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities",
       "exit": 1,
       "log": "opds-query-collision-disambiguation-removed.log"
@@ -142,8 +145,8 @@
     {
       "id": "memory-file-validation-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "memory repository accepted an empty file ID",
       "test": "TestMemoryRejectsIncompleteFileIdentityLikePostgres",
       "exit": 1,
       "log": "memory-file-validation-removed.log"
@@ -151,8 +154,8 @@
     {
       "id": "opds-stable-collision-grouping-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OPDS acquisition identity collision",
       "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
       "exit": 1,
       "log": "opds-stable-collision-grouping-removed.log"
@@ -160,8 +163,8 @@
     {
       "id": "local-delete-not-found-translation-removed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "deleted local file returned 502, want 404",
       "test": "TestContentDeletedLocalFileReturns404",
       "exit": 1,
       "log": "local-delete-not-found-translation-removed.log"
@@ -169,8 +172,8 @@
     {
       "id": "opds-previous-generation-keys-ignored",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "colliding member lacks stable synthetic key",
       "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
       "exit": 1,
       "log": "opds-previous-generation-keys-ignored.log"
@@ -178,8 +181,8 @@
     {
       "id": "content-single-handle-validation-bypassed",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "source does not support range reads",
       "test": "TestContentGETValidatesAndReadsSameOpenedHandle",
       "exit": 1,
       "log": "content-single-handle-validation-bypassed.log"
@@ -187,8 +190,8 @@
     {
       "id": "identity-response-closes-unused-compressor",
       "status": "PASS",
-      "reason": "rejected (no predicted assertion for this mutant)",
-      "expected": "targeted test rejects mutant",
+      "reason": "rejected with the predicted assertion",
+      "expected": "read /data after identity fallback",
       "test": "TestCompressionIdentityFallbackPreservesKeepAlive",
       "exit": 1,
       "log": "identity-response-closes-unused-compressor.log"
@@ -786,6 +789,159 @@
       "test": "TestProtectRefusesContainersItCannotHonestlyReturn",
       "exit": 1,
       "log": "lcp-producer-protects-a-non-publication.log"
+    },
+    {
+      "id": "pse-image-type-check-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "is not an image type allowed by OPDS-PSE",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-image-type-check-removed.log"
+    },
+    {
+      "id": "pse-page-number-template-check-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must contain the {pageNumber} template",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-page-number-template-check-removed.log"
+    },
+    {
+      "id": "pse-count-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "positive integer, got \\\"0\\\"",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-count-zero-accepted.log"
+    },
+    {
+      "id": "pse-last-read-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "numbering starts at 1), got \\\"0\\\"",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-last-read-zero-accepted.log"
+    },
+    {
+      "id": "pse-page-upper-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "page 2 out of range 0..1",
+      "test": "TestPageURL",
+      "exit": 1,
+      "log": "pse-page-upper-bound-removed.log"
+    },
+    {
+      "id": "pse-max-width-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "maxWidth 0 is not positive",
+      "test": "TestPageURL",
+      "exit": 1,
+      "log": "pse-max-width-zero-accepted.log"
+    },
+    {
+      "id": "pse-last-read-date-unvalidated",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must conform to the Atom date construct",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-last-read-date-unvalidated.log"
+    },
+    {
+      "id": "opds-stream-advertises-illegal-link",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "feed advertises a stream it cannot describe",
+      "test": "TestIllegalStreamsAreNeverAdvertised",
+      "exit": 1,
+      "log": "opds-stream-advertises-illegal-link.log"
+    },
+    {
+      "id": "opds-stream-href-drops-page-template",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must contain the {pageNumber} template",
+      "test": "TestStreamLinkRoundTripsThroughTheParser",
+      "exit": 1,
+      "log": "opds-stream-href-drops-page-template.log"
+    },
+    {
+      "id": "opds-feed-omits-pse-namespace",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must declare the namespace",
+      "test": "TestFeedDeclaresThePSENamespace",
+      "exit": 1,
+      "log": "opds-feed-omits-pse-namespace.log"
+    },
+    {
+      "id": "opds-entry-omits-pse-namespace",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must declare the namespace itself",
+      "test": "TestEditionEntryStandaloneCarriesNamespaceAndLink",
+      "exit": 1,
+      "log": "opds-entry-omits-pse-namespace.log"
+    },
+    {
+      "id": "cbz-stream-type-ignores-mixed-payloads",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "pages mix image/png and image/jpeg",
+      "test": "TestStreamMediaTypeCases",
+      "exit": 1,
+      "log": "cbz-stream-type-ignores-mixed-payloads.log"
+    },
+    {
+      "id": "cbz-stream-type-ignores-unproven-payload",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "is not a jpeg, png or gif image",
+      "test": "TestStreamMediaTypeCases",
+      "exit": 1,
+      "log": "cbz-stream-type-ignores-unproven-payload.log"
+    },
+    {
+      "id": "cbz-page-index-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "index out of range [2]",
+      "test": "TestPageIndexOutOfRange",
+      "exit": 1,
+      "log": "cbz-page-index-bound-removed.log"
+    },
+    {
+      "id": "http-stream-serves-stale-catalog-record",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale catalog record was advertised",
+      "test": "TestPageStreamRefusesFileChangedAfterScan",
+      "exit": 1,
+      "log": "http-stream-serves-stale-catalog-record.log"
+    },
+    {
+      "id": "http-stream-serves-protected-archive",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "protected archive was advertised",
+      "test": "TestPageStreamRefusesProtectedAndUnknownFormats",
+      "exit": 1,
+      "log": "http-stream-serves-protected-archive.log"
+    },
+    {
+      "id": "http-stream-page-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "beyond-count page: 502",
+      "test": "TestPageStreamFeedAndServe",
+      "exit": 1,
+      "log": "http-stream-page-bound-removed.log"
     }
   ]
 }

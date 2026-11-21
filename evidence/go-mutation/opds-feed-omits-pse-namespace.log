@@ -1,0 +1,31 @@
+$ go test -trimpath ./internal/opds -run ^TestFeedDeclaresThePSENamespace$ -count=1 -timeout 240s
+--- FAIL: TestFeedDeclaresThePSENamespace (0.00s)
+    pse_test.go:66: the feed element must declare the namespace, got <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+    pse_test.go:69: the namespace should be declared once, on the feed:
+        <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+          <id>/opds/1.2/publications?limit=1&amp;offset=0</id>
+          <title>Helix Publications</title>
+          <updated>2026-01-02T03:04:05Z</updated>
+          <author>
+            <name>Helix Reader</name>
+          </author>
+          <link rel="self" href="/opds/1.2/publications?limit=1&amp;offset=0" type="application/atom+xml;profile=opds-catalog;kind=acquisition"></link>
+          <link rel="start" href="/opds/1.2" type="application/atom+xml;profile=opds-catalog;kind=navigation"></link>
+          <link rel="search" href="/opds/1.2/opensearch.xml" type="application/opensearchdescription+xml"></link>
+          <entry>
+            <title>Comic</title>
+            <id>urn:helix:edition:e1</id>
+            <updated>2026-01-02T03:04:05Z</updated>
+            <link rel="alternate" href="/opds/1.2/editions/e1" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+            <link rel="http://opds-spec.org/acquisition" href="/v1/files/f1/content" type="application/vnd.comicbook+zip" title="Comic (cbz)"></link>
+            <link rel="http://vaemendis.net/opds-pse/stream" href="/opds-pse/stream/f1/{pageNumber}" type="image/jpeg" xmlns:ns="http://vaemendis.net/opds-pse/ns" ns:count="35"></link>
+            <link rel="http://opds-spec.org/acquisition" href="/v1/files/f2/content" type="text/plain" title="Comic (txt)"></link>
+          </entry>
+          <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
+          <itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">1</itemsPerPage>
+        </feed>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/opds	0.006s
+FAIL
+
+exit=1

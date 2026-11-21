@@ -1,13 +1,13 @@
-$ go test ./pkg/lcp -run ^TestContainerRefusesEncryptedExcludedResources$ -count=1
---- FAIL: TestContainerRefusesEncryptedExcludedResources (0.75s)
-    --- FAIL: TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read (0.12s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerRefusesEncryptedExcludedResources$ -count=1 -timeout 240s
+--- FAIL: TestContainerRefusesEncryptedExcludedResources (0.74s)
+    --- FAIL: TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read (0.20s)
         container_negative_test.go:53: EncryptionErr = <nil>, want ErrExcludedResourceEncrypted
-    --- FAIL: TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found (0.24s)
+    --- FAIL: TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found (0.07s)
         container_negative_test.go:53: EncryptionErr = <nil>, want ErrExcludedResourceEncrypted
-    --- FAIL: TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable (0.12s)
+    --- FAIL: TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable (0.35s)
         container_negative_test.go:53: EncryptionErr = <nil>, want ErrExcludedResourceEncrypted
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.761s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.748s
 FAIL
 
 exit=1

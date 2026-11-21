@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestParseAcquisitionLinkErrors$ -count=1 -timeout 240s
+--- FAIL: TestParseAcquisitionLinkErrors (0.00s)
+    --- FAIL: TestParseAcquisitionLinkErrors/missing_pageNumber_template (0.00s)
+        link_test.go:102: got err <nil>, want message containing "pse: href \"/s/page\" must contain the {pageNumber} template"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.004s
+FAIL
+
+exit=1

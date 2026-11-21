@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/kosync -run ^TestRedisPutProgressRetriesWatchConflict$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/kosync	0.009s
+
+exit=0

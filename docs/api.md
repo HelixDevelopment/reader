@@ -84,8 +84,9 @@ All OPDS routes use OPDS Basic authentication when configured.
 | GET | `/opds/2.0` | OPDS 2.0 navigation feed |
 | GET | `/opds/2.0/publications?q=&offset=&limit=` | OPDS 2.0 publication feed |
 | GET | `/opds/2.0/editions/{id}` | Standalone RWPM publication |
+| GET | `/opds-pse/stream/{file}/{page}` | One page image of a streamable CBZ |
 
-Feeds include acquisition and cover links where available. OPDS-PSE page streaming is not implemented.
+Feeds include acquisition and cover links where available. An OPDS 1.2 entry also carries a Page Streaming Extension link (`rel="http://vaemendis.net/opds-pse/stream"`, with `pse:count` and `pse:type`) when the file's pages are all provably the same image type: CBZ only, unprotected, catalogued size still matching the source, and a type read from the page payloads rather than the entry names. Everything else is served whole-file only, and no OPDS 2.0 form of the extension is emitted. The href carries `{pageNumber}` and no `{maxWidth}`, because the server does not resize. `pse:lastRead` and `pse:lastReadDate` are validated when parsed (the date must be an Atom date construct) and never emitted: read state lives on the internal progress routes, not in the feed. Page routes need the same OPDS credentials as the feeds; out-of-range pages answer `404` naming the valid range, non-integer pages `400`, and a file that changed since it was scanned `409`.
 
 ## Internal reading progress
 

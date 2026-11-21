@@ -46,7 +46,7 @@ Configured secret headers must not be forwarded to cross-origin acquisition URLs
 
 ## Are OPDS 1.2, OPDS 2.0, and OpenSearch implemented?
 
-Yes, the server has acquisition/navigation feeds, standalone edition documents, acquisition links, pagination, covers, and an OpenSearch description. OPDS-PSE page streaming and Kobo-specific synchronization are not implemented.
+Yes, the server has acquisition/navigation feeds, standalone edition documents, acquisition links, pagination, covers, and an OpenSearch description. OPDS-PSE page streaming is implemented for CBZ only, and advertised only when the archive proves one image type for every page; Kobo-specific synchronization is not implemented.
 
 ## Are annotations, watch folders, smart shelves, and native readers available?
 

@@ -1,9 +1,9 @@
-$ go test ./pkg/lcp -run ^TestCanonicalNumbers$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestCanonicalNumbers$ -count=1 -timeout 240s
 --- FAIL: TestCanonicalNumbers (0.00s)
     canonical_test.go:385: Canonical({"n":100.0}) = {"n":1E-1}, want {"n":1E2}
     canonical_test.go:385: Canonical({"n":123.450}) = {"n":1.2345E1}, want {"n":1.2345E2}
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.006s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
 FAIL
 
 exit=1

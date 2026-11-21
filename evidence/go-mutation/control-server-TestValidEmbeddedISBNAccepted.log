@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/identify -run ^TestValidEmbeddedISBNAccepted$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/identify	0.006s
+
+exit=0

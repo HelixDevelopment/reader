@@ -25,6 +25,9 @@ type Link12 struct {
 	FacetGroup  string `xml:"opds:facetGroup,attr,omitempty"`
 	ActiveFacet string `xml:"opds:activeFacet,attr,omitempty"`
 	Count       int    `xml:"thr:count,attr,omitempty"`
+
+	// PSECount is pse:count, the page total a stream link MUST carry.
+	PSECount int `xml:"http://vaemendis.net/opds-pse/ns count,attr,omitempty"`
 }
 
 type Author12 struct {
@@ -49,6 +52,7 @@ type Entry12 struct {
 	XMLNSDC     string       `xml:"xmlns:dc,attr,omitempty"`
 	XMLNSOPDS   string       `xml:"xmlns:opds,attr,omitempty"`
 	XMLNSTHR    string       `xml:"xmlns:thr,attr,omitempty"`
+	XMLPSE      string       `xml:"xmlns:pse,attr,omitempty"`
 	Title       string       `xml:"title"`
 	ID          string       `xml:"id"`
 	Updated     string       `xml:"updated"`
@@ -70,6 +74,7 @@ type Feed12 struct {
 	XMLNSOPDS       string    `xml:"xmlns:opds,attr"`
 	XMLNSTHR        string    `xml:"xmlns:thr,attr"`
 	XMLNSOpenSearch string    `xml:"xmlns:opensearch,attr,omitempty"`
+	XMLPSE          string    `xml:"xmlns:pse,attr,omitempty"`
 	ID              string    `xml:"id"`
 	Title           string    `xml:"title"`
 	Updated         string    `xml:"updated"`

@@ -1,23 +1,48 @@
-$ go test ./internal/httpapi -run ^TestStableSourceIDReattachesCatalogAfterRestart$ -count=1
-# github.com/helixreader/helix/server/internal/httpapi
-internal/httpapi/router.go:17:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/httpapi/router.go:18:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/identity.go:7:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/service.go:22:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/service.go:23:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/service.go:24:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/service.go:25:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/ingest/service.go:26:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/httpapi
-internal/identify/jev.go:12:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-FAIL	github.com/helixreader/helix/server/internal/httpapi [setup failed]
+$ go test -trimpath ./internal/httpapi -run ^TestStableSourceIDReattachesCatalogAfterRestart$ -count=1 -timeout 240s
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /healthz                  --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func1 (5 handlers)
+[GIN-debug] GET    /readyz                   --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func2 (5 handlers)
+[GIN-debug] GET    /v1/formats               --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func3 (5 handlers)
+[GIN-debug] GET    /v1/protocols             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func4 (5 handlers)
+[GIN-debug] GET    /v1/works                 --> github.com/helixreader/helix/server/internal/httpapi.(*Server).works-fm (6 handlers)
+[GIN-debug] GET    /v1/works/:id             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).work-fm (6 handlers)
+[GIN-debug] GET    /v1/editions/:id          --> github.com/helixreader/helix/server/internal/httpapi.(*Server).edition-fm (6 handlers)
+[GIN-debug] GET    /v1/covers/:id            --> github.com/helixreader/helix/server/internal/httpapi.(*Server).cover-fm (6 handlers)
+[GIN-debug] HEAD   /v1/covers/:id            --> github.com/helixreader/helix/server/internal/httpapi.(*Server).cover-fm (6 handlers)
+[GIN-debug] GET    /v1/files/:id/content     --> github.com/helixreader/helix/server/internal/httpapi.(*Server).content-fm (6 handlers)
+[GIN-debug] HEAD   /v1/files/:id/content     --> github.com/helixreader/helix/server/internal/httpapi.(*Server).content-fm (6 handlers)
+[GIN-debug] POST   /users/create             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).kosyncRegister-fm (5 handlers)
+[GIN-debug] GET    /users/auth               --> github.com/helixreader/helix/server/internal/httpapi.(*Server).kosyncAuth-fm (5 handlers)
+[GIN-debug] PUT    /syncs/progress           --> github.com/helixreader/helix/server/internal/httpapi.(*Server).kosyncPutProgress-fm (5 handlers)
+[GIN-debug] GET    /syncs/progress/:document --> github.com/helixreader/helix/server/internal/httpapi.(*Server).kosyncGetProgress-fm (5 handlers)
+[GIN-debug] POST   /v1/sources               --> github.com/helixreader/helix/server/internal/httpapi.(*Server).createSource-fm (6 handlers)
+[GIN-debug] DELETE /v1/sources/:id           --> github.com/helixreader/helix/server/internal/httpapi.(*Server).deleteSource-fm (6 handlers)
+[GIN-debug] POST   /v1/scans                 --> github.com/helixreader/helix/server/internal/httpapi.(*Server).startScan-fm (6 handlers)
+[GIN-debug] GET    /v1/scans                 --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func5 (6 handlers)
+[GIN-debug] GET    /v1/scans/:id             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).scan-fm (6 handlers)
+[GIN-debug] DELETE /v1/scans/:id             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).cancelScan-fm (6 handlers)
+[GIN-debug] DELETE /v1/works/:id             --> github.com/helixreader/helix/server/internal/httpapi.(*Server).deleteWork-fm (6 handlers)
+[GIN-debug] PUT    /v1/ai/memories           --> github.com/helixreader/helix/server/internal/httpapi.(*Server).putMemory-fm (6 handlers)
+[GIN-debug] POST   /v1/ai/memories/search    --> github.com/helixreader/helix/server/internal/httpapi.(*Server).searchMemory-fm (6 handlers)
+[GIN-debug] DELETE /v1/ai/memories/:scope/:id --> github.com/helixreader/helix/server/internal/httpapi.(*Server).deleteMemory-fm (6 handlers)
+[GIN-debug] GET    /v1/sync/progress/:user/:book --> github.com/helixreader/helix/server/internal/httpapi.(*Server).getProgress-fm (6 handlers)
+[GIN-debug] PUT    /v1/sync/progress/:user/:book --> github.com/helixreader/helix/server/internal/httpapi.(*Server).putProgress-fm (6 handlers)
+[GIN-debug] DELETE /v1/sync/progress/:user/:book --> github.com/helixreader/helix/server/internal/httpapi.(*Server).deleteProgress-fm (6 handlers)
+[GIN-debug] GET    /opds-pse/stream/:file/:page --> github.com/helixreader/helix/server/internal/httpapi.(*Server).streamPage-fm (6 handlers)
+[GIN-debug] GET    /opds/1.2                 --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func6 (6 handlers)
+[GIN-debug] GET    /opds/1.2/opensearch.xml  --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func7 (6 handlers)
+[GIN-debug] GET    /opds/1.2/publications    --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func8 (6 handlers)
+[GIN-debug] GET    /opds/2.0                 --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func9 (6 handlers)
+[GIN-debug] GET    /opds/1.2/editions/:id    --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func10 (6 handlers)
+[GIN-debug] GET    /opds/2.0/editions/:id    --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func11 (6 handlers)
+[GIN-debug] GET    /opds/2.0/publications    --> github.com/helixreader/helix/server/internal/httpapi.(*Server).Router.func12 (6 handlers)
+--- FAIL: TestStableSourceIDReattachesCatalogAfterRestart (0.00s)
+    router_test.go:523: stable source creation: 400 {"error":"invalid source id","request_id":"57e5febfe389730e3b2b7f21c325e2e0"}
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.009s
 FAIL
 
 exit=1

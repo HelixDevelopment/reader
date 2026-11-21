@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/opds -run ^TestFeedDeclaresThePSENamespace$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/opds	0.005s
+
+exit=0

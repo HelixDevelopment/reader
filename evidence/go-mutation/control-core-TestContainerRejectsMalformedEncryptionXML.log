@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/lcp -run ^TestContainerRejectsMalformedEncryptionXML$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/lcp	1.388s
+
+exit=0

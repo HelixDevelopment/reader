@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestDecryptCBCRejectsMalformedCiphertext$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestDecryptCBCRejectsMalformedCiphertext$ -count=1 -timeout 240s
 --- FAIL: TestDecryptCBCRejectsMalformedCiphertext (0.00s)
     keys_test.go:159: pad length 0: error = <nil>, want ErrBadPadding
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.008s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
 FAIL
 
 exit=1

@@ -1,0 +1,4 @@
+$ go test -trimpath ./pkg/sync -run ^TestResolveEqualClocksFurthestAndCommutative$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/core/pkg/sync	0.004s
+
+exit=0

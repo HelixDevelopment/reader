@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestParseAcquisitionLinkErrors$ -count=1 -timeout 240s
+--- FAIL: TestParseAcquisitionLinkErrors (0.00s)
+    --- FAIL: TestParseAcquisitionLinkErrors/lastReadDate_must_conform_to_the_Atom_date_construct (0.00s)
+        link_test.go:102: got err <nil>, want message containing "pse: pse:lastReadDate \"10-01-2010\" must conform to the Atom date construct"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.005s
+FAIL
+
+exit=1

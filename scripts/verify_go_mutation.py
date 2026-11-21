@@ -16,12 +16,28 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / ".helix-verify" / "go-mutation"
 EVIDENCE = ROOT / "evidence" / "go-mutation"
 GO = os.environ.get("HELIX_GO", "go")
+# Mutants are edited into a copy that mirrors the repo layout, because a module
+# may reach its sibling through a relative replace directive. Copying only the
+# target module leaves that replace dangling, the build fails, and a failed
+# build would otherwise be counted as a rejected mutant.
+GO_MODULES = tuple(sorted(p.parent.name for p in ROOT.glob("*/go.mod")))
+# Only the Go toolchain prints these; a test asserting its own error text
+# cannot produce them, so their presence means the mutant never ran.
+BUILD_FAILURES = (
+    "[build failed]",
+    "[setup failed]",
+    "replacement directory",
+    "no required module provides package",
+    "cannot find module",
+    "missing go.sum entry",
+)
 
 MUTANTS = [
     {
@@ -32,6 +48,7 @@ MUTANTS = [
         "new": "case Concurrent:",
         "package": "./pkg/sync",
         "test": "TestResolveEqualClocksFurthestAndCommutative",
+        "expect": "furthest equal-clock position must win",
     },
     {
         "id": "compressed-length-not-removed-before-write",
@@ -41,6 +58,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/httpapi",
         "test": "TestCompressionNetworkContentLength",
+        "expect": "br truncated network response",
     },
     {
         "id": "opds-private-destination-policy-bypassed",
@@ -50,6 +68,7 @@ MUTANTS = [
         "new": "if true {",
         "package": "./internal/sources",
         "test": "TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault",
+        "expect": "cross-origin loopback acquisition must be rejected",
     },
     {
         "id": "if-range-validator-ignored",
@@ -59,6 +78,7 @@ MUTANTS = [
         "new": "(true)",
         "package": "./internal/httpapi",
         "test": "TestContentIfRangeHonorsETag",
+        "expect": "must force full 200",
     },
     {
         "id": "active-source-deletion-guard-removed",
@@ -68,6 +88,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/httpapi",
         "test": "TestSourceDeletionWaitsForScanAndScanAdmission",
+        "expect": "delete during active scan",
     },
     {
         "id": "redis-watch-never-executed",
@@ -81,6 +102,7 @@ MUTANTS = [
         "new": "return tx.Set(ctx, key, payload, 0).Err()",
         "package": "./internal/kosync",
         "test": "TestRedisPutProgressRetriesWatchConflict",
+        "expect": "stale lower-percentage update rewound progress",
     },
     {
         "id": "cross-origin-redirect-rejection-bypassed",
@@ -90,6 +112,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/sources",
         "test": "TestHTTPRejectsCrossOriginRedirectBeforeRequest",
+        "expect": "before rejection",
     },
     {
         "id": "changed-file-current-bytes-ignored",
@@ -99,6 +122,7 @@ MUTANTS = [
         "new": "out[i] = out[i]",
         "package": "./internal/catalog",
         "test": "TestMergeWorkReplacesChangedFileAtSameSourcePath",
+        "expect": "changed file did not replace stale byte evidence",
     },
     {
         "id": "source-reconciliation-disabled",
@@ -108,6 +132,7 @@ MUTANTS = [
         "new": "removed, err := 0, error(nil)",
         "package": "./internal/ingest",
         "test": "TestMemoryFullScanReconcilesDeletedSourceFiles",
+        "expect": "deletion rescan: report={Works:1 Files:1 Removed:0",
     },
     {
         "id": "opds-pagination-limit-ignored",
@@ -117,6 +142,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/sources",
         "test": "TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot",
+        "expect": "truncated OPDS listing must fail closed",
     },
     {
         "id": "stale-etag-range-gating-removed",
@@ -126,6 +152,7 @@ MUTANTS = [
         "new": "serveRange := sizeKnown && rangeHeader != \"\"",
         "package": "./internal/httpapi",
         "test": "TestContentStaleETagCannotSpliceChangedEqualSizeFile",
+        "expect": "stale validator produced unsafe response",
     },
     {
         "id": "stable-source-id-ignored",
@@ -135,6 +162,7 @@ MUTANTS = [
         "new": "id := \"\"",
         "package": "./internal/httpapi",
         "test": "TestStableSourceIDReattachesCatalogAfterRestart",
+        "expect": "stable source creation",
     },
     {
         "id": "embedded-isbn-normalization-discarded",
@@ -144,24 +172,27 @@ MUTANTS = [
         "new": "\t\t_ = v\n\t\tif best < 0.98 {",
         "package": "./internal/identify",
         "test": "TestValidEmbeddedISBNAccepted",
+        "expect": "embedded ISBN normalization was discarded",
     },
     {
         "id": "isbn-identity-canonicalization-disabled",
         "module": "server",
         "file": "internal/ingest/identity.go",
         "old": "value, ok := isbn.Canonical(id.Value)",
-        "new": "value, ok := id.Value, true",
+        "new": "value, ok := id.Value, isbn.Valid10(id.Value) || isbn.Valid13(id.Value)",
         "package": "./internal/ingest",
         "test": "TestISBNIdentityCanonicalizesSchemePairAndOrder",
+        "expect": "ISBN-10 and equivalent ISBN-13 forked identity",
     },
     {
         "id": "opds-query-collision-disambiguation-removed",
         "module": "server",
         "file": "internal/sources/opds.go",
         "old": "key += \"#helix-x-\" + hex.EncodeToString(digest[:])",
-        "new": "key += \"\"",
+        "new": "key += \"#helix-x-\" + hex.EncodeToString(digest[:0])",
         "package": "./internal/sources",
         "test": "TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities",
+        "expect": "OPDS acquisition identity collision",
     },
     {
         "id": "memory-file-validation-removed",
@@ -171,6 +202,7 @@ MUTANTS = [
         "new": "func (m *Memory) MergeWork(_ context.Context, w Work) error {\n\tif err := error(nil); err != nil {",
         "package": "./internal/catalog",
         "test": "TestMemoryRejectsIncompleteFileIdentityLikePostgres",
+        "expect": "memory repository accepted an empty file ID",
     },
     {
         "id": "opds-stable-collision-grouping-removed",
@@ -180,6 +212,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/sources",
         "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+        "expect": "OPDS acquisition identity collision",
     },
     {
         "id": "local-delete-not-found-translation-removed",
@@ -189,15 +222,17 @@ MUTANTS = [
         "new": "resolved, err := filepath.EvalSymlinks(p)\n\tif err != nil {\n\t\tif os.IsNotExist(err) {\n\t\t\treturn \"\", err",
         "package": "./internal/httpapi",
         "test": "TestContentDeletedLocalFileReturns404",
+        "expect": "deleted local file returned 502, want 404",
     },
     {
         "id": "opds-previous-generation-keys-ignored",
         "module": "server",
         "file": "internal/sources/opds.go",
         "old": "if validPrevious {",
-        "new": "if false {",
+        "new": "if validPrevious && false {",
         "package": "./internal/sources",
         "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+        "expect": "colliding member lacks stable synthetic key",
     },
     {
         "id": "content-single-handle-validation-bypassed",
@@ -207,6 +242,7 @@ MUTANTS = [
         "new": "if false {",
         "package": "./internal/httpapi",
         "test": "TestContentGETValidatesAndReadsSameOpenedHandle",
+        "expect": "source does not support range reads",
     },
     {
         "id": "identity-response-closes-unused-compressor",
@@ -216,6 +252,7 @@ MUTANTS = [
         "new": "w.closer = w.closer",
         "package": "./internal/httpapi",
         "test": "TestCompressionIdentityFallbackPreservesKeepAlive",
+        "expect": "read /data after identity fallback",
     },
     {
         "id": "lcp-cbc-minimum-size-loosened",
@@ -883,6 +920,178 @@ MUTANTS = [
         "test": "TestProtectRefusesContainersItCannotHonestlyReturn",
         "expect": "want lcp: container is not a publication",
     },
+    {
+        "id": "pse-image-type-check-removed",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if !IsImageType(l.Type) {",
+        "new": "if false {",
+        "package": "./pkg/pse",
+        "test": "TestParseAcquisitionLinkErrors",
+        "expect": "is not an image type allowed by OPDS-PSE",
+    },
+    {
+        "id": "pse-page-number-template-check-removed",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if !strings.Contains(l.Href, PageNumberTemplate) {",
+        "new": "if false {",
+        "package": "./pkg/pse",
+        "test": "TestParseAcquisitionLinkErrors",
+        "expect": "must contain the {pageNumber} template",
+    },
+    {
+        "id": "pse-count-zero-accepted",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if err != nil || n < 1 {",
+        "new": "if err != nil {",
+        "package": "./pkg/pse",
+        "test": "TestParseAcquisitionLinkErrors",
+        "expect": r'positive integer, got \"0\"',
+    },
+    {
+        "id": "pse-last-read-zero-accepted",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if err != nil || v < 1 {",
+        "new": "if err != nil {",
+        "package": "./pkg/pse",
+        "test": "TestParseAcquisitionLinkErrors",
+        "expect": r'numbering starts at 1), got \"0\"',
+    },
+    {
+        "id": "pse-page-upper-bound-removed",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if page < 0 || page > l.Count-1 {",
+        "new": "if page < 0 {",
+        "package": "./pkg/pse",
+        "test": "TestPageURL",
+        "expect": "page 2 out of range 0..1",
+    },
+    {
+        "id": "pse-max-width-zero-accepted",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if maxWidth <= 0 {",
+        "new": "if maxWidth < 0 {",
+        "package": "./pkg/pse",
+        "test": "TestPageURL",
+        "expect": "maxWidth 0 is not positive",
+    },
+    {
+        "id": "pse-last-read-date-unvalidated",
+        "module": "core",
+        "file": "pkg/pse/link.go",
+        "old": "if !isAtomDate(d) {",
+        "new": "if false {",
+        "package": "./pkg/pse",
+        "test": "TestParseAcquisitionLinkErrors",
+        "expect": "must conform to the Atom date construct",
+    },
+    {
+        "id": "opds-stream-advertises-illegal-link",
+        "module": "server",
+        "file": "internal/opds/pse.go",
+        "old": '\tif ps.Count < 1 || !pse.IsImageType(ps.Type) {',
+        "new": '\tif false {',
+        "package": "./internal/opds",
+        "test": "TestIllegalStreamsAreNeverAdvertised",
+        "expect": 'feed advertises a stream it cannot describe',
+    },
+    {
+        "id": "opds-stream-href-drops-page-template",
+        "module": "server",
+        "file": "internal/opds/pse.go",
+        "old": '+ "/" + pse.PageNumberTemplate',
+        "new": '+ "/page"',
+        "package": "./internal/opds",
+        "test": "TestStreamLinkRoundTripsThroughTheParser",
+        # The feed goes through core/pkg/pse before any producer-side assertion
+        # runs, so the parser's wording is what proves this mutant dead.
+        "expect": 'must contain the {pageNumber} template',
+    },
+    {
+        "id": "opds-feed-omits-pse-namespace",
+        "module": "server",
+        "file": "internal/opds/opds12.go",
+        "old": '\t\tXMLPSE:          pse.NamespaceURI,',
+        "new": '\t\tXMLPSE:          pse.NamespaceURI[:0],',
+        "package": "./internal/opds",
+        "test": "TestFeedDeclaresThePSENamespace",
+        "expect": 'must declare the namespace',
+    },
+    {
+        "id": "opds-entry-omits-pse-namespace",
+        "module": "server",
+        "file": "internal/opds/detail.go",
+        "old": '\tentry.XMLPSE = pse.NamespaceURI',
+        "new": '\tentry.XMLPSE = pse.NamespaceURI[:0]',
+        "package": "./internal/opds",
+        "test": "TestEditionEntryStandaloneCarriesNamespaceAndLink",
+        "expect": 'must declare the namespace itself',
+    },
+    {
+        "id": "cbz-stream-type-ignores-mixed-payloads",
+        "module": "core",
+        "file": "pkg/parse/cbz/pages.go",
+        "old": '\t\t} else if media != t {',
+        "new": '\t\t} else if false {',
+        "package": "./pkg/parse/cbz",
+        "test": "TestStreamMediaTypeCases",
+        "expect": 'pages mix image/png and image/jpeg',
+    },
+    {
+        "id": "cbz-stream-type-ignores-unproven-payload",
+        "module": "core",
+        "file": "pkg/parse/cbz/pages.go",
+        "old": '\t\tif t == "" {',
+        "new": '\t\tif false {',
+        "package": "./pkg/parse/cbz",
+        "test": "TestStreamMediaTypeCases",
+        "expect": 'is not a jpeg, png or gif image',
+    },
+    {
+        "id": "cbz-page-index-bound-removed",
+        "module": "core",
+        "file": "pkg/parse/cbz/pages.go",
+        "old": '\tif index < 0 || index >= len(refs) {',
+        "new": '\tif index < 0 {',
+        "package": "./pkg/parse/cbz",
+        "test": "TestPageIndexOutOfRange",
+        "expect": 'index out of range [2]',
+    },
+    {
+        "id": "http-stream-serves-stale-catalog-record",
+        "module": "server",
+        "file": "internal/httpapi/pse.go",
+        "old": '\tif size != f.Size {',
+        "new": '\tif false {',
+        "package": "./internal/httpapi",
+        "test": "TestPageStreamRefusesFileChangedAfterScan",
+        "expect": 'stale catalog record was advertised',
+    },
+    {
+        "id": "http-stream-serves-protected-archive",
+        "module": "server",
+        "file": "internal/httpapi/pse.go",
+        "old": '\tif f.Protected {',
+        "new": '\tif false {',
+        "package": "./internal/httpapi",
+        "test": "TestPageStreamRefusesProtectedAndUnknownFormats",
+        "expect": 'protected archive was advertised',
+    },
+    {
+        "id": "http-stream-page-bound-removed",
+        "module": "server",
+        "file": "internal/httpapi/pse.go",
+        "old": '\tif page < 0 || page >= stream.Count {',
+        "new": '\tif page < 0 {',
+        "package": "./internal/httpapi",
+        "test": "TestPageStreamFeedAndServe",
+        "expect": 'beyond-count page: 502',
+    },
 ]
 
 
@@ -890,17 +1099,68 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def go_test(module_dir: Path, pkg: str, test: str, wall_seconds: int = 300):
+    """Run one targeted test in a copied module, returning (command, output, exit).
+
+    -trimpath matters more than it looks: every mutant runs in a directory with
+    a unique absolute path, and without it each path is a distinct build-cache
+    key, so the whole dependency graph recompiles per mutant and slow builds
+    were being mistaken for verdicts. Go's own -timeout produces a goroutine
+    dump on a hang; the harness kill below would only leave silence.
+    """
+    command = [GO, "test", "-trimpath", pkg, "-run", "^" + test + "$", "-count=1",
+               "-timeout", f"{max(30, wall_seconds - 60)}s"]
+    env = os.environ.copy()
+    env["GOPROXY"] = "off"
+    try:
+        completed = subprocess.run(command, cwd=module_dir, env=env, text=True, errors="replace",
+                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=wall_seconds)
+        return command, completed.stdout, completed.returncode
+    except subprocess.TimeoutExpired as exc:
+        partial = exc.stdout or b""
+        if isinstance(partial, bytes):
+            partial = partial.decode("utf-8", "replace")
+        return command, partial + f"\nkilled: no verdict after {wall_seconds}s\n", 124
+
+
 def main() -> int:
     EVIDENCE.mkdir(parents=True, exist_ok=True)
+    # Every mutant must name the assertion that proves its contract was caught.
+    # A mutant without one could be "killed" by any unrelated failure, which is
+    # how every server mutant in this campaign once passed without running.
+    unpredicted = [m["id"] for m in MUTANTS if not m.get("expect")]
+    if unpredicted:
+        (EVIDENCE / "results.json").write_text(json.dumps(
+            {"status": "FAIL", "pass": 0, "fail": len(unpredicted),
+             "reason": "mutants with no predicted assertion", "ids": unpredicted}, indent=2) + "\n")
+        print(json.dumps({"status": "FAIL", "reason": "mutants with no predicted assertion",
+                          "ids": unpredicted}))
+        return 1
     if WORK.exists():
         shutil.rmtree(WORK)
     WORK.mkdir(parents=True)
     originals = {(m["module"], m["file"]): digest(ROOT / m["module"] / m["file"]) for m in MUTANTS}
     results = []
+    # Positive control: a targeted test that already fails on unmutated code
+    # would "reject" every mutant thrown at it. Each distinct test is run once
+    # against a pristine copy first, and the campaign cannot proceed if one
+    # fails, because every later result would be meaningless.
+    control_case = WORK / "_control"
+    for name in GO_MODULES:
+        shutil.copytree(ROOT / name, control_case / name)
+    controls = sorted({(m["module"], m["package"], m["test"]) for m in MUTANTS})
+    for module, pkg, test in controls:
+        command, output, code = go_test(control_case / module, pkg, test)
+        (EVIDENCE / (f"control-{module}-{test}.log")).write_text(
+            "$ " + " ".join(command) + "\n" + output + f"\nexit={code}\n")
+        if code != 0:
+            results.append({"id": f"control-{module}-{test}", "status": "FAIL",
+                            "reason": "targeted test does not pass on unmutated code, so it cannot reject anything"})
     for mutant in MUTANTS:
         case = WORK / mutant["id"]
+        for name in GO_MODULES:
+            shutil.copytree(ROOT / name, case / name)
         module_copy = case / mutant["module"]
-        shutil.copytree(ROOT / mutant["module"], module_copy)
         target = module_copy / mutant["file"]
         text = target.read_text()
         occurrences = text.count(mutant["old"])
@@ -908,31 +1168,34 @@ def main() -> int:
             results.append({"id": mutant["id"], "status": "FAIL", "reason": f"mutation anchor count {occurrences}"})
             continue
         target.write_text(text.replace(mutant["old"], mutant["new"], 1))
-        command = [GO, "test", mutant["package"], "-run", "^" + mutant["test"] + "$", "-count=1"]
-        env = os.environ.copy()
-        env["GOPROXY"] = "off"
-        completed = subprocess.run(command, cwd=module_copy, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=120)
-        log = "$ " + " ".join(command) + "\n" + completed.stdout + f"\nexit={completed.returncode}\n"
+        command, output, code = go_test(module_copy, mutant["package"], mutant["test"])
+        log = "$ " + " ".join(command) + "\n" + output + f"\nexit={code}\n"
         (EVIDENCE / (mutant["id"] + ".log")).write_text(log)
-        killed = completed.returncode != 0
+        setup = next((mark for mark in BUILD_FAILURES if mark in output), "")
+        killed = code != 0 and code != 124
         reason = "" if killed else "targeted test accepted the mutant"
         expect = mutant.get("expect", "")
-        if killed and expect and expect not in completed.stdout:
+        if code == 124:
+            killed = False
+            reason = "no verdict: the targeted test did not finish, which proves nothing about the mutant"
+        elif setup:
+            killed = False
+            reason = f"mutant never ran: the harness could not build the package ({setup})"
+        elif killed and expect and expect not in output:
             killed = False
             reason = f"test failed, but not with the predicted assertion {expect!r}"
         elif killed and expect:
             reason = "rejected with the predicted assertion"
-        elif killed:
-            reason = "rejected (no predicted assertion for this mutant)"
         results.append({
             "id": mutant["id"],
             "status": "PASS" if killed else "FAIL",
             "reason": reason,
             "expected": expect or "targeted test rejects mutant",
             "test": mutant["test"],
-            "exit": completed.returncode,
+            "exit": code,
             "log": mutant["id"] + ".log",
         })
+        print(f"{mutant['id']}: {'PASS' if killed else 'FAIL'} {reason}", file=sys.stderr, flush=True)
     unchanged = all(digest(ROOT / module / name) == before for (module, name), before in originals.items())
     if not unchanged:
         results.append({"id": "original-tree-unchanged", "status": "FAIL"})
@@ -941,12 +1204,17 @@ def main() -> int:
         "status": status,
         "pass": sum(r["status"] == "PASS" for r in results),
         "fail": sum(r["status"] == "FAIL" for r in results),
+        "mutants": len(MUTANTS),
+        "controls": len(controls),
+        "with_predicted_assertion": sum(1 for m in MUTANTS if m.get("expect")),
         "original_tree_unchanged": unchanged,
         "results": results,
     }
     (EVIDENCE / "results.json").write_text(json.dumps(summary, indent=2) + "\n")
     shutil.rmtree(WORK)
-    print(json.dumps({"status": status, "pass": summary["pass"], "fail": summary["fail"]}))
+    print(json.dumps({"status": status, "pass": summary["pass"], "fail": summary["fail"],
+                      "mutants": summary["mutants"], "controls": summary["controls"],
+                      "with_predicted_assertion": summary["with_predicted_assertion"]}))
     return 0 if status == "PASS" else 1
 
 

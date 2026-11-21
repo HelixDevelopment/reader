@@ -1,9 +1,9 @@
-$ go test ./pkg/lcp -run ^TestIssueProtectUnlockRoundTrip$ -count=1
---- FAIL: TestIssueProtectUnlockRoundTrip (0.07s)
+$ go test -trimpath ./pkg/lcp -run ^TestIssueProtectUnlockRoundTrip$ -count=1 -timeout 240s
+--- FAIL: TestIssueProtectUnlockRoundTrip (0.14s)
     packager_test.go:151: ProtectedResources = [OEBPS/titlepage.xhtml OEBPS/chapter1.xhtml OEBPS/chapter2.xhtml OEBPS/media/track.mp3], want [OEBPS/chapter1.xhtml OEBPS/chapter2.xhtml OEBPS/media/track.mp3]
     packager_test.go:159: Resource(OEBPS/titlepage.xhtml) before unlock: lcp: resource is encrypted and the license is not unlocked: OEBPS/titlepage.xhtml
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.073s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.144s
 FAIL
 
 exit=1

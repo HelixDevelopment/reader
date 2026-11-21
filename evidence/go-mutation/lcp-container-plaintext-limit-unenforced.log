@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestContainerCiphertextBudgetCoversEncryptionOverhead$ -count=1
---- FAIL: TestContainerCiphertextBudgetCoversEncryptionOverhead (0.15s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerCiphertextBudgetCoversEncryptionOverhead$ -count=1 -timeout 240s
+--- FAIL: TestContainerCiphertextBudgetCoversEncryptionOverhead (0.33s)
     container_test.go:383: Resource returned 1997 bytes against a 1996 byte limit
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.153s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.342s
 FAIL
 
 exit=1

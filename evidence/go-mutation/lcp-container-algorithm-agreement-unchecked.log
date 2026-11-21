@@ -1,8 +1,8 @@
-$ go test ./pkg/lcp -run ^TestContainerRejectsAlgorithmDisagreement$ -count=1
---- FAIL: TestContainerRejectsAlgorithmDisagreement (0.06s)
+$ go test -trimpath ./pkg/lcp -run ^TestContainerRejectsAlgorithmDisagreement$ -count=1 -timeout 240s
+--- FAIL: TestContainerRejectsAlgorithmDisagreement (0.17s)
     container_negative_test.go:216: error = <nil>, want ErrAlgorithmMismatch
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.067s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.173s
 FAIL
 
 exit=1

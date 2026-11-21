@@ -1,0 +1,4 @@
+$ go test -trimpath ./internal/httpapi -run ^TestPageStreamFeedAndServe$ -count=1 -timeout 240s
+ok  	github.com/helixreader/helix/server/internal/httpapi	0.008s
+
+exit=0

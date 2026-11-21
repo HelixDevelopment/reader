@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/pse -run ^TestParseAcquisitionLinkErrors$ -count=1 -timeout 240s
+--- FAIL: TestParseAcquisitionLinkErrors (0.00s)
+    --- FAIL: TestParseAcquisitionLinkErrors/bad_type_rejected_per_MUST_image_types (0.00s)
+        link_test.go:102: got err <nil>, want message containing "pse: link type \"application/zip\" is not an image type allowed by OPDS-PSE (image/jpeg, image/gif, image/png)"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/pse	0.004s
+FAIL
+
+exit=1

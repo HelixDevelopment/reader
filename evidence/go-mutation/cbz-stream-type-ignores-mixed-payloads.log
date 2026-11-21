@@ -1,0 +1,9 @@
+$ go test -trimpath ./pkg/parse/cbz -run ^TestStreamMediaTypeCases$ -count=1 -timeout 240s
+--- FAIL: TestStreamMediaTypeCases (0.00s)
+    --- FAIL: TestStreamMediaTypeCases/mixed_types_have_no_single_honest_type (0.00s)
+        page_test.go:168: error = <nil>, want one containing "pages mix image/png and image/jpeg"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/parse/cbz	0.005s
+FAIL
+
+exit=1

@@ -1,21 +1,8 @@
-$ go test ./internal/ingest -run ^TestISBNIdentityCanonicalizesSchemePairAndOrder$ -count=1
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:21:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/identity.go:7:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:22:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:23:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:24:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:25:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/ingest/service.go:26:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-# github.com/helixreader/helix/server/internal/ingest
-internal/identify/jev.go:12:2: github.com/helixreader/helix/core@v0.0.0: replacement directory ../core does not exist
-FAIL	github.com/helixreader/helix/server/internal/ingest [setup failed]
+$ go test -trimpath ./internal/ingest -run ^TestISBNIdentityCanonicalizesSchemePairAndOrder$ -count=1 -timeout 240s
+--- FAIL: TestISBNIdentityCanonicalizesSchemePairAndOrder (0.00s)
+    isbn_identity_test.go:20: ISBN-10 and equivalent ISBN-13 forked identity
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/ingest	0.006s
 FAIL
 
 exit=1

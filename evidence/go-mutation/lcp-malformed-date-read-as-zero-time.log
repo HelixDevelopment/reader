@@ -1,4 +1,4 @@
-$ go test ./pkg/lcp -run ^TestParseRejectsMalformedDates$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestParseRejectsMalformedDates$ -count=1 -timeout 240s
 --- FAIL: TestParseRejectsMalformedDates (0.00s)
     license_test.go:117: Parse with issued="2026-11-21" error = <nil>, want ErrLicenseSyntax
     license_test.go:117: Parse with updated="2026-11-21" error = <nil>, want ErrLicenseSyntax
@@ -9,7 +9,7 @@ $ go test ./pkg/lcp -run ^TestParseRejectsMalformedDates$ -count=1
     license_test.go:117: Parse with issued="not-a-date" error = <nil>, want ErrLicenseSyntax
     license_test.go:117: Parse with updated="not-a-date" error = <nil>, want ErrLicenseSyntax
 FAIL
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.009s
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.006s
 FAIL
 
 exit=1

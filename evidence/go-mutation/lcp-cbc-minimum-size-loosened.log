@@ -1,25 +1,25 @@
-$ go test ./pkg/lcp -run ^TestDecryptCBCRejectsMalformedCiphertext$ -count=1
+$ go test -trimpath ./pkg/lcp -run ^TestDecryptCBCRejectsMalformedCiphertext$ -count=1 -timeout 240s
 --- FAIL: TestDecryptCBCRejectsMalformedCiphertext (0.00s)
 panic: runtime error: index out of range [-1] [recovered, repanicked]
 
-goroutine 8 [running]:
-testing.tRunner.func1.2({0x94f098, 0x243044940378})
-	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2125 +0x232
+goroutine 37 [running]:
+testing.tRunner.func1.2({0x9421b8, 0x1cc53a1e0120})
+	testing/testing.go:2125 +0x232
 testing.tRunner.func1()
-	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2128 +0x329
-panic({0x94f098?, 0x243044940378?})
-	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/runtime/panic.go:859 +0x125
-github.com/helixreader/helix/core/pkg/lcp.padLength({0x9c3140?, 0x9c3140?, 0x0?})
-	/home/milosvasic/Projects/helix_reader/.helix-verify/go-mutation/lcp-cbc-minimum-size-loosened/core/pkg/lcp/keys.go:165 +0x11e
-github.com/helixreader/helix/core/pkg/lcp.DecryptCBC({0x2430449b9cd7?, 0x2430449c6320?, 0x95e288?}, {0x243044932560, 0x10, 0x10})
-	/home/milosvasic/Projects/helix_reader/.helix-verify/go-mutation/lcp-cbc-minimum-size-loosened/core/pkg/lcp/keys.go:131 +0x1b4
-github.com/helixreader/helix/core/pkg/lcp.TestDecryptCBCRejectsMalformedCiphertext(0x243044aa6488)
-	/home/milosvasic/Projects/helix_reader/.helix-verify/go-mutation/lcp-cbc-minimum-size-loosened/core/pkg/lcp/keys_test.go:131 +0x28b
-testing.tRunner(0x243044aa6488, 0x9602a0)
-	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2195 +0xea
+	testing/testing.go:2128 +0x329
+panic({0x9421b8?, 0x1cc53a1e0120?})
+	runtime/panic.go:859 +0x125
+github.com/helixreader/helix/core/pkg/lcp.padLength({0x9b6120?, 0x9b6120?, 0x0?})
+	github.com/helixreader/helix/core/pkg/lcp/keys.go:165 +0x11e
+github.com/helixreader/helix/core/pkg/lcp.DecryptCBC({0x1cc53a090cd7?, 0x1cc53a1bc300?, 0x9513a8?}, {0x1cc53a19c440, 0x10, 0x10})
+	github.com/helixreader/helix/core/pkg/lcp/keys.go:131 +0x1b4
+github.com/helixreader/helix/core/pkg/lcp.TestDecryptCBCRejectsMalformedCiphertext(0x1cc53a1f8488)
+	github.com/helixreader/helix/core/pkg/lcp/keys_test.go:131 +0x28b
+testing.tRunner(0x1cc53a1f8488, 0x9533c0)
+	testing/testing.go:2195 +0xea
 created by testing.(*T).Run in goroutine 1
-	/home/milosvasic/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.27.3.linux-amd64/src/testing/testing.go:2260 +0x4d4
-FAIL	github.com/helixreader/helix/core/pkg/lcp	0.007s
+	testing/testing.go:2260 +0x4d4
+FAIL	github.com/helixreader/helix/core/pkg/lcp	0.009s
 FAIL
 
 exit=1

@@ -1,0 +1,15 @@
+$ go test -trimpath ./pkg/parse/cbz -run ^TestStreamMediaTypeCases$ -count=1 -timeout 240s
+--- FAIL: TestStreamMediaTypeCases (0.00s)
+    --- FAIL: TestStreamMediaTypeCases/extension_is_not_proof (0.00s)
+        page_test.go:168: error = cbz: no pages to type, want one containing "page \"a.png\" is not a jpeg, png or gif image"
+    --- FAIL: TestStreamMediaTypeCases/webp_is_not_streamable (0.00s)
+        page_test.go:168: error = cbz: no pages to type, want one containing "page \"a.webp\" is not a jpeg, png or gif image"
+    --- FAIL: TestStreamMediaTypeCases/payload_shorter_than_any_signature (0.00s)
+        page_test.go:168: error = cbz: no pages to type, want one containing "page \"a.gif\" is not a jpeg, png or gif image"
+    --- FAIL: TestStreamMediaTypeCases/empty_payload (0.00s)
+        page_test.go:168: error = cbz: no pages to type, want one containing "page \"a.png\" is not a jpeg, png or gif image"
+FAIL
+FAIL	github.com/helixreader/helix/core/pkg/parse/cbz	0.005s
+FAIL
+
+exit=1
