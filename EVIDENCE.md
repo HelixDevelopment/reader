@@ -140,7 +140,7 @@ catalog traffic. It now uses `731453`.
 | `go vet` config/catalog/aimemory/httpapi | PASS exit 0 | `evidence/campaign-2026-11-20/server/` |
 | `TestPoolConfiguration` (8 subtests) | PASS | `go test ./internal/config -count=1` |
 | `TestWithPoolValidation` / `TestWithPoolAppliesLimits` | PASS | `go test ./internal/catalog -count=1` |
-| `scripts/verify_live_server.py` (real binary, live PostgreSQL + Redis) | PASS 39/39 | `evidence/campaign-2026-11-20/jobs/live-server-after.json` |
+| `scripts/verify_live_server.py` (real binary, live PostgreSQL + Redis) | PASS 76/76 | `evidence/live-server/results.json` |
 | `TestJournal*` (7 tests, miniredis) | PASS | `evidence/campaign-2026-11-20/jobs/journal-unit.txt` |
 | `go test -race ./internal/httpapi` | PASS | rerun of the same suite under the race detector |
 
@@ -173,6 +173,13 @@ Recorded in `evidence/campaign-2026-11-20/jobs/live-server-needle-no-journal.jso
 list was non-null, which passes with or without the journal; it was rewritten to
 require the restored job's ID in the list, so both live checks carry detection
 power.
+
+That needle run also left `evidence/live-server/results.json` in the tree reporting
+`FAIL 26/1`, which was committed and read as a red gate. It was not one: the
+failure was the injected defect, recorded by the run that proved detection. A
+needle artifact must be copied to a named file under `evidence/` before the
+mutated tree is restored, or `results.json` at a stable path will outlive the
+experiment that produced it.
 
 ## 2026-11-20T17:46Z — ATM-024: containerized build/deploy/restart/upgrade/rollback qualified (podman)
 
@@ -475,3 +482,46 @@ lock discipline must not write one catalog simultaneously; the shipped topology 
 one image upgraded by tag. Deadlock between writers whose edition sets interleave
 in opposite orders is handled by the retry rather than prevented by ordering; none
 was reported in any run here, which is a weaker statement than none occurred.
+
+## 2026-11-21T10:57Z — ATM-031: OPDS-PSE page streams qualified against a live server
+
+`scripts/verify_live_server.py` now ingests a second, purpose-built library of
+five files and asserts what the page-stream routes promise about each:
+
+| Fixture | Why it is in the set | Live verdict |
+|---|---|---|
+| `live-server-pse.cbz` | three PNG pages, one honest type | advertised with `pse:count="3"`, `type="image/png"`, `href` carrying `{pageNumber}`; all three pages fetched byte-identical to the archive members |
+| `live-server-mixed.cbz` | one PNG page and one JPEG page | no stream link; page requests refused; the whole file still ships |
+| `live-server-forge.cbz` | a `cover.png` whose bytes are text | no stream link — the extension is not proof |
+| `live-server-cbr-stub.cbr` | a container the format registry calls streamable but this server cannot enumerate | no stream link; page requests 404 |
+| `live-server-plain.txt` | not a comic container at all | no stream link |
+
+Each fixture is matched by sha256 rather than by title, so a catalog record is
+credited only if it describes the exact bytes the harness wrote. ETags are
+compared against the catalogued digest and the page index, and the entry-level
+endpoint `/opds/1.2/editions/{id}` is read instead of a searchable feed, so a
+missing link cannot be blamed on pagination or tokenization.
+
+The advertisement is then consumed by `server/cmd/helix-pse-check`, a client built
+from the same tree that parses the feed with `core/pkg/pse` — the extension's own
+rules — fetches every promised page, and checks each delivery against what the
+link said: media type, image signature, distinct ETag, `Accept-Ranges: none`,
+`Cache-Control`, `Vary: Authorization`, a 404 stating `0..N-1` one page past the
+count, and a 401 when anonymous. `TestVerifyPage*` in that command keeps the
+checker itself honest.
+
+**Needle proof (§1.1).** Two defects were injected into
+`server/internal/httpapi/pse.go` one at a time, each run reproduced, and the file
+restored from a `cp` copy:
+
+| Injection | Predicted rejection | Observed |
+|---|---|---|
+| `c.Header("Accept-Ranges", "none")` deleted | the client rejects a rendered page that advertises byte ranges | `FAIL 50/1` — `OPDS-PSE client round trip: ['page 0 offers Accept-Ranges ""; a rendered page is not a byte range of the archive', …]`. Fifty assertions pass first, including every producer-side check, so the rejection came from the client and not from a shared assumption. |
+| `Count: len(refs)` → `len(refs) + 1` | a feed must not promise a page the archive does not contain | `FAIL 23/1` — `pse:count equals the pages in the archive` |
+| `Vary` check in the checker replaced by `false &&` | the checker's own suite must notice a weakened assertion | `go test ./cmd/helix-pse-check` → `--- FAIL: TestVerifyPageRejectsEveryBrokenDelivery/shared_cache` |
+
+Artifacts: `evidence/live-server/results.json`,
+`evidence/live-server/pse-client.json` (before restart) and
+`evidence/live-server/pse-client-after-restart.json` (after a process restart and
+source re-registration, so the advertisement is a property of the bytes and not of
+state the first process held open).

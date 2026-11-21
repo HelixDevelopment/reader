@@ -1,7 +1,7 @@
 {
-  "status": "FAIL",
-  "pass": 26,
-  "fail": 1,
+  "status": "PASS",
+  "pass": 76,
+  "fail": 0,
   "checks": [
     {
       "name": "health endpoint",
@@ -76,6 +76,142 @@
       "status": "PASS"
     },
     {
+      "name": "live page-stream source creation",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream fixtures ingested: {\"works\": 5, \"files\": 5, \"removed\": 0}",
+      "status": "PASS"
+    },
+    {
+      "name": "every page-stream fixture is catalogued by digest: ['live-server-cbr-stub.cbr', 'live-server-forge.cbz', 'live-server-mixed.cbz', 'live-server-plain.txt', 'live-server-pse.cbz']",
+      "status": "PASS"
+    },
+    {
+      "name": "a CBZ edition advertises exactly one page stream",
+      "status": "PASS"
+    },
+    {
+      "name": "pse:count equals the pages in the archive",
+      "status": "PASS"
+    },
+    {
+      "name": "the advertised stream type comes from the page bytes, not the file name",
+      "status": "PASS"
+    },
+    {
+      "name": "the stream href names this file and the page template",
+      "status": "PASS"
+    },
+    {
+      "name": "a stream the server cannot position carries no pse:lastRead",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "page 0 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 0 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page 1 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 1 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page 2 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 2 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page past the last returns the valid range",
+      "status": "PASS"
+    },
+    {
+      "name": "a non-integer page number is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "an unknown file has no page stream",
+      "status": "PASS"
+    },
+    {
+      "name": "the acquisition feed carries the stream link",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 2.0 invents no page-stream extension",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS-PSE client round trip: None",
+      "status": "PASS"
+    },
+    {
+      "name": "the PSE client fetched every advertised page",
+      "status": "PASS"
+    },
+    {
       "name": "KOSync registration or deterministic rerun",
       "status": "PASS"
     },
@@ -109,7 +245,67 @@
     },
     {
       "name": "completed scan job survives server restart",
-      "status": "FAIL"
+      "status": "PASS"
+    },
+    {
+      "name": "restored scan job appears in the scan list",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync account survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis internal progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source identity reattaches after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream source reattaches after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS-PSE client round trip after restart: None",
+      "status": "PASS"
+    },
+    {
+      "name": "existing file identity serves after source re-registration",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart source rescan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart reconciliation preserves present file",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source rescan does not duplicate files",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test catalog cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test page-stream catalog cleanup failed for: []",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test memory cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test progress cleanup",
+      "status": "PASS"
     }
   ]
 }

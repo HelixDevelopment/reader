@@ -8,6 +8,7 @@ this script exercises the actual server process, API protocols and restart.
 from __future__ import annotations
 
 import getpass
+import hashlib
 import json
 import os
 import shutil
@@ -15,6 +16,9 @@ import signal
 import subprocess
 import sys
 import time
+import urllib.parse
+import xml.etree.ElementTree as ET
+import zipfile
 from pathlib import Path
 
 import requests
@@ -23,8 +27,10 @@ ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "evidence" / "live-server"
 SCRATCH = ROOT / ".helix-verify"
 BINARY = SCRATCH / "bin" / "helix-server-live"
+PSE_CHECK = SCRATCH / "bin" / "helix-pse-check"
 GO = os.environ.get("HELIX_GO", "go")
 LIBRARY = SCRATCH / "live-server-library"
+STREAM_LIBRARY = SCRATCH / "live-server-streams"
 BASE = "http://127.0.0.1:28080"
 # Match the operating-system peer identity used to launch the disposable server.
 # Both root and kimi have local test roles in the qualification environment; no
@@ -45,6 +51,116 @@ def require(condition: bool, name: str) -> None:
     if not condition:
         raise AssertionError(name)
     checks.append({"name": name, "status": "PASS"})
+
+
+ATOM = "{http://www.w3.org/2005/Atom}"
+PSE_NS = "http://vaemendis.net/opds-pse/ns"
+PSE_REL = "http://vaemendis.net/opds-pse/stream"
+PNG_SIG = b"\x89PNG\r\n\x1a\n"
+JPEG_SIG = b"\xff\xd8\xff"
+# The streamable fixture and the pages it must promise, in the order the
+# archive enumerates them. Payloads carry their own signature so the advertised
+# type is read from bytes, exactly as the server reads it.
+PSE_PAGES = [("p01.png", PNG_SIG + b"page-one"), ("p02.png", PNG_SIG + b"page-two"), ("p03.png", PNG_SIG + b"page-three")]
+
+
+def write_archive(path: Path, members: list[tuple[str, bytes]]) -> None:
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
+        for name, payload in members:
+            archive.writestr(name, payload)
+
+
+def stream_fixtures() -> dict[str, str]:
+    """Lay down one archive a page stream is promised for, plus the files it must
+    be refused for, and map each fixture's sha256 to its file name.
+
+    Digests, not titles or paths, identify the fixtures later: the catalog does
+    not expose a file path, and a digest match proves the server streamed the
+    bytes this harness wrote."""
+    STREAM_LIBRARY.mkdir(parents=True, exist_ok=True)
+    # Start from an empty directory: a fixture left by an earlier version of this
+    # harness would silently change the file count the scan is asserted against.
+    for stale in STREAM_LIBRARY.iterdir():
+        stale.unlink()
+    write_archive(STREAM_LIBRARY / "live-server-pse.cbz", PSE_PAGES)
+    # Pages of two types have no single honest stream type, so they get no link.
+    write_archive(STREAM_LIBRARY / "live-server-mixed.cbz", [("p01.png", PNG_SIG + b"a"), ("p02.jpg", JPEG_SIG + b"b")])
+    # An extension is not proof of a type.
+    write_archive(STREAM_LIBRARY / "live-server-forge.cbz", [("cover.png", b"an image by extension only")])
+    # A registered container this server cannot enumerate pages for.
+    (STREAM_LIBRARY / "live-server-cbr-stub.cbr").write_bytes(b"Rar!\x1a\x07\x01\x00not a zip archive")
+    (STREAM_LIBRARY / "live-server-plain.txt").write_text("not pageable\n")
+    digests = {}
+    for path in sorted(STREAM_LIBRARY.iterdir()):
+        digests[hashlib.sha256(path.read_bytes()).hexdigest()] = path.name
+    return digests
+
+
+def catalog_by_digest(session, basic, digests: dict[str, str]) -> dict[str, dict]:
+    """Resolve fixture digests to the catalog records that describe them.
+
+    Each fixture is looked up by its own title stem rather than by one broad
+    query, because a missed search match would otherwise read as a missing
+    file."""
+    found: dict[str, dict] = {}
+    for digest, name in digests.items():
+        response = session.get(BASE + "/v1/works", params={"q": name.rsplit(".", 1)[0], "limit": 100}, auth=basic, timeout=3)
+        response.raise_for_status()
+        for work in response.json().get("works", []):
+            for edition in work.get("editions", []):
+                for file in edition.get("files", []):
+                    if file.get("sha256") == digest:
+                        found[name] = {"work_id": work["id"], "edition_id": edition["id"], "file": file}
+    return found
+
+
+def stream_links(entry) -> list[dict]:
+    """The PSE links of one Atom entry element, as a client reads them."""
+    links = []
+    for link in entry.findall(ATOM + "link"):
+        if (link.get("rel") or "") == PSE_REL:
+            links.append({"href": link.get("href") or "", "type": link.get("type"), "count": link.get("{" + PSE_NS + "}count"), "attrs": sorted(link.attrib)})
+    return links
+
+
+def edition_streams(session, basic, edition_id: str) -> list[dict]:
+    """Stream links advertised on the standalone OPDS 1.2 entry for an edition.
+
+    The entry endpoint names the edition exactly, so a link appearing or
+    disappearing is a statement about this file rather than an artifact of search
+    or pagination."""
+    response = session.get(BASE + "/opds/1.2/editions/" + urllib.parse.quote(edition_id, safe=""), auth=basic, timeout=3)
+    response.raise_for_status()
+    return stream_links(ET.fromstring(response.content))
+
+
+def feed_streams(body: bytes) -> dict[str, list[dict]]:
+    """Map edition id to the stream links its entry advertises in a feed."""
+    by_edition: dict[str, list[dict]] = {}
+    for entry in ET.fromstring(body).findall(ATOM + "entry"):
+        edition = ""
+        for link in entry.findall(ATOM + "link"):
+            href = link.get("href") or ""
+            if (link.get("rel") or "") == "alternate" and href.startswith("/opds/1.2/editions/"):
+                edition = urllib.parse.unquote(href.rsplit("/", 1)[-1])
+        by_edition[edition] = stream_links(entry)
+    return by_edition
+
+
+def run_pse_client(env: dict, name: str = "OPDS-PSE client round trip", evidence: str = "pse-client.json") -> dict:
+    """Drive the live feed with the checker built from this tree, which parses
+    the advertisement with core/pkg/pse and then fetches every promised page."""
+    output = subprocess.run([str(PSE_CHECK), "-base", BASE, "-q", "live-server-pse"], capture_output=True, text=True, timeout=120, env=env)
+    payload = {}
+    try:
+        payload = json.loads(output.stdout)
+    except json.JSONDecodeError:
+        payload = {"status": "FAIL", "failures": ["checker produced no JSON: " + output.stdout[:400] + output.stderr[:400]]}
+    (EVIDENCE / evidence).write_text(json.dumps(payload, indent=2) + "\n")
+    # The child's verdict, not the harness's reading of it, decides: a checker
+    # that exited non-zero is a failure even if its JSON looks tidy.
+    require(output.returncode == 0 and payload.get("status") == "PASS", name + ": " + str(payload.get("failures")))
+    return payload
 
 
 def server_environment() -> dict:
@@ -146,13 +262,15 @@ def build_server() -> None:
     """Build the exact tree under test; never reuse a stale qualification binary."""
     BINARY.parent.mkdir(parents=True, exist_ok=True)
     with (EVIDENCE / "build.log").open("w") as log:
-        subprocess.run([GO, "build", "-trimpath", "-o", str(BINARY), "./cmd/helix-server"], cwd=ROOT / "server", env=os.environ.copy(), check=True, stdout=log, stderr=subprocess.STDOUT, timeout=180)
+        for package, output in (("./cmd/helix-server", BINARY), ("./cmd/helix-pse-check", PSE_CHECK)):
+            subprocess.run([GO, "build", "-trimpath", "-o", str(output), package], cwd=ROOT / "server", env=os.environ.copy(), check=True, stdout=log, stderr=subprocess.STDOUT, timeout=180)
 
 
 def main() -> int:
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     LIBRARY.mkdir(parents=True, exist_ok=True)
     (LIBRARY / "live-server-book.txt").write_text("live-server-book\n\nA deterministic paragraph for live ingestion.\n")
+    digests = stream_fixtures()
     status = "PASS"
     process = None
     try:
@@ -165,12 +283,13 @@ def main() -> int:
             require(session.post(BASE + "/v1/sources", json={}, timeout=3).status_code == 401, "admin authentication boundary")
             require(session.get(BASE + "/v1/works", timeout=3).status_code == 401, "catalog authentication boundary")
 
-            existing = session.get(BASE + "/v1/works", params={"q": "live-server-book", "limit": 100}, auth=basic, timeout=3)
-            existing.raise_for_status()
-            for work in existing.json().get("works", []):
-                cleanup = session.delete(BASE + "/v1/works/" + work["id"], headers=admin, timeout=3)
-                if cleanup.status_code != 204:
-                    raise AssertionError("pre-test catalog cleanup")
+            for query in ("live-server-book", "live-server-pse", "live-server-mixed", "live-server-forge", "live-server-cbr-stub", "live-server-plain"):
+                existing = session.get(BASE + "/v1/works", params={"q": query, "limit": 100}, auth=basic, timeout=3)
+                existing.raise_for_status()
+                for work in existing.json().get("works", []):
+                    cleanup = session.delete(BASE + "/v1/works/" + work["id"], headers=admin, timeout=3)
+                    if cleanup.status_code != 204:
+                        raise AssertionError("pre-test catalog cleanup")
 
             created = session.post(BASE + "/v1/sources", headers=admin, json={"id": "live-server-source", "protocol": "local", "root": str(LIBRARY)}, timeout=3)
             require(created.status_code == 201, "live local source creation")
@@ -214,6 +333,62 @@ def main() -> int:
             compressed = session.get(BASE + "/v1/formats", headers={"Accept-Encoding": "gzip"}, timeout=3)
             require(compressed.status_code == 200 and compressed.headers.get("Content-Encoding") == "gzip" and len(compressed.json()["formats"]) > 0, "gzip content negotiation")
 
+            # --- OPDS-PSE page streaming ------------------------------------
+            streams_source = session.post(BASE + "/v1/sources", headers=admin, json={"id": "live-server-streams", "protocol": "local", "root": str(STREAM_LIBRARY)}, timeout=3)
+            require(streams_source.status_code == 201, "live page-stream source creation")
+            stream_scan = session.post(BASE + "/v1/scans", headers=admin, json={"source_id": streams_source.json()["id"], "prefix": ""}, timeout=3)
+            require(stream_scan.status_code == 202, "page-stream scan accepted")
+            stream_job = None
+            for _ in range(200):
+                stream_job = session.get(BASE + "/v1/scans/" + stream_scan.json()["id"], headers=admin, timeout=3).json()
+                if stream_job.get("state") in {"succeeded", "failed", "cancelled"}:
+                    break
+                time.sleep(0.05)
+            require(stream_job is not None and stream_job.get("state") == "succeeded" and stream_job.get("report", {}).get("files") == len(digests),
+                    "page-stream fixtures ingested: " + json.dumps(stream_job and stream_job.get("report")))
+
+            catalogued = catalog_by_digest(session, basic, digests)
+            require(len(catalogued) == len(digests), "every page-stream fixture is catalogued by digest: " + str(sorted(catalogued)))
+            comic = catalogued["live-server-pse.cbz"]["file"]
+
+            advertised = edition_streams(session, basic, catalogued["live-server-pse.cbz"]["edition_id"])
+            require(len(advertised) == 1, "a CBZ edition advertises exactly one page stream")
+            stream = advertised[0]
+            require(stream["count"] == str(len(PSE_PAGES)), "pse:count equals the pages in the archive")
+            require(stream["type"] == "image/png", "the advertised stream type comes from the page bytes, not the file name")
+            require(stream["href"] == "/opds-pse/stream/" + comic["id"] + "/{pageNumber}", "the stream href names this file and the page template")
+            require(not any("lastRead" in attribute for attribute in stream["attrs"]), "a stream the server cannot position carries no pse:lastRead")
+
+            for refused in ("live-server-mixed.cbz", "live-server-forge.cbz", "live-server-cbr-stub.cbr", "live-server-plain.txt"):
+                record = catalogued[refused]
+                require(not edition_streams(session, basic, record["edition_id"]), refused + " is not advertised as pageable")
+                # Refusing a stream must not cost access to the file itself.
+                whole = session.get(BASE + "/v1/files/" + record["file"]["id"] + "/content", auth=basic, timeout=3)
+                require(whole.status_code == 200 and whole.content, refused + " still ships whole")
+                refused_page = session.get(BASE + "/opds-pse/stream/" + record["file"]["id"] + "/0", auth=basic, timeout=3)
+                require(refused_page.status_code == 404, refused + " refuses page requests as well as the advertisement")
+
+            for index, (_, payload) in enumerate(PSE_PAGES):
+                page = session.get(BASE + "/opds-pse/stream/" + comic["id"] + "/" + str(index), auth=basic, timeout=3)
+                require(page.status_code == 200 and page.content == payload and page.headers.get("Content-Type") == "image/png",
+                        "page " + str(index) + " is served byte-identical to the archive member")
+                require(page.headers.get("ETag") == '"$sha256-' + comic["sha256"] + '$page-' + str(index) + '"',
+                        "page " + str(index) + " is tagged with the catalogued file digest")
+
+            beyond = session.get(BASE + "/opds-pse/stream/" + comic["id"] + "/" + str(len(PSE_PAGES)), auth=basic, timeout=3)
+            require(beyond.status_code == 404 and "0.." + str(len(PSE_PAGES) - 1) in beyond.text, "page past the last returns the valid range")
+            require(session.get(BASE + "/opds-pse/stream/" + comic["id"] + "/notanumber", auth=basic, timeout=3).status_code == 400, "a non-integer page number is rejected")
+            require(session.get(BASE + "/opds-pse/stream/no-such-file/0", auth=basic, timeout=3).status_code == 404, "an unknown file has no page stream")
+
+            listed = session.get(BASE + "/opds/1.2/publications", params={"q": "live-server-pse", "limit": 100}, auth=basic, timeout=3)
+            require(listed.status_code == 200 and len(feed_streams(listed.content).get(catalogued["live-server-pse.cbz"]["edition_id"], [])) == 1,
+                    "the acquisition feed carries the stream link")
+            publications20 = session.get(BASE + "/opds/2.0/publications", params={"q": "live-server-pse", "limit": 100}, auth=basic, timeout=3)
+            require(publications20.status_code == 200 and "vaemendis" not in publications20.text, "OPDS 2.0 invents no page-stream extension")
+
+            client = run_pse_client(server_environment())
+            require(client["links"] >= 1 and client["pages"] == len(PSE_PAGES), "the PSE client fetched every advertised page")
+
             credentials = {"x-auth-user": "live-server-reader", "x-auth-key": "0123456789abcdef0123456789abcdef"}
             registration = session.post(BASE + "/users/create", json={"username": credentials["x-auth-user"], "password": credentials["x-auth-key"]}, timeout=5)
             require(registration.status_code in {201, 409}, "KOSync registration or deterministic rerun")
@@ -252,6 +427,12 @@ def main() -> int:
             require(internal_saved.status_code == 200 and internal_saved.json()["Pos"]["Chapter"] == 2, "Redis internal progress survives server restart")
             reattached = session.post(BASE + "/v1/sources", headers=admin, json={"id": source_id, "protocol": "local", "root": str(LIBRARY)}, timeout=3)
             require(reattached.status_code == 201 and reattached.json()["id"] == source_id, "stable source identity reattaches after restart")
+            restream = session.post(BASE + "/v1/sources", headers=admin, json={"id": "live-server-streams", "protocol": "local", "root": str(STREAM_LIBRARY)}, timeout=3)
+            require(restream.status_code == 201, "page-stream source reattaches after restart")
+            # The catalog record, the connector and the archive are all re-derived
+            # by a new process: the advertisement is a property of the bytes, not
+            # of state the first process happened to hold open.
+            run_pse_client(server_environment(), "OPDS-PSE client round trip after restart", "pse-client-after-restart.json")
             restored_content = session.get(content_url, auth=basic, timeout=3)
             require(restored_content.status_code == 200 and restored_content.content.startswith(b"live-server-book"), "existing file identity serves after source re-registration")
             rescan = session.post(BASE + "/v1/scans", headers=admin, json={"source_id": source_id, "prefix": ""}, timeout=3)
@@ -267,6 +448,8 @@ def main() -> int:
             restored_files = persisted["works"][0]["editions"][0]["files"]
             require(len(persisted["works"]) == 1 and len(restored_files) == 1 and restored_files[0]["id"] == file["id"], "stable source rescan does not duplicate files")
             require(session.delete(BASE + "/v1/works/" + work["id"], headers=admin, timeout=3).status_code == 204, "post-test catalog cleanup")
+            left = [name for name, record in sorted(catalogued.items()) if session.delete(BASE + "/v1/works/" + record["work_id"], headers=admin, timeout=3).status_code != 204]
+            require(not left, "post-test page-stream catalog cleanup failed for: " + str(left))
             require(session.delete(BASE + "/v1/ai/memories/live-server/live-server-memory", headers=admin, timeout=3).status_code == 204, "post-test memory cleanup")
             require(session.delete(BASE + "/v1/sync/progress/live-user/live-book", headers=admin, timeout=3).status_code == 204, "post-test progress cleanup")
     except Exception as exc:
