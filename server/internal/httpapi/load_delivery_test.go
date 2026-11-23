@@ -835,8 +835,15 @@ func TestLiveLoadKOSync(t *testing.T) {
 	if status, body := post(http.MethodPost, "/users/create", `{"username":"`+username+`","password":"`+password+`"}`, false); status != http.StatusCreated {
 		t.Fatalf("registration returned %d (%s), want 201; registration must be enabled for the sync surface to work at all", status, body)
 	}
-	if status, _ := post(http.MethodPost, "/users/create", `{"username":"`+username+`","password":"another-password"}`, false); status != http.StatusConflict {
-		t.Fatalf("duplicate registration returned %d, want 409: concurrent create must not be able to replace a verifier", status)
+	if status, body := post(http.MethodPost, "/users/create", `{"username":"`+username+`","password":"another-password"}`, false); status != http.StatusPaymentRequired {
+		t.Fatalf("duplicate registration returned %d, want 402 (KOReader reference): concurrent create must not be able to replace a verifier", status)
+	} else {
+		var errBody struct {
+			Message string `json:"message"`
+		}
+		if err := json.Unmarshal(body, &errBody); err != nil || errBody.Message != "Username is already registered." {
+			t.Fatalf("duplicate registration body %q, want message %q (decode err: %v)", body, "Username is already registered.", err)
+		}
 	}
 	// Independent proof that the route writes to Redis rather than the
 	// in-memory store: recompute the key the way the store does and read it
@@ -884,8 +891,8 @@ func TestLiveLoadKOSync(t *testing.T) {
 	if got := getPercentage(ctx, t, client, ts.URL, username, password, contentionDoc); math.Abs(got-0.75) > 1e-9 {
 		t.Fatalf("a lower percentage rewound stored progress to %v, want 0.75", got)
 	}
-	if status, _ := post(http.MethodGet, "/syncs/progress/"+url.PathEscape(username+"-never-written.bin"), "", true); status != http.StatusNotFound {
-		t.Fatalf("unread document returned %d, want 404", status)
+	if status, body := post(http.MethodGet, "/syncs/progress/"+url.PathEscape(username+"-never-written.bin"), "", true); status != http.StatusOK || strings.TrimSpace(string(body)) != "{}" {
+		t.Fatalf("unread document returned %d (%s), want 200 with body {} (KOReader reference)", status, body)
 	}
 	// --- one document, every writer at the same instant ------------------------
 	//
@@ -1131,6 +1138,9 @@ func getPercentage(ctx context.Context, t *testing.T, client *http.Client, base,
 	var progress kosync.Progress
 	if err := json.NewDecoder(resp.Body).Decode(&progress); err != nil {
 		t.Fatal(err)
+	}
+	if progress.Document == "" {
+		t.Fatalf("GET %s returned 200 with no stored progress ({}); expected the document just written", document)
 	}
 	return progress.Percentage
 }

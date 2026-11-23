@@ -34,8 +34,8 @@ be reproduced here. See the defect entry below for why.
 ## 2026-11-20T07:05Z — DEFECT-001: catalog migration could not run against an empty schema
 
 **Severity:** Critical. Blocks every first boot: a fresh PostgreSQL volume, a
-new deployment, or a restore into an empty database. Directly gates ATM-024
-(container qualification) and ATM-033 (final archives).
+new deployment, or a restore into an empty database. Directly gates HRD-024
+(container qualification) and HRD-033 (final archives).
 
 **Symptom (first observed run, preserved verbatim):**
 
@@ -117,7 +117,7 @@ PostgreSQL is reached over loopback TCP, not `/var/run/postgresql`, and
 `evidence/campaign-2026-11-20/core/script-portability.md`; this entry stands as
 the failure record regardless of that outcome.
 
-## 2026-11-20T18:55Z — ATM-027: connection pools and durable scan records
+## 2026-11-20T18:55Z — HRD-027: connection pools and durable scan records
 
 Scope closed in this entry: configurable pool limits, a distinct AI-memory
 migration lock, and scan-job durability across restart. Keyset pagination,
@@ -181,7 +181,7 @@ needle artifact must be copied to a named file under `evidence/` before the
 mutated tree is restored, or `results.json` at a stable path will outlive the
 experiment that produced it.
 
-## 2026-11-20T17:46Z — ATM-024: containerized build/deploy/restart/upgrade/rollback qualified (podman)
+## 2026-11-20T17:46Z — HRD-024: containerized build/deploy/restart/upgrade/rollback qualified (podman)
 
 First-ever runtime deployment evidence for the compose stack (closes the gap
 recorded at `docs/scalability-review.md:27`). Executed on podman 5.7.0 +
@@ -224,7 +224,7 @@ Key verified facts:
   `org.opencontainers.image.revision`; `.gitignore` re-includes
   `evidence/**/*.log`.
 
-## 2026-11-20T11:40Z — ATM-032: honest per-format fulfillment matrix for the Go core
+## 2026-11-20T11:40Z — HRD-032: honest per-format fulfillment matrix for the Go core
 
 Produced `docs/formats.md`: one row per format, five independent stages
 (detect / parse / paginate / render / convert), provenance per PASS cell,
@@ -263,7 +263,7 @@ statement coverage 87.29% → 87.32% (340/389 new statements covered).
 Matrix summary and full test inventory:
 `evidence/campaign-2026-11-20/formats/matrix.md`.
 
-## 2026-11-20T20:05Z — ATM-027 phase 1: pagination cursor, first large-catalog measurements, and DEFECT-003
+## 2026-11-20T20:05Z — HRD-027 phase 1: pagination cursor, first large-catalog measurements, and DEFECT-003
 
 **What landed.** `catalog.Cursor` (`updated_at`+`id`, opaque base64url) threaded
 additively through `Query.After` → `GET /api/works?after=` → OPDS 1.2 `rel="next"`
@@ -418,7 +418,7 @@ Five of my own first-pass assertions were wrong about the real API and were corr
 against observed behavior instead of defended: pre-export `diff()` reports every file
 as drift; `render_item` does not escape pipes because long-form bodies are not table
 cells (only `summary_rows` does); `utcnow()` is second-resolution; deleting a middle
-row is *meant* to surface as `ATM allocation contains gaps`; and identifiers are never
+row is *meant* to surface as `HRD allocation contains gaps`; and identifiers are never
 reused even once a gap exists.
 
 A third problem came from running the export itself: `docs/*.pdf` were from 2026-10-28
@@ -426,14 +426,14 @@ while the Markdown and HTML were regenerated today, and `diff()` cannot see it b
 it compares Markdown and HTML only. ReportLab was installed out of tree
 (`pip install --target ~/.cache/helix-docs-deps`, no PEP 668 override), the document
 set regenerated and confirmed byte-idempotent, and a `pdf-documents-current` gate was
-added — size, page count, and the `pdftotext` ATM identifier set must match each PDF's
+added — size, page count, and the `pdftotext` HRD identifier set must match each PDF's
 Markdown sibling. Needle on the retained October artifacts: FAIL, naming
-`only in PDF: ['ATM-032']` (ATM-032 was still open when they were generated); PASS on
+`only in PDF: ['HRD-032']` (HRD-032 was still open when they were generated); PASS on
 the regenerated set. The gate requires poppler and records FAIL without it rather than
 skipping, because a silently no-opping currency check is the failure mode that produced
 this entry.
 
-## 2026-11-20T21:40Z — ATM-027: catalog identity lock scoped per work, edition and source
+## 2026-11-20T21:40Z — HRD-027: catalog identity lock scoped per work, edition and source
 
 Continues the 18:55Z entry, which recorded advisory-lock granularity as still
 open. It is now closed; keyset pagination and incremental catalog writes were
@@ -483,7 +483,7 @@ one image upgraded by tag. Deadlock between writers whose edition sets interleav
 in opposite orders is handled by the retry rather than prevented by ordering; none
 was reported in any run here, which is a weaker statement than none occurred.
 
-## 2026-11-21T10:57Z — ATM-031: OPDS-PSE page streams qualified against a live server
+## 2026-11-21T10:57Z — HRD-031: OPDS-PSE page streams qualified against a live server
 
 `scripts/verify_live_server.py` now ingests a second, purpose-built library of
 five files and asserts what the page-stream routes promise about each:
@@ -525,3 +525,372 @@ Artifacts: `evidence/live-server/results.json`,
 `evidence/live-server/pse-client-after-restart.json` (after a process restart and
 source re-registration, so the advertisement is a property of the bytes and not of
 state the first process held open).
+
+---
+
+## 2026-11-23T18:02Z — HRD-027 continuation: multi-instance contention on one Redis
+
+Continues the gap the queue evidence names —
+`evidence/campaign-2026-11-20/queue/SUMMARY.md`: "Still not established:
+multi-instance contention on one Redis (two `helix-server` processes sharing a
+journal)". Live verification: TWO queue consumers against ONE real Redis —
+`helixqual-redis`, DSN `redis://127.0.0.1:34379` (Redis 7.4.11),
+`HELIX_TEST_REDIS_ADDR=127.0.0.1:34379`.
+
+**Topology.** Two `jobStore` instances — the queue layer of two application
+instances — each with its own `redisScanJournal` client (separate connections).
+Concurrent producers (8 per phase; the same total, `HELIX_MI_TOTAL=384`, in both
+phases) create jobs through either instance; each instance runs a claim loop that
+claims non-terminal jobs from the shared journal (`SETNX helix:scan:claim:<id>`,
+owner instance id, 30 s TTL) and executes them through its own store
+(`jobStore.run`), capped at `maxConcurrentScans=2` per instance (claim-slot gate +
+the store's own worker sem). A single-instance baseline is measured in the same
+run.
+
+**Measured** (`multi_instance.json`; p50/p95 per job created→terminal):
+
+| Phase | Submitted | Accepted | Executed | Lost | Double | Peak/instance | Throughput | p50 / p95 ms |
+|---|---|---|---|---|---|---|---|---|
+| single_instance_baseline | 384 | 64 | 64 | 0 | 0 | 2 | 76.5/s | 413.2 / 800.9 |
+| two_instances | 384 | 127 | 127 | 0 | 0 | 2 / 2 | 138.5/s | 401.2 / 868.9 |
+
+Admission rejections: single phase 320/384 queue-full, multi phase 257/384.
+Producer rates: 6,138/s and 10,036/s. Claim latency (created→fn-entry):
+392.4/780.5 ms single, 380.7/848.3 ms two-instance.
+
+**Assertions — all PASS:**
+
+- **No double execution:** every accepted job executed at most once across both
+  instances (`double_executed=0`; execution ledger count per job ID).
+- **No lost jobs:** every accepted job either executed or recorded terminal —
+  `lost=0`, `failed_terminal_unexecuted=0`.
+- **No unhandled errors:** no panic escaping either claim loop, no
+  `scan journal write failed` warnings observed (slog capture active).
+- **Admission caps hold per consumer:** peak concurrent scans per instance = 2 =
+  `maxConcurrentScans`, never above.
+- **Multi-instance throughput ≥ single-instance baseline:** 138.5/s ≥ 76.5/s —
+  ratio 1.81×. Measured overhead vs the theoretical 2× (two instances, four
+  workers): about 10% — per-instance the two-instance run shares
+  ~0.91× the single baseline rate per accepted job; latency p50s are comparable
+  (401.2 vs 413.2 ms), so contention is minimal on this shape.
+
+**Recorded for HRD-027:** DSN, instance count, producer/consumer rates, total
+jobs, executed/failed/lost, p50/p95 latency, assertions —
+`evidence/campaign-2026-11-20/multi-instance/multi_instance.json`; run output
+`run.log`.
+
+**Server vet/build/test results recorded** (tree has pre-existing uncommitted
+drift — see gaps):
+
+| Check | Result | Artifact |
+|---|---|---|
+| `go vet ./...` (server) | FAIL exit 1 — pre-existing drift: `internal/catalog/slow_client_live_test.go:522,533` type errors (float64 vs int64, in the untracked new file) | `go-vet.log` |
+| `go vet ./internal/httpapi/` (server) | PASS exit 0 (includes the new harness) | `go-vet-httpapi.log` |
+| `go build ./...` (server) | PASS exit 0 | `go-build.log` |
+| `go test ./...` (server, `-count=1`) | exit 1 — `internal/catalog` [build failed] (same pre-existing drift); `internal/httpapi` ok (4.447s); other packages ok | `go-test.log` |
+
+**Gaps recorded (not claimed):**
+
+- Two full `helix-server` HTTP processes were not run; the two-instance
+  topology measured is the queue layer (`jobStore` + `redisScanJournal` + claim
+  loops) — the layer the gap names.
+- The baseline is the single-instance phase of the same run. The tree has
+  pre-existing uncommitted drift — untracked files (`load_concurrent_test.go`,
+  `load_remote_rclone_test.go`, `load_remote_webdav_test.go`, the slow-client
+  file) and modified files — which fails vet/build/test of `internal/catalog`
+  today and is not introduced by this continuation; it is recorded, not fixed.
+- No service-level objective is claimed; p50/p95 are campaign figures.
+- The HRD-027 item itself remains open in `docs/workable_items.db` (status not
+  changed by this continuation).
+
+---
+
+## 2026-11-23T19:15Z — HRD-027 (continuation): set-based edition write on the catalog upsert path
+
+Continues the 2026-11-20T21:40Z HRD-027 entry (the lock-scope half). The
+delete/reinsert write path that entry noted as half done is now set-based; this
+entry records the change and the verification.
+
+**The change** (`server/internal/catalog/postgres.go`, ~312 lines changed):
+
+- `deleteWorkEditions` — one statement, `DELETE FROM editions WHERE work_id=$1
+  RETURNING id` — deletes the work's whole old edition set and returns the
+  affected ids in bulk.
+- `checkEditionOwners` — set-based ownership check: after the delete removed
+  every row this work carried, a row still present for one of the incoming
+  edition ids belongs to another work; the loser gets the same "already
+  belongs to work" error the per-edition check produced.
+- `insertEditions` — one multi-row `INSERT INTO editions(…) VALUES … ON
+  CONFLICT (id) DO NOTHING` for the new edition set.
+- `claimFiles` — one set-based claim: `DELETE FROM files WHERE id = ANY($1) OR
+  (source_id, path) IN (VALUES …) RETURNING edition_id` (the re-homing form the
+  per-file loop used to express as `id=$1 OR (source_id=$2 AND path=$3)`).
+- `insertFiles` — one multi-row `INSERT INTO files(…) VALUES …` (plain: any
+  conflict reaching it is an unclaimed duplicate the caller must see, matching
+  the loud failure surface the old loop had).
+- `pruneRehomed` — set-based: `DELETE FROM editions e WHERE e.id = ANY($1) AND
+  NOT EXISTS (SELECT 1 FROM files f WHERE f.edition_id=e.id) RETURNING
+  work_id`, then `DELETE FROM works w WHERE w.id = ANY($1) AND NOT EXISTS
+  (SELECT 1 FROM editions e WHERE e.work_id=w.id)`.
+
+The per-edition delete/reinsert loop and the per-file claim/reinsert loop are
+gone; the identifiers and evidence inserts are unchanged.
+
+**New test** — `TestLivePostgresUpsertReplacesEditionSet`
+(`server/internal/catalog/postgres_live_test.go`): seeds a work with two
+editions (with files, identifiers and evidence), upserts a different single
+edition set, asserts the stored set is exactly the new one (stale editions,
+files, identifiers and evidence gone; the new ones present), and asserts a
+repeat upsert is idempotent.
+
+**Measured** — DSN `postgres://helixqual@127.0.0.1:34320/helix_test?sslmode=disable`
+(helixqual-pg), one run per row:
+
+| Check | Result | Artifact |
+|---|---|---|
+| `go build ./...` (server) | PASS exit 0 | `evidence/campaign-2026-11-20/upsert-setbased/go-build.log` |
+| `go vet ./internal/catalog/` (server) | PASS exit 0 | `evidence/campaign-2026-11-20/upsert-setbased/go-vet-catalog.log` |
+| `go test ./internal/catalog/ -count=1` (unit, no DSN) | PASS exit 0 (`ok` 0.006 s) | run in the same pass as the live run below |
+| `go test ./internal/catalog/ -count=1 -v` (live, DSN) — final, plain-insert write path | PASS exit 0. `TestLivePostgresUpsertReplacesEditionSet` PASS (0.05 s); lock-scope invariants unchanged: `TestCatalogMergePreservesEveryWriterUnderIdentityLocks` PASS, `TestCatalogMergeNeedleUnlockedLosesWriters` PASS, `TestCatalogFileClaimByDistinctWorksKeepsOneRow` PASS, `TestCatalogFileClaimNeedleUnlockedDuplicatesRow` PASS, `TestCatalogEditionOwnershipIsDecidedOnce` PASS, `TestCatalogReconcileExcludesSameSourceMerge` PASS; `TestLivePostgresCatalogRoundTrip` PASS, `TestLivePostgresBatchLoadMatchesRowByRow` PASS | `evidence/campaign-2026-11-20/upsert-setbased/catalog-live-test-final.log` |
+| `go vet ./...` (server) | PASS exit 0, recorded 18:54Z on the same tree state | `evidence/campaign-2026-11-20/upsert-setbased/go-vet.log` |
+| `go test ./... -count=1` (server, live, DSN) — earlier, same tree state | PASS 12/12 packages, exit 0 | `evidence/campaign-2026-11-20/upsert-setbased/server-go-test-live.log` |
+| `go test ./... -count=1` (server, live, DSN) — final | exit 1: `internal/catalog` ok (58.5 s) but `internal/httpapi` [build failed] from an untracked concurrent WIP file (gaps below) | `evidence/campaign-2026-11-20/upsert-setbased/server-go-test-live-final.log` |
+| Mutation gate (`evidence/campaign-2026-11-20/lock-scope/run-mutation-gate.sh`) | PASS exit 0 — drop-work-key detected, drop-source-key detected, drop-edition-key detected, drop-all-locks detected; `gate_status=0 restored_tests=pass sha256_verified=yes`; `postgres.go` sha identical before/after | `evidence/campaign-2026-11-20/upsert-setbased/mutation-gate-run.log`; appended to `evidence/campaign-2026-11-20/lock-scope/mutation-gate.log` |
+
+An intermediate DO-NOTHULL variant of the files insert was also live-tested
+(`evidence/campaign-2026-11-20/upsert-setbased/catalog-live-test.log`) before
+the plain-insert change; the final run above is the authoritative one for the
+delivered code.
+
+**Concurrency note (another session's files).** A concurrent session added
+untracked `server/internal/catalog/slow_client_live_test.go` (mtime 18:58:59;
+not in this change's diff; restored after the runs, sha256 `2358918b…` verified
+identical before and after) and untracked
+`server/internal/httpapi/slow_client_live_test.go`, which breaks compilation of
+`internal/httpapi` with float64/int64 mismatches. For the final validation
+runs the catalog WIP was briefly moved aside (backup in `/tmp`); it was not
+edited, only moved and restored.
+
+**Gaps / not done.**
+
+- The mutation gate was not run in the first attempt (the concurrent WIP
+  broke compilation of the catalog package); it was run afterwards — results
+  above. Phase-4 gate results remain in
+  `evidence/campaign-2026-11-20/lock-scope/mutation-gate.log`.
+- The set-based write path was not re-measured under load; the gate re-run is
+  the measurement-adjacent evidence for it.
+- The review doc needs a follow-up line: `docs/scalability-review.md` line 28
+  still lists "Upsert still deletes and reinserts the editions of one work" as
+  an open finding, and line 42 marks the write path "**Half done** — … the
+  delete/reinsert write path is unchanged". The write path is now set-based —
+  suggested follow-up: update line 42 to record that the write path landed,
+  and adjust line 28's finding row to drop the "upsert still
+  delete/reinserts" clause. Not edited here — the review doc is concurrent
+  drift on this tree.
+- Load-gated harnesses (`TestCatalogIdentityLockScopeThroughput`,
+  `TestCatalogMultiProcessMerges`, `TestLiveLoadWriteContention`) SKIP without
+  `HELIX_LOAD_RUN=1` / `HELIX_MP_*` — not re-run here.
+- No service-level objective was claimed.
+
+**Deliberate behavior notes.**
+
+- `insertEditions` uses `ON CONFLICT (id) DO NOTHING`: after the delete and the
+  ownership check, a conflict is a duplicate inside the incoming set, and the
+  DO NOTHING makes a replay idempotent (the previous code surfaced a 23505
+  there).
+- `claimFiles` and `insertFiles` are separate statements by design: the claim
+  removes pre-existing rows for the new ids and pairs before the insert, so the
+  plain multi-row files insert still surfaces any unclaimed duplicate loudly.
+- The `rehomedEditions` prune keeps its per-edition emptiness guard
+  (`NOT EXISTS (SELECT 1 FROM files f WHERE f.edition_id=e.id)`), so an edition
+  that lost one file but still has others is not pruned — same as before.
+
+## 2026-11-23T19:20Z — HRD-027 (continuation): slow-client and ingest-concurrent-with-reads runs, harness repaired
+
+**Scope.** Completed the two review items whose agents were killed mid-run:
+slow clients, and catalog ingest concurrent with reads. Infrastructure: a
+throwaway rootless podman Postgres 15 (`127.0.0.1:55499`) and Redis 7
+(`127.0.0.1:56499`) dedicated to this run; the shared host containers were not
+touched. Go test run with `-p 2`.
+
+**Repairs to the tests (no production code changed).**
+
+- `server/internal/catalog/slow_client_live_test.go`: now gated on
+  `HELIX_LOAD_RUN=1` like its siblings; seeds and deletes its own work instead of
+  `SELECT id FROM works LIMIT 1` (which failed with `sql: no rows` on an empty
+  database); cleanup runs before the repo is closed (the first version leaked
+  three works because `defer repo.Close()` ran before `t.Cleanup`).
+- `server/internal/httpapi/load_concurrent_test.go`: removed leftover diagnostics
+  (a per-merge `GetWork` that added read load to the very throughput being
+  measured, a sampler goroutine whose files-per-work query joined the wrong key
+  and always reported 0); replaced the "short page is an error" oracle with a
+  counted-and-bounded one plus a quiescent full-page control.
+- The scratch `zz_scratch_repro_test.go` was investigated, not deleted blind: it
+  asserted nothing and only logged the single-threaded ReconcileSource contract.
+  It is now `reconcile_live_test.go::TestLiveReconcileSourceKeepsListedFileAndEdition`
+  with real assertions (removed==1, listed file and edition survive, an empty
+  listing prunes the work). It passes against current `postgres.go`; it does not
+  reproduce a defect.
+- At HEAD `go build ./...` and `go vet` were clean; the compile errors T4 reported
+  in the untracked slow_client files were not present when I started (UNCONFIRMED
+  who fixed them; the files are untracked, so there is no history to consult).
+
+**Finding that explains the earlier "works vanish" runs.** `files` is unique on
+`(source_id, path)`. Merging work B onto the same stable path as work A moves
+that file and prunes A, with no reconcile involved (reproduced with a throwaway
+test: A -> `publication not found`, B present; throwaway removed). The harness
+reuses `load/book.txt` for every merged work, so only the newest few merge works
+exist at any instant. They are also the first rows of the `updated_at DESC`
+browse page. `Search` fetches ids and hydrates them in separate statements, so
+an id listed and then pruned yields a short page (observed shortfall 2-3 of 20,
+645-830 short pages per 5.4-6.3k browse requests). This is a read-consistency
+property, not an error; it is counted in the evidence (`browse_short_pages`,
+`browse_max_shortfall`) and bounded (empty page, duplicates, or fewer than half a
+page still fail).
+
+**Results (all machine-produced; see `evidence/campaign-2026-11-23/`).**
+
+- Slow client, `slow-client/` (raw.log, raw_catalog.log, results.json): catalog
+  surface `TestLiveSlowClientCatalogSurface` PASS, 14 asserts, 0 violated; job
+  surface `TestLiveSlowClientJobSurface` PASS, 13 asserts, 0 violated. The
+  injected stall reached its deadline (catalog slow read 400.3 ms at a 400 ms
+  deadline; job slow scan canceled at 503 ms at a 500 ms deadline), so the
+  injection is observed, not assumed.
+- Ingest concurrent with reads, `concurrent/` (raw_run1-3.log, results.json,
+  artifacts): three overlap runs, zero read errors and zero ingest errors in
+  each, browse p95 12.7 / 14.8 ms (knee 27.7), text p99 31.9 / 25.2 ms (knee
+  12 s); **FAIL on the write floor**: MergeWork 175.7 / 152.1 ops/s (and 159.7 in
+  run 1) against 271.94. Two no-reads controls measured 266.1 / 251.1 ops/s (also
+  under the floor). Host load average was about 17 on 16 cores throughout, so the
+  absolute numbers and the attribution to read overlap are UNCONFIRMED; the
+  floor is not met on this host.
+- Earlier overlap artifacts in `evidence/campaign-2026-11-20/load/` (17:49-18:25
+  and 19:03) come from the killed session and the pre-repair oracle; they are
+  kept and are superseded, not deleted.
+
+**Gaps / not done.**
+
+- The write floor of 271.94 ops/s was recorded as a sequential single-worker
+  baseline; this harness runs 3 merge + 3 reconcile workers on a loaded host, so
+  the comparison is not like-for-like. No claim of PASS is made; the assertion
+  stays and fails.
+- Slow clients were injected at the database driver and job store, not as TCP
+  clients against the HTTP listener; HTTP server socket-level slow-client
+  behavior is unmeasured.
+- Non-gated suites: `go test -count=1 ./...` passed in `server/` and `core/`.
+  Evidence files written by the tests land in `evidence/campaign-2026-11-20/`
+  (hardcoded path) and were copied to `evidence/campaign-2026-11-23/`.
+- Identifiers in the test files and artifact names were renamed from `atm027` to
+  `hrd027` (env vars `HELIX_HRD027_*`, `hrd027_*.json`); see
+  `evidence/ID-KEY-RENAME.md`. Artifacts already on disk keep the old names.
+
+## HRD review findings on set-based upsertTx (2026-11-23)
+
+Reproduce-first (§11.4.146): live tests written first and run against the pre-fix code on a throwaway rootless postgres:15. RED output:
+
+```
+--- FAIL: TestLivePostgresHRDUpsertDuplicateSourcePathCurrentIDWins
+    order [hrd-legacy-file hrd-current-file]: upsert failed: ERROR: duplicate key value violates unique constraint "files_source_path" (SQLSTATE 23505)
+--- FAIL: TestLivePostgresHRDUpsertDuplicateEditionIDFailsLoud
+    duplicate edition id in the incoming set was accepted silently
+--- FAIL: TestLivePostgresHRDUpsertBeyondBindParameterLimit
+    large upsert failed: extended protocol limited to 65535 parameters
+```
+
+Fixes in server/internal/catalog/postgres.go: dedupeFiles (per (source_id,path) current-ID row wins, else last; per id last wins; caller Work untouched), rejectDuplicateEditionIDs plus plain INSERT (no DO NOTHING), 1000-row chunks for insertEditions/insertFiles/claimFiles in the same transaction. currentFileID mirrors ingest.fileID, pinned by TestHRDCurrentFileIDGoldenVector. TestLivePostgresUpsertReplacesEditionSet now counts file ids against files and asserts no stale rows for the source.
+
+GREEN: the three HRD live tests, golden vector and the corrected replace-set test pass; the full live catalog suite (incl. TestCatalogMergePreservesEveryWriterUnderIdentityLocks, TestLiveScaleCatalog, round trip, reconcile, batch) passes (ok 70s); go build, go vet ./internal/..., gofmt -l clean; non-gated go test ./... all ok.
+
+## HRD-031 — LCP consumer fulfillment (2026-11-23)
+
+Added `core/pkg/lcp.Fulfill` (fulfill.go): given a License Document and the
+publication bytes its `publication` link names, it requires the link to state a
+length and SHA-256, verifies both, requires an LCP-declaring container with no
+license, copies every entry raw and embeds the license byte-for-byte at
+`META-INF/license.lcpl`, then re-opens the result. Signature/trust/passphrase
+stay in `Container.Unlock`.
+
+- RED: `go test ./pkg/lcp -run Fulfill` failed to build (`undefined: Fulfill`, `ErrPublicationMismatch`, ...) before fulfill.go existed.
+- GREEN: `TestFulfillEmbedsLicenseAndUnlocks`, `TestFulfillRefusesWhatItCannotVouchFor` (7 refusals), `TestFulfillRefusesNonPublications`, `TestFulfillNeverRewritesALicensedContainer`, `TestFulfillOverLiveHTTP` pass; `go test -count=1 ./...` in core/ and server/ green.
+- Mutation: disabling the SHA-256 comparison makes `TestFulfillOverLiveHTTP` and `TestFulfillRefusesWhatItCannotVouchFor` fail.
+- Live qualification over loopback TCP: `evidence/campaign-2026-11-23/opds-lcp/lcp_fulfill_live.json`.
+- NOT PROVEN (UNCONFIRMED): interop with a real LCP provider/License Authority or third-party reader; License Status Document (register/return/renew); Readium root trust (Helix embeds none); server route/OPDS wiring for fulfillment (ingest still skips standalone `.lcpl`); hash encoding assumed hex SHA-256, other encodings fail closed.
+
+## HRD-026 kosync reference-conformance (2026-11-23)
+
+Reference (primary sources): `/usr/lib/koreader/plugins/kosync.koplugin/api.json` expected_status register [201,402] (l.16), authorize [200,401] (l.21), update_progress [200,202,401] (l.44), get_progress [200,401] (l.52); a status outside the list makes Spore raise, so `KOSyncClient.lua` returns failure (l.79-83, 169-172). Upstream `koreader/koreader-sync-server` (cloned, `config/errors.lua` l.37-39 + `app/controllers/1/syncs_controller.lua`): duplicate user 2002 => 402 (l.138-139), registration disabled 2005 => 402, unauthorized 2001 => 401 (l.120-126), unknown document => `200 {}` (l.236-241, "do not want an almost empty table"), PUT ok => 200 {document,timestamp} (l.285). `main.lua` l.586-594/630-634 shows `body.message`; l.851 `not body.percentage` => "No progress found".
+Changes (`server/internal/httpapi/kosync.go`): duplicate register 409 -> 402; registration-disabled 403 -> 402; unknown-document GET 404 -> 200 `{}`; kosync errors now also carry top-level `message`. Kept stricter (KOReader treats any non-expected code identically as failure): invalid register input 400 (ref 403), invalid document 400, PUT validation 400, percentage in [0,1], username/password length rules.
+RED: `registration default is not closed: 403 ...` (TestKOReaderSyncProtocol). GREEN: `go test ./...` all ok, gofmt/vet clean.
+Real client after fix: `evidence/campaign-2026-11-23/interop/kosync_koreader_real_client_after_fix.txt` (0 occurrences of "not expected"; unknown doc ok=true body={}; duplicate register status false with message "Username is already registered."). Document id from KOReader's real `util.partialMD5` over sample.epub = af00b1716a8ea20bc7f1108c8358c4a3, independently reproduced in python (LuaJIT bit.lshift masks negative shift, so i=-1 samples offset 0).
+
+### KOSync stale-expectation fix (review follow-up, 2026-11-23)
+Files: `server/internal/httpapi/load_delivery_test.go`, `scripts/verify_live_server.py`, `docs/api.md`.
+RED (live Redis 7.4 + Postgres 15 podman, `TestLiveLoadKOSync`): `load_delivery_test.go:839: duplicate registration returned 402, want 409`.
+Changes: duplicate register expects 402 + message "Username is already registered."; never-written document expects 200 with body exactly `{}`; `getPercentage` fails on empty `document`; verifier accepts {201,402} and on 402 requires the duplicate message; docs/api.md updated (402/402, `200 {}`, top-level `message`).
+GREEN: `TestLiveLoadKOSync` PASS (2.79s); `go test -count=1 ./...` all ok; gofmt -l empty; go vet clean. `scripts/verify_live_server.py` run twice against live Redis + pgvector/pg16: both runs status PASS, 77/77 checks, including rerun case (402 + duplicate message) and the new message check. Containers removed.
+
+## LCP License Status Document client (2026-11-23)
+
+`core/pkg/lcp/lsd.go`: parse/validate a Status Document and a client (injected `http.Client`) for fetch, register (POST), return (PUT), renew (PUT, optional `end`), plus `NeedsLicenseRefresh` (updated.license newer than the local License) and profile-based license-link selection. Primary sources, cloned and read: `readium/lcp-specs` commit 812dd91d6b90087e657a5c94d04e6f16abd8873b, `releases/lsd/latest.md` (revision 5; file:line cited in code comments) and `schema/status.schema.json`. Revision 5 followed over rev 4 (after return/renew the client must also re-download the License).
+- RED: `go test ./pkg/lcp` failed to build (`undefined: StatusValue`, `LSDClient`, `lsdMediaType`...) before lsd.go existed.
+- GREEN: 16 top-level tests / 88 test results (per-status table, 28 rejection cases, RFC 6570 `{?id,name}` / `{?end,id,name}` expansion, problem+json type/title/detail, request verbs and query keys, state-transition checks, live loopback register->renew->(bad renew 403)->return->(second return 403)). `go vet ./...`, gofmt, `go test -count=1 ./...` in core/ green on a scratch copy.
+- Mutation (scratch copy): dropping Register's "still ready" check, Return's returned/cancelled check, or flipping the staleness comparison each fails named tests (`evidence/campaign-2026-11-23/opds-lcp/lsd_mutation.json`).
+- Live loopback evidence: `evidence/campaign-2026-11-23/opds-lcp/lsd_live.json` (query keys only; device id/name never recorded or put in errors; transport errors stripped of URL).
+- NOT PROVEN (UNCONFIRMED): any real LSD provider (the provider in tests is written in-repo from the same spec text); TLS/redirect behaviour of real hosts; `register` verb is POST per rev 5 l.270 while some deployed providers have been reported to use PUT (not verified); Accept-Language localization; strict event-type enum rejects unknown event types (schema-faithful, may be stricter than real providers); no server/OPDS wiring and no persistence of the device id; fulfill.go hash-encoding concern is separate and untouched.
+
+## LCP Fulfill spec-review fixes (2026-11-23)
+
+Independent spec review (lcp-specs 812dd91d, readium-lcp-server) findings addressed in
+`core/pkg/lcp/{fulfill,license}.go`, tests in `fulfill_spec_test.go`:
+link hash accepts hex or base64 (32 bytes required); `length` accepted as number or string,
+negatives/non-numeric rejected at Parse; non-EPUB link types -> `ErrUnsupportedFormat` (root
+license.lcpl placement for PDF/audiobook NOT implemented); `AllowUnverified()` opt-in (stated
+length/hash still enforced); `FulfillTo(io.Writer, ...)` streaming (verifies before first write,
+re-hashes after copy to detect a changing source; no read-back of a bare Writer);
+`Link.Templated` + `ErrTemplatedHref`; "<nil>" message fixed; signature-not-verified warning in docs.
+Mutation: base64 branch broken -> TestFulfillAcceptsHexAndBase64Hash FAIL; hex branch broken -> 10 FAIL.
+Green output: evidence/campaign-2026-11-23/opds-lcp/fulfill_spec_review_green.txt
+
+## LSD client review round 1 fixes (2026-11-23)
+
+Independent review of core/pkg/lcp/lsd.go reproduced 5 defects; fixed test-first in lsd.go / lsd_test.go.
+Each new test was RED before the fix and GREEN after; mutation checks (restore verified byte-identical):
+
+- html renew link must be absolute http(s) with host (no javascript:/file:/intent:): mutation "disable check" -> TestLSDInteractiveRenewalURLMustBeAbsoluteHTTP FAILS.
+- events missing timestamp/type are kept, not fatal (SCHEMA events items have no `required`); present-but-invalid still rejected. `"rel": []` accepted (link.schema.json has no minItems); license-link requirement unchanged.
+- TestLSDOversizedBodyRefused now uses a valid document of 1 MiB+1 KiB (literal): mutation lsdMaxBody 1<<20 -> 4<<20 FAILS, mutation "drop size check" FAILS.
+- state-changing requests (POST/PUT) never follow redirects (301/302/303/307/308 -> *LSDProblem with the 3xx status): mutation "follow redirects" FAILS.
+- non-templated href containing `{`/`}` is refused with ErrLSDBadTemplate (templated defaults to false, SPEC l.182); mutation FAILS.
+- Live lifecycle test now leak-checks every error returned; fixture-only subtest removed.
+Gates: gofmt -l clean, go vet ./... clean, go test -count=1 ./... (core) all ok.
+
+## HRD-031 server wiring: LCP license fulfillment over OPDS (2026-11-23)
+
+Scope: EPUB, Basic profile, opt-in (`HELIX_LCP_CACHE_DIR`). Standalone `.lcpl` in a source -> hardened download of the publication link -> `lcp.Fulfill` -> protected EPUB in a server-managed cache (source bytes untouched, HRD-004) -> catalog edition (`drm_scheme=lcp`, `license_href`) -> OPDS 1.2/2.0 direct acquisition of the fulfilled EPUB plus `rel="related"` License Document link. No decryption, passphrase or key on the server.
+
+Code: server/internal/ingest/{lcp.go,service.go}, ingest/lcpfixture (test-only provider fixtures), opds/{detail.go,model.go}, httpapi/{lcp.go,router.go}.
+Tests (all green; failure paths assert the explicit error and that nothing is left in the cache): ingest/lcp_test.go (happy path with unlock round trip, idempotent rescan = exactly 1 download, hash mismatch, length mismatch, unreachable host, private-address SSRF block with zero contact, redirect-to-loopback block, oversized body with and without Content-Length, PDF link -> ErrUnsupportedFormat without fetching, templated/file:/ftp:/userinfo hrefs, timeout, 404, unverifiable link fail-closed + opt-in, no URL/token echo in the scan report); httpapi/lcp_test.go (byte-exact content, Range, HEAD, ETag, license route, 401 without OPDS credentials, 404 for non-LCP file, 409 on tampered/missing cache or disabled fulfillment, OPDS 1.2/2.0 links, env opt-in).
+Mutation checks: SSRF guard disabled -> `private_address_blocked...` and `redirect_to_a_private_address...` FAIL; `.lcpl` branch disabled -> TestLCPLScanFulfillsStoresAndStaysIdempotent and TestLCPLScanReportsFailureWithoutLeakingURLs FAIL; both restored.
+Live: evidence/campaign-2026-11-23/opds-lcp/run.sh builds a fresh helix-server, runs it (in-memory catalog) against a library holding one .lcpl and a loopback provider; results.json (15 checks PASS), feed-1.2.xml, live.log, evidence.sha256, binary.sha256. Downloaded EPUB sha256 equals the independently fulfilled expectation; unlock with the test passphrase returns the original chapter, a wrong passphrase is refused.
+Not verified (UNCONFIRMED): any real LCP provider / Readium LCP server; any third-party LCP reader opening the artifact; PostgreSQL-backed catalog for this flow (columns pre-exist and are mapped, not exercised live); server-side signature/trust-chain validation (not implemented by design, scan report warns); PDF/audiobook/Divina LCP; cache eviction of artifacts orphaned by a changed or deleted .lcpl (not implemented).
+
+## HRD-031 independent security review: 7 defects fixed test-first (2026-11-23)
+
+Each new test was RED before the fix (output captured in the session) and GREEN after.
+1. templated href (may carry a token) no longer echoed: ingest/lcp.go and core/pkg/lcp/fulfill.go return bare ErrTemplatedHref; TestLCPLTemplatedHrefNeverEchoed, TestFulfillTemplatedErrorDoesNotEchoHref.
+2. httpapi serves a cached artifact only after SHA-256 == catalog hash (verdict cached per path/inode/mtime/size): TestLCPContentRejectsSameSizeTamper, TestLCPContentTamperDetectedOnFirstRequest. Mutation "skip hash compare" -> both FAIL.
+3. /license is taken from the verified cached artifact's embedded license, not the live .lcpl: TestLCPLicenseIsTheEmbeddedLicenseNotTheLiveSource, TestLCPLicenseDoesNotNeedTheSource.
+4. cache GC (ingest/lcp_gc.go) after reconcile / fulfillment: unreferenced artifacts, idx and stale tmp removed after CacheGrace; HELIX_LCP_CACHE_MAX_BYTES evicts oldest unreferenced first; referenced never deleted: TestLCPCacheGC*.
+5. unverifiable link refused before any download; body capped at stated length, Content-Length mismatch aborts; per-license exponential backoff (5m..1h): TestLCPFulfillUnverifiableRefusedBeforeDownload, ...CapsBodyAtStatedLength, ...ContentLengthMismatchAborts, ...BacksOffAfterFailure. Mutations (drop pre-check / drop cap / drop backoff) -> each FAILS.
+6. injectable Resolver; TestLCPDialsValidatedIPNotHostname, TestLCPResolverReturningPrivateIsBlocked. Passed at baseline (code already dialed the IP); mutation dial(ctx, network, addr) with hostname -> FAILS (dialed [rebind.example:8080]).
+7. restrictedIP extended (NAT64, 6to4, Teredo, v4-compat, 0/8, 192.0.0.0/24, 198.18/15, 240/4, fec0::/10, 100::/64): TestRestrictedIPReviewForms with public positive controls. Mutation (empty extra range list) -> FAILS.
+Live re-qualification: evidence/campaign-2026-11-23/opds-lcp/run.sh re-run; results.json 15 PASS, sha256 refreshed in evidence.sha256/binary.sha256.
+UNCONFIRMED: a same-size flip that also restores mtime and inode of a cache file is not detected between requests (verdict cache; local cache-dir write access is out of scope); backoff state is in memory (a restart permits one extra bounded fetch); GC walks the catalog by keyset twice and relies on a 10-minute grace for works updated mid-walk; PostgreSQL-backed GC not exercised; OPDS rel for the license kept as related (Readium docs show acquisition + license type; no normative rule found, readium.org/lcp-specs/notes/lcp-key-retrieval.html examples only, not file:line citable).
+
+## HRD-029 HelixTrack sync, local Core instance (2026-11-23)
+
+- Target: Helix-Track/Core commit c85221282d8b built from source, loopback only, SQLite, local auth; stopped and removed afterwards.
+- Tool: `tools/helixtrack-sync/` ; unit RED then GREEN logs `evidence/campaign-2026-11-23/helixtrack/unit-RED.log` (import failure) and `unit-GREEN.log` (31 tests OK); 3 mutations of the tool each fail the suite.
+- Live run `evidence/campaign-2026-11-23/helixtrack/live/` (script `run_live.sh`): dry-run 0 writes; push created 35; compare 35/35 field match; pull 35 in-sync; re-push 35 noop with 0 write requests, ticket count stayed 35; second user edit of HRD-007 detected (remote_version 3 vs base 2); push reported conflict without overwriting; stale-version write rejected (409, current 3); `--overwrite-remote` restored; final pull 35 in-sync, compare 35/35; Core DB history shows hrd_sync and hrd_remote_editor actors. Secret scan of evidence clean. Manifests: `live/SHA256SUMS`, `SHA256SUMS.top`.
+- UNCONFIRMED: production HelixTrack instance, external auth/permission services, multi-user permission scoping, attachments, scale.
+- Wording and quirks: `docs/helixtrack-sync.md`.

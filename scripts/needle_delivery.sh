@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Needle gate for the content-delivery and KOSync load harnesses (ATM-027).
+# Needle gate for the content-delivery and KOSync load harnesses (HRD-027).
 #
 # Each mutation breaks one product property or one harness proof, and the run is
 # only accepted if the harness fails *with the intended message*. A mutation that

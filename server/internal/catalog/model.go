@@ -130,5 +130,8 @@ type Repository interface {
 	// it from Total would require a count they are allowed to skip.
 	Search(context.Context, Query) (Page, error)
 	DeleteWork(context.Context, string) error
+	// ReferencedLCPArtifacts returns the distinct artifact hashes of every
+	// fulfilled-LCP file in one consistent read (cache GC reference source).
+	ReferencedLCPArtifacts(context.Context) (map[string]bool, error)
 	Close() error
 }

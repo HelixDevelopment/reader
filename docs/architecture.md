@@ -22,7 +22,7 @@ flowchart LR
     ING --> SRC[Local / mounts / HTTP(S)\nWebDAV / OPDS / rclone]
 ```
 
-The web prototype does not call the API. Native desktop/mobile applications, real content renderers, external conversion engines, OIDC, Kobo sync, and LCP license fulfillment are not shown as connected because they are not implemented. OPDS-PSE is a served route. LCP exists only as a core library (`core/pkg/lcp`: license/crypto and protected-publication packaging, covered by its own tests); no server route consumes it, so the format registry keeps `drm_fulfill` false for every protected format.
+The web prototype does not call the API. Native desktop/mobile applications, real content renderers, external conversion engines, OIDC, Kobo sync, and LCP license fulfillment are not shown as connected because they are not implemented. OPDS-PSE is a served route. LCP exists as a core library (`core/pkg/lcp`: license/crypto, protected-publication packaging, consumer fulfillment, and a License Status Document client, each covered by its own tests). The server consumes it only for EPUB and only when `HELIX_LCP_CACHE_DIR` is set: a standalone `.lcpl` is fulfilled through a hardened outbound fetch into a server-managed cache and served with its license (see `docs/formats.md`). The server never decrypts, does not verify the license signature, and does not use the Status Document client; PDF, audiobook and Divina LCP, third-party provider interop and cache eviction are not implemented. The format registry's `drm_fulfill` flag is unchanged by this and should not be read as a claim of general LCP support.
 
 ## Catalog identity
 
@@ -164,3 +164,19 @@ flowchart LR
 ```
 
 pgvector memory is optional and dimension-checked. Current code does not establish every external LLM provider or content renderer. Provider names and strategy labels never promote a proposal to verified metadata or a format to rendered status.
+
+## Client matrix
+
+The authoritative platform list is `clients/supported-platforms.json` (checked by `tests/test_supported_platforms.py`). Every platform carries one status from `BUILT | VERIFIED | BLOCKED | NOT_STARTED`; a `BLOCKED` entry states the exact reason and a reproducer command whose captured output is `evidence/clients/blocked_reproducers.json` (regenerate with `python3 clients/tools/capture_blocked.py`). Nothing is skipped silently.
+
+```mermaid
+flowchart LR
+    WEB[clients/web\nReact 19 + Vite 7 + TypeScript\nVERIFIED live, Chromium] -->|"/v1/works, /v1/works/:id\n/v1/covers/:id, /v1/files/:id/content\noptional HTTP Basic"| API[Go/Gin HTTP service]
+    WEB -.->|wrapped by| EL[Electron: Linux NOT_STARTED\nWindows and macOS BLOCKED]
+    WEB -.->|wrapped by| CAP[Capacitor: Android, Android TV, iOS\nBLOCKED]
+    OTHER[HarmonyOS, Aurora OS\nBLOCKED; e-ink profile NOT_STARTED]
+```
+
+`clients/web` is the one implemented client. It reads the real read API (prefix `/v1`; Basic auth when the server has OPDS credentials, open otherwise). The server sends no CORS headers, so a browser must reach it same-origin: `vite dev` and `vite preview` proxy `/v1` to `HELIX_API_PROXY`, and native shells set the server address in Settings. Authenticated cover and file bytes are fetched as blobs because `<img src>` cannot send an Authorization header. The reader renders plain text from the content route; EPUB and PDF are offered as the original download because the server extracts no readable text, and DRM-protected files are refused with an explanation because no license fulfillment route exists.
+
+Evidence for the web client is under `evidence/clients/web/` (vitest RED and GREEN logs, lint and build output, a 67-check Playwright run against a live `helix-server` at 375, 768 and 1280 px in light and dark, screenshots, and a sha256 manifest). That run used the server's in-memory catalog, Chromium only, and no assistive technology; native-shell packaging, other browsers, a PostgreSQL-backed run, and screen-reader checks remain unproven.

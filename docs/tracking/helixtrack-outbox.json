@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-20T22:17:28Z",
+  "generated_at": "2026-11-23T19:03:31Z",
   "records": [
     {
-      "client_key": "ATM-001",
+      "client_key": "HRD-001",
       "operation": "upsert",
       "payload": {
         "acceptance": "Shared primitives remain deterministic, race-free, and covered by repeatable tests.",
         "affected_scope": "Core Go module and shared domain model.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-001",
+        "atm_id": "HRD-001",
         "closure_criteria": "Shared primitives remain deterministic, race-free, and covered by repeatable tests.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -30,13 +30,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-002",
+      "client_key": "HRD-002",
       "operation": "upsert",
       "payload": {
         "acceptance": "Detection and parsing stay bounded, deterministic, and explicit about unsupported fulfillment stages.",
         "affected_scope": "EPUB, CBZ, FB2, MOBI, TXT, and related registry paths.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-002",
+        "atm_id": "HRD-002",
         "closure_criteria": "Detection and parsing stay bounded, deterministic, and explicit about unsupported fulfillment stages.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -58,13 +58,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-003",
+      "client_key": "HRD-003",
       "operation": "upsert",
       "payload": {
         "acceptance": "Equivalent valid ISBNs converge while invalid identifiers fall back to content identity.",
         "affected_scope": "Work, edition, file identification and ingest reconciliation.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-003",
+        "atm_id": "HRD-003",
         "closure_criteria": "Equivalent valid ISBNs converge while invalid identifiers fall back to content identity.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -86,13 +86,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-004",
+      "client_key": "HRD-004",
       "operation": "upsert",
       "payload": {
         "acceptance": "Scans index metadata and references without Calibre-style copying or destructive relocation.",
         "affected_scope": "Local, HTTP, WebDAV, OPDS, FTP, SFTP, SMB, S3, and rclone connector surfaces.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-004",
+        "atm_id": "HRD-004",
         "closure_criteria": "Scans index metadata and references without Calibre-style copying or destructive relocation.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -114,13 +114,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-005",
+      "client_key": "HRD-005",
       "operation": "upsert",
       "payload": {
         "acceptance": "Concurrent feed refreshes cannot expose partially replaced acquisition maps or unstable colliding keys.",
         "affected_scope": "OPDS feed pagination and acquisition-map generations.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-005",
+        "atm_id": "HRD-005",
         "closure_criteria": "Concurrent feed refreshes cannot expose partially replaced acquisition maps or unstable colliding keys.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -142,13 +142,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-006",
+      "client_key": "HRD-006",
       "operation": "upsert",
       "payload": {
         "acceptance": "Changed or deleted bytes never retain a stale strong validator or splice old and new ranges.",
         "affected_scope": "Local and remote content GET and HEAD fulfillment.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-006",
+        "atm_id": "HRD-006",
         "closure_criteria": "Changed or deleted bytes never retain a stale strong validator or splice old and new ranges.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -170,13 +170,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-007",
+      "client_key": "HRD-007",
       "operation": "upsert",
       "payload": {
         "acceptance": "Identity fallback disables compressor finalization; raw-socket Brotli and gzip keepalive regressions and mutation reject the defect.",
         "affected_scope": "Brotli and gzip middleware on HTTP/1.1 persistent connections.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-007",
+        "atm_id": "HRD-007",
         "closure_criteria": "Identity fallback disables compressor finalization; raw-socket Brotli and gzip keepalive regressions and mutation reject the defect.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -198,13 +198,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-008",
+      "client_key": "HRD-008",
       "operation": "upsert",
       "payload": {
         "acceptance": "Transport evidence is regenerated from the current tree and distinguishes unavailable protocol support.",
         "affected_scope": "Gin server transport and live protocol verification.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-008",
+        "atm_id": "HRD-008",
         "closure_criteria": "Transport evidence is regenerated from the current tree and distinguishes unavailable protocol support.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -226,13 +226,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-009",
+      "client_key": "HRD-009",
       "operation": "upsert",
       "payload": {
         "acceptance": "Deleted source files and rehomed identities commit atomically with matching memory-store semantics.",
         "affected_scope": "PostgreSQL work, edition, file, and provenance persistence.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-009",
+        "atm_id": "HRD-009",
         "closure_criteria": "Deleted source files and rehomed identities commit atomically with matching memory-store semantics.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -254,13 +254,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-010",
+      "client_key": "HRD-010",
       "operation": "upsert",
       "payload": {
         "acceptance": "Progress cannot regress under stale updates and live-service evidence remains separate from unit doubles.",
         "affected_scope": "KOSync account, document progress, and Redis optimistic transaction paths.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-010",
+        "atm_id": "HRD-010",
         "closure_criteria": "Progress cannot regress under stale updates and live-service evidence remains separate from unit doubles.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -282,13 +282,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-011",
+      "client_key": "HRD-011",
       "operation": "upsert",
       "payload": {
         "acceptance": "Lint, production build, and four-viewport browser checks pass without presenting sample data as live catalog state.",
         "affected_scope": "React catalog-management demonstration across four viewport classes.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-011",
+        "atm_id": "HRD-011",
         "closure_criteria": "Lint, production build, and four-viewport browser checks pass without presenting sample data as live catalog state.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -310,13 +310,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-012",
+      "client_key": "HRD-012",
       "operation": "upsert",
       "payload": {
         "acceptance": "Every published result links machine output and distinguishes pass, fail, skip, and not-run states.",
         "affected_scope": "Unit, integration, race, vet, repeat, and coverage campaigns.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-012",
+        "atm_id": "HRD-012",
         "closure_criteria": "Every published result links machine output and distinguishes pass, fail, skip, and not-run states.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -338,13 +338,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-013",
+      "client_key": "HRD-013",
       "operation": "upsert",
       "payload": {
         "acceptance": "Fuzz targets terminate without crashes or unbounded parser behavior in the recorded campaigns.",
         "affected_scope": "Formats, CBZ, EPUB, FB2, MOBI, TXT, and single-range parsing.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-013",
+        "atm_id": "HRD-013",
         "closure_criteria": "Fuzz targets terminate without crashes or unbounded parser behavior in the recorded campaigns.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -366,13 +366,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-014",
+      "client_key": "HRD-014",
       "operation": "upsert",
       "payload": {
         "acceptance": "Every mutant fails its focused test and the original tree remains byte-identical after restoration.",
         "affected_scope": "Go mutation campaign across core identity, ingest, sources, and HTTP behavior.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-014",
+        "atm_id": "HRD-014",
         "closure_criteria": "Every mutant fails its focused test and the original tree remains byte-identical after restoration.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -394,13 +394,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-015",
+      "client_key": "HRD-015",
       "operation": "upsert",
       "payload": {
         "acceptance": "Integration claims require real service output and preserve unavailable credentials or services as non-pass.",
         "affected_scope": "Durable catalog, vector memory, KOSync, and internal progress services.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-015",
+        "atm_id": "HRD-015",
         "closure_criteria": "Integration claims require real service output and preserve unavailable credentials or services as non-pass.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -422,13 +422,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-016",
+      "client_key": "HRD-016",
       "operation": "upsert",
       "payload": {
         "acceptance": "A clean recovery reproduces catalog and sync state without secret disclosure.",
         "affected_scope": "Catalog and synchronization backup/restore workflow.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-016",
+        "atm_id": "HRD-016",
         "closure_criteria": "A clean recovery reproduces catalog and sync state without secret disclosure.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -450,13 +450,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-017",
+      "client_key": "HRD-017",
       "operation": "upsert",
       "payload": {
         "acceptance": "No credential is committed, printed, logged, or included in evidence or archives.",
         "affected_scope": "Constitution, project instructions, connectors, diagnostics, and release scans.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-017",
+        "atm_id": "HRD-017",
         "closure_criteria": "No credential is committed, printed, logged, or included in evidence or archives.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -478,13 +478,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-018",
+      "client_key": "HRD-018",
       "operation": "upsert",
       "payload": {
         "acceptance": "Low-confidence AI output is never silently promoted to verified metadata fact.",
         "affected_scope": "Identification pipeline, provenance, confidence, and AI memory.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-018",
+        "atm_id": "HRD-018",
         "closure_criteria": "Low-confidence AI output is never silently promoted to verified metadata fact.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -506,13 +506,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-019",
+      "client_key": "HRD-019",
       "operation": "upsert",
       "payload": {
         "acceptance": "Every target has a complete checkout, exact revision, file ledger, manual architecture review, license review, and porting decision.",
         "affected_scope": "All repositories listed in Opensourced_Reader_Apps_And_Repos.md.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-019",
+        "atm_id": "HRD-019",
         "closure_criteria": "Every target has a complete checkout, exact revision, file ledger, manual architecture review, license review, and porting decision.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -534,13 +534,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-020",
+      "client_key": "HRD-020",
       "operation": "upsert",
       "payload": {
         "acceptance": "Each repository receives an auditable manual comparison and attributed implementation decision linked to tests.",
         "affected_scope": "The 106 statically indexed research checkouts and any later recovered targets.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-020",
+        "atm_id": "HRD-020",
         "closure_criteria": "Each repository receives an auditable manual comparison and attributed implementation decision linked to tests.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -562,13 +562,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-021",
+      "client_key": "HRD-021",
       "operation": "upsert",
       "payload": {
         "acceptance": "All declared dependencies resolve, Helix-specific banks run live, and machine results preserve every failure and skip.",
         "affected_scope": "HelixQA CLI, own-org dependency modules, and Helix end-to-end challenges.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-021",
+        "atm_id": "HRD-021",
         "closure_criteria": "All declared dependencies resolve, Helix-specific banks run live, and machine results preserve every failure and skip.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -590,13 +590,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-022",
+      "client_key": "HRD-022",
       "operation": "upsert",
       "payload": {
         "acceptance": "Each promised client has installable artifacts, real reader functionality, accessibility support, and device-specific live evidence.",
         "affected_scope": "Windows, macOS, Linux, Android, iOS, and additional device classes.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-022",
+        "atm_id": "HRD-022",
         "closure_criteria": "Each promised client has installable artifacts, real reader functionality, accessibility support, and device-specific live evidence.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -618,13 +618,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-023",
+      "client_key": "HRD-023",
       "operation": "upsert",
       "payload": {
         "acceptance": "Interactive demos exercise real client behavior with explicit hardware and runtime evidence.",
         "affected_scope": "Phone, tablet, desktop, workstation, low-end device, and varied screen demonstrations.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-023",
+        "atm_id": "HRD-023",
         "closure_criteria": "Interactive demos exercise real client behavior with explicit hardware and runtime evidence.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -646,13 +646,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-024",
+      "client_key": "HRD-024",
       "operation": "upsert",
       "payload": {
         "acceptance": "Cold start, health, restart, upgrade, rollback, and distribution tests pass in actual container runtimes.",
         "affected_scope": "Containers submodule, Docker or Podman, compose, and distribution providers.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-024",
+        "atm_id": "HRD-024",
         "closure_criteria": "Cold start, health, restart, upgrade, rollback, and distribution tests pass in actual container runtimes.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -674,13 +674,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-025",
+      "client_key": "HRD-025",
       "operation": "upsert",
       "payload": {
         "acceptance": "A real project-bound preflight and distribution run produces non-secret machine evidence or an explicit skip.",
         "affected_scope": "Firebase application distribution and associated release metadata.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-025",
+        "atm_id": "HRD-025",
         "closure_criteria": "A real project-bound preflight and distribution run produces non-secret machine evidence or an explicit skip.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -702,13 +702,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-026",
+      "client_key": "HRD-026",
       "operation": "upsert",
       "payload": {
         "acceptance": "External clients complete real acquisition and sync workflows with captured version and environment evidence.",
         "affected_scope": "KOReader devices, third-party OPDS clients, and deployment-specific rclone providers.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-026",
+        "atm_id": "HRD-026",
         "closure_criteria": "External clients complete real acquisition and sync workflows with captured version and environment evidence.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -730,13 +730,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-027",
+      "client_key": "HRD-027",
       "operation": "upsert",
       "payload": {
         "acceptance": "Representative large-catalog benchmarks and load tests establish limits, durable queue behavior, and bounded query plans.",
         "affected_scope": "PostgreSQL writes and search, API pagination, job retention, and connection pools.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-027",
+        "atm_id": "HRD-027",
         "closure_criteria": "Representative large-catalog benchmarks and load tests establish limits, durable queue behavior, and bounded query plans.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -758,13 +758,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-028",
+      "client_key": "HRD-028",
       "operation": "upsert",
       "payload": {
         "acceptance": "The database validates, all derived documents regenerate without drift, round trips preserve content, lifecycle and stress gates pass, and no remote push is claimed without a receipt.",
         "affected_scope": "Workable-item database, lifecycle history, exports, validation, and drift gates.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-028",
+        "atm_id": "HRD-028",
         "closure_criteria": "The database validates, all derived documents regenerate without drift, round trips preserve content, lifecycle and stress gates pass, and no remote push is claimed without a receipt.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -786,13 +786,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-029",
+      "client_key": "HRD-029",
       "operation": "upsert",
       "payload": {
         "acceptance": "Documented API-compatible push and pull operations pass against a real HelixTrack instance without inventing endpoints.",
         "affected_scope": "HelixTrack mapping, idempotency, conflict handling, and remote receipts.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-029",
+        "atm_id": "HRD-029",
         "closure_criteria": "Documented API-compatible push and pull operations pass against a real HelixTrack instance without inventing endpoints.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -814,13 +814,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-030",
+      "client_key": "HRD-030",
       "operation": "upsert",
       "payload": {
         "acceptance": "Every registered suite and unavailable target links its current artifact or explicit non-run statement, and publication never converts missing scope into a pass.",
         "affected_scope": "Machine-result index for unit, live, UI, integration, deployment, and non-run checks.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-030",
+        "atm_id": "HRD-030",
         "closure_criteria": "Every registered suite and unavailable target links its current artifact or explicit non-run statement, and publication never converts missing scope into a pass.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -842,13 +842,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-031",
+      "client_key": "HRD-031",
       "operation": "upsert",
       "payload": {
         "acceptance": "Each integration has a working implementation, legal DRM handling, interoperability tests, and honest capability reporting.",
         "affected_scope": "Page streaming, DRM fulfillment, and vendor-specific synchronization.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-031",
+        "atm_id": "HRD-031",
         "closure_criteria": "Each integration has a working implementation, legal DRM handling, interoperability tests, and honest capability reporting.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -870,13 +870,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-032",
+      "client_key": "HRD-032",
       "operation": "upsert",
       "payload": {
         "acceptance": "The per-format matrix has live tests for every claimed stage and explicit non-pass entries for the rest.",
         "affected_scope": "All formats in Additional_Formats_We_MUST_Support.jpg and their fulfillment stages.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-032",
+        "atm_id": "HRD-032",
         "closure_criteria": "The per-format matrix has live tests for every claimed stage and explicit non-pass entries for the rest.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -898,13 +898,13 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-033",
+      "client_key": "HRD-033",
       "operation": "upsert",
       "payload": {
         "acceptance": "All blocking work is genuinely closed, final evidence is refreshed, and both archives pass clean-room verification.",
         "affected_scope": "Clean extraction, full tests, secret scan, deterministic archive-content validation, and release notes.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-033",
+        "atm_id": "HRD-033",
         "closure_criteria": "All blocking work is genuinely closed, final evidence is refreshed, and both archives pass clean-room verification.",
         "composes_with": [],
         "created_at": "2026-10-28T17:35:51Z",
@@ -926,21 +926,21 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-034",
+      "client_key": "HRD-034",
       "operation": "upsert",
       "payload": {
         "acceptance": "A push and cache-free pull against an authenticated hosted registry completes with signature verification enabled and the verified digest recorded, OR the registry and README state plainly that distribution qualification covers local registries only; and a docker-compose CLI run of deploy/docker-compose.yml produces health, restart, upgrade and rollback evidence equivalent to the podman-compose pass, OR deploy/README records docker-compose as untested with the reason.",
         "affected_scope": "deploy/docker-compose.yml, server/Dockerfile, evidence/campaign-2026-11-20/containers/, submodules/containers distribution notes.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-034",
+        "atm_id": "HRD-034",
         "closure_criteria": "A push and cache-free pull against an authenticated hosted registry completes with signature verification enabled and the verified digest recorded, OR the registry and README state plainly that distribution qualification covers local registries only; and a docker-compose CLI run of deploy/docker-compose.yml produces health, restart, upgrade and rollback evidence equivalent to the podman-compose pass, OR deploy/README records docker-compose as untested with the reason.",
         "composes_with": [],
         "created_at": "2026-11-20T19:34:10Z",
         "created_by": "AI",
         "current_location": "Issues",
-        "description": "ATM-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end.",
+        "description": "HRD-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end.",
         "evidence_path": "",
-        "forensic_anchor": "Second-pass ATM-024 distribution run on 2026-11-20",
+        "forensic_anchor": "Second-pass HRD-024 distribution run on 2026-11-20",
         "last_modified": "2026-11-20T19:34:29Z",
         "reopens_count": 0,
         "reproduction": "evidence/campaign-2026-11-20/containers/distribution.log records digest_match=yes and config_id_matches_build=yes against 127.0.0.1:15000 with --tls-verify=false, and results.json records docker_compose_cli_parity as NOT RUN because the docker binary is absent from this host.",
@@ -954,24 +954,24 @@
       "revision": 1
     },
     {
-      "client_key": "ATM-035",
+      "client_key": "HRD-035",
       "operation": "upsert",
       "payload": {
         "acceptance": "Markdown, HTML and PDF long-form documents each render every field long_form_fields returns plus the full item history; tests.test_workable_items.test_derived_documents_carry_history_and_lifecycle_details passes against the generator and fails against a copy whose HTML history call is removed, that copy being registered as the html-history-gate mutation case; verify_workable_items.py reports pdf-documents-current PASS with equal identifier sets for Issues and Fixed.",
         "affected_scope": "scripts/workable_items.py render_item, html_documents and pdf_documents; scripts/verify_workable_items.py mutation cases; tests/test_workable_items.py; every derived document under docs/.",
         "assigned_to": "Operator",
-        "atm_id": "ATM-035",
+        "atm_id": "HRD-035",
         "closure_criteria": "Markdown, HTML and PDF long-form documents each render every field long_form_fields returns plus the full item history; tests.test_workable_items.test_derived_documents_carry_history_and_lifecycle_details passes against the generator and fails against a copy whose HTML history call is removed, that copy being registered as the html-history-gate mutation case; verify_workable_items.py reports pdf-documents-current PASS with equal identifier sets for Issues and Fixed.",
         "composes_with": [],
         "created_at": "2026-11-20T19:39:09Z",
         "created_by": "AI",
         "current_location": "Fixed",
-        "description": "The registry generator rendered the audit trail only into Markdown. render_item emitted the item_history block, the Reopened-Details line and the Operator-Block-Details line, while html_documents enumerated six item fields and pdf_documents seven, in both cases with no history and no lifecycle detail. The consequence surfaced as a failed qualification gate rather than as a review finding: closing ATM-024 with a reason that named ATM-034 put that identifier into Fixed.md, and scripts/verify_workable_items.py check pdf-documents-current, which extracts ATM identifiers from each PDF with pdftotext and requires the set its Markdown sibling carries, reported Fixed.pdf as stale even though export had written it one second earlier. The PDF was current and simply did not render the text, so the gate was describing a generator defect as a currency defect. Fixed by giving all three long-form renderers one source of truth: long_form_fields(item, db) returns every label and value an item carries, including conditional reopen and operator-block details, and history_lines(db, atm_id) formats the audit trail once for Markdown, HTML and PDF.",
+        "description": "The registry generator rendered the audit trail only into Markdown. render_item emitted the item_history block, the Reopened-Details line and the Operator-Block-Details line, while html_documents enumerated six item fields and pdf_documents seven, in both cases with no history and no lifecycle detail. The consequence surfaced as a failed qualification gate rather than as a review finding: closing HRD-024 with a reason that named HRD-034 put that identifier into Fixed.md, and scripts/verify_workable_items.py check pdf-documents-current, which extracts HRD identifiers from each PDF with pdftotext and requires the set its Markdown sibling carries, reported Fixed.pdf as stale even though export had written it one second earlier. The PDF was current and simply did not render the text, so the gate was describing a generator defect as a currency defect. Fixed by giving all three long-form renderers one source of truth: long_form_fields(item, db) returns every label and value an item carries, including conditional reopen and operator-block details, and history_lines(db, atm_id) formats the audit trail once for Markdown, HTML and PDF.",
         "evidence_path": "scripts/workable_items.py(long_form_fields, history_lines); tests/test_workable_items.py(test_derived_documents_carry_history_and_lifecycle_details); scripts/verify_workable_items.py(html-history-gate mutation case); evidence/workable-items/results-2026-11-20T2036-before-pdf-history-fix.json; evidence/campaign-2026-11-20/containers/distribution.log",
-        "forensic_anchor": "pdf-documents-current FAIL during the 2026-11-20 ATM-024 documentation export",
+        "forensic_anchor": "pdf-documents-current FAIL during the 2026-11-20 HRD-024 documentation export",
         "last_modified": "2026-11-20T19:39:19Z",
         "reopens_count": 0,
-        "reproduction": "Close any item with a reason naming a different ATM identifier, run export with PDF enabled, then compare identifier sets: pdftotext docs/Fixed.pdf carries fewer ATM identifiers than docs/Fixed.md, and verify_workable_items.py reports pdf-documents-current FAIL with the missing identifier attributed to the Markdown side.",
+        "reproduction": "Close any item with a reason naming a different HRD identifier, run export with PDF enabled, then compare identifier sets: pdftotext docs/Fixed.pdf carries fewer HRD identifiers than docs/Fixed.md, and verify_workable_items.py reports pdf-documents-current FAIL with the missing identifier attributed to the Markdown side.",
         "severity": "High",
         "status": "Fixed (→ Fixed.md)",
         "title": "Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown",

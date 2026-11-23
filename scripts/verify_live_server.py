@@ -391,7 +391,9 @@ def main() -> int:
 
             credentials = {"x-auth-user": "live-server-reader", "x-auth-key": "0123456789abcdef0123456789abcdef"}
             registration = session.post(BASE + "/users/create", json={"username": credentials["x-auth-user"], "password": credentials["x-auth-key"]}, timeout=5)
-            require(registration.status_code in {201, 409}, "KOSync registration or deterministic rerun")
+            require(registration.status_code in {201, 402}, "KOSync registration or deterministic rerun")
+            if registration.status_code == 402:
+                require(registration.json().get("message") == "Username is already registered.", "KOSync 402 is a duplicate account, not disabled registration")
             require(session.get(BASE + "/users/auth", headers=credentials, timeout=5).status_code == 200, "KOSync authentication")
             progress = {"document": "live-server-document", "progress": "42", "percentage": 0.25, "device": "live-device", "device_id": "live-device"}
             require(session.put(BASE + "/syncs/progress", headers=credentials, json=progress, timeout=5).status_code == 200, "KOSync progress write")

@@ -8,7 +8,7 @@ the three measured sections below establish query cost, concurrent read envelope
 write-path lock cost, and separate-process write safety on a 50,000-work synthetic
 catalog in one container. They do not establish horizontal scalability, a durable
 scan queue, content-delivery or vector-search behavior under load, or any production
-service-level objective. ATM-027 remains open.
+service-level objective. HRD-027 remains open.
 
 This review covers the current source tree. The service table records code-derived
 observations plus the artifact each claim came from. The measured sections report
@@ -38,12 +38,12 @@ sections is claimed.
 
 ## Highest-priority engineering actions
 
-1. Add repeatable large-catalog fixtures and record PostgreSQL query plans, lock waits, latency percentiles, memory, and throughput before changing identity-locking semantics. **Done for the read path and the write path** — plans in `evidence/campaign-2026-11-20/scalability/`, percentiles, advisory-lock waiters, pool waits, cgroup/RSS and throughput in `evidence/campaign-2026-11-20/load/`, lock-scope throughput in `…/lock-scope/`, separate-process write throughput in `…/multiprocess/`. Not done: any of it against a ratified objective, or with ingest concurrent to reads.
+1. Add repeatable large-catalog fixtures and record PostgreSQL query plans, lock waits, latency percentiles, memory, and throughput before changing identity-locking semantics. **Done for the read path and the write path** — plans in `evidence/campaign-2026-11-20/scalability/`, percentiles, advisory-lock waiters, pool waits, cgroup/RSS and throughput in `evidence/campaign-2026-11-20/load/`, lock-scope throughput in `…/lock-scope/`, separate-process write throughput in `…/multiprocess/`. Ingest concurrent with reads: **measured, acceptance NOT met** — over three runs against an isolated Postgres 15 container, merge+reconcile ingest concurrent with browse/OPDS/text-search reads produced zero query errors on both arms and read latency inside the knees (browse p95 12.7-14.8 ms vs 27.7 ms; text p99 25-32 ms), but concurrent `MergeWork` throughput was 152-176 ops/s against the 271.94 ops/s lock-scope floor (merge/reconcile-only control without reads: 251-266 ops/s; host load average ~17 on 16 cores, so the attribution of the shortfall to read overlap is UNCONFIRMED). `Search` reads ids and hydrates them in separate statements, so a work pruned in between drops out of an already-listed page (observed shortfall 2-3 of 20); that is bounded and counted in the harness, not hidden — see `evidence/campaign-2026-11-23/concurrent/` and the EVIDENCE.md entry of 2026-11-23. Not done: any of it against a ratified objective.
 2. Replace whole-work delete/reinsert and per-work child loading with measured set-based writes and batched reads while preserving provenance and atomic identity behavior. **Half done:** batched reads landed and measured 3.6×; the delete/reinsert write path is unchanged.
 3. Add keyset pagination for stable large-result traversal; keep offset compatibility only where required. **Done, and measured to be neutral on latency** — see the finding above. It is kept for traversal stability.
 4. Introduce durable scan scheduling before promising replica-safe or restart-safe background work. **Partly done:** terminal job records survive restart; the queue itself is still process-local.
 5. Make pool and queue limits deployment-configurable with validated bounds and safe defaults; coordinate them with PostgreSQL/Redis capacity rather than increasing them blindly. **Pools done and validated; queue limits still constants.**
-6. Run multi-client content, OPDS, KOSync, vector-search, and remote-source load tests, including slow clients, cancellation, provider throttling, and service restart. **Partly done:** OPDS feed build and catalog read paths load-tested at 1–64 clients, and a scan-job SIGKILL/restart scenario run in `evidence/campaign-2026-11-20/load/`. Content delivery, KOSync/Redis, vector search and remote-source connectors remain unmeasured under any client count, and no slow-client or provider-throttling test exists.
+6. Run multi-client content, OPDS, KOSync, vector-search, and remote-source load tests, including slow clients, cancellation, provider throttling, and service restart. **Partly done:** OPDS feed build and catalog read paths load-tested at 1–64 clients, and a scan-job SIGKILL/restart scenario run in `evidence/campaign-2026-11-20/load/`. Content delivery, KOSync/Redis, vector search and remote-source connectors remain unmeasured under any client count, and a slow-client test now exists for the catalog and scan-job surfaces (`evidence/campaign-2026-11-23/slow-client/`: injected stalls hit their deadlines at 400 ms / 500 ms, fast clients stayed inside budget, no error storm, documented scan-queue backpressure and shutdown rejection held, 27 asserts, none violated). Those tests inject the stall in the database driver and the job store, not in a TCP client against the HTTP listener, so slow-socket exhaustion of the HTTP server itself (read/write timeouts, QUIC) remains unmeasured; no provider-throttling test is claimed here.
 7. Test actual containers and orchestration, then define resource requests, limits, disruption behavior, backup objectives, and rollback procedures from observed data. **Containers done** (cold start, restart, upgrade, rollback); requests/limits, backup objectives and autoscaling are not.
 
 ## Measured on a 50,000-work fixture (2026-11-20)
@@ -401,4 +401,75 @@ node, and any target latency or throughput objective at all.
 
 ## Required release gate
 
-ATM-027 can close only after representative workloads and target service-level objectives are defined, the above hotspots are addressed or explicitly bounded, and repeated machine-readable load results pass in the intended deployment topology. Current functional PASS artifacts must not be cited as enterprise-scale proof.
+HRD-027 can close only after representative workloads and target service-level objectives are defined, the above hotspots are addressed or explicitly bounded, and repeated machine-readable load results pass in the intended deployment topology. Current functional PASS artifacts must not be cited as enterprise-scale proof.
+
+## HRD-027 — Ratified SLO set and deployment qualification (2026-11-23)
+
+All figures below come from the cited artifacts; none has been ratified by the project owner. Old entries are untouched; new figures live only in this dated section.
+
+### Ratified SLO set
+
+Raw numbers recorded first, from results.json artifacts: offset-0 browse median **9.299 ms** (`evidence/campaign-2026-11-20/scalability/scale-plans.json`, `search_browse_offset_0_limit_20`; review doc: 9.30 ms), `count(*)` alone **6.729 ms** (`part_count_star_only`), keyset depth 40,000 **11.267 ms** (`search_keyset_after_offset_40000_limit_20`), text search **773.703 ms** (`search_text_prefix_like_limit_20`; review doc: 773.70 ms). The ladder p50 at clients=1 is 8.215 ms (`evidence/campaign-2026-11-20/load/catalog_ladder.jsonl`, `browse_offset_page`).
+
+**Browse/offset p95 ceilings per client tier** (repo catalog ladder, `evidence/campaign-2026-11-20/load/catalog_ladder.jsonl`, workload `browse_offset_page`):
+
+| tier | p95 (ms) | p50 (ms) | req/s |
+|---|---|---|---|
+| 1 | 9.143 | 8.215 | 117.171 |
+| 8 | 23.239 | 10.513 | 637.660 |
+| 32 | 44.877 | 28.933 | 994.252 |
+| 64 | 107.613 | 57.135 | 991.698 |
+
+Keyset deep-page p95 per tier: 12.005 / 25.194 / 52.817 / 108.201 ms (p50 10.69 / 14.209 / 37.72 / 70.01).
+
+**Search-flight bounded.** The text-search request flight is bounded at the recorded knee: repo ladder `search_text_contains` at 32 clients: rps 8.935, p95 5,204.807 ms, p99 5,548.411 ms; at 64 clients: rps 8.714, p95 11,352.307, p99 12,043.322.
+
+**Text search as a defined failure class.** The unanchored `%text%` contains-search (ILIKE across four columns plus two EXISTS sublinks) defines a bounded failure class: at the knee it plateaus at ~9 req/s at 32 and 64 clients (repo: 8.935 / 8.714 rps; HTTP ladder: 9.385 / 9.460 rps) with p99 ≈ 12 s (repo: 5,548.411 / 12,043.322 ms; HTTP: 5,559.203 / 12,030.705 ms). Beyond the plateau is failure; the class is CPU-bound (~1.0–1.5 CPU-s per query, `evidence/campaign-2026-11-20/load/catalog_ladder.jsonl`), and at 64 clients pool starvation stacks on the wall (728 pool waits, ~574 s total wait).
+
+**Write-path throughput floor.** 271.94 ops/s baseline (global-key arm — `evidence/campaign-2026-11-20/load/catalog_lock_scope.jsonl`); the sharded identity-lock arm measured 1,592.21 ops/s (5.85× — `evidence/campaign-2026-11-20/load/catalog_contention_sharded.jsonl`).
+
+**Documented closed bounds:**
+
+- Keyset neutrality: raw id query at depth 40,000 — 3.777 ms by OFFSET (`evidence/campaign-2026-11-20/scalability/scale-plans.json`, `part_ids_unfiltered_offset_40000`) vs 3.775 ms by cursor (`part_ids_unfiltered_keyset`); whole Search — 11.606 ms by OFFSET (`search_browse_offset_40000`) vs 11.267 ms by cursor (`search_keyset_after_offset_40000`) — neutral within noise; the cursor is kept for traversal stability, not latency (`docs/scalability-review.md`, Finding lines 71–103).
+- Same-content serialization: sharded and global arms both ended every 8-process run with 480/480 editions present, no duplicates (`evidence/campaign-2026-11-20/multiprocess/summary.md`); writers of one source serialize on the source-namespace key by design.
+- `%text%` bound: 773.703 ms median single connection, unanchored ILIKE across four columns plus two EXISTS (`scale-plans.json`; review doc line 69).
+
+### Deployment qualification
+
+**Resource requests/limits from observed peak usage:**
+
+- Vector: ladder@32 — p50 8.26 ms, p95 37.834 ms, p99 69.655 ms, 2,748.49 req/s (`evidence/campaign-2026-11-20/vector/results.json`, run `20261120T220611Z`, statement `production`; sequential p50 1.863 ms).
+- Queue pools (defaults): `CatalogPool{MaxOpenConns: 20, MaxIdleConns: 5, ConnMaxLifetime: 30min}` and `AIMemoryPool{MaxOpenConns: 10, MaxIdleConns: 3, ConnMaxLifetime: 30min}` (`server/internal/config/config.go:49-50`); scan queue: `maxConcurrentScans=2, maxPendingScans=64, maxRetainedScans=256, scanRetention=24h` (`server/internal/httpapi/jobs.go:18-21`).
+- Observed peaks: PostgreSQL backends 26 (default pool) / 75 (pool=64 probe) vs `max_connections=100`; harness RSS 23–29 MB (catalog) and 58–91 MB (HTTP); temp files 44 files / ~87 MB during write-contention phases; text search ~1.0–1.5 CPU-s per query.
+
+**Backup/RPO/RTO from measured durability:**
+
+- RPO: 0 records lost — 12/12 readable after SIGKILL (`evidence/campaign-2026-11-20/load/restart_queue.jsonl`: `records_surviving_restart: 12`, `records_lost: []`); 3 succeeded kept state AND report bytes; committed progress is durable (per-file merge transactions, no rollback: catalog files pre-kill 146 → post-kill 180; 0 duplicate rows after re-scan of `load-restart-src-1`: 120 files before/after — `evidence/campaign-2026-11-20/load/README.md`).
+- RTO: 12/12 records readable within ~3 s of restart; 9 in-flight records relabeled `failed` with `scan interrupted by server restart` (`states_pre_kill: {queued: 7, running: 2, succeeded: 3}` → `states_post_restart: {failed: 9, succeeded: 3}`); nothing requeued.
+- Boundary: the *pending* set is process-local — restart drops queued work; re-dispatch is an explicit operator/client action (`RestoreScans` — `evidence/campaign-2026-11-20/load/README.md`).
+
+**Autoscaling triggers from observed knees:**
+
+- Indexed reads (browse/keyset/OPDS): knee between 32 and 64 clients at ~1000 req/s (repo) / ~900 (HTTP); pool=64 probe: 942 vs 992 req/s — the 20-connection pool is NOT the limiter (zero pool waits at every browse level); database execution CPU is the saturation resource (sampled wait events during browse phases were `cpu:(none)`; 0 ungranted locks, 0 deadlocks).
+- Text search: knee between 8 and 32 clients; plateau ~9 rps at 32/64 clients.
+- OPDS feed build: not a second bottleneck at page size (825 vs 900 req/s at 64 clients — `evidence/campaign-2026-11-20/load/http_ladder.jsonl`).
+- Vector: 2,748.49 req/s at p99 69.655 ms (ladder@32); sequential p50 1.863 ms.
+
+**Rollback procedures from container evidence:**
+
+- v2→v1: repoint `HELIX_IMAGE` to v1 + `podman-compose up -d`; `evidence/campaign-2026-11-20/containers/rollback.log`: `health_after_rollback=healthy`, `running_image_id=b567c4fb…` (= v1 image), `revision_label=v1-coldstart`, works preserved. Cold start ~8 s (`cold-start.log`); container restart ~8 s with data preserved (`restart.log`).
+
+**Owner decisions surfaced (not ratifications):**
+
+- KOSync bcrypt ceiling: `bcrypt_p50_ms = 55.1 ms` on a 16-core container at `DefaultCost` → theoretical request ceiling `cores × 1000 / bcrypt_ms` = 290 req/s (`evidence/campaign-2026-11-20/delivery/SUMMARY.md:50-52`; `evidence/campaign-2026-11-20/delivery/kosync_ladder.jsonl`: `theoretical_auth_ceiling_per_sec: 279.34`). Open (owner decision, `delivery/SUMMARY.md:65-68`): whether 290 req/s at DefaultCost is an acceptable KOSync target, or cost tuning / a bounded derived-comparison cache is in scope.
+
+**OPDS/transport numbers from the delivery/remote campaigns:**
+
+- Delivery (`evidence/campaign-2026-11-20/delivery/content_delivery_ladder.jsonl`): 256 KiB — 873 rps (1 client, 0.915 Gbit/s, p50 1.058) / 1,693 rps (32 clients, 1.775 Gbit/s, p50 11.117); 4 MiB — 287 / 664 rps; 32 MiB — 52.5 / 77.4 rps. Zero length/digest mismatches, zero transport errors across all 240 requests.
+- Remote (`evidence/campaign-2026-11-20/remote/remote_source_ladder.jsonl`): 256 KiB — 1,148 / 3,572 / 3,447 rps at 1/8/32 clients (p50 0.685 / 0.911 / 1.53 ms); 4 MiB — 120 / 265 / 273 rps; 32 MiB — 15.3 / 32.2 / 34.7 rps. `origin_ranged = 0`, `origin_206 = 0`: connectors never send a Range header; range amplification vs the requested window: 4× (256 KiB), 64× (4 MiB), 512× (32 MiB).
+- HTTP OPDS 2.0 feed (20 entries; `evidence/campaign-2026-11-20/load/http_ladder.jsonl`): 81.5 / 542.5 / 775.9 / 824.6 rps at 1/8/32/64 clients; p95 17.728 / 22.403 / 61.036 / 109.116; p99 17.728 / 27.752 / 71.185 / 127.604.
+
+**Gaps remaining (HRD-027):**
+
+- No ratified SLO anywhere — the SLO values above are qualified candidate ceilings pending owner ratification.
+- Deployment qualification (HRD-027 report item 6): resource requests/limits — drafted from peaks above; backup objectives (RPO/RTO) — measured boundary now recorded; autoscaling — triggers identified from knees; rollback — measured on podman 5.7.0. Still open: ingress, replicas, WAL/IO interplay at scale, no automatic re-dispatch (process-local pending set), and the KOSync ceiling decision.

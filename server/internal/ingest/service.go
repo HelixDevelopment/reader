@@ -35,6 +35,9 @@ type Service struct {
 	Identifier    *identify.Pipeline
 	MaxParseBytes int64
 	Now           func() time.Time
+	// LCP, when non-nil, fulfills standalone .lcpl License Documents into
+	// protected EPUB editions. Nil leaves them skipped (the historical behavior).
+	LCP *LCPFulfiller
 
 	reconcileOnce  sync.Once
 	reconcileLocks [64]chan struct{}
@@ -164,6 +167,12 @@ func (s *Service) ScanSource(ctx context.Context, sourceID string, connector sou
 		// catalog reference when the source still lists the file.
 		present = append(present, entry.Path)
 	}
+	lcplSeen := false
+	var lcpScan *LCPScan
+	if s.LCP != nil {
+		lcpScan = s.LCP.BeginScan()
+		defer lcpScan.Close()
+	}
 	touchedWorks := map[string]bool{}
 	max := s.MaxParseBytes
 	if max <= 0 {
@@ -184,6 +193,26 @@ func (s *Service) ScanSource(ctx context.Context, sourceID string, connector sou
 		}
 		if !ok {
 			report.Skipped = append(report.Skipped, SanitizeLocation(entry.Path)+": unrecognized publication extension")
+			continue
+		}
+		if d.Format == formats.Format("lcpl") && s.LCP != nil {
+			lcplSeen = true
+			work, warnings, err := s.ingestLCPL(ctx, lcpScan, sourceID, connector, entry)
+			report.Warnings = append(report.Warnings, warnings...)
+			if err != nil {
+				lcpScan.Release()
+				report.Skipped = append(report.Skipped, SanitizeLocation(entry.Path)+": LCP fulfillment: "+SanitizeError(err))
+				continue
+			}
+			// The artifact stays leased until MergeWork has committed (or failed).
+			merr := s.Repository.MergeWork(ctx, work)
+			lcpScan.Release()
+			if merr != nil {
+				report.Skipped = append(report.Skipped, SanitizeLocation(entry.Path)+": "+SanitizeError(merr))
+				continue
+			}
+			report.Files++
+			touchedWorks[work.ID] = true
 			continue
 		}
 		if d.Format == formats.Format("lcpl") || d.Format == formats.Format("zip") {
@@ -216,6 +245,18 @@ func (s *Service) ScanSource(ctx context.Context, sourceID string, connector sou
 			return report, err
 		}
 		report.Removed = removed
+	}
+	if s.LCP != nil && (reconcile || lcplSeen) && ctx.Err() == nil {
+		// Drop cache files no catalog row references any more (deleted or
+		// re-issued licenses). A failure only leaves files for the next scan.
+		gc, err := s.LCP.Collect(ctx, s.Repository)
+		if err != nil {
+			report.Warnings = append(report.Warnings, "LCP cache cleanup skipped: "+SanitizeError(err))
+		}
+		report.Warnings = append(report.Warnings, gc.Warnings...)
+	}
+	if lcpScan != nil {
+		report.Warnings = append(report.Warnings, lcpScan.Warnings()...)
 	}
 	return report, nil
 }
@@ -254,6 +295,12 @@ func (s *Service) ingestOne(ctx context.Context, sourceID string, connector sour
 			sample = textSample(doc, 32768)
 		}
 	}
+	return s.assemble(ctx, sourceID, entry, d, edition, sample, hash, n, warnings)
+}
+
+// assemble resolves identity and builds the work for one hashed source entry.
+func (s *Service) assemble(ctx context.Context, sourceID string, entry sources.Entry, d formats.Descriptor, edition catalog.Edition, sample, hash string, n int64, warnings []string) (catalog.Work, []string, error) {
+	now := s.clock()
 	if s.Identifier != nil {
 		result, err := s.Identifier.Resolve(ctx, identify.Snapshot{FileName: entry.Name, Embedded: edition, TextSample: sample, ContentSHA256: hash})
 		if err != nil {

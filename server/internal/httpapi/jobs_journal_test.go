@@ -45,7 +45,7 @@ func waitFinished(t *testing.T, store *jobStore, sourceID string, report ingest.
 	return terminal
 }
 
-// TestJournalSurvivesStoreReconstruction is the ATM-027 durability requirement
+// TestJournalSurvivesStoreReconstruction is the HRD-027 durability requirement
 // expressed without a process boundary: the records a finished store wrote must
 // be readable by a fresh store built against the same Redis.
 func TestJournalSurvivesStoreReconstruction(t *testing.T) {

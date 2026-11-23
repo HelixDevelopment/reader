@@ -1,6 +1,6 @@
 package httpapi
 
-// HTTP-level concurrency ladder for ATM-027. This exercises the routes a
+// HTTP-level concurrency ladder for HRD-027. This exercises the routes a
 // client actually hits — /v1/works offset browse, /v1/works deep keyset page,
 // /v1/works text search and the OPDS 2.0 acquisition feed — through the real
 // Gin router and a real TCP listener, with the PostgreSQL catalog seam behind

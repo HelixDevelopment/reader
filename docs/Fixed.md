@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-## [ATM-001] Establish core document, cache, settings, and synchronization primitives
+## [HRD-001] Establish core document, cache, settings, and synchronization primitives
 
 **Status:** Completed (→ Fixed.md)
 
@@ -37,7 +37,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core/final-go-test.log; evidence/core/final-go-race.log; evidence/core/final-go-vet.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/core/final-go-test.log; evidence/core/final-go-race.log; evidence/core/final-go-vet.log
 
-## [ATM-002] Implement multi-format detection and bounded document parsing
+## [HRD-002] Implement multi-format detection and bounded document parsing
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -72,7 +72,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core/final-go-test.log; evidence/core/final-go-fuzz-formats.log; docs/formats.md
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: evidence/core/final-go-test.log; evidence/core/final-go-fuzz-formats.log; docs/formats.md
 
-## [ATM-003] Canonicalize ISBN identity across equivalent representations
+## [HRD-003] Canonicalize ISBN identity across equivalent representations
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -107,7 +107,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: core/isbn/isbn.go; server/internal/ingest/isbn_identity_test.go; evidence/server/final-go-test.log
 - 2026-10-28 — Fixed by AI: evidence-backed-baseline-closure; evidence: core/isbn/isbn.go; server/internal/ingest/isbn_identity_test.go; evidence/server/final-go-test.log
 
-## [ATM-004] Index local and remote libraries in place without reorganizing source bytes
+## [HRD-004] Index local and remote libraries in place without reorganizing source bytes
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -142,7 +142,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/sources; docs/sources.md; evidence/server/final-go-test.log
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: server/internal/sources; docs/sources.md; evidence/server/final-go-test.log
 
-## [ATM-005] Make OPDS acquisition identity collision-safe and atomically replaceable
+## [HRD-005] Make OPDS acquisition identity collision-safe and atomically replaceable
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -177,7 +177,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/sources/opds.go; server/internal/sources/opds_test.go; evidence/server/final-go-test.log
 - 2026-10-28 — Fixed by AI: evidence-backed-baseline-closure; evidence: server/internal/sources/opds.go; server/internal/sources/opds_test.go; evidence/server/final-go-test.log
 
-## [ATM-006] Revalidate content before strong ETag and byte-range responses
+## [HRD-006] Revalidate content before strong ETag and byte-range responses
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -212,7 +212,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/sources/local.go; server/internal/httpapi/content_test.go; evidence/server/final-go-test.log
 - 2026-10-28 — Fixed by AI: evidence-backed-baseline-closure; evidence: server/internal/sources/local.go; server/internal/httpapi/content_test.go; evidence/server/final-go-test.log
 
-## [ATM-007] Preserve persistent HTTP connections during identity compression fallback
+## [HRD-007] Preserve persistent HTTP connections during identity compression fallback
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -247,7 +247,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/live-server/post-fix-repeat-01/results.json; evidence/live-server/post-fix-daemon-restart/results.json; evidence/go-mutation/results.json
 - 2026-10-28 — Fixed by AI: evidence-backed-baseline-closure; evidence: evidence/live-server/post-fix-repeat-01/results.json; evidence/live-server/post-fix-daemon-restart/results.json; evidence/go-mutation/results.json
 
-## [ATM-008] Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports
+## [HRD-008] Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -282,7 +282,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/live-transport/final-current-tree/results.json; docs/deployment.md
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: evidence/live-transport/final-current-tree/results.json; docs/deployment.md
 
-## [ATM-009] Reconcile durable PostgreSQL catalogs atomically after source scans
+## [HRD-009] Reconcile durable PostgreSQL catalogs atomically after source scans
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -317,7 +317,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/catalog/postgres.go; evidence/server/final-go-live-services.log
 - 2026-10-28 — Fixed by AI: evidence-backed-baseline-closure; evidence: server/internal/catalog/postgres.go; evidence/server/final-go-live-services.log
 
-## [ATM-010] Implement monotonic KOReader progress synchronization with Redis
+## [HRD-010] Implement monotonic KOReader progress synchronization with Redis
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -352,7 +352,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/kosync; evidence/server/final-go-live-services.log
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: server/internal/kosync; evidence/server/final-go-live-services.log
 
-## [ATM-011] Deliver an honest responsive web catalog prototype
+## [HRD-011] Deliver an honest responsive web catalog prototype
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -387,7 +387,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/ui/final-npm-build.log; evidence/ui/final-run.log
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: evidence/ui/final-npm-build.log; evidence/ui/final-run.log
 
-## [ATM-012] Establish repeatable deterministic core and server qualification
+## [HRD-012] Establish repeatable deterministic core and server qualification
 
 **Status:** Completed (→ Fixed.md)
 
@@ -422,7 +422,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core; evidence/server; docs/testing/results
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/core; evidence/server; docs/testing/results
 
-## [ATM-013] Fuzz all exposed format and byte-range parsers
+## [HRD-013] Fuzz all exposed format and byte-range parsers
 
 **Status:** Completed (→ Fixed.md)
 
@@ -457,7 +457,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core/final-go-fuzz-formats.log; evidence/core/final-go-fuzz-cbz.log; evidence/core/final-go-fuzz-epub.log; evidence/core/final-go-fuzz-fb2.log; evidence/core/final-go-fuzz-mobi.log; evidence/core/final-go-fuzz-txt.log; evidence/server/final-go-fuzz-single-range.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/core/final-go-fuzz-formats.log; evidence/core/final-go-fuzz-cbz.log; evidence/core/final-go-fuzz-epub.log; evidence/core/final-go-fuzz-fb2.log; evidence/core/final-go-fuzz-mobi.log; evidence/core/final-go-fuzz-txt.log; evidence/server/final-go-fuzz-single-range.log
 
-## [ATM-014] Prove regression tests reject targeted restoration of fixed defects
+## [HRD-014] Prove regression tests reject targeted restoration of fixed defects
 
 **Status:** Completed (→ Fixed.md)
 
@@ -492,7 +492,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/go-mutation/results.json; evidence/go-mutation/final-verifier.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/go-mutation/results.json; evidence/go-mutation/final-verifier.log
 
-## [ATM-015] Exercise real PostgreSQL, pgvector, and Redis integrations
+## [HRD-015] Exercise real PostgreSQL, pgvector, and Redis integrations
 
 **Status:** Completed (→ Fixed.md)
 
@@ -527,7 +527,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/server/final-go-live-services.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/server/final-go-live-services.log
 
-## [ATM-016] Verify backup and restore recovery against the current tree
+## [HRD-016] Verify backup and restore recovery against the current tree
 
 **Status:** Completed (→ Fixed.md)
 
@@ -562,7 +562,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/backup-restore/final-current-tree/results.json
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/backup-restore/final-current-tree/results.json
 
-## [ATM-017] Prevent credentials and sensitive values from entering source and evidence
+## [HRD-017] Prevent credentials and sensitive values from entering source and evidence
 
 **Status:** Completed (→ Fixed.md)
 
@@ -597,7 +597,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: AGENTS.md; CLAUDE.md; spec/00_constitution.md; server/internal/sources/http.go
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: AGENTS.md; CLAUDE.md; spec/00_constitution.md; server/internal/sources/http.go
 
-## [ATM-018] Keep deterministic metadata evidence authoritative over AI proposals
+## [HRD-018] Keep deterministic metadata evidence authoritative over AI proposals
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -632,7 +632,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: server/internal/identify; server/internal/ingest; docs/architecture.md
 - 2026-10-28 — Implemented by AI: evidence-backed-baseline-closure; evidence: server/internal/identify; server/internal/ingest; docs/architecture.md
 
-## [ATM-024] Qualify containerized build, deployment, restart, and distribution workflows
+## [HRD-024] Qualify containerized build, deployment, restart, and distribution workflows
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -668,9 +668,9 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-11-20 — Updated by AI: registry-detail-update; evidence: none recorded
 - 2026-11-20 — Updated by AI: description already records build/cold-start/restart/upgrade/rollback PASS in evidence/campaign-2026-11-20/containers/; Queued understated work that has landed and machine evidence; evidence: evidence/campaign-2026-11-20/containers/results.json
 - 2026-11-20 — Updated by AI: second-pass distribution and compose evidence captured; evidence: none recorded
-- 2026-11-20 — Implemented by AI: all six acceptance dimensions executed in a real container runtime; docker-compose CLI and hosted-registry signing residuals moved to ATM-034; evidence: evidence/campaign-2026-11-20/containers/distribution.log; evidence/campaign-2026-11-20/containers/results.json; evidence/campaign-2026-11-20/containers/summary.md; evidence/campaign-2026-11-20/containers/run-distribution-and-compose.sh; evidence/campaign-2026-11-20/containers/run-digest-and-auth-probes.sh; evidence/campaign-2026-11-20/containers/build.log; evidence/campaign-2026-11-20/containers/cold-start.log; evidence/campaign-2026-11-20/containers/restart.log; evidence/campaign-2026-11-20/containers/upgrade.log; evidence/campaign-2026-11-20/containers/rollback.log; deploy/docker-compose.yml; server/Dockerfile
+- 2026-11-20 — Implemented by AI: all six acceptance dimensions executed in a real container runtime; docker-compose CLI and hosted-registry signing residuals moved to HRD-034; evidence: evidence/campaign-2026-11-20/containers/distribution.log; evidence/campaign-2026-11-20/containers/results.json; evidence/campaign-2026-11-20/containers/summary.md; evidence/campaign-2026-11-20/containers/run-distribution-and-compose.sh; evidence/campaign-2026-11-20/containers/run-digest-and-auth-probes.sh; evidence/campaign-2026-11-20/containers/build.log; evidence/campaign-2026-11-20/containers/cold-start.log; evidence/campaign-2026-11-20/containers/restart.log; evidence/campaign-2026-11-20/containers/upgrade.log; evidence/campaign-2026-11-20/containers/rollback.log; deploy/docker-compose.yml; server/Dockerfile
 
-## [ATM-028] Operate the SQLite workable-items single source of truth and synchronized exports
+## [HRD-028] Operate the SQLite workable-items single source of truth and synchronized exports
 
 **Status:** Completed (→ Fixed.md)
 
@@ -706,7 +706,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Updated by AI: tracker-qualification-completed; evidence: none recorded
 - 2026-10-28 — Completed by AI: real-sqlite-and-mutation-qualification-passed; evidence: evidence/workable-items/results.json; evidence/workable-items/final-verifier.log; evidence/workable-items/pdf-qa
 
-## [ATM-030] Publish all current test results and limitations under docs/testing/results
+## [HRD-030] Publish all current test results and limitations under docs/testing/results
 
 **Status:** Completed (→ Fixed.md)
 
@@ -742,7 +742,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Updated by AI: unified-results-publication-completed; evidence: none recorded
 - 2026-10-28 — Completed by AI: all-current-result-surfaces-published; evidence: docs/testing/results/summary.json; docs/testing/results/index.md; scripts/publish_test_results.py
 
-## [ATM-032] Complete rendering, conversion, and content-AI fulfillment for every required format
+## [HRD-032] Complete rendering, conversion, and content-AI fulfillment for every required format
 
 **Status:** Implemented (→ Fixed.md)
 
@@ -777,7 +777,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/formats.md; Additional_Formats_We_MUST_Support.jpg
 - 2026-11-20 — Implemented by AI: matrix cells each backed by a passing test or an explicit NOT IMPLEMENTED; guard tests pin the matrix against the code; evidence: docs/formats.md; evidence/campaign-2026-11-20/formats/; core/formats/formats_test.go(TestMatrixNeverOutrunsTheCode,TestSameFormatRepackIsHonest)
 
-## [ATM-035] Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown
+## [HRD-035] Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown
 
 **Status:** Fixed (→ Fixed.md)
 
@@ -787,11 +787,11 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** The registry generator rendered the audit trail only into Markdown. render_item emitted the item_history block, the Reopened-Details line and the Operator-Block-Details line, while html_documents enumerated six item fields and pdf_documents seven, in both cases with no history and no lifecycle detail. The consequence surfaced as a failed qualification gate rather than as a review finding: closing ATM-024 with a reason that named ATM-034 put that identifier into Fixed.md, and scripts/verify_workable_items.py check pdf-documents-current, which extracts ATM identifiers from each PDF with pdftotext and requires the set its Markdown sibling carries, reported Fixed.pdf as stale even though export had written it one second earlier. The PDF was current and simply did not render the text, so the gate was describing a generator defect as a currency defect. Fixed by giving all three long-form renderers one source of truth: long_form_fields(item, db) returns every label and value an item carries, including conditional reopen and operator-block details, and history_lines(db, atm_id) formats the audit trail once for Markdown, HTML and PDF.
+**Description:** The registry generator rendered the audit trail only into Markdown. render_item emitted the item_history block, the Reopened-Details line and the Operator-Block-Details line, while html_documents enumerated six item fields and pdf_documents seven, in both cases with no history and no lifecycle detail. The consequence surfaced as a failed qualification gate rather than as a review finding: closing HRD-024 with a reason that named HRD-034 put that identifier into Fixed.md, and scripts/verify_workable_items.py check pdf-documents-current, which extracts HRD identifiers from each PDF with pdftotext and requires the set its Markdown sibling carries, reported Fixed.pdf as stale even though export had written it one second earlier. The PDF was current and simply did not render the text, so the gate was describing a generator defect as a currency defect. Fixed by giving all three long-form renderers one source of truth: long_form_fields(item, db) returns every label and value an item carries, including conditional reopen and operator-block details, and history_lines(db, atm_id) formats the audit trail once for Markdown, HTML and PDF.
 
 **Affected scope:** scripts/workable_items.py render_item, html_documents and pdf_documents; scripts/verify_workable_items.py mutation cases; tests/test_workable_items.py; every derived document under docs/.
 
-**Reproduction / current observation:** Close any item with a reason naming a different ATM identifier, run export with PDF enabled, then compare identifier sets: pdftotext docs/Fixed.pdf carries fewer ATM identifiers than docs/Fixed.md, and verify_workable_items.py reports pdf-documents-current FAIL with the missing identifier attributed to the Markdown side.
+**Reproduction / current observation:** Close any item with a reason naming a different HRD identifier, run export with PDF enabled, then compare identifier sets: pdftotext docs/Fixed.pdf carries fewer HRD identifiers than docs/Fixed.md, and verify_workable_items.py reports pdf-documents-current FAIL with the missing identifier attributed to the Markdown side.
 
 **Acceptance:** Markdown, HTML and PDF long-form documents each render every field long_form_fields returns plus the full item history; tests.test_workable_items.test_derived_documents_carry_history_and_lifecycle_details passes against the generator and fails against a copy whose HTML history call is removed, that copy being registered as the html-history-gate mutation case; verify_workable_items.py reports pdf-documents-current PASS with equal identifier sets for Issues and Fixed.
 
@@ -799,7 +799,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Evidence:** scripts/workable_items.py(long_form_fields, history_lines); tests/test_workable_items.py(test_derived_documents_carry_history_and_lifecycle_details); scripts/verify_workable_items.py(html-history-gate mutation case); evidence/workable-items/results-2026-11-20T2036-before-pdf-history-fix.json; evidence/campaign-2026-11-20/containers/distribution.log
 
-**Forensic anchor:** pdf-documents-current FAIL during the 2026-11-20 ATM-024 documentation export
+**Forensic anchor:** pdf-documents-current FAIL during the 2026-11-20 HRD-024 documentation export
 
 **Composes with:** None recorded
 

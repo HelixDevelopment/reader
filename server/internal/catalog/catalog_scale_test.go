@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-// Large-catalog qualification for ATM-027. This is synthetic data seeded with a
+// Large-catalog qualification for HRD-027. This is synthetic data seeded with a
 // fixed number of bulk statements; it establishes what the query shapes cost at
 // volume, not what a particular user's library costs. Results are printed as one
 // JSON line prefixed SCALE so a runner can capture them without reformatting Go

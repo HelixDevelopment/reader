@@ -61,7 +61,7 @@ The exact first assistant reply is unavailable. The inherited record shows that 
 - The original uploaded research inputs remain outside the code tree; their current research output is indexed under [`helix/research/`](helix/research/).
 - Current source connectors are under [`helix/server/internal/sources/`](helix/server/internal/sources/), while shared source primitives are under [`helix/core/sources/`](helix/core/sources/) and [`helix/core/pkg/source/`](helix/core/pkg/source/).
 - Current format code is split between [`helix/core/formats/`](helix/core/formats/) and the bounded parsers in [`helix/core/pkg/parse/`](helix/core/pkg/parse/).
-- Final packaging remains an open tracked item, not an accomplished result; see ATM-033 in [`helix/docs/Issues.md`](helix/docs/Issues.md).
+- Final packaging remains an open tracked item, not an accomplished result; see HRD-033 in [`helix/docs/Issues.md`](helix/docs/Issues.md).
 
 ## 4. M1 foundation — 2026-10-14
 
@@ -408,7 +408,7 @@ db.execute("PRAGMA journal_mode=WAL")
 db.execute("PRAGMA synchronous=FULL")
 ```
 
-Validation covered ATM identifiers, type/status/severity vocabularies, location, type-aware closure wording, comprehensive descriptions, closure evidence, reopen attribution, operator-block exhaustion details, reopen counts, gapless IDs, and foreign keys.
+Validation covered HRD identifiers, type/status/severity vocabularies, location, type-aware closure wording, comprehensive descriptions, closure evidence, reopen attribution, operator-block exhaustion details, reopen counts, gapless IDs, and foreign keys.
 
 Lifecycle operations included add, update, close, reopen, and operator block. Closure status was derived from item type. `reopen_details.atm_id` was corrected from `INTEGER` to `TEXT` before creation of the real registry.
 
@@ -443,7 +443,7 @@ The outbox always recorded:
 "remote_status": "NOT RUN"
 ```
 
-No exact remote API mapping or credential verification had occurred. ATM-028 (tracker implementation) and ATM-030 (unified result publication) were closed as completed tasks; ATM-029 (real bidirectional HelixTrack synchronization) remained open.
+No exact remote API mapping or credential verification had occurred. HRD-028 (tracker implementation) and HRD-030 (unified result publication) were closed as completed tasks; HRD-029 (real bidirectional HelixTrack synchronization) remained open.
 
 ### Current-codebase notes
 
@@ -549,7 +549,7 @@ At the latest pre-history checkpoint, the build had progressed through many cont
 - Real bank-runner entry point: [`helix/submodules/qa/cmd/helixqa-bank-session/main.go`](helix/submodules/qa/cmd/helixqa-bank-session/main.go)
 - Existing build-failure evidence: [`helix/evidence/helixqa-build-test.log`](helix/evidence/helixqa-build-test.log)
 - Exact-archive build campaign log: [`helix/evidence/helixqa-archive-build.log`](helix/evidence/helixqa-archive-build.log)
-- Open tracker item: ATM-021 in [`helix/docs/Issues.md`](helix/docs/Issues.md)
+- Open tracker item: HRD-021 in [`helix/docs/Issues.md`](helix/docs/Issues.md)
 
 ## 12. Context-preservation requests and inherited continuation record
 
@@ -653,7 +653,7 @@ Additional provenance notes from the completion report:
 - Backend analyses: [`helix/research/backend_analysis/`](helix/research/backend_analysis/)
 - Client analyses: [`helix/research/client_analysis/`](helix/research/client_analysis/)
 - File ledgers: [`helix/research/file_evidence/`](helix/research/file_evidence/)
-- The manual-review task remains ATM-020 in [`helix/docs/Issues.md`](helix/docs/Issues.md); its wording still reflects the earlier 106-repository checkpoint and needs reconciliation with the newer automated summary.
+- The manual-review task remains HRD-020 in [`helix/docs/Issues.md`](helix/docs/Issues.md); its wording still reflects the earlier 106-repository checkpoint and needs reconciliation with the newer automated summary.
 
 ## 15. Current history-export request — 2026-10-29
 
@@ -706,7 +706,7 @@ This map is deliberately about the **latest accessible codebase**, not about rec
 | Native Android/iOS readers | [`helix/docs/testing/results/index.md`](helix/docs/testing/results/index.md) | **NOT DELIVERED.** |
 | Low-end and workstation device demos | [`helix/docs/testing/results/index.md`](helix/docs/testing/results/index.md) | Browser viewports only; hardware matrix incomplete. |
 | Container build/deploy/restart | [`helix/deploy/docker-compose.yml`](helix/deploy/docker-compose.yml), [`helix/server/Dockerfile`](helix/server/Dockerfile) | Recipes exist; runtime cold start/restart/upgrade/rollback **NOT RUN**. |
-| Firebase distribution | ATM-025 in [`helix/docs/Issues.md`](helix/docs/Issues.md) | Project-bound execution **NOT RUN**; the tracker’s inherited `docs/deployment.md` reference is absent from the latest tree. |
+| Firebase distribution | HRD-025 in [`helix/docs/Issues.md`](helix/docs/Issues.md) | Project-bound execution **NOT RUN**; the tracker’s inherited `docs/deployment.md` reference is absent from the latest tree. |
 | SQLite workable-items registry | [`helix/docs/workable_items.db`](helix/docs/workable_items.db), [`helix/scripts/workable_items.py`](helix/scripts/workable_items.py) | Real registry, lifecycle, recovery, stress, and mutation qualification passed. |
 | Markdown/HTML/PDF tracker exports | [`helix/docs/`](helix/docs/) | Exports generated; final PDF visual QA must be refreshed after changes. |
 | HelixTrack remote synchronization | [`helix/docs/tracking/helixtrack-outbox.json`](helix/docs/tracking/helixtrack-outbox.json) | Offline outbox only; remote push/pull **NOT RUN**. |
@@ -714,8 +714,8 @@ This map is deliberately about the **latest accessible codebase**, not about rec
 | Manual architecture/code/license review | [`helix/research/`](helix/research/) | **PENDING**; automated keyword evidence is not a porting decision. |
 | HelixQA incorporation | [`helix/submodules/qa/`](helix/submodules/qa/) | Exact-source build campaign ongoing at checkpoint; no runner or challenge pass yet. |
 | Enterprise scalability | [`helix/docs/scalability-review.md`](helix/docs/scalability-review.md) | Risks documented; representative load and multi-node qualification **NOT RUN**. |
-| OPDS-PSE and LCP | [`helix/docs/api.md`](helix/docs/api.md), [`helix/docs/faq.md`](helix/docs/faq.md) | Open ATM-031; no fulfillment claim. |
-| Full rendering/conversion/AI/DRM matrix | ATM-032 in [`helix/docs/Issues.md`](helix/docs/Issues.md) | Open; detection must not be inflated into fulfillment. The inherited `docs/formats.md` reference is absent from the latest tree. |
+| OPDS-PSE and LCP | [`helix/docs/api.md`](helix/docs/api.md), [`helix/docs/faq.md`](helix/docs/faq.md) | Open HRD-031; no fulfillment claim. |
+| Full rendering/conversion/AI/DRM matrix | HRD-032 in [`helix/docs/Issues.md`](helix/docs/Issues.md) | Open; detection must not be inflated into fulfillment. The inherited `docs/formats.md` reference is absent from the latest tree. |
 | Independent specialized reviews | [`helix/docs/testing/results/index.md`](helix/docs/testing/results/index.md) | Not completed as a comprehensive independent release gate. |
 | Secret scanning and final clean-room package | [`helix/docs/testing/results/index.md`](helix/docs/testing/results/index.md) | Final qualification **NOT RUN**; fresh final archives withheld. |
 
@@ -786,44 +786,44 @@ These titles and statuses are extracted from the current generated Markdown expo
 
 | ID | Title | Current recorded status |
 |---|---|---|
-| ATM-019 | Complete revision-pinned research for every deduplicated reader repository | In progress |
-| ATM-020 | Perform manual architecture, code, license, and innovation review of indexed repositories | Queued |
-| ATM-021 | Build and execute Helix-specific HelixQA challenge banks | In progress |
-| ATM-022 | Deliver catalog and reader clients for native desktop, mobile, and workstation platforms | Queued |
-| ATM-023 | Provide interactive demonstrations across the platform and device matrix | Queued |
-| ATM-024 | Qualify containerized build, deployment, restart, and distribution workflows | Queued |
-| ATM-025 | Configure and validate Firebase distribution without treating configuration as deployment | Queued |
-| ATM-026 | Validate interoperability on real readers, OPDS clients, and remote providers | Queued |
-| ATM-027 | Remove catalog and API scalability bottlenecks under measured enterprise loads | In progress |
-| ATM-029 | Implement verified bidirectional HelixTrack synchronization | In progress |
-| ATM-031 | Implement OPDS-PSE, LCP fulfillment, and remaining external reader integrations | Queued |
-| ATM-032 | Complete rendering, conversion, and content-AI fulfillment for every required format | Queued |
-| ATM-033 | Run final clean qualification and produce fresh ZIP and tar.gz archives | Queued |
+| HRD-019 | Complete revision-pinned research for every deduplicated reader repository | In progress |
+| HRD-020 | Perform manual architecture, code, license, and innovation review of indexed repositories | Queued |
+| HRD-021 | Build and execute Helix-specific HelixQA challenge banks | In progress |
+| HRD-022 | Deliver catalog and reader clients for native desktop, mobile, and workstation platforms | Queued |
+| HRD-023 | Provide interactive demonstrations across the platform and device matrix | Queued |
+| HRD-024 | Qualify containerized build, deployment, restart, and distribution workflows | Queued |
+| HRD-025 | Configure and validate Firebase distribution without treating configuration as deployment | Queued |
+| HRD-026 | Validate interoperability on real readers, OPDS clients, and remote providers | Queued |
+| HRD-027 | Remove catalog and API scalability bottlenecks under measured enterprise loads | In progress |
+| HRD-029 | Implement verified bidirectional HelixTrack synchronization | In progress |
+| HRD-031 | Implement OPDS-PSE, LCP fulfillment, and remaining external reader integrations | Queued |
+| HRD-032 | Complete rendering, conversion, and content-AI fulfillment for every required format | Queued |
+| HRD-033 | Run final clean qualification and produce fresh ZIP and tar.gz archives | Queued |
 
 ### Closed items
 
 | ID | Title | Current recorded status |
 |---|---|---|
-| ATM-001 | Establish core document, cache, settings, and synchronization primitives | Completed (→ Fixed.md) |
-| ATM-002 | Implement multi-format detection and bounded document parsing | Implemented (→ Fixed.md) |
-| ATM-003 | Canonicalize ISBN identity across equivalent representations | Fixed (→ Fixed.md) |
-| ATM-004 | Index local and remote libraries in place without reorganizing source bytes | Implemented (→ Fixed.md) |
-| ATM-005 | Make OPDS acquisition identity collision-safe and atomically replaceable | Fixed (→ Fixed.md) |
-| ATM-006 | Revalidate content before strong ETag and byte-range responses | Fixed (→ Fixed.md) |
-| ATM-007 | Preserve persistent HTTP connections during identity compression fallback | Fixed (→ Fixed.md) |
-| ATM-008 | Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports | Implemented (→ Fixed.md) |
-| ATM-009 | Reconcile durable PostgreSQL catalogs atomically after source scans | Fixed (→ Fixed.md) |
-| ATM-010 | Implement monotonic KOReader progress synchronization with Redis | Implemented (→ Fixed.md) |
-| ATM-011 | Deliver an honest responsive web catalog prototype | Implemented (→ Fixed.md) |
-| ATM-012 | Establish repeatable deterministic core and server qualification | Completed (→ Fixed.md) |
-| ATM-013 | Fuzz all exposed format and byte-range parsers | Completed (→ Fixed.md) |
-| ATM-014 | Prove regression tests reject targeted restoration of fixed defects | Completed (→ Fixed.md) |
-| ATM-015 | Exercise real PostgreSQL, pgvector, and Redis integrations | Completed (→ Fixed.md) |
-| ATM-016 | Verify backup and restore recovery against the current tree | Completed (→ Fixed.md) |
-| ATM-017 | Prevent credentials and sensitive values from entering source and evidence | Completed (→ Fixed.md) |
-| ATM-018 | Keep deterministic metadata evidence authoritative over AI proposals | Implemented (→ Fixed.md) |
-| ATM-028 | Operate the SQLite workable-items single source of truth and synchronized exports | Completed (→ Fixed.md) |
-| ATM-030 | Publish all current test results and limitations under docs/testing/results | Completed (→ Fixed.md) |
+| HRD-001 | Establish core document, cache, settings, and synchronization primitives | Completed (→ Fixed.md) |
+| HRD-002 | Implement multi-format detection and bounded document parsing | Implemented (→ Fixed.md) |
+| HRD-003 | Canonicalize ISBN identity across equivalent representations | Fixed (→ Fixed.md) |
+| HRD-004 | Index local and remote libraries in place without reorganizing source bytes | Implemented (→ Fixed.md) |
+| HRD-005 | Make OPDS acquisition identity collision-safe and atomically replaceable | Fixed (→ Fixed.md) |
+| HRD-006 | Revalidate content before strong ETag and byte-range responses | Fixed (→ Fixed.md) |
+| HRD-007 | Preserve persistent HTTP connections during identity compression fallback | Fixed (→ Fixed.md) |
+| HRD-008 | Provide HTTP/1.1, HTTP/2, HTTP/3, TLS, and content negotiation transports | Implemented (→ Fixed.md) |
+| HRD-009 | Reconcile durable PostgreSQL catalogs atomically after source scans | Fixed (→ Fixed.md) |
+| HRD-010 | Implement monotonic KOReader progress synchronization with Redis | Implemented (→ Fixed.md) |
+| HRD-011 | Deliver an honest responsive web catalog prototype | Implemented (→ Fixed.md) |
+| HRD-012 | Establish repeatable deterministic core and server qualification | Completed (→ Fixed.md) |
+| HRD-013 | Fuzz all exposed format and byte-range parsers | Completed (→ Fixed.md) |
+| HRD-014 | Prove regression tests reject targeted restoration of fixed defects | Completed (→ Fixed.md) |
+| HRD-015 | Exercise real PostgreSQL, pgvector, and Redis integrations | Completed (→ Fixed.md) |
+| HRD-016 | Verify backup and restore recovery against the current tree | Completed (→ Fixed.md) |
+| HRD-017 | Prevent credentials and sensitive values from entering source and evidence | Completed (→ Fixed.md) |
+| HRD-018 | Keep deterministic metadata evidence authoritative over AI proposals | Implemented (→ Fixed.md) |
+| HRD-028 | Operate the SQLite workable-items single source of truth and synchronized exports | Completed (→ Fixed.md) |
+| HRD-030 | Publish all current test results and limitations under docs/testing/results | Completed (→ Fixed.md) |
 
 # Part IV — Automated research inventory
 
@@ -1018,7 +1018,7 @@ While checking links for this history, three inherited tracker references were f
 - `docs/deployment.md`;
 - `docs/formats.md`.
 
-They remain visible in historical/tracker discussion where necessary, but the clickable current-code notes use existing entry points such as [`helix/README.md`](helix/README.md), [`helix/docs/api.md`](helix/docs/api.md), and the relevant ATM item in [`helix/docs/Issues.md`](helix/docs/Issues.md). Their absence is not silently treated as completed documentation.
+They remain visible in historical/tracker discussion where necessary, but the clickable current-code notes use existing entry points such as [`helix/README.md`](helix/README.md), [`helix/docs/api.md`](helix/docs/api.md), and the relevant HRD item in [`helix/docs/Issues.md`](helix/docs/Issues.md). Their absence is not silently treated as completed documentation.
 
 This is a current-tree observation, not a claim that those files never existed in an older version.
 
@@ -1045,3 +1045,7 @@ This is a current-tree observation, not a claim that those files never existed i
 This history is as comprehensive as the accessible record permits, but it is **not a complete verbatim archive of every session**. Its central compromise is explicit: detailed reconstruction is supplied where dialogue is missing, while verbatim status is reserved for wording that actually survived. Current-codebase links were checked against the latest accessible tree, and known broken inherited documentation references are disclosed.
 
 A genuinely complete verbatim edition would require exporting the original chat transcripts from the conversation platform and merging them with this document. Until then, no missing prompt or response has been fabricated to fill the gaps.
+
+## 20. HRD-019 re-pin probe (2026-11-23)
+
+All 18 outstanding pins (14 unavailable local checkouts, 4 revision mismatches) were re-fetched by SHA from upstream and their git trees match the recorded analysis trees (18/18). The four mismatches are checkouts that advanced past the analysis pin (bookorbit, open-reading, sigmaos-xreader: pin is an ancestor of the checkout) or an orphaned pin (koodo-reader: pin not in any branch, still fetchable by SHA). Details: [`repin_recovery_2026-11-23.md`](repin_recovery_2026-11-23.md); evidence under `evidence/campaign-2026-11-23/research/`. Manual review (HRD-020) remains pending; HRD-019 stays In progress until checkouts are materialized and the summary regenerated.

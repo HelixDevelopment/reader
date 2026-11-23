@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-// TestLivePostgresBatchLoadMatchesRowByRow pins the ATM-027 read-path rewrite:
+// TestLivePostgresBatchLoadMatchesRowByRow pins the HRD-027 read-path rewrite:
 // the constant-round-trip loader must describe exactly what the per-work loader
 // describes, including ordering and empty-versus-nil child semantics.
 //

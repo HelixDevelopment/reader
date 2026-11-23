@@ -29,6 +29,7 @@ A registered format or protocol is not a claim that every external engine, provi
 | GET | `/v1/editions/{id}` | OPDS Basic when configured | Edition or `404` |
 | GET, HEAD | `/v1/covers/{id}` | OPDS Basic when configured | Validated cached cover or metadata without a body |
 | GET, HEAD | `/v1/files/{id}/content` | OPDS Basic when configured | Original bytes with ETag and single-range support |
+| GET, HEAD | `/v1/files/{id}/license` | OPDS Basic when configured | LCP License Document (`application/vnd.readium.lcp.license.v1.0+json`) for a fulfilled `.lcpl` file, taken from the license embedded in the hash-verified cached artifact (not the live source file); `404` for any other file, `409` when the artifact is missing or fails verification |
 | DELETE | `/v1/works/{id}` | Admin | `204` or `404` |
 
 Content responses use safe attachment disposition. Local GET responses open the file first and read size/modification time from that same descriptor, then stream or seek through it, preventing path replacement between validation and reading; HEAD uses a fresh metadata stat. Post-scan growth or shrinkage therefore cannot make Helix emit a stale catalogued length. While live size and modification time still match the scan record (compared at PostgreSQL microsecond precision), responses include `Accept-Ranges: bytes` and a SHA-256-derived strong ETag. Changed files instead receive a full `200` without the stale ETag or ranges, preventing an old `If-Range` validator from splicing different bytes. Connectors without live revalidation use a full `200` without `Content-Length`, ETag, or ranges. Multi-range requests and mismatched `If-Range` validators also receive the complete representation. Invalid or unsatisfiable single-range requests against an unchanged file return `416` with `Content-Range: bytes */{live-size}`. HEAD returns the corresponding headers without opening the file. Attachments and already-compressed media remain identity-encoded. A disconnected source returns `409`; a file deleted at the connected source returns `404`.
@@ -88,6 +89,8 @@ All OPDS routes use OPDS Basic authentication when configured.
 
 Feeds include acquisition and cover links where available. An OPDS 1.2 entry also carries a Page Streaming Extension link (`rel="http://vaemendis.net/opds-pse/stream"`, with `pse:count` and `pse:type`) when the file's pages are all provably the same image type: CBZ only, unprotected, catalogued size still matching the source, and a type read from the page payloads rather than the entry names. Everything else is served whole-file only, and no OPDS 2.0 form of the extension is emitted. The href carries `{pageNumber}` and no `{maxWidth}`, because the server does not resize. `pse:lastRead` and `pse:lastReadDate` are validated when parsed (the date must be an Atom date construct) and never emitted: read state lives on the internal progress routes, not in the feed. Page routes need the same OPDS credentials as the feeds; out-of-range pages answer `404` naming the valid range, non-integer pages `400`, and a file that changed since it was scanned `409`.
 
+A file fulfilled from an LCP license (see `docs/formats.md`, *LCP license fulfillment*) is advertised as a direct acquisition of the fulfilled, still LCP-encrypted EPUB (`type="application/epub+zip"`, `/v1/files/{id}/content`, served from the server's LCP cache after its SHA-256 is verified against the catalog (409 on mismatch), with ETag and single-range support) plus a `rel="related"` link to its License Document (deliberate: Readium LCP documentation shows an LCPL as an `http://opds-spec.org/acquisition` link of the license type, but a reader following that would fetch the provider origin itself; here the server already fulfilled it, so the EPUB is the acquisition and the license is a companion. UNCONFIRMED whether a given reader expects the Readium form) (`/v1/files/{id}/license`) in OPDS 1.2 and 2.0. It is not an OPDS indirect-acquisition link: the server has already done the fetch step. The server does not decrypt; the License Document holds no passphrase, only the hint, key check and the content key sealed under the user key. Fulfillment is enabled only with `HELIX_LCP_CACHE_DIR`; when it is unset `.lcpl` files are skipped, and a catalogued fulfilled file whose cache entry is missing answers `409` until the source is rescanned.
+
 ## Internal reading progress
 
 These routes require admin Bearer authentication and Redis. Without Redis they return `503`.
@@ -106,10 +109,10 @@ These routes are available only when Redis is configured. They use KOReader’s 
 
 | Method | Path | Auth | Result |
 | --- | --- | --- | --- |
-| POST | `/users/create` | Public only while registration is enabled | `201` and username; `403` when disabled; `409` on duplicate |
+| POST | `/users/create` | Public only while registration is enabled | `201` and username; `402` with `{"message":"Username is already registered."}` on duplicate; `402` when registration is disabled (KOReader reference behaviour) |
 | GET | `/users/auth` | KOSync headers | `{"authorized":"OK"}` or `401` |
 | PUT | `/syncs/progress` | KOSync headers | Server document/timestamp response |
-| GET | `/syncs/progress/{document}` | KOSync headers | Caller’s document progress or `404` |
+| GET | `/syncs/progress/{document}` | KOSync headers | Caller’s document progress, or `200 {}` when no progress is stored for that document (also for another user's document) |
 
 Registration body:
 
@@ -135,7 +138,7 @@ Progress body:
 }
 ```
 
-`document`, `progress`, and `device` are required. String fields are limited to 255 bytes, percentage must be between 0 and 1, and the request body is limited to 16 KiB. The server ignores the supplied timestamp and assigns its own. Registration and authentication bodies have smaller limits. Invalid credentials receive the same public error for unknown users and incorrect keys.
+`document`, `progress`, and `device` are required. String fields are limited to 255 bytes, percentage must be between 0 and 1, and the request body is limited to 16 KiB. The server ignores the supplied timestamp and assigns its own. Registration and authentication bodies have smaller limits. Invalid credentials receive the same public error for unknown users and incorrect keys. Error bodies carry a top-level `message` string, as in KOReader's reference server.
 
 ## AI memory
 

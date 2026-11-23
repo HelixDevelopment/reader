@@ -44,7 +44,7 @@ def stress(root: Path):
     now = "2026-10-29T00:00:00Z"
     for number in range(1, 1001):
         item = {
-            "atm_id": f"ATM-{number:03d}", "type": "Task", "status": "Queued", "severity": "Low",
+            "atm_id": wi.item_id(number), "type": "Task", "status": "Queued", "severity": "Low",
             "title": f"Stress registry row {number}", "description": "A complete stress fixture description with enough meaningful words and characters.",
             "affected_scope": "One thousand real SQLite registry rows.", "reproduction": "Insert one thousand rows in a real transaction.",
             "acceptance": "All rows persist with unique gapless identifiers and valid lifecycle fields.", "created_at": now, "last_modified": now,
@@ -148,7 +148,7 @@ def pdf_currency():
     """`diff()` compares generated Markdown and HTML only, so a PDF left behind by an
     export that died partway is invisible to the drift gate. This checks each PDF
     against the registry that produced it: it must exist, be non-trivial, and carry
-    exactly the ATM identifiers its Markdown sibling carries."""
+    exactly the ticket identifiers its Markdown sibling carries."""
     if shutil.which("pdftotext") is None or shutil.which("pdfinfo") is None:
         record("pdf-documents-current", "FAIL", "poppler pdftotext/pdfinfo absent; PDF currency cannot be verified rather than assumed")
         return
@@ -166,8 +166,8 @@ def pdf_currency():
         pages = subprocess.run(["pdfinfo", str(pdf)], text=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
         page_count = next((int(line.split()[-1]) for line in pages.splitlines() if line.startswith("Pages:")), 0)
         text = subprocess.run(["pdftotext", str(pdf), "-"], text=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
-        in_pdf = set(re.findall(r"ATM-\d{3,}", text))
-        in_markdown = set(re.findall(r"ATM-\d{3,}", markdown))
+        in_pdf = set(re.findall(rf"{wi.PROJECT_KEY}-\d{{3,}}", text))
+        in_markdown = set(re.findall(rf"{wi.PROJECT_KEY}-\d{{3,}}", markdown))
         detail[name] = {"bytes": size, "pages": page_count, "identifiers": len(in_pdf)}
         if size < 1024 or page_count < 1:
             problems.append(f"{name}: PDF is {size} bytes / {page_count} pages")

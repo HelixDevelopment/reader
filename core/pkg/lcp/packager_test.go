@@ -125,7 +125,7 @@ func declaration(tb testing.TB, protected []byte, target string) string {
 	return ""
 }
 
-// TestIssueProtectUnlockRoundTrip is the producer half of ATM-031: a container
+// TestIssueProtectUnlockRoundTrip is the producer half of HRD-031: a container
 // built here must be readable by the reader in this same package, which is the
 // only honest way to claim Helix can both issue and serve LCP content.
 func TestIssueProtectUnlockRoundTrip(t *testing.T) {

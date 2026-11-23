@@ -2,8 +2,11 @@ package catalog
 
 import (
 	"context"
+	"crypto/sha256"
 	"database/sql"
 	"embed"
+	"encoding/binary"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -309,11 +312,14 @@ func (p *Postgres) MergeWork(ctx context.Context, incoming Work) error {
 	})
 }
 func upsertTx(ctx context.Context, tx *sql.Tx, w Work) error {
+	if err := rejectDuplicateEditionIDs(w); err != nil {
+		return err
+	}
+	w = dedupeFiles(w)
 	// A source/path file keeps its ID when its bytes change. The identity locks
 	// taken by the caller serialize cross-work re-homing, so concurrent
 	// content-keyed scans cannot leave duplicate file rows or orphan an
 	// emptied work.
-	rehomedEditions := map[string]struct{}{}
 	subjects, err := stringsJSON(w.Subjects)
 	if err != nil {
 		return err
@@ -323,56 +329,23 @@ func upsertTx(ctx context.Context, tx *sql.Tx, w Work) error {
 	if err != nil {
 		return err
 	}
-	if _, err := tx.ExecContext(ctx, "DELETE FROM editions WHERE work_id=$1", w.ID); err != nil {
+	// Set-based edition write: the work's old edition set is deleted by one
+	// statement, which returns the affected ids in bulk, and the new set is
+	// reinserted by one multi-row statement. The per-edition delete/reinsert
+	// loop that surrounded the ownership check and each INSERT is gone.
+	if _, err := deleteWorkEditions(ctx, tx, w.ID); err != nil {
+		return err
+	}
+	if err := checkEditionOwners(ctx, tx, w); err != nil {
+		return err
+	}
+	if err := insertEditions(ctx, tx, w); err != nil {
 		return err
 	}
 	for _, e := range w.Editions {
-		var owner string
-		err := tx.QueryRowContext(ctx, "SELECT work_id FROM editions WHERE id=$1", e.ID).Scan(&owner)
-		if err == nil && owner != w.ID {
-			return fmt.Errorf("catalog: edition %s already belongs to work %s", e.ID, owner)
-		}
-		if err != nil && !errors.Is(err, sql.ErrNoRows) {
-			return err
-		}
-		authors, err := stringsJSON(e.Authors)
-		if err != nil {
-			return err
-		}
-		if _, err := tx.ExecContext(ctx, `INSERT INTO editions(id,work_id,title,subtitle,authors,publisher,published,language,description,cover_href,state,confidence,updated_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`, e.ID, w.ID, e.Title, e.Subtitle, authors, e.Publisher, e.Published, e.Language, e.Description, e.CoverHREF, e.State, e.Confidence, e.UpdatedAt); err != nil {
-			return err
-		}
 		for _, id := range e.Identifiers {
 			// Exact duplicate identifiers are provenance replays, not errors.
 			if _, err := tx.ExecContext(ctx, "INSERT INTO identifiers(edition_id,scheme,value,source,confidence) VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING", e.ID, id.Scheme, id.Value, id.Source, id.Confidence); err != nil {
-				return err
-			}
-		}
-		for _, f := range e.Files {
-			// Match both the current ID and exact source/path. The latter moves
-			// catalogs written by the former case-folded ID algorithm without
-			// colliding with case-distinct paths.
-			rows, err := tx.QueryContext(ctx, `DELETE FROM files
-				WHERE id=$1 OR (source_id=$2 AND path=$3) RETURNING edition_id`, f.ID, f.SourceID, f.Path)
-			if err != nil {
-				return err
-			}
-			for rows.Next() {
-				var previousEdition string
-				if err := rows.Scan(&previousEdition); err != nil {
-					rows.Close()
-					return err
-				}
-				rehomedEditions[previousEdition] = struct{}{}
-			}
-			if err := rows.Err(); err != nil {
-				rows.Close()
-				return err
-			}
-			if err := rows.Close(); err != nil {
-				return err
-			}
-			if _, err := tx.ExecContext(ctx, `INSERT INTO files(id,edition_id,source_id,path,format,mime_type,size,sha256,protected,drm_scheme,license_href,modified_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`, f.ID, e.ID, f.SourceID, f.Path, f.Format, f.MIMEType, f.Size, f.SHA256, f.Protected, f.DRMScheme, f.LicenseHREF, f.ModifiedAt); err != nil {
 				return err
 			}
 		}
@@ -382,22 +355,362 @@ func upsertTx(ctx context.Context, tx *sql.Tx, w Work) error {
 			}
 		}
 	}
-	for editionID := range rehomedEditions {
-		var workID string
-		err := tx.QueryRowContext(ctx, `DELETE FROM editions e WHERE e.id=$1
-			AND NOT EXISTS (SELECT 1 FROM files f WHERE f.edition_id=e.id) RETURNING work_id`, editionID).Scan(&workID)
-		if errors.Is(err, sql.ErrNoRows) {
-			continue
+	rehomed, err := claimFiles(ctx, tx, w)
+	if err != nil {
+		return err
+	}
+	if err := insertFiles(ctx, tx, w); err != nil {
+		return err
+	}
+	return pruneRehomed(ctx, tx, rehomed)
+}
+
+// bindChunkRows bounds the rows one multi-row statement carries. PostgreSQL's
+// extended protocol allows 65535 bind parameters per statement; the widest
+// row here is 13 parameters, so 1000 rows keeps every statement far below the
+// limit. All chunks run inside the caller's transaction, so a work larger than
+// one statement is still written atomically.
+const bindChunkRows = 1000
+
+// rejectDuplicateEditionIDs fails loudly when the incoming set carries one
+// edition id twice. Silently keeping one of them would attach the other's
+// files, identifiers and evidence to the survivor.
+func rejectDuplicateEditionIDs(w Work) error {
+	seen := make(map[string]struct{}, len(w.Editions))
+	for _, e := range w.Editions {
+		if _, dup := seen[e.ID]; dup {
+			return fmt.Errorf("catalog: work %s carries edition %s more than once", w.ID, e.ID)
 		}
-		if err != nil {
+		seen[e.ID] = struct{}{}
+	}
+	return nil
+}
+
+// currentFileID mirrors ingest.fileID (the stable, case-sensitive, length
+// prefixed source/path identity). catalog cannot import ingest, so the
+// derivation is repeated here; TestHRDCurrentFileIDGoldenVector pins it to the
+// ingest output.
+func currentFileID(sourceID, path string) string {
+	h := sha256.New()
+	h.Write([]byte("file"))
+	for _, part := range []string{sourceID, path} {
+		var size [8]byte
+		binary.BigEndian.PutUint64(size[:], uint64(len(part)))
+		h.Write(size[:])
+		h.Write([]byte(part))
+	}
+	return "file-" + hex.EncodeToString(h.Sum(nil))[:24]
+}
+
+// dedupeFiles collapses the incoming file set so the unique indexes cannot be
+// violated by the set itself. The per-row writer this replaced deleted the
+// earlier row before each insert, so for one (source_id, path) the last row
+// won, and for one file id the last row won. Here the same rule applies with
+// one refinement: a row carrying the current identity of its source/path
+// outranks a legacy-ID row (e.g. a case-folded id kept by unionFiles) no
+// matter where it sits in the set. The caller's Work is not modified.
+func dedupeFiles(w Work) Work {
+	type pos struct{ ed, f int }
+	type pair struct{ sourceID, path string }
+	winner := map[pair]pos{}
+	for ei, e := range w.Editions {
+		for fi, f := range e.Files {
+			k := pair{f.SourceID, f.Path}
+			cur, ok := winner[k]
+			if ok {
+				old := w.Editions[cur.ed].Files[cur.f]
+				if old.ID == currentFileID(k.sourceID, k.path) && f.ID != old.ID {
+					continue
+				}
+			}
+			winner[k] = pos{ei, fi}
+		}
+	}
+	// Same file id twice (different paths): last surviving row wins.
+	byID := map[string]pos{}
+	for ei, e := range w.Editions {
+		for fi, f := range e.Files {
+			if winner[pair{f.SourceID, f.Path}] != (pos{ei, fi}) {
+				continue
+			}
+			byID[f.ID] = pos{ei, fi}
+		}
+	}
+	changed := false
+	editions := make([]Edition, len(w.Editions))
+	for ei, e := range w.Editions {
+		editions[ei] = e
+		kept := make([]File, 0, len(e.Files))
+		for fi, f := range e.Files {
+			if byID[f.ID] == (pos{ei, fi}) && winner[pair{f.SourceID, f.Path}] == (pos{ei, fi}) {
+				kept = append(kept, f)
+			}
+		}
+		if len(kept) != len(e.Files) {
+			changed = true
+			editions[ei].Files = kept
+		}
+	}
+	if !changed {
+		return w
+	}
+	w.Editions = editions
+	return w
+}
+
+// deleteWorkEditions deletes every edition of the work and returns the
+// affected ids in bulk — the set-based form of the old per-edition
+// delete/reinsert loop.
+func deleteWorkEditions(ctx context.Context, tx *sql.Tx, workID string) ([]string, error) {
+	rows, err := tx.QueryContext(ctx, "DELETE FROM editions WHERE work_id=$1 RETURNING id", workID)
+	if err != nil {
+		return nil, err
+	}
+	deleted := []string{}
+	for rows.Next() {
+		var id string
+		if err := rows.Scan(&id); err != nil {
+			rows.Close()
+			return nil, err
+		}
+		deleted = append(deleted, id)
+	}
+	if err := rows.Err(); err != nil {
+		rows.Close()
+		return nil, err
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	return deleted, nil
+}
+
+// editionIDs lists the ids of a work's incoming edition set.
+func editionIDs(w Work) []string {
+	ids := make([]string, 0, len(w.Editions))
+	for _, e := range w.Editions {
+		ids = append(ids, e.ID)
+	}
+	return ids
+}
+
+// checkEditionOwners enforces the edition ownership rule set-based: an
+// incoming edition id must not be held by another work. The caller's delete
+// already removed every row this work carried, so a row still present for one
+// of the incoming ids is another owner's — the loser gets the same error the
+// per-edition check produced, so the message names the owning work.
+func checkEditionOwners(ctx context.Context, tx *sql.Tx, w Work) error {
+	ids := editionIDs(w)
+	if len(ids) == 0 {
+		return nil
+	}
+	rows, err := tx.QueryContext(ctx, "SELECT id, work_id FROM editions WHERE id = ANY($1)", ids)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var id, owner string
+		if err := rows.Scan(&id, &owner); err != nil {
 			return err
 		}
-		if _, err := tx.ExecContext(ctx, `DELETE FROM works w WHERE w.id=$1
-			AND NOT EXISTS (SELECT 1 FROM editions e WHERE e.work_id=w.id)`, workID); err != nil {
+		if owner != w.ID {
+			return fmt.Errorf("catalog: edition %s already belongs to work %s", id, owner)
+		}
+	}
+	return rows.Err()
+}
+
+// insertEditions reinserts the new edition set with multi-row statements of at
+// most bindChunkRows rows. Duplicate ids inside the set were rejected by
+// rejectDuplicateEditionIDs and foreign ownership by checkEditionOwners, so the
+// insert is plain: any conflict that still reaches it is a real error.
+func insertEditions(ctx context.Context, tx *sql.Tx, w Work) error {
+	for start := 0; start < len(w.Editions); start += bindChunkRows {
+		end := start + bindChunkRows
+		if end > len(w.Editions) {
+			end = len(w.Editions)
+		}
+		chunk := w.Editions[start:end]
+		var sb strings.Builder
+		sb.WriteString("INSERT INTO editions(id,work_id,title,subtitle,authors,publisher,published,language,description,cover_href,state,confidence,updated_at) VALUES")
+		args := make([]any, 0, len(chunk)*13)
+		for i, e := range chunk {
+			if i > 0 {
+				sb.WriteString(",")
+			}
+			authors, err := stringsJSON(e.Authors)
+			if err != nil {
+				return err
+			}
+			args = append(args, e.ID, w.ID, e.Title, e.Subtitle, authors, e.Publisher, e.Published, e.Language, e.Description, e.CoverHREF, e.State, e.Confidence, e.UpdatedAt)
+			base := len(args) - 13
+			sb.WriteByte('(')
+			for j := 0; j < 13; j++ {
+				if j > 0 {
+					sb.WriteByte(',')
+				}
+				fmt.Fprintf(&sb, "$%d", base+1+j)
+			}
+			sb.WriteByte(')')
+		}
+		if _, err := tx.ExecContext(ctx, sb.String(), args...); err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+// claimFiles claims the file rows of the incoming set in one set-based
+// statement: rows whose id is one of the new file ids, plus rows whose
+// (source_id, path) matches one of the new pairs — the re-homing form the
+// per-file loop used to express as `DELETE FROM files WHERE id=$1 OR
+// (source_id=$2 AND path=$3) RETURNING edition_id`. It returns the claimed
+// editions — rows of other works — sorted for the prune.
+func claimFiles(ctx context.Context, tx *sql.Tx, w Work) ([]string, error) {
+	type pair struct{ sourceID, path string }
+	ids := []string{}
+	pairs := []pair{}
+	for _, e := range w.Editions {
+		for _, f := range e.Files {
+			ids = append(ids, f.ID)
+			pairs = append(pairs, pair{f.SourceID, f.Path})
+		}
+	}
+	if len(ids) == 0 {
+		return nil, nil
+	}
+	claimed := map[string]struct{}{}
+	for start := 0; start < len(ids); start += bindChunkRows {
+		end := start + bindChunkRows
+		if end > len(ids) {
+			end = len(ids)
+		}
+		chunkIDs, chunkPairs := ids[start:end], pairs[start:end]
+		var in strings.Builder
+		in.WriteString("DELETE FROM files WHERE id = ANY($1) OR (source_id, path) IN (VALUES ")
+		args := make([]any, 0, 1+len(chunkPairs)*2)
+		args = append(args, chunkIDs)
+		for i, p := range chunkPairs {
+			if i > 0 {
+				in.WriteByte(',')
+			}
+			fmt.Fprintf(&in, "($%d,$%d)", 2+i*2, 3+i*2)
+			args = append(args, p.sourceID, p.path)
+		}
+		in.WriteString(") RETURNING edition_id")
+		rows, err := tx.QueryContext(ctx, in.String(), args...)
+		if err != nil {
+			return nil, err
+		}
+		for rows.Next() {
+			var editionID string
+			if err := rows.Scan(&editionID); err != nil {
+				rows.Close()
+				return nil, err
+			}
+			claimed[editionID] = struct{}{}
+		}
+		if err := rows.Err(); err != nil {
+			rows.Close()
+			return nil, err
+		}
+		if err := rows.Close(); err != nil {
+			return nil, err
+		}
+	}
+	out := make([]string, 0, len(claimed))
+	for id := range claimed {
+		out = append(out, id)
+	}
+	sort.Strings(out)
+	return out, nil
+}
+
+// insertFiles reinserts the new file set with one multi-row statement,
+// assigning each row to the edition that carries it. The insert is plain, not
+// ON CONFLICT DO NOTHING: claimFiles already removed pre-existing rows for the
+// new ids and pairs, so any conflict that reaches this point is an unclaimed
+// duplicate the caller must see rather than absorb.
+func insertFiles(ctx context.Context, tx *sql.Tx, w Work) error {
+	type fileRow struct {
+		edition Edition
+		file    File
+	}
+	rows := []fileRow{}
+	for _, e := range w.Editions {
+		for _, f := range e.Files {
+			rows = append(rows, fileRow{edition: e, file: f})
+		}
+	}
+	if len(rows) == 0 {
+		return nil
+	}
+	for start := 0; start < len(rows); start += bindChunkRows {
+		end := start + bindChunkRows
+		if end > len(rows) {
+			end = len(rows)
+		}
+		chunk := rows[start:end]
+		var sb strings.Builder
+		sb.WriteString("INSERT INTO files(id,edition_id,source_id,path,format,mime_type,size,sha256,protected,drm_scheme,license_href,modified_at) VALUES")
+		args := make([]any, 0, len(chunk)*12)
+		for i, r := range chunk {
+			if i > 0 {
+				sb.WriteString(",")
+			}
+			args = append(args, r.file.ID, r.edition.ID, r.file.SourceID, r.file.Path, r.file.Format, r.file.MIMEType, r.file.Size, r.file.SHA256, r.file.Protected, r.file.DRMScheme, r.file.LicenseHREF, r.file.ModifiedAt)
+			base := len(args) - 12
+			sb.WriteByte('(')
+			for j := 0; j < 12; j++ {
+				if j > 0 {
+					sb.WriteByte(',')
+				}
+				fmt.Fprintf(&sb, "$%d", base+1+j)
+			}
+			sb.WriteByte(')')
+		}
+		if _, err := tx.ExecContext(ctx, sb.String(), args...); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// pruneRehomed deletes, set-based, the editions of other works whose files
+// this write claimed and the works those editions left empty. The per-edition
+// prune loop this replaces is gone.
+func pruneRehomed(ctx context.Context, tx *sql.Tx, rehomedEditions []string) error {
+	if len(rehomedEditions) == 0 {
+		return nil
+	}
+	rows, err := tx.QueryContext(ctx, `DELETE FROM editions e WHERE e.id = ANY($1)
+		AND NOT EXISTS (SELECT 1 FROM files f WHERE f.edition_id=e.id) RETURNING work_id`, rehomedEditions)
+	if err != nil {
+		return err
+	}
+	workIDs := []string{}
+	for rows.Next() {
+		var workID string
+		if err := rows.Scan(&workID); err != nil {
+			rows.Close()
+			return err
+		}
+		workIDs = append(workIDs, workID)
+	}
+	if err := rows.Err(); err != nil {
+		rows.Close()
+		return err
+	}
+	if err := rows.Close(); err != nil {
+		return err
+	}
+	if len(workIDs) == 0 {
+		return nil
+	}
+	_, err = tx.ExecContext(ctx, `DELETE FROM works w WHERE w.id = ANY($1)
+		AND NOT EXISTS (SELECT 1 FROM editions e WHERE e.work_id=w.id)`, workIDs)
+	return err
 }
 func (p *Postgres) ReconcileSource(ctx context.Context, sourceID string, present []string) (int, error) {
 	if strings.TrimSpace(sourceID) == "" {

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Needle gate for the durable-queue load harness (ATM-027, Phase 1).
+# Needle gate for the durable-queue load harness (HRD-027, Phase 1).
 #
-# ATM-027's acceptance names "durable queue behavior", and the functional
+# HRD-027's acceptance names "durable queue behavior", and the functional
 # durability tests already exist; what this harness adds is the claim that the
 # bounds hold *under a simultaneous burst*. A burst claim is worthless unless the
 # bound it measures can be felt, so each bound is deleted in turn and the run

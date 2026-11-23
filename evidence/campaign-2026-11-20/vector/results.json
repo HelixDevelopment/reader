@@ -1621,7 +1621,7 @@
     }
   },
   "needle_gate": {
-    "generated_at": "2026-11-20T21:58:06Z",
+    "generated_at": "2026-11-20T22:16:16Z",
     "harness": "server/internal/aimemory/vector_load_test.go",
     "environment": {
       "HELIX_TEST_POSTGRES_DSN": "postgres://helixqual@127.0.0.1:34320/helix_test?sslmode=disable",
@@ -1687,9 +1687,9 @@
         "detected": true,
         "exit": 1,
         "matched": [
-          "never had a second backend active"
+          "throughput needle"
         ],
-        "first_failure": "vector_load_test.go:723: statement production profile default ladder 8 clients never had a second backend active at the same time (peak 1), so the ladder measured serialization and not concurrency"
+        "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1582.3 req/s against 1641.0 req/s for 1 client (0.96x), so nothing here demonstrates concurrent capacity"
       },
       {
         "id": "M4_queries_ask_for_k_minus_1",
@@ -1724,7 +1724,7 @@
         "matched": [
           "recall@10 is"
         ],
-        "first_failure": "vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: below any plausible approximation error, so the fixture or the comparison is broken"
+        "first_failure": "vector_load_test.go:723: statement production profile default recall@10 is 0.0000 over 20 queries at 5000 rows: at or near the k/rows chance rate, so the fixture or the comparison is broken"
       },
       {
         "id": "M6_search_path_never_applied",
@@ -1784,7 +1784,7 @@
         "matched": [
           "throughput needle"
         ],
-        "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1401.9 req/s against 1307.1 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity"
+        "first_failure": "vector_load_test.go:723: statement production profile default throughput needle: 8 clients reached 1536.6 req/s against 1430.6 req/s for 1 client (1.07x), so nothing here demonstrates concurrent capacity"
       },
       {
         "id": "M8_index_opclass_drifts",

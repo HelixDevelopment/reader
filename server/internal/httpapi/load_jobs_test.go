@@ -17,7 +17,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-// Durable-queue load harness for ATM-027.
+// Durable-queue load harness for HRD-027.
 //
 // jobs_journal_test.go proves the journal reconciles one job at a time. The
 // acceptance clause is about load: a burst of submissions must be bounded, and

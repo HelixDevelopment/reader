@@ -31,6 +31,7 @@ SPEC = importlib.util.spec_from_file_location("wi", ROOT / "scripts" / "workable
 wi = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(wi)
 
+KEY = wi.PROJECT_KEY
 LONG = "A complete registry description with enough words and characters to satisfy validation."
 
 
@@ -81,18 +82,18 @@ class WorkableItemsTest(unittest.TestCase):
 
     def test_add_allocates_monotonic_identifier(self):
         allocated = [self.add() for _ in range(3)]
-        self.assertEqual(allocated, ["ATM-001", "ATM-002", "ATM-003"])
+        self.assertEqual(allocated, [f"{KEY}-001", f"{KEY}-002", f"{KEY}-003"])
         self.assertEqual(wi.validate(self.db), [])
         # Identifiers are allocated from the maximum ever issued, so a later item
         # cannot reuse one; deleting a row is instead surfaced as a gap, because a
         # silently removed identifier would look like a renumbered registry.
-        self.db.execute("DELETE FROM item_history WHERE atm_id='ATM-002'")
-        self.db.execute("DELETE FROM items WHERE atm_id='ATM-002'")
-        self.assertEqual(wi.validate(self.db), ["ATM allocation contains gaps"])
-        self.assertEqual(wi.add_item(self.db, new_item_args(title="Reallocated")), "ATM-004")
-        self.db.execute("INSERT INTO items(atm_id,type,status,severity,title,description,affected_scope,reproduction,acceptance,created_at,last_modified,current_location,forensic_anchor,closure_criteria,composes_with,evidence_path,created_by,assigned_to,reopens_count) VALUES('ATM-002','Task','Queued','High','Restored',?,?,?,?,?,?,'Issues','tests','Acceptance','[]','','AI','Operator',0)",
+        self.db.execute(f"DELETE FROM item_history WHERE atm_id='{KEY}-002'")
+        self.db.execute(f"DELETE FROM items WHERE atm_id='{KEY}-002'")
+        self.assertEqual(wi.validate(self.db), [f"{KEY} allocation contains gaps"])
+        self.assertEqual(wi.add_item(self.db, new_item_args(title="Reallocated")), f"{KEY}-004")
+        self.db.execute(f"INSERT INTO items(atm_id,type,status,severity,title,description,affected_scope,reproduction,acceptance,created_at,last_modified,current_location,forensic_anchor,closure_criteria,composes_with,evidence_path,created_by,assigned_to,reopens_count) VALUES('{KEY}-002','Task','Queued','High','Restored',?,?,?,?,?,?,'Issues','tests','Acceptance','[]','','AI','Operator',0)",
                         (LONG, "Scope of the restored row.", "Reinsert the row.", "Acceptance condition.", "2026-10-29T00:00:00Z", "2026-10-29T00:00:00Z"))
-        self.db.execute("INSERT INTO item_history(atm_id,event_type,actor,on_date,reason,evidence_path) VALUES('ATM-002','Opened','AI','2026-10-29','new-work-item','')")
+        self.db.execute(f"INSERT INTO item_history(atm_id,event_type,actor,on_date,reason,evidence_path) VALUES('{KEY}-002','Opened','AI','2026-10-29','new-work-item','')")
         self.assertEqual(wi.validate(self.db), [], wi.validate(self.db))
 
     def test_concurrent_writers_preserve_unique_ids(self):
@@ -340,7 +341,7 @@ class WorkableItemsTest(unittest.TestCase):
         self.assertEqual(len(envelope["records"]), 1)
         self.assertEqual(envelope["records"][0]["remote_status"], "NOT RUN")
         self.assertEqual(envelope["records"][0]["operation"], "upsert")
-        self.assertEqual(envelope["records"][0]["client_key"], "ATM-001")
+        self.assertEqual(envelope["records"][0]["client_key"], f"{KEY}-001")
         self.assertIn("not", envelope["records"][0]["reason"].lower())
         for record in envelope["records"]:
             self.assertNotIn(record.get("remote_status"), {"pushed", "synced", "ok", "complete"})
@@ -350,6 +351,52 @@ class WorkableItemsTest(unittest.TestCase):
         for left, right in zip(envelope["records"], again["records"]):
             self.assertEqual(left, right)
         self.assertEqual(envelope["schema"], again["schema"])
+
+
+class ProjectKeyTest(unittest.TestCase):
+    """No ticket-id key may be hardcoded: a different project changes ONE value."""
+
+    def setUp(self) -> None:
+        self.original = wi.PROJECT_KEY
+        self.addCleanup(wi.set_project_key, self.original)
+        temp = tempfile.TemporaryDirectory(prefix="helix-wi-key-")
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name)
+
+    def test_default_key_is_hrd_and_never_atm(self):
+        self.assertEqual(wi.DEFAULT_PROJECT_KEY, "HRD")
+        self.assertIsNone(wi.ID_RE.match("ATM-001"))
+        self.assertTrue(wi.ID_RE.match("HRD-001"))
+
+    def test_foreign_project_key_end_to_end(self):
+        wi.set_project_key("ZQX")
+        db = wi.connect(self.root / "other.db")
+        self.addCleanup(db.close)
+        ids = [wi.add_item(db, new_item_args(title=f"Other project item {n}")) for n in range(3)]
+        self.assertEqual(ids, ["ZQX-001", "ZQX-002", "ZQX-003"])
+        self.assertEqual(wi.validate(db), [])
+        docs = self.root / "docs"
+        wi.export(db, docs, False)
+        text = (docs / "Issues.md").read_text(encoding="utf-8") + (docs / "Issues_Summary.md").read_text(encoding="utf-8")
+        self.assertIn("## [ZQX-001] ", text)
+        self.assertIn("| ID |", text)
+        for forbidden in ("HRD-", "ATM-", "ATM ID"):
+            self.assertNotIn(forbidden, text)
+        self.assertEqual(wi.import_markdown(db, docs), 3)
+        self.assertEqual(wi.diff(db, docs), [])
+
+    def test_foreign_key_rows_rejected_under_other_key(self):
+        wi.set_project_key("ZQX")
+        db = wi.connect(self.root / "mixed.db")
+        self.addCleanup(db.close)
+        wi.add_item(db, new_item_args())
+        wi.set_project_key("HRD")
+        self.assertTrue(any("invalid or duplicate HRD identifier" in e for e in wi.validate(db)))
+
+    def test_invalid_key_rejected(self):
+        for bad in ("", "a1", "X", "TOOLONGKEY", "ab"):
+            with self.assertRaises(ValueError):
+                wi.set_project_key(bad)
 
 
 if __name__ == "__main__":

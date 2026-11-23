@@ -156,3 +156,88 @@ go_test_exit=0
 PASS
 ok  	github.com/helixreader/helix/server/internal/catalog	1.322s
 gate_status=0 restored_tests=pass sha256_verified=yes
+
+=== catalog identity lock mutation gate, 2026-11-23T19:10:54+01:00 ===
+source=server/internal/catalog/postgres.go sha256=acde838af4bd26811d422ba50386b96562dc910495994b7ead6bcca22cef145a
+## CASE drop-work-key
+mutation: out = append(out, "w:"+w.ID)  ->  _ = w.ID
+test: TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+mutated_sha256=aeb41e5219569696398d10df6e1ee558aba55d9f42043893e631a6aefa9d9b10
+go_test_exit=1
+--- FAIL: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.11s)
+    lock_scope_test.go:257: production: lost update: 1 editions survived 8 concurrent merges of one work
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.115s
+FAIL
+CASE drop-work-key: detected — TestCatalogMergePreservesEveryWriterUnderIdentityLocks failed as required (exit 1)
+## CASE drop-source-key
+mutation: keys["s:"+f.SourceID] = struct{}{}  ->  _ = f.SourceID
+test: TestCatalogFileClaimByDistinctWorksKeepsOneRow
+mutated_sha256=fd57671cdb726db25f78b8329727e016b1cee91af06e96a45184544e7ea3c830
+go_test_exit=1
+--- FAIL: TestCatalogFileClaimByDistinctWorksKeepsOneRow (0.11s)
+    lock_scope_test.go:357: production: 6 of 8 claims failed under the shipped locks: concurrent writers on one source namespace must serialize, not error
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.121s
+FAIL
+CASE drop-source-key: detected — TestCatalogFileClaimByDistinctWorksKeepsOneRow failed as required (exit 1)
+## CASE drop-edition-key
+mutation: keys["e:"+e.ID] = struct{}{}  ->  _ = e.ID
+test: TestCatalogEditionOwnershipIsDecidedOnce
+mutated_sha256=52173502636013a69d0ebace1f75fd631103748d8f2cf73d9860b1ff6ac8d48b
+go_test_exit=1
+--- FAIL: TestCatalogEditionOwnershipIsDecidedOnce (0.03s)
+    lock_scope_test.go:718: production round 1: 0 of 2 writers failed, want exactly the loser
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.033s
+FAIL
+CASE drop-edition-key: detected — TestCatalogEditionOwnershipIsDecidedOnce failed as required (exit 1)
+## CASE drop-all-locks
+mutation: func lockIdentities(ctx context.Context, tx *sql.Tx, keys []string) error {  ->  func lockIdentities(ctx context.Context, tx *sql.Tx, keys []string) error {
+	keys = nil
+test: TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+mutated_sha256=14a0395b7d6a5ad23d085a3babb16d3fcf01cf314cfe53c223c6f147e76bd38f
+go_test_exit=1
+--- FAIL: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.11s)
+    lock_scope_test.go:257: production: lost update: 1 editions survived 8 concurrent merges of one work
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.111s
+FAIL
+CASE drop-all-locks: detected — TestCatalogMergePreservesEveryWriterUnderIdentityLocks failed as required (exit 1)
+## restore
+original_sha256=acde838af4bd26811d422ba50386b96562dc910495994b7ead6bcca22cef145a
+restored_sha256=acde838af4bd26811d422ba50386b96562dc910495994b7ead6bcca22cef145a
+restored_identical=yes
+## restored suite
+go_test_exit=0
+    lock_scope_test.go:259: MODE production: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+    lock_scope_test.go:259: MODE legacy-global: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+--- PASS: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.35s)
+    lock_scope_test.go:309: NEEDLE round 1 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 2 unlocked: 0 writer errors, 6 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 3 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 4 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 5 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 6 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:314: NEEDLE confirmed: 6 of 6 unlocked rounds lost writers (worst round: 7 of 8)
+--- PASS: TestCatalogMergeNeedleUnlockedLosesWriters (0.36s)
+    lock_scope_test.go:359: MODE production: 0 errors, 1 file row(s), 1 work(s) owning it
+    lock_scope_test.go:359: MODE legacy-global: 0 errors, 1 file row(s), 1 work(s) owning it
+--- PASS: TestCatalogFileClaimByDistinctWorksKeepsOneRow (0.16s)
+    lock_scope_test.go:386: NEEDLE round 1 unlocked claim: 5 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 2 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 3 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 4 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 5 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 6 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:391: NEEDLE confirmed: 6 of 6 unlocked rounds violated the one-row-per-(source,path) invariant
+--- PASS: TestCatalogFileClaimNeedleUnlockedDuplicatesRow (0.17s)
+    lock_scope_test.go:463: MODE production: reconcile + same-source merge interleaved cleanly; 4 rows kept, 0 orphans
+    lock_scope_test.go:463: MODE legacy-global: reconcile + same-source merge interleaved cleanly; 4 rows kept, 0 orphans
+--- PASS: TestCatalogReconcileExcludesSameSourceMerge (0.37s)
+    lock_scope_test.go:724: MODE production: 8 contested edition claims each decided once, with the ownership error for the loser
+    lock_scope_test.go:724: MODE legacy-global: 8 contested edition claims each decided once, with the ownership error for the loser
+--- PASS: TestCatalogEditionOwnershipIsDecidedOnce (0.14s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	1.567s
+gate_status=0 restored_tests=pass sha256_verified=yes

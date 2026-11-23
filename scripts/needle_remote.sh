@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Needle gate for the remote-source delivery harness (ATM-027, Phase 1).
+# Needle gate for the remote-source delivery harness (HRD-027, Phase 1).
 #
 # The local-source gate (needle_delivery.sh) proves the range path works when a
 # connector can revalidate. This one proves the opposite half: the harness notices

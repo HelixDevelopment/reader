@@ -1,6 +1,6 @@
 package catalog
 
-// Concurrency, contention and resource-envelope measurements for ATM-027.
+// Concurrency, contention and resource-envelope measurements for HRD-027.
 // These tests are measurement harnesses: they add no production behavior and
 // skip cleanly unless HELIX_TEST_POSTGRES_DSN is set AND HELIX_LOAD_RUN=1, so
 // an ordinary `go test ./...` never pays for them.

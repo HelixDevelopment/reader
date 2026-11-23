@@ -1,10 +1,12 @@
 package lcp
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"sort"
+	"strconv"
 	"time"
 )
 
@@ -29,11 +31,51 @@ type Link struct {
 	Rel    string            `json:"rel,omitempty"`
 	Rels   []string          `json:"rels,omitempty"`
 	Titles map[string]string `json:"titles,omitempty"`
-	Length int64             `json:"length,omitempty"`
-	Hash   string            `json:"hash,omitempty"`
+	// Length is the byte length of the linked resource. The schema types it as
+	// an integer but spec Example 3 writes it as a string ("264929"); both are
+	// accepted on Parse and a negative or non-numeric value is rejected.
+	Length int64 `json:"length,omitempty"`
+	// Hash is the SHA-256 of the linked resource. The §3.5 table and schema
+	// say base64; Example 3 and the reference server emit lowercase hex. The
+	// text is kept as received; Fulfill decodes either form.
+	Hash string `json:"hash,omitempty"`
+	// Templated marks Href as a URI Template (RFC 6570) that must be expanded
+	// before it can be fetched.
+	Templated bool `json:"templated,omitempty"`
 	// Properties carries profile- or relation-specific members, e.g. the
 	// opacity/position hints of an LCP status document.
 	Properties map[string]any `json:"properties,omitempty"`
+}
+
+// UnmarshalJSON decodes a link, tolerating length as a JSON number or string.
+func (l *Link) UnmarshalJSON(b []byte) error {
+	type plain Link
+	aux := struct {
+		*plain
+		Length json.RawMessage `json:"length"`
+	}{plain: (*plain)(l)}
+	if err := json.Unmarshal(b, &aux); err != nil {
+		return err
+	}
+	l.Length = 0
+	raw := bytes.TrimSpace(aux.Length)
+	if len(raw) == 0 || string(raw) == "null" {
+		return nil
+	}
+	var text string
+	if raw[0] == '"' {
+		if err := json.Unmarshal(raw, &text); err != nil {
+			return err
+		}
+	} else {
+		text = string(raw)
+	}
+	n, err := strconv.ParseInt(text, 10, 64)
+	if err != nil || n < 0 {
+		return fmt.Errorf("link length %s is not a non-negative integer", raw)
+	}
+	l.Length = n
+	return nil
 }
 
 // HasRel reports whether the link carries the given relation.

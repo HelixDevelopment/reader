@@ -4,7 +4,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing: 0, Reopened: 0
 
-## [ATM-019] Complete revision-pinned research for every deduplicated reader repository
+## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
 **Status:** In progress
 
@@ -39,7 +39,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: research/analysis_summary.json; research/reports
 - 2026-11-20 — Updated by AI: registry-detail-update; evidence: none recorded
 
-## [ATM-020] Perform manual architecture, code, license, and innovation review of indexed repositories
+## [HRD-020] Perform manual architecture, code, license, and innovation review of indexed repositories
 
 **Status:** Queued
 
@@ -73,7 +73,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: research/analysis_summary.json
 
-## [ATM-021] Build and execute Helix-specific HelixQA challenge banks
+## [HRD-021] Build and execute Helix-specific HelixQA challenge banks
 
 **Status:** In progress
 
@@ -107,7 +107,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/helixqa-build-test.log; submodules/qa/helix-deps.yaml
 
-## [ATM-022] Deliver catalog and reader clients for native desktop, mobile, and workstation platforms
+## [HRD-022] Deliver catalog and reader clients for native desktop, mobile, and workstation platforms
 
 **Status:** Queued
 
@@ -141,7 +141,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/architecture.md
 
-## [ATM-023] Provide interactive demonstrations across the platform and device matrix
+## [HRD-023] Provide interactive demonstrations across the platform and device matrix
 
 **Status:** Queued
 
@@ -175,7 +175,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/ui/final-run.log
 
-## [ATM-025] Configure and validate Firebase distribution without treating configuration as deployment
+## [HRD-025] Configure and validate Firebase distribution without treating configuration as deployment
 
 **Status:** Queued
 
@@ -209,7 +209,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/deployment.md
 
-## [ATM-026] Validate interoperability on real readers, OPDS clients, and remote providers
+## [HRD-026] Validate interoperability on real readers, OPDS clients, and remote providers
 
 **Status:** Queued
 
@@ -243,7 +243,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/testing.md
 
-## [ATM-027] Remove catalog and API scalability bottlenecks under measured enterprise loads
+## [HRD-027] Remove catalog and API scalability bottlenecks under measured enterprise loads
 
 **Status:** In progress
 
@@ -281,7 +281,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 - 2026-11-20 — Updated by AI: Multi-process lock-scope qualification and concurrent read envelope recorded; DEFECT-004 documented.; evidence: docs/scalability-review.md; server/internal/catalog/postgres.go; server/internal/httpapi/jobs.go; evidence/campaign-2026-11-20/scalability/; evidence/campaign-2026-11-20/load/; evidence/campaign-2026-11-20/lock-scope/; evidence/campaign-2026-11-20/multiprocess/
 - 2026-11-20 — Updated by AI: vector-search load harness landed; DEFECT-005 measured and fixed; ef_search recall question opened; evidence: docs/scalability-review.md; server/internal/catalog/postgres.go; server/internal/httpapi/jobs.go; server/internal/aimemory/vector_load_test.go; evidence/campaign-2026-11-20/vector
 
-## [ATM-029] Implement verified bidirectional HelixTrack synchronization
+## [HRD-029] Implement verified bidirectional HelixTrack synchronization
 
 **Status:** In progress
 
@@ -315,7 +315,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/tracking/helixtrack-outbox.json
 
-## [ATM-031] Implement OPDS-PSE, LCP fulfillment, and remaining external reader integrations
+## [HRD-031] Implement OPDS-PSE, LCP fulfillment, and remaining external reader integrations
 
 **Status:** Queued
 
@@ -349,7 +349,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/api.md; docs/faq.md; docs/formats.md
 
-## [ATM-033] Run final clean qualification and produce fresh ZIP and tar.gz archives
+## [HRD-033] Run final clean qualification and produce fresh ZIP and tar.gz archives
 
 **Status:** Queued
 
@@ -383,7 +383,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/testing/results; CHANGELOG.md
 
-## [ATM-034] Verify container distribution against a hosted registry and docker-compose CLI runtime parity
+## [HRD-034] Verify container distribution against a hosted registry and docker-compose CLI runtime parity
 
 **Status:** Operator-blocked
 
@@ -395,7 +395,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 **Operator-Block-Details:** WHAT: Cannot execute docker-compose CLI parity or an authenticated/signing hosted-registry distribution pass on this host. WHY: Attempted: command -v docker docker-compose cosign crane skopeo oras all report ABSENT and /var/run/docker.sock does not exist, so no Docker engine is reachable; podman/podman-compose are the only container tooling installed. Attempted: emulated Docker semantics with podman-compose, which reproduces build, compose up, health, restart, upgrade and rollback but not docker-compose resource naming or single-service recreation, so it cannot stand in for the CLI claim. Attempted: distribution against a local registry:2 container with --tls-verify=false, which proves push/pull content equality but cannot prove authentication or signature verification. Attempted: installing cosign/skopeo or a Docker engine, which on this PEP 668 externally managed Ubuntu host requires system package installation outside the scope of what may be changed for a qualification run. Attempted: registry credentials, of which none exist in the environment (0 matching variables). UNBLOCK CONDITION: Operator provides either a host with a Docker engine and docker-compose CLI, or explicit authorization to install Docker plus a signing tool, and registry credentials for a hosted registry; alternatively the operator accepts a documented scope limit stating that distribution qualification is podman-and-local-registry only. WHO: Operator
 
-**Description:** ATM-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end.
+**Description:** HRD-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end.
 
 **Affected scope:** deploy/docker-compose.yml, server/Dockerfile, evidence/campaign-2026-11-20/containers/, submodules/containers distribution notes.
 
@@ -407,7 +407,7 @@ In progress: 4, In testing: 0, Operator-blocked: 1, Queued: 7, Ready for testing
 
 **Evidence:** Not yet available; no pass is claimed.
 
-**Forensic anchor:** Second-pass ATM-024 distribution run on 2026-11-20
+**Forensic anchor:** Second-pass HRD-024 distribution run on 2026-11-20
 
 **Composes with:** None recorded
 

@@ -1,0 +1,69 @@
+# helix-deps.yaml - constitution 11.4.31 Submodule-Dependency Manifest
+# GENERATED SKELETON by verify_helix_deps_manifests.sh --scaffold. Every 'why' (and any
+# UNKNOWN-pin-me ref) is a placeholder the verifier REJECTS until a human writes the real value
+# (11.4.6: never guess). Then run: verify_helix_deps_manifests.sh --validate-file helix-deps.yaml
+# Guide: constitution/docs/guides/dependency_manifest_user_guide.md
+# NOTE: submodules/constitution is the constitution hub - inherited by reference, never listed here
+
+schema_version: 1
+
+deps:
+  - name: containers
+    ssh_url: git@github.com:vasic-digital/containers.git
+    ref: 22b4970
+    why: "Rootless container runtime for live-test infrastructure (11.4.76 / 11.4.161)"
+    layout: grouped
+
+  - name: challenges
+    ssh_url: git@github.com:vasic-digital/Challenges.git
+    ref: d94e554
+    why: "Challenges framework: challenge-bank runner consumed by the Helix challenge banks (11.4.27 / 11.4.169)"
+    layout: grouped
+
+  - name: helixqa
+    ssh_url: git@github.com:HelixDevelopment/HelixQA.git
+    ref: b16a089
+    why: "HelixQA autonomous QA orchestration + test-bank execution for Helix end-to-end banks (11.4.27 / 11.4.278)"
+    layout: grouped
+
+  - name: doc_processor
+    ssh_url: git@github.com:HelixDevelopment/DocProcessor.git
+    ref: 12a5fb7
+    why: "HelixQA go.mod replace target (digital.vasic.docprocessor => ../doc_processor); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+  - name: llm_orchestrator
+    ssh_url: git@github.com:HelixDevelopment/LLMOrchestrator.git
+    ref: 8ee5795
+    why: "HelixQA go.mod replace target (digital.vasic.llmorchestrator => ../llm_orchestrator); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+  - name: llm_provider
+    ssh_url: git@github.com:HelixDevelopment/LLMProvider.git
+    ref: bd302c8
+    why: "HelixQA go.mod replace target (digital.vasic.llmprovider => ../llm_provider); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+  - name: llms_verifier
+    ssh_url: git@github.com:vasic-digital/LLMsVerifier.git
+    ref: 94e666d
+    why: "HelixQA go.mod replace target (digital.vasic.llmsverifier => ../llms_verifier/llm-verifier); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+  - name: security
+    ssh_url: git@github.com:vasic-digital/Security.git
+    ref: 0513361
+    why: "HelixQA go.mod replace target (digital.vasic.security => ../security); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+  - name: vision_engine
+    ssh_url: git@github.com:HelixDevelopment/VisionEngine.git
+    ref: 1b2b991
+    why: "HelixQA go.mod replace target (digital.vasic.visionengine => ../vision_engine); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
+    layout: grouped
+
+transitive_handling:
+  recursive: true
+  conflict_resolution: operator-required
+
+language_specific_subtree: false

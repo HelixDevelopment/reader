@@ -48,6 +48,10 @@ func New(cfg config.Config, repo catalog.Repository, registry *sources.Registry,
 	if identifierIngest == nil {
 		identifierIngest = &ingest.Service{Repository: repo}
 	}
+	if identifierIngest.LCP == nil {
+		// Opt-in via HELIX_LCP_CACHE_DIR; nil keeps .lcpl files skipped.
+		identifierIngest.LCP = ingest.LCPFromEnv()
+	}
 	return &Server{Config: cfg, Catalog: repo, Ingest: identifierIngest, Sources: registry, Covers: covers.New(cfg.CoverCacheDir), connectors: map[string]sources.Connector{}, jobs: newJobStore()}
 }
 func (s *Server) Close() error {
@@ -101,6 +105,8 @@ func (s *Server) Router() *gin.Engine {
 	read.HEAD("/covers/:id", s.cover)
 	read.GET("/files/:id/content", s.content)
 	read.HEAD("/files/:id/content", s.content)
+	read.GET("/files/:id/license", s.lcpLicense)
+	read.HEAD("/files/:id/license", s.lcpLicense)
 	r.POST("/users/create", s.kosyncRegister)
 	r.GET("/users/auth", s.kosyncAuth)
 	r.PUT("/syncs/progress", s.kosyncPutProgress)
@@ -592,6 +598,10 @@ func (s *Server) content(c *gin.Context) {
 	}
 	if err != nil {
 		Error(c, 500, "catalog query failed")
+		return
+	}
+	if ingest.IsFulfilledLCP(f) {
+		s.lcpContent(c, f)
 		return
 	}
 	connector, ok := s.connector(f.SourceID)

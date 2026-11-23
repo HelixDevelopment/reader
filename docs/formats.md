@@ -1,6 +1,6 @@
 # Format fulfillment matrix (Go core)
 
-<!-- ATM-032. Governing rule: constitution §7.1 NO BLUFF. A cell says PASS
+<!-- HRD-032. Governing rule: constitution §7.1 NO BLUFF. A cell says PASS
 only for the stage named; detection is never rendering, parsing is never
 conversion, storage of image bytes is never layout. Provenance cites tests
 run in this tree (go1.27.3 toolchain per go.mod). Stages are independent:
@@ -28,7 +28,7 @@ Stages, strictly independent:
 
 ## Every other registered format (PDF, AZW3/KF8, DOCX, DOC, ODT, RTF, HTML/HTMLZ, CBR/CBT/CB7/CBA, DJVU, CHM, LIT, SNB, LRF, PML, RB, WebPub, AudioBook, Divina, LPF, PNLD, DAISY, LCP-*, plain ZIP, audio)
 
-detect: PASS (extension only) — parse: **NOT IMPLEMENTED** — paginate: **NOT IMPLEMENTED** — render: **NOT IMPLEMENTED** — convert: **NOT IMPLEMENTED** (all Blocked; same-format repack Blocked too, since no parser+exporter pair exists — enforced by `TestSameFormatRepackIsHonest`, `TestMatrixNeverOutrunsTheCode`). PDF specifically: page rendering requires a MuPDF-class engine (plan P-2, server-side), nothing in core produces or rasterizes PDF pages. DRM/LCP (`Protected=true` rows): fulfillment NOT IMPLEMENTED; registry forbids `DRMFulfill`/`Convert` claims (`TestProtectedFormatsDoNotClaimConversion`, `TestNoDescriptorClaimsUnimplementedRenderOrDRM`). `ContentAI` was removed from parsed-format caps because no core AI engine exists (`TestNoDescriptorClaimsUnimplementedAI`) — parsing is not AI.
+detect: PASS (extension only) — parse: **NOT IMPLEMENTED** — paginate: **NOT IMPLEMENTED** — render: **NOT IMPLEMENTED** — convert: **NOT IMPLEMENTED** (all Blocked; same-format repack Blocked too, since no parser+exporter pair exists — enforced by `TestSameFormatRepackIsHonest`, `TestMatrixNeverOutrunsTheCode`). PDF specifically: page rendering requires a MuPDF-class engine (plan P-2, server-side), nothing in core produces or rasterizes PDF pages. DRM/LCP (`Protected=true` rows): the registry still forbids `DRMFulfill`/`Convert` claims for every format, because no descriptor claims decryption or conversion. A narrower capability exists and is scoped in *LCP license fulfillment (server)* below: for EPUB only, a License Document plus the publication its link names becomes a protected EPUB, and the server ingests a standalone `.lcpl` that way. Nothing decrypts, converts, parses or renders protected content on the server. Registry forbids `DRMFulfill`/`Convert` claims (`TestProtectedFormatsDoNotClaimConversion`, `TestNoDescriptorClaimsUnimplementedRenderOrDRM`). `ContentAI` was removed from parsed-format caps because no core AI engine exists (`TestNoDescriptorClaimsUnimplementedAI`) — parsing is not AI.
 
 ## Conversion matrix as implemented (`core/formats/formats.go`)
 
@@ -48,11 +48,21 @@ Same-format Direct exists only for EPUB/FB2/TXT/CBZ (parser+exporter both implem
 
 `core/pkg/parse/parseutil/limits.go`: MaxEntryBytes 16 MiB, MaxImageBytes 32 MiB, MaxTextBytes 64 MiB, MaxAggregateBytes 128 MiB, MaxPages 10000, MaxArchiveEntries 100000, MaxXMLDepth 256. `ReadAll` rejects (never truncates) oversized entries. Fail-closed proof per format: tests named in the limits columns above; `TestReadAllBounds` for the primitive itself. Fuzz targets (run with seeds via `-run`, live via `-fuzz -fuzztime 8s`, log `evidence/campaign-2026-11-20/formats/fuzz.log`): `FuzzDetect`, `FuzzParse` (txt/fb2/epub/mobi/cbz), `FuzzSpine`, `FuzzPages`, `FuzzExportEPUB`, `FuzzPaginate`. The fb2 live fuzz found one real pre-existing panic (unclosed nested section → nil chapter); the crashing input is kept as a regression seed.
 
+## LCP license fulfillment (server, HRD-031)
+
+Scope: EPUB only, Basic Encryption Profile, opt-in. The server never holds or logs a passphrase or content key and never decrypts; unlocking is the reader's job.
+
+- **Enable**: `HELIX_LCP_CACHE_DIR` (directory for fulfilled artifacts). Unset means `.lcpl` files are skipped as unsupported, as before. Optional: `HELIX_LCP_ALLOW_PRIVATE_NETWORK=1` (publication host may be loopback/private; default refuses), `HELIX_LCP_ALLOW_UNVERIFIED=1` (accept a publication link that states no length and no SHA-256; default refuses), `HELIX_LCP_MAX_BYTES` (default 256 MiB), `HELIX_LCP_TIMEOUT` (default 2m), `HELIX_LCP_CACHE_MAX_BYTES` (total cache cap, default 16 GiB, negative = unlimited; over the cap the oldest *unreferenced* artifacts are evicted, a catalogued artifact never is).
+- **Ingest**: a standalone `.lcpl` in a source is parsed, its `publication` link is downloaded through a hardened client (http/https only, no userinfo, no proxy, at most 3 redirects, every dialed IP (the validated one, never the hostname) checked against loopback/private/link-local/CGNAT/multicast/unspecified/reserved (0.0.0.0/8, 192.0.0.0/24, 198.18.0.0/15, 240.0.0.0/4) ranges and the IPv6 NAT64 (64:ff9b::/96, 64:ff9b:1::/48), 6to4 (2002::/16), Teredo, v4-compatible and site-local (fec0::/10) forms, no credential ever sent, size and time limits), verified against the link's length/SHA-256 by `lcp.Fulfill`, and the license is embedded as `META-INF/license.lcpl`. The result is written to the cache directory, never to the source (source bytes stay untouched, HRD-004).
+- **Catalog**: one edition per license; the file keeps the `.lcpl` source path, `format=epub`, `protected=true`, `drm_scheme=lcp`, `license_href`, with size and SHA-256 of the fulfilled artifact. The title is the file name: the fulfilled EPUB's content documents are encrypted, so no metadata is parsed from it. Rescans are idempotent and make no second download while the cached artifact still hashes correctly. After a scan that fulfilled a license or reconciled, cache files no catalog row references (deleted or re-issued licenses, their `license-*.idx`) are removed once older than a 10-minute grace window.
+- **Refused explicitly** (reported per file in the scan report, nothing cached): hash or length mismatch, unreachable host, private address, oversized or slow body, non-EPUB publication type (PDF/audiobook/Divina LCP is `ErrUnsupportedFormat`), templated href, link without length/hash (refused before any download; the body is capped at the stated length and a Content-Length that differs aborts). A license whose fetch failed is not retried for an exponentially growing window (5 min doubling to 1 h, in memory). The templated-href and fetch errors never echo the href (it may carry a token).
+- **Not verified by the server**: the License Document's signature and certificate chain (the scan report warns); no real LCP provider and no third-party LCP reader have been exercised.
+
 ## Explicit NOT IMPLEMENTED (what would be required)
 
 - **Rendering, all formats**: requires the client layout engine (glyph shaping, image layout, fixed-layout viewport). Core delivers HDM + page geometry only.
 - **PDF parse/render**: requires MuPDF-class engine integration behind the parser contract + rasterization tests; currently detect+stream only.
-- **DRM/LCP fulfillment**: requires an LCP client (license validation, decryption, state); registry forbids the claim.
+- **DRM/LCP beyond EPUB license fulfillment**: server-side decryption, server-side license signature/certificate-chain validation (no trust root is configured), License Status Document handling in the server, PDF/audiobook/Divina LCP packages (root `license.lcpl`), templated publication links and non-Basic profiles are NOT IMPLEMENTED; registry forbids the `DRMFulfill` claim.
 - **EPUB fixed-layout pagination** and media overlays: enumeration only.
 - **MOBI/KF8/AZW3**: KF8 container parse, Huffman (HUFF/CDIC) compression, EXTH-image extraction, and any MOBI *writing* are unimplemented; P-2 keeps AZW3 conversion server-side (Calibre).
 - **Font subsetting**: nowhere in core.

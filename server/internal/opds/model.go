@@ -12,8 +12,11 @@ const (
 	MIME2Publication  = "application/opds-publication+json"
 	MIMEOpenSearch    = "application/opensearchdescription+xml"
 	RelAcquisition    = "http://opds-spec.org/acquisition"
-	RelImage          = "http://opds-spec.org/image"
-	RelThumbnail      = "http://opds-spec.org/image/thumbnail"
+	RelRelated        = "related"
+	// LCPLicenseMIME is the media type of an LCP License Document.
+	LCPLicenseMIME = "application/vnd.readium.lcp.license.v1.0+json"
+	RelImage       = "http://opds-spec.org/image"
+	RelThumbnail   = "http://opds-spec.org/image/thumbnail"
 )
 
 // Link12 is an Atom link with OPDS facet hints.

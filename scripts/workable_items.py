@@ -39,7 +39,31 @@ REOPEN_REASONS = {
     "test-failed", "manual-testing-detected", "captured-evidence-contradicts",
     "end-user-report", "cycle-re-discovered", "design-reconsidered",
 }
-ID_RE = re.compile(r"^ATM-([0-9]{3,})$")
+
+# SINGLE SOURCE OF TRUTH for the ticket-id key (constitution 11.4.54 per-project key
+# extension: the key is per-project DATA, never a literal baked into code). A different
+# project changes this one value (or exports HELIX_WORKABLE_ITEMS_KEY). Everything below
+# (ID_RE, minting, parsing, messages, exports) derives from it via set_project_key().
+DEFAULT_PROJECT_KEY = "HRD"
+KEY_RE = re.compile(r"^[A-Z]{2,8}$")
+PROJECT_KEY = DEFAULT_PROJECT_KEY
+ID_RE = re.compile(r"^$")  # replaced by set_project_key() immediately below
+
+
+def set_project_key(key: str) -> None:
+    """Declare the register's ticket-id key and rebuild every derived pattern."""
+    global PROJECT_KEY, ID_RE
+    if not KEY_RE.match(key or ""):
+        raise ValueError(f"invalid project key {key!r}: expected 2-8 uppercase letters")
+    PROJECT_KEY = key
+    ID_RE = re.compile(rf"^{key}-([0-9]{{3,}})$")
+
+
+def item_id(number: int) -> str:
+    return f"{PROJECT_KEY}-{number:03d}"
+
+
+set_project_key(os.environ.get("HELIX_WORKABLE_ITEMS_KEY", DEFAULT_PROJECT_KEY))
 
 SCHEMA = """
 PRAGMA foreign_keys=ON;
@@ -148,7 +172,7 @@ def items(db: sqlite3.Connection, location: str | None = None) -> list[dict]:
     if location:
         sql += " WHERE current_location=?"
         args = (location,)
-    sql += " ORDER BY CAST(substr(atm_id,5) AS INTEGER)"
+    sql += f" ORDER BY CAST(substr(atm_id,{len(PROJECT_KEY)+2}) AS INTEGER)"
     return [row_dict(row) for row in db.execute(sql, args)]
 
 
@@ -187,7 +211,7 @@ def validate(db: sqlite3.Connection) -> list[str]:
         atm = item["atm_id"]
         match = ID_RE.match(atm)
         if not match or int(match.group(1)) < 1 or atm in seen:
-            errors.append(f"{atm}: invalid or duplicate ATM identifier")
+            errors.append(f"{atm}: invalid or duplicate {PROJECT_KEY} identifier")
         seen.add(atm)
         if item["type"] not in TYPES:
             errors.append(f"{atm}: invalid type")
@@ -221,7 +245,7 @@ def validate(db: sqlite3.Connection) -> list[str]:
             errors.append(f"{atm}: reopen count does not match history")
     allocated = sorted(int(ID_RE.match(i["atm_id"]).group(1)) for i in items(db) if ID_RE.match(i["atm_id"]))
     if allocated and allocated != list(range(1, max(allocated) + 1)):
-        errors.append("ATM allocation contains gaps")
+        errors.append(f"{PROJECT_KEY} allocation contains gaps")
     if db.execute("PRAGMA foreign_key_check").fetchall():
         errors.append("SQLite foreign key check failed")
     return errors
@@ -288,7 +312,7 @@ def render_item(item: dict, db: sqlite3.Connection) -> str:
 
 
 def summary_rows(rows: list[dict]) -> str:
-    out = ["| ATM ID | Type | Severity | Status | Reopens | Description |", "|---|---|---|---|---:|---|"]
+    out = ["| ID | Type | Severity | Status | Reopens | Description |", "|---|---|---|---|---:|---|"]
     out += [f'| {i["atm_id"]} | {i["type"]} | {i["severity"]} | {md_escape(i["status"])} | {i["reopens_count"]} | {md_escape(i["title"])} |' for i in rows]
     return "\n".join(out)
 
@@ -313,7 +337,7 @@ def html_documents(db: sqlite3.Connection) -> dict[str, str]:
         summary = name.endswith("Summary.md")
         title = html.escape(markdown.splitlines()[0].removeprefix("# "))
         if summary:
-            body = ["<table><thead><tr><th>ATM ID</th><th>Type</th><th>Severity</th><th>Status</th><th>Reopens</th><th>Description</th></tr></thead><tbody>"]
+            body = ["<table><thead><tr><th>ID</th><th>Type</th><th>Severity</th><th>Status</th><th>Reopens</th><th>Description</th></tr></thead><tbody>"]
             for i in rows:
                 body.append("<tr>" + "".join(f"<td>{html.escape(str(v))}</td>" for v in (i["atm_id"], i["type"], i["severity"], i["status"], i["reopens_count"], i["title"])) + "</tr>")
             body.append("</tbody></table>")
@@ -363,7 +387,7 @@ def pdf_documents(db: sqlite3.Connection, output_dir: Path) -> list[Path]:
             doc = SimpleDocTemplate(str(path), pagesize=page, rightMargin=16 * mm, leftMargin=16 * mm, topMargin=16 * mm, bottomMargin=18 * mm, title=f"Helix {stem} Workable Items", author="Helix Reader")
             story = [Paragraph(f"Helix {stem} Workable Items" + (" Summary" if summary else ""), title), Paragraph("Generated from docs/workable_items.db. This document does not assert remote HelixTrack synchronization.", body), Spacer(1, 4 * mm)]
             if summary:
-                data = [[Paragraph(f"<b>{x}</b>", small) for x in ("ATM ID", "Type", "Severity", "Status", "Reopens", "Description")]]
+                data = [[Paragraph(f"<b>{x}</b>", small) for x in ("ID", "Type", "Severity", "Status", "Reopens", "Description")]]
                 for i in rows:
                     data.append([Paragraph(html.escape(str(v)), small) for v in (i["atm_id"], i["type"], i["severity"], i["status"], i["reopens_count"], i["title"])])
                 widths = [22 * mm, 20 * mm, 20 * mm, 42 * mm, 16 * mm, 140 * mm]
@@ -404,7 +428,7 @@ def export(db: sqlite3.Connection, output_dir: Path = DOCS, include_pdf: bool = 
 
 def parse_markdown(path: Path, location: str) -> list[dict]:
     text = path.read_text(encoding="utf-8")
-    sections = re.split(r"(?m)^## \[(ATM-[0-9]{3,})\] ", text)[1:]
+    sections = re.split(rf"(?m)^## \[({PROJECT_KEY}-[0-9]{{3,}})\] ", text)[1:]
     parsed = []
     for index in range(0, len(sections), 2):
         atm, section = sections[index], sections[index + 1]
@@ -509,8 +533,8 @@ def helixtrack_outbox(db: sqlite3.Connection, path: Path) -> None:
 def add_item(db: sqlite3.Connection, args: argparse.Namespace) -> str:
     db.execute("BEGIN IMMEDIATE")
     try:
-        maximum = db.execute("SELECT COALESCE(MAX(CAST(substr(atm_id,5) AS INTEGER)),0) FROM items").fetchone()[0]
-        atm = f"ATM-{maximum + 1:03d}"
+        maximum = db.execute("SELECT COALESCE(MAX(CAST(substr(atm_id,?) AS INTEGER)),0) FROM items", (len(PROJECT_KEY) + 2,)).fetchone()[0]
+        atm = item_id(maximum + 1)
         now = utcnow()
         item = {
             "atm_id": atm, "type": args.type, "status": "Queued", "severity": args.severity,

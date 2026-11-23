@@ -416,7 +416,8 @@ func TestKOReaderSyncProtocol(t *testing.T) {
 	}
 	s.KOSync = kosync.NewService(kosync.NewMemory(), false)
 	w = request(t, r, http.MethodPost, "/users/create", "", bytes.NewBufferString(`{"username":"reader","password":"0123456789abcdef0123456789abcdef"}`), nil)
-	if w.Code != http.StatusForbidden {
+	// Reference: koreader-sync-server errors.lua 2005 => 402; KOReader api.json register expects [201, 402].
+	if w.Code != http.StatusPaymentRequired {
 		t.Fatalf("registration default is not closed: %d %s", w.Code, w.Body.String())
 	}
 	s.KOSync = kosync.NewService(kosync.NewMemory(), true)
@@ -425,8 +426,10 @@ func TestKOReaderSyncProtocol(t *testing.T) {
 		t.Fatalf("create user: %d %s", w.Code, w.Body.String())
 	}
 	w = request(t, r, http.MethodPost, "/users/create", "", bytes.NewBufferString(`{"username":"reader","password":"0123456789abcdef0123456789abcdef"}`), nil)
-	if w.Code != http.StatusConflict {
-		t.Fatalf("duplicate user: %d", w.Code)
+	// Reference: errors.lua 2002 "Username is already registered." => 402 (api.json expects [201, 402]);
+	// KOReader shows body.message to the user, so the message must be a top-level field.
+	if w.Code != http.StatusPaymentRequired || !bytes.Contains(w.Body.Bytes(), []byte(`"message":"Username is already registered."`)) {
+		t.Fatalf("duplicate user: %d %s", w.Code, w.Body.String())
 	}
 	auth := map[string]string{"x-auth-user": "reader", "x-auth-key": "0123456789abcdef0123456789abcdef"}
 	w = request(t, r, http.MethodGet, "/users/auth", "", nil, auth)
@@ -464,8 +467,18 @@ func TestKOReaderSyncProtocol(t *testing.T) {
 	}
 	otherAuth := map[string]string{"x-auth-user": "other", "x-auth-key": "fedcba9876543210fedcba9876543210"}
 	w = request(t, r, http.MethodGet, "/syncs/progress/book-hash", "", nil, otherAuth)
-	if w.Code != http.StatusNotFound {
-		t.Fatalf("cross-user progress leak: %d %s", w.Code, w.Body.String())
+	// Reference: syncs_controller.lua get_progress returns 200 with an empty object when no record exists
+	// (api.json get_progress expects [200, 401]); KOReader main.lua then reports "No progress found".
+	if w.Code != http.StatusOK || strings.TrimSpace(w.Body.String()) != "{}" {
+		t.Fatalf("cross-user progress leak or non-reference empty response: %d %s", w.Code, w.Body.String())
+	}
+	w = request(t, r, http.MethodGet, "/syncs/progress/never-synced", "", nil, auth)
+	if w.Code != http.StatusOK || strings.TrimSpace(w.Body.String()) != "{}" {
+		t.Fatalf("unknown document: %d %s", w.Code, w.Body.String())
+	}
+	w = request(t, r, http.MethodGet, "/users/auth", "", nil, badAuth)
+	if w.Code != http.StatusUnauthorized || !bytes.Contains(w.Body.Bytes(), []byte(`"message":`)) {
+		t.Fatalf("401 must carry top-level message: %d %s", w.Code, w.Body.String())
 	}
 }
 

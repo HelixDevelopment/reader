@@ -13,9 +13,16 @@ type kosyncUserRequest struct {
 	Password string `json:"password"`
 }
 
+// kosyncError emits the Helix error envelope plus the top-level "message"
+// field that KOReader's kosync plugin shows to the user (main.lua reads
+// body.message on register/authorize failures).
+func kosyncError(c *gin.Context, status int, public string) {
+	c.AbortWithStatusJSON(status, gin.H{"error": public, "message": public, "request_id": c.GetString("request_id")})
+}
+
 func (s *Server) kosyncAvailable(c *gin.Context) bool {
 	if s.KOSync == nil {
-		Error(c, http.StatusServiceUnavailable, "KOReader sync is not configured")
+		kosyncError(c, http.StatusServiceUnavailable, "KOReader sync is not configured")
 		return false
 	}
 	return true
@@ -25,9 +32,9 @@ func (s *Server) kosyncAuthenticate(c *gin.Context) (string, bool) {
 	username := c.GetHeader("x-auth-user")
 	if err := s.KOSync.Authenticate(c.Request.Context(), username, c.GetHeader("x-auth-key")); err != nil {
 		if errors.Is(err, kosync.ErrInvalidAuth) {
-			Error(c, http.StatusUnauthorized, "invalid username or password")
+			kosyncError(c, http.StatusUnauthorized, "invalid username or password")
 		} else {
-			Error(c, http.StatusInternalServerError, "authentication failed")
+			kosyncError(c, http.StatusInternalServerError, "authentication failed")
 		}
 		return "", false
 	}
@@ -41,19 +48,21 @@ func (s *Server) kosyncRegister(c *gin.Context) {
 	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, 4096)
 	var request kosyncUserRequest
 	if err := c.ShouldBindJSON(&request); err != nil {
-		Error(c, http.StatusBadRequest, "invalid user request")
+		kosyncError(c, http.StatusBadRequest, "invalid user request")
 		return
 	}
 	if err := s.KOSync.Register(c.Request.Context(), request.Username, request.Password); err != nil {
 		switch {
 		case errors.Is(err, kosync.ErrRegistrationDisabled):
-			Error(c, http.StatusForbidden, "registration is disabled")
+			// Reference: errors.lua 2005 => 402 (api.json register expects [201, 402]).
+			kosyncError(c, http.StatusPaymentRequired, "registration is disabled")
 		case errors.Is(err, kosync.ErrInvalidInput):
-			Error(c, http.StatusBadRequest, "invalid username or password")
+			kosyncError(c, http.StatusBadRequest, "invalid username or password")
 		case errors.Is(err, kosync.ErrUserExists):
-			Error(c, http.StatusConflict, "cannot create user")
+			// Reference: errors.lua 2002 => 402; 409 is not in api.json expected_status.
+			kosyncError(c, http.StatusPaymentRequired, "Username is already registered.")
 		default:
-			Error(c, http.StatusInternalServerError, "user creation failed")
+			kosyncError(c, http.StatusInternalServerError, "user creation failed")
 		}
 		return
 	}
@@ -82,16 +91,16 @@ func (s *Server) kosyncPutProgress(c *gin.Context) {
 	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, 16384)
 	var progress kosync.Progress
 	if err := c.ShouldBindJSON(&progress); err != nil {
-		Error(c, http.StatusBadRequest, "invalid progress request")
+		kosyncError(c, http.StatusBadRequest, "invalid progress request")
 		return
 	}
 	progress, err := s.KOSync.PutProgress(c.Request.Context(), username, progress)
 	if errors.Is(err, kosync.ErrInvalidInput) {
-		Error(c, http.StatusBadRequest, "missing or invalid progress fields")
+		kosyncError(c, http.StatusBadRequest, "missing or invalid progress fields")
 		return
 	}
 	if err != nil {
-		Error(c, http.StatusInternalServerError, "progress update failed")
+		kosyncError(c, http.StatusInternalServerError, "progress update failed")
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"document": progress.Document, "timestamp": progress.Timestamp})
@@ -108,11 +117,13 @@ func (s *Server) kosyncGetProgress(c *gin.Context) {
 	progress, err := s.KOSync.GetProgress(c.Request.Context(), username, c.Param("document"))
 	switch {
 	case errors.Is(err, kosync.ErrProgressNotFound):
-		Error(c, http.StatusNotFound, "progress not found")
+		// Reference: get_progress answers 200 with an empty object when nothing is
+		// stored; api.json expects [200, 401] so a 404 is a client-side error.
+		c.JSON(http.StatusOK, gin.H{})
 	case errors.Is(err, kosync.ErrInvalidInput):
-		Error(c, http.StatusBadRequest, "invalid document")
+		kosyncError(c, http.StatusBadRequest, "invalid document")
 	case err != nil:
-		Error(c, http.StatusInternalServerError, "progress read failed")
+		kosyncError(c, http.StatusInternalServerError, "progress read failed")
 	default:
 		c.JSON(http.StatusOK, progress)
 	}

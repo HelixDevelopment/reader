@@ -1,6 +1,6 @@
 package httpapi
 
-// Load harness for the remote-source delivery path (ATM-027).
+// Load harness for the remote-source delivery path (HRD-027).
 //
 // docs/api.md is explicit that "connectors without live revalidation use a full
 // 200 without Content-Length, ETag, or ranges", and only sources.Local revalidates.
