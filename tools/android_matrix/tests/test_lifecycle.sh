@@ -41,7 +41,7 @@ printf '#!/bin/sh\necho reap >> "$FAKE_LOG"\n' > "$T/reap.sh"; chmod +x "$T/reap
 run() { # $1=name; extra env via caller
   export FAKE_LOG=$T/$1.log FAKE_DIR=$T; : > "$FAKE_LOG"
   PATH="$T/bin:$PATH" HRD040_WORK="$T/work" HRD040_CACHE="$T/hostcache" HRD040_KVM="$T/kvm" HRD040_REAP="$T/reap.sh" EVID="$T/ev-$1" \
-    bash "$REPO/tools/android_matrix/run_matrix.sh" emulators --rows api34-phone > "$T/$1.out" 2>&1; echo $? > "$T/$1.rc"; }
+    bash "${HRD040_RUNNER:-$REPO/tools/android_matrix/run_matrix.sh}" emulators --rows api34-phone > "$T/$1.out" 2>&1; echo $? > "$T/$1.rc"; }
 
 # --- scenario A: a leftover container with the OLD fixed name and a stale APK exists
 mkdir -p "$T/ctr/hrdiso-android-api34.d"; : > "$T/ctr/hrdiso-android-api34"; echo apk-app-STALE > "$T/ctr/hrdiso-android-api34.d/app.apk"
@@ -68,7 +68,7 @@ grep -q '^[0-9a-f]\{64\}  [^/]' "$T/ev-A/apk.sha256.txt" 2>/dev/null && ok "A11 
 FAKE_BOOT_FAIL=1 run B
 leftB=$(ls "$T/ctr" | grep -v '\.d$' | grep -vx 'hrdiso-android-api34' || true); [ -z "$leftB" ] && grep -q '^run ' "$T/B.log" && ok "B1 failed-boot container removed" || ko "B1 leftover after failed boot: $leftB"
 grep -q BLOCKED "$T/ev-B/api34-phone/row.json" 2>/dev/null && ok "B2 row BLOCKED" || ko "B2 row not BLOCKED"
-grep -q "trap .*EXIT" "$REPO/tools/android_matrix/run_matrix.sh" && ok "B3 EXIT trap present" || ko "B3 no EXIT trap"
+grep -q "trap .*EXIT" "${HRD040_RUNNER:-$REPO/tools/android_matrix/run_matrix.sh}" && ok "B3 EXIT trap present" || ko "B3 no EXIT trap"
 
 # --- scenario C: stale install mutant must be caught by summarize.py
 FAKE_STALE_INSTALL=1 run C

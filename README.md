@@ -166,6 +166,7 @@ credentials or secrets.
 - [`docs/user_guide.md`](docs/user_guide.md) — what works today, prototype behavior, server quickstart
 - [`docs/developer_guide.md`](docs/developer_guide.md) — setup for dev machines (incl. CodeGraph)
 - [`docs/testing.md`](docs/testing.md) + [`docs/testing/`](docs/testing) — qualification matrix and result index
+- [`docs/android-device-matrix.md`](docs/android-device-matrix.md) — Android API-level x screen-size matrix in rootless containers (HRD-040)
 - [`tools/verify/README.md`](tools/verify/README.md) — Go mutation runner and container-only UI verifier, with [`PARITY.md`](tools/verify/PARITY.md)
 - [`docs/faq.md`](docs/faq.md) — production readiness, accounts, formats, protocols
 - [`docs/scalability-review.md`](docs/scalability-review.md), [`docs/research/`](docs/research) — design studies

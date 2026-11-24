@@ -218,6 +218,24 @@ not honestly be called isolated. Android emulator runs are therefore NOT covered
 wrapper with explicit, reviewed network allowance, `--timeout` and `org.helix.*` labels lands (tracked under HRD-022 / HRD-040).
 The guard treats `emulator ... -no-window` as the allowed pattern.
 
+HRD-040 supplies that wrapper for the API-level x screen-size matrix: `tools/android_matrix/run_matrix.sh` (`docs/android-device-matrix.md`).
+What it does and does not do, stated as facts about the script (the guard still sees it as a waiver-pinned file, `tools/isolation/guard/waivers.txt`):
+
+- Lifetime: every container is named `hrdiso-android-<what>-<pid>-<epoch>` (unique per run, never reused; a same-name container aborts the run), carries
+  `--timeout` (default 7200 s, `HRD040_LIFE`) and the labels `org.helix.isolation`, `org.helix.owner-pid` (the runner pid) and `org.helix.lease-ts`;
+  `tools/isolation/reap.sh` runs before the first container; an `EXIT`/`INT`/`TERM` trap removes every container the run created.
+  `tools/android_matrix/tests/test_lifecycle.sh` drives the real script against a logging fake `podman` to prove this (RED against the earlier script).
+- Network: `--network none` for every container except the `seed`, `prepare` and `warm` stages (npm, Maven and SDK downloads) and the one-time `images` build.
+  Emulator containers: `--network none`, `--device /dev/kvm` only (no other device, no published port), `--cap-drop ALL`, `no-new-privileges`;
+  adb runs INSIDE the container (`podman exec ... adb -s emulator-5554`), there is no host adb and no host display.
+- Files: no bind mounts. Sources and APKs go in with `podman cp` (container-bound; the sources are a `git archive` copy). Results come OUT with
+  `podman cp` from a container into host paths the script chooses (`$EVID`, `$WORK`): container-written bytes are therefore on the host afterwards.
+  The evidence directory is sealed with `tools/isolation/seal_evidence.sh` (allow-list scan), which is why the script renames junit xml and the matrix tsv to `.txt`.
+- Stale installs: the APKs are copied fresh into each new emulator container, and per row the installed package path and sha256 are read back FROM THE DEVICE
+  and compared with the build (`installed.txt`, `summarize.py` check `installed_apk_matches`); the APK source revision is recorded (`source_rev.txt`).
+- Not covered: the cache volume `hrdiso-android-cache` and locally built emulator images persist outside the repo and are not reaped; the `/dev/kvm`
+  ACL is a host setting this script only reads (never changes).
+
 ## 7. HelixQA and the Vision oracle
 
 `helixqa http` runs in the container (`run_helixqa_container.sh`: 34 cases, 32 PASS, 0 FAIL, 2 SKIP - the web cases,

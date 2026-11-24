@@ -1,0 +1,20 @@
+FAIL A1 leftover container was REUSED (exec on fixed name)
+FAIL A1b leftover container (not ours) was touched
+FAIL A0 no podman run seen (all later checks are vacuous)
+FAIL A2 0 run(s) without --timeout
+FAIL A3 0 run(s) lack label org.helix.isolation=
+FAIL A3 0 run(s) lack label org.helix.owner-pid=
+FAIL A3 0 run(s) lack label org.helix.lease-ts=
+FAIL A4 reap.sh not run before the first container
+FAIL A6 no fresh APK copy
+PASS A7 containers of this run removed on exit
+FAIL A8 installed.txt missing
+FAIL A9 installed hash does not match the build
+FAIL A10 source_rev.txt missing
+FAIL A11 apk.sha256.txt not relative
+PASS B1 failed-boot container removed
+PASS B2 row BLOCKED
+FAIL B3 no EXIT trap
+FAIL C1 mutant not recorded
+PASS C2 stale install mutant -> row FAIL
+SOME FAILED

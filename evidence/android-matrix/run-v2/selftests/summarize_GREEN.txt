@@ -1,0 +1,221 @@
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezcz5lf6/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpezi3kfh1/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpe726st7x/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp_51wv0b7/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpr176vyn3/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpeh6rgb5z/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmp80h7ts_d/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:20: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/apk.sha256.txt' mode='w' encoding='UTF-8'>
+  open(d + "/apk.sha256.txt", "w").write("%s  app-debug.apk\n%s  app-debug-androidTest.apk\n" % (app, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:21: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/source_rev.txt' mode='w' encoding='UTF-8'>
+  open(d + "/source_rev.txt", "w").write("0123456789abcdef0123456789abcdef01234567\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:22: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/r1/row.json' mode='w' encoding='UTF-8'>
+  json.dump({"row_id": "r1", "api": 34, "image": "i", "width": W, "height": H, "dpi": 420, "class": "phone", "state": "RAN"}, open(d + "/r1/row.json", "w"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/r1/instrument.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/instrument.txt", "w").write(ok + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/r1/logcat_hrdmatrix.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/logcat_hrdmatrix.txt", "w").write("I/HRDMATRIX: HRDMATRIX: sdk=34 px=%dx%d dpi=420 widthDp=1 heightDp=1 webview=%s\n" % (W, 230, webview))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:25: ResourceWarning: unclosed file <_io.BufferedWriter name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/r1/screen.png'>
+  open(d + "/r1/screen.png", "wb").write(png(size[0], size[1], shot or busy))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/r1/installed.txt' mode='w' encoding='UTF-8'>
+  open(d + "/r1/installed.txt", "w").write("app /p/app %s\ntest /p/test %s\n" % (app if installed_ok else "c" * 64, test))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/unit/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit"); open(d + "/unit/exit.txt", "w").write("gradle exit %s\n" % unit[0])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/.cache/claude-tmp/hrd040/tools/android_matrix/tests/test_summarize.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpwp6078yf/unit_mutant/exit.txt' mode='w' encoding='UTF-8'>
+  os.makedirs(d + "/unit_mutant"); open(d + "/unit_mutant/exit.txt", "w").write("gradle exit %s (nonzero expected)\n" % unit[1])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.
+----------------------------------------------------------------------
+Ran 8 tests in 0.493s
+
+OK

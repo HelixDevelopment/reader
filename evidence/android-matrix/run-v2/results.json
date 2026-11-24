@@ -1,0 +1,154 @@
+{
+ "source_rev": "ef369a58bf6fb29e7c883b21889dcc6036ddfce2",
+ "apk_sha256": {
+  "app-debug.apk": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+  "app-debug-androidTest.apk": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+ },
+ "unit": {
+  "unit": {
+   "gradle_exit": 0,
+   "verdict": "PASS"
+  },
+  "unit_mutant": {
+   "gradle_exit": 1,
+   "verdict": "PASS"
+  }
+ },
+ "rows": [
+  {
+   "row_id": "api30-phone",
+   "api": 30,
+   "image": "localhost/hrd040-emu:api30-x86_64",
+   "width": 1080,
+   "height": 2400,
+   "dpi": 420,
+   "class": "phone",
+   "state": "RAN",
+   "checks": {
+    "instrumentation_ok": true,
+    "display_matches_row": true,
+    "webview_fills_display": true,
+    "screenshot_size_matches": true,
+    "screenshot_content": true,
+    "installed_apk_matches": true,
+    "source_rev_recorded": true
+   },
+   "instrumentation_tests": 2,
+   "hrdmatrix": "sdk=30 px=1080x2274 dpi=420 widthDp=411 heightDp=866 webview=1080x2211",
+   "screenshot_content_colors": 318,
+   "installed_sha256": {
+    "app": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+    "test": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "row_id": "api34-phone",
+   "api": 34,
+   "image": "ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e",
+   "width": 1080,
+   "height": 2400,
+   "dpi": 420,
+   "class": "phone",
+   "state": "RAN",
+   "checks": {
+    "instrumentation_ok": true,
+    "display_matches_row": true,
+    "webview_fills_display": true,
+    "screenshot_size_matches": true,
+    "screenshot_content": true,
+    "installed_apk_matches": true,
+    "source_rev_recorded": true
+   },
+   "instrumentation_tests": 2,
+   "hrdmatrix": "sdk=34 px=1080x2337 dpi=420 widthDp=411 heightDp=890 webview=1080x2274",
+   "screenshot_content_colors": 318,
+   "installed_sha256": {
+    "app": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+    "test": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "row_id": "api34-small",
+   "api": 34,
+   "image": "ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e",
+   "width": 720,
+   "height": 1280,
+   "dpi": 320,
+   "class": "small-phone",
+   "state": "RAN",
+   "checks": {
+    "instrumentation_ok": true,
+    "display_matches_row": true,
+    "webview_fills_display": true,
+    "screenshot_size_matches": true,
+    "screenshot_content": true,
+    "installed_apk_matches": true,
+    "source_rev_recorded": true
+   },
+   "instrumentation_tests": 2,
+   "hrdmatrix": "sdk=34 px=720x1232 dpi=320 widthDp=360 heightDp=616 webview=720x1184",
+   "screenshot_content_colors": 309,
+   "installed_sha256": {
+    "app": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+    "test": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "row_id": "api34-tablet",
+   "api": 34,
+   "image": "ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e",
+   "width": 1600,
+   "height": 2560,
+   "dpi": 320,
+   "class": "tablet",
+   "state": "RAN",
+   "checks": {
+    "instrumentation_ok": true,
+    "display_matches_row": true,
+    "webview_fills_display": true,
+    "screenshot_size_matches": true,
+    "screenshot_content": true,
+    "installed_apk_matches": true,
+    "source_rev_recorded": true
+   },
+   "instrumentation_tests": 2,
+   "hrdmatrix": "sdk=34 px=1600x2440 dpi=320 widthDp=800 heightDp=1220 webview=1600x2392",
+   "screenshot_content_colors": 240,
+   "installed_sha256": {
+    "app": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+    "test": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "row_id": "api36-phone",
+   "api": 36,
+   "image": "localhost/hrd040-emu:api36-x86_64",
+   "width": 1080,
+   "height": 2400,
+   "dpi": 420,
+   "class": "phone",
+   "state": "RAN",
+   "checks": {
+    "instrumentation_ok": true,
+    "display_matches_row": true,
+    "webview_fills_display": true,
+    "screenshot_size_matches": true,
+    "screenshot_content": true,
+    "installed_apk_matches": true,
+    "source_rev_recorded": true
+   },
+   "instrumentation_tests": 2,
+   "hrdmatrix": "sdk=36 px=1080x2400 dpi=420 widthDp=411 heightDp=914 webview=1080x2274",
+   "screenshot_content_colors": 318,
+   "installed_sha256": {
+    "app": "0514804fe6b98c4d6d5d38d61b096b8bed4f077c30afe707b8cbdb70bbbdaa0b",
+    "test": "ab11741036180b43f9b13673516f738bb70d93d22540e0ff9c3516bbfaf8c1c2"
+   },
+   "verdict": "PASS"
+  }
+ ]
+}

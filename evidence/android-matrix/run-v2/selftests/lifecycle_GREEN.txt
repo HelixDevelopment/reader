@@ -1,0 +1,20 @@
+PASS A1 leftover container not reused
+PASS A1b leftover not touched
+PASS A2 every run has --timeout
+PASS A3 label org.helix.isolation= on every run
+PASS A3 label org.helix.owner-pid= on every run
+PASS A3 label org.helix.lease-ts= on every run
+PASS A4 reap before first container
+PASS A5 unique per-run names (hrdiso-android-api34-2391654-1795554441)
+PASS A6 APK copied fresh into the new container
+PASS A7 containers of this run removed on exit
+PASS A8 installed.txt recorded
+PASS A9 installed app hash == built APK
+PASS A10 APK source revision recorded
+PASS A11 apk.sha256.txt uses relative names
+PASS B1 failed-boot container removed
+PASS B2 row BLOCKED
+PASS B3 EXIT trap present
+PASS C1 mutant visible in installed.txt
+PASS C2 stale install mutant -> row FAIL
+ALL PASS
