@@ -22,7 +22,8 @@
 # Isolation: rootless podman only; throwaway containers hrdlive-<pid>-*, 127.0.0.1 random
 # ports, memory caps (PG 512m, Redis 128m); trap removes them. Never touches the display,
 # host 5432, or any container it did not create. Tests that write tracked/untracked files
-# under evidence/ (hardcoded relative paths) are reverted/moved to $OUT/side_effects.
+# under evidence/ (hardcoded relative paths) are only DETECTED and REPORTED ($OUT/side_effects_report_*.txt); the
+# runner never reverts, deletes, moves or copies them (operator decision, round 6).
 # Exit: 0 green; 1 test failure; 3 skip-gate violation; 2 setup error.
 set -uo pipefail
 set -E
@@ -38,30 +39,34 @@ CWD0=$PWD
 abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
 ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
 OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
-SEDIR=""; SEMODE=""; SEOUT=""; NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
+SEDIR=""; SEMODE=""; SEA=""; SEB=""; SEC=""; SESKIP=""; NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
   --print-phase-b) PB=$(abs "$2"); shift;;
   --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;; --selftest-wait) SELFTEST=2;;
-  --selftest-side-effects) SELFTEST=3; SEDIR=$(abs "$2"); SEMODE=$3; SEOUT=$(abs "$4"); shift 3;;
+  --selftest-side-effects) SELFTEST=3; SEDIR=$(abs "$2"); SEMODE=$3; SEA=$(abs "$4"); SEB=$(abs "$5"); SEC=$(abs "$6"); SESKIP=$7; shift 6;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
 # wait_workers PID... : wait for background workers; any non-zero exit sets RC=1 (B3 failure propagation).
 wait_workers() { local p; for p in "$@"; do wait "$p" || RC=1; done; }
-# Side effects of the live tests inside the tracked evidence tree. Only paths that were CLEAN (absent from the pre-run
-# status) are touched: a file already modified/untracked before the run is never copied, reverted or removed.
-se_snapshot() { git status --porcelain --untracked-files=all evidence | cut -c4- | LC_ALL=C sort -u > "$1"; }
-se_restore() { # BEFORE_PATHS OUTDIR_SIDE [OUT_REL_TO_SKIP]
-  local before=$1 dest=$2 skip=${3:-} line st path
-  while IFS= read -r line; do
-    st=${line:0:2}; path=${line:3}
-    grep -xF -- "$path" "$before" >/dev/null && continue
-    [ -n "$skip" ] && case "$path" in "$skip"/*) continue;; esac
-    [ -f "$path" ] || continue
-    mkdir -p "$dest/$(dirname "$path")"; cp -- "$path" "$dest/$path"
-    if [ "$st" = "??" ]; then rm -f -- "$path"; else git checkout -- "$path"; fi
-  done < <(git status --porcelain --untracked-files=all evidence)
+# Side effects of the live tests inside the tracked evidence tree are DETECTED and REPORTED only. This code never
+# modifies the working tree (no revert, delete, move or copy). Snapshot = `path<TAB>sha256` of every path git status
+# lists under evidence/ (NUL-separated, so quoted/spaced/non-ASCII names are exact; a path with a TAB or a rename
+# entry is UNCONFIRMED/unsupported).
+se_snapshot() { # OUTFILE
+  local e p h
+  git status --porcelain -z --untracked-files=all evidence | while IFS= read -r -d '' e; do
+    p=${e:3}; if [ -f "$p" ]; then h=$(sha256sum -- "$p" | cut -c1-64); else h=-; fi
+    printf '%s\t%s\n' "$p" "$h"
+  done | LC_ALL=C sort > "$1"
 }
-if [ $SELFTEST = 3 ]; then cd "$SEDIR" || exit 2; case $SEMODE in snap) se_snapshot "$SEOUT";; restore) se_restore "$SEOUT" "$SEOUT.d";; *) exit 2;; esac; exit 0; fi
+se_report() { # BEFORE AFTER REPORT [OUT_REL_TO_SKIP]  (read-only on the tree; writes only REPORT)
+  awk -F'\t' -v skip="${4:-}" 'FILENAME==ARGV[1] { b[$1]=$2; next } { a[$1]=$2 }
+    END { for (p in a) { if (skip != "" && index(p, skip "/") == 1) continue
+            if (!(p in b)) print "NEW\t" p; else if (a[p] != b[p]) print "MODIFIED\t" p }
+          for (p in b) { if (skip != "" && index(p, skip "/") == 1) continue
+            if (!(p in a)) print "NO-LONGER-LISTED\t" p } }' "$1" "$2" | LC_ALL=C sort > "$3"
+}
+if [ $SELFTEST = 3 ]; then cd "$SEDIR" || exit 2; case $SEMODE in snap) se_snapshot "$SEA";; report) se_report "$SEA" "$SEB" "$SEC" "$SESKIP";; *) exit 2;; esac; exit 0; fi
 if [ $SELFTEST = 1 ]; then hrd_no_such_command_xyz; exit 0; fi
 if [ $SELFTEST = 2 ]; then RC=0; ( exit 0 ) & a=$!; ( exit 3 ) & b=$!; wait_workers $a $b; [ $RC -eq 1 ] && exit 7; exit 8; fi
 # need TOOL...: exit 2 naming the first missing tool (checked before anything is started).
@@ -72,6 +77,8 @@ need git awk sort comm sed sha256sum find xargs seq cp tee basename dirname date
 [ $NOENV = 0 ] || [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || need go
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
 if [ ! -f "$ALLOW" ] || [ ! -r "$ALLOW" ]; then echo "SETUP-ERROR: allow-list '$ALLOW' missing or unreadable" >&2; exit 2; fi
+# Scratch files live in a private mktemp dir, never in the (tracked) evidence dir; removed on exit.
+SCR=$(mktemp -d) || exit 2; trap 'rm -rf "$SCR"' EXIT
 
 # seal_dir DIR : write DIR/SHA256SUMS (sha256 of every regular, non-hidden file except SHA256SUMS itself,
 # relative paths, fixed C-locale order). Self-contained: no external seal tool.
@@ -105,14 +112,14 @@ log_records() {
 # build failure / failed package / panic / timeout / package with no results; malformed allow-list.
 skip_gate() {
   local bad=0 pk n r rr i kind rec
-  : > "$OUT/.rec.tsv"; LOGBAD=""
-  for l in "$@"; do log_records "$l" >> "$OUT/.rec.tsv"; done
+  : > "$SCR/.rec.tsv"; LOGBAD=""
+  for l in "$@"; do log_records "$l" >> "$SCR/.rec.tsv"; done
   [ -n "$LOGBAD" ] && return 2
-  awk -F'\t' '$1=="PASS"{print $2"|"$3}' "$OUT/.rec.tsv" | sort -u > "$OUT/.pass.txt"
-  awk -F'\t' '$1=="SKIP"{print $2"|"$3}' "$OUT/.rec.tsv" | sort -u > "$OUT/.skip.txt"
-  comm -23 "$OUT/.skip.txt" "$OUT/.pass.txt" > "$OUT/.netskip.txt"
-  echo "skip census: $(wc -l < "$OUT/.skip.txt") distinct package|tests skipped somewhere, $(wc -l < "$OUT/.netskip.txt") never passed"
-  : > "$OUT/.used.txt"; local -A SEEN_ALLOW=()
+  awk -F'\t' '$1=="PASS"{print $2"|"$3}' "$SCR/.rec.tsv" | sort -u > "$SCR/.pass.txt"
+  awk -F'\t' '$1=="SKIP"{print $2"|"$3}' "$SCR/.rec.tsv" | sort -u > "$SCR/.skip.txt"
+  comm -23 "$SCR/.skip.txt" "$SCR/.pass.txt" > "$SCR/.netskip.txt"
+  echo "skip census: $(wc -l < "$SCR/.skip.txt") distinct package|tests skipped somewhere, $(wc -l < "$SCR/.netskip.txt") never passed"
+  : > "$SCR/.used.txt"; local -A SEEN_ALLOW=()
   while IFS='|' read -r pk n r i || [ -n "$pk$n$r$i" ]; do
     pk=$(trim "$pk"); n=$(trim "$n"); r=$(trim "$r"); i=$(trim "$i")
     [ -z "$pk" ] && continue; case $pk in \#*) continue;; esac
@@ -124,13 +131,13 @@ skip_gate() {
         if [ "${SEEN_ALLOW["$pk|$n"]}" = "$r|$i" ]; then echo "DUPLICATE-ALLOW (warning): $pk|$n listed twice"
         else echo "CONTRADICTORY-ALLOW: $pk|$n listed with different reason/item"; bad=1; fi
       fi
-      SEEN_ALLOW["$pk|$n"]="$r|$i"; echo "$pk|$n" >> "$OUT/.used.txt"
+      SEEN_ALLOW["$pk|$n"]="$r|$i"; echo "$pk|$n" >> "$SCR/.used.txt"
     fi
   done < "$ALLOW"
   while read -r rec; do
     [ -z "$rec" ] && continue
-    if ! grep -qxF "$rec" "$OUT/.used.txt"; then echo "UNLISTED-SKIP: $rec"; bad=1; fi
-  done < "$OUT/.netskip.txt"
+    if ! grep -qxF "$rec" "$SCR/.used.txt"; then echo "UNLISTED-SKIP: $rec"; bad=1; fi
+  done < "$SCR/.netskip.txt"
   while IFS=$'\t' read -r kind pk n; do
     case $kind in
       FAIL) echo "FAILED-TEST: $pk|$n"; bad=1;;
@@ -141,8 +148,8 @@ skip_gate() {
       TIMEOUT) echo "TIMEOUT: $pk"; bad=1;;
       INCOMPLETE) echo "INCOMPLETE: $pk ($n; truncated log, unclosed or mismatched # PKG marker, or records with no closing PASS/FAIL)"; bad=1;;
     esac
-  done < <(sort -u "$OUT/.rec.tsv" | awk -F'\t' '$1!="PASS" && $1!="SKIP" && $1!="SEEN"')
-  while read -r rec; do [ -n "$rec" ] && ! grep -qxF "$rec" "$OUT/.skip.txt" && echo "UNUSED-ALLOW (warning): $rec never skipped in these logs"; done < <(sort -u "$OUT/.used.txt")
+  done < <(sort -u "$SCR/.rec.tsv" | awk -F'\t' '$1!="PASS" && $1!="SKIP" && $1!="SEEN"')
+  while read -r rec; do [ -n "$rec" ] && ! grep -qxF "$rec" "$SCR/.skip.txt" && echo "UNUSED-ALLOW (warning): $rec never skipped in these logs"; done < <(sort -u "$SCR/.used.txt")
   return $bad
 }
 
@@ -152,26 +159,26 @@ skip_gate() {
 HOSTRE='TestLiveLoadRemoteSource|TestLiveLoadRemoteSourceRclone|TestLiveLoadRemoteSourceWebDAV|TestLiveThrottleRemoteSourceHTTP|TestLiveSlowClientCatalogSurface|TestLiveSlowClientJobSurface'
 EXCL='TestLiveScaleCatalog|TestCatalogMultiProcessMerges|TestLCPLiveServerQualification|TestDumpLCPFeeds'
 phase_b_sets() {
-  LOGBAD=""; log_records "$1" > "$OUT/.pb.tsv"
-  [ -n "$LOGBAD" ] && { rm -f "$OUT/.pb.tsv"; return 2; }
+  LOGBAD=""; log_records "$1" > "$SCR/.pb.tsv"
+  [ -n "$LOGBAD" ] && { rm -f "$SCR/.pb.tsv"; return 2; }
   REGEX=$(awk -F'\t' -v ex="^($EXCL)$" '
     $1=="PASS"{p[$2"\t"$3]=1} $1=="SKIP"{s[$2"\t"$3]=1}
     END{for(k in s) if(!(k in p)){split(k,a,"\t"); if(a[2]!~/\// && a[2]!~ex) u[a[2]]=1}
         n=0; for(t in u) l[++n]=t; for(i=1;i<=n;i++)for(j=i+1;j<=n;j++)if(l[j]<l[i]){x=l[i];l[i]=l[j];l[j]=x}
-        for(i=1;i<=n;i++) printf "%s%s", (i>1?"|":""), l[i]; print ""}' "$OUT/.pb.tsv")
+        for(i=1;i<=n;i++) printf "%s%s", (i>1?"|":""), l[i]; print ""}' "$SCR/.pb.tsv")
   INRE=$(awk -v h="^($HOSTRE)$" 'BEGIN{RS="|"; ORS=""} {sub(/\n$/,"")} $0!="" && $0!~h {printf "%s%s", (c++?"|":""), $0}' <<<"$REGEX")
   HRE=$(awk -v h="^($HOSTRE)$" 'BEGIN{RS="|"; ORS=""} {sub(/\n$/,"")} $0!="" && $0~h {printf "%s%s", (c++?"|":""), $0}' <<<"$REGEX")
-  rm -f "$OUT/.pb.tsv"; return 0
+  rm -f "$SCR/.pb.tsv"; return 0
 }
 
 if [ -n "$PB" ]; then phase_b_sets "$PB" || { echo "GATE-BLIND: unusable phase-A log" >&2; exit 2; }; echo "REGEX=$REGEX"; echo "INRE=$INRE"; echo "HRE=$HRE"; exit 0; fi
 
-if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?; rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
+if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?
   [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s), no verdict possible"; exit 2; }
   [ $G -eq 0 ] && { echo "GATE GREEN"; exit 0; } || { echo "SKIP-GATE FAILED"; exit 3; }; fi
 
 PFX="hrdlive-$$"; CTRS=(); TMPD=$(mktemp -d)
-cleanup() { for ((i=${#CTRS[@]}-1;i>=0;i--)); do podman rm -f -t 2 "${CTRS[$i]}" >/dev/null 2>&1; done; rm -rf "$TMPD"; true; }
+cleanup() { for ((i=${#CTRS[@]}-1;i>=0;i--)); do podman rm -f -t 2 "${CTRS[$i]}" >/dev/null 2>&1; done; rm -rf "$TMPD" "$SCR"; true; }
 trap cleanup EXIT INT TERM
 free_port() { python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'; }
 hdr() { echo "# HRD-050 $1  $(date -u +%FT%TZ)  head=$(git rev-parse --short HEAD)  dirty_files=$(git status --porcelain | wc -l)  dirty_diff_sha=$( (git diff HEAD; git ls-files -o --exclude-standard | sort) | sha256sum | cut -c1-16)  mode=$([ $NOENV = 1 ] && echo no-env || echo live)"; echo "# cmd: $0 $ORIG"; echo "# go: $(go version)"; }
@@ -267,14 +274,14 @@ if [ $NOENV = 0 ]; then
 fi
 
 # evidence side effects written by tests into the tracked evidence tree
-mkdir -p "$OUT/side_effects"
-se_restore "$EVBEFORE" "$OUT/side_effects" "${OUT#"$ROOT"/}"
+se_snapshot "$TMPD/ev_after.txt"
+se_report "$EVBEFORE" "$TMPD/ev_after.txt" "$OUT/side_effects_report_$SUF.txt" "${OUT#"$ROOT"/}"
+if [ -s "$OUT/side_effects_report_$SUF.txt" ]; then echo "SIDE-EFFECTS-DETECTED: $(wc -l < "$OUT/side_effects_report_$SUF.txt") path(s) under evidence/ changed by this run (NOT reverted, see side_effects_report_$SUF.txt)"; fi
 
 { for l in "${LOGS[@]}"; do echo "$(basename "$l"): PASS=$(grep -cE '^\s*--- PASS' "$l") FAIL=$(grep -cE '^\s*--- FAIL' "$l") SKIP=$(grep -cE '^\s*--- SKIP' "$l") DATA_RACE=$(grep -c 'WARNING: DATA RACE' "$l")"; done; } | tee "$OUT/summary_$SUF.txt"
 grep -hE '^\s*--- FAIL' "${LOGS[@]}" | sed 's/ (.*//' | sort -u > "$OUT/failures_$SUF.txt"
 skip_gate "${LOGS[@]}"; G=$?
-cp "$OUT/.netskip.txt" "$OUT/netskips_$SUF.txt"; cp "$OUT/.skip.txt" "$OUT/skips_anywhere_$SUF.txt"
-rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
+cp "$SCR/.netskip.txt" "$OUT/netskips_$SUF.txt"; cp "$SCR/.skip.txt" "$OUT/skips_anywhere_$SUF.txt"
 seal_dir "$OUT" || { echo "sealing evidence failed" >&2; exit 2; }
 [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s)"; exit 2; }
 [ $G -ne 0 ] && { [ $RC -ne 0 ] && echo "ALSO: go test returned failures (see $OUT/failures_$SUF.txt)"; echo "SKIP-GATE FAILED"; exit 3; }

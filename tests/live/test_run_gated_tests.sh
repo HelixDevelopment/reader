@@ -125,18 +125,36 @@ t X6_nbsp_only_reason_malformed   3 'ALLOWLIST-MALFORMED'             $FX/allow_
 t X7_space_separated_ok_not_a_package_line 3 'INCOMPLETE'             $A $FX/ok_space_sep.log
 t X8_bare_pass_then_eof_incomplete 3 'INCOMPLETE'                     $A $FX/bare_pass_eof.log
 t X9_empty_marker_pair_incomplete 3 'INCOMPLETE: example.com/m/a .empty-marker-pair' $A $FX/empty_marker_pair.log
-# I4: side-effect cleanup only touches files that were clean before the run
-SR=$W/serepo; mkdir -p "$SR/evidence/x"; ( cd "$SR" && git init -q . && git config user.email t@t && git config user.name t \
-  && echo base > evidence/x/tracked_pre.txt && echo base > evidence/x/tracked_new.txt && echo base > evidence/x/staged_pre.txt \
-  && git add -A && git commit -q -m init ) >/dev/null 2>&1
-echo mine > "$SR/evidence/x/tracked_pre.txt"; echo mine > "$SR/evidence/x/untracked_pre.txt"
-"$GATE" --selftest-side-effects "$SR" snap "$W/se_before.txt" >/dev/null 2>&1
+# Round 6: the runner never modifies the working tree; it only detects and reports side effects (se_snapshot/se_report).
+SR=$W/serepo; mkdir -p "$SR/evidence/x y"; ( cd "$SR" && git init -q . && git config user.email t@t && git config user.name t \
+  && echo base > evidence/x/tracked_pre.txt 2>/dev/null; mkdir -p evidence/x && echo base > evidence/x/tracked_pre.txt && echo base > evidence/x/tracked_new.txt \
+  && echo base > "evidence/x y/sp ace.txt" && git add -A && git commit -q -m init ) >/dev/null 2>&1
+echo mine > "$SR/evidence/x/tracked_pre.txt"; echo mine > "$SR/evidence/x/untracked_pre.txt"; mkdir -p "$SR/evidence/newdir"; echo mine > "$SR/evidence/newdir/pre_in_new_dir.txt"
+"$GATE" --selftest-side-effects "$SR" snap "$W/se_before.txt" - - "" >/dev/null 2>&1
 echo run > "$SR/evidence/x/tracked_new.txt"; echo run > "$SR/evidence/x/untracked_new.txt"; echo more >> "$SR/evidence/x/tracked_pre.txt"
-"$GATE" --selftest-side-effects "$SR" restore "$W/se_before.txt" >/dev/null 2>&1; serc=$?
-chk I4_cleanup_rc0 bash -c "[ $serc -eq 0 ]"
-chk I4_run_created_untracked_removed_and_copied bash -c "[ ! -e $SR/evidence/x/untracked_new.txt ] && [ -f $W/se_before.txt.d/evidence/x/untracked_new.txt ]"
-chk I4_run_modified_clean_tracked_reverted bash -c "[ \$(cat $SR/evidence/x/tracked_new.txt) = base ] && [ -f $W/se_before.txt.d/evidence/x/tracked_new.txt ]"
-chk I4_preexisting_changes_untouched bash -c "[ \$(wc -l < $SR/evidence/x/tracked_pre.txt) -eq 2 ] && [ -f $SR/evidence/x/untracked_pre.txt ] && [ ! -e $W/se_before.txt.d/evidence/x/untracked_pre.txt ]"
+echo run > "$SR/evidence/x y/sp ace.txt"; echo run > "$SR/evidence/x y/ünï cödé.txt"; mkdir -p "$SR/evidence/brand new/deep"; echo run > "$SR/evidence/brand new/deep/f.txt"
+mkdir -p "$SR/evidence/camp.out"; echo run > "$SR/evidence/camp.out/own.log"
+"$GATE" --selftest-side-effects "$SR" snap "$W/se_after.txt" - - "" >/dev/null 2>&1
+tree_sum() { ( cd "$SR" && find . -path ./.git -prune -o -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum -- ; git status --porcelain -z --untracked-files=all | tr '\0' '\n' ) | sha256sum | cut -c1-64; }
+T1=$(tree_sum)
+"$GATE" --selftest-side-effects "$SR" report "$W/se_before.txt" "$W/se_after.txt" "$W/se_report.txt" "" >/dev/null 2>&1; serc=$?
+T2=$(tree_sum)
+chk X10_report_rc0 bash -c "[ $serc -eq 0 ]"
+chk X10_report_never_modifies_tree bash -c "[ -n '$T1' ] && [ '$T1' = '$T2' ]"
+chk X11_preexisting_dirty_files_still_present bash -c "[ \$(wc -l < '$SR/evidence/x/tracked_pre.txt') -eq 2 ] && [ -f '$SR/evidence/x/untracked_pre.txt' ] && [ -f '$SR/evidence/newdir/pre_in_new_dir.txt' ]"
+chk X12_report_lists_new_and_modified bash -c "grep -qxF -- \"\$(printf 'NEW\tevidence/x/untracked_new.txt')\" '$W/se_report.txt' && grep -qxF -- \"\$(printf 'MODIFIED\tevidence/x/tracked_pre.txt')\" '$W/se_report.txt' && grep -qxF -- \"\$(printf 'NEW\tevidence/x/tracked_new.txt')\" '$W/se_report.txt' && grep -qxF -- \"\$(printf 'NEW\tevidence/brand new/deep/f.txt')\" '$W/se_report.txt'"
+chk X13_report_handles_spaces_and_non_ascii bash -c "grep -qxF -- \"\$(printf 'NEW\tevidence/x y/ünï cödé.txt')\" '$W/se_report.txt' && grep -qxF -- \"\$(printf 'NEW\tevidence/x y/sp ace.txt')\" '$W/se_report.txt'"
+chk X14_report_does_not_list_unchanged_preexisting bash -c "! grep -F 'pre_in_new_dir' '$W/se_report.txt' && ! grep -F 'untracked_pre' '$W/se_report.txt'"
+"$GATE" --selftest-side-effects "$SR" report "$W/se_before.txt" "$W/se_after.txt" "$W/se_report2.txt" evidence/camp.out >/dev/null 2>&1
+chk X19_report_skips_own_output_dir bash -c "! grep -F 'camp.out' '$W/se_report2.txt' && grep -qF 'brand new' '$W/se_report2.txt' && grep -qF 'camp.out' '$W/se_report.txt'"
+# R7: PASS then a bare FAIL inside a marker pair is a failed package, never green
+t X15_marker_pass_then_bare_fail  3 'PACKAGE-FAILED: example.com/m/a' $A $FX/marker_pass_then_bare_fail.log
+# R8: '#' inside an allow-list entry (seed#0) is not a comment: the real allow-list covers the real skip
+t X16_hash_in_entry_not_comment   0 'GATE GREEN'                      "$ROOT/tests/live/allowed_skips.txt" $FX/skip_seed.log
+t X17_hash_entry_unlisted_fails   3 'UNLISTED-SKIP: .*seed#0'         $FX/allow_empty.txt $FX/skip_seed.log
+# m5: --check scratch files never land in the --out (tracked evidence) dir
+OD=$W/scratch_out; "$GATE" --out "$OD" --allow "$A" --check "$FX/good.log" >/dev/null 2>&1
+chk X18_check_leaves_out_dir_empty bash -c "[ -z \"\$(ls -A '$OD')\" ]"
 # R1b: every file the tests/harness use is tracked and not ignored (a clean checkout must be able to run them)
 ign=""; for pth in $(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- tests/live); do ign="$ign $pth"; done
 for pth in $(grep -ohE 'tests/live/[A-Za-z0-9_./-]+' "$ROOT/tests/live/test_run_gated_tests.sh" "$ROOT/tests/live/mutation_gate_check.sh" | sort -u); do

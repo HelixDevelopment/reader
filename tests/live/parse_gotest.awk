@@ -21,7 +21,8 @@ BEGIN { def = "(unlabeled)"; nb = 0; open = 0 }
 /^# PKG / {
   if (open) print "INCOMPLETE\t" def "\tnested-or-unclosed-marker"
   flush(def); def = $3; open = 1; closed = 1; next }
-/^(PASS|FAIL)[ \t]*$/ { closed = 1; next }
+/^FAIL[ \t]*$/ { closed = 1; if (open) print "PKGFAIL\t" def "\t-"; next }
+/^PASS[ \t]*$/ { closed = 1; next }
 /^[ \t]*--- (PASS|SKIP|FAIL): / {
   k = $2; sub(/:$/, "", k); n = $3; nb++; closed = 0; bk[nb] = k; bn[nb] = n; seen++; next }
 /^(ok|FAIL) *\t[^ \t]/ {

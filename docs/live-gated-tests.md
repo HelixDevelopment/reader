@@ -25,7 +25,7 @@ Race and regression evidence therefore did not cover those paths.
    `HELIX_MEASUREMENT_PATH=in_container_clean`); tests that need host binaries (rclone) or do not measure PG latency run on the host and are labelled
    `host_forwarded`. The 4-process merge test, LCP live qualification (fresh `helix-server` binary) and OPDS dump run as their own steps.
 4. Skip gate: a test counts as skipped when it SKIPs somewhere and PASSes nowhere. Each must be in the allow-list with a reason and an `HRD-NNN` item, or the
-   run exits 3. Tests that write into the tracked `evidence/` tree are reverted/moved to `side_effects/`.
+   run exits 3. Tests that write into the tracked `evidence/` tree are only DETECTED and REPORTED (`side_effects_report_<mode>.txt`, plus a `SIDE-EFFECTS-DETECTED` line); the runner never reverts, deletes, moves or copies anything (round 6).
 
 Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `--check LOG` to apply only the skip gate to an existing `-v` log).
 
@@ -58,5 +58,9 @@ Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `-
 - Fixtures were previously git-ignored (`*.log`), so a clean checkout failed most gate tests and the mutation harness baseline. They are now tracked; `R1b` sweeps tests, harness and fixtures for untracked or ignored files.
 - Parser: the package line must be `ok`/`FAIL` followed by optional spaces and a TAB (space-separated lines are not package lines); records left at EOF with no package line (for example a log cut after a bare `PASS`) and an empty `# PKG`/`# PKG-END` pair are `INCOMPLETE`. A binary that legitimately runs zero tests inside a marker pair is therefore reported INCOMPLETE (conservative).
 - Allow-list: a reason made only of NBSP (U+00A0) is blank; `HRD-` with no digits is malformed.
-- Side effects: the post-run cleanup (`se_snapshot`/`se_restore`) only copies, reverts or removes paths that were clean before the run; files already modified or untracked beforehand are never touched (test `I4_*`, mutants M45/M46).
 - Panic and timeout alone (no `FAIL` line) fail the gate (fixtures `marker_panic_nofail`, `marker_timeout_nofail`; mutants M37/M38); allow-list matching is exact, not substring (mutant M39).
+
+## Round 6 (operator decision: no cleanup)
+- The side-effect snapshot/restore cleanup (round 5) was REMOVED entirely: reviewer finding B1 showed it could destroy uncommitted work. `se_snapshot` records `path<TAB>sha256` of every path `git status -z` lists under `evidence/`; `se_report` writes NEW / MODIFIED / NO-LONGER-LISTED lines to the report file under the run's own output dir (its own output dir is excluded). NEW means newly listed as dirty by this run (a clean tracked file the run modified is NEW). Neither function modifies the working tree; tests X10-X14, X19 checksum a temp git repo's tree before/after (pre-existing dirty and untracked files, names with spaces and non-ASCII); mutants M45/M46/M50. Limits: a path containing a TAB and git rename entries are UNCONFIRMED/unsupported.
+- `PASS` followed by a bare `FAIL` inside a `# PKG` marker pair is a failed package (X15, M47). A `#` inside an allow-list entry (`seed#0`) is not a comment (X16/X17, M48). `--check` and the runner keep scratch files in a private mktemp dir, never in the evidence dir (X18, M49).
+- Follow-ups (not fixed here): a test name containing `|` cannot be allow-listed (fails closed); commits 79eb80f and 467372f carry `Roadmap-Item` in a non-final trailer paragraph (history is not rewritten); live phase A/B run and tests/live/mutation_check.sh still owed.

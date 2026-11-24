@@ -51,8 +51,12 @@ M=(
 "M42-X7-space-separated-ok-accepted@parse_gotest.awk@s/\^(ok|FAIL) \*.t\[\^ .t\]\//^(ok|FAIL)[ \\t]+[^ \\t]\//"
 "M43-X8-bare-pass-eof-not-incomplete@parse_gotest.awk@s/if (nb > 0) print \"INCOMPLETE/if (0) print \"INCOMPLETE/"
 "M44-X9-empty-marker-pair-ok@parse_gotest.awk@s/if (open \&\& nb == 0)/if (0)/"
-"M45-I4-touch-preexisting-changes@run_gated_tests.sh@s/grep -xF -- \"\$path\" \"\$before\" >\/dev\/null \&\& continue/:/"
-"M46-I4-no-copy-before-revert@run_gated_tests.sh@s/mkdir -p \"\$dest\/\$(dirname \"\$path\")\"; cp -- \"\$path\" \"\$dest\/\$path\"/:/"
+"M45-R6-report-reverts-tracked-files@run_gated_tests.sh@s/LC_ALL=C sort > \"\$3\"$/LC_ALL=C sort > \"\$3\"; git checkout -- evidence/"
+"M46-R6-snapshot-not-nul-separated@run_gated_tests.sh@s/--porcelain -z /--porcelain /"
+"M47-R7-bare-fail-in-marker-ignored@parse_gotest.awk@s/if (open) print \"PKGFAIL/if (0) print \"PKGFAIL/"
+"M48-R8-hash-anywhere-is-comment@run_gated_tests.sh@s/case \$pk in \\\\#\*) continue;; esac/case \$pk\$n in *\\\\#*) continue;; esac/"
+"M49-m5-scratch-in-out-dir@run_gated_tests.sh@s/^SCR=\$(mktemp -d) || exit 2; trap 'rm -rf \"\$SCR\"' EXIT/SCR=\$OUT/"
+"M50-R6-report-own-output-not-skipped@run_gated_tests.sh@s/index(p, skip \"\/\") == 1/0/g"
 )
 # Baseline control: the UNMUTATED copy must pass every case, else a mutant's "kill" could be an artefact of the copy.
 mkcopy() { rm -rf "$W/c"; mkdir -p "$W/c/tests/live"; cp "$ROOT"/tests/live/run_gated_tests.sh "$ROOT"/tests/live/parse_gotest.awk "$ROOT"/tests/live/allowed_skips.txt "$W/c/tests/live/"; }
