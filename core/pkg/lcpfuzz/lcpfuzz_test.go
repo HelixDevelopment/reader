@@ -42,6 +42,22 @@ func seed(f *testing.F) {
 			}
 		}
 	}
+	// Nested mandatory members: drop one sub-member of encryption/signature at a
+	// time (the whole-member removals above never reach these checks).
+	if b, err := os.ReadFile("../lcp/testdata/spec-5.4.1-signed-license.json"); err == nil {
+		for _, path := range [][2]string{{"encryption", "profile"}, {"encryption", "content_key"}, {"encryption", "user_key"}, {"signature", "algorithm"}, {"signature", "certificate"}, {"signature", "value"}} {
+			if nb := dropNested(b, path[0], path[1]); nb != nil {
+				f.Add(nb)
+			}
+		}
+	}
+	if b, err := os.ReadFile("../lcp/testdata/spec-5.4.1-signed-license.json"); err == nil {
+		for _, k := range []string{"algorithm", "key_check"} {
+			if nb := dropUserKey(b, k); nb != nil {
+				f.Add(nb)
+			}
+		}
+	}
 	for _, s := range []string{``, `{}`, `null`, `[]`, `{"id":"x","provider":"p","issued":"2020-01-01T00:00:00Z"}`, `{"status":"active","id":"a","message":"m","updated":{},"links":[]}`, `{"a":{"b":[1,2,3]},"c":"\u0000"}`, "\xff\xfe"} {
 		f.Add([]byte(s))
 	}
@@ -60,13 +76,36 @@ func FuzzParseLicense(f *testing.F) {
 			if l != nil {
 				t.Fatalf("error %v returned a non-nil license", err)
 			}
-			if !errors.Is(err, lcp.ErrLicenseSyntax) && !errors.Is(err, lcp.ErrIncomplete) && err.Error() == "" {
-				t.Fatalf("untyped empty error")
+			if !errors.Is(err, lcp.ErrLicenseSyntax) && !errors.Is(err, lcp.ErrIncomplete) {
+				t.Fatalf("error not typed ErrLicenseSyntax/ErrIncomplete: %v", err)
 			}
 			return
 		}
-		if l == nil || l.ID == "" || l.Provider == "" {
-			t.Fatalf("accepted license lacks mandatory members: %+v", l)
+		if l == nil {
+			t.Fatal("nil license with nil error")
+		}
+		// Every mandatory member (spec 3, 7.2) must be populated on an accepted
+		// license; a parser that stops enforcing one is caught here.
+		if l.ID == "" || l.Provider == "" {
+			t.Fatalf("accepted license lacks id/provider: %+v", l)
+		}
+		if l.Issued.IsZero() && !bytes.Contains(doc, []byte("0001-01-01")) {
+			t.Fatalf("accepted license lacks issued")
+		}
+		e := l.Encryption
+		if e.Profile == "" || e.ContentKey.EncryptedValue == "" || e.ContentKey.Algorithm == "" || e.UserKey.Algorithm == "" || e.UserKey.KeyCheck == "" {
+			t.Fatalf("accepted license lacks encryption members: %+v", e)
+		}
+		if len(l.Links) == 0 {
+			t.Fatalf("accepted license has no links")
+		}
+		for i, k := range l.Links {
+			if k.Href == "" {
+				t.Fatalf("accepted license link %d has empty href", i)
+			}
+		}
+		if l.Signature.Algorithm == "" || l.Signature.Certificate == "" || l.Signature.Value == "" {
+			t.Fatalf("accepted license lacks signature members: %+v", l.Signature)
 		}
 	})
 }
@@ -112,4 +151,48 @@ func TestSeedLicenseIsAccepted(t *testing.T) {
 	if _, err := lcp.Parse(nb); err != nil {
 		t.Fatalf("augmented spec license rejected: %v", err)
 	}
+}
+
+// dropNested returns the augmented spec license with outer.inner removed.
+func dropNested(b []byte, outer, inner string) []byte {
+	var base map[string]json.RawMessage
+	if json.Unmarshal(b, &base) != nil {
+		return nil
+	}
+	base["id"] = json.RawMessage(`"urn:uuid:fuzz-seed"`)
+	base["provider"] = json.RawMessage(`"https://provider.example"`)
+	var o map[string]json.RawMessage
+	if json.Unmarshal(base[outer], &o) != nil {
+		return nil
+	}
+	delete(o, inner)
+	ob, err := json.Marshal(o)
+	if err != nil {
+		return nil
+	}
+	base[outer] = ob
+	nb, err := json.Marshal(base)
+	if err != nil {
+		return nil
+	}
+	return nb
+}
+
+// dropUserKey removes encryption.user_key.<inner> from the augmented license.
+func dropUserKey(b []byte, inner string) []byte {
+	var base map[string]json.RawMessage
+	var enc, uk map[string]json.RawMessage
+	if json.Unmarshal(b, &base) != nil || json.Unmarshal(base["encryption"], &enc) != nil || json.Unmarshal(enc["user_key"], &uk) != nil {
+		return nil
+	}
+	base["id"] = json.RawMessage(`"urn:uuid:fuzz-seed"`)
+	base["provider"] = json.RawMessage(`"https://provider.example"`)
+	delete(uk, inner)
+	enc["user_key"], _ = json.Marshal(uk)
+	base["encryption"], _ = json.Marshal(enc)
+	nb, err := json.Marshal(base)
+	if err != nil {
+		return nil
+	}
+	return nb
 }
