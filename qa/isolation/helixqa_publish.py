@@ -12,7 +12,7 @@ import sanitize
 
 
 def fail(msg):
-    print("helixqa_publish: FAILED (nothing published): " + msg, file=sys.stderr); sys.exit(3)
+    print("helixqa_publish: FAILED (nothing published): " + sanitize.escape_text(msg), file=sys.stderr); sys.exit(3)
 
 
 def main(argv):

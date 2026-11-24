@@ -90,7 +90,7 @@ class B2IsoWork(unittest.TestCase):
         self.assertIsNotNone(self.chk(self.b, w, w + "/lnk")); self.assertIsNotNone(self.chk(self.b, w, w + "/lnk2"))
         self.assertIsNone(self.chk(self.b, w, w + "/ok"))
     def test_m1_mutant(self):
-        t, f = mutated_copy("bindcheck.py", 'if any(c in real for c in ":,\\n\\r\\0"):', "if False:")
+        t, f = mutated_copy("bindcheck.py", "    if BAD_SRC.search(real):", "    if False:")
         try:
             w = os.path.join(self.base, "x", "sib"); os.makedirs(w + "/weird:dir"); os.symlink(w + "/weird:dir", w + "/lnk")
             self.assertIsNone(self.chk(load(f, "bc_m1"), w, w + "/lnk"))

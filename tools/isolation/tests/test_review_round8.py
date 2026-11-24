@@ -110,7 +110,7 @@ class MessageSiteLint(Base):
         self.assertEqual(self.gate(self.BAD, "scripts/z.py").returncode, 0)
 
     def test_mutant_check_disabled(self):
-        t, f = mutated_copy("check_raw_consumers.py", "bad += check_messages(rel, text)", "pass"); self.addCleanup(shutil.rmtree, t, True)
+        t, f = mutated_copy("check_raw_consumers.py", "bad += check_messages(rel, open(p, encoding=\"utf-8\").read())", "pass"); self.addCleanup(shutil.rmtree, t, True)
         self.assertEqual(self.gate(self.BAD, mod=f).returncode, 0)
 
     def test_tree_has_no_unescaped_message(self):

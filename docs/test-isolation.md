@@ -433,9 +433,8 @@ line. Before round 8, `safe_io.py scan` (deny-table and lstat-error messages cam
 the bridge directory by the web run and met by the desktop run) printed such names raw. Every message these tools print now passes through `sanitize.escape_text`, which replaces each control /
 C1 / bidi / zero-width / newline character by a visible `\xNN` / `\uNNNN` escape (nothing is removed, so two different names stay different on screen): `safe_io` (scan and every `Refused`),
 `bindcheck` (the whole refusal line) and `container_proof`. Tests plant seven hostile names (OSC 52, CSI + OSC 0, C1, bidi, newline, Arabic letter mark + zero-width + BOM, OSC 0 with ST) through
-`safe_io scan`, `safe_io copy` and `bindcheck --bridge` and assert that stderr holds no control character and no forged line; mutants that print the name raw are killed. Sweep result: the other tools
-print only host-chosen values, numbers or `strerror` (`helixqa_publish`, `kosync_proof`, `start_server.sh`); `reap.sh` prints container names that already matched `hrdiso-*` and are podman-validated;
-the runners' own `echo` lines print host paths. A message-site lint was added to `check_raw_consumers.py`: in `tools/isolation/*.py` and `qa/isolation/*.py`, a `print()` that interpolates a value which
+`safe_io scan`, `safe_io copy` and `bindcheck --bridge` and assert that stderr holds no control character and no forged line; mutants that print the name raw are killed. Round-8 sweep (CORRECTED in round 9: it missed `guard/assert_host_untouched.py`, `guard/pin_waivers.py`, `check_raw_consumers.py` and `helixqa_publish.py`, which printed
+tree-derived strings raw; see 8.8). `reap.sh` prints container names that already matched `hrdiso-*` and are podman-validated; the runners' own `echo` lines print host paths. A message-site lint was added to `check_raw_consumers.py`: in `tools/isolation/*.py` and `qa/isolation/*.py`, a `print()` that interpolates a value which
 is not an `escape_text(...)` call (or `len` / `int`) is a finding (marker `raw-consumer-exempt: <reason>`); a mutant that disables it is killed.
 
 **I1, what the gate really covers.** The round-6 text "flags any hand-captured podman run|exec|logs|cp|attach output" overstated it. The reviewer's 25 consumer shapes: the gate caught 1 and the older
@@ -463,3 +462,23 @@ m3 is fixed (sanitize strips U+061C, zero-width U+200B-U+200D, U+2060 and BOM). 
 `run_container.sh` is not feasible (it is `--network none`, the tests need the database network). Resolution, narrowly scoped: four pinned `waive` entries (file x rule, content hash, one-year expiry,
 recorded in `waivers.history`), the same mechanism already used for the older campaign scripts. Any edit to a waived file voids its waiver, any other file with a container call stays red, and
 `test_review_round8.py::GatedRunnerWaiver` proves both (an edited waived file, a new unwaived file, and a copy without the waivers all fail the gate).
+
+### 8.8 Round 9 (the N1 round): the guard and the gate print tree-derived strings too
+
+Round numbering (the PR body uses the same): rounds 1-5 = reviews of the first heads; round 6 = review of 4da95d1; round 7 = review of 809b239; round 8 = review of 1e84f07, which is this round
+("round 9" in file names counts the fix round that answers it: `test_review_round9.py`). Rounds beyond the section 11.4.276 budget were each taken on an operator-recorded exception.
+
+**N1 (B1 class, still open after round 8).** `guard/assert_host_untouched.py` printed scanned relative names, matched content lines and symlink targets raw; `check_raw_consumers.py` printed raw repo paths
+(and skipped itself); `guard/pin_waivers.py` and `helixqa_publish.py` printed values unescaped. All now go through `sanitize.escape_text` (numbers through `int()`). The message-site lint in
+`check_raw_consumers.py` now covers `guard/*.py`, `qa/isolation/*.py`, `tools/isolation/*.py` and itself (not `tests/`), and recognises print, `stdout/stderr.write` and logging calls with f-string, `+`,
+`%` and `.format` compositions. Tests plant ESC OSC 52, CSI, C1, bidi, newline and NUL in names, contents and symlink targets, with paired mutants (raw rel, raw text, raw gate path, lint disabled
+(reviewer mutant C10), scope narrowed, BinOp ignored). I1: direct tests for every C1 (0x80-0x9f) and bidi (U+202A-E) character kill reviewer survivors C5/C6; the deny-table, nested symlink and fifo names are covered.
+I3: `bindcheck` now refuses every control character in a bind source (the docstring was right only for some). 
+
+**What the lint does NOT cover (I2, honest list).** A bare name or call argument is not judged (`print(x)`), a message built into a variable first and printed later, aliased sinks (`w = print`),
+and shell `echo` lines (swept by hand: they print host paths or numbers; `tests/live/*` are main's files and are only documented here). It is a text lint, defence in depth.
+
+**tests/live facts (O1), recorded in the four waivers.** The Go suite and helix-server run on the host; `podman cp` copies a container-chosen tree to the host and `mutation_check.sh`'s default OUT is a
+tracked evidence path; the skip gate echoes container-influenced test names unescaped (`FAILED-TEST:` and `UNLISTED-SKIP:` lines); images are pinned by tag, not digest. Follow-ups, not fixed here.
+
+**Merge note (I4).** `github/main` 60123d4 (PR #13, HRD-031 LCP server wiring) was merged before round 9; it touches no isolation file. In 8.7 above, read "PRs #6, #11, #12" as "PRs #6, #11, #12 and #13".

@@ -15,6 +15,8 @@ It flags, in .sh / .bash / .py files under qa, tools, scripts, tests (marker "ra
 Files that TEST the wrapper itself (test_review_round*.py, test_bindcheck.py) and this gate's own files are skipped by name.
 exit 0 PASS / 1 FAIL (lists file:line) / 2 usage."""
 import ast, os, re, shlex, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from sanitize import escape_text
 
 SKIP = re.compile(r"(^|/)(test_review_round\d+\.py|test_bindcheck\.py|check_raw_consumers\.py|test_raw_consumers\.py|rawrun\.py|run_container\.sh)$")
 RAWLIB = re.compile(r"(^|/)rawrun\.py$")
@@ -152,24 +154,43 @@ def check_python(path, text):
     return sorted(set(bad))
 
 
+SINKS = re.compile(r"^(print|(sys\.)?(stderr|stdout)\.write|(logging|log|logger|LOG)\.(debug|info|warning|warn|error|critical|exception|log))$")
+MSG_PATH = re.compile(r"(tools|qa)/isolation/(?!tests/)[^ ]*\.py$")
+
+
+def _is_esc(e): return isinstance(e, ast.Call) and ast.unparse(e.func).endswith("escape_text")
+
+
+def _unsafe(e):
+    """a COMPOSED string (f-string, +, %, .format) that embeds a value which is neither a constant, an escape_text(...) call, nor len()/int(). A bare name/call argument is not composition and not judged."""
+    if isinstance(e, ast.Constant) or _is_esc(e): return False
+    if isinstance(e, ast.JoinedStr): return any(isinstance(v, ast.FormattedValue) and _val_unsafe(v.value) for v in e.values)
+    if isinstance(e, ast.BinOp) and isinstance(e.op, (ast.Add, ast.Mod)): return _val_unsafe(e.left) or _val_unsafe(e.right)
+    if isinstance(e, ast.Call) and isinstance(e.func, ast.Attribute) and e.func.attr == "format": return _val_unsafe(e.func.value) or any(_val_unsafe(a) for a in e.args) or any(_val_unsafe(k.value) for k in e.keywords)
+    return False
+
+
+def _val_unsafe(v):
+    if isinstance(v, ast.Constant) or _is_esc(v): return False
+    if isinstance(v, ast.Tuple): return any(_val_unsafe(x) for x in v.elts)
+    if isinstance(v, ast.IfExp): return _val_unsafe(v.body) or _val_unsafe(v.orelse)
+    if isinstance(v, ast.Call) and ast.unparse(v.func) in ("len", "int"): return False
+    if isinstance(v, (ast.JoinedStr, ast.BinOp)) or (isinstance(v, ast.Call) and isinstance(v.func, ast.Attribute) and v.func.attr == "format"): return _unsafe(v)
+    return True
+
+
 def check_messages(path, text):
-    """round 8 (B1): a tool that prints a host message embedding an f-string value must pass it through escape_text (a container can plant file names with OSC 52 / CSI / bidi).
-    Scope: tools/isolation/*.py and qa/isolation/*.py; print(f"...{x}...", file=sys.stderr/stdout) where some {x} is not an escape_text(...) call, unless the whole print argument is one."""
+    """round 8/9 (B1, N1): a tool that prints / writes / logs a host message composing a value must pass that value through escape_text (a container can plant file names and file content with OSC 52 / CSI / bidi).
+    Scope: tools/isolation/**/*.py (guard/ and this file included, tests/ excluded) and qa/isolation/*.py; sinks: print, sys.stderr.write, sys.stdout.write, logging calls; forms: f-string, +, %, .format.
+    Stated limits (docs 8.6): a bare name / call argument, a message built in a variable first, str(...) of a composed value assigned elsewhere, other languages (shell echo is swept by hand, docs 8.6), and a sink reached through an alias."""
     try: tree = ast.parse(text)
     except SyntaxError: return []
     lines, bad = text.splitlines(), []
-    is_esc = lambda e: isinstance(e, ast.Call) and ast.unparse(e.func).endswith("escape_text")
     for n in ast.walk(tree):
-        if not (isinstance(n, ast.Call) and ast.unparse(n.func) == "print" and n.args): continue
-        a = n.args[0]
-        if is_esc(a) or EXEMPT.search(lines[n.lineno - 1]): continue
-        parts = [a] if isinstance(a, ast.JoinedStr) else [x for x in ast.walk(a) if isinstance(x, ast.JoinedStr)]
-        for js in parts:
-            for fv in js.values:
-                if isinstance(fv, ast.FormattedValue) and not is_esc(fv.value) and not isinstance(fv.value, ast.Constant) and not (isinstance(fv.value, ast.Call) and ast.unparse(fv.value.func) in ("len", "int")):
-                    bad.append((path, n.lineno, "print() interpolates a value that is not wrapped in sanitize.escape_text (a container-planted name could carry terminal escapes)")); break
-            else: continue
-            break
+        if not (isinstance(n, ast.Call) and SINKS.match(ast.unparse(n.func)) and n.args): continue
+        if EXEMPT.search(lines[n.lineno - 1]): continue
+        if any(_unsafe(a) for a in n.args):
+            bad.append((path, n.lineno, "message composes a value that is not wrapped in sanitize.escape_text (a container-planted name or content line could carry terminal escapes)"))
     return bad
 
 
@@ -180,6 +201,9 @@ def scan(root):
             dn[:] = [x for x in dn if x not in (".git", "node_modules", "__pycache__")]
             for f in fn:
                 p = os.path.join(dp, f); rel = os.path.relpath(p, root)
+                if f.endswith(".py") and MSG_PATH.search(rel) and not RAWLIB.search(rel):
+                    try: bad += check_messages(rel, open(p, encoding="utf-8").read())
+                    except (OSError, UnicodeDecodeError): pass
                 if SKIP.search(rel) or not f.endswith(EXTS): continue
                 try: text = open(p, encoding="utf-8").read()
                 except (OSError, UnicodeDecodeError): continue
@@ -187,7 +211,6 @@ def scan(root):
                     if "run_container.sh" in text or re.search(r"(podman|docker)\s.*\b(logs|attach)\b", text): bad += check_shell(rel, text)
                     continue
                 if "run_container.sh" in text or "raw_std" in text or "podman" in text: bad += check_python(rel, text)
-                if re.match(r"(tools|qa)/isolation/[^/]+\.py$", rel): bad += check_messages(rel, text)
     return bad
 
 
@@ -195,7 +218,7 @@ def main(argv):
     if len(argv) > 2: print(__doc__, file=sys.stderr); return 2
     root = os.path.abspath(argv[1]) if len(argv) == 2 else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     bad = scan(root)
-    for p, n, m in bad: print(f"check_raw_consumers: {p}:{n}: {m}", file=sys.stderr)
+    for p, n, m in bad: print(f"check_raw_consumers: {escape_text(p)}:{int(n)}: {escape_text(m)}", file=sys.stderr)
     print(f"check_raw_consumers: {'FAIL' if bad else 'PASS'} ({len(bad)} finding(s))"); return 1 if bad else 0
 
 

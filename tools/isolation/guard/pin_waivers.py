@@ -10,6 +10,8 @@ KIND is self | denylist | waive. Every change is appended to waivers.history (`u
 reports `waiver-unrecorded` for any pinned hash that has no history record, so a hand-edited hash cannot pass the gate.
 Expiry must be within 366 days. Run from the repository root (or pass --root)."""
 import datetime, hashlib, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from sanitize import escape_text
 
 WF = "tools/isolation/guard/waivers.txt"
 HF = "tools/isolation/guard/waivers.history"
@@ -64,7 +66,7 @@ def main(a):
         ents = [e for e in ents if not (e[0] == kind and e[1] == path and e[3] == rule)]
         h = sha(os.path.join(root, path))
         ents.append([kind, path, h, rule, why, exp]); write(root, ents); hist(root, "add", path, "-", h, why)
-        print(f"pinned {kind} {path} {h[:12]} (expires {exp})"); return 0
+        print(f"pinned {escape_text(kind)} {escape_text(path)} {escape_text(h[:12])} (expires {escape_text(exp)})"); return 0
     if cmd == "repin" and len(args) == 2:
         path, reason = args; n = 0
         for e in ents:
@@ -72,7 +74,7 @@ def main(a):
                 old = e[2]; e[2] = sha(os.path.join(root, path)); n += 1
                 if old != e[2]:
                     hist(root, "repin", path, old, e[2], reason)
-                    print(f"RE-PINNED {path}: {old[:12]} -> {e[2][:12]}  ({reason})")
+                    print(f"RE-PINNED {escape_text(path)}: {escape_text(old[:12])} -> {escape_text(e[2][:12])}  ({escape_text(reason)})")
         if not n:
             print("pin_waivers: no entry for that path", file=sys.stderr); return 2
         write(root, ents); return 0
@@ -80,7 +82,7 @@ def main(a):
         path, reason = args; keep = [e for e in ents if e[1] != path]
         if len(keep) == len(ents):
             print("pin_waivers: no entry for that path", file=sys.stderr); return 2
-        write(root, keep); hist(root, "remove", path, "-", "-", reason); print(f"removed {path}"); return 0
+        write(root, keep); hist(root, "remove", path, "-", "-", reason); print(f"removed {escape_text(path)}"); return 0
     print(__doc__); return 2
 
 if __name__ == "__main__":

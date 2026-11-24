@@ -19,6 +19,8 @@ waive (findings of `rule` in that file are dropped). Re-pin deliberately with pi
 usage: assert_host_untouched.py [root] [--submodules]   (exit 0 clean, 1 violations, 2 usage; --submodules: report-only)
 """
 import os, re, subprocess, sys, hashlib, datetime, fnmatch
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))      # python -I does not add the script dir
+from sanitize import escape_text      # scanned names / lines / symlink targets are tree-derived: escape them (review round 9, N1)
 
 SCAN_EXT = {".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".lua", ".go", ".rb", ".pl", ".php", ".ps1",
             ".bat", ".cmd", ".yaml", ".yml", ".json", ".toml", ".mk", ".service", ".desktop", ".kt", ".kts", ".gradle", ".java", ".c", ".cc",
@@ -457,11 +459,11 @@ def main(argv):
     st = {}
     hits = scan(root, include_submodules=sub, stats=st)
     for rel, n, label, text in hits:
-        print(f"{rel}:{n}: FORBIDDEN[{label}] {text}")
-    print(f"NOTICE pinned waivers active: {st['waivers_active']} (self {st['waivers_self']}, denylist {st['waivers_denylist']}, waive {st['waivers_waive']}); "
-          f"third-party script files given the HARD subset only: {st['third_party_scripts']}")
-    print(f"assert_host_untouched: {'REPORT' if sub else ('FAIL' if hits else 'PASS')} ({len(hits)} finding(s); files scanned {st['files_scanned']}, "
-          f"symlinks {st['symlinks']} (outside repo {st['symlinks_outside']}))")
+        print(f"{escape_text(rel)}:{int(n)}: FORBIDDEN[{escape_text(label)}] {escape_text(text)}")
+    print(f"NOTICE pinned waivers active: {int(st['waivers_active'])} (self {int(st['waivers_self'])}, denylist {int(st['waivers_denylist'])}, waive {int(st['waivers_waive'])}); "
+          f"third-party script files given the HARD subset only: {int(st['third_party_scripts'])}")
+    print(f"assert_host_untouched: {'REPORT' if sub else ('FAIL' if hits else 'PASS')} ({len(hits)} finding(s); files scanned {int(st['files_scanned'])}, "
+          f"symlinks {int(st['symlinks'])} (outside repo {int(st['symlinks_outside'])}))")
     return 0 if sub else (1 if hits else 0)
 
 if __name__ == "__main__":

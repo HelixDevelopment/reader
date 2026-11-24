@@ -6,7 +6,7 @@ the check cannot redirect the mount (TOCTOU); exit 64 and explain on stderr when
 Rules (all must hold):
   source   resolved path strictly inside an allowed root; never `/`, a system dir, $HOME or an ancestor of it; never inside, or an
            ancestor of, a credential/config dir ($HOME/.ssh .config .gnupg .aws .kube .docker .mozilla .local .password-store .claude* ...);
-           no ':' ',' or control characters (they would inject mount options).
+           no ':' ',' or control character (C0, DEL, C1: they would inject mount options or terminal escapes); round 9 enforces every one of them.
   rw       only the run's own FRESH subdirectory: under evidence/ it must contain no SHA256SUMS seal anywhere below it and no file older than
            ISO_FRESH_SECS (default 6 h) - a sealed or stale sibling is never writable; under ISO_WORK a sub-directory, never ISO_WORK itself.
   ISO_WORK absolute, canonical (no '..', no symlink in the chain), strictly inside a dedicated root (~/.cache/claude-tmp or ~/.cache/helix-iso),
@@ -30,6 +30,7 @@ SENSITIVE = (".ssh", ".config", ".gnupg", ".aws", ".kube", ".docker", ".mozilla"
              ".cert", ".netrc", ".gitconfig", ".git-credentials", ".bash_history", ".claude", ".claude.json", ".claude-shared", ".claude-claude4",
              ".npmrc", ".pypirc", ".cargo/credentials.toml", "snap")
 FORBIDDEN = {"/", "/tmp", "/dev/shm", "/var/tmp", "/home", "/root", "/etc", "/usr", "/var", "/run", "/proc", "/sys", "/dev", "/mnt", "/media", "/opt", "/srv", "/boot", "/lib", "/bin", "/sbin"}
+BAD_SRC = re.compile("[:,\\x00-\\x1f\\x7f-\\x9f\\u2028\\u2029\\u202a-\\u202e\\u2066-\\u2069]")     # mount-option separators + every control / line-separator / bidi character
 DST_OK = ("/work", "/opt/", "/out", "/prof", "/fx", "/pw", "/ms-playwright", "/run/helixsock")
 RESERVED = ("/opt/isoinside", "/run/helixsock")
 DST_CHARS = re.compile(r"^/[A-Za-z0-9_./-]*$")
@@ -154,10 +155,10 @@ def check(mode, src, dst, repo, env=os.environ, bridge=False, now=None):
         e = iso_error(iso, home, repo)
         if e:
             return e
-    if any(c in src for c in ":,\n\r\0") or not src:
+    if not src or BAD_SRC.search(src):
         return "source contains ':' ',' or a control character"
     real = os.path.realpath(src)
-    if any(c in real for c in ":,\n\r\0"):
+    if BAD_SRC.search(real):
         return "resolved source contains ':' ',' or a control character (symlink target would inject mount options)"
     ro = [f"{repo}/clients", f"{repo}/qa", f"{repo}/tools/isolation", f"{repo}/submodules/containers/images",
           os.path.join(home, ".cache/ms-playwright"), "/usr/lib/koreader"]
