@@ -87,9 +87,9 @@ recorded note, not a fix. `run-v2` records the SDK builder image only by the pin
 Self-tests of the runner and the summarizer (`tools/android_matrix/tests/`): `test_lifecycle.sh` (fake `podman`, no containers) and `test_summarize.py`.
 Their RED runs against the previous runner/summarizer (b5b7112) and GREEN runs are in `run-v2/selftests/`; seven mutants of the new runner (no
 `--timeout`, no lease-ts label, no reap call, no EXIT trap, fixed container name, no fresh APK copy, no installed-hash read-back) are each killed by a
-named check (`lifecycle_mutants_7_of_7_killed.txt`). After the second review (finding R1) `tests/test_lifecycle_mutants.sh` runs 17 mutants (no-op cleanup, missing
+named check (`lifecycle_mutants_7_of_7_killed.txt`). After the second review (finding R1) `tests/test_lifecycle_mutants.sh` runs 55 mutants (17 of the second round, then the reviewer mutants N7 / M10 / N13 / N14 / N16 / N19 / N20 and 31 further author mutants O01..O31; no-op cleanup, missing
 lifetime args on build/prepare/emulator containers, no-op or non-refusing same-name check, timeout 0 or unvalidated, owner-pid 1, stale lease-ts, fixed name, no uninstall,
-no reap, no fresh APK copy, no EXIT trap, ...) and requires each to FAIL `test_lifecycle.sh`; two equivalent mutants are listed there as such.
+no reap, no fresh APK copy, no EXIT trap, ...) and requires each to FAIL `test_lifecycle.sh`; the equivalent mutants (M1b / N8 no TERM trap, N9 no INT trap, N12 mine() overwrite, N4 / N22 lease-ts) are listed there with the reasoning.
 
 The emulator ran with KVM (rootless, device ACL) in containers with `--network none`; no host display, no host adb, no sudo. The screenshots show the
 WebView UI with "Unexpected error" in the library card because no server is configured; that statement is the author's reading of one screenshot, while the pass/fail verdict of every row rests on the recorded machine checks (colour counts, sizes, hashes) and not on any
@@ -98,9 +98,31 @@ live runs, HRD-022).
 
 Finding (fixed here, RED in `run-red/api34-phone/instrument.txt`): `ExampleInstrumentedTest` (Capacitor scaffold) asserted package
 `com.getcapacitor.app` while the app id is `org.helixreader.app`, so it failed on every device; it had never been run. The assertion now names the
-real id. Registry: NOT yet registered. PR 33 (which would have allocated HRD-122 and HRD-123) was CLOSED unmerged on 2026-11-24, and the registry requires gap-free ids, so this finding
-is to be registered as HRD-124 (Bug, Low) only after HRD-122 and HRD-123 have landed (UNCONFIRMED until then); the fix itself is in this PR.
+real id. Registry: NOT yet registered. HRD-122 and HRD-123 have since landed (with main bd804e5); the registry requires gap-free ids, so this finding is still to be
+registered as the next free id (HRD-124 at the time of writing, Bug, Low) through `scripts/workable_items.py add`; it is a follow-up, not done by this PR. The fix itself is in this PR.
 
 Not run / UNCONFIRMED: orientation changes, foldables, API 24..29/31..33/35, ARM images, Android TV, `CronetLiveTest` (needs the h3 lab), the
 Containers `emulator-matrix` / `vm-matrix` / `distributed-test` binaries, behaviour on physical devices, flakiness (one run only), and the
 Vision model (no screenshot judgement beyond the colour-count probe and my own reading of one screenshot).
+
+## Review round 4: convergence assessment (§11.4.276(E)) and scenario-isolation audit
+
+Convergence assessment (STRUCTURAL round, fresh fixer instance, model Sonnet; effort not readable through the dispatch path). Recurring class, named: *a proving
+test in `tools/android_matrix/tests/test_lifecycle.sh` lets a reviewer mutant survive because scenarios share state or the assertions do not discriminate* (round 2:
+R1, the shared-state-free mutants; round 3: N7, scenario F passing on scenario A's leftover container). Round 2 and 3 fixed the reported instance; round 4 fixes the class: (a) every scenario now
+has its OWN fake container store (`$T/s/<scenario>/ctr`) and its own log, evidence directory and hang pid file; (b) every runner function and every branch got a named assertion;
+(c) the table of 55 mutants (17 earlier, 7 adopted reviewer mutants, 31 new O-series ones, one per function / branch / flag / argument) was run and all are killed.
+
+Shared-state audit of the self-test (what each scenario shares with another, after the change):
+
+| Scenario | Container store | Shared with another scenario | Verdict |
+|---|---|---|---|
+| A, B, B4, B5, C, C4, E*, F, F5, G, H*, I1, I2, K1..K3, K2b/c, M (reads A's log), Z | own `$T/s/<name>/ctr` | read-only inputs `$T/work/apk`, `$T/hostcache`, `$T/kvm`, `$T/reap.sh`; M reads A's log and evidence (read-only, after A finished) | isolated |
+| D1 prepare -> D2 unit -> D3 apk (and U1..U4) | own store each | `$T/work2` deliberately: prepare produces the tree that unit and apk consume (a pipeline dependency, asserted by D2/D3 rc 0) | intended chain, no container shared |
+| J1 prepare -> J2 apk, J3 | own store each | `$T/work5` (J1 -> J2, the pack-time revision handed on, the point of the test); J3 has an empty `$T/work6` | intended chain |
+| L1..L3 | own store each | `$T/work7` prepared tree, restored by the stage itself and asserted | isolated |
+| D0a, D0b | own store each | none | isolated |
+
+Collision checks (N7): F seeds ONLY the exact colliding name (no prefix container in its store), so a prefix-only check cannot pass for the wrong reason; F5 is the inverse (only the
+prefix container exists, the pinned name is free): it must NOT be refused. U2..U4 do the same for the prepare, build and seed containers.
+Registry: the Android finding named above is still NOT registered (HRD-124 is the next free id); a follow-up, not part of this PR.

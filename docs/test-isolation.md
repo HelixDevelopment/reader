@@ -227,7 +227,7 @@ What it does and does not do, stated as facts about the script (the guard still 
   `tools/android_matrix/tests/test_lifecycle.sh` drives the real script against a logging fake `podman` (no container is started) and asserts, by value: `--timeout` N>0
   and the three labels on every `create`/`run` of the `prepare`, `unit`, `apk`, `seed` and `emulators` stages, `owner-pid` = the runner's live pid (not 1), `lease-ts` a recent
   epoch, a name unique per run, a pinned colliding name REFUSED, no container left after an aborted run or after SIGTERM, `HRD040_LIFE` validated; `test_lifecycle_mutants.sh`
-  requires 17 mutants of the runner to FAIL it. What it does NOT prove: that real podman honours `--timeout`, that `reap.sh` reaps (only that it is called first), the SIGINT
+  requires 55 mutants of the runner to FAIL it (each scenario has its own fake container store). What it does NOT prove: that real podman honours `--timeout`, that `reap.sh` reaps (only that it is called first), the SIGINT
   path, or the cache volume / image lifetime.
 - Network: `--network none` for every container except the `seed`, `prepare` and `warm` stages (npm, Maven and SDK downloads) and the one-time `images` build.
   Emulator containers: `--network none`, `--device /dev/kvm` only (no other device, no published port), `--cap-drop ALL`, `no-new-privileges`;
