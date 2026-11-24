@@ -22,6 +22,7 @@ proof = {"name": i["Name"], "image": i["ImageName"], "created": i["Created"],
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import safe_io, sanitize
+sanitize.safe_streams()
 try:
     safe_io.put(os.path.dirname(os.path.abspath(out)), os.path.basename(out), (json.dumps(proof, indent=2) + "\n").encode())
 except safe_io.Refused as e:

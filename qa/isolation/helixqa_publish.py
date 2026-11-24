@@ -46,4 +46,4 @@ def main(argv):
     return 0
 
 
-if __name__ == "__main__": sys.exit(main(sys.argv))
+if __name__ == "__main__": sanitize.safe_streams(); sys.exit(main(sys.argv))

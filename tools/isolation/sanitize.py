@@ -23,7 +23,7 @@ _STR = re.compile(r"\x1b[P_^X][^\x1b\n]*(?:\x1b\\)?")
 _CSI = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]?")
 _ESC = re.compile(r"\x1b[ -/]*[0-~]?")
 _CTL = re.compile("[\x00-\x08\x0b-\x1f\x7f-\x9f\u200b-\u200f\u2028-\u202e\u2060\u2066-\u2069\u061c\ufeff]")
-_ESCAPE = re.compile("[\x00-\x1f\x7f-\x9f\u200b-\u200f\u2028-\u202e\u2060\u2066-\u2069\u061c\ufeff]")
+_ESCAPE = re.compile("[\x00-\x1f\x7f-\x9f\u200b-\u200f\u2028-\u202e\u2060\u2066-\u2069\u061c\ufeff\ud800-\udfff]")
 
 
 def sanitize_line(s):
@@ -37,7 +37,20 @@ def sanitize_line(s):
 def escape_text(s):
     """a host-built MESSAGE that embeds a container-chosen file name / path: every control, C1, bidi, zero-width, newline and ESC character becomes a visible \\xNN / \\uNNNN escape
     (nothing is removed, so two different names stay different on screen). Use this on every container-derived string a tool prints."""
-    return _ESCAPE.sub(lambda m: "\\x%02x" % ord(m.group()) if ord(m.group()) < 256 else "\\u%04x" % ord(m.group()), str(s))
+    return _ESCAPE.sub(_esc_one, str(s))
+
+
+def _esc_one(m):
+    o = ord(m.group())
+    if 0xdc80 <= o <= 0xdcff: return "\\x%02x" % (o - 0xdc00)       # a surrogateescape byte (invalid UTF-8 in a file name): show the BYTE, e.g. \\x9b
+    return "\\x%02x" % o if o < 256 else "\\u%04x" % o
+
+
+def safe_streams():
+    """round 10 (N2): make stdout / stderr unable to raise or to emit a raw byte whatever the locale: unencodable characters (lone surrogates) become backslash escapes. Call first in every tool's main."""
+    for st in (sys.stdout, sys.stderr):
+        try: st.reconfigure(errors="backslashreplace")
+        except Exception: pass
 
 
 def sanitize_bytes(b, prefix=PREFIX):

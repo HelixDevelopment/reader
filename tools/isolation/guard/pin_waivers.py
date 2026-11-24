@@ -11,7 +11,7 @@ reports `waiver-unrecorded` for any pinned hash that has no history record, so a
 Expiry must be within 366 days. Run from the repository root (or pass --root)."""
 import datetime, hashlib, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from sanitize import escape_text
+from sanitize import escape_text, safe_streams
 
 WF = "tools/isolation/guard/waivers.txt"
 HF = "tools/isolation/guard/waivers.history"
@@ -86,4 +86,5 @@ def main(a):
     print(__doc__); return 2
 
 if __name__ == "__main__":
+    safe_streams()
     sys.exit(main(sys.argv[1:]))

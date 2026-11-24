@@ -16,7 +16,7 @@ Files that TEST the wrapper itself (test_review_round*.py, test_bindcheck.py) an
 exit 0 PASS / 1 FAIL (lists file:line) / 2 usage."""
 import ast, os, re, shlex, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sanitize import escape_text
+from sanitize import escape_text, safe_streams
 
 SKIP = re.compile(r"(^|/)(test_review_round\d+\.py|test_bindcheck\.py|check_raw_consumers\.py|test_raw_consumers\.py|rawrun\.py|run_container\.sh)$")
 RAWLIB = re.compile(r"(^|/)rawrun\.py$")
@@ -222,4 +222,4 @@ def main(argv):
     print(f"check_raw_consumers: {'FAIL' if bad else 'PASS'} ({len(bad)} finding(s))"); return 1 if bad else 0
 
 
-if __name__ == "__main__": sys.exit(main(sys.argv))
+if __name__ == "__main__": safe_streams(); sys.exit(main(sys.argv))

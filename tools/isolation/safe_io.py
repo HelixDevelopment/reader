@@ -23,7 +23,7 @@ BASE / DIR arguments are trusted host paths (not under container control); REL /
 exit: 0 ok, 1 refused (message on stderr), 2 usage."""
 import fnmatch, os, re, stat, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sanitize import escape_text      # every container-derived name in a message goes through it (review round 8 B1)
+from sanitize import escape_text, safe_streams      # every container-derived name in a message goes through it (review round 8 B1)
 
 NAME_OK = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._ -]{0,200}$")
 MAX_DEFAULT = 64 * 1024 * 1024
@@ -275,4 +275,5 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    safe_streams()
     sys.exit(main(sys.argv))

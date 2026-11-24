@@ -482,3 +482,21 @@ and shell `echo` lines (swept by hand: they print host paths or numbers; `tests/
 tracked evidence path; the skip gate echoes container-influenced test names unescaped (`FAILED-TEST:` and `UNLISTED-SKIP:` lines); images are pinned by tag, not digest. Follow-ups, not fixed here.
 
 **Merge note (I4).** `github/main` 60123d4 (PR #13, HRD-031 LCP server wiring) was merged before round 9; it touches no isolation file. In 8.7 above, read "PRs #6, #11, #12" as "PRs #6, #11, #12 and #13".
+
+### 8.9 Round 10 (N2 round): invalid-UTF-8 names
+
+Round 10 answers the review of e1e93bf (an operator-authorised exception to the section 11.4.276 budget, like rounds 5, 6, 8 and 9).
+
+**N2.** A Linux file name is any byte string without NUL or `/`. Python holds an invalid-UTF-8 name as lone surrogates (`b"\x9b"` becomes U+DC9B). `escape_text` did not escape them, `git_files()` decoded strictly
+and silently fell back to `os.walk`, and the print in `guard/assert_host_untouched.py` wrote the raw byte under `LC_ALL=C` / `C.UTF-8` (8-bit C1 CSI/OSC/ST bytes are acted on by 8-bit terminals) and died with
+`UnicodeEncodeError` under a UTF-8 locale. Round 9 hid it because its planted bodies carried a NUL (skipped as binary). Fixed by class: (1) `escape_text` shows every surrogate (a surrogateescape byte as `\xNN`, any
+other as `\uNNNN`); (2) git file lists are decoded with `surrogateescape`, and a failing git listing in a directory that has a `.git` is reported on stderr before the walk fallback; (3) `sanitize.safe_streams()`
+(stdout/stderr `errors="backslashreplace"`) is called first in every tool's entry point (guard, pin_waivers, safe_io, bindcheck, check_raw_consumers, helixqa_publish, container_proof), so no print can raise or emit a
+raw byte whatever the locale. Tests (`test_review_round10.py`) plant NUL-free bodies and invalid names as file, directory, symlink name and symlink target (including the reviewer's
+`inv\x9b[2J\x9d52;c;cHduZWQ=\x9c.sh`), in a git and a non-git tree, under `LC_ALL` C, POSIX, C.UTF-8, en_US.UTF-8 and en_GB.utf8, and assert ASCII-clean stdout/stderr, no traceback and the escaped name; paired mutants
+(strict git decode, raw name, surrogates unescaped, strict stream errors) are killed. NUL cannot occur in a Linux name; the earlier statement that names with NUL were planted was wrong (NUL is tested only on `escape_text`).
+Sink re-sweep: shell `echo`/`printf` lines in `tools/isolation/*.sh` and `qa/isolation/*.sh` print host-chosen values, host-validated arguments, numbers or podman names that matched `hrdiso-*`; none prints a
+container-chosen name unescaped (`tests/live/*` is main's, see 8.8).
+
+**F1.** The lint's conditional-expression branch is covered by a bad/good test and its mutant. **F2.** `waivers.history` is replayed: the LATEST row for a path must be an `add`/`repin` of the pinned hash;
+a history that ends in `remove`, or loses only its latest add row, now fails (`waiver-unrecorded`). Follow-ups, not fixed: `tests/live/run_gated_tests.sh` echoes container-influenced test names (main's file).

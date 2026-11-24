@@ -22,7 +22,7 @@ Rules (all must hold):
            additionally refuses duplicate destinations."""
 import os, posixpath, re, stat, sys, time, pathlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))     # python -I does not add the script dir
-from sanitize import escape_text
+from sanitize import escape_text, safe_streams
 import safe_io                                                       # SINGLE deny table shared with the post-run scan (review round 3)
 
 DEDICATED = ("~/.cache/claude-tmp", "~/.cache/helix-iso")
@@ -208,6 +208,7 @@ def resolve(src):
     return os.path.realpath(src)
 
 if __name__ == "__main__":
+    safe_streams()
     a = [x for x in sys.argv[1:] if x != "--bridge"]
     mode, src, dst = a[:3]
     repo = os.path.realpath(pathlib.Path(__file__).resolve().parents[2])

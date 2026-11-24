@@ -20,7 +20,7 @@ usage: assert_host_untouched.py [root] [--submodules]   (exit 0 clean, 1 violati
 """
 import os, re, subprocess, sys, hashlib, datetime, fnmatch
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))      # python -I does not add the script dir
-from sanitize import escape_text      # scanned names / lines / symlink targets are tree-derived: escape them (review round 9, N1)
+from sanitize import escape_text, safe_streams      # scanned names / lines / symlink targets are tree-derived: escape them (review round 9, N1)
 
 SCAN_EXT = {".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".lua", ".go", ".rb", ".pl", ".php", ".ps1",
             ".bat", ".cmd", ".yaml", ".yml", ".json", ".toml", ".mk", ".service", ".desktop", ".kt", ".kts", ".gradle", ".java", ".c", ".cc",
@@ -201,13 +201,15 @@ def sha256(p):
 # ---------------------------------------------------------------- file discovery
 def git_files(root):
     try:
-        top = subprocess.run(["git", "-C", root, "rev-parse", "--show-toplevel"], capture_output=True, check=True).stdout.decode().strip()
+        top = subprocess.run(["git", "-C", root, "rev-parse", "--show-toplevel"], capture_output=True, check=True).stdout.decode(errors="surrogateescape").strip()
         if os.path.realpath(top) != os.path.realpath(root):
             return None
         # tracked + untracked + IGNORED files all count
-        out = subprocess.run(["git", "-C", root, "ls-files", "-z", "--cached", "--others"], capture_output=True, check=True).stdout.decode().split("\0")
+        out = subprocess.run(["git", "-C", root, "ls-files", "-z", "--cached", "--others"], capture_output=True, check=True).stdout.decode(errors="surrogateescape").split("\0")
         return [f for f in out if f]
-    except Exception:
+    except Exception as e:
+        if os.path.exists(os.path.join(root, ".git")):          # a repo whose git listing FAILED: say so (round 10), never fall back silently
+            print(f"NOTICE git listing failed ({escape_text(type(e).__name__)}); walking the tree instead", file=sys.stderr)
         return None
 
 def walk_files(root, skip_submodules=True):
@@ -333,12 +335,13 @@ def _recorded(root, e):
     hf = os.path.join(root, "tools/isolation/guard/waivers.history")
     if not os.path.isfile(hf):
         return False
+    last = None                                                    # round 10 (F2): replay - the LATEST row of the path decides
     with open(hf, encoding="utf-8") as fh:
         for l in fh:
             f = l.rstrip("\n").split("|")
-            if len(f) >= 6 and f[2] == e["path"] and f[4] == e["sha"] and f[1] in ("add", "repin"):
-                return True
-    return False
+            if len(f) >= 6 and f[2] == e["path"]:
+                last = f
+    return bool(last) and last[1] in ("add", "repin") and last[4] == e["sha"]
 
 # ---------------------------------------------------------------- scan
 def scan(root, include_submodules=False, stats=None):
@@ -451,6 +454,7 @@ def _benign(label, body):
     return False
 
 def main(argv):
+    safe_streams()
     args = [a for a in argv[1:] if not a.startswith("--")]
     sub = "--submodules" in argv
     root = args[0] if args else os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
