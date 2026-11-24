@@ -1,0 +1,23 @@
+tree: branch head 213c7e3 (contains github/main 60123d4; main unchanged), clean detached worktree, zero untracked
+== RED: new tests vs previous head 27a637d production files
+# github.com/helixreader/helix/server/internal/sources [github.com/helixreader/helix/server/internal/sources.test]
+internal/sources/remote_revalidate_test.go:360:39: rangeOrigin(t, cr, body).OpenRangeSized undefined (type *WebDAV has no field or method OpenRangeSized)
+FAIL	github.com/helixreader/helix/server/internal/sources [build failed]
+--- FAIL: TestWebDAVMismatchedPartialContentIsRefused (0.01s)
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/shifted_window (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 0-9/1000" body="5678901234")
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/replaced_file,_different_complete_length (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 10-19/1000" body="0123456789")
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/no_Content-Range (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 10-19/1000" body="0123456789")
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/garbage_Content-Range (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 10-19/1000" body="0123456789")
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/wrong_end (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 10-19/1000" body="0123456789")
+    --- FAIL: TestWebDAVMismatchedPartialContentIsRefused/wrong_start,_right_end (0.00s)
+        remote_range_test.go:453: status 206, want 502 (CR="bytes 10-19/1000" body="5678901234")
+--- FAIL: TestUnsatisfiableRangeReportsLength (0.00s)
+--- FAIL: TestRangeNotSupportedReturns501WithoutSuccessHeaders (0.00s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.045s
+FAIL

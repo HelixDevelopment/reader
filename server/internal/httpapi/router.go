@@ -575,7 +575,20 @@ type openContentRevalidator interface {
 	OpenRevalidated(ctx context.Context, path string) (io.ReadSeekCloser, int64, time.Time, error)
 }
 
+// dropSuccessHeaders removes headers prepared for a success or partial
+// response so they cannot ride on an error response.
+func dropSuccessHeaders(c *gin.Context) {
+	h := c.Writer.Header()
+	for _, k := range []string{"Content-Range", "Content-Length", "ETag", "Accept-Ranges", "Content-Disposition"} {
+		h.Del(k)
+	}
+}
+
 func sourceReadFailure(c *gin.Context, err error) {
+	// Headers prepared for a success or partial response (length, range,
+	// validators, attachment name) must never ride on the error response: a
+	// stale Content-Length would truncate the JSON body for the client.
+	dropSuccessHeaders(c)
 	if errors.Is(err, sources.ErrNotFound) {
 		Error(c, http.StatusNotFound, "source file not found")
 		return
@@ -657,6 +670,7 @@ func (s *Server) content(c *gin.Context) {
 	if serveRange {
 		start, length, err := singleRange(rangeHeader, size)
 		if err != nil {
+			dropSuccessHeaders(c)
 			c.Header("Content-Range", fmt.Sprintf("bytes */%d", size))
 			Error(c, http.StatusRequestedRangeNotSatisfiable, "invalid byte range")
 			return
@@ -666,6 +680,7 @@ func (s *Server) content(c *gin.Context) {
 			var ok bool
 			rc, ok = connector.(sources.RangeConnector)
 			if !ok {
+				dropSuccessHeaders(c)
 				Error(c, http.StatusNotImplemented, "source does not support range reads")
 				return
 			}
@@ -685,7 +700,12 @@ func (s *Server) content(c *gin.Context) {
 			c.DataFromReader(http.StatusPartialContent, length, f.MIMEType, io.LimitReader(opened, length), nil)
 			return
 		}
-		reader, err := rc.OpenRange(c.Request.Context(), f.Path, start, length)
+		var reader io.ReadCloser
+		if sr, ok := rc.(sources.SizedRangeConnector); ok {
+			reader, err = sr.OpenRangeSized(c.Request.Context(), f.Path, start, length, size)
+		} else {
+			reader, err = rc.OpenRange(c.Request.Context(), f.Path, start, length)
+		}
 		if err != nil {
 			sourceReadFailure(c, err)
 			return
@@ -746,6 +766,26 @@ func contentDisposition(name string) string {
 	}, name)
 	return `attachment; filename="` + name + `"`
 }
+
+// rangeNumber parses a byte-range-spec number: ASCII digits only (no sign).
+// A well-formed number too large for int64 reports overflow, not an error, so
+// callers can apply the RFC 9110 clamping rules.
+func rangeNumber(s string) (n int64, overflow, ok bool) {
+	if s == "" {
+		return 0, false, false
+	}
+	for i := 0; i < len(s); i++ {
+		if s[i] < '0' || s[i] > '9' {
+			return 0, false, false
+		}
+	}
+	n, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return 0, true, true
+	}
+	return n, false, true
+}
+
 func singleRange(value string, size int64) (start, length int64, err error) {
 	if size <= 0 || !strings.HasPrefix(value, "bytes=") || strings.Contains(value, ",") {
 		return 0, 0, fmt.Errorf("invalid")
@@ -755,26 +795,27 @@ func singleRange(value string, size int64) (start, length int64, err error) {
 		return 0, 0, fmt.Errorf("invalid")
 	}
 	if parts[0] == "" {
-		n, e := strconv.ParseInt(parts[1], 10, 64)
-		if e != nil || n <= 0 {
+		n, over, ok := rangeNumber(parts[1])
+		if !ok || (!over && n <= 0) {
 			return 0, 0, fmt.Errorf("invalid")
 		}
-		if n > size {
+		if over || n > size {
 			n = size
 		}
 		return size - n, n, nil
 	}
-	start, err = strconv.ParseInt(parts[0], 10, 64)
-	if err != nil || start < 0 || start >= size {
+	start, over, ok := rangeNumber(parts[0])
+	if !ok || over || start >= size {
 		return 0, 0, fmt.Errorf("invalid")
 	}
 	end := size - 1
 	if parts[1] != "" {
-		end, err = strconv.ParseInt(parts[1], 10, 64)
-		if err != nil || end < start {
+		last, overEnd, okEnd := rangeNumber(parts[1])
+		if !okEnd || (!overEnd && last < start) {
 			return 0, 0, fmt.Errorf("invalid")
 		}
-		if end >= size {
+		end = last
+		if overEnd || end >= size {
 			end = size - 1
 		}
 	}

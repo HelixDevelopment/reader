@@ -1,0 +1,5 @@
+--- FAIL: TestWebDAVListStrictContentLength (0.00s)
+    remote_revalidate_test.go:180: "99999999999999999999": want the entry skipped, got [{Path:b.bin Name:b.bin Size:9223372036854775807 Modified:2026-11-23 21:47:33 +0000 UTC ETag:}] <nil>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/sources	0.011s
+FAIL

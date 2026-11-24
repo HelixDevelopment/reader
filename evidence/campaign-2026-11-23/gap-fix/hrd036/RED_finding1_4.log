@@ -1,0 +1,12 @@
+--- FAIL: TestWebDAVRevalidateAbsentLengthIsUnknownNotZero (0.00s)
+    remote_revalidate_test.go:135: absent: size=0 err=<nil>, want -1,nil
+--- FAIL: TestWebDAVRevalidateMixedPropstatOrder (0.00s)
+    remote_revalidate_test.go:148: size=-1 mod=0001-01-01 00:00:00 +0000 UTC err=<nil>
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/sources	0.007s
+FAIL
+--- FAIL: TestWebDAVWithoutContentLengthNeverServesEmpty (0.01s)
+    remote_range_test.go:187: full GET: status 200, 0 bytes (want 200 and 1000)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.014s
+FAIL
