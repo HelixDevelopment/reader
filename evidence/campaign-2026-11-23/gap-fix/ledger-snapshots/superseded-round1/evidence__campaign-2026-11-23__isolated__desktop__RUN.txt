@@ -1,0 +1,9 @@
+Electron desktop client, GUI e2e run INSIDE the isolated rootless container, 2026-11-23 (re-run after the isolation hardening).
+Runner: qa/isolation/run_desktop_live.sh -> tools/isolation/run_container.sh (--network none, unix-socket bridge to the test server,
+no host display/session/input; container facts in container_proof.json). Script: clients/desktop/e2e/live.mjs (Playwright _electron),
+app: clients/desktop/out/helix-reader-linux-x64 (unpacked, Electron 45.4.1). Result: results.json, 11/11 PASS, screenshots 01/02.
+Oracle: DOM/accessibility tree + CSP/navigation behaviour; the Vision model is not used (UNVERIFIED).
+CHROMIUM SANDBOX: OFF in this run (HELIX_DESKTOP_NO_CHROMIUM_SANDBOX=1; check chromium-sandbox-state records any_no_sandbox_flag=true).
+With the sandbox ON Electron fails to launch in the unprivileged container: evidence/campaign-2026-11-23/isolated/hardening/desktop_sandbox_attempt.log.
+So nothing here claims the Chromium sandbox is verified. Not verified: safeStorage keystore, installed .deb, signing, AppImage.
+Fixes found by this run (script, not app): blocked-navigation stall ordering; deliberate CSP-probe console errors counted as failures.

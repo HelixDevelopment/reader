@@ -1,0 +1,11 @@
+PASS good tree exits 0
+PASS 4 per-gate PASS verdict lines
+PASS gofmt drift fails run
+PASS evidence tamper fails run
+PASS ad-hoc bluff type fails run
+PASS bad layer in manifest fails run
+PASS installer writes executable pre-commit into given dir
+PASS repo .git/hooks untouched
+PASS installer refuses to overwrite foreign/existing hook
+PASS installer without --hooks-dir only prints (dry run)
+== 10 passed, 0 failed

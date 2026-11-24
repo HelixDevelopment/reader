@@ -1,0 +1,16 @@
+HRD-022 Linux desktop (Electron 45.4.1, Chromium 156.0.8078.100). Generated 2026-11-23.
+SCOPE: NO GUI WINDOW WAS EVER OPENED. Operator directive forbids windows on the host display; the isolated
+podman/Xvfb runner is being built by another agent. Therefore everything below is non-GUI.
+Proven:
+ 1. unit tests (node:test) 15/15 GREEN: unit_GREEN.log; RED (lib modules absent): unit_RED_modules_absent.log
+ 2. mutation check on allowlist/proxy/static/csp/secrets: 11 KILLED, 1 EQUIVALENT (documented): mutation_check.log
+ 3. live handler check against a real helix-server (go build, in-memory catalog, 0600 env file, fixtures from
+    qa/helixqa/fixtures/make_fixtures.py, 127.0.0.1:28191, server stopped afterwards): 15/15 PASS: live_handler.log/.json
+    (real titles hq-novel, hq-notes, hq-mixed, hq-comic returned through the app:// proxy with injected Basic creds)
+ 4. packaged artifacts built: artifacts.sha256 (.deb + tar.gz), deb_info.txt, deb_contents.txt
+ 5. packaged Electron binary executes (ELECTRON_RUN_AS_NODE, no window) and serves the web bundle out of app.asar:
+    packaged_binary_node_mode.txt
+NOT proven (UNCONFIRMED): window launch, preload/IPC connection dialog, safeStorage on a real keystore, CSP behaviour
+in the live page (e.g. React inline style), navigation lock in a live window, screenshots, console errors.
+Runner to take over: clients/desktop/e2e/live.mjs (written, never executed).
+Rebuild: see clients/desktop/README.md. Large artifacts live in clients/desktop/out (gitignored).
