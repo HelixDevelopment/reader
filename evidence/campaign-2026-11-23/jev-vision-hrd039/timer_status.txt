@@ -1,0 +1,12 @@
+# read-only capture 2026-11-24 (systemctl --user list-timers --all | grep -E 'NEXT|revalidate'; status llmctl-revalidate.timer); nothing enabled/started
+NEXT                                 LEFT LAST                           PASSED UNIT                                                                                    ACTIVATES
+Wed 2026-11-25 00:43:50 CET       3h 2min Tue 2026-11-24 00:02:25 CET   21h ago llmctl-revalidate.timer                                                                 llmctl-revalidate.service
+Thu 2026-11-26 03:51:56 CET      1 day 6h Mon 2026-11-23 16:08:46 CET         - llmctl-revalidate-weekly.timer                                                          llmctl-revalidate-weekly.service
+● llmctl-revalidate.timer - llmctl daily revalidation of the running engines (refreshes validation PASS records before they expire)
+     Loaded: loaded (/home/milosvasic/.config/systemd/user/llmctl-revalidate.timer; enabled; preset: enabled)
+     Active: active (waiting) since Mon 2026-11-23 23:05:16 CET; 22h ago
+ Invocation: 4a5d50b8fc394f15ba74a6c48ab52e72
+    Trigger: Wed 2026-11-25 00:43:50 CET; 3h 2min left
+   Triggers: ● llmctl-revalidate.service
+
+Nov 23 23:05:16 anton systemd[2540]: Started llmctl-revalidate.timer - llmctl daily revalidation of the running engines (refreshes validation PASS records before they expire).
