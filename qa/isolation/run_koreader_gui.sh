@@ -32,7 +32,8 @@ say "profile B: start, OPDS browse, download"
 D start B; D opds_open; D shot B01_opds; D opds_download_read; D shot B02_book_opened_pulled
 sleep 3; D shot B03_after_pull; say "B docsettings: $(D docpercent B)"; say "B turns 2 pages"; D pages 2; D shot B04_page6; say "B close: $(D close)"; sleep 3; sink
 say "A re-open book: pull B's progress"
-BN=$($SIO first "$PR" A/Books "*.epub") || { say "no epub in A/Books (or unsafe entry)"; exit 1; }; D start A "/prof/A/Books/$BN"   # name read without following links, charset-checked; D shot A05_reopened_pulled; say "A docsettings: $(D docpercent A)"; say "A close: $(D close)"; sleep 3; sink
+# BN: name read without following links, charset-checked (safe_io first)
+BN=$($SIO first "$PR" A/Books "*.epub") || { say "no epub in A/Books (or unsafe entry)"; exit 1; }; D start A "/prof/A/Books/$BN"; D shot A05_reopened_pulled; say "A docsettings: $(D docpercent A)"; say "A close: $(D close)"; sleep 3; sink
 say "PSE: profile B streams the CBZ"
 D start B; D opds_open; D opds_comic_stream; D shot B05_pse_page1
 say "pse page1 centre pixel: $(D pixel 300 400)"

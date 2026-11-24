@@ -100,7 +100,7 @@ class Waivers(unittest.TestCase):
         self_paths = sorted(p for p in active if any(e["kind"] == "self" for e in active[p]))
         self.assertEqual(self_paths, sorted(["tools/isolation/tests/test_guard_matrix.py", "tools/isolation/guard/assert_host_untouched.py",
                                              "tools/isolation/guard/test_assert_host_untouched.py", "tools/isolation/tests/test_runtime_checks.py",
-                                             "tools/isolation/tests/test_bindcheck.py", "tools/isolation/tests/test_review_round1.py", "tools/isolation/tests/test_review_round2.py", "tools/isolation/tests/test_review_round3.py", "tools/isolation/tests/test_review_round4.py", "tools/isolation/tests/test_review_round5.py", "tools/isolation/tests/test_review_round6.py"]))     # exactly eleven lint-owned files, each pinned by hash
+                                             "tools/isolation/tests/test_bindcheck.py", "tools/isolation/tests/test_review_round1.py", "tools/isolation/tests/test_review_round2.py", "tools/isolation/tests/test_review_round3.py", "tools/isolation/tests/test_review_round4.py", "tools/isolation/tests/test_review_round5.py", "tools/isolation/tests/test_review_round6.py", "tools/isolation/tests/test_review_round8.py"]))     # exactly twelve lint-owned files, each pinned by hash
 
 if __name__ == "__main__":
     unittest.main()

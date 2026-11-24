@@ -22,6 +22,8 @@ usage: safe_io.py scan DIR [--allow [--host-seal]] | put DIR NAME (data on stdin
 BASE / DIR arguments are trusted host paths (not under container control); REL / NAME are names, never '..'.
 exit: 0 ok, 1 refused (message on stderr), 2 usage."""
 import fnmatch, os, re, stat, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from sanitize import escape_text      # every container-derived name in a message goes through it (review round 8 B1)
 
 NAME_OK = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._ -]{0,200}$")
 MAX_DEFAULT = 64 * 1024 * 1024
@@ -249,7 +251,7 @@ def main(argv):
         if argv[1:2] == ["scan"] and (len(argv) == 3 or (len(argv) == 4 and argv[3] == "--allow") or (len(argv) == 5 and argv[3:] == ["--allow", "--host-seal"])):
             bad = scan(argv[2], allow=len(argv) >= 4, host_seal=len(argv) == 5)
             for b in bad:
-                print(f"safe_io: refused {b}", file=sys.stderr)
+                print(f"safe_io: refused {escape_text(b)}", file=sys.stderr)
             return 1 if bad else 0
         if len(argv) == 4 and argv[1] == "put":
             put(argv[2], argv[3], sys.stdin.buffer.read())
@@ -266,7 +268,7 @@ def main(argv):
             print(n)
             return 0
     except Refused as r:
-        print(f"safe_io: refused: {r}", file=sys.stderr)
+        print(f"safe_io: refused: {escape_text(r)}", file=sys.stderr)
         return 1
     print(__doc__, file=sys.stderr)
     return 2

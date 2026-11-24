@@ -166,7 +166,7 @@ class GateRawRules(Base):
         t, f = mutated_copy("check_raw_consumers.py", "if not in_lib and ((isinstance(n, ast.Attribute)", "if False and ((isinstance(n, ast.Attribute)"); self.addCleanup(shutil.rmtree, t, True)
         r = self.gate({"tools/x.py": "def f(r):\n    return r.raw_stderr\n"}, script=f); self.assertEqual(r.returncode, 0)
     def test_mutant_gate_without_the_podman_rule_is_blind(self):
-        t, f = mutated_copy("check_raw_consumers.py", 'if a == "podman" and b in RT_VERBS', 'if False and b in RT_VERBS'); self.addCleanup(shutil.rmtree, t, True)
+        t, f = mutated_copy("check_raw_consumers.py", 'if b in RT_VERBS and (_captures(n)', 'if False and (_captures(n)'); self.addCleanup(shutil.rmtree, t, True)
         r = self.gate({"tools/x.py": 'import subprocess\nsubprocess.run(["podman", "exec", "n", "x"], capture_output=True, text=True)\n'}, script=f); self.assertEqual(r.returncode, 0)
 
 # --------------------------------------------------------------------------------------------------------------------------------------- R6-I1

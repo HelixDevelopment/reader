@@ -22,6 +22,7 @@ Rules (all must hold):
            additionally refuses duplicate destinations."""
 import os, posixpath, re, stat, sys, time, pathlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))     # python -I does not add the script dir
+from sanitize import escape_text
 import safe_io                                                       # SINGLE deny table shared with the post-run scan (review round 3)
 
 DEDICATED = ("~/.cache/claude-tmp", "~/.cache/helix-iso")
@@ -211,5 +212,5 @@ if __name__ == "__main__":
     repo = os.path.realpath(pathlib.Path(__file__).resolve().parents[2])
     err = check(mode, src, dst, repo, bridge="--bridge" in sys.argv)
     if err:
-        print(f"run_container: bind refused ({mode} {src}:{dst}): {err}", file=sys.stderr); sys.exit(64)
+        print(escape_text(f"run_container: bind refused ({mode} {src}:{dst}): {err}"), file=sys.stderr); sys.exit(64)
     print(resolve(src))

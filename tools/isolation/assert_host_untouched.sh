@@ -18,6 +18,7 @@ python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round3.p
 python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round4.py' >&2
 python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round5.py' >&2
 python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round6.py' >&2
+python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round8.py' >&2
 python3 -I "$H/check_raw_consumers.py" "$R" >&2       # R5-B1(d)/R6: defence in depth - attached run_container.sh calls need -o/-d, no raw_* outside rawrun.py, no hand-captured podman output
 if [ "${1:-}" = --full ]; then
   # the real-server half of the N1 test (admin routes refused, no source created) needs a helix-server binary; say so when it is absent

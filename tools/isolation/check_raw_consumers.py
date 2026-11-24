@@ -54,6 +54,8 @@ def shell_logical(text):
 def check_shell(path, text):
     bad = []
     for n, ln in shell_logical(text):
+        if re.search(r"(^|[\s;|&(`$])(podman|docker)\s+(?:\S+\s+)*?(logs|attach)\b", ln) and not ln.lstrip().startswith("#") and not EXEMPT.search(ln):
+            bad.append((path, n, "podman/docker logs|attach prints the container stream raw: pipe it through tools/isolation/sanitize.py or use run_container.sh -o")); continue
         if "run_container.sh" not in ln or ln.lstrip().startswith("#") or EXEMPT.search(ln): continue
         code = ln.split(" #")[0]
         try: toks = shlex.split(code, posix=True)
@@ -141,11 +143,34 @@ def check_python(path, text):
                     bad.append((path, n.lineno, "run_container.sh run through a shell string (shell=True / os.popen / os.system): use a list with -o, or tools/isolation/rawrun.py"))
                 elif not ({"o", "d"} & _py_flags(cmd)):
                     bad.append((path, n.lineno, "run_container.sh invoked in attached mode (no \"-o\" / \"-d\" among its options): use tools/isolation/rawrun.py run_raw"))
-            elif isinstance(cmd, (ast.List, ast.Tuple)) and len(cmd.elts) >= 2 and all(isinstance(e, ast.Constant) for e in cmd.elts[:2]):
-                a, b = cmd.elts[0].value, cmd.elts[1].value
-                if a == "podman" and b in RT_VERBS and _captures(n) and not (b == "run" and any(isinstance(e, ast.Constant) and e.value == "-d" for e in cmd.elts)):   # `run -d` prints only the container id
-                    bad.append((path, n.lineno, f"podman {b} output is captured by hand: use tools/isolation/rawrun.py run_direct (sanitized str surfaces)"))
+            elif isinstance(cmd, (ast.List, ast.Tuple)) and cmd.elts and isinstance(cmd.elts[0], ast.Constant) and os.path.basename(str(cmd.elts[0].value)) in ("podman", "docker"):
+                words = [e.value for e in cmd.elts[1:] if isinstance(e, ast.Constant) and isinstance(e.value, str)]
+                verbs = [w for w in words if w in RT_VERBS]            # first runtime verb among the words (global options, their values and `container` are skipped; an image named like a verb can fool this: a lint)
+                b = verbs[0] if verbs else None
+                if b in RT_VERBS and (_captures(n) or b in ("logs", "attach")) and not (b == "run" and "-d" in words):   # `run -d` prints only the container id; logs/attach print the stream even with inherited stdout
+                    bad.append((path, n.lineno, f"podman {b} output is captured by hand or shown raw: use tools/isolation/rawrun.py run_direct (sanitized str surfaces)"))
     return sorted(set(bad))
+
+
+def check_messages(path, text):
+    """round 8 (B1): a tool that prints a host message embedding an f-string value must pass it through escape_text (a container can plant file names with OSC 52 / CSI / bidi).
+    Scope: tools/isolation/*.py and qa/isolation/*.py; print(f"...{x}...", file=sys.stderr/stdout) where some {x} is not an escape_text(...) call, unless the whole print argument is one."""
+    try: tree = ast.parse(text)
+    except SyntaxError: return []
+    lines, bad = text.splitlines(), []
+    is_esc = lambda e: isinstance(e, ast.Call) and ast.unparse(e.func).endswith("escape_text")
+    for n in ast.walk(tree):
+        if not (isinstance(n, ast.Call) and ast.unparse(n.func) == "print" and n.args): continue
+        a = n.args[0]
+        if is_esc(a) or EXEMPT.search(lines[n.lineno - 1]): continue
+        parts = [a] if isinstance(a, ast.JoinedStr) else [x for x in ast.walk(a) if isinstance(x, ast.JoinedStr)]
+        for js in parts:
+            for fv in js.values:
+                if isinstance(fv, ast.FormattedValue) and not is_esc(fv.value) and not isinstance(fv.value, ast.Constant) and not (isinstance(fv.value, ast.Call) and ast.unparse(fv.value.func) in ("len", "int")):
+                    bad.append((path, n.lineno, "print() interpolates a value that is not wrapped in sanitize.escape_text (a container-planted name could carry terminal escapes)")); break
+            else: continue
+            break
+    return bad
 
 
 def scan(root):
@@ -159,9 +184,10 @@ def scan(root):
                 try: text = open(p, encoding="utf-8").read()
                 except (OSError, UnicodeDecodeError): continue
                 if not f.endswith(".py"):
-                    if "run_container.sh" in text: bad += check_shell(rel, text)
+                    if "run_container.sh" in text or re.search(r"(podman|docker)\s.*\b(logs|attach)\b", text): bad += check_shell(rel, text)
                     continue
                 if "run_container.sh" in text or "raw_std" in text or "podman" in text: bad += check_python(rel, text)
+                if re.match(r"(tools|qa)/isolation/[^/]+\.py$", rel): bad += check_messages(rel, text)
     return bad
 
 

@@ -425,3 +425,32 @@ attached use a pseudo-terminal (`run_rc(tty=True)`).
   its message and publishes nothing (m5); a `-w` source inside RAWDIR is accepted and harmless (m7).
 * Residual (UNCONFIRMED, honest): a consumer that runs the wrapper with a real pseudo-terminal and parses the screen is not stopped (it gets the sanitized stream; this is the terminal's own
   use); the sweep covers this PR's tree, not scripts elsewhere in the repository that read container output (for example `scripts/needle_*.sh`); no live run (container-gated tests) was performed.
+
+### 8.6 File names are container bytes too; honest gate coverage (review round 8)
+
+**B1, container-derived file names and paths in host messages.** A container can plant a file name carrying OSC 52, CSI 2J, OSC 0, C1 or bidi controls, or a newline that forges a second message
+line. Before round 8, `safe_io.py scan` (deny-table and lstat-error messages came before the charset check) and `bindcheck.py` (`hostile_tree_error` / `tree_error`, for example a name planted in
+the bridge directory by the web run and met by the desktop run) printed such names raw. Every message these tools print now passes through `sanitize.escape_text`, which replaces each control /
+C1 / bidi / zero-width / newline character by a visible `\xNN` / `\uNNNN` escape (nothing is removed, so two different names stay different on screen): `safe_io` (scan and every `Refused`),
+`bindcheck` (the whole refusal line) and `container_proof`. Tests plant seven hostile names (OSC 52, CSI + OSC 0, C1, bidi, newline, Arabic letter mark + zero-width + BOM, OSC 0 with ST) through
+`safe_io scan`, `safe_io copy` and `bindcheck --bridge` and assert that stderr holds no control character and no forged line; mutants that print the name raw are killed. Sweep result: the other tools
+print only host-chosen values, numbers or `strerror` (`helixqa_publish`, `kosync_proof`, `start_server.sh`); `reap.sh` prints container names that already matched `hrdiso-*` and are podman-validated;
+the runners' own `echo` lines print host paths. A message-site lint was added to `check_raw_consumers.py`: in `tools/isolation/*.py` and `qa/isolation/*.py`, a `print()` that interpolates a value which
+is not an `escape_text(...)` call (or `len` / `int`) is a finding (marker `raw-consumer-exempt: <reason>`); a mutant that disables it is killed.
+
+**I1, what the gate really covers.** The round-6 text "flags any hand-captured podman run|exec|logs|cp|attach output" overstated it. The reviewer's 25 consumer shapes: the gate caught 1 and the older
+lint 4; 20 were missed by both. Round 8 widens the Python rule (the runtime may be a path such as `/usr/bin/podman`, global options and `container` are skipped, `logs` / `attach` are findings even with
+inherited stdout) and adds a shell rule for `podman|docker ... logs|attach`. Still NOT caught (text scan, honest list): a runtime assembled in a variable (`PM=podman; $PM logs x`), `shlex.split(...)`
+commands, `asyncio.create_subprocess_exec` with positional string arguments, `os.system` strings, reading `$RAW/stdout.raw` or a kept `rawdir` and printing it, `getattr(r, "raw_" + "stdout")`,
+`script -qc`, a command in another language. Those never reach a terminal through this PR's tree today (enumerated); the structural controls are the wrapper's exit 67 for the attached stream, the
+`Raw` surfaces for parsers, and the independent reviews. The gate is defence in depth, not a proof.
+
+**B2, KOReader runner.** A mid-line comment added in round 2 had turned the rest of the "A re-open" line into a comment: five steps (the A05 screenshot, the docsettings check, the close, the sleep and
+the sink) silently did not run. The comment moved to its own line; a hermetic test executes the real line with stub `D`/`say`/`sink` and asserts the step list, a second test scans every `qa/isolation/*.sh` for
+the shape `; # note; more code`, and a mutant that restores the comment fails.
+
+**Documented limits and follow-ups (UNCONFIRMED where noted):** m1, a caller-controlled `BASH_ENV` can define a `[` function and defeat the exit-67 test (and replace `python3`); the wrapper does not
+clear `BASH_ENV` (low risk: the caller already controls its environment; follow-up: re-exec with `env -i`-style hygiene). m2, pty capture of attached mode is not refused (the stream is sanitized). m6,
+`helixqa_http.txt` and `kosync_proof.out` are written with an empty prefix; the text is control-free but container-chosen, so it could forge a host-looking line (follow-up: prefix them).
+m3 is fixed (sanitize strips U+061C, zero-width U+200B-U+200D, U+2060 and BOM). The PR body wrongly said the container-never-starts status was 66: the runner exits 1 and names the wrapper status
+(64..67) in its message.

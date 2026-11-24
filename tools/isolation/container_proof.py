@@ -21,8 +21,8 @@ proof = {"name": i["Name"], "image": i["ImageName"], "created": i["Created"],
 # (a planted symlink at OUT or OUT.tmp would redirect the write) - safe_io.put unlinks any existing entry and creates it O_EXCL|O_NOFOLLOW.
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import safe_io
+import safe_io, sanitize
 try:
     safe_io.put(os.path.dirname(os.path.abspath(out)), os.path.basename(out), (json.dumps(proof, indent=2) + "\n").encode())
 except safe_io.Refused as e:
-    print(f"container_proof: refused: {e}", file=sys.stderr); sys.exit(1)
+    print(f"container_proof: refused: {sanitize.escape_text(e)}", file=sys.stderr); sys.exit(1)
