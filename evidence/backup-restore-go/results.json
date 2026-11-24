@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "pass": 13,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "source fixture creation",
+      "status": "PASS"
+    },
+    {
+      "name": "source fixture scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "source fixture ingestion",
+      "status": "PASS"
+    },
+    {
+      "name": "source catalog fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "source vector fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "source progress fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL backup created",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL restore into isolated database",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis backup created",
+      "status": "PASS"
+    },
+    {
+      "name": "isolated Redis restore started",
+      "status": "PASS"
+    },
+    {
+      "name": "restored catalog verified through fresh server",
+      "status": "PASS"
+    },
+    {
+      "name": "restored vector memory verified",
+      "status": "PASS"
+    },
+    {
+      "name": "restored reading progress verified",
+      "status": "PASS"
+    }
+  ],
+  "identity": {
+    "binaries_sha256": {
+      "helix-server": "9448b8995a6dce87f96a55a903f8dd1de286ec59ddbf29a0747c76931bbee8b1"
+    },
+    "git": {
+      "head": "6f668f838f36e6f9283210eaf2d49b7b4ec26c9e",
+      "dirty": true
+    },
+    "postgresql": {
+      "version": "17.12 (Debian 17.12-1.pgdg12+1)",
+      "endpoint": "127.0.0.1:55433"
+    },
+    "redis": {
+      "version": "7.4.12",
+      "run_id": "bde56937578acf25a6bb6341ebd40a3f262933ac",
+      "address": "127.0.0.1:57391"
+    }
+  }
+}
