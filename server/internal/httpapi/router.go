@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -85,7 +86,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 
 func (s *Server) Router() *gin.Engine {
 	r := gin.New()
-	r.Use(gin.Recovery(), RequestID(), SecurityHeaders(s.Config.TLSCertFile != "" && s.Config.HTTP3, s.Config.Address), Compression(s.Config.BrotliLevel))
+	r.Use(gin.Recovery(), RequestID(), s.accessLog(), SecurityHeaders(s.Config.TLSCertFile != "" && s.Config.HTTP3, s.Config.Address), Compression(s.Config.BrotliLevel))
 	r.GET("/healthz", func(c *gin.Context) { c.JSON(http.StatusOK, gin.H{"status": "ok", "time": time.Now().UTC()}) })
 	r.GET("/readyz", func(c *gin.Context) {
 		if s.Catalog == nil {
@@ -820,4 +821,12 @@ func singleRange(value string, size int64) (start, length int64, err error) {
 		}
 	}
 	return start, end - start + 1, nil
+}
+
+// accessLog is enabled by HELIX_ACCESS_LOG (config.AccessLog); off by default so production logs stay quiet.
+func (s *Server) accessLog() gin.HandlerFunc {
+	if !s.Config.AccessLog {
+		return AccessLog(nil)
+	}
+	return AccessLog(slog.Default())
 }

@@ -1,0 +1,57 @@
+{
+  "url": "https://helix-server:8443/v1/formats",
+  "flags": [
+    "--ignore-certificate-errors",
+    "--enable-quic",
+    "--quic-version=h3"
+  ],
+  "rounds": [
+    [
+      {
+        "url": "https://helix-server:8443/v1/formats",
+        "status": 200,
+        "protocol": "h2",
+        "encoding": "br",
+        "altsvc": "h3=\":8443\"; ma=86400"
+      },
+      {
+        "url": "https://helix-server:8443/favicon.ico",
+        "status": 404,
+        "protocol": "h2",
+        "encoding": "br",
+        "altsvc": "h3=\":8443\"; ma=86400"
+      }
+    ],
+    [
+      {
+        "url": "https://helix-server:8443/v1/formats",
+        "status": 200,
+        "protocol": "h2",
+        "encoding": "br",
+        "altsvc": "h3=\":8443\"; ma=86400"
+      }
+    ],
+    [
+      {
+        "url": "https://helix-server:8443/v1/formats",
+        "status": 200,
+        "protocol": "h2",
+        "encoding": "br",
+        "altsvc": "h3=\":8443\"; ma=86400"
+      }
+    ],
+    [
+      {
+        "url": "https://helix-server:8443/v1/formats",
+        "status": 200,
+        "protocol": "h2",
+        "encoding": "br",
+        "altsvc": "h3=\":8443\"; ma=86400"
+      }
+    ]
+  ],
+  "finalProtocol": "h2",
+  "finalEncoding": "br",
+  "version": "149.0.7827.55",
+  "pass": false
+}

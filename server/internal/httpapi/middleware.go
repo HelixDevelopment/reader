@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"crypto/subtle"
 	"encoding/hex"
+	"log/slog"
 	"net"
 	"net/http"
 
@@ -73,4 +74,21 @@ func Basic(username, password string) gin.HandlerFunc {
 }
 func Error(c *gin.Context, status int, public string) {
 	c.AbortWithStatusJSON(status, gin.H{"error": public, "request_id": c.GetString("request_id")})
+}
+
+// AccessLog logs one structured line per request with the NEGOTIATED protocol (c.Request.Proto is
+// "HTTP/3.0" for QUIC), method, path (never the query string or any header value), status and the
+// Content-Encoding actually sent. A nil logger returns a pass-through handler.
+func AccessLog(logger *slog.Logger) gin.HandlerFunc {
+	if logger == nil {
+		return func(c *gin.Context) { c.Next() }
+	}
+	return func(c *gin.Context) {
+		c.Next()
+		enc := c.Writer.Header().Get("Content-Encoding")
+		if enc == "" {
+			enc = "identity"
+		}
+		logger.Info("access", "proto", c.Request.Proto, "method", c.Request.Method, "path", c.Request.URL.Path, "status", c.Writer.Status(), "encoding", enc, "bytes", c.Writer.Size())
+	}
 }

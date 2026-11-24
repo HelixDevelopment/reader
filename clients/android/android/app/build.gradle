@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+    if (project.hasProperty('helixLabDir')) { testBuildType 'lab' }
+    sourceSets {
+        lab {
+            if (project.hasProperty('helixLabDir')) {
+                manifest.srcFile(project.property('helixLabDir') + '/AndroidManifest.xml')
+                res.srcDirs = [project.property('helixLabDir') + '/res']
+            }
+        }
+    }
     namespace = "org.helixreader.app"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -17,6 +26,12 @@ android {
         }
     }
     buildTypes {
+        // Lab-only build type for the rootless h3 lab (qa/h3): trusts a throwaway CA passed as -PhelixLabDir=<dir> holding
+        // AndroidManifest.xml + res/. Never shipped; the lab dir lives outside the repository.
+        lab {
+            initWith debug
+            matchingFallbacks = ['debug']
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -35,6 +50,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    // Cronet = Chromium's network stack as a library (HTTP/3 over QUIC, HTTP/2, Brotli). The embedded build (not play-services-cronet)
+    // works on devices without Google Play services and pins the stack version; cost ~14 MB aar. Version verified on
+    // dl.google.com/android/maven2/org/chromium/net/group-index.xml (500.1.0 published 2026-10-01).
+    implementation 'org.chromium.net:cronet-bundled:500.1.0'
     implementation project(':capacitor-android')
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"

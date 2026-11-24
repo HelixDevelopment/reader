@@ -10,7 +10,7 @@ var configKeys = []string{
 	"HELIX_OPDS_USERNAME", "HELIX_OPDS_PASSWORD", "HELIX_EXTERNAL_URL",
 	"HELIX_POSTGRES_DSN", "HELIX_COVER_CACHE", "HELIX_REDIS_URL",
 	"HELIX_KOSYNC_REGISTRATION", "HELIX_AI_MEMORY", "HELIX_EMBEDDING_DIMENSIONS",
-	"HELIX_HTTP3", "HELIX_BROTLI_LEVEL", "HELIX_ALLOW_INSECURE_ADMIN",
+	"HELIX_HTTP3", "HELIX_ACCESS_LOG", "HELIX_BROTLI_LEVEL", "HELIX_ALLOW_INSECURE_ADMIN",
 	"HELIX_CATALOG_POOL_MAX_OPEN_CONNS", "HELIX_CATALOG_POOL_MAX_IDLE_CONNS",
 	"HELIX_CATALOG_POOL_LIFETIME_SECONDS",
 	"HELIX_AI_MEMORY_POOL_MAX_OPEN_CONNS", "HELIX_AI_MEMORY_POOL_MAX_IDLE_CONNS",
@@ -121,5 +121,17 @@ func TestPoolConfiguration(t *testing.T) {
 				t.Fatalf("%s=%s accepted", test.key, test.value)
 			}
 		})
+	}
+}
+
+func TestAccessLogFlag(t *testing.T) {
+	t.Setenv("HELIX_ACCESS_LOG", "true")
+	c, err := FromEnv()
+	if err != nil || !c.AccessLog {
+		t.Fatalf("HELIX_ACCESS_LOG=true: %+v %v", c.AccessLog, err)
+	}
+	t.Setenv("HELIX_ACCESS_LOG", "")
+	if c, _ = FromEnv(); c.AccessLog {
+		t.Fatal("access log must default off")
 	}
 }

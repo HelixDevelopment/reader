@@ -226,6 +226,19 @@ The Vision model is not validated: any screenshot-based judgement is UNVERIFIED 
 here: DOM/accessibility assertions, HTTP bodies, server-side sink records (access log, KOSync request/response bodies,
 redis), pixel probes of KOReader's rendered pages.
 
+## 9. HTTP/3 lab (QUIC between containers)
+
+QUIC is UDP, so the `--network none` + unix-socket design cannot carry it. `tools/isolation/h3_lab.sh` (subcommands `up` / `run` / `logs` / `down`)
+creates a rootless podman network with `--internal` (no route out, no published port, no host network, no host display): a server container
+(`hrdiso-h3-srv-<rid>`, network alias `helix-server`, throwaway per-run CA) and client containers (`hrdiso-h3-*`) with all capabilities dropped,
+no-new-privileges, memory/pids caps and a lease timeout. `qa/h3/run_h3_live.sh` (web Chromium, desktop Electron, quic-go, each with a paired control)
+and `qa/h3/run_android_h3.sh` (Android emulator container) judge the result from the SERVER access log (`HELIX_ACCESS_LOG=true`) with `qa/h3/check_h3.py`
+(PASS / FAIL / BLIND). The Android emulator container needs `--device /dev/kvm`; this is allowed only inside the container lab. Policy gap:
+the emulator wrapper is not yet covered by the guard (HRD-040).
+
+Private CA and QUIC: Chromium does not upgrade to h3 through Alt-Svc for a private CA. Lab runs force QUIC (`--origin-to-force-quic-on`) and pin the SPKI
+(`--ignore-certificate-errors-spki-list`). Production must serve h3 with a publicly trusted certificate on an open UDP port (same port number as TCP).
+
 ## 8. Known limits
 
 * TOCTOU (review M2): `bindcheck.py` hands podman the RESOLVED path, which closes a swap of the leaf, but a parent component
