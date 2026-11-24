@@ -1,0 +1,57 @@
+VERDICT: NO-GO
+HEAD: b8aa215068d5246331fe6340d6fb59374d48f45f
+Reviewer: independent subagent (not the author, not an earlier PR #3 reviewer), Claude Opus 5.5; effort not reported by the dispatch path (UNCONFIRMED). Date 2026-11-24. Review round 3 of PR #3.
+Scope: PR #3, branch task/HRD-070-fuzz-targets. git ls-remote github: b8aa215068d5246331fe6340d6fb59374d48f45f for refs/heads/task/HRD-070-fuzz-targets and refs/pull/3/head.
+Worktree /home/milosvasic/.cache/claude-tmp/wt-hrd070 clean at that head. Every mutation and fuzz run used a scratch copy of core/ and server/ (diff -r against the worktree: IDENTICAL before the runs); every mutant was restored and re-ran GREEN.
+
+PASSED CHECKS
+- gofmt -l core/pkg/lcpfuzz server/internal/opds server/internal/kosync: empty.
+- go vet + go test -count=1: ok core/pkg/lcpfuzz, ok server/internal/opds, ok server/internal/kosync.
+- 20s fuzz, all 6 targets, -parallel 4, exit 0, no crasher: FuzzParseLicense 21.067s, FuzzCanonical 21.083s, FuzzParseStatusDocument 20.246s, FuzzOPDSGeneration 21.043s, FuzzPutProgressBody 20.195s, FuzzRegisterInput 20.111s.
+- sha256sum -c SHA256SUMS: hrd070 11/11 OK, hrd070-r2 12/12 OK, hrd070-r3 11/11 OK.
+- Paths changed vs github/main outside evidence/: only core/pkg/lcpfuzz/lcpfuzz_test.go, core/pkg/lcpfuzz/lcpfuzz_lsd_test.go, server/internal/kosync/fuzz_test.go, server/internal/opds/fuzz_test.go. No production-code edits. Diff scan for password/secret/token/api_key/PRIVATE KEY: prose hits in earlier review files only.
+- Trailers: HEAD b8aa215 carries `Roadmap-Item: HRD-070` as a real trailer (git log --format='%(trailers:key=Roadmap-Item)' prints it). dfb13c7 and e79fc65 do not (see F11).
+
+EARLIER SURVIVORS RE-RUN (seed run only, -run '^Target$'):
+  R1 license.go:202 issued parse error ignored   KILLED seed#32  lcpfuzz_test.go:107 "accepted license lacks issued"
+  R2 lsd.go:232 empty href accepted               KILLED seed#50  lcpfuzz_lsd_test.go:52 "link 0 has empty href"
+  R5 kosync Percentage < 0 dropped                KILLED seed#5   fuzz_test.go:55 "persisted out-of-contract record"
+  R6 kosync len(Device) > 255 dropped             KILLED seed#12  fuzz_test.go:55
+  R7 kosync timestamp not server-set              KILLED seed#0   fuzz_test.go:60 "timestamp 7 not server-set"
+  The earlier review's F5 and F6 are fixed for these instances.
+
+NEW REVIEWER MUTANTS (not in mutate.sh of hrd070, hrd070-r2, hrd070-r3), seed run:
+  N1  license.go:233 user_key.text_hint absent accepted          SURVIVED  (oracle has no text_hint presence check; no seed drops text_hint)
+  N2  license.go:207 malformed `updated` accepted                 SURVIVED  (a seed with updated "not-a-date" EXISTS, but the oracle never checks l.Updated: the seed is vacuous)
+  N3  license.go:244 empty signature.certificate accepted         KILLED seed#28 lcpfuzz_test.go:122
+  N4  license.go:255 malformed `rights` ignored                   SURVIVED  (no seed, no oracle check)
+  N5  lsd.go:258 unknown events[].type accepted                   SURVIVED  (no events seed, oracle ignores events)
+  N6  lsd.go:265 malformed events[].timestamp accepted            SURVIVED  (same)
+  N7  lsd.go:248 malformed potential_rights.end accepted          SURVIVED  (no seed, no oracle check)
+  N8  lsd.go:281 empty-string rel accepted                        SURVIVED  (no seed, no oracle check)
+  N9  lsd.go:201 trailing data after the object accepted          SURVIVED  (no seed, no oracle check)
+  N10 lsd.go:220 status outside vocabulary accepted               KILLED seed#48 lcpfuzz_lsd_test.go:44
+  N11 kosync Percentage > 1 -> > 1.0000001                       SURVIVED seed run AND a 20s fuzz (oracle capable; seed 1.0000001 or nextafter(1,2) missing)
+  N12 kosync username {3,32} -> {2,32}                           SURVIVED seed run; KILLED by fuzz in 1s (user "00"); seed "ab" missing
+  N13 kosync password < 8 -> < 7                                 SURVIVED seed run; KILLED by fuzz in 1s (pass len 7); 7-byte password seed missing
+  N14 opds model.go:108 Metadata2 `json:"title"` -> `json:"-"`   SURVIVED  (OPDS 2.0 oracle is json.Valid only; a required member can vanish)
+  N15 opds12.go:147 `&amp;` unescaped in Acquisition12 output    KILLED seed#0 fuzz_test.go:42 "not well formed XML"
+  Result: 3 of 15 new mutants killed by the seed run (N3, N10, N15); 2 more killed only by fuzzing (N12, N13); 10 survive.
+
+FINDINGS
+F8 (blocking, test-instrumentation, same class as F5, third round): the acceptance oracles cover only the members earlier reviews named, instance by instance. The parsers enforce more of the contract than the oracles check: license `updated`, `user_key.text_hint`, `rights`; LSD `events[].type`, `events[].timestamp`, `potential_rights.end`, rel strings, single-object rule; kosync percentage upper boundary and register lengths; OPDS 2.0 required members. Under §11.4.276(C) this class should be closed exhaustively, not per reported mutant. Fix: enumerate every check in Parse, ParseStatusDocument, PutProgress, Register and the OPDS projections; for each add (a) an oracle assertion that would see the violation on an accepted document (for presence-only members read the raw doc, as Parse does for text_hint) and (b) a boundary seed that triggers it; then require every mutant above KILLED by the seed run.
+F9 (blocking, claim vs reality): hrd070-r3/NOTES.txt and commit b8aa215 present the updated "not-a-date" seed as boundary coverage, but N2 shows the seed proves nothing because FuzzParseLicense never asserts on Updated. Either add the assertion (e.g. accepted Updated zero only when the doc has no "updated" member, or Updated >= Issued) or drop the claim.
+F10 (important, acceptance evidence): HRD-070 acceptance is "Fuzz corpus archived; no crashers in 5 min ... result JSON plus sha256 manifest". At this head: no archived corpus (no testdata/fuzz for these targets, nothing under evidence/), no result JSON, and the only post-r3 runs are 20s (hrd070-r3/fuzz20_*). The 5-minute runs in hrd070-r2 predate the r3 test changes. Needed before the item can close.
+F11 (minor, process, carried from F7): dfb13c7 and e79fc65 put `Roadmap-Item: HRD-070` in its own paragraph, so git does not parse it as a trailer; HEAD is correct. Not fixable without history rewrite (forbidden); noted only.
+F12 (minor, evidence): hrd070-r3/mutation.log was produced before the final format-only edit of server/internal/kosync/fuzz_test.go (the `start :=` comment alignment). The pre-format version is not in git (same commit), so the format-only claim is UNCONFIRMED from history; it is moot because this review re-ran R5, R6, R7 on the HEAD file and all are killed.
+
+Round 3 convergence note (§11.4.276(E)): F5 and F8 share one class (boundary/contract checks without seed+oracle) and the class reappeared after an instance fix; next round should be a structural pass (class enumeration above), not another per-mutant patch. Classification of F8/F9 is test-instrumentation; if the conductor applies §11.4.276(G), F9 (a vacuous proof claim) is not minor-class in this reviewer's reading.
+
+Evidence (reviewer scratch, outside the repository), dir /home/milosvasic/.cache/claude-tmp/claude-1000/-home-milosvasic-Projects-helix-reader/4783d69d-a063-560b-d52a-4fcb6adc6609/scratchpad/rv-b8aa215/:
+  dae96ee2484ac1d3cc2556df49f21975808af78b2ca1646a7725eb3d9ed40790  mut.sh
+  1b0ebb677a2301898f852cdb6bae0a53cac38b6e5d9b90f6fb0538dfa5c3af34  mut_out.txt
+  ced3d38f397e9c82b35a35fdd3106cf919628fff30538c8cbafa648a89e090dc  mutfz.sh
+  c50b1b6b58621e462fccb917407eccbb84dcee4d268335e3a0015e6f4931027f  mutfz_out.txt
+  443e7e8b1d64581f5e6e69beb2a21ff913be98c56d7c80cd82f79629c1e3ff13  fuzz20.sh
+  0aaa78de3eeb83afa072884943fb03743f73420ef9cd57f2f21ba907ee207b7a  fuzz20_summary.txt
+Not checked / UNCONFIRMED: fuzzing longer than 20s per survivor; N1-N9, N14 were not fuzzed (their oracles cannot fail on the violation, so fuzzing cannot kill them).
