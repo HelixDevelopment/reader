@@ -1,0 +1,16 @@
+# cmd: GIN_MODE=release go test ./internal/httpapi -count=1 (x5) ; then -race (x5)
+ok  	github.com/helixreader/helix/server/internal/httpapi	8.598s
+ok  	github.com/helixreader/helix/server/internal/httpapi	10.242s
+ok  	github.com/helixreader/helix/server/internal/httpapi	8.982s
+ok  	github.com/helixreader/helix/server/internal/httpapi	9.023s
+ok  	github.com/helixreader/helix/server/internal/httpapi	9.258s
+# race
+ok  	github.com/helixreader/helix/server/internal/httpapi	31.057s
+ok  	github.com/helixreader/helix/server/internal/httpapi	28.240s
+ok  	github.com/helixreader/helix/server/internal/httpapi	28.178s
+ok  	github.com/helixreader/helix/server/internal/httpapi	34.270s
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	48.824s
+FAIL
+# remote_range x30
+ok  	github.com/helixreader/helix/server/internal/httpapi	24.928s

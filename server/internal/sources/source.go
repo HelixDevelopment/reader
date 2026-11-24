@@ -48,6 +48,13 @@ type RangeConnector interface {
 	OpenRange(context.Context, string, int64, int64) (io.ReadCloser, error)
 }
 
+// SizedRangeConnector is optional: like RangeConnector, but the caller passes
+// the revalidated total size so the connector can refuse a partial response
+// that describes a different representation (RFC 9110 15.3.7.1).
+type SizedRangeConnector interface {
+	OpenRangeSized(ctx context.Context, name string, offset, length, size int64) (io.ReadCloser, error)
+}
+
 // Config carries credentials separately from serializable source metadata.
 type Config struct {
 	// ID optionally preserves source identity across process restarts. It is an
