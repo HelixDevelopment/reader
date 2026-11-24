@@ -1,0 +1,28 @@
+MUTANT L07_profile: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 211-211
+  restored: GREEN again
+MUTANT L09b_uk_keycheck: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 222-222
+  restored: GREEN again
+MUTANT L10_text_hint: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.01s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 233-233
+  restored: GREEN again
+MUTANT X18_hint_decode_err_ignored: KILLED
+--- FAIL: TestHRD070ParseCaseVariantEncryptionMember (0.00s)
+  edits core/pkg/lcp/license.go 230-230
+  restored: GREEN again
+MUTANT E01_generic_decode_EQUIV: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/license.go 186-186
+  restored: GREEN again
+MUTANT X14_lic_parsetime_nano: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/license.go 271-271
+  restored: GREEN again
+MUTANT C02_canon_decode_err_EQUIV: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/canonical.go 73-73
+  restored: GREEN again
