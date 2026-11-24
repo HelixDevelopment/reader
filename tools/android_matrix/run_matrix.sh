@@ -40,9 +40,9 @@ stage_prepare() { # npm ci + web build + cap sync (network): produces node_modul
 
 # run a gradle task set in the JDK21 container on the prepared tree, offline, no network; copy results out to $2
 gradle_run() { local tasks=$1 out=$2; local n=hrdiso-android-gradle; mkdir -p "$out"
-  NET=${GR_NET---network none} build_ctr "$JDK" $n "cd /w/android && echo sdk.dir=/cache/sdk > local.properties && sh gradlew ${GR_OFF---offline} --no-daemon --console=plain $tasks"
+  NET=${GR_NET---network none} build_ctr "$JDK" $n "cd /w/android/android && echo sdk.dir=/cache/sdk > local.properties && sh gradlew ${GR_OFF---offline} --no-daemon --console=plain $tasks"
   podman cp "$WORK/prepared/." $n:/w; local rc=0; podman start -a $n > "$out/gradle.log" 2>&1 || rc=$?
-  podman cp $n:/w/android/app/build/. "$out/build" 2>/dev/null || true; podman rm $n >/dev/null; return $rc; }
+  podman cp $n:/w/android/android/app/build/. "$out/build" 2>/dev/null || true; podman rm $n >/dev/null; return $rc; }
 
 stage_unit() { local d=$EVID/unit; log "unit tests (JVM, offline, --network none)"
   gradle_run ':app:testDebugUnitTest --rerun-tasks' "$d" && echo "gradle exit 0" > "$d/exit.txt" || echo "gradle exit nonzero" > "$d/exit.txt"
