@@ -1,0 +1,26 @@
+HRD-039 follow-up: Jev bootstrap plan (dry, no wiring) + Vision known-answer run attempt, 2026-11-24
+Branch base: github/main f9d14dc. Host: 16 CPUs, ~31 GiB RAM, other agents active.
+
+TASK A  Jev bootstrap, plan only
+ Command (env: JEV_HOME=scratch, JEV_HOSTED_PROBE=0, JEV_WIRING=off, no --yes/--allow-clone/--install-tools/--default-on):
+   bootstrap.sh --non-interactive --report-json jev_bootstrap_report.json   -> exit 0
+ Result (jev_bootstrap_plan.stderr.txt): detected, NOT wired (opt-out JEV_WIRING=off). Stage 2 used the constitution's own
+ llmctl/claude_toolkit submodule checkouts, installer=not-run. Stage 3: 2 hosted endpoints (jev-openrouter, jev-typesafe)
+ reachable=null usable=false (hosted probe disabled on purpose, so reachability is UNCONFIRMED). Stage 4: wiring not applied,
+ consent not given; jev-setup --check printed "would install gate copy, env file, bin links" and listed existing per-alias
+ hooks/mcp entries as OK. Advisory gates: cm_jev_detection FAIL (reachable=null), cm_jev_wiring FAIL (scratch home has no agent
+ homes), cm_jev_token_reduction BLIND (no BEFORE/AFTER pair). No agent config or settings.json was modified (all state under the
+ scratch JEV_HOME). UNCONFIRMED: whether the hosted endpoints answer; no token saving is claimed.
+
+TASK B  Vision, capacity + placement
+ llmctl capacity --json vision (capacity_vision_pre.json, pre2): verdict fits, threads 6, MemAvailable ~19-20 GiB,
+ pressure.ok true, memory PSI 0.00 before start. No model was running before; nothing was evicted; llmctl enable never called.
+ Attempt 1 and attempt 2 (llmctl vision validate --profile vision --keep, LLMCTL_VALIDATE_STRICT=1):
+   both exit 2 UNDETERMINED: llmctl's own gate refused to send probes ("memory pressure is too high", PSI full avg10 5.96 > 2, then
+   3.06 > 2); nothing recorded, probes NOT sent. I stopped vision myself after each attempt (stop_vision*.txt, status "no llmctl
+   services running"; memory PSI back below 1 afterwards). I did not retry a third time.
+ `llmctl require-validated vision` exits 0, but it reads a PRE-EXISTING record "fresh passing validation from 2026-11-23T22:09:59Z"
+ (the HRD-039 run of 2026-11-23). It is NOT a result of this session's runs and is not claimed as one.
+ Blocker: memory PSI rose above llmctl's 2% full threshold while the model was loading/starting (cause UNCONFIRMED: other agents'
+ workloads and/or the model load itself). A fresh validation therefore needs a quieter host window.
+ The daily llmctl-revalidate.timer was left untouched (next trigger listed 2026-11-25 00:43 CET).
