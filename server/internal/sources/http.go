@@ -259,6 +259,16 @@ func (h *HTTP) Open(ctx context.Context, name string) (io.ReadCloser, error) {
 	return resp.Body, nil
 }
 func (h *HTTP) OpenRange(ctx context.Context, name string, offset, length int64) (io.ReadCloser, error) {
+	resp, err := h.rangeResponse(ctx, name, offset, length)
+	if err != nil {
+		return nil, err
+	}
+	return resp.Body, nil
+}
+
+// rangeResponse issues the ranged GET and returns the response (body open) so a
+// caller can inspect a 206's Content-Range. A non-206 is refused at offset > 0.
+func (h *HTTP) rangeResponse(ctx context.Context, name string, offset, length int64) (*http.Response, error) {
 	if offset < 0 || length < -1 {
 		return nil, fmt.Errorf("source: invalid range")
 	}
@@ -278,7 +288,7 @@ func (h *HTTP) OpenRange(ctx context.Context, name string, offset, length int64)
 		resp.Body.Close()
 		return nil, fmt.Errorf("source: server ignored byte range")
 	}
-	return resp.Body, nil
+	return resp, nil
 }
 func (h *HTTP) getAcquisition(ctx context.Context, raw, byteRange string) (*http.Response, error) {
 	u, err := url.Parse(raw)

@@ -1,0 +1,10 @@
+tree: branch HEAD 60f27437486673c95513c8a410091392e0f21b7a merged with github/main ca80467 and PR13 8ccba96 (clean, zero untracked)
+VET-OK httpapi+sources
+go vet ./... :
+# github.com/helixreader/helix/server/internal/opds
+# [github.com/helixreader/helix/server/internal/opds]
+vet: internal/opds/hrd070_stream_test.go:30:7: invalid operation: l != (Link12{}) (struct containing []Indirect12 cannot be compared)
+ok  	github.com/helixreader/helix/server/internal/httpapi	8.030s
+ok  	github.com/helixreader/helix/server/internal/sources	0.314s
+ok  	github.com/helixreader/helix/server/internal/httpapi	25.073s
+ok  	github.com/helixreader/helix/server/internal/sources	2.596s

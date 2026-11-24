@@ -1,0 +1,7 @@
+=== RUN   TestZZOverlongLastBytePos
+    zz_overlong_test.go:6: bytes=0-99999999999999999999 -> start=0 len=0 err=invalid
+    zz_overlong_test.go:6: bytes=0-9223372036854775807 -> start=0 len=1000 err=<nil>
+    zz_overlong_test.go:6: bytes=5-99999999999999999999 -> start=0 len=0 err=invalid
+--- PASS: TestZZOverlongLastBytePos (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	0.012s

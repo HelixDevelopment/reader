@@ -1,0 +1,31 @@
+tree: branch HEAD 16edb41b836d1037b8c9d0d47b677ad8d062169c merged with PR13 head 8ccba96 (clean detached worktree, no untracked files)
+VET-OK
+--- PASS: TestSingleRangeRFC9110 (0.00s)
+--- PASS: TestRemoteSourcesHonourRange (0.59s)
+--- PASS: TestWebDAVWithoutContentLengthNeverServesEmpty (0.01s)
+--- PASS: TestOpenRangeFailureDoesNotLeakPartialHeaders (0.00s)
+--- PASS: TestSingleRangeForms (0.00s)
+--- PASS: FuzzSingleRange (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	0.621s
+--- PASS: TestRcloneOpenBoundsStderr (0.02s)
+--- PASS: TestRcloneOpenRangeBoundsStderr (0.02s)
+--- PASS: TestWebDAVRevalidate (0.00s)
+--- PASS: TestWebDAVOpenRangeBoundsIgnoringServer (0.00s)
+--- PASS: TestWebDAVListSkipsCollectionsWithSecondPropstat (0.00s)
+--- PASS: TestWebDAVRevalidateAbsentLengthIsUnknownNotZero (0.00s)
+--- PASS: TestWebDAVRevalidateMixedPropstatOrder (0.00s)
+--- PASS: TestWebDAVListStrictContentLength (0.01s)
+--- PASS: TestWebDAVListSkipsCollectionWithLength (0.00s)
+--- PASS: TestWebDAVRevalidateIgnoresNon2xxPropstat (0.00s)
+--- PASS: TestRcloneRevalidateUnit (0.02s)
+--- PASS: TestWebDAVList (0.00s)
+--- PASS: TestWebDAVListAppliesConfiguredHeaders (0.00s)
+--- PASS: TestWebDAVRejectsCrossOriginRedirectBeforeRequest (0.00s)
+--- PASS: TestWebDAVRejectsOversizedResponse (0.05s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/sources	0.156s
+ok  	github.com/helixreader/helix/server/internal/httpapi	8.228s
+ok  	github.com/helixreader/helix/server/internal/sources	0.319s
+ok  	github.com/helixreader/helix/server/internal/httpapi	27.048s
+ok  	github.com/helixreader/helix/server/internal/sources	2.866s
