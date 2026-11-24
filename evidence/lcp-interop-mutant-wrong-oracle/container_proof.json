@@ -1,7 +1,7 @@
 {
   "name": "hrdiso-lcpinterop",
   "image": "localhost/helix-gui-test:1",
-  "created": "2026-11-24T21:01:40.13421596+01:00",
+  "created": "2026-11-24T21:48:23.855365231+01:00",
   "network_mode": "none",
   "privileged": false,
   "cap_drop": [
@@ -28,10 +28,10 @@
   "userns_mode": "private",
   "lifetime_timeout_s": 600,
   "binds": [
+    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/in:/work/in:ro,rprivate,rbind",
     "/home/milosvasic/.cache/claude-tmp/hrd046/wt/evidence/lcp-interop-mutant-wrong-oracle:/out:rw,rprivate,rbind",
     "/home/milosvasic/.cache/claude-tmp/hrd046/wt/qa/isolation/inside:/opt/isoinside:ro,rprivate,rbind",
-    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/bin:/work/bin:ro,rprivate,rbind",
-    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/in:/work/in:ro,rprivate,rbind"
+    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/bin:/work/bin:ro,rprivate,rbind"
   ],
   "devices": [],
   "ports": {},
@@ -47,8 +47,8 @@
   "labels": {
     "io.buildah.version": "1.42.1",
     "org.helix.isolation": "gui-test",
-    "org.helix.lease-ts": "1795550500",
-    "org.helix.owner-pid": "749332",
+    "org.helix.lease-ts": "1795553303",
+    "org.helix.owner-pid": "1812584",
     "org.opencontainers.image.version": "24.04"
   },
   "entrypoint": [

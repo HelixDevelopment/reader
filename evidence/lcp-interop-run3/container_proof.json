@@ -1,7 +1,7 @@
 {
   "name": "hrdiso-lcpinterop",
   "image": "localhost/helix-gui-test:1",
-  "created": "2026-11-24T21:01:25.927611326+01:00",
+  "created": "2026-11-24T21:48:19.794250301+01:00",
   "network_mode": "none",
   "privileged": false,
   "cap_drop": [
@@ -47,8 +47,8 @@
   "labels": {
     "io.buildah.version": "1.42.1",
     "org.helix.isolation": "gui-test",
-    "org.helix.lease-ts": "1795550485",
-    "org.helix.owner-pid": "747258",
+    "org.helix.lease-ts": "1795553299",
+    "org.helix.owner-pid": "1810944",
     "org.opencontainers.image.version": "24.04"
   },
   "entrypoint": [

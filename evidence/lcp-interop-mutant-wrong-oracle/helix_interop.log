@@ -1,4 +1,4 @@
 === RUN   TestInteropReadiumLCPServer
-    interop_readium_test.go:60: helix_decrypts_every_protected_resource_byte_identical_to_source: decrypted != original for 149 of 149 resources; first: OPS/chapter_001.xhtml
---- FAIL: TestInteropReadiumLCPServer (1.28s)
+    interop_readium_test.go:63: helix_decrypts_every_protected_resource_byte_identical_to_source: decrypted != original for 149 of 149 resources; first: OPS/chapter_001.xhtml
+--- FAIL: TestInteropReadiumLCPServer (1.25s)
 FAIL

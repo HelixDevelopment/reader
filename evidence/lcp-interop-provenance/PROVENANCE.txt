@@ -15,3 +15,13 @@ inputs sha256:
 874afaf5bd6b8d2262d541ea867dce31452e3cd63b98699797741e9298738f83  cert-edrlab-test.pem
 ad310b480ef33ed6b474defe28b7d383117a9cf99eff6d58781be9a04f632d1f  inside.sh
 host commands: build -> podman run (see PR body); run -> qa/lcp-interop/run_interop.sh <iso> <evidence dir>  (x3: lcp-interop-run1..3) + mutant lcp-interop-mutant-wrong-oracle (oracle swapped to lorem.epub; expected FAIL, observed FAIL exit 1)
+
+--- Update 2026-11-24 (review fix round for PR #33 head be88c4bd, finding F1 and follow-ups) ---
+The evidence runs were regenerated; lcp.test and inside.sh changed, the provider binaries and inputs did not.
+lcp.test sha256 (rebuilt from the branch head core/, golang@sha256:0fd028db..., --network none, CGO_ENABLED=0, GOPROXY=off): e346705e7021caa176676e28da3bb693aea3178b0bb3e98410872389dbb95e99
+inside.sh sha256 (qa/lcp-interop/inside.sh at this commit's tree; the committed file is authoritative): b650a009856f0eb4503f89ca3e869f9f15d9d9b2b61ccb534e398648613ccb44
+Provider binaries, sample.epub, cert-edrlab-test.pem: unchanged (hashes above). lorem.epub sha256 291086e08da8671a702f64f3b5594113f0684f076f3957080a2c9ed7321bcdef
+sample.epub / lorem.epub / cert-edrlab-test.pem origin: readium-lcp-server@32570b69 test/samples/{sample,lorem}.epub and test/cert/cert-edrlab-test.pem (sha256 equal to the copies used).
+KEY DISCLOSURE: the earlier evidence (commit be88c4b, refs/pull/33/head) carried four content-encryption-key values written by lcpencrypt -verbose; they are burned by disclosure (ephemeral test ciphertext only). The regenerated runs do not write them; each dir carries secret_scan.txt.
+Runs: lcp-interop-run1..3 (exit 0), lcp-interop-mutant-wrong-oracle (oracle lorem.epub, exit 1, one FAIL), lcp-interop-reviewer-mutant-M2-foreign-root and lcp-interop-reviewer-mutant-M4-license-link (reviewer mutants of signature.go:137 and SelectLicenseLink, each exit 1 with exactly the expected FAIL step).
+Commands: see qa/lcp-interop/README.md.

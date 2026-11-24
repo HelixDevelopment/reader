@@ -15,6 +15,7 @@ package lcp
 //	HELIX_LCP_INTEROP_CONTENT_ID  content id the publication was registered under
 //	HELIX_LCP_INTEROP_PASSPHRASE  the end user's passphrase (hint: the license's text_hint)
 //	HELIX_LCP_INTEROP_ROOT_PEM    path of the root certificate that signed the provider certificate
+//	HELIX_LCP_INTEROP_FOREIGN_PEM path of a certificate that did NOT sign the provider certificate (must be refused as a root)
 //	HELIX_LCP_INTEROP_SOURCE_EPUB path of the unencrypted source EPUB (the plaintext oracle)
 //	HELIX_LCP_INTEROP_EVIDENCE    path of the JSON evidence file to write
 
@@ -38,7 +39,7 @@ import (
 
 type interopStep struct {
 	Name   string `json:"name"`
-	Result string `json:"result"` // PASS | FAIL | SKIP
+	Result string `json:"result"` // PASS | FAIL (assertions) | INFO (recorded, not asserted)
 	Detail string `json:"detail,omitempty"`
 }
 
@@ -49,19 +50,47 @@ func TestInteropReadiumLCPServer(t *testing.T) {
 	}
 	user, pass := os.Getenv("HELIX_LCP_INTEROP_ADMIN_USER"), os.Getenv("HELIX_LCP_INTEROP_ADMIN_PASS")
 	cid, phrase := os.Getenv("HELIX_LCP_INTEROP_CONTENT_ID"), os.Getenv("HELIX_LCP_INTEROP_PASSPHRASE")
-	if user == "" || pass == "" || cid == "" || phrase == "" {
+	if user == "" || pass == "" || cid == "" || phrase == "" || os.Getenv("HELIX_LCP_INTEROP_FOREIGN_PEM") == "" {
 		t.Fatal("interop environment incomplete")
 	}
 	var steps []interopStep
 	rec := func(name string, err error, detail string) {
 		s := interopStep{Name: name, Result: "PASS", Detail: detail}
 		if err != nil {
-			s.Result, s.Detail = "FAIL", err.Error()
+			// keep the diagnostic detail (timestamps, sizes) next to the error
+			s.Result = "FAIL"
+			s.Detail = strings.TrimSpace(detail + " | error: " + err.Error())
 			t.Errorf("%s: %v", name, err)
 		}
 		steps = append(steps, s)
 	}
+	info := func(name, detail string) {
+		steps = append(steps, interopStep{Name: name, Result: "INFO", Detail: detail})
+	}
+	// A step that never ran is absent, and absent is not PASS: every expected assertion must have a record.
+	expected := []string{
+		"provider_issues_license", "helix_parses_provider_license", "provider_license_is_basic_profile",
+		"helix_fulfills_provider_publication_default_strict", "helix_opens_fulfilled_container",
+		"helix_unlocks_with_provider_signature_chain_and_passphrase",
+		"helix_decrypts_every_protected_resource_byte_identical_to_source",
+		"wrong_passphrase_refused", "no_trust_root_refused", "foreign_root_refused", "tampered_license_signature_refused",
+		"helix_fetches_provider_status_document", "status_ready_and_license_usable",
+		"helix_registers_device_status_becomes_active", "helix_returns_license_status_becomes_returned",
+		"needs_license_refresh_after_return", "returned_status_offers_license_link",
+		"raw_status_document_after_return", "license_document_sha256",
+	}
 	defer func() {
+		// runs before the evidence is written (same deferred func), so the FAIL records land in the evidence
+		have := map[string]bool{}
+		for _, s := range steps {
+			have[s.Name] = true
+		}
+		for _, n := range expected {
+			if !have[n] {
+				steps = append(steps, interopStep{Name: n, Result: "FAIL", Detail: "expected step never recorded"})
+				t.Errorf("%s: expected step never recorded", n)
+			}
+		}
 		if p := os.Getenv("HELIX_LCP_INTEROP_EVIDENCE"); p != "" {
 			b, _ := json.MarshalIndent(map[string]any{"provider": "readium-lcp-server", "steps": steps}, "", "  ")
 			_ = os.WriteFile(p, b, 0o600)
@@ -204,20 +233,44 @@ func TestInteropReadiumLCPServer(t *testing.T) {
 	// 6. Negative paths against the real provider's output.
 	c2, _ := OpenContainer(bytes.NewReader(fulfilled), int64(len(fulfilled)))
 	_, err = c2.Unlock(phrase+"x", CertificatePolicy{Roots: []*x509.Certificate{root}})
-	rec("wrong_passphrase_refused", iopMustErr(err), iopErrStr(err))
+	rec("wrong_passphrase_refused", iopMustIs(err, ErrWrongUserKey), iopErrStr(err))
 	c3, _ := OpenContainer(bytes.NewReader(fulfilled), int64(len(fulfilled)))
 	_, err = c3.Unlock(phrase, CertificatePolicy{})
 	rec("no_trust_root_refused", iopMustIs(err, ErrUntrustedRoot), iopErrStr(err))
+	// A NON-empty root set that does not contain the issuing CA must be refused: a root check that only
+	// distinguishes "right root" from "no roots" would let any unrelated root through.
+	foreignPEM, ferr := os.ReadFile(os.Getenv("HELIX_LCP_INTEROP_FOREIGN_PEM"))
+	if ferr != nil {
+		t.Fatal(ferr)
+	}
+	var foreign *x509.Certificate
+	for rest := foreignPEM; foreign == nil; {
+		var fb *pem.Block
+		fb, rest = pem.Decode(rest)
+		if fb == nil {
+			break
+		}
+		if fb.Type == "CERTIFICATE" {
+			foreign, _ = x509.ParseCertificate(fb.Bytes)
+		}
+	}
+	if foreign == nil {
+		t.Fatal("foreign pem holds no parseable certificate")
+	}
+	c5, _ := OpenContainer(bytes.NewReader(fulfilled), int64(len(fulfilled)))
+	_, err = c5.Unlock(phrase, CertificatePolicy{Roots: []*x509.Certificate{foreign}})
+	rec("foreign_root_refused", iopMustIs(err, ErrUntrustedRoot), "foreign_subject="+foreign.Subject.String()+" got="+iopErrStr(err))
 	tampered := bytes.Replace(licBytes, []byte(`"Interop User"`), []byte(`"Interop Usex"`), 1)
 	if bytes.Equal(tampered, licBytes) {
 		tampered = bytes.Replace(licBytes, []byte(`interop-user-1`), []byte(`interop-user-2`), 1)
 	}
-	if fl, e := Fulfill(tampered, bytes.NewReader(pub), int64(len(pub)), AllowUnverified()); e == nil {
-		c4, e2 := OpenContainer(bytes.NewReader(fl), int64(len(fl)))
-		if e2 == nil {
-			_, err = c4.Unlock(phrase, CertificatePolicy{Roots: []*x509.Certificate{root}})
-			rec("tampered_license_signature_refused", iopMustErr(err), iopErrStr(err))
-		}
+	if fl, e := Fulfill(tampered, bytes.NewReader(pub), int64(len(pub)), AllowUnverified()); e != nil {
+		rec("tampered_license_signature_refused", errors.New("could not build the tampered container: "+e.Error()), "")
+	} else if c4, e2 := OpenContainer(bytes.NewReader(fl), int64(len(fl))); e2 != nil {
+		rec("tampered_license_signature_refused", errors.New("could not open the tampered container: "+e2.Error()), "")
+	} else {
+		_, err = c4.Unlock(phrase, CertificatePolicy{Roots: []*x509.Certificate{root}})
+		rec("tampered_license_signature_refused", iopMustErr(err), iopErrStr(err))
 	}
 
 	// 7. LSD against the real Status Server.
@@ -240,7 +293,7 @@ func TestInteropReadiumLCPServer(t *testing.T) {
 	rec("status_ready_and_license_usable", iopBoolErr(st.Status == StatusReady && st.LicenseUsable(), "status "+string(st.Status)), iopStatusOf(st))
 	// The reference provider stamps updated.license with whole-second resolution. NeedsLicenseRefresh
 	// compares strictly (After), so an update inside the issuing second is not detectable by ANY
-	// client; run 1 of HRD-046 hit exactly that. Wait out the second so the check is deterministic.
+	// client; a first, uncommitted attempt of HRD-046 hit exactly that. Wait out the second so the check is deterministic.
 	time.Sleep(1100 * time.Millisecond)
 	st2, err := lsd.Register(ctx, st)
 	rec("helix_registers_device_status_becomes_active", err, iopStatusOf(st2))
@@ -253,17 +306,21 @@ func TestInteropReadiumLCPServer(t *testing.T) {
 		d := "status.updated.license=" + st3.UpdatedLicense.Format(time.RFC3339Nano) + " status.updated.status=" + st3.UpdatedStatus.Format(time.RFC3339Nano) +
 			" license.issued=" + lic.Issued.Format(time.RFC3339Nano) + " license.updated=" + lic.Updated.Format(time.RFC3339Nano)
 		rec("needs_license_refresh_after_return", iopBoolErr(NeedsLicenseRefresh(st3, lic), "license not flagged stale"), d)
-		if raw, e := http.Get(statusHref); e == nil {
+		if raw, e := httpc.Get(statusHref); e != nil {
+			rec("raw_status_document_after_return", errors.New("fetch failed: "+iopStripURL(e).Error()), "")
+		} else {
 			b, _ := io.ReadAll(io.LimitReader(raw.Body, 1<<20))
 			raw.Body.Close()
-			steps = append(steps, interopStep{Name: "raw_status_document_after_return", Result: "PASS", Detail: string(b)})
+			info("raw_status_document_after_return", string(b))
 		}
 		if l, ok := st3.SelectLicenseLink([]string{""}); ok {
 			rec("returned_status_offers_license_link", nil, l.Href)
+		} else {
+			rec("returned_status_offers_license_link", errors.New("no license link selected from the returned status"), "")
 		}
 	}
 	h := sha256.Sum256(licBytes)
-	steps = append(steps, interopStep{Name: "license_document_sha256", Result: "PASS", Detail: hex.EncodeToString(h[:])})
+	info("license_document_sha256", hex.EncodeToString(h[:]))
 }
 
 func iopStripURL(err error) error {

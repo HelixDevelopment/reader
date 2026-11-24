@@ -1,0 +1,10 @@
+lcpserver: 404
+lsdserver: 404
+total 1612
+-rw-r--r-- 1 ubuntu ubuntu      39 Nov 24 20:48 hint.html
+-rw-r--r-- 1 ubuntu ubuntu 1646335 Nov 24 20:48 interop.epub
+helix_interop_exit=1
+=== RUN   TestInteropReadiumLCPServer
+    interop_readium_test.go:63: returned_status_offers_license_link: no license link selected from the returned status
+--- FAIL: TestInteropReadiumLCPServer (1.26s)
+FAIL

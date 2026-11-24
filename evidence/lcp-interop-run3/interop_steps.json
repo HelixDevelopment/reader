@@ -45,6 +45,11 @@
       "detail": "lcp: provider certificate is not signed by a trusted root: no root certificate configured"
     },
     {
+      "name": "foreign_root_refused",
+      "result": "PASS",
+      "detail": "foreign_subject=CN=Test provider certificate,OU=LCP Tests,O=EDRLab,L=Paris,C=FR,1.2.840.113549.1.9.1=laurent.lemeur@edrlab.org got=lcp: provider certificate is not signed by a trusted root: Helix interop test root"
+    },
+    {
       "name": "tampered_license_signature_refused",
       "result": "PASS",
       "detail": "lcp: signature does not match the license document"
@@ -72,22 +77,22 @@
     {
       "name": "needs_license_refresh_after_return",
       "result": "PASS",
-      "detail": "status.updated.license=2026-11-24T20:01:29Z status.updated.status=2026-11-24T20:01:29Z license.issued=2026-11-24T20:01:27Z license.updated=2026-11-24T20:01:27Z"
+      "detail": "status.updated.license=2026-11-24T20:48:23Z status.updated.status=2026-11-24T20:48:23Z license.issued=2026-11-24T20:48:21Z license.updated=2026-11-24T20:48:21Z"
     },
     {
       "name": "raw_status_document_after_return",
-      "result": "PASS",
-      "detail": "{\"id\":\"cac2e81c-59ea-400d-9f37-3ef81800efb4\",\"status\":\"returned\",\"updated\":{\"license\":\"2026-11-24T20:01:29Z\",\"status\":\"2026-11-24T20:01:29Z\"},\"message\":\"The license is in returned state\",\"links\":[{\"rel\":\"self\",\"href\":\"http://127.0.0.1:8990/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4/status\",\"type\":\"application/vnd.readium.license.status.v1.0+json\"},{\"rel\":\"license\",\"href\":\"http://127.0.0.1:8989/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4\",\"type\":\"application/vnd.readium.lcp.license.v1.0+json\"}],\"events\":[{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:01:29Z\",\"type\":\"register\",\"id\":\"interop-device-1\"},{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:01:29Z\",\"type\":\"return\",\"id\":\"interop-device-1\"}]}\n"
+      "result": "INFO",
+      "detail": "{\"id\":\"9eb77472-c409-405b-bf74-bb7f1bb155d0\",\"status\":\"returned\",\"updated\":{\"license\":\"2026-11-24T20:48:23Z\",\"status\":\"2026-11-24T20:48:23Z\"},\"message\":\"The license is in returned state\",\"links\":[{\"rel\":\"self\",\"href\":\"http://127.0.0.1:8990/licenses/9eb77472-c409-405b-bf74-bb7f1bb155d0/status\",\"type\":\"application/vnd.readium.license.status.v1.0+json\"},{\"rel\":\"license\",\"href\":\"http://127.0.0.1:8989/licenses/9eb77472-c409-405b-bf74-bb7f1bb155d0\",\"type\":\"application/vnd.readium.lcp.license.v1.0+json\"}],\"events\":[{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:48:23Z\",\"type\":\"register\",\"id\":\"interop-device-1\"},{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:48:23Z\",\"type\":\"return\",\"id\":\"interop-device-1\"}]}\n"
     },
     {
       "name": "returned_status_offers_license_link",
       "result": "PASS",
-      "detail": "http://127.0.0.1:8989/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4"
+      "detail": "http://127.0.0.1:8989/licenses/9eb77472-c409-405b-bf74-bb7f1bb155d0"
     },
     {
       "name": "license_document_sha256",
-      "result": "PASS",
-      "detail": "4d1e9b179d71ea04e51e1c0b0cf20e8399bad39b77794da4f39c79eec3f7a781"
+      "result": "INFO",
+      "detail": "89684d7891d843b11df81a52067791e87d6a46055b3093a639e81ae84b08a8ce"
     }
   ]
 }
