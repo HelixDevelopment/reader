@@ -1,6 +1,9 @@
 package opds
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 // TestHRD070StreamLink: streamLink advertises a page stream only for count>=1
 // and an image type the OPDS-PSE extension permits. Oracle: the extension text
@@ -27,7 +30,7 @@ func TestHRD070StreamLink(t *testing.T) {
 			continue
 		}
 		if !ok {
-			if l != (Link12{}) {
+			if !reflect.DeepEqual(l, Link12{}) {
 				t.Errorf("%s: refused stream returned a link %+v", c.name, l)
 			}
 			continue
