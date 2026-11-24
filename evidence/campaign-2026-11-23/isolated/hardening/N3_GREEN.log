@@ -1,0 +1,14 @@
+test_deleting_a_waiver_fails_the_gate (test_waivers.Waivers.test_deleting_a_waiver_fails_the_gate) ... ok
+test_denylist_marker_alone_exempts_nothing (test_waivers.Waivers.test_denylist_marker_alone_exempts_nothing) ... ok
+test_expired_orphan_unrecorded_malformed_and_glob_entries_fail (test_waivers.Waivers.test_expired_orphan_unrecorded_malformed_and_glob_entries_fail) ... ok
+test_marker_outside_tools_isolation_never_exempts_even_if_pinned (test_waivers.Waivers.test_marker_outside_tools_isolation_never_exempts_even_if_pinned) ... ok
+test_pin_tool_rejects_far_expiry_empty_reason_and_globs (test_waivers.Waivers.test_pin_tool_rejects_far_expiry_empty_reason_and_globs) ... ok
+test_pinned_denylist_file_is_exempt_then_modification_fails (test_waivers.Waivers.test_pinned_denylist_file_is_exempt_then_modification_fails) ... ok
+test_repository_waivers_are_all_pinned_and_recorded (test_waivers.Waivers.test_repository_waivers_are_all_pinned_and_recorded) ... ok
+test_self_pin_skips_scan_until_content_changes (test_waivers.Waivers.test_self_pin_skips_scan_until_content_changes) ... ok
+test_waive_covers_only_its_rule_and_its_file (test_waivers.Waivers.test_waive_covers_only_its_rule_and_its_file) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.354s
+
+OK

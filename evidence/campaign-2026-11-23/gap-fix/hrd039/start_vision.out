@@ -1,0 +1,6 @@
+[llmctl] wrote /home/milosvasic/.local/state/llmctl/services/vision.env
+Warning: The unit file, source configuration file or drop-ins of llmctl-llama@vision.service changed on disk. Run 'systemctl --user daemon-reload' to reload units.
+Job for llmctl-llama@vision.service failed because a fatal signal was delivered to the control process.
+See "systemctl --user status llmctl-llama@vision.service" and "journalctl --user -xeu llmctl-llama@vision.service" for details.
+ERROR: failed to start 'vision': the service backend refused to start it (see: llmctl logs vision; on Linux, check 'llmctl install' has been run and 'systemctl --user status llmctl-llama@vision.service')
+[llmctl] restored the env record of 'vision' as it was before its quarantine start

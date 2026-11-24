@@ -1,0 +1,135 @@
+VERDICT: NO-GO
+HEAD: 4da95d19dcc59811808aee3d4f8c811d3ec1b9c0
+Round: 6 (the one bounded extra round the operator allowed after round 5 of 5, §11.4.276(E)(3)). Reviewer: independent subagent (not the author, not
+the round-1..5 reviewers), Opus 5.5; effort not reported by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No container, no real podman, no GUI, no display, no clipboard. podman/docker/buildah = PATH stubs in
+mktemp dirs under ~/.cache/claude-tmp. Worktree: `git worktree add --detach ~/.cache/claude-tmp/wt-rev5f 4da95d1` (removed at the end;
+`git status --porcelain` empty after the suites and after every mutant). Not exercised (UNCONFIRMED): test_network_isolation, test_runtime_checks,
+test_reaper, canary_probe live, every live runner.
+Head check: `git ls-remote github` -> 4da95d19dcc59811808aee3d4f8c811d3ec1b9c0 refs/heads/task/HRD-081-isolation-runner and refs/pull/5/head;
+gh pr view 5: OPEN, body section "Round 5 ... head now 4da95d1". New commits since 9aaf220: cbf4ae9 (round-5 verdict, byte-identical to the file
+read: `cmp` equal), 4da95d1 (the fix). Trailer `Roadmap-Item: HRD-081` present on all 11 commits github/main..4da95d1.
+
+=== (1) HERMETIC SUITES (clean worktree, stub podman first on PATH) ===
+  test_waivers 9 OK | test_guard_matrix 13 OK "matrix: 268 caught of 268 required; residual documented: 11 uncaught [...], 0 unexpectedly caught []"
+  test_bindcheck 18 OK | test_proxy_policy 7 OK | round1 16 OK | round2 38 OK | round3 35 OK | round4 38 OK | round5 30 OK | guard 14 OK
+  assert_host_untouched.sh: "check_raw_consumers: PASS (0 finding(s))" ... "assert_host_untouched: PASS (0 finding(s); files scanned 496, symlinks 5
+  (outside repo 0))" rc=0.  Matches the PR-body evidence line exactly.
+  Seals: every SHA256SUMS under evidence/campaign-2026-11-23/isolated (root, guard, web, koreader, desktop, hardening, helixqa): `sha256sum -c` rc=0;
+  root SHA256SUMS sha256 ba6e0c3c...79e8 = PR body. (The committed helixqa dir still holds the old `helixqa_http.exit`; it is a historical sealed
+  record, not re-sealed in allow-list mode - disclosed in the PR body.)
+
+=== (2) R5-B1 RE-CHECK: THE FALSE GREEN IS GONE (integration: REAL run_container.sh + REAL run_helixqa_container.sh + REAL helixqa_publish.py;
+        only podman and start_server.sh stubbed; the committed round-5 tests use a STUB run_container.sh, this run does not) ===
+  A no JSON block, container exit 0 (the round-5 shape):
+      rc=1  stdout: (empty, no "helixqa exit=")  stderr: "helixqa_publish: FAILED (nothing published): no JSON result block ..."
+            "run_helixqa_container: could not turn the HelixQA output into evidence; nothing published, raw output kept in .../iso/hq-raw"
+      published: (nothing)   raw kept: -rw------- stderr.raw -rw------- stdout.raw
+  B happy path (stderr carries OSC 52):
+      rc=0  stdout "helixqa exit=0"; published helixqa_http.exit.txt helixqa_http.json helixqa_http.stderr.txt helixqa_http.txt server_access.log
+      helixqa_http.json = {"passed": 2, "failed": 0}; stderr.txt "[container:stderr] note " (OSC removed); terminal copy prefixed + sanitized
+  C JSON fine, helixqa exit 1: rc=1, "helixqa exit=1", evidence published (exit status preserved)
+  D 9000-char JSON value (the old 4000 cap): rc=0, published k has 9000 chars (raw files uncapped)
+  => R5-B1 CLOSED for run_helixqa_container.sh.
+
+=== (3) CONSUMER ENUMERATION (own grep of the whole tree for run_container.sh / rawrun / run_raw, excluding docs/evidence) ===
+  Callers found: qa/isolation/run_helixqa_container.sh (-o), run_web_live.sh / run_desktop_live.sh (no capture, `|| rc=$?`), run_koreader_gui.sh (-d),
+  tests/canary_probe.py, test_network_isolation.py (3 sites), test_runtime_checks.py (run_raw), test_reaper.py (Popen to DEVNULL),
+  test_bindcheck.py / test_review_round*.py (the wrapper itself). Prose-only mentions: start_server.sh, bindcheck.py, container_proof.py, launch.sh
+  (inside the container), assert_host_untouched.{sh,py}, waivers. Nothing outside qa/ tools/. => The section 8.4 table is COMPLETE and accurate.
+
+=== BLOCKING ===
+R6-B1. The R5-B1 fix re-opens the round-4 class "container bytes on the operator's terminal" (R4-B2) through the migrated consumers' FAILURE
+  MESSAGES. rawrun.Raw.stderr is now the container's RAW stderr (rd("stderr.raw")), but the migrated tests kept passing `r.stderr` as the
+  unittest failure message - a field that before this round held only the wrapper's own (host) text:
+      test_network_isolation.py:55  self.assertTrue(res, r.stderr)       :61 same      :69 self.assertIn("GOT:UPSTRM", r.stdout, r.stderr)
+      test_network_isolation.py:88  self.assertTrue(line, r.stderr)      (all four in the permanent network gate, run by
+                                                                          `assert_host_untouched.sh --full` with `-v >&2`, i.e. to the terminal)
+  unittest appends `msg` verbatim (longMessage), not repr. A hostile container controls both the failure (omit the ADMIN:/JSON line) and stderr.
+  Reproduction (stub podman whose `run` prints "no admin line" on stdout and OSC 52 + CSI 2J + OSC 0 on stderr; real rawrun.run_raw + real
+  run_container.sh; the exact two lines of run_admin_attempts):
+      rc=1   ESC bytes in the test runner's stderr: 1
+      AssertionError: [] is not true : boom ^[]52;c;cHduZWQ=^G ^[[2J^[]0;owned^G
+  i.e. an OSC 52 clipboard-write, a screen clear and a title change reach the operator's terminal raw - the exact thing the project's hard rule
+  (never touch the operator's clipboard/terminal) and R4-B2 forbid. rawrun.py's own docstring says "never print ... it without
+  sanitize.sanitize_bytes"; the author's own consumers violate it, and the API invites it (a field called `stderr` that used to be safe to print).
+  None of the round-5 tests feed hostile stderr through a failing consumer assertion, so nothing catches it.
+  Fix (small): make rawrun return the raw streams under explicit names (raw_stdout / raw_stderr) and give `stdout`/`stderr` - or at least `stderr` -
+  the sanitized text (or have consumers pass `r.wrapper_stderr` / sanitize.sanitize_bytes(...) as the message); add a hermetic test that runs a
+  consumer assertion against a stub container printing OSC 52 on stderr and asserts no ESC/C1/bidi on the runner's output, with a paired mutant.
+  test_runtime_checks.py is safe (assertNotIn uses safe_repr); helixqa_publish.py error texts carry no container bytes (JSONDecodeError message
+  has positions only); canary_probe dict formatting is repr - checked.
+
+=== IMPORTANT (fix with B1, or follow-up with a corrected claim) ===
+R6-I1. check_raw_consumers.py misses most capture shapes, and the PR body / test docstring claim "any capture of run_container.sh output without -o
+  fails". Own evasion matrix (scratch tree, gate rc):
+      CAUGHT: $(...) direct, backticks, | tee, here-string with $(...), >file (no space), 1>> append, Popen(stdout=PIPE)
+      MISSED: variable indirection (X=.../run_container.sh; out=$("$X" ...)); process substitution < <(...); wrapper function rc(){ ...; } then
+              $(rc ...); exec >file; multi-line { ... } > out; `| grep -o PASS` (the -o is grep's: the gate looks for " -o " ANYWHERE on the line);
+              `-- sh -c 'tar -o ...' > out` (-o inside the container command); `&> out.txt`; coproc; a .bash file; a file outside
+              qa/ tools/ scripts/ tests/ (e.g. clients/); python shell=True string; os.popen; [*base, ...] splat; stdout=open(file); **kwargs;
+              ["...run_container.sh", "--", "grep", "-o", "x"] (-o in the container argv); path held in a variable inside the list;
+              a helper def go(c): subprocess.run(c, capture_output=True); asyncio.create_subprocess_exec(..., stdout=PIPE)
+      => 7 caught / 20 missed of 27. Residual vs blocking: none of the 20 exists in the tree today (enumeration (3)), so no live false green;
+      but `&>`, `| grep -o`, a path variable and a helper function are ordinary code, not "exotic" as section 8.4 says. The -o check is a proxy
+      (§11.4.201): it must look at the WRAPPER's own option tokens before `--`, not any "-o" on the line/list. Recommended structural closure
+      instead of more regex: make the attached mode refuse (or require an explicit "for humans" flag) when its stdout is not a terminal and no -o
+      is given - then every future capture fails closed at run time regardless of shape. Otherwise: tokenise, add &>, <(, coproc, exec >,
+      function/variable resolution, all script extensions/shebangs and all top-level dirs, and correct the claim in 8.4 and the PR body.
+
+=== MINOR / TEST-INSTRUMENTATION (follow-ups) ===
+m1. HelixqaRunner tests use a stub run_container.sh; no committed integration test drives the real wrapper's -o path into helixqa_publish.py
+    (section (2) above did it by hand and it works).
+m2. Own mutants that SURVIVE test_review_round5: M2 realpath-equality check removed (parent-symlink RAWDIR; the real code refuses it: A1 below,
+    only the -L test on the leaf is tested); M6 publisher writes the raw JSON text instead of the re-serialised one (test uses \u-escaped input,
+    so a raw U+202E / non-ASCII in a JSON string would be published unescaped by the mutant); M4 `set -C` dropped and M13 rawrun appends
+    wrapper stdout - both equivalent today (rm -f first; wrapper stdout empty in -o mode).
+m3. helixqa_publish accepts NaN/Infinity (json.loads default) and publishes non-standard JSON (`"a": NaN`); use parse_constant to refuse.
+m4. Deeply nested JSON raises an uncaught RecursionError (traceback, exit 1, nothing published - still fail-closed, no container bytes printed).
+m5. When the container never starts (e.g. image missing, exit 66) the runner exits 1 (publisher cannot read raw files), not 66.
+m6. test_review_round5.py:160 `if f != "helixqa_http.exit.txt" or True` is a tautology (dead filter; the assertion still does what it says).
+m7. A -w source INSIDE RAWDIR is accepted (A7 below). The container still cannot touch RAWDIR/stdout.raw|stderr.raw, so no impact found; doc it.
+m8. No total-bytes cap on raw files (disclosed).
+
+=== RAW-MODE SAFETY ATTACKS (real run_container.sh, stub podman) ===
+  A1 parent dir is a symlink      rc=64 "must be an existing real directory (no symlink in its path)"
+  A2 /real/../real/raw            rc=64 "must be a canonical absolute path"      A3 relative "raw"       rc=64
+  A4 trailing slash               rc=64                                           A5 mode 0750            rc=64 "mode 0700 and owned by you"
+  A6 RAWDIR == -w source          rc=64 "lies inside the container-writable"      A8 -o given before -w   rc=64 (order-independent)
+  A7 -w source inside RAWDIR      rc=0 (see m7)                                   A9 -r bind of RAWDIR    rc=64 (bindcheck refuses)
+  A10 stdout.raw pre-planted as symlink to /etc/hostname: removed by rm -f, new 0600 regular files, target untouched
+  A11 stdout.raw is a directory   rc=1 (fails closed)                             A12 -o twice, last invalid  rc=64
+  A13 newline in path             rc=64
+  RAWDIR is not reachable by the container (no bind overlap admitted, 0700, owner-checked, canonical); no TOCTOU path for the container found.
+  Terminal copy in -o mode: stdout empty, sanitized stderr only (round-5 test + run B above). The only raw-to-terminal path found is R6-B1.
+  helixqa_publish adversarial inputs: H1 U+202E in a JSON string -> published as ‮; H2 OSC in text/stderr -> removed; H3 two JSON blocks ->
+  rc=3 nothing published; H4 invalid UTF-8 -> replaced, published; H5 200000-deep nesting -> RecursionError rc=1 nothing published (m4);
+  H6 missing raw files -> rc=3; H7 NaN -> published (m3); H8 lone surrogate \ud800 -> escaped, published. No ESC/bidi in any published file.
+
+=== OWN MUTANTS (applied in the worktree, test_review_round5 run, reverted; git status clean) ===
+  M1 RAWDIR-inside-rw check off -> KILLED   M2 realpath check off -> SURVIVED (m2)   M3 umask 077 dropped -> KILLED
+  M4 set -C dropped -> SURVIVED (equivalent)   M5 stderr.raw cat'ed to terminal -> KILLED   M6 raw JSON text published -> SURVIVED (m2)
+  M7 stderr unsanitized in evidence -> KILLED   M8 gate ignores pipes -> KILLED   M9 gate python capture detection off -> KILLED
+  M10 gate drops qa/ -> KILLED   M11 gate skips run_helixqa_container.sh -> KILLED   M12 publisher publishes only one file -> KILLED
+  M13 rawrun appends wrapper stdout -> SURVIVED (equivalent)   M14 -o with -d allowed -> KILLED            10/14 killed, 2 equivalent.
+
+=== OTHER ROUND-5 ITEMS ===
+  R5-I1 lint: CLOSED. Own spot check (scratch tree, assert_host_untouched.py): podman --root "/tmp/a b" run, python list with --root, JS spawnSync
+    array, docker compose run, docker-compose up, podman-compose up, P=podman; $P run -> all CAUGHT; control `echo safe` -> not caught.
+  R5-I2: CLOSED (helixqa_http.exit.txt; scan --allow accepts it, old name refused - test + own run B).
+  Minors m1/m2/m3 of round 5: bidi strip tested (S4 killed in the author's test), lone ESC tested, cap applies to the terminal copy only.
+
+=== PR-BODY CLAIMS vs REALITY ===
+  Suite counts, matrix 279 = 268 + 11, 496 files, seal hash, consumer table: CONFIRMED.
+  "FAILS CLOSED: split/JSON failure exits 1, publishes nothing, keeps hq-raw/, prints no success": CONFIRMED by the real-wrapper integration run.
+  "Gate ... any capture of run_container.sh output without -o fails": NOT TRUE (R6-I1: 20 of 27 shapes missed); "exotic captures (named pipe, exec
+  redirection) are not seen" understates the residual.
+  "Nothing of the container reaches the terminal raw" (8.4) holds for the wrapper, but not for the migrated consumers' failure output (R6-B1).
+
+=== CONCLUSION ===
+The R5-B1 false green is genuinely closed: with the real wrapper, a run without a JSON block exits 1, publishes nothing and keeps the raw files; the
+happy path publishes correct, re-serialised, sanitized evidence; the raw mode's directory checks withstood every attack tried; the consumer table is
+complete. But the fix moved raw container stderr into a field (`Raw.stderr`) that the migrated network gate prints verbatim on failure, so a hostile
+container can again write OSC 52 / CSI sequences to the operator's terminal (reproduced) - a regression of the round-4 blocking class introduced in
+this round. The future-consumer leg (the gate) is much weaker than claimed. NO-GO on R6-B1 (small, well-scoped fix); R6-I1 should be fixed or its
+claim corrected in the same change. Per §11.4.276(E)(3) further rounds are the operator's decision.

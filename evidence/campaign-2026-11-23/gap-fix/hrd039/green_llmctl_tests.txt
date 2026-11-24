@@ -1,0 +1,65 @@
+## test_unit_devshm_gate
+  ok: llmctl-llama@ carries no ProtectSystem= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-llama@: NoNewPrivileges kept
+  ok: llmctl-onnx@ carries no ProtectSystem= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-onnx@: NoNewPrivileges kept
+  ok: llmctl-colibri@ carries no ProtectSystem= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-colibri@: NoNewPrivileges kept
+  ok: the real admission gate accepts /dev/shm under the engine unit's sandbox (no ProtectSystem)
+  fact: control with ProtectSystem=full -> the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user 
+RESULT: PASS
+rc=0
+## test_services
+  ok: colibri unit: description
+WARN: no per-profile memory cap written for fast (planner not loaded here); the template backstop applies - run: llmctl install
+[llmctl] wrote /home/milosvasic/.cache/claude-tmp/tmp.ATQJ5vXzqc/state/services/fast.env
+  ok: env file: engine
+  ok: env file: port in args
+  ok: env file: ngl in args
+  ok: env file: port recorded for the registration hook
+  ok: env file: process-identity token for the registry
+WARN: no per-profile memory cap written for perm-check (planner not loaded here); the template backstop applies - run: llmctl install
+[llmctl] wrote /home/milosvasic/.cache/claude-tmp/tmp.ATQJ5vXzqc/state/services/perm-check.env
+  ok: env file is mode 0600 under umask 022 (D-03)
+  ok: env file names the key FILE path (never the key)
+  ok: dry-run enable
+  ok: dry-run start
+  ok: plist: label
+  ok: plist: KeepAlive
+  ok: plist: ThrottleInterval
+  ok: plist: throttle 60s (bounded restart rate, FR-044)
+  ok: plist: arg present
+  ok: plist: port present
+  ok: plist is mode 0600
+  ok: plist: log path
+  ok: plist parses (plistlib)
+  ok: dry-run launchctl bootstrap
+RESULT: PASS
+rc=0
+## test_unit_hardening
+    RestrictRealtime=yes
+    RestrictSUIDSGID=yes
+    SystemCallArchitectures=native
+    UMask=0077
+  ok: control: NoNewPrivs is 0 without the property
+  ok: control: no seccomp filter without a seccomp-backed property
+  ok: NoNewPrivileges=yes takes effect in the user manager (observed in a live service, rc=0)
+  ok: ProtectSystem=full takes effect in the user manager (observed in a live service, rc=0)
+  ok: UMask=0077 takes effect in the user manager (observed in a live service, rc=0)
+  ok: RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 takes effect in the user manager (observed in a live service, rc=0)
+  ok: RestrictSUIDSGID=yes takes effect in the user manager (observed in a live service, rc=0)
+  ok: LockPersonality=yes takes effect in the user manager (observed in a live service, rc=0)
+  ok: RestrictRealtime=yes takes effect in the user manager (observed in a live service, rc=0)
+  ok: SystemCallArchitectures=native takes effect in the user manager (observed in a live service, rc=0)
+== directives deliberately not written: which ones this systemd honours (host facts, informational) ==
+  fact: PrivateDevices=yes           refused       unit failed to start (rc=218)
+  fact: ProtectClock=yes             refused       unit failed to start (rc=218)
+  fact: CapabilityBoundingSet=       refused       unit failed to start (rc=218)
+  fact: PrivateTmp=yes               not-honoured  host /tmp marker visible
+  fact: ProtectHome=read-only        not-honoured  home writable
+  fact: ProtectProc=invisible        not-honoured  other processes visible
+  fact: ProtectControlGroups=yes     not-honoured  cgroup fs read-write
+host: systemd 259 (259.5-0ubuntu3.4) / kernel 7.0.0-43-generic (facts above are properties of this host, not pass/fail)
+  ok: every probed not-written directive produced a recorded host fact
+RESULT: PASS
+rc=0

@@ -1,0 +1,8 @@
+Live run recipe (HRD-022 web client). Catalog was the server's volatile in-memory fallback
+(no HELIX_POSTGRES_DSN): no shared Postgres/Redis was touched. Credentials are throwaway.
+1. go build -trimpath -o $S/bin/helix-server ./cmd/helix-server   (in server/)
+2. HELIX_ADDRESS=127.0.0.1:28090 HELIX_ADMIN_TOKEN=... HELIX_OPDS_USERNAME=reader HELIX_OPDS_PASSWORD=... HELIX_HTTP3=false $S/bin/helix-server
+3. POST /v1/sources {"id":"clients-src","protocol":"local","root":"<dir with glass-meridian.epub, field-notes.txt, orbital-gardens.txt>"} then POST /v1/scans (Bearer admin token) -> works=3 files=3
+4. (clients/web) npm run build; HELIX_API_PROXY=http://127.0.0.1:28090 npx vite preview --port 4173
+5. (clients/web) node e2e/live.mjs http://127.0.0.1:4173/ http://127.0.0.1:28090 reader <pass> ../../evidence/clients/web <chrome-for-testing>
+Browser: Chrome for Testing 149.0.7827.55 from ~/.cache/ms-playwright/chromium-1228, driven by playwright-core 1.65.1.

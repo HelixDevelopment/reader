@@ -1,0 +1,10 @@
+  FAIL: llmctl-llama@ still carries ProtectSystem= (HRD-039)
+  ok: llmctl-llama@: NoNewPrivileges kept
+  FAIL: llmctl-onnx@ still carries ProtectSystem= (HRD-039)
+  ok: llmctl-onnx@: NoNewPrivileges kept
+  FAIL: llmctl-colibri@ still carries ProtectSystem= (HRD-039)
+  ok: llmctl-colibri@: NoNewPrivileges kept
+  ok: the real admission gate accepts /dev/shm under the engine unit's sandbox (no ProtectSystem)
+  fact: control with ProtectSystem=full -> the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user 
+RESULT: FAIL (3 assertion failure(s))
+rc=1

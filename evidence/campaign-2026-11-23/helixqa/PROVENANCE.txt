@@ -1,0 +1,16 @@
+built 2026-11-23T19:57:01Z in scratch tree (outside repo); helixqa go build exit 0, version: helixqa v0.2.0
+helixqa b16a0897d85eb2360038d62a875854d0bfcb217b
+challenges d94e55492f10e29b2bd6eeca3c1be2adbef597f4
+containers 22b49707f9bb3175ec51ee259032b1d4fd9d0dc6
+doc_processor 12a5fb76381a6bb9a1a668c67211ff073967ea44 (depth-1 scratch clone, NOT a repo submodule)
+llm_orchestrator 8ee57956359c1d1b609bb9a0aa53887c06969941 (depth-1 scratch clone, NOT a repo submodule)
+llm_provider bd302c8ab57d0040df87ccbb90c8ccf969bf687b (depth-1 scratch clone, NOT a repo submodule)
+security 0513361e2f9cdfa2c3b1da687a0d66e5eb7c8fd1 (depth-1 scratch clone, NOT a repo submodule)
+vision_engine 1b2b991c31d46fd43447f2456f163032dfdcaf94 (depth-1 scratch clone, NOT a repo submodule)
+llms_verifier 94e666d416f0bde022d784555ec81ddd4389bb04 (depth-1 scratch clone, NOT a repo submodule)
+helix-server sha256 154cb2fde24c4c61e5af6e371ca113ba44990bae362344434c84c32c77490815
+helix-server-mutant sha256 1f5f4bf527b536fdfc153999358a158525f6089d87a632ebc4821794e968e682
+helixqa sha256 58d9525cec7fed03ffc4a7351fa6f4b768de46ef7e28c02c49748f805094d675
+go go version go1.26.8 linux/amd64
+redis image docker.io/library/redis:7.4-alpine rootless podman podman version 5.7.0
+mutation: see mutation.diff (6 behaviour changes in a scratch copy of server/, repo untouched)

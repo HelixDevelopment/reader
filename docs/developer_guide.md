@@ -89,16 +89,17 @@ The pinned sandbox toolchain and module cache are environment details, not proje
 
 ## Browser verification
 
-Build the prototype, serve `dist/` on loopback, then run the verifier from the
-repository root. Both arguments are optional and already default to these values.
+Build the prototype, then run the Go verifier INSIDE the rootless isolation container (HARD RULE: browser and GUI runs never touch the
+host; see [`docs/test-isolation.md`](test-isolation.md)). The binary serves `dist/` itself on the container loopback.
 
 ```bash
-cd demos/interactive_static_demo
-npm run preview -- --host 127.0.0.1 --port 4173
-
-cd ../..
-python3 scripts/verify_ui.py http://127.0.0.1:4173/ evidence/ui
+(cd demos/interactive_static_demo && npm ci && npm run build)
+(cd tools/verify && CGO_ENABLED=0 go build -trimpath -o "$HELIX_UIVERIFY_BIN" ./cmd/uiverify)
+ISO_WORK=$HOME/.cache/claude-tmp/<dir> HELIX_UIVERIFY_BIN=... \
+  qa/isolation/run_uiverify.sh demos/interactive_static_demo/dist evidence/<fresh-dir>
 ```
+
+Details: [`tools/verify/README.md`](../tools/verify/README.md). `scripts/verify_ui.py` stays in the tree but drives a host browser and is not to be run on the host.
 
 The suite uses fresh browser contexts at 375×812, 768×1024, 1024×900, and 1440×1000. It checks viewport metadata, horizontal overflow, disclosure text, search, reader navigation and typography deltas, passage state, metadata decisions, source validation/addition/scan state, conflict resolution, theme changes, console errors, and missing assets. It writes `ui-results.json` even when a viewport aborts unexpectedly.
 

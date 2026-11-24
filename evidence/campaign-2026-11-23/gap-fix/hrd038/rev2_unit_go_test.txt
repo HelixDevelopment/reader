@@ -1,0 +1,18 @@
+--- PASS: TestAllPassIsOK (0.00s)
+--- PASS: TestSkipStepIsNeverPass (0.00s)
+--- PASS: TestOnePassPlusOneSkipIsNotOK (0.00s)
+--- PASS: TestNonPlaywrightStepIsSkipNotPass (0.00s)
+--- PASS: TestExecutorSkippedOrBlockedIsSkip (0.00s)
+--- PASS: TestFailStopsCaseAndIsNotOK (0.00s)
+--- PASS: TestEmptyBankIsNotOK (0.00s)
+--- PASS: TestAssertRetriesUntilTrueAndRecordsAttempts (0.40s)
+--- PASS: TestAssertRetryIsBounded (0.60s)
+--- PASS: TestScreenshotRecordedPerPassedStep (0.00s)
+--- PASS: TestScreenshotFailureWithholdsPass (0.00s)
+--- PASS: TestPinnedCounts (0.00s)
+--- PASS: TestEachPinFiresIndependently (0.00s)
+--- PASS: TestPlatformFilterHonoured (0.00s)
+--- PASS: TestPageStateRecordedAndViewportEnforced (0.00s)
+--- PASS: TestCheckedInBankHasNoSkipAndOnlyPlaywright (0.00s)
+PASS
+ok  	helixreader/webrunner	1.009s

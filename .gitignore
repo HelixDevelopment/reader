@@ -215,3 +215,24 @@ __pycache__/
 *.pyc
 *.db-shm
 *.db-wal
+
+# Packaging hygiene (local-only paths; operator decision 2026-11-24).
+# .claude/skills/* symlinks into submodules/constitution are per-checkout (speckit-* real dirs stay tracked).
+.claude/skills/action-prefix-system
+.claude/skills/constitution
+.claude/skills/jev-decision-layer
+.claude/skills/label-sync
+.claude/skills/media-validator
+.claude/skills/multitrack
+.claude/skills/reporting-workable-items
+.claude/skills/scheduled-work-queue
+.claude/skills/session-sync
+.claude/skills/skill-catalog
+# Backups; .claude/settings.json itself stays local and untracked (deliberately NOT ignored).
+*.bak
+.claude/settings.json.*.bak*
+# Large third-party bundle: referenced by hash in docs/bundles/, never committed.
+evidence/campaign-2026-11-23/research/bundles/*.bundle
+# Local queue and device env.
+docs/requests/background_queue.md
+clients/android/.env.sh

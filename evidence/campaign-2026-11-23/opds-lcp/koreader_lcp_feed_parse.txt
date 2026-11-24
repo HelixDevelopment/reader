@@ -1,0 +1,7 @@
+RESULT feed.title=	Helix Publications	entries=	1
+ENTRY	1	Sealed
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/e9 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.readium.lcp.license.v1.0+json href=/v1/files/f9/license stream_count(opdsbrowser.lua:826 rule)=nil
+FEEDLINK rel=self href=/opds/1.2/publications?limit=20&offset=0
+FEEDLINK rel=start href=/opds/1.2
+FEEDLINK rel=search href=/opds/1.2/opensearch.xml

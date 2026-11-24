@@ -1,0 +1,11 @@
+--- FAIL: TestHostBackoffIgnoresDocumentDefinedFailures (0.84s)
+    lcp_attack_test.go:50: hits=3 files=0 skipped=[a0.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a1.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a2.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs z-legit.lcpl: LCP fulfillment: lcp fulfillment: publication fetch failed recently; retry later]
+    lcp_attack_test.go:52: legitimate license on a healthy host refused because hostile licenses failed hash checks there
+--- FAIL: TestScanByteBudgetSurvivesHugeStatedLength (0.90s)
+    lcp_attack_test.go:85: hits=3 files=3
+    lcp_attack_test.go:87: byte budget allows one fetch, origin hit 3 times (budget sum overflowed)
+--- FAIL: TestCrossProcessGCSparesCacheHitBeforeMerge (0.22s)
+    lcp_attack_test.go:147: artifact referenced by the catalog was deleted by the other process: stat /home/milosvasic/.cache/claude-tmp/TestCrossProcessGCSparesCacheHitBeforeMerge890463859/002/lcp/36b4605ca9743f16f982a320d7f46fd0b887a69c6b1aded11a1c1dff7d6b8b18.epub: no such file or directory
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/ingest	2.224s
+FAIL

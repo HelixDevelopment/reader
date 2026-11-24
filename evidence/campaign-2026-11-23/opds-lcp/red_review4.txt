@@ -1,0 +1,14 @@
+--- FAIL: TestHost4xxDocumentDefinedDoesNotLockHost (0.79s)
+    lcp_adv_test.go:53: SURVIVOR: legit refused after 3 hostile 404s on same host: files=0 skipped=[a0.lcpl: LCP fulfillment: lcp fulfillment: publication download failed: status 404 a1.lcpl: LCP fulfillment: lcp fulfillment: publication download failed: statu
+--- FAIL: TestOperatorCancelRecordsNoFailure (1.09s)
+    lcp_adv_test.go:70: SURVIVOR: operator cancel recorded failures: map[127.0.0.1:41983:{n:3 until:{wall:14031328482664939873 ext:301881595614 loc:0x10bda40} seq:3}] map[39b88d1a47863cfc287c0565b2ff9e5457e2b859dcfcdb767d255ec0c8dfbf96:{n:1 until:{wall:1403132
+--- FAIL: TestFailedFetchChargesOnlyBytesRead (1.78s)
+    lcp_adv_test.go:97: scan1 files=0 warnings=[LCP scan budget reached (8 publication fetches, 2147483648 bytes): remaining licenses were not fetched and are retried on the next scan (HELIX_LCP_MAX_SCAN_FETCHES, HELIX_LCP_MAX_SCAN_BYTES)]
+    lcp_adv_test.go:99: FINDING: legit license starved in scan1 by 9 dead hostile licenses stating 256MiB each (charged bytes without transferring any)
+    lcp_adv_test.go:102: scan2 files=1
+--- FAIL: TestConcurrentScansDownloadOnce (0.35s)
+    lcp_adv_test.go:141: origin hits=30 distinct artifacts=1 entries=[d8242aa83206b04aa8ac717e0b399db5cb73433f3bcd14fabe1987a793998134.epub license-fbf6d43c1bd8ee6c0a9bb80eb6849f00d9c95e366296110a178e6e6e5daf1fce.idx]
+    lcp_adv_test.go:146: 30 concurrent scans of one license made 30 origin downloads, want 1
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/ingest	7.000s
+FAIL
