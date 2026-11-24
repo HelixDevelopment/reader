@@ -746,6 +746,26 @@ func contentDisposition(name string) string {
 	}, name)
 	return `attachment; filename="` + name + `"`
 }
+
+// rangeNumber parses a byte-range-spec number: ASCII digits only (no sign).
+// A well-formed number too large for int64 reports overflow, not an error, so
+// callers can apply the RFC 9110 clamping rules.
+func rangeNumber(s string) (n int64, overflow, ok bool) {
+	if s == "" {
+		return 0, false, false
+	}
+	for i := 0; i < len(s); i++ {
+		if s[i] < '0' || s[i] > '9' {
+			return 0, false, false
+		}
+	}
+	n, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return 0, true, true
+	}
+	return n, false, true
+}
+
 func singleRange(value string, size int64) (start, length int64, err error) {
 	if size <= 0 || !strings.HasPrefix(value, "bytes=") || strings.Contains(value, ",") {
 		return 0, 0, fmt.Errorf("invalid")
@@ -755,26 +775,27 @@ func singleRange(value string, size int64) (start, length int64, err error) {
 		return 0, 0, fmt.Errorf("invalid")
 	}
 	if parts[0] == "" {
-		n, e := strconv.ParseInt(parts[1], 10, 64)
-		if e != nil || n <= 0 {
+		n, over, ok := rangeNumber(parts[1])
+		if !ok || (!over && n <= 0) {
 			return 0, 0, fmt.Errorf("invalid")
 		}
-		if n > size {
+		if over || n > size {
 			n = size
 		}
 		return size - n, n, nil
 	}
-	start, err = strconv.ParseInt(parts[0], 10, 64)
-	if err != nil || start < 0 || start >= size {
+	start, over, ok := rangeNumber(parts[0])
+	if !ok || over || start >= size {
 		return 0, 0, fmt.Errorf("invalid")
 	}
 	end := size - 1
 	if parts[1] != "" {
-		end, err = strconv.ParseInt(parts[1], 10, 64)
-		if err != nil || end < start {
+		last, overEnd, okEnd := rangeNumber(parts[1])
+		if !okEnd || (!overEnd && last < start) {
 			return 0, 0, fmt.Errorf("invalid")
 		}
-		if end >= size {
+		end = last
+		if overEnd || end >= size {
 			end = size - 1
 		}
 	}

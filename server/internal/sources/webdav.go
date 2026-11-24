@@ -9,7 +9,9 @@ import (
 	"net/http"
 	"net/url"
 	"path"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/helixreader/helix/core/pkg/parse/parseutil"
 )
@@ -37,18 +39,144 @@ func (w *WebDAV) Open(ctx context.Context, name string) (io.ReadCloser, error) {
 	return w.http.Open(ctx, name)
 }
 
+// OpenRange serves a bounded byte window. The window is enforced locally so a
+// server that ignores Range (full 200 at offset 0) can never over-deliver.
+func (w *WebDAV) OpenRange(ctx context.Context, name string, offset, length int64) (io.ReadCloser, error) {
+	rc, err := w.http.OpenRange(ctx, name, offset, length)
+	if err != nil || length < 0 {
+		return rc, err
+	}
+	return &limitedReadCloser{Reader: io.LimitReader(rc, length), Closer: rc}, nil
+}
+
+type limitedReadCloser struct {
+	io.Reader
+	io.Closer
+}
+
+// Revalidate reports the live size and modification time with a Depth: 0
+// PROPFIND, so content serving can decide whether the scan-time validators and
+// byte ranges are still safe to offer for this file.
+func (w *WebDAV) Revalidate(ctx context.Context, name string) (int64, time.Time, error) {
+	u, err := w.http.resource(name)
+	if err != nil {
+		return -1, time.Time{}, err
+	}
+	body := []byte(`<?xml version="1.0"?><propfind xmlns="DAV:"><prop><getcontentlength/><getlastmodified/><resourcetype/></prop></propfind>`)
+	req, err := http.NewRequestWithContext(ctx, "PROPFIND", u.String(), bytes.NewReader(body))
+	if err != nil {
+		return -1, time.Time{}, err
+	}
+	req.Header.Set("Depth", "0")
+	req.Header.Set("Content-Type", "application/xml")
+	for k, v := range w.http.headers {
+		req.Header.Set(k, v)
+	}
+	if w.username != "" {
+		req.SetBasicAuth(w.username, w.password)
+	}
+	resp, err := w.http.client.Do(req)
+	if err != nil {
+		return -1, time.Time{}, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusNotFound {
+		return -1, time.Time{}, ErrNotFound
+	}
+	if resp.StatusCode != 207 {
+		return -1, time.Time{}, fmt.Errorf("WebDAV PROPFIND: HTTP %d", resp.StatusCode)
+	}
+	payload, err := parseutil.ReadAll(resp.Body, 1<<20)
+	if err != nil {
+		return -1, time.Time{}, err
+	}
+	var ms multistatus
+	if err := xml.Unmarshal(payload, &ms); err != nil {
+		return -1, time.Time{}, err
+	}
+	for _, r := range ms.Responses {
+		pr := r.merged()
+		if pr.collection {
+			return -1, time.Time{}, fmt.Errorf("source: not a regular file")
+		}
+		// A server that omits either property cannot revalidate: report
+		// unknown (size -1) so the route serves a plain 200 without ranges.
+		// Absent is not zero: a zero here would make the route serve an empty body.
+		mod, err := http.ParseTime(pr.modified)
+		if pr.length == "" || pr.modified == "" || err != nil {
+			return -1, time.Time{}, nil
+		}
+		n, ok := parseContentLength(pr.length)
+		if !ok {
+			return -1, time.Time{}, nil
+		}
+		return n, mod, nil
+	}
+	return -1, time.Time{}, nil
+}
+
+type propstat struct {
+	Length       string `xml:"prop>getcontentlength"`
+	Status       string `xml:"status"`
+	Modified     string `xml:"prop>getlastmodified"`
+	ETag         string `xml:"prop>getetag"`
+	ResourceType struct {
+		Collection *struct{} `xml:"collection"`
+	} `xml:"prop>resourcetype"`
+}
+
+type multistatusResponse struct {
+	Href string     `xml:"href"`
+	Prop []propstat `xml:"propstat"`
+}
+
 type multistatus struct {
-	Responses []struct {
-		Href string `xml:"href"`
-		Prop []struct {
-			Length       int64  `xml:"prop>getcontentlength"`
-			Modified     string `xml:"prop>getlastmodified"`
-			ETag         string `xml:"prop>getetag"`
-			ResourceType struct {
-				Collection *struct{} `xml:"collection"`
-			} `xml:"prop>resourcetype"`
-		} `xml:"propstat"`
-	} `xml:"response"`
+	Responses []multistatusResponse `xml:"response"`
+}
+
+// parseContentLength accepts only a plain non-negative decimal that fits in an
+// int64: no sign, hex, fraction, separator, empty value or overflow.
+func parseContentLength(v string) (int64, bool) {
+	if v == "" {
+		return 0, false
+	}
+	for i := 0; i < len(v); i++ {
+		if v[i] < '0' || v[i] > '9' {
+			return 0, false
+		}
+	}
+	n, err := strconv.ParseInt(v, 10, 64)
+	return n, err == nil
+}
+
+type mergedProps struct {
+	collection             bool
+	length, modified, etag string
+}
+
+// merged folds every successful propstat of one response into a single view,
+// whatever order the server lists them in (a 404 propstat for the properties
+// a resource lacks may come before or after the 200 one).
+func (r multistatusResponse) merged() mergedProps {
+	var m mergedProps
+	for _, p := range r.Prop {
+		if st := strings.Fields(p.Status); len(st) >= 2 && !strings.HasPrefix(st[1], "2") {
+			continue
+		}
+		if p.ResourceType.Collection != nil {
+			m.collection = true
+		}
+		if v := strings.TrimSpace(p.Length); v != "" {
+			m.length = v
+		}
+		if v := strings.TrimSpace(p.Modified); v != "" {
+			m.modified = v
+		}
+		if v := strings.TrimSpace(p.ETag); v != "" {
+			m.etag = v
+		}
+	}
+	return m
 }
 
 func (w *WebDAV) List(ctx context.Context, prefix string) ([]Entry, error) {
@@ -95,19 +223,23 @@ func (w *WebDAV) List(ctx context.Context, prefix string) ([]Entry, error) {
 		if err != nil {
 			continue
 		}
-		for _, p := range r.Prop {
-			if p.ResourceType.Collection != nil {
-				continue
-			}
-			name := strings.TrimPrefix(path.Clean(href.Path), path.Clean(w.http.base.Path))
-			name = strings.TrimPrefix(name, "/")
-			if name == "" || name == "." {
-				continue
-			}
-			mod, _ := http.ParseTime(p.Modified)
-			out = append(out, Entry{Path: name, Name: path.Base(name), Size: p.Length, Modified: mod, ETag: strings.Trim(p.ETag, `"`)})
-			break
+		// Judge the whole response: a collection may answer with a 200 propstat
+		// naming it a collection plus a 404 propstat for properties it lacks.
+		pr := r.merged()
+		if pr.collection {
+			continue
 		}
+		name := strings.TrimPrefix(path.Clean(href.Path), path.Clean(w.http.base.Path))
+		name = strings.TrimPrefix(name, "/")
+		if name == "" || name == "." {
+			continue
+		}
+		mod, _ := http.ParseTime(pr.modified)
+		size, ok := parseContentLength(pr.length)
+		if !ok {
+			continue // no trustworthy size: never catalogue an invented one
+		}
+		out = append(out, Entry{Path: name, Name: path.Base(name), Size: size, Modified: mod, ETag: strings.Trim(pr.etag, `"`)})
 	}
 	return out, nil
 }

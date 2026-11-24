@@ -75,6 +75,46 @@ func (r *Rclone) List(ctx context.Context, prefix string) ([]Entry, error) {
 	return entries, nil
 }
 
+// Revalidate returns the live size and modification time of one object
+// (`rclone lsjson --stat`), the same metadata List reports at scan time.
+func (r *Rclone) Revalidate(ctx context.Context, name string) (int64, time.Time, error) {
+	if strings.HasPrefix(name, "..") || strings.Contains(name, "/../") {
+		return -1, time.Time{}, ErrTraversal
+	}
+	target := strings.TrimSuffix(r.remote, "/") + "/" + strings.TrimPrefix(name, "/")
+	cmd := r.command(ctx, "lsjson", "--stat", target)
+	var stdout, stderr bytes.Buffer
+	cmd.Stdout = &limitedWriter{w: &stdout, remaining: 1 << 20}
+	cmd.Stderr = &limitedWriter{w: &stderr, remaining: 64 << 10}
+	if err := cmd.Run(); err != nil {
+		var ee *exec.ExitError
+		// rclone exit 3 = directory not found, 4 = file not found.
+		if errors.As(err, &ee) && (ee.ExitCode() == 3 || ee.ExitCode() == 4) {
+			return -1, time.Time{}, ErrNotFound
+		}
+		if strings.Contains(stderr.String(), "not found") {
+			return -1, time.Time{}, ErrNotFound
+		}
+		return -1, time.Time{}, fmt.Errorf("rclone %s: %w: %s", r.protocol, err, strings.TrimSpace(stderr.String()))
+	}
+	var row struct {
+		ModTime string
+		Size    int64
+		IsDir   bool
+	}
+	if err := json.Unmarshal(stdout.Bytes(), &row); err != nil {
+		return -1, time.Time{}, err
+	}
+	if row.IsDir {
+		return -1, time.Time{}, fmt.Errorf("source: not a regular file")
+	}
+	mod, err := time.Parse(time.RFC3339Nano, row.ModTime)
+	if err != nil || row.Size < 0 {
+		return -1, time.Time{}, nil // unknown metadata: no range eligibility
+	}
+	return row.Size, mod, nil
+}
+
 type readCloser struct {
 	io.Reader
 	cancel context.CancelFunc
