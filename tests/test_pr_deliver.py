@@ -340,6 +340,106 @@ class OpenTests(Env):
         self.commit("a.txt", "a\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + hashlib.sha256(data).hexdigest())
         self.assertEqual(self.tk("open")[0], 3)
 
+    # --- 11.4.297(E): only the LATEST citation of a path in the range must match the head tree; earlier ones are superseded
+    def _ev(self, data):
+        open(os.path.join(self.work, "evidence", "e.log"), "wb").write(data)
+        return hashlib.sha256(data).hexdigest()
+
+    def test_evidence_superseded_earlier_citation_accepted(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        h1 = self._ev(b"v1\n")
+        c1 = self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h1)
+        h2 = self._ev(b"v2\n")
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h2)
+        rc, out, err = self.tk("open")
+        self.assertEqual(rc, 3, out + err)
+        self.assertIn("NOTE", out)
+        self.assertIn("evidence/e.log", out)
+        self.assertIn(c1[:12], out)
+
+    def test_evidence_latest_citation_mismatch_refused_even_if_earlier_matches(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        h1 = self._ev(b"v1\n")
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h1)
+        self._ev(b"v2\n")
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h1)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("sha256 differs", err)
+
+    def test_evidence_single_citation_mismatch_refused(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        self._ev(b"v1\n")
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + "1" * 64)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("sha256 differs", err)
+
+    def test_evidence_outside_dir_refused_even_when_superseded(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: /tmp/x.log sha256 " + "a" * 64)
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: /tmp/x.log sha256 " + "a" * 64)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertEqual(err.count("INCONCLUSIVE"), 2)
+
+    def test_evidence_dotdot_in_earlier_commit_refused_when_later_is_valid(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/../e.log sha256 " + "a" * 64)
+        h2 = self._ev(b"v2\n")
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h2)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("INCONCLUSIVE", err)
+
+    def test_evidence_forged_earlier_citation_refused(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        self._ev(b"v1\n")
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + "f" * 64)
+        h2 = self._ev(b"v2\n")
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h2)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("sha256 differs", err)
+
+    def test_evidence_earlier_citation_of_file_absent_in_its_commit_refused(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + "f" * 64)
+        h2 = self._ev(b"v2\n")
+        self.commit("b.txt", "2\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h2)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("absent from its own commit", err)
+
+    def test_evidence_same_commit_duplicate_path_both_checked(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        h1 = self._ev(b"v1\n")
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h1 + "\nEvidence: evidence/e.log sha256 " + "e" * 64)
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("sha256 differs", err)
+
+    def test_evidence_same_commit_second_citation_checked_against_head_not_own_tree(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        h1 = self._ev(b"v1\n")
+        h2 = hashlib.sha256(b"v2\n").hexdigest()
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h2 + "\nEvidence: evidence/e.log sha256 " + h1)
+        self._ev(b"v2\n")
+        self.commit("b.txt", "2\n")
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("sha256 differs", err)
+
+    def test_evidence_absent_in_head_tree_refused_for_latest(self):
+        self.assertEqual(self.tk("start")[0], 0)
+        h1 = self._ev(b"v1\n")
+        self.commit("a.txt", "1\n", msg_extra="Roadmap-Item: HRD-900\nEvidence: evidence/e.log sha256 " + h1)
+        self.git("rm", "-q", "evidence/e.log")
+        self.git("commit", "-q", "-m", "rm\n\nRoadmap-Item: HRD-900")
+        rc, _, err = self.tk("open")
+        self.assertEqual(rc, 2)
+        self.assertIn("absent from head tree", err)
+
     def test_dry_run_runs_no_mutating_command(self):
         self.start_and_commit()
         rc, out, err = self.tk("open", dry=True)
