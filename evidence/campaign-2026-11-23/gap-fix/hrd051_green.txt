@@ -1,0 +1,13 @@
+## BUILD
+wrote /home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv and updated ledger sha column: rows=36 with_evidence=28
+## --check
+ledger/manifest consistent: rows=36 with_evidence=28
+## GATES (non-vacuous)
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: SUMMARY manifest=/home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv declared=28 fail=0
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: PASS — all 28 declared row(s) have a legal layer, existing non-empty evidence, and a matching sha256 (§11.4.262)
+exit=0
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: SUMMARY ledger=/home/milosvasic/Projects/helix_reader/docs/claim_reality_ledger.tsv rows=36 fail=0
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: PASS — all 36 ledger row(s) typed from the closed vocabulary (§11.4.266(B))
+exit=0
+manifest data rows: 28  ledger rows: 36
+84

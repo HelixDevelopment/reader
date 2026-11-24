@@ -1,0 +1,23 @@
+PASS baseline good tree accepted
+PASS rows==0 fails VACUOUS
+PASS with_evidence==0 fails VACUOUS
+PASS empty manifest vs evidence rows fails VACUOUS
+PASS blank id reported by name
+PASS blank capability reported by name
+PASS blank bluff_type reported by name
+PASS blank severity reported by name
+PASS blank claim_status reported by name
+PASS blank layer reported by name
+PASS blank source reported by name
+PASS blank evidence_path reported by name
+PASS blank evidence_sha256 reported by name
+PASS blank producer reported by name
+PASS blank last_verified reported by name
+PASS blank notes reported by name
+PASS short row fails COLUMN_COUNT
+PASS untracked evidence outside snapshots fails VOLATILE_EVIDENCE
+PASS modified-tracked evidence fails VOLATILE_EVIDENCE
+PASS snapshot without provenance fails
+PASS snapshot with matching provenance accepted
+PASS tampered snapshot rejected
+== 22 passed, 0 failed

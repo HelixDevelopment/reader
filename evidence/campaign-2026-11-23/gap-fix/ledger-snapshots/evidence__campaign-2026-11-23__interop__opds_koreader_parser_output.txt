@@ -1,0 +1,20 @@
+RESULT feed.title=	Helix Publications	entries=	5
+ENTRY	1	live-server-pse
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-b5d57c580880f3c60c7d4567 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-fed9946eaf3cd485c88021d0/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://vaemendis.net/opds-pse/stream type=image/png href=/opds-pse/stream/file-fed9946eaf3cd485c88021d0/{pageNumber} stream_count(opdsbrowser.lua:826 rule)=3
+ENTRY	2	live-server-plain
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-a64ddd0cd18b1f8a44ca2abc stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=text/plain href=/v1/files/file-a991c7fda2a6667253560ea3/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	3	live-server-mixed
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-3f2784471cd9e84ad3adeb56 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-c0d1818a30ad6ea29d123da7/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	4	live-server-forge
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-99a811fe2197dfb9ca8d3635 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-d02da9841b4a08e13ef454cd/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	5	live-server-cbr-stub
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-4579f17342047f1b24945e53 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook-rar href=/v1/files/file-6cadd04df02bd2d722b905a6/content stream_count(opdsbrowser.lua:826 rule)=nil
+FEEDLINK rel=self href=/opds/1.2/publications?limit=20&offset=0
+FEEDLINK rel=start href=/opds/1.2
+FEEDLINK rel=search href=/opds/1.2/opensearch.xml

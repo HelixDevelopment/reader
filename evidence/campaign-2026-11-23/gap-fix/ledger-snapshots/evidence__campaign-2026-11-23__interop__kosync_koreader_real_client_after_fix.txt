@@ -1,0 +1,8 @@
+RESULT register                     ok=true status=true body={"username":"kp1795462019"}
+RESULT authorize(valid)             ok=true status=true body={"authorized":"OK"}
+RESULT authorize(wrong key)         ok=false status=false body={"request_id":"531b4901794da46f1acd3b5c1e555843","message":"invalid username or password","error":"invalid username or password"}
+RESULT partialMD5(/home/milosvasic/Projects/helix_reader/.helix-verify/git-repos/backend/readium-readium-lcp-server/test/samples/sample.epub) = af00b1716a8ea20bc7f1108c8358c4a3
+RESULT update_progress              ok=true status=200 body={"document":"af00b1716a8ea20bc7f1108c8358c4a3","timestamp":1795462020}
+RESULT get_progress                 ok=true status=true body={"document":"af00b1716a8ea20bc7f1108c8358c4a3","timestamp":1795462020,"progress":"\/body\/DocFragment[3]\/body\/p[12]\/text().5","percentage":0.4217,"device":"Helix Interop Probe","device_id":"dev-hrd026"}
+RESULT get_progress(unknown doc)    ok=true status=true body={}
+RESULT register(duplicate)          ok=false status=false body={"request_id":"b1f5fa39369353e21ebc9cd335c03770","message":"Username is already registered.","error":"Username is already registered."}

@@ -1,0 +1,8 @@
+gofmt clean (core, server)
+GATE gofmt_clean PASS
+GATE build_evidence_manifest_check PASS
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: SUMMARY manifest=/home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv declared=36 fail=0
+GATE cm_machine_evidence_at_every_gate PASS
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: SUMMARY ledger=/home/milosvasic/Projects/helix_reader/docs/claim_reality_ledger.tsv rows=44 fail=0
+GATE cm_ledger_row_typed_from_closed_vocabulary PASS
+=== local gates: 4/4 passed

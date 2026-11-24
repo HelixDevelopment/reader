@@ -1,0 +1,10 @@
+# suites on the fixed tree (pre-commit, identical scripts to the commit)
+## test_build_evidence_manifest.sh
+== 67 passed, 0 failed
+rc=0
+## test_run_local_gates.sh
+== 17 passed, 0 failed
+rc=0
+## gofmt_clean.sh --self-test
+SELF-TEST PASS: clean accepted, misformat mutation rejected
+rc=0

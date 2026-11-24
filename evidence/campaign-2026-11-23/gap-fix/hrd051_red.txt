@@ -1,0 +1,9 @@
+## RED-1: manifest absent -> machine_evidence gate vacuous PASS (the gap)
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: PASS — no gate-evidence manifest declared at '/home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv' (nothing to validate, honest §11.4.201(1) vacuous case, §11.4.262)
+exit=0
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: SUMMARY ledger=/home/milosvasic/Projects/helix_reader/docs/claim_reality_ledger.tsv rows=36 fail=0
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: PASS — all 36 ledger row(s) typed from the closed vocabulary (§11.4.266(B))
+exit=0
+## RED-2: build --check on unbuilt ledger
+FAIL manifest /home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies
+ledger/manifest INCONSISTENT

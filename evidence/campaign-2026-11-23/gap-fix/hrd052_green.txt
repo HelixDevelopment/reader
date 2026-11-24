@@ -1,0 +1,17 @@
+## GREEN: gate against OUR root manifest
+✅ MATCH  containers: ref 22b4970 == gitlink 22b49707f9bb (submodules/containers)
+✅ MATCH  challenges: ref d94e554 == gitlink d94e55492f10 (submodules/challenges)
+✅ MATCH  helixqa: ref b16a089 == gitlink b16a0897d85e (submodules/helixqa)
+✅ MATCH  doc_processor: ref 12a5fb7 == gitlink 12a5fb76381a (submodules/doc_processor)
+✅ MATCH  llm_orchestrator: ref 8ee5795 == gitlink 8ee57956359c (submodules/llm_orchestrator)
+✅ MATCH  llm_provider: ref bd302c8 == gitlink bd302c8ab57d (submodules/llm_provider)
+✅ MATCH  llms_verifier: ref 94e666d == gitlink 94e666d416f0 (submodules/llms_verifier)
+✅ MATCH  security: ref 0513361 == gitlink 0513361e2f9c (submodules/security)
+✅ MATCH  vision_engine: ref 1b2b991 == gitlink 1b2b991c31d4 (submodules/vision_engine)
+----------------------------------------------------------------------
+✅ CM-HELIX-DEPS-REF-MATCHES-GITLINK: PASS — all 9 deps match their gitlinks
+exit=0
+## manifest-present, our root
+VERDICT: PASS (pass=21 fail=0 blind=0 skip_third_party=18 known=0)
+✅ CM-HELIX-DEPS-MANIFEST-PRESENT: PASS (root=.)
+exit=0
