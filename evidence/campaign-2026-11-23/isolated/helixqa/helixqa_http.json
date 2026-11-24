@@ -1,0 +1,350 @@
+{
+  "base_url": "http://127.0.0.1:38191",
+  "total_cases": 34,
+  "passed_cases": 32,
+  "failed_cases": 0,
+  "skipped_cases": 2,
+  "errored_cases": 0,
+  "cases": [
+    {
+      "id": "HLX-AUTH-001",
+      "name": "read API refuses missing and wrong Basic credentials and leaks no catalog content",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-AUTH-002",
+      "name": "OPDS 1.2, OPDS 2.0 and OPDS-PSE page streams share the Basic boundary",
+      "verdict": "PASS",
+      "http_steps": 5,
+      "passed_steps": 5,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-AUTH-003",
+      "name": "admin routes demand the exact bearer token and answer with the Helix error envelope",
+      "verdict": "PASS",
+      "http_steps": 5,
+      "passed_steps": 5,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-AUTH-004",
+      "name": "admin scan lifecycle reports the fixture library (4 works, 4 files) and the epub parse warning",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-001",
+      "name": "search for a title returns exactly that work with its edition and file digest",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-002",
+      "name": "a search with no match yields an empty page, not an error",
+      "verdict": "PASS",
+      "http_steps": 1,
+      "passed_steps": 1,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-003",
+      "name": "pagination reports total 4, honours limit/offset and flags has_next",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-004",
+      "name": "malformed query string and bad cursor are rejected with 400, never a silent first page",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-005",
+      "name": "work and edition lookups by id return the record, unknown ids return 404 envelopes",
+      "verdict": "PASS",
+      "http_steps": 5,
+      "passed_steps": 5,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-006",
+      "name": "file content download returns the exact stored bytes",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-007",
+      "name": "single Range requests are honoured with 206 and the exact byte slice",
+      "verdict": "PASS",
+      "http_steps": 8,
+      "passed_steps": 8,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-CAT-008",
+      "name": "cover and LCP license routes answer 404 envelopes for a file/edition that has none",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-001",
+      "name": "healthz reports status ok with an RFC3339 UTC time",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-002",
+      "name": "readyz reports ready when the catalog is attached",
+      "verdict": "PASS",
+      "http_steps": 1,
+      "passed_steps": 1,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-003",
+      "name": "formats registry lists epub and cbz with their real extensions and MIME types",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-004",
+      "name": "formats registry is public (no credentials needed) while the read API is not",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-005",
+      "name": "protocols registry advertises exactly the shipped source connectors",
+      "verdict": "PASS",
+      "http_steps": 1,
+      "passed_steps": 1,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-HLT-006",
+      "name": "request id is echoed on error envelopes and unknown routes are 404",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-001",
+      "name": "registration creates the user (201) and a duplicate is 402 with the KOReader message",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-002",
+      "name": "registration validates username shape, password length and JSON",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-003",
+      "name": "authorize accepts the right key and rejects wrong, missing and unknown credentials",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-004",
+      "name": "an unknown document answers 200 with an empty object (not 404)",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-005",
+      "name": "progress written by one device is read back field-for-field",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-KOS-006",
+      "name": "progress write rejects out-of-range percentage, missing fields and unauthenticated callers",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-001",
+      "name": "OPDS 1.2 navigation feed declares the catalog, search link and three subsections",
+      "verdict": "PASS",
+      "http_steps": 6,
+      "passed_steps": 6,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-002",
+      "name": "OPDS 1.2 acquisition feed for the comic carries acquisition and PSE stream links with count 3",
+      "verdict": "PASS",
+      "http_steps": 5,
+      "passed_steps": 5,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-003",
+      "name": "mixed-type and non-pageable archives are never promised a page stream",
+      "verdict": "PASS",
+      "http_steps": 3,
+      "passed_steps": 3,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-004",
+      "name": "OPDS 1.2 standalone entry and OPDS 2.0 publication describe the same edition",
+      "verdict": "PASS",
+      "http_steps": 7,
+      "passed_steps": 7,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-005",
+      "name": "OPDS 2.0 navigation and publications feeds follow the Readium/OPDS 2 shape",
+      "verdict": "PASS",
+      "http_steps": 6,
+      "passed_steps": 6,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-OPDS-006",
+      "name": "OpenSearch description points at the externally configured base URL",
+      "verdict": "PASS",
+      "http_steps": 2,
+      "passed_steps": 2,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-PSE-001",
+      "name": "OPDS-PSE streams each comic page as its exact bytes",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-PSE-002",
+      "name": "OPDS-PSE refuses out-of-range, non-integer, unknown and non-pageable requests with exact errors",
+      "verdict": "PASS",
+      "http_steps": 4,
+      "passed_steps": 4,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-WEB-001",
+      "name": "Library view lists the fixture titles from the live server",
+      "verdict": "SKIP",
+      "http_steps": 0,
+      "passed_steps": 0,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    },
+    {
+      "id": "HLX-WEB-002",
+      "name": "Search narrows the library to the matching title",
+      "verdict": "SKIP",
+      "http_steps": 0,
+      "passed_steps": 0,
+      "failed_steps": 0,
+      "skipped_steps": 0,
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+## RED (real llmctl lib, unit-like cgroup + ProtectSystem=full as in llmctl-llama@.service)
+refusing to start vision: cannot count the running llmctl units (cannot read the admission records (the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user)), so the model budget cannot be checked.
+rc=75
+## GREEN-in-scratch-copy (reserve.sh:586 accepts uid 65534; real llmctl NOT modified)
+rc=0
+## control: ls -ld /dev/shm host vs ProtectSystem=full
+0 1777 /dev/shm
+65534 1777 /dev/shm (in ProtectSystem=full unit)

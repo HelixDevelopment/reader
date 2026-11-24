@@ -1,0 +1,7 @@
+RESULT register                     ok=true status=true body={"username":"kp1795461760"}
+RESULT authorize(valid)             ok=true status=true body={"authorized":"OK"}
+RESULT authorize(wrong key)         ok=false status=false body={"error":"invalid username or password","request_id":"6dd8023ab2a4caa583acbe7031dece3c"}
+RESULT update_progress              ok=true status=200 body={"document":"b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0","timestamp":1795461760}
+RESULT get_progress                 ok=true status=true body={"device":"Helix Interop Probe","device_id":"dev-hrd026","document":"b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0","timestamp":1795461760,"progress":"\/body\/DocFragment[3]\/body\/p[12]\/text().5","percentage":0.4217}
+[dbg]	KOSyncClient:get_progress failure:	404 not expected
+RESULT get_progress(unknown doc)    ok=false status=false body=nil

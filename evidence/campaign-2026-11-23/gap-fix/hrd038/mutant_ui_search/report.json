@@ -1,0 +1,150 @@
+{
+  "bank": "Helix Reader web client",
+  "pass": 15,
+  "fail": 1,
+  "skip": 0,
+  "cases": [
+    {
+      "id": "HLX-WEB-001",
+      "name": "Library view lists the fixture titles from the live server",
+      "verdict": "PASS",
+      "steps": [
+        {
+          "name": "open client",
+          "action": "playwright: navigate http://127.0.0.1:4173/",
+          "verdict": "PASS",
+          "message": "navigated to http://127.0.0.1:4173/",
+          "screenshot": "HLX-WEB-001-step01.png",
+          "screenshot_sha256": "870411c4c169ca83367377e6dfc7118dcf54a4e854b8428e09f5f84cc022e0f0"
+        },
+        {
+          "name": "401 state shown",
+          "action": "playwright: waitFor role=alert",
+          "verdict": "PASS",
+          "message": "waited for role=alert",
+          "screenshot": "HLX-WEB-001-step02.png",
+          "screenshot_sha256": "870411c4c169ca83367377e6dfc7118dcf54a4e854b8428e09f5f84cc022e0f0"
+        },
+        {
+          "name": "open settings",
+          "action": "playwright: click role=button[name='Settings']",
+          "verdict": "PASS",
+          "message": "clicked role=button[name='Settings']",
+          "screenshot": "HLX-WEB-001-step03.png",
+          "screenshot_sha256": "84e1efcee21c04a3d3238a5c66d4cd8b48cb94f48f8d9c7f1f8eccc41f2354b3"
+        },
+        {
+          "name": "enter username",
+          "action": "playwright: fill input[autocomplete=username] hq-reader",
+          "verdict": "PASS",
+          "message": "filled input[autocomplete=username] with 9 chars",
+          "screenshot": "HLX-WEB-001-step04.png",
+          "screenshot_sha256": "70f0ce466f959f32f583948b26ee14be08c469ef93e483a1c41ad8f1a3091a77"
+        },
+        {
+          "name": "enter password",
+          "action": "playwright: fill input[type=password] hq-password",
+          "verdict": "PASS",
+          "message": "filled input[type=password] with 11 chars",
+          "screenshot": "HLX-WEB-001-step05.png",
+          "screenshot_sha256": "14a8582cdb910bc7ff6ac92ba4891397b0a23ae4771cf36856f50f33bae47650"
+        },
+        {
+          "name": "save",
+          "action": "playwright: click role=button[name='Save']",
+          "verdict": "PASS",
+          "message": "clicked role=button[name='Save']",
+          "screenshot": "HLX-WEB-001-step06.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "library heading",
+          "action": "playwright: waitFor role=heading[name='Library']",
+          "verdict": "PASS",
+          "message": "waited for role=heading[name='Library']",
+          "screenshot": "HLX-WEB-001-step07.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "comic card",
+          "action": "playwright: waitFor role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "waited for role=button[name='Open hq-comic']",
+          "screenshot": "HLX-WEB-001-step08.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "comic visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-comic']",
+          "screenshot": "HLX-WEB-001-step09.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "novel visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-novel']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-novel']",
+          "screenshot": "HLX-WEB-001-step10.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "mixed visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-mixed']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-mixed']",
+          "screenshot": "HLX-WEB-001-step11.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "notes visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-notes']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-notes']",
+          "screenshot": "HLX-WEB-001-step12.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        }
+      ]
+    },
+    {
+      "id": "HLX-WEB-002",
+      "name": "Search narrows the library to the matching title",
+      "verdict": "FAIL",
+      "steps": [
+        {
+          "name": "open client",
+          "action": "playwright: navigate http://127.0.0.1:4173/",
+          "verdict": "PASS",
+          "message": "navigated to http://127.0.0.1:4173/",
+          "screenshot": "HLX-WEB-002-step01.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "comic card",
+          "action": "playwright: waitFor role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "waited for role=button[name='Open hq-comic']",
+          "screenshot": "HLX-WEB-002-step02.png",
+          "screenshot_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb"
+        },
+        {
+          "name": "type query",
+          "action": "playwright: fill input[type=search] hq-comic",
+          "verdict": "PASS",
+          "message": "filled input[type=search] with 8 chars",
+          "screenshot": "HLX-WEB-002-step03.png",
+          "screenshot_sha256": "752c2094724c35f0e50799a89ac302d5c55a0976c07815128a232e1658ba4d0c"
+        },
+        {
+          "name": "other titles gone",
+          "action": "playwright: assertNotVisible role=button[name='Open hq-novel']",
+          "verdict": "FAIL",
+          "message": "playwright assertNotVisible role=button[name='Open hq-novel']: IS visible (expected hidden)",
+          "screenshot": "HLX-WEB-002-step04.png",
+          "screenshot_sha256": "752c2094724c35f0e50799a89ac302d5c55a0976c07815128a232e1658ba4d0c"
+        }
+      ]
+    }
+  ]
+}

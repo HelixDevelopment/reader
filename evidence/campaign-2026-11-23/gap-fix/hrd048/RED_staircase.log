@@ -1,0 +1,7 @@
+    soak_test.go:540: staircase_100B_per_iter run 0 not detected: slope=124.9 r2=0.792 growth=516592
+--- FAIL: TestSoakDetectorCatchesStaircaseLeaks (0.18s)
+    soak_test.go:551: goroutine_bursts run 2: confirmed false positive: [confirmed on second pass; first pass: goroutines grew by 19 goroutines grew by 5]
+--- FAIL: TestSoakDetectorNoFalsePositiveOnBurstyShapes (1.86s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	2.064s
+FAIL

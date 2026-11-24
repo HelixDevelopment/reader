@@ -1,0 +1,18 @@
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (0.19s)
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (0.27s)
+    soak_test.go:239: SOAK iterations=6000 samples=20 slope=8.23 B/iter steady_growth=33856 B goroutine_delta=0 heap_first=1288096 heap_last=1357968
+--- PASS: TestSoakServerRequestMixDoesNotLeak (1.06s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	1.535s
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (0.80s)
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (0.53s)
+    soak_test.go:239: SOAK iterations=6000 samples=20 slope=12.26 B/iter steady_growth=49224 B goroutine_delta=0 heap_first=1325768 heap_last=1422848
+--- PASS: TestSoakServerRequestMixDoesNotLeak (1.53s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	2.871s
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (0.42s)
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (0.77s)
+    soak_test.go:239: SOAK iterations=6000 samples=20 slope=11.61 B/iter steady_growth=45760 B goroutine_delta=0 heap_first=1314680 heap_last=1418104
+--- PASS: TestSoakServerRequestMixDoesNotLeak (2.01s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	3.219s

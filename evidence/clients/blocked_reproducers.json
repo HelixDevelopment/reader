@@ -1,0 +1,42 @@
+{
+  "captured_at": "2026-11-23T21:28:38+00:00",
+  "host": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+  "reproducers": [
+    {
+      "id": "windows",
+      "command": "bash -c 'case \"$(uname -s)\" in MINGW*|MSYS*|CYGWIN*) exit 0;; esac; echo \"host is $(uname -s), not Windows\"; wine --version; exit 1'",
+      "exit_code": 1,
+      "output": "host is Linux, not Windows\nbash: line 1: wine: command not found"
+    },
+    {
+      "id": "macos",
+      "command": "xcodebuild -version",
+      "exit_code": 127,
+      "output": "bash: line 1: xcodebuild: command not found"
+    },
+    {
+      "id": "ios",
+      "command": "xcrun --version",
+      "exit_code": 127,
+      "output": "bash: line 1: xcrun: command not found"
+    },
+    {
+      "id": "android-tv",
+      "command": "bash -c 'n=$(~/Android/Sdk/platform-tools/adb devices | grep -cw device); echo \"attached android devices: $n\"; ls ~/.android/avd | grep -ci tv; test \"$n\" -gt 0'",
+      "exit_code": 1,
+      "output": "attached android devices: 0\n0"
+    },
+    {
+      "id": "harmonyos",
+      "command": "hdc version",
+      "exit_code": 127,
+      "output": "bash: line 1: hdc: command not found"
+    },
+    {
+      "id": "aurora-os",
+      "command": "sfdk --version",
+      "exit_code": 127,
+      "output": "bash: line 1: sfdk: command not found"
+    }
+  ]
+}

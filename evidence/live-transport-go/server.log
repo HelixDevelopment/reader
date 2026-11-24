@@ -1,0 +1,5 @@
+{"time":"2026-11-24T17:27:32.413491501+01:00","level":"WARN","msg":"using volatile in-memory catalog; configure HELIX_POSTGRES_DSN for durable storage"}
+{"time":"2026-11-24T17:27:32.413679941+01:00","level":"INFO","msg":"TCP listener starting","address":"127.0.0.1:28443","tls":true}
+{"time":"2026-11-24T17:27:32.413981562+01:00","level":"INFO","msg":"HTTP/3 listener starting","address":"127.0.0.1:28443"}
+{"time":"2026-11-24T17:27:32.533050644+01:00","level":"WARN","msg":"http: TLS handshake error from 127.0.0.1:44272: tls: client offered only unsupported versions: [302 301]"}
+{"time":"2026-11-24T17:27:32.552419398+01:00","level":"INFO","msg":"shutdown requested","signal":"terminated"}

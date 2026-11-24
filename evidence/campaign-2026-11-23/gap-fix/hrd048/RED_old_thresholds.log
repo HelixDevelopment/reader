@@ -1,0 +1,5 @@
+--- FAIL: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (0.55s)
+    soak_test.go:148: heap leak of 256 B/iteration not detected: slope=283.2 r2=0.999 growth=1099104
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.574s
+FAIL

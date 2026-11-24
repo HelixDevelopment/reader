@@ -1,0 +1,119 @@
+VERDICT: NO-GO
+HEAD: 9aaf220c94056a97dd994e9dbe8f2f30cac8081d
+Round: 5 of max 5 (§11.4.276, last round of the budget). Reviewer: independent subagent (not the author, not the round-1..4 reviewers), Opus 5.5;
+effort not reported by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No container, no real podman, no GUI, no display. podman/docker/buildah = PATH stubs in mktemp dirs
+under ~/.cache/claude-tmp. Worktree: `git worktree add --detach ~/.cache/claude-tmp/wt-rev5e 9aaf220` (removed at the end; `git status --porcelain`
+empty after every mutant). Not exercised (UNCONFIRMED): test_network_isolation, test_runtime_checks, test_reaper, canary_probe live, every live runner.
+Head check: `git ls-remote github` -> 9aaf220c94056a97dd994e9dbe8f2f30cac8081d refs/heads/task/HRD-081-isolation-runner and refs/pull/5/head;
+gh pr view 5: OPEN, headRefOid 9aaf220c94056a97dd994e9dbe8f2f30cac8081d.
+Round-4 verdict file committed in 4896629 is byte-identical to the one read (sha256 b8142614...f7e9 both).
+
+=== (1) HERMETIC SUITES (clean worktree, stub podman first on PATH) ===
+  test_waivers 9 OK | test_guard_matrix OK "matrix: 253 caught of 253 required; residual documented: 12 uncaught [...], 0 unexpectedly caught []"
+  test_bindcheck 18 OK | test_proxy_policy 7 OK | test_review_round1 16 OK | round2 38 OK | round3 35 OK | round4 38 OK | guard 14 OK
+  assert_host_untouched.sh: "assert_host_untouched: PASS (0 finding(s); files scanned 493, symlinks 5 (outside repo 0))" rc=0
+  Matches the PR-body evidence line (14+13(253/253)+18+9+7+16+38+35+38, 493 files).
+  Trailers: `Roadmap-Item: HRD-081` present on all 9 commits github/main..9aaf220.
+  Seals: every SHA256SUMS under evidence/campaign-2026-11-23/isolated (root, guard, web, koreader, desktop, hardening, helixqa): `sha256sum -c` rc=0.
+
+=== ROUND-4 CLASSES: VERDICT PER CLASS ===
+R4-B1 (container-planted control artifacts): CLOSED for the post-run path. The --allow scan is now a real allow-list (SAFE_FILE/SAFE_DIR charset,
+  no leading dot at any component, ext in png jpg jpeg json jsonl log txt csv mp4 webm gif webp, md/html dropped), gitdir-shaped dirs refused,
+  checksum-manifest names refused, and seal_evidence.sh defaults to --allow --host-seal. Every runner that binds -w ends with `scan "$OUT" --allow`.
+  Adversarial matrix (mktemp sandboxes, safe_io.scan plain / --allow / seal_evidence.sh rc):
+    fullwidth .ｇit/config            plain=pass allow=REF seal=3      cyrillic Сlaude.txt          allow=REF seal=3
+    bidi RLO "shot‮gnp.txt"      allow=REF seal=3                 trailing dot "shot.png."     allow=REF seal=3
+    trailing space "shot.png "        allow=REF seal=3                 tab / é / 130-char names     allow=REF seal=3
+    SHA256SUMS.txt, sha256sums        allow=REF seal=3                 dir named x.png              allow=REF seal=3
+    bare repo HEAD+objects+refs (no config), mixed-case HeAd/Objects/Refs, top-level gitdir: plain=REF allow=REF seal=3
+    packed-refs                       allow=REF seal=3                 fifo / unix socket / hardlink / symlink: REF seal=3
+    sparse 3 GiB file                 REF ("file larger than 2147483648 bytes") seal=3
+    20005 files                       REF ("20001 files exceed the cap of 20000") seal=3 (stops at the cap, m4 fixed)
+  Pass (not git/agent significant on Linux; follow-up only): CON.txt / nul.png / AUX.log (Windows reserved names), nested a/b/c/d/x.png (legit),
+    Makefile.txt, deno.json (non-dot tool json: documented residual in doc 8.3), HEAD.txt + objects/ + refs/ (git needs exact HEAD).
+  Planted top-level SHA256SUMS: seal rc=0 because --host-seal skips it and `mv -f` replaces it; correct.
+R4-B2 (container bytes on the operator's terminal): CLOSED for the terminal. sanitize.py adversarial run (19 targeted + 300 random fuzz cases of
+  ESC/0x9b/0x9c/BEL/CR/[/]/\/P/C2 9D/DEL/NUL/E2 80 AE; residual check = any C0 except \t\n, DEL, UTF-8 C1, bidi/line-sep in the OUTPUT):
+    ESC split at the 64 KiB readline boundary -> residual [] | CSI split at boundary -> [] | "\r" overwrite -> two prefixed lines
+    OSC 52 BEL-terminated, OSC 2 ST-terminated, OSC unterminated at EOF, partial ESC at EOF -> [] | raw 8-bit 0x9b/0x9d -> U+FFFD, []
+    UTF-8 U+009B/U+009D -> removed | DCS with embedded CSI, SOS/PM/APC, ESC restarting inside OSC, ESC ESC ESC[ -> []
+    bidi RLO/LRI, U+2028, NEL, NUL/BS/DEL -> removed | env -i and LANG=C/LC_ALL=C -> rc 0, valid UTF-8 output | fuzz: "failures: 0"
+  run_container.sh attached with stub podman printing OSC 52 on stdout and OSC 2 on stderr, exiting 3: rc=3, stdout od -c
+    "[ c o n t a i n e r ]   x y \n [ c o n t a i n e r ]   e \n", stderr 0 bytes. Exit status preserved.
+  Path inventory: koreader D()/sink/redis/kosync text/ko logs sanitized; access_proxy logs method/path/UA percent-escaped, bodies json.dumps
+  (ensure_ascii), log_message() is a no-op, tracebacks go to access.log.errors (never printed, never published); start_server sends proxy
+  output to /dev/null and server output to $ST/server.log (not published); web/desktop container output goes through run_container's filter.
+  No remaining path from container bytes to a terminal without sanitize was found.
+R4-I2 (pipefail): FIXED (mutant K1 killed). R4-I3 (.SHA256SUMS*): FIXED.
+
+=== BLOCKING ===
+R5-B1. The R4-B2 fix changed the CONTRACT of run_container.sh's attached stdout (every line now "[container] "-prefixed, stderr merged into
+  stdout, one line capped at 4000 chars) without updating the consumers that PARSE that stdout. One consumer turns this into a false green
+  with evidence loss (§11.4 / §11.4.201 FAIL-mode: exit 0 while the evidence is gone):
+  run_helixqa_container.sh: `run_container.sh ... > helixqa_http.raw.txt 2> helixqa_http.stderr.txt; RC=$?` then a host python splits the raw
+  file at "\n{\n" into helixqa_http.txt/.json, then `rm -f raw.txt`, then `exit $RC`; the script is `set -u` only.
+  Reproduction (stub podman printing helixqa-shaped output "bank http-health: PASS\nsummary: 2 passed\n{\n  \"passed\": 2, ...}\n" on stdout
+  and a note on stderr, exit 0; the real tail of run_helixqa_container.sh from the run_container line to the end, binds/-p removed only because
+  bindcheck needs real paths, the pipe behaviour is identical):
+      raw.txt: "[container] bank http-health: PASS$ [container] summary: 2 passed$ [container] {$ [container]   \"passed\": 2,$ ..."
+      stderr.txt: 0 bytes (stderr merged into stdout by `2>&1 | sanitize.py`)
+      Traceback ... raw.index("\n{\n") ... ValueError: substring not found
+      "helixqa exit=0"   runner_rc=0
+      $OUT after the run: helixqa_http.exit helixqa_http.stderr.txt server_access.log   (no helixqa_http.json, no .txt, raw deleted)
+  A HelixQA bank run would now report success while publishing no bank results and deleting the only copy of the output.
+  Same root cause, fail-closed (RED, not green): the permanent network gate (F1) parses run_container stdout with `startswith("{")` /
+  `startswith("ADMIN:")`. canary_probe.probe() against a stub podman printing '{"127.0.0.1:22":"closed",...}' and 'ADMIN:{...}':
+      probe result: {}   stdout: ['[container] {"127.0.0.1:22":"closed",...}', '[container] ADMIN:{"read_ok":200}']   ADMIN lines found: []
+  so test_no_bridge_nothing_open / test_with_bridge_only_the_proxy_port_open (assertTrue(res)) and test_admin_routes_refused_* (assertTrue(line))
+  fail on any live run: the main isolation gate can no longer pass. test_review_round4 does not exercise either consumer (the author ran no
+  container-gated test; stated UNCONFIRMED in the PR body, but the breakage is visible by code reading).
+  The class: "a consumer of container output that parses run_container stdout". Fix: give run_container.sh an explicit raw-capture mode for
+  machine consumers (e.g. `-o FILE` / `-O FILE`: container stdout/stderr written raw to host-only files, only a sanitized copy to the
+  terminal), use it in run_helixqa_container.sh (keep stdout and stderr separate, no MAXLINE truncation of the JSON) and in canary_probe /
+  test_network_isolation (or strip the exact prefix there); make run_helixqa_container.sh fail when the split or the JSON parse fails (set -e
+  or check status before `rm -f raw`); add a hermetic test per consumer with a stub podman and a paired mutant.
+
+=== IMPORTANT (follow-up acceptable after B1) ===
+R5-I1. Lint class "global option between CLI and subcommand" is still regex adjacency, not tokenization (R4-I1 asked for tokenizing). Scratch
+  tree scripts/c.<ext>, g.scan():
+    CAUGHT: --root=/tmp/r, --log-level debug, two globals, docker --config X container run, line continuation, nerdctl --namespace,
+            env/sudo prefix, tab-separated, shell=True string with --url, -r run, --storage-driver X exec
+    MISSED: `podman --root "/tmp/a b" run -v /:/h img` (quoted value with space)
+            python list `["podman", "--root", "/tmp/r", "run", "-v", "/:/h", "img"]` (the list form of the very shape the round fixed)
+            JS `spawnSync("podman", ["--root","/x","run","-v","/:/h","img"])`
+            `docker compose run --rm svc`, `docker-compose up -d`, `podman-compose up -d`
+  The lint is documented as a static backstop behind the container boundary, so not blocking; add matrix entries.
+R5-I2. seal_evidence.sh's new default refuses outputs the project's own runners produce: run_helixqa_container.sh publishes
+  helixqa_http.exit (ext "exit", not allow-listed) and the committed helixqa evidence holds it (`scan --allow --host-seal` on
+  evidence/.../isolated/helixqa: "refused helixqa_http.exit: not an allow-listed publish type"). Doc 8.3 says "no runner uses
+  --host-authored"; re-sealing helixqa output now needs it (legitimate there: no rw bind). Rename to .txt or document.
+
+=== MINOR / FOLLOW-UP ===
+m1. Mutant S4 (bidi characters removed from _CTL) SURVIVED test_review_round4 and round3: bidi stripping is untested.
+m2. sanitize: a lone ESC eats the next printable char ("\x1b\x1b\x1b[31mred" -> "ed") - cosmetic text loss.
+m3. MAXLINE 4000 truncates any long single-line container output (machine JSON) - relevant to B1's fix.
+m4. Windows reserved names (CON.txt, nul.png, AUX.log) pass --allow; harmless on Linux, matters only for a Windows checkout.
+m5. Earlier m6 (SC2046 start_server.sh:17) still disclosed, harmless.
+
+=== OWN MUTANTS (applied in the worktree, test_review_round4 + round3 run, reverted; git status clean) ===
+  S1 sanitize OSC rx dropped -> KILLED   S2 C1 not stripped -> KILLED   S3 no prefix -> KILLED   S4 bidi not stripped -> SURVIVED (m1)
+  S5 "\r" not split -> KILLED   G1 gitdir_like always False -> KILLED   G2 sha256sums refusal off -> KILLED   G3 SAFE_DIR allows dots -> KILLED
+  G4 host-seal skip at any depth -> KILLED   G5 md back in ALLOW_EXT -> KILLED   R1 run_container exit 0 -> KILLED
+  R2 run_container sanitize pipe removed -> KILLED   K1 koreader pipefail removed -> KILLED   K2 koreader D() unsanitized -> KILLED
+  P1 proxy esc() identity -> KILLED   E1 seal default plain scan -> KILLED
+  15/16 killed.
+
+=== PR-BODY CLAIMS vs REALITY ===
+  "the post-run scan is an ALLOW-LIST ... used by seal_evidence.sh and every runner": true for every -w runner (helixqa has no rw bind).
+  "sanitize.py ... on every path where container bytes reach stdout, steps.log or evidence": true; but "attached run_container.sh (exit status
+  preserved)" omits that the stdout format changed for machine consumers -> R5-B1.
+  "Matrix 265 cases (253 required caught, 12 documented residuals)": confirmed. Suite counts and guard counts: confirmed.
+
+=== CONCLUSION ===
+The two round-4 classes are closed where they were defined: the post-run scan and the seal are a real allow-list (every adversarial name, kind,
+volume and git-dir shape tried is refused), and no container byte reaches the terminal unsanitized (300-case fuzz clean, every path inventoried).
+But the R4-B2 fix silently changed run_container.sh's stdout contract, and the HelixQA runner now exits 0 while publishing no results and
+deleting its raw output (reproduced), while the permanent network-isolation gate can no longer pass. That is a blocking false green introduced in
+this round. NO-GO. This was round 5 of 5: per §11.4.276(E)(3) the item STOPS here and goes to a recorded operator decision (re-scope, structural
+replacement, or a §11.4.271 waiver; a waiver may cover residual LOW items only, not R5-B1).

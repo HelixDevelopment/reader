@@ -1,0 +1,25 @@
+baseline on the copy: GREEN
+M1 gate skipped (unvalidated model used): KILLED
+M2 missing strings ignored: KILLED
+M3 forbidden strings ignored: KILLED
+M4 bad-control always 'rejected': KILLED
+M5 golden always PASS: KILLED
+M6 exit code always 0: KILLED
+M7 case-sensitive judge: KILLED
+M8 image sha not of the image: KILLED
+M9 endpoint pinning dropped: KILLED
+M10 model mismatch ignored: KILLED
+M13 bad-control not required: KILLED
+M14 token match degraded to substring: KILLED
+M15 verdict does not record endpoint: KILLED
+M16 duplicate (image, role) allowed: KILLED
+M17 empty golden must_contain allowed: KILLED
+M18 golden id not required: KILLED
+M19 duplicate golden id allowed: KILLED
+M20 control_of not validated: KILLED
+M21 expectation-less control allowed: KILLED
+M22 vacuous control accepted: KILLED
+M23 vacuity ignores must_not_contain: KILLED
+M24 controls judged before goldens: KILLED
+M25 vacuity checked against nothing: KILLED
+mutation: 23 mutants, 0 survived/invalid; working tree untouched

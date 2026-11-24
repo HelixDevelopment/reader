@@ -1,0 +1,24 @@
+=== RUN   TestAllPassIsOK
+--- PASS: TestAllPassIsOK (0.00s)
+=== RUN   TestSkipStepIsNeverPass
+--- PASS: TestSkipStepIsNeverPass (0.00s)
+=== RUN   TestOnePassPlusOneSkipIsNotOK
+--- PASS: TestOnePassPlusOneSkipIsNotOK (0.00s)
+=== RUN   TestNonPlaywrightStepIsSkipNotPass
+--- PASS: TestNonPlaywrightStepIsSkipNotPass (0.00s)
+=== RUN   TestExecutorSkippedOrBlockedIsSkip
+--- PASS: TestExecutorSkippedOrBlockedIsSkip (0.00s)
+=== RUN   TestFailStopsCaseAndIsNotOK
+--- PASS: TestFailStopsCaseAndIsNotOK (0.00s)
+=== RUN   TestEmptyBankIsNotOK
+--- PASS: TestEmptyBankIsNotOK (0.00s)
+=== RUN   TestAssertRetriesUntilTrueButClickDoesNot
+--- PASS: TestAssertRetriesUntilTrueButClickDoesNot (0.40s)
+=== RUN   TestAssertRetryIsBounded
+--- PASS: TestAssertRetryIsBounded (0.60s)
+=== RUN   TestScreenshotRecordedPerExecutedStep
+--- PASS: TestScreenshotRecordedPerExecutedStep (0.00s)
+=== RUN   TestCheckedInBankHasNoSkipAndOnlyPlaywright
+--- PASS: TestCheckedInBankHasNoSkipAndOnlyPlaywright (0.00s)
+PASS
+ok  	helixreader/webrunner	1.009s

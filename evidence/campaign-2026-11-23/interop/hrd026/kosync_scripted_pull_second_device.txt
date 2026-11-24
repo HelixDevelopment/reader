@@ -1,0 +1,11 @@
+# 2026-11-23T21:09:52Z KOReader v2026.07 real kosync client + real partialMD5, device A push, device B pull (no GUI, no window)
+RESULT register                     ok=true status=true body={"username":"<user>"}
+RESULT authorize(valid)             ok=true status=true body={"authorized":"OK"}
+RESULT authorize(wrong key)         ok=false status=false body={"error":"invalid username or password","request_id":"304130b62666d63225649fa700cab886","message":"invalid username or password"}
+RESULT partialMD5(/home/milosvasic/.cache/claude-tmp/claude-1000/-home-milosvasic-Projects-helix-reader/4783d69d-a063-560b-d52a-4fcb6adc6609/scratchpad/i/lib/sample.epub) = af00b1716a8ea20bc7f1108c8358c4a3
+RESULT update_progress              ok=true status=200 body={"timestamp":1795468192,"document":"af00b1716a8ea20bc7f1108c8358c4a3"}
+RESULT get_progress                 ok=true status=true body={"percentage":0.4217,"device":"Helix Interop Probe","device_id":"dev-hrd026","document":"af00b1716a8ea20bc7f1108c8358c4a3","timestamp":1795468192,"progress":"\/body\/DocFragment[3]\/body\/p[12]\/text().5"}
+RESULT get_progress(unknown doc)    ok=true status=true body={}
+RESULT register(duplicate)          ok=false status=false body={"error":"Username is already registered.","request_id":"7ca1743f0c0ede40d6d7f7f077aa91ed","message":"Username is already registered."}
+--- device B (separate process, no shared state) pulling:
+RESULT pull device=second-device doc=af00b1716a8ea20bc7f1108c8358c4a3 ok=true body={"progress":"\/body\/DocFragment[3]\/body\/p[12]\/text().5","percentage":0.4217,"device":"Helix Interop Probe","device_id":"dev-hrd026","document":"af00b1716a8ea20bc7f1108c8358c4a3","timestamp":1795468192}

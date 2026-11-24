@@ -1,0 +1,5 @@
+## verify_report on real green evidence
+verify_report: 0 defect(s)
+## verify_report on a copy with one screenshot overwritten (RED)
+FAIL HLX-WEB-001-step05.png: sha256 differs from the report
+verify_report: 1 defect(s)

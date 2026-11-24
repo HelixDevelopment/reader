@@ -1,0 +1,2 @@
+OLD predicate on 'tools/isolation/evil.sh': line exempt = True   <- RED: any file under tools/isolation/ is exempt by a trailing comment
+NEW lint on the same tree: ['denylist-marker-unpinned', 'xdotool-family'] -> FAIL

@@ -1,0 +1,38 @@
+== isolation gate --full  2026-11-23T22:17:48Z
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.643s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.895s
+
+OK
+
+matrix: 83 caught of 83 required; residual documented: 5 uncaught ['RESIDUAL_chr_built_name', 'RESIDUAL_hex_decoded_name', 'RESIDUAL_command_from_file', 'RESIDUAL_config_driven', 'RESIDUAL_unlisted_tool'], 0 unexpectedly caught []
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.171s
+
+OK
+test_bridge_really_reaches_upstream (test_network_isolation.NetworkIsolation.test_bridge_really_reaches_upstream) ... ok
+test_no_bridge_nothing_open (test_network_isolation.NetworkIsolation.test_no_bridge_nothing_open) ... ok
+test_with_bridge_only_the_proxy_port_open (test_network_isolation.NetworkIsolation.test_with_bridge_only_the_proxy_port_open) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.424s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 6.779s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 25.753s
+
+OK
+assert_host_untouched: PASS (0 finding(s); files scanned 598, symlinks 16 (outside repo 0))
+exit=0
