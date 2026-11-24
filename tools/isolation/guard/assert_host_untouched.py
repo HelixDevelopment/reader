@@ -22,8 +22,8 @@ import os, re, subprocess, sys, hashlib, datetime, fnmatch
 
 SCAN_EXT = {".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".lua", ".go", ".rb", ".pl", ".php", ".ps1",
             ".bat", ".cmd", ".yaml", ".yml", ".json", ".toml", ".mk", ".service", ".desktop", ".kt", ".kts", ".gradle", ".java", ".c", ".cc",
-            ".cpp", ".rs", ".dockerfile", ".txt", ".html", ".htm"}
-DATA_EXT = {".json", ".yaml", ".yml", ".toml", ".txt", ".html", ".htm"}          # prose-ish: only the data-safe rule subset applies
+            ".cpp", ".rs", ".dockerfile", ".txt", ".html", ".htm", ".env"}
+DATA_EXT = {".json", ".yaml", ".yml", ".toml", ".txt", ".html", ".htm", ".env"}          # prose-ish: only the data-safe rule subset applies
 SCRIPT_EXT = {".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".rb", ".pl", ".php", ".ps1", ".bat", ".cmd", ".gradle", ".kts"}
 SCAN_NAMES = {"Makefile", "makefile", "GNUmakefile", "justfile", "Taskfile", "Dockerfile", "Containerfile", "Vagrantfile", "Procfile"}
 PROMPT_DIRS = (".claude/agents/", ".claude/commands/", ".claude/skills/", "prompts/")
@@ -79,15 +79,18 @@ QEMU = re.compile(CMD + r"(?:\S*/)?qemu(?:-system-[\w]+|-kvm)?\s")
 TOOLS = ["xdotool", "ydotool", "dotool", "wtype", "wmctrl", "xclip", "xsel", "wl-copy", "wl-paste", "scrot", "maim", "grim", "import", "xdg-open",
          "notify-send", "scrcpy", "gnome-screenshot", "flameshot", "spectacle", "xte", "xinput", "xrandr", "dbus-send", "gdbus", "busctl", "qdbus",
          "chromium", "chromium-browser", "google-chrome", "firefox", "electron", "gio", "xwininfo", "xdpyinfo", "xvkbd"]
-CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b")
+CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
+VARCMD = re.compile(r"\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
 ESCAPES = re.compile(
     r"--(?:net|network)(?:=|\s+)(?!none\b)[^\s-]|--(?:net|network)(?:=|\s+)--|--privileged\b|--(?:pid|ipc|userns|uts|cgroupns)(?:=|\s+)host\b|"
     r"--cap-add\b|--security-opt(?:=|\s+)(?!no-new-privileges)[^\s-]|--device(?:=|\s+)(?!/dev/kvm\b)[^\s-]|map-host-loopback|allow_host_loopback|"
     r"--(?:volumes-from|mount)\b(?![^\n]*type=(?:tmpfs|volume))|--(?:group-add|uidmap|gidmap|ulimit\s+memlock|sysctl)\b[^\n]*host|"
     r"(?:^|\s)(?:-v|--volume)(?:=|\s*)(?:/|~|\$HOME|\$\{HOME\}|\$XDG|\$\{XDG|\$PWD/\.\.|\$\(pwd\)/\.\.|\$\{PWD\}/\.\.|\.\.)|"
     r"(?:-v|--volume|--mount)(?:=|\s*)\S*(?:/\.\.(?:/|:|,|\s|$))|"
-    r"(?:--mount)(?:=|\s*)\S*(?:source|src)=(?:/|~|\$)")
-KUBE = re.compile(r"\b(?:podman|docker)\s+(?:kube\s+play|play\s+kube|compose\s+up|machine\s+ssh|system\s+service|--remote|-H\s|--host\s)|\bpodman\s+--(?:url|connection)\b")
+    r"(?:--mount)(?:=|\s*)\S*(?:source|src)=(?:/|~|\$)|"
+    r"volume-opt\b|--env-file\b|--gpus\b|--hooks-dir\b|--annotation\b|host-gateway|"
+    r"(?:^|\s)(?:-p|--publish)(?:=|\s*)(?:0\.0\.0\.0:|\[::\]:|\d+:\d+(?:/\w+)?(?:\s|$))|--publish-all\b")
+KUBE = re.compile(r"\b(?:podman|docker)\s+volume\s+create\b[^\n]*(?:--opt\b|\s-o\b)|\b(?:podman|docker)\s+(?:kube\s+play|play\s+kube|compose\s+up|machine\s+ssh|system\s+service|--remote|-H\s|--host\s)|\bpodman\s+--(?:url|connection)\b")
 
 def _union(labels):
     return re.compile("|".join(("(?i:%s)" if rx.flags & re.I else "(?:%s)") % rx.pattern for l, rx in RULES if rx is not None and (labels is None or l in labels)))
@@ -388,7 +391,7 @@ def scan(root, include_submodules=False, stats=None):
                     if any(rx.search(b) and not _benign(label, b) for b in views):
                         fh.append((rel, n, label, text.strip()[:160]))
             low = nb.lower()
-            if not any(w in low for w in _CMDWORDS) and "kube" not in low and "qemu" not in low and "emulator" not in low and "isolation" not in low and not (shell and _GLOBCH.search(nb)):
+            if not any(w in low for w in _CMDWORDS) and not VARCMD.search(nb) and "kube" not in low and "qemu" not in low and "emulator" not in low and "isolation" not in low and not (shell and _GLOBCH.search(nb)):
                 continue
             if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in views) or (kind == "code" and any(KUBE.search(b) for b in views)):
                 fh.append((rel, n, "container-escape", text.strip()[:160]))

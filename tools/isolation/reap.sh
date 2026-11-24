@@ -15,8 +15,11 @@ while read -r name; do
   case $lease in ''|*[!0-9]*) continue ;; esac            # unknown age: fail safe, leave it alone
   [ $((now - lease)) -lt "$GRACE" ] && continue
   stale=0
-  if [ -n "$pid" ] && [ "$pid" != "<no value>" ]; then kill -0 "$pid" 2>/dev/null || stale=1; fi
-  if [ -n "$file" ] && [ "$file" != "<no value>" ]; then { [ -f "$file" ] && kill -0 "$(cat "$file")" 2>/dev/null; } || stale=1; fi
+  # dead = kill -0 fails with ESRCH ("No such process"). EPERM means the pid exists (another user's process): NOT dead, fail safe.
+  dead() { local e; case $1 in ''|*[!0-9]*) return 1;; esac
+    e=$(LC_ALL=C kill -0 "$1" 2>&1) && return 1; case $e in *"No such process"*) return 0;; *) return 1;; esac; }
+  if [ -n "$pid" ] && [ "$pid" != "<no value>" ]; then dead "$pid" && stale=1; fi
+  if [ -n "$file" ] && [ "$file" != "<no value>" ]; then if [ -f "$file" ]; then dead "$(cat "$file")" && stale=1; else stale=1; fi; fi
   if [ "$stale" = 1 ]; then podman rm -f "$name" >/dev/null 2>&1 && { echo "reaped $name"; n=$((n+1)); }; fi
 done < <(podman ps -a --filter label=org.helix.isolation --format '{{.Names}}')
 echo "reaper: $n stale container(s) removed"

@@ -26,8 +26,15 @@ while getopts "dn:m:c:t:i:b:p:r:w:e:" o; do case $o in
   *) exit 2;; esac; done; shift $((OPTIND-1)); [ "${1:-}" = -- ] && shift
 [ $# -gt 0 ] || { echo "no command" >&2; exit 2; }
 case $NAME in hrdiso-*|hrdisorev-*) ;; *) echo "run_container: name must start with hrdiso-" >&2; exit 64;; esac
-for b in "${ENVS[@]:-}"; do case $b in
-  *DISPLAY=*|*WAYLAND*|*XAUTHORITY*|*DBUS*|*XDG_RUNTIME_DIR*|*XDG_SESSION*|*SSH_AUTH_SOCK*) echo "run_container: refusing host display/session env: $b" >&2; exit 64;; esac; done  # isolation: denylist
+# env passthrough is refused BY NAME (a bare name makes podman copy the HOST value); only explicit NAME=VALUE with a plain name is accepted
+for b in "${ENVS[@]:-}"; do [ -z "$b" ] && continue; [ "$b" = -e ] && continue; n=${b%%=*}; N=${n^^}
+  case $b in *=*) ;; *) echo "run_container: env must be explicit NAME=VALUE (a bare name passes the host value through): $b" >&2; exit 64;; esac
+  case $n in ''|[0-9]*|*[!A-Za-z0-9_]*) echo "run_container: invalid env name: $n" >&2; exit 64;; esac
+  case $N in DISPLAY*|*_DISPLAY|WAYLAND*|XAUTHORITY*|*DBUS*|XDG_*|SSH_AUTH_SOCK|SSH_*|PULSE*|PIPEWIRE*|GNOME_*|KDE_*|GTK_*|QT_QPA*|DESKTOP_SESSION|SESSION_MANAGER|GPG_AGENT*|GDK_*) echo "run_container: refusing host display/session env: $n" >&2; exit 64;; esac; done  # isolation: denylist
+case $IMG in -*|*[!A-Za-z0-9_./:@-]*|'') echo "run_container: invalid image name: $IMG" >&2; exit 64;; esac
+case $MEM in *[!0-9kKmMgG]*|'') echo "run_container: invalid -m $MEM" >&2; exit 64;; esac
+case $CPUS in *[!0-9.]*|'') echo "run_container: invalid -c $CPUS" >&2; exit 64;; esac
+case $LIFE in *[!0-9]*|'') echo "run_container: invalid -t $LIFE" >&2; exit 64;; esac
 OWNER=$$; [ ${#DETACH[@]} -eq 0 ] || OWNER=$PPID   # detached: the runner exits at once, so the caller owns the container
 LAUNCH=(sh /opt/isoinside/launch.sh)
 if [ -n "$BRIDGE" ]; then

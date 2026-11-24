@@ -1,0 +1,84 @@
+VERDICT: NO-GO
+HEAD: 23c03b0e859727a6e03eed70d36fde6cc4b65773
+Reviewer: independent subagent (not the author), Opus 5.5; effort not reported by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No podman, no container, no GUI started. podman/reaper probes used a PATH stub in the
+reviewer scratchpad that never calls real podman. Not exercised: test_network_isolation, test_runtime_checks, test_reaper (need podman).
+
+Head check: git ls-remote github refs/pull/5/head = 23c03b0e...; worktree HEAD = same; worktree clean before review.
+
+=== BLOCKING ===
+B1. The shipped gate fails on the PR's own tree.
+    `python3 -I tools/isolation/guard/assert_host_untouched.py .` -> rc=1, FAIL (3 findings):
+      waivers.txt:13/14/15 FORBIDDEN[waiver-orphan] clients/{android,desktop,web}/node_modules/.../xdg-open does not exist
+    test_waivers.py: FAILED (failures=1), same 3 orphans. clients/ is not tracked in this PR (0 files), so every clean clone of
+    main after merge has a red gate. It passes in the operator's main checkout only because clients/ is present there untracked.
+    Waiver design itself is sound (exact path, sha256 pin, expiry <= 366 d, history record, orphan = fatal). Keep orphan fatal.
+    Fix: move the 3 clients/ waive rows (and their waivers.history records) to the PR that adds clients/. Do not make orphans
+    non-fatal: an orphan pin is exactly the stale-exemption signal the design wants.
+B2. bindcheck lets ISO_WORK cover the repository when the repo lives under a dedicated root (~/.cache/claude-tmp, as every agent
+    worktree does). Then rw binds of the repo's own host-executed tooling are accepted:
+      ISO_WORK=<repo> bindcheck.py rw <repo>/tools/isolation /work/t -> rc=0 (prints the path)
+      ISO_WORK=<repo> bindcheck.py rw <repo>/qa /work/t               -> rc=0
+    A container could then rewrite run_container.sh / the guard / qa runners that the host executes next. The PR's own test says
+    this must be refused and FAILS in this checkout:
+      test_bindcheck.py: FAIL test_iso_work_must_be_absolute_canonical_dedicated_and_not_sensitive (iso=<repo>/evidence) "unexpectedly None"
+    Fix: iso_error must refuse an ISO_WORK that is inside or an ancestor of the repo (realpath), and the rw allow-list must never
+    contain a repo path other than a fresh evidence/ subdirectory.
+
+=== IMPORTANT ===
+I1. run_container.sh env denylist matches `*DISPLAY=*` only. `-e DISPLAY` (bare name: podman copies the HOST value) passes the
+    runner (stub run: rc=66 at the image check, i.e. env check passed), while `-e DISPLAY=:0` is refused (rc=64). Header claims the
+    runner "refuses host display/session env". Mitigated, not closed: launch.sh refuses DISPLAY != :99 (exit 65), --network none and
+    a private /tmp keep the X socket out. Fix: refuse by NAME (strip '=...' and match the name), and refuse bare names generally.
+    Also not denied: PULSE_SERVER, PIPEWIRE_*, GNOME_*/KDE_* (launch.sh checks GNOME_DESKTOP_SESSION_ID only).
+I2. Clean-clone dependencies are not stated as absent. Measured: tracked files = 0 for clients/, qa/helixqa, evidence/clients;
+    submodules/containers is pinned at 22b49707 whose images/ has no gui-test (main checkout shows `?? images/gui-test/` untracked).
+    docs/test-isolation.md section 5 tells the reader to `podman build ... submodules/containers/images/gui-test` with no note
+    that the directory does not exist at the pin. launch.sh relies on image facts (Xvfb :99, empty /run/user) that are therefore
+    unreviewable in this PR. Fail-closed check: missing image -> run_container exit 66 (observed with stub); missing qa/helixqa ->
+    make_fixtures exit 70; no path falls back to the host. Fix: add a "Not in this PR / clean-clone prerequisites" list to the doc
+    and land gui-test in the containers submodule (own PR, pin bump) before claiming the runner usable.
+I3. Lint gaps (direct podman use outside the runner; adversarial matrix, 29 inputs, 21 caught). NOT flagged:
+      podman run --rm --mount type=volume,src=x,dst=/a,volume-opt=device=/home/milosvasic,volume-opt=o=bind img sh
+        (the ESCAPES negative look-ahead `(?![^\n]*type=(?:tmpfs|volume))` exempts any type=volume, including a local-driver bind)
+      podman run --rm --env-file host.env img sh      (and host.env itself: `.env` files are not scanned at all; classify -> None)
+      docker run --rm --gpus all img sh
+      podman run --rm --hooks-dir /x img sh          (OCI hooks execute on the host)
+      P=podman; $P run --privileged img sh           (variable command word)
+      podman run --rm -p 0.0.0.0:6000:6000 img sh / --add-host x:host-gateway / --annotation ... (lower risk)
+    Caught (refused): --pid=host, --ipc=host, --userns=host, --uts=host, --cgroupns=host, --cap-add SYS_ADMIN, --device /dev/dri,
+    -v /tmp/../home/milosvasic:/h, -v rel/../../..:/h, -v "$HOME":/h, --mount type=bind,src=/home/x,..., --mount=type=bind,source=/,
+    --network pasta, --net=container:abc, allow_host_loopback, --security-opt label=disable / seccomp=unconfined, -e DISPLAY (lint).
+    The lint is honestly scoped as a lint; still add these to the matrix as required or documented-residual entries.
+I4. run_android_emulator.sh is outside the boundary: default network (not --network none), no --timeout, no org.helix.isolation /
+    owner / lease labels (so the reaper never collects it), `adb connect` on the host adb server. Documented as UNVERIFIED; it should
+    at least carry --timeout + lease labels, and the doc should state it is not covered by the --network none guarantee.
+
+=== MINOR ===
+M1. bindcheck checks ':' ',' in the SOURCE STRING, not in the resolved path. A symlink in ISO_WORK to a dir named `weird:` returns
+    rc=0 and prints `<D>/weird:`; the runner then builds `-v <D>/weird::/work:ro`. Real podman behaviour UNCONFIRMED (most likely a
+    format error, i.e. fail closed). Fix: apply the same charset check to the resolved path.
+M2. TOCTOU: a parent component can be swapped for a symlink between bindcheck and podman (needs a concurrent host-side writer).
+M3. -i IMAGE is not validated (`-i --privileged` reaches `podman image exists --privileged`; with the stub it fails closed, exit 66;
+    real podman behaviour UNCONFIRMED). Refuse images starting with '-'.
+M4. reap.sh treats kill -0 EPERM (pid reused by another user) as dead; only affects our own containers. Reaper scoping otherwise
+    proven with a stub: of hrdiso-dead, other-dead, hrdiso-nolabel, hrdiso-young, hrdiso-live, hrdisorevX only hrdiso-dead removed.
+M5. Proxy forwards query strings and double-encoded paths unchanged (/healthz?x=http://169.254.169.254, /opds/x%252e%252e/ ALLOW);
+    harmless because the upstream host/port are fixed by the host and absolute-form/authority requests are refused.
+
+=== VERIFIED OK (pasted results) ===
+- test_guard_matrix: 13 tests OK; "177 caught of 177 required; residual documented: 10 uncaught ...".
+- guard/test_assert_host_untouched: 14 tests OK.  test_proxy_policy: 7 tests OK.
+- Proxy SSRF probe (both policies), all DENIED: http://[::1]:5432/healthz, http://169.254.169.254/latest/meta-data,
+  http://0x7f.1/healthz, http://2130706433/healthz, //169.254.169.254/healthz, /opds/%2e%2e/v1/sources, /opds/..%2fv1/admin,
+  /opds/x/../../v1/admin, CONNECT 169.254.169.254:80, /opds/%00, lowercase `get`, DELETE /opds/x, POST /v1/sources (common).
+  No redirect following (http.client), upstream fixed from argv: SSRF to host loopback/link-local/metadata is structurally impossible.
+- bindcheck refused: /tmp/../home/milosvasic, qa/../../.., `qa,ro=false`, symlink to $HOME, dst /work/, /work/../etc,
+  `/work,bind-propagation=rshared`, /opt/isoinside/../x, /optx, rw of ISO_WORK root, rw evidence root, ~/.ssh.
+- Evidence seal: `sha256sum -c --quiet SHA256SUMS` rc=0, 77 entries / 77 files; SHA256SUMS sha256 ba6e0c3c... matches the commit body.
+- Secrets: no Bearer/Basic token values, no ADMIN=/OPDS_PASS=/hq-password in the evidence tree; hits are prose only.
+- Trailers: `Roadmap-Item: HRD-081` parsed by git interpret-trailers.
+
+=== REQUIRED FOR GO ===
+B1 and B2 fixed with tests (B2: a case for ISO_WORK = repo root and ISO_WORK inside the repo, independent of where the repo lives);
+I1 fixed; I2 documented. I3/I4 tracked as items if not fixed here.

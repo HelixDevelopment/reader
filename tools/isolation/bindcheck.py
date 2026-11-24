@@ -48,7 +48,7 @@ def touches_sensitive(real, home):
             return rs
     return None
 
-def iso_error(iso, home):
+def iso_error(iso, home, repo=None):
     if not os.path.isabs(iso):
         return "ISO_WORK must be an absolute path"
     if posixpath.normpath(iso) != iso:
@@ -61,6 +61,10 @@ def iso_error(iso, home):
     t = touches_sensitive(iso, home)
     if t:
         return f"ISO_WORK overlaps the sensitive path {t}"
+    if repo:   # the repo's host-executed tooling must never become writable: ISO_WORK may be neither the repo, inside it, nor an ancestor of it
+        rr = os.path.realpath(repo)
+        if inside(iso, rr) or inside(rr, iso):
+            return f"ISO_WORK {iso} is the repository {rr}, inside it, or an ancestor of it: the container could rewrite host-executed tooling"
     return None
 
 def fresh_error(real, now, fresh_secs):
@@ -81,15 +85,17 @@ def fresh_error(real, now, fresh_secs):
 def check(mode, src, dst, repo, env=os.environ, bridge=False, now=None):
     """-> error string, or None when the bind is allowed (resolved path: resolve(src))."""
     home = home_of()
+    repo = os.path.realpath(repo)
     iso = env.get("ISO_WORK")
     if iso:
-        e = iso_error(iso, home)
+        e = iso_error(iso, home, repo)
         if e:
             return e
     if any(c in src for c in ":,\n\r\0") or not src:
         return "source contains ':' ',' or a control character"
     real = os.path.realpath(src)
-    repo = os.path.realpath(repo)
+    if any(c in real for c in ":,\n\r\0"):
+        return "resolved source contains ':' ',' or a control character (symlink target would inject mount options)"
     ro = [f"{repo}/clients", f"{repo}/qa", f"{repo}/tools/isolation", f"{repo}/submodules/containers/images",
           os.path.join(home, ".cache/ms-playwright"), "/usr/lib/koreader"]
     ev = os.path.realpath(f"{repo}/evidence")

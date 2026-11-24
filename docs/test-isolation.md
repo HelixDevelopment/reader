@@ -178,6 +178,20 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
 
 ## 5. How to run each suite
 
+**Clean-clone prerequisites that are NOT in this repository state (stated plainly).** On a fresh clone of `main` with this
+change merged, the runners cannot work until all of these land (each in its own PR): (1) `submodules/containers/images/gui-test`
+does not exist in the containers submodule pin `22b49707`; it is untracked in the operator's checkout, so the image
+`localhost/helix-gui-test:1` cannot be built from a clean clone and `launch.sh`'s assumptions about the image (Xvfb `:99`, empty
+`/run/user`) cannot be reviewed from this repository; (2) `clients/` (web, desktop, android), (3) `qa/helixqa/` (banks, fixtures)
+and (4) `evidence/clients/` are untracked in this PR; (5) `submodules/containers/docs/RESOURCE_LIMITS.md`, cited in section 3,
+is not verified to exist in the pin. Behaviour without them is fail-closed, never a fallback to the host: a missing image makes
+`run_container.sh` exit **66**; a missing `qa/helixqa` makes `run_helixqa_container.sh` stop with a non-zero status (the review observed 70 with a stub; the script itself sets no code, `python3` exits 2 for a missing file: exact code UNCONFIRMED); a refused
+bind, name or env exits 64. The runner is therefore not usable end to end from a clean clone yet.
+
+Waiver ownership: the three `waive` rows for `clients/{android,desktop,web}/node_modules/.../xdg-open` (third-party npm shims)
+are NOT in this PR (an orphan waiver is fatal by design, and `clients/` is absent here). They belong to the PR that adds
+`clients/` and must be added there with `pin_waivers.py add waive ...`.
+
 Prerequisites (once): `podman build -t localhost/helix-gui-test:1 submodules/containers/images/gui-test`; a helix-server
 binary (`HELIX_SERVER_BIN`); `export ISO_WORK=$HOME/.cache/claude-tmp/<dedicated-dir>` (state, fixtures, profiles; must lie strictly inside `~/.cache/claude-tmp` or `~/.cache/helix-iso`); Playwright
 browsers in `~/.cache/ms-playwright`.
@@ -190,7 +204,7 @@ browsers in `~/.cache/ms-playwright`.
 * Desktop: `qa/isolation/run_desktop_live.sh $ISO_WORK/st <out>` (server as for web).
 * HelixQA HTTP banks: `qa/isolation/run_helixqa_container.sh <out>` (`HELIXQA_BIN` = `CGO_ENABLED=0 go build ./cmd/helixqa`).
 * HelixQA web bank: `tests/helixqa_web/run_web_bank.sh` (HRD-038, not run or modified here).
-* Android: `tools/isolation/run_android_emulator.sh start|adb|stop` (section 6).
+* Android: no runner in this PR (section 6).
 * Evidence manifest: `tools/isolation/seal_evidence.sh <dir>` (atomic `SHA256SUMS`).
 
 ## 6. Android (canonical recipe)
@@ -198,9 +212,11 @@ browsers in `~/.cache/ms-playwright`.
 Verified by another agent (`evidence/clients/android/run-20261123T211340Z/`): AVD `default` (API 34, google_apis, x86_64)
 from `ghcr.io/vasic-digital/lava-android-emulator:api34-x86_64`, own rootless container, `--device /dev/kvm
 --userns=keep-id`, `-no-window -no-audio`, no host display, `adb connect` to the mapped loopback port, a logging proxy for
-server access. `tools/isolation/run_android_emulator.sh` encodes that recipe (UNVERIFIED as a script: not executed by the
-isolation work). The emulator needs its own published adb port, so it does not use the `--network none` wrapper; it must
-never be given the host-loopback map. The guard treats `emulator ... -no-window` as the allowed pattern.
+server access. A script for that recipe was REMOVED from this PR (review round 1, finding I4): it ran outside the `--network none`
+boundary (published adb port, host adb server), without `--timeout` and without the lease labels the reaper needs, so it could
+not honestly be called isolated. Android emulator runs are therefore NOT covered by the guarantees of this document until a
+wrapper with explicit, reviewed network allowance, `--timeout` and `org.helix.*` labels lands (tracked under HRD-022 / HRD-040).
+The guard treats `emulator ... -no-window` as the allowed pattern.
 
 ## 7. HelixQA and the Vision oracle
 
@@ -211,6 +227,10 @@ here: DOM/accessibility assertions, HTTP bodies, server-side sink records (acces
 redis), pixel probes of KOReader's rendered pages.
 
 ## 8. Known limits
+
+* TOCTOU (review M2): `bindcheck.py` hands podman the RESOLVED path, which closes a swap of the leaf, but a parent component
+  could still be replaced by a symlink between the check and podman's mount if a concurrent host-side writer exists. Not
+  closed; mitigated only by `ISO_WORK` being a dedicated directory no other process should write.
 
 * Chromium's own sandbox is OFF for the Electron run: with it on, Electron fails to launch in the unprivileged rootless
   container (`hardening/desktop_sandbox_attempt.log`; `--cap-add SYS_ADMIN` is not acceptable). Evidence therefore says
