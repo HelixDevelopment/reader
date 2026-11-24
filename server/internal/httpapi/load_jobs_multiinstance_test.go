@@ -549,10 +549,7 @@ type miEvidence struct {
 
 func miWriteEvidence(t *testing.T, addr, redisVersion string, single, multi miPhaseMetrics) {
 	t.Helper()
-	dir := filepath.Join("..", "..", "..", "evidence", "campaign-2026-11-20", "multi-instance")
-	if err := os.MkdirAll(dir, 0o755); err != nil {
-		t.Fatalf("evidence dir: %v", err)
-	}
+	dir := freshEvidenceDir(t)
 	admissionCapsHold := true
 	for _, p := range []miPhaseMetrics{single, multi} {
 		for _, peak := range p.PeakRunning {

@@ -68,6 +68,8 @@ const (
 	soakStepGrowth    = 256 << 10
 	soakStepR2        = 0.50
 	soakGoroutineSlop = 3
+	// soakMaxIterations caps HELIX_SOAK_ITERS.
+	soakMaxIterations = 200000
 )
 
 // fit returns the least-squares slope per sample and R^2.
@@ -125,6 +127,15 @@ func runSoak(iterations int, workload func(i int)) soakResult {
 			sample()
 		}
 	}
+	analyzeSoak(&res, step)
+	res.FinishedAt = time.Now().UTC()
+	return res
+}
+
+// analyzeSoak applies the leak gates to the sampled series in res (HeapBytes,
+// Goroutines) taken every step iterations. It is separate from runSoak so each
+// gate can be tested against synthetic series.
+func analyzeSoak(res *soakResult, step int) {
 	res.Samples = len(res.HeapBytes)
 	// Steady state: discard the first 30% (caches, pools, lazy init).
 	skip := res.Samples * 3 / 10
@@ -143,8 +154,6 @@ func runSoak(iterations int, workload func(i int)) soakResult {
 		res.Leaked = true
 		res.Reasons = append(res.Reasons, fmt.Sprintf("goroutines grew by %d", res.GoroutineDelta))
 	}
-	res.FinishedAt = time.Now().UTC()
-	return res
 }
 
 // runSoakConfirmed runs the soak and, only if it flags a leak, runs it AGAIN on
@@ -162,7 +171,12 @@ func runSoakConfirmed(iterations int, workload func(i int)) soakResult {
 }
 
 func soakIterations() int {
+	// Bounded both ways: below 200 the detector has too few samples; above
+	// soakMaxIterations a typo could occupy the host for hours (§12).
 	if v, err := strconv.Atoi(os.Getenv("HELIX_SOAK_ITERS")); err == nil && v >= 200 {
+		if v > soakMaxIterations {
+			return soakMaxIterations
+		}
 		return v
 	}
 	return 6000
@@ -220,7 +234,10 @@ func TestSoakServerRequestMixDoesNotLeak(t *testing.T) {
 	tr := &http.Transport{DisableCompression: true}
 	client := &http.Client{Transport: tr}
 	defer tr.CloseIdleConnections()
-	get := func(path, rng, method string) {
+	// Every request of the mix asserts its expected status and a body needle:
+	// a server answering 404 for everything must FAIL here, not "not leak".
+	const fixtureBody = "0123456789"
+	get := func(path, rng, method string, wantStatus int, check func(body []byte) string) {
 		req, _ := http.NewRequest(method, server.URL+path, nil)
 		if rng != "" {
 			req.Header.Set("Range", rng)
@@ -229,29 +246,49 @@ func TestSoakServerRequestMixDoesNotLeak(t *testing.T) {
 		if err != nil {
 			t.Fatalf("%s %s: %v", method, path, err)
 		}
-		buf := make([]byte, 4096)
-		for {
-			if _, err := resp.Body.Read(buf); err != nil {
-				break
-			}
-		}
+		body, err := io.ReadAll(resp.Body)
 		resp.Body.Close()
+		if err != nil {
+			t.Fatalf("%s %s: read body: %v", method, path, err)
+		}
+		if resp.StatusCode != wantStatus {
+			t.Fatalf("%s %s: status %d, want %d (body %.80q)", method, path, resp.StatusCode, wantStatus, body)
+		}
+		if msg := check(body); msg != "" {
+			t.Fatalf("%s %s: %s (body %.80q)", method, path, msg, body)
+		}
+	}
+	contains := func(needle string) func([]byte) string {
+		return func(b []byte) string {
+			if !strings.Contains(string(b), needle) {
+				return "body lacks " + strconv.Quote(needle)
+			}
+			return ""
+		}
+	}
+	equals := func(want string) func([]byte) string {
+		return func(b []byte) string {
+			if string(b) != want {
+				return "body differs from " + strconv.Quote(want)
+			}
+			return ""
+		}
 	}
 	n := soakIterations()
 	res := runSoakConfirmed(n, func(i int) {
 		switch i % 6 {
 		case 0:
-			get("/v1/works", "", http.MethodGet)
+			get("/v1/works", "", http.MethodGet, http.StatusOK, contains(`"w1"`))
 		case 1:
-			get("/v1/works/w1", "", http.MethodGet)
+			get("/v1/works/w1", "", http.MethodGet, http.StatusOK, contains(`"w1"`))
 		case 2:
-			get("/v1/files/f1/content", "", http.MethodGet)
+			get("/v1/files/f1/content", "", http.MethodGet, http.StatusOK, equals(fixtureBody))
 		case 3:
-			get("/v1/files/f1/content", "bytes=2-5", http.MethodGet)
+			get("/v1/files/f1/content", "bytes=2-5", http.MethodGet, http.StatusPartialContent, equals(fixtureBody[2:6]))
 		case 4:
-			get("/v1/files/f1/content", "", http.MethodHead)
+			get("/v1/files/f1/content", "", http.MethodHead, http.StatusOK, equals(""))
 		case 5:
-			get("/opds/1.2/publications", "", http.MethodGet)
+			get("/opds/1.2/publications", "", http.MethodGet, http.StatusOK, contains("Book"))
 		}
 	})
 	t.Logf("SOAK iterations=%d samples=%d slope=%.2f B/iter steady_growth=%d B goroutine_delta=%d heap_first=%d heap_last=%d",
@@ -424,6 +461,11 @@ func TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses(t *testing.T) {
 // helpers? Fire 50 concurrent ranged requests at an rclone source, sample the
 // peak helper count, require every body correct and zero stragglers.
 func TestRcloneConcurrentRangePeakProcesses(t *testing.T) {
+	// Spawns up to 50 rclone helper processes: opt-in only (§12.12), never on a
+	// plain `go test`.
+	if os.Getenv("HELIX_SOAK_RCLONE_PROBE") != "1" {
+		t.Skip("feature_disabled_by_config: HELIX_SOAK_RCLONE_PROBE is not 1; concurrency probe opted out")
+	}
 	fx := newRemoteFixture(t, "rclone")
 	tr := &http.Transport{DisableCompression: true, MaxIdleConnsPerHost: 64}
 	client := &http.Client{Transport: tr}

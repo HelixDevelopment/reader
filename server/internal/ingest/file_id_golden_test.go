@@ -3,10 +3,10 @@ package ingest
 import "testing"
 
 // Drift guard for catalog.currentFileID, a copy of fileID (catalog cannot
-// import ingest). The first two vectors are byte-for-byte the ones pinned in
-// catalog.TestHRDCurrentFileIDGoldenVector; the rest were computed with an
-// independent implementation (Python hashlib) and pin case-sensitivity,
-// length-prefix unambiguity and unicode handling. If fileID changes, this
+// import ingest). The vector table is identical to the one pinned in
+// catalog.TestHRDCurrentFileIDGoldenVector (all 17 vectors); the expected values
+// were derived with an independent implementation (Python hashlib) for a
+// sample that includes case-sensitivity, length-prefix unambiguity and unicode. If fileID changes, this
 // test fails; update catalog.currentFileID and its vectors in the same change.
 func TestFileIDGoldenVectors(t *testing.T) {
 	for _, v := range [][3]string{

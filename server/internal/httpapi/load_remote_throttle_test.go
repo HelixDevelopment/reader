@@ -52,37 +52,37 @@ import (
 	"github.com/helixreader/helix/server/internal/sources"
 )
 
-// remoteLoadEvidencePath resolves the evidence output path for the remote-load
-// harnesses. go test runs the binary with cwd = the package directory
-// (server/internal/httpapi), while the campaign evidence lives at the repo
-// root; walk up to the first directory containing an "evidence" folder.
-func remoteLoadEvidencePath(t *testing.T, rel string) string {
+// freshEvidenceDir returns a fresh directory for this run's live-harness
+// evidence. Recorded evidence is frozen, so a live run never writes into a
+// tracked path: HELIX_LOAD_EVIDENCE_DIR names the directory (it must be missing
+// or empty), otherwise a new os.MkdirTemp directory is used. The path is logged.
+func freshEvidenceDir(t *testing.T) string {
 	t.Helper()
-	wd, err := os.Getwd()
-	if err != nil {
+	dir := os.Getenv("HELIX_LOAD_EVIDENCE_DIR")
+	if dir == "" {
+		d, err := os.MkdirTemp("", "helix-load-evidence-")
+		if err != nil {
+			t.Fatal(err)
+		}
+		t.Logf("evidence directory: %s", d)
+		return d
+	}
+	if entries, err := os.ReadDir(dir); err == nil && len(entries) > 0 {
+		t.Fatalf("HELIX_LOAD_EVIDENCE_DIR %s is not empty; refusing to overwrite recorded evidence", dir)
+	}
+	if err := os.MkdirAll(dir, 0o755); err != nil {
 		t.Fatal(err)
 	}
-	for {
-		if fi, err := os.Stat(filepath.Join(wd, "evidence")); err == nil && fi.IsDir() {
-			return filepath.Join(wd, rel)
-		}
-		parent := filepath.Dir(wd)
-		if parent == wd {
-			return rel
-		}
-		wd = parent
-	}
+	t.Logf("evidence directory: %s", dir)
+	return dir
 }
 
-// setRemoteLoadOutput points HELIX_LOAD_OUTPUT at the per-harness evidence
-// file, creating the campaign directory if needed.
+// setRemoteLoadOutput points HELIX_LOAD_OUTPUT at the per-harness evidence file
+// (base name of rel) inside a fresh evidence directory, overriding any
+// operator-supplied HELIX_LOAD_OUTPUT so a tracked file is never appended to.
 func setRemoteLoadOutput(t *testing.T, rel string) {
 	t.Helper()
-	path := remoteLoadEvidencePath(t, rel)
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		t.Fatal(err)
-	}
-	t.Setenv("HELIX_LOAD_OUTPUT", path)
+	t.Setenv("HELIX_LOAD_OUTPUT", filepath.Join(freshEvidenceDir(t), filepath.Base(rel)))
 }
 
 const throttleSourceID = "load-remote-throttle"

@@ -192,3 +192,5 @@ runs through the route (client → route → `sources.NewRclone`).
   `remote_rclone_ladder.jsonl`.
 - Prior campaign unchanged: `evidence/campaign-2026-11-20/remote/`
   (282↔282 requests, `origin_ranged = 0`, 5/5 needle gates).
+
+Redaction note (round 2): the operator home-directory prefix in remote_rclone_ladder.jsonl was replaced by /home/<user>/ (temp-dir paths only; no measurement value changed).
