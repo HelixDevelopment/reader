@@ -18,7 +18,7 @@ base is opened with O_NOFOLLOW relative to a directory fd, so no path component 
          txt md html csv mp4 webm gif webp); the runners use it on the evidence dir before anything is sealed.
   caps   scan refuses a tree with more than MAX_FILES files, more than MAX_TOTAL bytes in total, one file above MAX_FILE bytes or more than
          MAX_DEPTH levels (env SAFE_IO_MAX_FILES / _TOTAL / _FILE / _DEPTH override; a malformed value is itself a refusal).
-usage: safe_io.py scan DIR [--allow] | put DIR NAME (data on stdin) | copy SRCBASE SRCREL DSTDIR DSTNAME [--max N] | first BASE REL GLOB
+usage: safe_io.py scan DIR [--allow [--host-seal]] | put DIR NAME (data on stdin) | copy SRCBASE SRCREL DSTDIR DSTNAME [--max N] | first BASE REL GLOB
 BASE / DIR arguments are trusted host paths (not under container control); REL / NAME are names, never '..'.
 exit: 0 ok, 1 refused (message on stderr), 2 usage."""
 import fnmatch, os, re, stat, sys
@@ -29,15 +29,32 @@ MAX_DEFAULT = 64 * 1024 * 1024
 # ---- the ONE deny table (imported by bindcheck.py: pre-run bind check and post-run scan share it) ----
 DENY_EXACT = frozenset({".git", ".gitattributes", ".gitmodules", ".gitignore", ".gitconfig", ".git-credentials", ".git-hooks", ".githooks", ".husky",
                         ".hooks", "hooks", ".specify", "claude.md", "agents.md", "gemini.md", "qwen.md", ".mcp.json", ".envrc", ".direnv",
-                        ".vscode", ".idea", ".cursorrules", ".pre-commit-config.yaml", ".npmrc", ".pypirc", ".netrc"})
-DENY_PREFIX = (".claude", ".cursor", ".aider", ".gemini", ".qwen", ".codex", ".windsurf")
+                        ".vscode", ".idea", ".cursorrules", ".pre-commit-config.yaml", ".npmrc", ".pypirc", ".netrc",
+                        # round 4: agent / tool instruction and config files that are NOT dot-named (dot-names are refused wholesale by the strict scan)
+                        "claude.local.md", "agent.md", "crush.md", "conventions.md", "copilot-instructions.md", "opencode.json", "crush.json",
+                        "settings.json", "settings.local.json", "package.json", "tsconfig.json", "makefile", "justfile", "conftest.py"})
+DENY_PREFIX = (".claude", ".cursor", ".aider", ".gemini", ".qwen", ".codex", ".windsurf", ".github", ".opencode", ".crush", ".kimi", ".pi", ".roo", ".continue",
+               ".junie", ".amazonq", ".kiro")
 
 def deny_name(n):
     """True for a git / agent / tool control artifact name (case-insensitive: a case-folding file system must not hide one)."""
     ln = n.lower()
     return ln in DENY_EXACT or ln.startswith(DENY_PREFIX)
 
-ALLOW_EXT = frozenset({"png", "json", "jsonl", "log", "txt", "md", "html", "csv", "mp4", "webm", "gif", "webp"})
+# round 4 (class R3-B1/R4-B1): the post-run scan of a container-written tree is an ALLOW-LIST, not a name list. A name is publishable only when it matches
+# SAFE_FILE / SAFE_DIR (no leading dot or dash, no escape bytes / newlines / spaces, <= 128 chars) AND has an extension in ALLOW_EXT. `md` and `html` are NOT on
+# the list: a container-authored .md can be an agent instruction file and a container-authored .html runs its script when the operator opens it in the host
+# browser; no runner publishes either (the runners' output is png / log / json / jsonl / txt / mp4). Directories use SAFE_DIR (no dots at all).
+ALLOW_EXT = frozenset({"png", "jpg", "jpeg", "json", "jsonl", "log", "txt", "csv", "mp4", "webm", "gif", "webp"})
+SAFE_FILE = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9._-]{0,127}$")
+SAFE_DIR = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_-]{0,127}$")
+HOST_SEAL = "SHA256SUMS"                 # the one host-written name: only at the top level and only when scan is called by seal_evidence (--host-seal)
+
+def gitdir_like(names):
+    """True when a directory's entry names make git accept it as a (bare) git dir or a linked-worktree / module dir: HEAD with objects|refs, config with
+    objects|refs, or any commondir / gitdir / worktrees entry. An embedded bare repository needs no `.git` name (round-4 R4-B1a)."""
+    n = {x.lower() for x in names}
+    return bool(({"head", "config"} & n and {"objects", "refs"} & n) or {"commondir", "gitdir", "worktrees", "info"} & n and {"head", "objects", "refs", "config"} & n)
 CAP_DEFAULTS = {"FILES": 20000, "TOTAL": 4 * 1024 ** 3, "FILE": 2 * 1024 ** 3, "DEPTH": 12}
 
 def caps(env=None):
@@ -143,7 +160,7 @@ def put(dirpath, name, data, mode=0o644):
         os.close(d)
 
 
-def scan(dirpath, allow=False, env=None):
+def scan(dirpath, allow=False, env=None, host_seal=False):
     """-> list of problems below dirpath (deny-table names, links, special files, hard-linked files, over-cap volume; with allow=True also
     non-allow-listed extensions); [] when clean. Nothing below dirpath is ever opened for reading, hashed or executed here."""
     cp, bad = caps(env)
@@ -152,16 +169,29 @@ def scan(dirpath, allow=False, env=None):
     def walk(fd, prefix, depth):
         if depth > cp["DEPTH"]:
             bad.append(f"{prefix}: deeper than {cp['DEPTH']} levels"); return
-        for e in os.listdir(fd):
-            if len(bad) > 200:
+        names = os.listdir(fd)
+        if gitdir_like(names):
+            bad.append(f"{prefix or './'}: looks like a git directory (HEAD/config with objects/refs): a host git run inside it would read its config"); return
+        for e in names:
+            if len(bad) > 200 or count[0] > cp["FILES"]:       # stop at the file cap: the refusal is already certain (round 4, m4)
                 return
             try:
                 st = os.lstat(e, dir_fd=fd)
             except OSError as ex:
                 bad.append(f"{prefix}{e}: {ex.strerror}")
                 continue
+            if host_seal and depth == 0 and e == HOST_SEAL and stat.S_ISREG(st.st_mode):
+                if st.st_nlink != 1:
+                    bad.append(f"{e}: hard link (count {st.st_nlink})")
+                continue                     # the one host-written name; seal_evidence replaces it atomically and never hashes it
             if deny_name(e):
                 bad.append(f"{prefix}{e}: git/agent/tool control artifact (deny table)")
+                continue
+            if allow and e.lower().lstrip(".").startswith("sha256sums"):
+                bad.append(f"{prefix}{e!r}: a checksum-manifest name planted in a container-written tree (it would sit outside the seal)")
+                continue
+            if allow and not (SAFE_DIR if stat.S_ISDIR(st.st_mode) else SAFE_FILE).match(e):
+                bad.append(f"{prefix}{e!r}: name outside the publish allow-list charset (leading dot or dash, escape byte, newline, space or too long)")
                 continue
             if stat.S_ISDIR(st.st_mode):
                 try:
@@ -216,8 +246,8 @@ def first(base, rel, pattern):
 
 def main(argv):
     try:
-        if argv[1:2] == ["scan"] and (len(argv) == 3 or (len(argv) == 4 and argv[3] == "--allow")):
-            bad = scan(argv[2], allow=len(argv) == 4)
+        if argv[1:2] == ["scan"] and (len(argv) == 3 or (len(argv) == 4 and argv[3] == "--allow") or (len(argv) == 5 and argv[3:] == ["--allow", "--host-seal"])):
+            bad = scan(argv[2], allow=len(argv) >= 4, host_seal=len(argv) == 5)
             for b in bad:
                 print(f"safe_io: refused {b}", file=sys.stderr)
             return 1 if bad else 0

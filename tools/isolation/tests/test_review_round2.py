@@ -112,7 +112,7 @@ class B1SafeIo(Scratch):
         try:
             os.symlink(self.victim, os.path.join(self.out, "s")); self.assertEqual(py(f, "scan", self.out).returncode, 0)
         finally: shutil.rmtree(t, ignore_errors=True)
-        t, f = mutated_copy("seal_evidence.sh", 'python3 -I "$HERE/safe_io.py" scan "$D" || {', "true || {")
+        t, f = mutated_copy("seal_evidence.sh", 'python3 -I "$HERE/safe_io.py" "${SCAN[@]}" || {', "true || {")
         try: self.assertEqual(subprocess.run([str(f), self.out], capture_output=True, text=True).returncode, 0)
         finally: shutil.rmtree(t, ignore_errors=True)
     def test_mutant_container_proof_plain_open(self):
@@ -330,7 +330,7 @@ class I2LintClass(unittest.TestCase):
             self.assertTrue(g.scan(d))                                                                    # content changed after the pin: void
         finally: shutil.rmtree(d, ignore_errors=True)
     def test_mutant_without_class_rule_misses_the_odd_flags(self):
-        src = self.G.read_text(); old = 'if kind == "code" and any(CONTAINER_USE.search(b) for b in views):'
+        src = self.G.read_text(); old = 'if kind == "code" and any(CONTAINER_USE.search(b) for b in cviews):'
         self.assertIn(old, src); t = tempfile.mkdtemp(prefix="i2m-", dir=CT)
         try:
             p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, "if False:"))

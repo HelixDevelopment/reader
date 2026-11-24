@@ -62,9 +62,15 @@ fi
 podman image exists "$IMG" || { echo "image $IMG missing; build: podman build -t $IMG submodules/containers/images/gui-test" >&2; exit 66; }
 "$HERE/reap.sh" >/dev/null || true
 [ -z "$PROOF" ] || { python3 -I "$HERE/container_proof.py" "$NAME" "$PROOF" >/dev/null 2>&1 & }
-exec podman run "${DETACH[@]}" --rm --name "$NAME" --network none --timeout "$LIFE" \
+RUN=(podman run "${DETACH[@]}" --rm --name "$NAME" --network none --timeout "$LIFE" \
   --memory "$MEM" --memory-swap "$MEM" --cpus "$CPUS" --pids-limit 512 --oom-score-adj 500 \
   --cap-drop ALL --security-opt no-new-privileges --userns=keep-id --shm-size 512m \
-  --tmpfs /tmp:rw,size=512m --ulimit fsize=2147483648:2147483648 --label org.helix.isolation=gui-test --label "org.helix.owner-pid=$OWNER" --label "org.helix.lease-ts=$(date +%s)" \
+  --tmpfs "/tmp:rw,size=512m" --ulimit fsize=2147483648:2147483648 --label org.helix.isolation=gui-test --label "org.helix.owner-pid=$OWNER" --label "org.helix.lease-ts=$(date +%s)" \
   -v "$REPO/qa/isolation/inside:/opt/isoinside:ro" \
-  "${BINDS[@]}" "${ENVS[@]}" "$IMG" "${LAUNCH[@]}" -- "$@"
+  "${BINDS[@]}" "${ENVS[@]}" "$IMG" "${LAUNCH[@]}" -- "$@")
+# review round 4 (R4-B2): in ATTACHED mode the container's stdout/stderr are container-controlled bytes: they pass through sanitize.py (terminal sequences removed,
+# every line prefixed "[container] ") before they reach the operator's terminal, a tee or a log; podman's exit status is preserved via PIPESTATUS.
+# Detached mode prints only the container id (host-generated) and keeps the exec.
+if [ ${#DETACH[@]} -gt 0 ]; then exec "${RUN[@]}"; fi
+"${RUN[@]}" 2>&1 | python3 -I "$HERE/sanitize.py"
+exit "${PIPESTATUS[0]}"

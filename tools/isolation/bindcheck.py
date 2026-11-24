@@ -80,6 +80,8 @@ def hostile_tree_error(real):
     """-> reason when the tree below `real` holds a deny-table name, any symlink, fifo/device/socket or hard-linked file, or is too big to certify."""
     n = 0
     for dp, dn, fn in os.walk(real, followlinks=False):
+        if safe_io.gitdir_like(dn + fn):
+            return f"{dp} looks like a git directory (HEAD/config with objects/refs): a host git run inside it would read its config"
         for name in dn + fn:
             n += 1
             if n > SCAN_LIMIT:

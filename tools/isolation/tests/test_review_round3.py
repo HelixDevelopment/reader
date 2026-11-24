@@ -253,7 +253,7 @@ class Harness(Scratch):
         for n in ("run_koreader_gui.sh", "run_web_live.sh", "run_desktop_live.sh"): shutil.copy(ROOT / "qa/isolation" / n, os.path.join(T, "qa/isolation", n))
         for n, body in (("run_koreader_gui.sh", ko), ("run_web_live.sh", web), ("run_desktop_live.sh", desk)):
             if body is not None: open(os.path.join(T, "qa/isolation", n), "w").write(body)
-        shutil.copy(ISO / "fresh_out.sh", os.path.join(T, "tools/isolation/fresh_out.sh")); shutil.copy(ISO / "safe_io.py", os.path.join(T, "tools/isolation/safe_io_real.py"))
+        shutil.copy(ISO / "fresh_out.sh", os.path.join(T, "tools/isolation/fresh_out.sh")); shutil.copy(ISO / "safe_io.py", os.path.join(T, "tools/isolation/safe_io_real.py")); shutil.copy(ISO / "sanitize.py", os.path.join(T, "tools/isolation/sanitize.py"))
         shim = textwrap.dedent('''\
             import os, sys
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -305,8 +305,11 @@ class M5M6Koreader(Harness):
         s = (ROOT / "qa/isolation/run_koreader_gui.sh").read_text(); old = 'evidence is tainted" >&2; exit 1; }'; self.assertIn(old, s)
         self.build(ko=s.replace(old, 'evidence is tainted" >&2; }', 1)); r = self.run_script("run_koreader_gui.sh", [self.out], SHIM_SCAN_FAIL="1"); self.assertEqual(r.returncode, 0)
     def test_planted_control_artifacts_in_profile_never_reach_the_evidence_dir_and_scan_uses_allow_list(self):
-        self.build(); r = self.run_script("run_koreader_gui.sh", [self.out]); self.assertEqual(r.returncode, 0)
         self.assertIn('scan "$OUT" --allow', (ROOT / "qa/isolation/run_koreader_gui.sh").read_text())
+        self.build(); r = self.run_script("run_koreader_gui.sh", [self.out]); self.assertEqual(r.returncode, 0)                              # clean run publishes
+        for plant in ('mkdir -p "$W/n/.git" "$W/n/.claude"; echo x > "$W/n/.git/config"', 'echo x > "$W/CLAUDE.md"', 'echo x > "$W/run.sh"'):   # round 4: it really plants now
+            self.build(); r = self.run_script("run_koreader_gui.sh", [self.out], PLANT=plant)
+            self.assertEqual(r.returncode, 1, (plant, r.stdout + r.stderr)); self.assertIn("evidence is tainted", r.stderr)
     def test_redis_key_loop_is_quoted_and_read_line_based(self):
         t = (ROOT / "qa/isolation/run_koreader_gui.sh").read_text(); self.assertNotIn("for k in $(", t); self.assertIn("| while IFS= read -r k", t); self.assertIn('redis-cli type -- "$k"', t)
 

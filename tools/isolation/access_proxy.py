@@ -15,6 +15,11 @@ logfile.bodies JSON lines for KOSync routes (/syncs/*, /users/*): request + resp
                x-auth-* headers are never logged; JSON fields named password/userkey/key/token are replaced by "<redacted>"."""
 import sys, os, re, json, socket, posixpath, http.client, threading, datetime, traceback
 from urllib.parse import unquote
+
+def esc(s):
+    """container-controlled text (request method / path) as it is written to the host logs: every byte outside printable ASCII (ESC, CR, LF, NUL, DEL, high bytes)
+    becomes %XX, so a request line can neither carry a terminal sequence into a log the operator later `cat`s or tees, nor forge a log line (review round 4)."""
+    return "".join(c if "!" <= c <= "~" else "".join("%%%02X" % b for b in c.encode("utf-8", "replace")) for c in str(s))
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 
 MAX_BODY = 8 * 1024 * 1024
@@ -92,7 +97,7 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data))); self.send_header("Connection", "close"); self.end_headers()
         if self.command != "HEAD": self.wfile.write(data)
         with lock, open(logf, "a") as f:
-            f.write(f"{datetime.datetime.now(datetime.timezone.utc).isoformat()} {self.command} {self.path.split('?')[0]} -> {status} DENIED:{msg}\n")
+            f.write(f"{datetime.datetime.now(datetime.timezone.utc).isoformat()} {esc(self.command)} {esc(self.path.split('?')[0])} -> {status} DENIED:{esc(msg)}\n")
     def handle_any(self):
         try:
             self._handle()
@@ -125,15 +130,15 @@ class H(BaseHTTPRequestHandler):
             if k.lower() not in HOP and k.lower() != "content-length": self.send_header(k, v)
         self.send_header("Content-Length", str(len(data))); self.end_headers()
         if self.command != "HEAD": self.wfile.write(data)
-        path = self.path.split("?")[0]
+        path = esc(self.path.split("?")[0])
         ts = datetime.datetime.now(datetime.timezone.utc).isoformat()
         auth = "yes" if (self.headers.get("Authorization") or self.headers.get("x-auth-user")) else "no"
         with lock:
             with open(logf, "a") as f:
-                f.write(f"{ts} {self.command} {path} -> {r.status} bytes={len(data)} auth={auth} ua={self.headers.get('User-Agent')!r}\n")
+                f.write(f"{ts} {esc(self.command)} {path} -> {r.status} bytes={len(data)} auth={auth} ua={esc(self.headers.get('User-Agent'))!r}\n")
             if path.startswith(("/syncs", "/users")):
                 with open(BODYLOG, "a") as f:
-                    f.write(json.dumps({"ts": ts, "method": self.command, "path": path, "status": r.status,
+                    f.write(json.dumps({"ts": ts, "method": esc(self.command), "path": path, "status": r.status,
                                         "request_body": redact(body) if body else None, "response_body": redact(data) if data else None}) + "\n")
     do_GET = do_POST = do_PUT = do_DELETE = do_HEAD = do_OPTIONS = handle_any
 

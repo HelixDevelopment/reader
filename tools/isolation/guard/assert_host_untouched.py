@@ -83,7 +83,21 @@ TOOLS = ["xdotool", "ydotool", "dotool", "wtype", "wmctrl", "xclip", "xsel", "wl
 # ("a runtime call that bypasses run_container.sh"). Command-position anchored so prose and identifiers do not match.
 RUNTIME_EXTRA = (r"(?:^|[\s;&|(`'\"=/{}])(?:podman-remote\s+\S|buildah\s+(?:run|bud|build)\b|runc\s+(?:run|exec|create|start)\b|lxc\s+(?:exec|launch|start|shell|run)\b|"
                  r"lxc-(?:execute|attach|start|create)\b|(?:apptainer|singularity)\s+(?:run|exec|shell|instance)\b|distrobox(?:-enter|-create|\s+(?:enter|create|run))\b|"
-                 r"toolbox\s+(?:run|enter|create)\b|flatpak\s+run\b|systemd-run\b|bwrap\b|nsenter\b|unshare\b|chroot\b)")
+                 r"toolbox\s+(?:run|enter|create)\b|flatpak\s+run\b|systemd-run\b|bwrap\b|nsenter\b|unshare\b|chroot\b|"
+                 r"crun\s+(?:run|exec|create|start)\b|incus\s+(?:exec|launch|start|shell|run)\b|ctr\s+(?:\S+\s+)*?(?:run|exec|start)\b|kubectl\s+(?:run|exec|debug|attach|cp)\b|"
+                 r"firejail\b|toolbx\s+(?:run|enter|create)\b|systemd-nspawn\b|machinectl\s+(?:shell|login|start)\b|flatpak-spawn\b|multipass\s+(?:exec|shell|launch)\b|"
+                 r"limactl\s+(?:shell|start)\b|vagrant\s+(?:ssh|up)\b|host-spawn\b|ch-run\b|"
+                 r"(?:podman|docker|nerdctl)\s+(?:container\s+runlabel|pod\s+create|start\b[^\n]*\s(?:-a|--attach)\b))|"
+                 # Python / JS list form: the runtime word as the first list element ("distrobox", "enter", ...)
+                 r"[\"']\s*(?:podman-remote|buildah|runc|crun|lxc|incus|ctr|kubectl|apptainer|singularity|distrobox|toolbox|toolbx|flatpak|flatpak-spawn|systemd-run|systemd-nspawn|machinectl|"
+                 r"bwrap|nsenter|unshare|chroot|firejail|multipass|limactl|vagrant|host-spawn|ch-run)\s*[\"']\s*[,\]]")
+# R4-I1: a GLOBAL option between the CLI and the subcommand (`podman --root X run`, `docker --context c run`, `docker -H h run`, `podman --remote exec`) must not hide
+# the subcommand: tokenize-ish normalisation drops leading `-x`/`--x[=v]`/`--x v` words before run/create/exec/cp/start (an option's value is the next word unless that word is
+# itself a subcommand), the original view is still checked as well.
+_GLOBOPT = re.compile(r"\b(podman|docker|nerdctl|buildah)((?:\s+--?[A-Za-z][\w-]*(?:=\S+|\s+(?!(?:container|pod|run|create|exec|cp|start|build|runlabel)\b)[^\s-]\S*)?)+)(?=\s+(?:container\s+|pod\s+)?(?:run|create|exec|cp|start|runlabel)\b)")
+def _normrt(b):
+    return _GLOBOPT.sub(lambda m: m.group(1), b)
+
 CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b|" + RUNTIME_EXTRA)
 # R2-I2: ANY container-runtime run/create/exec/cp outside tools/isolation/ (the one place that owns the hardened launch path) is a finding unless
 # a pinned `waive` row names it - it is how --env-host / --rootfs / -v .:/h / "$PWD" / --pod / --sysctl / --device-cgroup-rule / `podman cp ... $HOME`
@@ -108,7 +122,7 @@ ANY = _union(None)
 _SPLICE1 = re.compile(r"[\"']\s*\+\s*[\"']"); _SPLICE2 = re.compile(r"(?<=\w)(?:''|\"\")(?=\w)"); _SPLICE3 = re.compile(r"(?<=[A-Za-z])\\(?=[A-Za-z])")
 _QUOTES = re.compile(r"[\"'\\]")
 _GLOBCH = re.compile(r"[*?\[]")
-_CMDWORDS = ("podman", "docker", "nerdctl", "buildah", "runc", "lxc", "apptainer", "singularity", "distrobox", "toolbox", "flatpak", "systemd-run", "bwrap", "nsenter", "unshare", "chroot")
+_CMDWORDS = ("podman", "docker", "nerdctl", "buildah", "crun", "incus", "ctr", "kubectl", "firejail", "toolbx", "systemd-nspawn", "machinectl", "flatpak-spawn", "multipass", "limactl", "vagrant", "host-spawn", "ch-run", "runc", "lxc", "apptainer", "singularity", "distrobox", "toolbox", "flatpak", "systemd-run", "bwrap", "nsenter", "unshare", "chroot")
 
 JSON_RULES = {"headed-browser", "electron-launch", "container-escape", "display-env", "xdotool-family", "uinput", "gui-automation-lib", "portal-or-dbus", "x11-socket"}
 ANY_DATA = _union(JSON_RULES)
@@ -403,9 +417,10 @@ def scan(root, include_submodules=False, stats=None):
             low = nb.lower()
             if not any(w in low for w in _CMDWORDS) and not VARCMD.search(nb) and "kube" not in low and "qemu" not in low and "emulator" not in low and "isolation" not in low and not (shell and _GLOBCH.search(nb)):
                 continue
-            if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in views) or (kind == "code" and any(KUBE.search(b) for b in views)):
+            cviews = tuple(dict.fromkeys(views + tuple(_normrt(v) for v in views)))
+            if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in cviews) or (kind == "code" and any(KUBE.search(b) for b in views)):
                 fh.append((rel, n, "container-escape", text.strip()[:160]))
-            if kind == "code" and any(CONTAINER_USE.search(b) for b in views):   # no blanket tools/isolation/ exemption (review round 3): each legitimate file carries its own pinned waiver row
+            if kind == "code" and any(CONTAINER_USE.search(b) for b in cviews):   # no blanket tools/isolation/ exemption (review round 3): each legitimate file carries its own pinned waiver row
                 fh.append((rel, n, "container-outside-isolation", text.strip()[:160]))
             if kind != "code":
                 continue

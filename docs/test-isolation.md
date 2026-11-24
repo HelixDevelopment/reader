@@ -120,7 +120,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
 
 ## 4. Guard and gate (F2) - a lint
 
-* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 239-case evader matrix, pinned-waiver tests, bind tests, proxy
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 265-case evader matrix, pinned-waiver tests, bind tests, proxy
   route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
   startup-race tests; needs rootless podman and the image).
 * Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
@@ -150,7 +150,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   15 lines of a file under `qa/isolation/inside/` or `submodules/containers/images/` (ignored anywhere else). Such files
   must not be executable and may not be referenced by file name from host-side files (only the directory mount is allowed).
 * Exemptions are PINNED (N3) in `tools/isolation/guard/waivers.txt`, one line `kind|path|sha256|rule|justification|expires`, exact
-  paths only (no globs), expiry at most 366 days out: `self` (the lint's own EIGHT sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
+  paths only (no globs), expiry at most 366 days out: `self` (the lint's own NINE sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
   `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`,
   `tests/test_review_round1.py`, `tests/test_review_round2.py`, `tests/test_review_round3.py`; not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
   thing in order to refuse it is honoured ONLY in a pinned file under `tools/isolation/`; an unpinned marker is itself a finding
@@ -162,7 +162,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
   (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
 * Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
-  `mutants_codec.py`): 239 cases = 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
+  `mutants_codec.py`): 265 cases = 253 REQUIRED (round 4 added 22 global-option / wider-runtime-family shapes and 4 Python list forms; earlier: 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
   extensions, container escapes, inside-script references, obfuscation, recon) and 12 documented RESIDUAL cases. HONEST
   CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
   80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
@@ -281,11 +281,9 @@ executes anything. Rules, each with a test and a paired mutant in `tools/isolati
   devices, sockets and hard-linked files at any depth and never descends into a denied directory. A planted nested git repository with
   `core.fsmonitor` plus `.claude/settings.json` is refused by `seal_evidence.sh` (exit 3) with no SHA256SUMS written and no host `git`/`claude`
   executed (the test puts logging stubs first on PATH).
-* Publish allow-list: the runners finish with `safe_io.py scan "$OUT" --allow`, which additionally refuses every regular file whose extension is not
-  one of `png json jsonl log txt md html csv mp4 webm gif webp` (and files with no extension). A non-zero status makes the runner exit non-zero
-  (`run_koreader_gui.sh`, `run_web_live.sh`, `run_desktop_live.sh`). `seal_evidence.sh` keeps the default scan (names and kinds only) because committed
-  evidence directories also hold scripts. UNCONFIRMED: the allow-list was not exercised by a live web/desktop run (no container was started); a real
-  run that writes another file type is refused, which is the intended fail-closed outcome.
+* Publish allow-list (corrected in round 4, see 8.3): the runners finish with `safe_io.py scan "$OUT" --allow` and `seal_evidence.sh` runs the same allow-list
+  scan; the round-3 wording "`seal_evidence.sh` keeps the default scan" no longer holds. UNCONFIRMED: the allow-list was not exercised by a live
+  web/desktop run (no container was started); a real run that writes another file type is refused, which is the intended fail-closed outcome.
 * Pre-run rw sources are refused when they hold hard-linked files, fifos, devices or sockets as well as symlinks and denied names; the enclosing-checkout
   check now climbs to `/` (the dedicated roots and everything above them included); another runner's host-only directory (`$ISO_WORK/host-*`) is never
   bound in any mode; the tree walk's `SCAN_LIMIT` is checked per entry and is itself tested (M9).
@@ -305,3 +303,48 @@ executes anything. Rules, each with a test and a paired mutant in `tools/isolati
 * Behavioural (not hash-pin) coverage of ordering and fatality: the harness runs the real runner scripts in a repo-shaped temp tree with podman /
   curl / server / `run_container.sh` stubs and ONE event log: the container is stopped before the first host `safe_io` read (M5); a failing final scan
   makes the runner exit 1 (M6); `safe_io` read size cap holds even when `fstat` under-reports (M4).
+
+### 8.3 Allow-list instead of name list, sanitized container bytes (review round 4)
+
+Class R4-B1 "container-planted control artifacts" was still open in round 3 because it was closed by naming members. It is inverted: the post-run scan of
+a container-written tree (`safe_io.py scan DIR --allow`, used by `seal_evidence.sh` and by every runner) accepts only what is positively known to be safe.
+Tests and paired mutants: `tools/isolation/tests/test_review_round4.py`.
+
+* A file must have a name matching `[A-Za-z0-9_][A-Za-z0-9._-]{0,127}` (no leading dot or dash, no escape byte, newline, space, `;`), an extension in
+  `png jpg jpeg json jsonl log txt csv mp4 webm gif webp`, link count 1 and be a regular file. A directory must match `[A-Za-z0-9_][A-Za-z0-9_-]*`
+  (no dots at all), so every dot-directory (`.git`, `.github`, `.opencode`, `.kimi`, ...) is refused wholesale. `md` and `html` are NOT publishable:
+  a container-authored `.md` can be an agent instruction file and a container-authored `.html` runs its script when the operator opens it in the host
+  browser; no runner publishes either (the runners' output is png / log / json / jsonl / txt / mp4). Names that look like checksum manifests
+  (`SHA256SUMS*`, `.SHA256SUMS*`, any case) are refused anywhere, so nothing can sit in a "sealed" directory outside the seal; the only host-written
+  manifest is the top-level `SHA256SUMS` that `seal_evidence.sh` itself replaces atomically (`--host-seal`).
+* A directory whose entry names make git accept it as a git directory (`HEAD` or `config` together with `objects` or `refs`, or `gitdir` / `commondir` /
+  `worktrees` with those) is refused by every scan and by the pre-run bindcheck: an embedded BARE repository needs no `.git` name and would run its
+  `core.fsmonitor` once any host git command ran inside it. The deny table (8.2) gained the non-dot agent names the review listed (`CLAUDE.local.md`,
+  `AGENT.md`, `CRUSH.md`, `CONVENTIONS.md`, `copilot-instructions.md`, `opencode.json`, ...) and the dot prefixes `.github .opencode .crush .kimi .pi .roo
+  .continue .junie .amazonq .kiro`; this list is a second line of defence only, the allow-list is the control. RESIDUAL (honest): a publishable-extension
+  file with a tool-config name that is on no list (a `.json` that some agent auto-loads from a nested directory) passes; which agents auto-load which
+  nested files is UNCONFIRMED, and the real mitigation is that the host never runs an agent, git or build tool inside an evidence directory.
+* `seal_evidence.sh DIR` refuses (exit 3, no temp file, no SHA256SUMS) anything else. `seal_evidence.sh --host-authored DIR` is the explicit opt-in for a
+  directory only the host ever wrote (docs, scripts, reports: the kinds-and-deny-table scan); no runner uses it and it must never be used on a directory
+  a container could write. Evidence directories committed earlier that hold scripts or reports were sealed before this rule; they are frozen and are not
+  re-sealed with the allow-list mode.
+* Tainted trees are kept, not deleted: `fresh_out.sh` moves a previous output directory to `~/.cache/claude-tmp/evidence-archive` (dedicated root) and
+  nothing prunes it. Retention policy: the operator removes an archive entry only after inspection, by hand, never with a tool that follows links; a
+  tainted tree is never opened with an editor, agent or git client. The archive is outside the repository and is never committed.
+* Container bytes never reach the operator's terminal or a host-written log raw. `tools/isolation/sanitize.py` is the one filter: it removes OSC / DCS /
+  APC / PM / SOS / CSI / other ESC sequences (also unterminated ones), every C0 control except newline and tab (so CR, BEL, BS, ESC, NUL), DEL, the C1
+  range, and bidirectional / line-separator controls, and prefixes EVERY line with `[container] `, so a forged `KOSYNC PROOF PASS` line is visibly
+  container-origin. It is applied on: the attached `podman run` of `run_container.sh` (stdout and stderr merged through the filter; podman's exit status
+  is preserved through `PIPESTATUS`; detached mode prints only the host-generated container id and keeps `exec`), every `podman exec` of
+  `run_koreader_gui.sh` (function `D`), the proxy-log sink (`[proxy-log] ` prefix), the redis dump `redis_sink.txt`, the published `ko_A.log` / `ko_B.log`
+  (copied through `safe_io` to the host-only directory first) and the kosync proof's printed text. `access_proxy.py` writes the request method, path
+  and User-Agent percent-escaped (`esc`), so a request line cannot carry a sequence or forge a log line; `access.log` and `kosync_bodies.jsonl` are
+  therefore already clean. UNCONFIRMED: whether the operator's outer terminal accepts OSC 52 (it was not tested because it would touch the desktop);
+  the filter removes the bytes either way. The text a container prints is still only evidence of what it printed, not of what happened.
+* `run_koreader_gui.sh` runs with `pipefail`; the KOSync proof's exit status is captured, a non-zero status prints `KOSYNC PROOF FAILED` into steps.log
+  and makes the runner exit 1 after publishing (a crashing proof script too). Previously the status was `tee`'s and the failure branch was dead.
+* Lint (round 4): global runtime options between the CLI and the subcommand (`podman --root X run`, `docker --context c run`, `docker -H h run`,
+  `podman --remote exec`) are normalised away before the class and escape rules; `crun`, `incus`, `ctr`, `kubectl`, `firejail`, `toolbx`,
+  `systemd-nspawn`, `machinectl`, `flatpak-spawn`, `multipass`, `limactl`, `vagrant`, `host-spawn`, `ch-run`, `podman start -a`, `container runlabel`,
+  `pod create` and the Python / JS list form of the whole family are findings; 26 matrix entries were added. Waiver counts after this round:
+  16 container-outside-isolation rows (unchanged, `run_container.sh` repinned), 9 `self` sources (round 3 had 8; the new one is `test_review_round4.py`).
