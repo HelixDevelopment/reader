@@ -19,11 +19,11 @@ const (
 )
 
 type Inline struct {
-	Text  string
-	Bold  bool
+	Text   string
+	Bold   bool
 	Italic bool
-	Mono  bool
-	Link  string
+	Mono   bool
+	Link   string
 }
 
 type Block struct {
@@ -35,9 +35,9 @@ type Block struct {
 }
 
 type SpineItem struct {
-	ID       string
-	Title    string
-	Blocks   []Block
+	ID         string
+	Title      string
+	Blocks     []Block
 	AnchorBase string // CFI base for annotations
 }
 
