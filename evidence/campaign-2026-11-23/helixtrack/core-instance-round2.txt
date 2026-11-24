@@ -1,0 +1,7 @@
+round=2 (review fixes replay)
+core_repo=https://github.com/Helix-Track/Core.git
+core_commit=c85221282d8bc0b7244a302a0200ac126c963a7d
+core_binary_sha256=d908e106fcc2f4c742a52f6a15e1726eca3427bc86abc1cbb1ffa24358ddccb3
+go=go version go1.26.8 linux/amd64
+listen=127.0.0.1:18417 (fault proxy 127.0.0.1:18418, redirect sink 127.0.0.1:18419) sqlite, auth/permissions disabled, schema patch = core-local-schema-patch.sql (byte-identical to round 1)
+outbox_records_in_this_run=75 (registry grew from 35 since round 1)

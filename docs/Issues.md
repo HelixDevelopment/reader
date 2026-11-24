@@ -2089,9 +2089,9 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Land the hardened workable-items registry tooling (scripts/workable_items.py, verify_workable_items.py, 80+ tests, docs/workable-items.md) together with the registry content the dirty shared worktree accumulated on 2026-11-23: 49 new items (HRD-036 onward) filed from the gap register, status or description updates on 16 pre-existing items, and the regenerated Issues/Fixed documents. Makes the registry self-consistent on a clean clone: adds the gap-register documents and cited evidence, and a checker (scripts/check_registry_references.py) proving every stored evidence path and docs link resolves. Cited artifacts that exist only on other open PR branches (HRD-051, HRD-055, HRD-081) are not duplicated here and stay unresolved until those land.
+**Description:** Land the hardened workable-items registry tooling (scripts/workable_items.py, verify_workable_items.py, 85+ tests, docs/workable-items.md) together with the registry content the dirty shared worktree accumulated on 2026-11-23: 49 new items (HRD-036 onward) filed from the gap register, status or description updates on 16 pre-existing items, and the regenerated Issues/Fixed documents and outbox. Makes the registry self-consistent on a clean clone for documents and sealed evidence: adds the gap-register documents and cited evidence files, a reference checker (scripts/check_registry_references.py) with an ownership map for paths delivered by other work, and an outbox-versus-database consistency check in diff. Cited executable code is deliberately not landed here; the checker lists it as owned by its own item.
 
-**Affected scope:** scripts/workable_items.py, scripts/verify_workable_items.py, scripts/check_registry_references.py, tests/, docs/workable_items.db and the generated docs/Issues*, docs/Fixed*, docs/tracking/helixtrack-outbox.json, gap-register docs and cited evidence.
+**Affected scope:** scripts/workable_items.py, scripts/verify_workable_items.py, scripts/check_registry_references.py, tests/, docs/workable_items.db, docs/tracking/*, the generated docs/Issues*, docs/Fixed*, README.md and deploy/README.md (HRD-034 scope note), and the documents and sealed evidence files the registry cites (gap register, upstream-issue drafts, campaign evidence). Executable product code cited by the registry (tools/firebase, tests/helixqa_web, clients, run_android_matrix.sh) is NOT part of this item.
 
 **Reproduction / current observation:** On github/main before this PR the registry lacks the gap-register items; after merge without the cited files, 120 stored evidence paths or docs links dangle (evidence/workable-items/registry-hardening-pr8/RED_dangling_references_before_fix.txt).
 
@@ -2107,9 +2107,10 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T10:35:56Z / 2026-11-24T10:36:02Z
+**Created / modified:** 2026-11-24T10:35:56Z / 2026-11-24T11:04:40Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
 - 2026-11-24 — Started by AI: Review round 1 of PR #8 returned NO-GO; fixing dangling references, id choice, HRD-034 scope note and minors; evidence: evidence/workable-items/registry-hardening-pr8
+- 2026-11-24 — Updated by AI: Narrow HRD-085 scope after PR #10 review: executable product code removed, ownership map added; evidence: docs/tracking/pending_ownership.json

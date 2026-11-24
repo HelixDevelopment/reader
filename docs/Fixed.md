@@ -812,7 +812,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-20T19:34:10Z / 2026-11-24T10:36:02Z
+**Created / modified:** 2026-11-20T19:34:10Z / 2026-11-24T11:04:50Z
 
 **History:**
 
@@ -821,6 +821,8 @@ Generated from `docs/workable_items.db`; do not edit directly.
 - 2026-11-23 — Updated by AI: operator-accepts-podman-only-scope-limit-claims-unverified; evidence: evidence/campaign-2026-11-20/containers/distribution.log
 - 2026-11-23 — Completed by User: Operator decision 2026-11-23: accept podman-only scope limit; docker-compose parity and hosted signed/authenticated registry remain UNVERIFIED and out of scope (scope-limited closure, not verification); evidence: evidence/campaign-2026-11-20/containers/results.json
 - 2026-11-24 — Updated by AI: Record the local-registry-only scope and the untested docker-compose in tracked docs, as the original acceptance allowed; evidence: README.md; deploy/README.md
+- 2026-11-24 — Updated by AI: no-op; evidence: README.md
+- 2026-11-24 — Updated by AI: Clarification: the previous 'no-op' history event was an accidental update that changed no field; evidence: README.md
 
 ## [HRD-035] Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown
 

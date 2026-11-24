@@ -5,4 +5,4 @@
 - Container distribution was qualified against a local, unauthenticated, TLS-verification-disabled `registry:2` only;
   signing, attestation and a hosted authenticated registry are unverified.
 - Evidence: `evidence/campaign-2026-11-20/containers/`. Registry item: HRD-034.
-- `postgres/`, `firebase/`: see the files in each directory.
+- `postgres/`: see the files in that directory.

@@ -22,6 +22,7 @@ import sqlite3
 import stat
 import sys
 import tempfile
+import unicodedata
 
 SCHEMA_VERSION = "1"
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,7 +69,7 @@ ID_RE = re.compile(r"^$")  # replaced by set_project_key() immediately below
 def set_project_key(key: str) -> None:
     """Declare the register's ticket-id key and rebuild every derived pattern."""
     global PROJECT_KEY, ID_RE
-    if not KEY_RE.match(key or ""):
+    if not KEY_RE.fullmatch(key or ""):
         raise ValueError(f"invalid project key {key!r}: expected 2-8 uppercase letters")
     PROJECT_KEY = key
     ID_RE = re.compile(rf"^{key}-([0-9]{{3,}})$")
@@ -372,6 +373,8 @@ def _validate(db: sqlite3.Connection, check_hash: bool) -> list[str]:
         for column in TEXT_COLUMNS:
             if CONTROL_RE.search(item[column] or ""):
                 errors.append(f"{atm}: {column} contains control characters")
+            if len(item[column] or "") > MAX_FIELD_CHARS:
+                errors.append(f"{atm}: {column} exceeds {MAX_FIELD_CHARS} characters")
         for column in ("created_by", "assigned_to"):
             if ASSIGN_RE.search(item[column] or ""):
                 errors.append(f"{atm}: {column} carries the attribution boundary label")
@@ -430,7 +433,7 @@ def _validate(db: sqlite3.Connection, check_hash: bool) -> list[str]:
 # the Unicode line/paragraph separators, and invisible/bidi-override characters
 # (soft hyphen, zero-width, LRM/RLM, embeddings and overrides, word joiner, isolates, BOM)
 # that can make a recorded line read differently from what it is.
-CONTROL_RE = re.compile("[\x00-\x08\x0a-\x1f\x7f-\x9f\u00ad\u034f\u061c\u115f\u180e\u200b-\u200f\u2028-\u202e\u2060-\u2064\u2066-\u2069\u2800\u3164\ufe00-\ufe0f\u180b-\u180d\ufeff\ufff9-\ufffb\U000e0000-\U000e007f\U000e0100-\U000e01ef]")
+CONTROL_RE = re.compile("[\x00-\x08\x0a-\x1f\x7f-\x9f\u00ad\u034f\u061c\u115f\u180e\u200b-\u200f\u2028-\u202e\u2060-\u2064\u2066-\u2069\u2800\u3164\ufe00-\ufe0f\u180b-\u180d\u180f\ufeff\ufff9-\ufffb\U000e0000-\U000e007f\U000e0100-\U000e01ef]")
 
 
 # The history line is `... by ACTOR: REASON; evidence: EVIDENCE` and the reopen detail is
@@ -456,7 +459,7 @@ def refuse_control_chars(**fields: str | None) -> None:
     for name, value in fields.items():
         if value and len(value) > MAX_FIELD_CHARS:
             raise ValueError(f"{name} is too long ({len(value)} characters; limit {MAX_FIELD_CHARS})")
-        if value and CONTROL_RE.search(value):
+        if value and (CONTROL_RE.search(value) or any(unicodedata.category(ch) == "Cf" for ch in value)):
             raise ValueError(f"{name} must not contain line breaks or control characters")
         token = FIELD_TOKENS.get(name)
         if value and token and token.search(value):
@@ -843,6 +846,33 @@ def helixtrack_outbox(db: sqlite3.Connection, path: Path) -> None:
     path.write_text(json.dumps(envelope, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def outbox_differences(db: sqlite3.Connection, path: Path) -> list[str]:
+    """Compare a stored HelixTrack outbox with the one the database would produce now
+    (ignoring generated_at). Returns [] when the file is consistent, else descriptive entries."""
+    if not path.exists():
+        return [f"{path.name}: missing"]
+    with tempfile.TemporaryDirectory(prefix="helix-wi-outbox-") as tmp:
+        fresh = Path(tmp) / "outbox.json"
+        helixtrack_outbox(db, fresh)
+        expected = json.loads(fresh.read_text(encoding="utf-8"))
+    try:
+        actual = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return [f"{path.name}: not valid JSON"]
+    expected.pop("generated_at", None)
+    if not isinstance(actual, dict):
+        return [f"{path.name}: not an object"]
+    actual.pop("generated_at", None)
+    if actual == expected:
+        return []
+    have = {r.get("client_key"): r for r in actual.get("records", []) if isinstance(r, dict)}
+    want = {r["client_key"]: r for r in expected["records"]}
+    out = [f"{path.name}: {key} missing from outbox" for key in sorted(want.keys() - have.keys())]
+    out += [f"{path.name}: {key} not in registry" for key in sorted(have.keys() - want.keys())]
+    out += [f"{path.name}: {key} differs from registry" for key in sorted(want.keys() & have.keys()) if want[key] != have[key]]
+    return out or [f"{path.name}: differs from registry"]
+
+
 def write_baseline(db: sqlite3.Connection) -> set[str]:
     """First step inside every writer's transaction: refuse tampered content, then record
     the registry's pre-existing validation errors so only NEW ones can fail the commit."""
@@ -1010,7 +1040,7 @@ def repo_evidence(value: str, must_exist: bool = True) -> str:
         if ok:
             try:
                 target = (root / clean).resolve()
-                ok = target.is_relative_to(root) and target != root and ".git" not in target.relative_to(root).parts
+                ok = target.is_relative_to(root) and target != root and ".git" not in target.relative_to(root).parts and not (must_exist and target.name == DEFAULT_DB.name)
                 if ok and must_exist:
                     mode = target.stat().st_mode
                     ok = stat.S_ISREG(mode) or stat.S_ISDIR(mode)
@@ -1236,6 +1266,9 @@ def main() -> int:
             print(json.dumps({"status": "PASS", "items": len(items(db)), "integrity_hash": integrity(db)}, sort_keys=True))
         elif args.command == "diff":
             differences = diff(db)
+            outbox = DOCS / "tracking" / "helixtrack-outbox.json"
+            if outbox.exists():
+                differences += outbox_differences(db, outbox)
             print(json.dumps({"status": "PASS" if not differences else "FAIL", "differences": differences}, sort_keys=True))
             return bool(differences)
         elif args.command == "export":

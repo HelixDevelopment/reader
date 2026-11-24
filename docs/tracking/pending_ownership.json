@@ -1,0 +1,86 @@
+{
+  "schema": "helix.registry-reference-ownership.v1",
+  "note": "Paths the registry cites that are delivered by other work. pr is an open pull request number, or null when the work has no pull request yet. Remove an entry when its path lands.",
+  "entries": [
+    {
+      "prefix": "docs/claim_reality_ledger.tsv",
+      "task": "HRD-051",
+      "pr": 9
+    },
+    {
+      "prefix": "docs/evidence/gate_evidence_manifest.tsv",
+      "task": "HRD-051",
+      "pr": 9
+    },
+    {
+      "prefix": "evidence/campaign-2026-11-23/gap-fix/hrd051_",
+      "task": "HRD-051",
+      "pr": 9
+    },
+    {
+      "prefix": "evidence/campaign-2026-11-23/gap-fix/hrd052_",
+      "task": "HRD-052",
+      "pr": 9
+    },
+    {
+      "prefix": "tools/isolation",
+      "task": "HRD-081",
+      "pr": 5
+    },
+    {
+      "prefix": "evidence/campaign-2026-11-23/isolated/hardening/submodule_host_entrypoints_report.txt",
+      "task": "HRD-081",
+      "pr": 5
+    },
+    {
+      "prefix": "scripts/run_android_matrix.sh",
+      "task": "HRD-022",
+      "pr": null
+    },
+    {
+      "prefix": "clients/supported-platforms.json",
+      "task": "HRD-022",
+      "pr": null
+    },
+    {
+      "prefix": "tests/helixqa_web",
+      "task": "HRD-021",
+      "pr": null
+    },
+    {
+      "prefix": "tools/firebase",
+      "task": "HRD-025",
+      "pr": null
+    },
+    {
+      "prefix": "deploy/firebase",
+      "task": "HRD-025",
+      "pr": null
+    },
+    {
+      "prefix": "evidence/campaign-2026-11-23/helixtrack/run_mutants.py",
+      "task": "HRD-029",
+      "pr": null
+    },
+    {
+      "prefix": "scripts/gates",
+      "task": "HRD-051",
+      "pr": 9
+    },
+    {
+      "prefix": "clients",
+      "task": "HRD-022",
+      "pr": null
+    },
+    {
+      "prefix": "tools/helixtrack-sync",
+      "task": "HRD-029",
+      "pr": null
+    },
+    {
+      "prefix": "tests/test_supported_platforms.py",
+      "task": "HRD-022",
+      "pr": null
+    }
+  ]
+}

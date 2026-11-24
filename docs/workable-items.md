@@ -96,3 +96,13 @@ Machine results are in `evidence/workable-items/results.json`. The campaign cove
 - Edits to the history lines of EXISTING items in imported Markdown are silently ignored: `import-md` takes history only for new items and never rewrites the stored history of an item already in the registry.
 - An open (non-terminal) item's Evidence field is not confined on import: confinement and existence rules apply to terminal items, reopen details and new-item history only (known limit).
 - The pre-existing import-md round-trip hash issue (a rebuilt registry's recomputed hash differs from the original) remains out of scope.
+
+## Reference check and outbox consistency
+
+`python3 scripts/check_registry_references.py [--json]` verifies that every evidence path stored in the registry (items, history, reopen,
+obsolete tables) and every repo-relative link in the registry documents, the gap-register documents and the upstream-issue drafts
+resolves in the working tree. Each missing path is classified from `docs/tracking/pending_ownership.json`:
+`OWNED-BY-PENDING-PR` (another open pull request delivers it), `OWNED-BY-UNDELIVERED-WORK` (work without a pull request yet) or
+`NOWHERE` (a real defect; prose shorthands such as `server/core` also land here and need a human read). Exit 2 means the instrument was
+blind (no stored evidence path resolves), never a pass. `workable_items.py diff` also compares `docs/tracking/helixtrack-outbox.json`
+with the outbox the database would produce (ignoring `generated_at`); regenerate it with `helixtrack-outbox` after any registry write.

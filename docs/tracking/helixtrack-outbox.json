@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:50:24Z",
+  "generated_at": "2026-11-24T11:04:51Z",
   "records": [
     {
       "client_key": "HRD-001",
@@ -773,7 +773,7 @@
         "description": "Operate the authoritative SQLite registry with complete lifecycle commands, evidence-linked history, deterministic document exports, drift detection, disaster recovery, and an explicitly offline HelixTrack outbox. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-058 (GAP-023); HRD-075 (GAP-040). See docs/gap-register-item-map-2026-11-23.md.",
         "evidence_path": "evidence/workable-items/results.json; evidence/workable-items/final-verifier.log; evidence/workable-items/pdf-qa",
         "forensic_anchor": "Retrospective evidence-backed baseline imported on 2026-10-29; registry timestamps are import times, not claimed original implementation dates.",
-        "last_modified": "2026-11-23T21:22:46Z",
+        "last_modified": "2026-11-24T10:36:02Z",
         "reopens_count": 0,
         "reproduction": "Twelve real-SQLite tests, ten concurrent writers, one thousand stress rows, SIGKILL recovery, corrupt-database recovery, and four paired mutation gates passed; remote HelixTrack delivery remains a separate open item.",
         "severity": "Critical",
@@ -930,7 +930,7 @@
       "operation": "upsert",
       "payload": {
         "acceptance": "Closure scope per operator decision 2026-11-23: container distribution qualification covers podman and a local unauthenticated registry only, evidenced by evidence/campaign-2026-11-20/containers/distribution.log and results.json. docker-compose CLI parity and signed/authenticated hosted-registry distribution are UNVERIFIED and out of scope; closure does not claim them.",
-        "affected_scope": "deploy/docker-compose.yml, server/Dockerfile, evidence/campaign-2026-11-20/containers/, submodules/containers distribution notes.",
+        "affected_scope": "Container distribution qualification: podman and a local unauthenticated registry only; docker-compose and hosted authenticated registry are UNVERIFIED (stated in README.md 'Container distribution scope' and deploy/README.md).",
         "assigned_to": "Operator",
         "atm_id": "HRD-034",
         "closure_criteria": "Closure scope per operator decision 2026-11-23: container distribution qualification covers podman and a local unauthenticated registry only, evidenced by evidence/campaign-2026-11-20/containers/distribution.log and results.json. docker-compose CLI parity and signed/authenticated hosted-registry distribution are UNVERIFIED and out of scope; closure does not claim them.",
@@ -941,7 +941,7 @@
         "description": "HRD-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end. UPDATE 2026-11-23: OPERATOR DECISION 2026-11-23: accept the podman-only scope limit. Container distribution is qualified on podman with a local unauthenticated registry:2 (TLS verification disabled) ONLY. Two claims remain UNVERIFIED and are explicitly OUT OF SCOPE by operator decision: (1) docker-compose CLI parity (docker binary absent from this host; deploy/docker-compose.yml has only been run by podman-compose) and (2) signed/authenticated hosted-registry distribution (signing, attestation, credentials, retention, pull-through). This is a scope-limited closure recorded as Completed because the registry vocabulary has no dedicated scope-limited status (Won't-fix under 11.4.112 is reserved for PROVEN structural impossibility, which does not apply); it is NOT a verification of either claim. Any future docker-compose or hosted-registry support claim requires a new tracked item. Follow-up not done here: no README/deploy/README statement of the limit exists yet.",
         "evidence_path": "evidence/campaign-2026-11-20/containers/results.json",
         "forensic_anchor": "Second-pass HRD-024 distribution run on 2026-11-20",
-        "last_modified": "2026-11-23T21:16:16Z",
+        "last_modified": "2026-11-24T11:04:50Z",
         "reopens_count": 0,
         "reproduction": "evidence/campaign-2026-11-20/containers/distribution.log records digest_match=yes and config_id_matches_build=yes against 127.0.0.1:15000 with --tls-verify=false, and results.json records docker_compose_cli_parity as NOT RUN because the docker binary is absent from this host.",
         "severity": "Medium",
@@ -2347,6 +2347,34 @@
         "severity": "High",
         "status": "Queued",
         "title": "Update the constitution submodule to the latest pin with recursive incorporation and post-update hooks",
+        "type": "Task"
+      },
+      "reason": "Exact HelixTrack API mapping and credentials have not been verified; this file is an offline outbox, not a remote push receipt.",
+      "remote_status": "NOT RUN",
+      "revision": 1
+    },
+    {
+      "client_key": "HRD-085",
+      "operation": "upsert",
+      "payload": {
+        "acceptance": "validate and diff PASS; verify_workable_items.py PASS 169/0 with reportlab; unit tests pass; check_registry_references.py reports zero missing except paths listed as owned by open PRs HRD-051/055/081; independent review GO.",
+        "affected_scope": "scripts/workable_items.py, scripts/verify_workable_items.py, scripts/check_registry_references.py, tests/, docs/workable_items.db, docs/tracking/*, the generated docs/Issues*, docs/Fixed*, README.md and deploy/README.md (HRD-034 scope note), and the documents and sealed evidence files the registry cites (gap register, upstream-issue drafts, campaign evidence). Executable product code cited by the registry (tools/firebase, tests/helixqa_web, clients, run_android_matrix.sh) is NOT part of this item.",
+        "assigned_to": "Operator",
+        "atm_id": "HRD-085",
+        "closure_criteria": "validate and diff PASS; verify_workable_items.py PASS 169/0 with reportlab; unit tests pass; check_registry_references.py reports zero missing except paths listed as owned by open PRs HRD-051/055/081; independent review GO.",
+        "composes_with": [],
+        "created_at": "2026-11-24T10:35:56Z",
+        "created_by": "AI",
+        "current_location": "Issues",
+        "description": "Land the hardened workable-items registry tooling (scripts/workable_items.py, verify_workable_items.py, 85+ tests, docs/workable-items.md) together with the registry content the dirty shared worktree accumulated on 2026-11-23: 49 new items (HRD-036 onward) filed from the gap register, status or description updates on 16 pre-existing items, and the regenerated Issues/Fixed documents and outbox. Makes the registry self-consistent on a clean clone for documents and sealed evidence: adds the gap-register documents and cited evidence files, a reference checker (scripts/check_registry_references.py) with an ownership map for paths delivered by other work, and an outbox-versus-database consistency check in diff. Cited executable code is deliberately not landed here; the checker lists it as owned by its own item.",
+        "evidence_path": "",
+        "forensic_anchor": "docs/pr-delivery.md",
+        "last_modified": "2026-11-24T11:04:40Z",
+        "reopens_count": 0,
+        "reproduction": "On github/main before this PR the registry lacks the gap-register items; after merge without the cited files, 120 stored evidence paths or docs links dangle (evidence/workable-items/registry-hardening-pr8/RED_dangling_references_before_fix.txt).",
+        "severity": "Medium",
+        "status": "In progress",
+        "title": "Registry hardening and gap-register import landing (PR #8)",
         "type": "Task"
       },
       "reason": "Exact HelixTrack API mapping and credentials have not been verified; this file is an offline outbox, not a remote push receipt.",

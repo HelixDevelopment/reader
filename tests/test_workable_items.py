@@ -1137,6 +1137,37 @@ class WorkableItemsTest(unittest.TestCase):
         self.assertTrue(done.stderr.startswith("error:"), done.stderr)
         self.assertNotIn("Traceback", done.stderr)
 
+    def test_format_characters_stored_size_key_regex_registry_evidence_and_outbox_consistency(self):
+        self.use_evidence_root()
+        for ch in ("\u180f", "\U0001d173", "\u2061"):
+            with self.assertRaises(ValueError, msg=hex(ord(ch))):
+                wi.add_item(self.db, new_item_args(title="a" + ch + "b"))
+        with self.assertRaises(ValueError):
+            wi.set_project_key("HRD\n")
+        wi.set_project_key("HRD")
+        atm = self.add()
+        self.db.execute("UPDATE items SET description=? WHERE atm_id=?", ("w " * wi.MAX_FIELD_CHARS, atm))
+        self.assertTrue(self.errors_containing("exceeds"), wi.validate(self.db))
+        self.db.execute("UPDATE items SET description=? WHERE atm_id=?", (LONG, atm))
+        (self.root / "workable_items.db").touch()
+        with self.assertRaises(ValueError, msg="the registry database itself as evidence"):
+            wi.repo_evidence("workable_items.db")
+        (self.root / "evidence" / "sub").mkdir()
+        (self.root / "evidence" / "sub" / "workable_items.db").write_text("x")
+        with self.assertRaises(ValueError):
+            wi.repo_evidence("evidence/sub/workable_items.db")
+        out = self.root / "outbox.json"
+        wi.helixtrack_outbox(self.db, out)
+        self.assertEqual(wi.outbox_differences(self.db, out), [])
+        self.add(title="Second item for the outbox")
+        stale = wi.outbox_differences(self.db, out)
+        self.assertTrue(any("missing from outbox" in line for line in stale), stale)
+        data = json.loads(out.read_text())
+        data["records"][0]["payload"]["title"] = "tampered"
+        out.write_text(json.dumps(data))
+        self.assertTrue(any("differs from registry" in line for line in wi.outbox_differences(self.db, out)))
+        self.assertEqual(wi.outbox_differences(self.db, self.root / "absent.json"), ["absent.json: missing"])
+
     def test_triggers_and_views_make_the_registry_invalid(self):
         self.use_evidence_root()
         atm = self.add()

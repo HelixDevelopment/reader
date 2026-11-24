@@ -1,37 +1,54 @@
 #!/usr/bin/env python3
 """Check that every evidence path stored in the workable-items registry and every repo-relative
-docs/ or evidence/ link in the derived Markdown documents resolves in the working tree.
+link in the documents resolves in the working tree, and classify each missing path.
 
-Usage: check_registry_references.py [--root DIR] [--db PATH] [--json]
-Exit 0 = zero missing, 1 = missing references, 2 = cannot read the registry (BLIND, never a pass).
-Control needle: a path known to exist (the DB itself) must resolve, or the instrument is blind.
+Usage: check_registry_references.py [--root DIR] [--db PATH] [--docs GLOB ...] [--ownership FILE] [--json]
+
+Classes of a missing path:
+  OWNED-BY-PENDING-PR       listed in the ownership map with a pull request number
+  OWNED-BY-UNDELIVERED-WORK listed in the ownership map with pr null (no pull request yet)
+  NOWHERE                   not in the tree and in no map entry (a real defect)
+Exit 0 = nothing missing; 1 = something missing (see classes); 2 = BLIND (registry unreadable or the
+control needle failed: no stored evidence path resolves at all), never a pass.
 """
-import argparse, json, os, re, sqlite3, sys
+import argparse, glob, json, os, re, sqlite3, sys
 
-DOC_LINK = re.compile(r"(?<![\w/.-])((?:docs|evidence|scripts|tests|deploy|config|tools)/[\w./@+-]+)")
+DOC_LINK = re.compile(r"(?<![\w/.-])((?:docs|evidence|scripts|tests|deploy|config|tools|clients|core|server|README|CHANGELOG)[\w./@+-]*)")
+TABLES = ("items", "item_history", "reopen_details", "obsolete_details", "operator_block_details")
+
 
 def evidence_paths(db):
     out = []
-    for table, key in (("items", "atm_id"), ("item_history", "atm_id"), ("reopen_details", "atm_id"),
-                       ("obsolete_details", "atm_id"), ("operator_block_details", "atm_id")):
+    for table in TABLES:
         cols = [r[1] for r in db.execute(f"PRAGMA table_info({table})")]
-        if key not in cols:
+        if "atm_id" not in cols:
             continue
         for c in cols:
             if "evidence" not in c:
                 continue
-            for k, v in db.execute(f"SELECT {key}, {c} FROM {table}"):
+            for k, v in db.execute(f"SELECT atm_id, {c} FROM {table}"):
                 for part in (v or "").split(";"):
                     part = re.split(r"\s*\(|\s+and\s+", part.strip())[0].strip().rstrip("/")
                     if part and part.lower() not in ("none", "none recorded"):
                         out.append((table, k, part))
     return out
 
+
+def classify(path, entries):
+    for e in entries:
+        pre = e["prefix"].rstrip("/")
+        if path == pre or path.startswith(pre + "/") or (pre.endswith("_") and path.startswith(pre)):
+            return ("OWNED-BY-PENDING-PR" if e.get("pr") else "OWNED-BY-UNDELIVERED-WORK"), e
+    return "NOWHERE", None
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
     ap.add_argument("--db", default="docs/workable_items.db")
-    ap.add_argument("--docs", nargs="*", default=["docs/Issues.md", "docs/Fixed.md", "docs/Issues_Summary.md", "docs/Fixed_Summary.md"])
+    ap.add_argument("--docs", nargs="*", default=["docs/Issues*.md", "docs/Fixed*.md", "docs/upstream-issues/*.md", "docs/gap-register*.md", "docs/helixtrack-sync.md",
+                             "docs/constitution-update-plan-*.md", "docs/submodule-pins-*.md", "docs/workable-items.md", "README.md", "deploy/README.md"])
+    ap.add_argument("--ownership", default="docs/tracking/pending_ownership.json")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(argv)
     root = os.path.abspath(a.root)
@@ -39,33 +56,45 @@ def main(argv=None):
     if not os.path.exists(dbp):
         print("BLIND: registry database not found", file=sys.stderr); return 2
     db = sqlite3.connect(f"file:{dbp}?mode=ro", uri=True)
-    if not os.path.exists(os.path.join(root, a.db)):
-        print("BLIND: control needle failed", file=sys.stderr); return 2
-    missing = []
-    seen = set()
-    for table, k, p in evidence_paths(db):
+    paths = evidence_paths(db)
+    exists = lambda p: os.path.exists(os.path.join(root, p.split("#")[0]))
+    # Control needle: a stored path known to be present must resolve through the SAME instrument.
+    if not any(exists(p) for _, _, p in paths):
+        print("BLIND: control needle failed (no stored evidence path resolves)", file=sys.stderr); return 2
+    entries = []
+    omap = os.path.join(root, a.ownership)
+    if os.path.exists(omap):
+        entries = json.load(open(omap, encoding="utf-8")).get("entries", [])
+    missing, seen = [], set()
+    for table, k, p in paths:
         if (k, p) in seen: continue
         seen.add((k, p))
-        if not os.path.exists(os.path.join(root, p.split("#")[0])):
+        if not exists(p):
             missing.append({"kind": "registry-evidence", "where": f"{table}:{k}", "path": p})
-    for d in a.docs:
-        f = os.path.join(root, d)
-        if not os.path.exists(f):
-            continue
-        text = open(f, encoding="utf-8").read()
+    docs = sorted({f for g in a.docs for f in glob.glob(os.path.join(root, g))})
+    for f in docs:
+        rel = os.path.relpath(f, root)
+        text = open(f, encoding="utf-8", errors="replace").read()
         found = {x.group(1) for x in DOC_LINK.finditer(text) if text[x.end(1):x.end(1) + 1] not in ("*", "{", "[")}
         for m in sorted(found):
             m = m.rstrip(".,;:)")
-            if not os.path.exists(os.path.join(root, m.split("#")[0])):
-                missing.append({"kind": "doc-link", "where": d, "path": m})
-    res = {"status": "PASS" if not missing else "FAIL", "missing": len(missing), "checked_evidence": len(seen)}
+            if "/" in m and not exists(m):
+                missing.append({"kind": "doc-link", "where": rel, "path": m})
+    for m in missing:
+        m["class"], e = classify(m["path"], entries)
+        if e: m["owner"] = {"task": e["task"], "pr": e.get("pr")}
+    counts = {}
+    for m in missing: counts[m["class"]] = counts.get(m["class"], 0) + 1
+    res = {"status": "PASS" if not missing else "FAIL", "missing": len(missing), "by_class": counts,
+           "checked_evidence": len(seen), "docs_scanned": len(docs)}
     if a.json:
         res["items"] = missing
         print(json.dumps(res, indent=1))
     else:
         print(json.dumps(res))
-        for m in missing: print(f"MISSING {m['kind']} {m['where']} {m['path']}")
+        for m in missing: print(f"MISSING {m['class']} {m['kind']} {m['where']} {m['path']}")
     return 0 if not missing else 1
+
 
 if __name__ == "__main__":
     sys.exit(main())
