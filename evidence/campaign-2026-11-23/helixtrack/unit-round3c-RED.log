@@ -1,0 +1,83 @@
+test_env_file_cap_reads_at_most_cap_plus_one_bytes (test_helixtrack_sync.Gap7Tests.test_env_file_cap_reads_at_most_cap_plus_one_bytes) ... ERROR
+test_env_file_size_is_capped (test_helixtrack_sync.Gap7Tests.test_env_file_size_is_capped) ... ERROR
+test_history_warning_reaches_the_report_and_stderr (test_helixtrack_sync.Gap7Tests.test_history_warning_reaches_the_report_and_stderr) ... FAIL
+test_huge_sparse_env_file_refused_cleanly_exit_3 (test_helixtrack_sync.Gap7Tests.test_huge_sparse_env_file_refused_cleanly_exit_3) ... ok
+test_missing_db_still_refused_and_nothing_created (test_helixtrack_sync.Gap7Tests.test_missing_db_still_refused_and_nothing_created) ... ERROR
+test_refused_env_files_do_not_leak_file_descriptors (test_helixtrack_sync.Gap7Tests.test_refused_env_files_do_not_leak_file_descriptors) ... ERROR
+test_uncheckpointed_wal_rows_are_visible_and_nothing_is_created_or_modified (test_helixtrack_sync.Gap7Tests.test_uncheckpointed_wal_rows_are_visible_and_nothing_is_created_or_modified) ... ERROR
+test_wal_aware_open_failure_falls_back_with_warning (test_helixtrack_sync.Gap7Tests.test_wal_aware_open_failure_falls_back_with_warning) ... ERROR
+test_wal_without_shm_falls_back_to_immutable_with_warning_and_creates_nothing (test_helixtrack_sync.Gap7Tests.test_wal_without_shm_falls_back_to_immutable_with_warning_and_creates_nothing) ... ERROR
+
+======================================================================
+ERROR: test_env_file_cap_reads_at_most_cap_plus_one_bytes (test_helixtrack_sync.Gap7Tests.test_env_file_cap_reads_at_most_cap_plus_one_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1592, in test_env_file_cap_reads_at_most_cap_plus_one_bytes
+    self.assertEqual(sizes, [hs.ENV_MAX_BYTES + 1])
+                             ^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'ENV_MAX_BYTES'
+
+======================================================================
+ERROR: test_env_file_size_is_capped (test_helixtrack_sync.Gap7Tests.test_env_file_size_is_capped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1549, in test_env_file_size_is_capped
+    cap = hs.ENV_MAX_BYTES
+          ^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'ENV_MAX_BYTES'
+
+======================================================================
+ERROR: test_missing_db_still_refused_and_nothing_created (test_helixtrack_sync.Gap7Tests.test_missing_db_still_refused_and_nothing_created)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1676, in test_missing_db_still_refused_and_nothing_created
+    hs.load_history(missing, [])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TypeError: load_history() takes 1 positional argument but 2 were given
+
+======================================================================
+ERROR: test_refused_env_files_do_not_leak_file_descriptors (test_helixtrack_sync.Gap7Tests.test_refused_env_files_do_not_leak_file_descriptors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1605, in test_refused_env_files_do_not_leak_file_descriptors
+    fh.truncate(hs.ENV_MAX_BYTES + 5)
+                ^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'ENV_MAX_BYTES'
+
+======================================================================
+ERROR: test_uncheckpointed_wal_rows_are_visible_and_nothing_is_created_or_modified (test_helixtrack_sync.Gap7Tests.test_uncheckpointed_wal_rows_are_visible_and_nothing_is_created_or_modified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1630, in test_uncheckpointed_wal_rows_are_visible_and_nothing_is_created_or_modified
+    hist = hs.load_history(db, warnings)
+TypeError: load_history() takes 1 positional argument but 2 were given
+
+======================================================================
+ERROR: test_wal_aware_open_failure_falls_back_with_warning (test_helixtrack_sync.Gap7Tests.test_wal_aware_open_failure_falls_back_with_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1666, in test_wal_aware_open_failure_falls_back_with_warning
+    hist = hs.load_history(db, warnings)
+TypeError: load_history() takes 1 positional argument but 2 were given
+
+======================================================================
+ERROR: test_wal_without_shm_falls_back_to_immutable_with_warning_and_creates_nothing (test_helixtrack_sync.Gap7Tests.test_wal_without_shm_falls_back_to_immutable_with_warning_and_creates_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1645, in test_wal_without_shm_falls_back_to_immutable_with_warning_and_creates_nothing
+    hist = hs.load_history(copy, warnings)
+TypeError: load_history() takes 1 positional argument but 2 were given
+
+======================================================================
+FAIL: test_history_warning_reaches_the_report_and_stderr (test_helixtrack_sync.Gap7Tests.test_history_warning_reaches_the_report_and_stderr)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1690, in test_history_warning_reaches_the_report_and_stderr
+    self.assertIn("warning", err.lower(), cmd)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'warning' not found in '' : push
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.355s
+
+FAILED (failures=1, errors=7)

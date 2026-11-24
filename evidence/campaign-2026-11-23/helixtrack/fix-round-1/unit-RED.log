@@ -1,0 +1,192 @@
+FFF.FEEEEFE.......................................................................FE.....................................EE...
+======================================================================
+ERROR: test_warning_text_is_escaped (test_helixtrack_sync.B2TerminalInjectionTests.test_warning_text_is_escaped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1771, in test_warning_text_is_escaped
+    hs.emit_warning("x\x1b[2Jy")
+    ^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'emit_warning'
+
+======================================================================
+ERROR: test_create_and_modify_and_read_shapes (test_helixtrack_sync.B3MalformedResponseTests.test_create_and_modify_and_read_shapes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1832, in test_create_and_modify_and_read_shapes
+    self.assert_aborted("push", "create no id")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1790, in assert_aborted
+    code, out, err = self.run_main(cmd)
+                     ~~~~~~~~~~~~~^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 872, in main
+    rep = push(client, pid, records, state, args.dry_run, args.overwrite_remote, history,
+               None if args.dry_run else checkpoint)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 570, in push
+    _push_one(client, project_id, rec, state, matched, problems, dry_run, overwrite_remote, history,
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              None if dry_run else checkpoint, report)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 524, in _push_one
+    tid = _create(client, project_id, desired, state, key, checkpoint)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 493, in _create
+    tid = client.create_ticket(project_id, desired)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 306, in create_ticket
+    return data["ticket"]["id"]
+           ~~~~~~~~~~~~~~^^^^^^
+KeyError: 'id'
+
+======================================================================
+ERROR: test_deep_nesting_and_huge_body_via_real_transport (test_helixtrack_sync.B3MalformedResponseTests.test_deep_nesting_and_huge_body_via_real_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1856, in test_deep_nesting_and_huge_body_via_real_transport
+    ("huge", b'{"errorCode":-1,"data":{"items":[],"pad":"' + b"a" * (hs.MAX_RESPONSE_BYTES + 10) + b'"}}')):
+                                                                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'MAX_RESPONSE_BYTES'
+
+======================================================================
+ERROR: test_malformed_shapes_abort_cleanly (test_helixtrack_sync.B3MalformedResponseTests.test_malformed_shapes_abort_cleanly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1828, in test_malformed_shapes_abort_cleanly
+    self.assert_aborted(cmd, "%s/%s" % (what, cmd))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1790, in assert_aborted
+    code, out, err = self.run_main(cmd)
+                     ~~~~~~~~~~~~~^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 872, in main
+    rep = push(client, pid, records, state, args.dry_run, args.overwrite_remote, history,
+               None if args.dry_run else checkpoint)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 567, in push
+    matched, problems, report.orphans = _resolve(client, tickets, [record_key(r) for r in records], items)
+                                        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 411, in _resolve
+    by_id = {t["id"]: t for t in tickets}
+             ~^^^^^^
+KeyError: 'id'
+
+======================================================================
+ERROR: test_unexpected_exception_still_aborts_report (test_helixtrack_sync.B3MalformedResponseTests.test_unexpected_exception_still_aborts_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1881, in test_unexpected_exception_still_aborts_report
+    code, _, err = self.run_main("push")
+                   ~~~~~~~~~~~~~^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/helixtrack_sync.py", line 872, in main
+    rep = push(client, pid, records, state, args.dry_run, args.overwrite_remote, history,
+               None if args.dry_run else checkpoint)
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1876, in boom
+    raise RuntimeError("x\x1b[2J")
+RuntimeError: x[2J
+
+======================================================================
+ERROR: test_unmapped_status_skips_that_record_not_the_batch (test_helixtrack_sync.NonBlockingFoldInTests.test_unmapped_status_skips_that_record_not_the_batch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1908, in test_unmapped_status_skips_that_record_not_the_batch
+    counts = json.loads(out)["counts"]
+             ~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+ERROR: test_every_control_class_is_escaped (test_helixtrack_sync.SafeTextTests.test_every_control_class_is_escaped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1723, in test_every_control_class_is_escaped
+    out = hs.safe_text(HOSTILE, 10000)
+          ^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'safe_text'
+
+======================================================================
+ERROR: test_length_capped_and_non_str_accepted (test_helixtrack_sync.SafeTextTests.test_length_capped_and_non_str_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1729, in test_length_capped_and_non_str_accepted
+    self.assertLessEqual(len(hs.safe_text("a" * 100000)), 400)
+                             ^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'safe_text'
+
+======================================================================
+FAIL: test_exception_str_is_sanitised_for_every_syncerror (test_helixtrack_sync.B2TerminalInjectionTests.test_exception_str_is_sanitised_for_every_syncerror)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1777, in test_exception_str_is_sanitised_for_every_syncerror
+    _no_controls(self, str(exc), type(exc).__name__)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1718, in _no_controls
+    case.assertFalse(cat[0] == "C" or cat in ("Zl", "Zp"), "%s: unescaped U+%04X in %r" % (what, ord(ch), text))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : CoreError: unescaped U+001B in 'bad\x1b]0;PWNED\x07\x1b]52;c;AAAA\x07\x1b[2J\x1b[31mRED\x9b31m\x85\u202e\u2066x\x00y\rz\u200b\u2028\x7f'
+
+======================================================================
+FAIL: test_listing_500_push_pull_compare (test_helixtrack_sync.B2TerminalInjectionTests.test_listing_500_push_pull_compare)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1759, in test_listing_500_push_pull_compare
+    self.check(cmd, "list", "ticket", 500, "list " + cmd)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1747, in check
+    self.assertNotIn("\x1b", text, what + " " + stream)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '\x1b' unexpectedly found in 'error: ServerError: bad\x1b]0;PWNED\x07\x1b]52;c;AAAA\x07\x1b[2J\x1b[31mRED\x9b31m\x85\u202e\u2066x\x00y\rz\u200b\u2028\x7f\n' : list push stderr
+
+======================================================================
+FAIL: test_login_401 (test_helixtrack_sync.B2TerminalInjectionTests.test_login_401)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1755, in test_login_401
+    self.check("push", "authenticate", None, 401, "login")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1745, in check
+    self.assertEqual(code, 3, what)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 3 : login
+
+======================================================================
+FAIL: test_project_list_401_and_403 (test_helixtrack_sync.B2TerminalInjectionTests.test_project_list_401_and_403)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1763, in test_project_list_401_and_403
+    self.check("pull", "list", "project", st, "project %d" % st)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1747, in check
+    self.assertNotIn("\x1b", text, what + " " + stream)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '\x1b' unexpectedly found in 'error: AuthError: bad\x1b]0;PWNED\x07\x1b]52;c;AAAA\x07\x1b[2J\x1b[31mRED\x9b31m\x85\u202e\u2066x\x00y\rz\u200b\u2028\x7f\n' : project 401 stderr
+
+======================================================================
+FAIL: test_report_marked_aborted_at_start_even_if_killed_midway (test_helixtrack_sync.B3MalformedResponseTests.test_report_marked_aborted_at_start_even_if_killed_midway)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1898, in test_report_marked_aborted_at_start_even_if_killed_midway
+    self.assertTrue(seen["r"].get("aborted"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None is not true
+
+======================================================================
+FAIL: test_record_file_is_0600 (test_helixtrack_sync.NonBlockingFoldInTests.test_record_file_is_0600)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/wt-sync/tools/helixtrack-sync/test_helixtrack_sync.py", line 1917, in test_record_file_is_0600
+    self.assertEqual(stat.S_IMODE(os.stat(rec_path).st_mode), 0o600)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 436 != 384
+
+----------------------------------------------------------------------
+Ran 126 tests in 5.615s
+
+FAILED (failures=6, errors=8)
