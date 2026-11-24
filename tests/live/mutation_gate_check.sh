@@ -56,6 +56,9 @@ M=(
 "M47-R7-bare-fail-in-marker-ignored@parse_gotest.awk@s/if (open) print \"PKGFAIL/if (0) print \"PKGFAIL/"
 "M48-R8-hash-anywhere-is-comment@run_gated_tests.sh@s/case \$pk in \\\\#\*) continue;; esac/case \$pk\$n in *\\\\#*) continue;; esac/"
 "M49-m5-scratch-in-out-dir@run_gated_tests.sh@s/^SCR=\$(mktemp -d) || exit 2; trap 'rm -rf \"\$SCR\"' EXIT/SCR=\$OUT/"
+"M51-F2-default-out-is-sealed-dir@run_gated_tests.sh@s/^if \[ -z \"\$OUT\" \]; then OUT=\$(mktemp -d [^;]*;/if [ -z \"\$OUT\" ]; then OUT=evidence\/campaign-2026-11-23\/gap-fix\/hrd050; OUTDEF=0;/"
+"M52-F2-nonempty-out-not-refused@run_gated_tests.sh@s/\&\& \[ \$OUTDEF = 0 \] \&\& \[ -d \"\$OUT\" \]/\&\& false \&\& [ -d \"\$OUT\" ]/"
+"M53-F5-empty-package-silently-ignored@run_gated_tests.sh@s/echo \"ALLOWLIST-MALFORMED: empty package field[^;]*; bad=1; continue; fi/continue; fi/"
 "M50-R6-report-own-output-not-skipped@run_gated_tests.sh@s/index(p, skip \"\/\") == 1/0/g"
 )
 # Baseline control: the UNMUTATED copy must pass every case, else a mutant's "kill" could be an artefact of the copy.

@@ -31,6 +31,7 @@ t F3_tab_only_reason_malformed    3 'ALLOWLIST-MALFORMED'             $FX/allow_
 t F3_empty_reason_malformed       3 'ALLOWLIST-MALFORMED'             $FX/allow_empty_reason.txt $FX/good.log
 t F3_item_suffix_malformed        3 'ALLOWLIST-MALFORMED'             $FX/allow_bad_item.txt $FX/good.log
 t F3_item_prefix_malformed        3 'ALLOWLIST-MALFORMED'             $FX/allow_prefix_item.txt $FX/good.log
+t F5b_empty_package_field_malformed 3 'ALLOWLIST-MALFORMED: empty package'  $FX/allow_empty_pkg.txt $FX/good.log
 t F4_fail_line_fails              3 'FAILED-TEST: .*\|TestB'          $A $FX/fail_line.log
 t F4_build_failed_fails           3 'BUILD-FAILED: .*/b'              $A $FX/build_failed.log
 t F5_pkg_fail_no_results          3 'NO-RESULTS: .*/b'                $A $FX/pkg_fail_no_results.log
@@ -155,6 +156,14 @@ t X17_hash_entry_unlisted_fails   3 'UNLISTED-SKIP: .*seed#0'         $FX/allow_
 # m5: --check scratch files never land in the --out (tracked evidence) dir
 OD=$W/scratch_out; "$GATE" --out "$OD" --allow "$A" --check "$FX/good.log" >/dev/null 2>&1
 chk X18_check_leaves_out_dir_empty bash -c "[ -z \"\$(ls -A '$OD')\" ]"
+# F2: the default evidence dir is a fresh untracked dir outside the repo, never the tracked sealed dir; a non-empty --out is refused
+D1=$("$GATE" --print-out 2>&1); D2=$("$GATE" --print-out 2>&1)
+chk F2_default_out_not_tracked_sealed_dir bash -c "case '$D1' in */evidence/*|'$ROOT'/*) exit 1;; /*) exit 0;; *) exit 1;; esac"
+chk F2_default_out_is_fresh_each_time    test "$D1" != "$D2"
+chk F2_default_out_removed_after_print   bash -c "[ ! -e '$D1' ]"
+NE=$W/nonempty_out; mkdir -p "$NE"; echo x > "$NE/keep.txt"
+out=$("$GATE" --no-env --out "$NE" 2>&1); rc=$?
+chk F2_nonempty_out_refused_rc2          bash -c "[ $rc = 2 ] && grep -q 'is not empty' <<<'$out' && [ \"\$(cat '$NE/keep.txt')\" = x ] && [ ! -e '$NE/SHA256SUMS' ]"
 # R1b: every file the tests/harness use is tracked and not ignored (a clean checkout must be able to run them)
 ign=""; for pth in $(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- tests/live); do ign="$ign $pth"; done
 for pth in $(grep -ohE 'tests/live/[A-Za-z0-9_./-]+' "$ROOT/tests/live/test_run_gated_tests.sh" "$ROOT/tests/live/mutation_gate_check.sh" | sort -u); do

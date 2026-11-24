@@ -5,7 +5,9 @@
 #
 # Usage:  tests/live/run_gated_tests.sh [--no-env] [--out DIR] [--allow FILE] [--check LOG...]
 #   --no-env     RED baseline: no containers/env, race pass only (gate must FAIL, ~47 skips)
-#   --out DIR    evidence dir (default evidence/campaign-2026-11-23/gap-fix/hrd050)
+#   --out DIR    evidence dir (default: a FRESH untracked mktemp dir under $TMPDIR, printed at start; never the tracked,
+#                sealed evidence dir. A live/--no-env run refuses a non-empty --out, exit 2)
+#   --print-out  print the resolved evidence dir and exit (default dir is removed again)
 #   --allow FILE allow-list (default tests/live/allowed_skips.txt)
 #   --check LOG  skip-gate only, on existing -v log(s) (repeatable); no tests are run
 #
@@ -38,11 +40,11 @@ printf 'a\n' | grep -xF a >/dev/null && printf 'a\n' | grep -E '^a$' >/dev/null 
 CWD0=$PWD
 abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
 ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
-OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
+OUT=""; PRINTOUT=0; ALLOW=tests/live/allowed_skips.txt
 SEDIR=""; SEMODE=""; SEA=""; SEB=""; SEC=""; SESKIP=""; NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
-  --print-phase-b) PB=$(abs "$2"); shift;;
+  --print-phase-b) PB=$(abs "$2"); shift;; --print-out) PRINTOUT=1;;
   --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;; --selftest-wait) SELFTEST=2;;
   --selftest-side-effects) SELFTEST=3; SEDIR=$(abs "$2"); SEMODE=$3; SEA=$(abs "$4"); SEB=$(abs "$5"); SEC=$(abs "$6"); SESKIP=$7; shift 6;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
@@ -75,10 +77,19 @@ need git awk sort comm sed sha256sum find xargs seq cp tee basename dirname date
 [ $NOENV = 1 ] || { [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || [ -n "$SEALDIR" ] || need python3 go podman base64; }
 [ $PREFLIGHT = 1 ] && { echo "preflight ok"; exit 0; }
 [ $NOENV = 0 ] || [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || need go
+# Default evidence dir is a fresh untracked mktemp dir (F2): the sealed, tracked evidence dir is never a default target.
+OUTDEF=0
+if [ -z "$OUT" ]; then OUT=$(mktemp -d "${TMPDIR:-/tmp}/hrdlive-out.XXXXXX") && [ -n "$OUT" ] || { echo "SETUP-ERROR: cannot create default evidence dir" >&2; exit 2; }; OUTDEF=1; fi
+RUNMODE=1; { [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || [ -n "$SEALDIR" ] || [ $PREFLIGHT = 1 ] || [ $SELFTEST != 0 ] || [ $PRINTOUT = 1 ]; } && RUNMODE=0
+if [ $RUNMODE = 1 ] && [ $OUTDEF = 0 ] && [ -d "$OUT" ] && [ -n "$(ls -A "$OUT" 2>/dev/null)" ]; then
+  echo "SETUP-ERROR: --out '$OUT' is not empty; a run would overwrite/re-seal existing evidence. Use a fresh dir." >&2; exit 2; fi
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
+if [ $PRINTOUT = 1 ]; then echo "$OUT"; [ $OUTDEF = 1 ] && rmdir "$OUT" 2>/dev/null; exit 0; fi
+[ $RUNMODE = 1 ] && echo "evidence dir: $OUT"
 if [ ! -f "$ALLOW" ] || [ ! -r "$ALLOW" ]; then echo "SETUP-ERROR: allow-list '$ALLOW' missing or unreadable" >&2; exit 2; fi
 # Scratch files live in a private mktemp dir, never in the (tracked) evidence dir; removed on exit.
-SCR=$(mktemp -d) || exit 2; trap 'rm -rf "$SCR"' EXIT
+SCR=$(mktemp -d) || exit 2; [ -n "$SCR" ] || exit 2
+trap 'rm -rf "${SCR:?}"; [ $OUTDEF = 1 ] && [ $RUNMODE = 0 ] && rmdir "$OUT" 2>/dev/null; true' EXIT
 
 # seal_dir DIR : write DIR/SHA256SUMS (sha256 of every regular, non-hidden file except SHA256SUMS itself,
 # relative paths, fixed C-locale order). Self-contained: no external seal tool.
@@ -122,7 +133,9 @@ skip_gate() {
   : > "$SCR/.used.txt"; local -A SEEN_ALLOW=()
   while IFS='|' read -r pk n r i || [ -n "$pk$n$r$i" ]; do
     pk=$(trim "$pk"); n=$(trim "$n"); r=$(trim "$r"); i=$(trim "$i")
-    [ -z "$pk" ] && continue; case $pk in \#*) continue;; esac
+    if [ -z "$pk" ]; then [ -z "$n$r$i" ] && continue
+      echo "ALLOWLIST-MALFORMED: empty package field ('|$n|$r|$i')"; bad=1; continue; fi
+    case $pk in \#*) continue;; esac
     rr=${r//$'\xc2\xa0'/}   # NBSP is not [[:space:]] in the C locale; strip it so an NBSP-only reason is blank
     if [ -z "$n" ] || ! [[ $rr =~ [^[:space:]] ]] || ! [[ $i =~ ^HRD-[0-9]+$ ]]; then
       echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason without '|', item exactly HRD-<digits>)"; bad=1
@@ -177,8 +190,8 @@ if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?
   [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s), no verdict possible"; exit 2; }
   [ $G -eq 0 ] && { echo "GATE GREEN"; exit 0; } || { echo "SKIP-GATE FAILED"; exit 3; }; fi
 
-PFX="hrdlive-$$"; CTRS=(); TMPD=$(mktemp -d)
-cleanup() { for ((i=${#CTRS[@]}-1;i>=0;i--)); do podman rm -f -t 2 "${CTRS[$i]}" >/dev/null 2>&1; done; rm -rf "$TMPD" "$SCR"; true; }
+PFX="hrdlive-$$"; CTRS=(); TMPD=$(mktemp -d) && [ -n "$TMPD" ] || { echo "SETUP-ERROR: mktemp failed" >&2; exit 2; }
+cleanup() { for ((i=${#CTRS[@]}-1;i>=0;i--)); do podman rm -f -t 2 "${CTRS[$i]}" >/dev/null 2>&1; done; rm -rf "${TMPD:?}" "${SCR:?}"; true; }
 trap cleanup EXIT INT TERM
 free_port() { python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'; }
 hdr() { echo "# HRD-050 $1  $(date -u +%FT%TZ)  head=$(git rev-parse --short HEAD)  dirty_files=$(git status --porcelain | wc -l)  dirty_diff_sha=$( (git diff HEAD; git ls-files -o --exclude-standard | sort) | sha256sum | cut -c1-16)  mode=$([ $NOENV = 1 ] && echo no-env || echo live)"; echo "# cmd: $0 $ORIG"; echo "# go: $(go version)"; }
@@ -232,7 +245,12 @@ if [ $NOENV = 0 ]; then
   # Authoritative PG-latency path: test binaries run INSIDE the database container against
   # 127.0.0.1:5432 (redis shares that netns), exactly as the 2026-11-20 campaign did.
   echo "=== B2c in-container (measurement_path=in_container_clean): $INRE ===" >> "$LB"
+  # F1: with an empty INRE a binary would print "no tests to run" inside its marker pair and the gate would refuse it as
+  # INCOMPLETE (empty-marker-pair). Fail-closed: nothing is run and no marker is written; the tests stay net skips
+  # and the skip gate still demands an allow-list entry for each, so nothing is hidden.
+  [ -n "$INRE" ] || echo "B2c: INRE empty, no in-container run (tests remain net-skipped and gated)" >> "$LB"
   for pk in catalog httpapi aimemory; do
+    [ -n "$INRE" ] || break
     ( cd server && CGO_ENABLED=0 go test -c -o "$TMPD/$pk.test" "./internal/$pk" ) >> "$LB" 2>&1 || RC=1
     podman exec "$PFX-run" mkdir -p "/work/server/internal/$pk" "/work/evidence" >/dev/null
     podman cp "$TMPD/$pk.test" "$PFX-run:/work/server/internal/$pk/$pk.test" >> "$LB" 2>&1

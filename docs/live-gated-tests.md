@@ -27,7 +27,7 @@ Race and regression evidence therefore did not cover those paths.
 4. Skip gate: a test counts as skipped when it SKIPs somewhere and PASSes nowhere. Each must be in the allow-list with a reason and an `HRD-NNN` item, or the
    run exits 3. Tests that write into the tracked `evidence/` tree are only DETECTED and REPORTED (`side_effects_report_<mode>.txt`, plus a `SIDE-EFFECTS-DETECTED` line); the runner never reverts, deletes, moves or copies anything (round 6).
 
-Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `--check LOG` to apply only the skip gate to an existing `-v` log).
+Re-run: `tests/live/run_gated_tests.sh` (without `--out` the evidence goes to a FRESH untracked `mktemp` dir under `$TMPDIR`, printed as `evidence dir: ...`; to refresh the sealed campaign evidence pass an explicit EMPTY `--out` dir and copy deliberately. A live/`--no-env` run REFUSES a non-empty `--out` (exit 2), so tracked sealed evidence is never overwritten or re-sealed. `--print-out` prints the resolved dir. Add `--no-env` for the RED baseline, `--check LOG` to apply only the skip gate to an existing `-v` log).
 
 ## Skip-gate semantics (review fixes F1-F10, B1/B2, I1-I4)
 - Identity is `package|Test`, package = full import path: from the `ok|FAIL <pkg>` line, or from a `# PKG <import path>` marker the runner writes (from `go list -f '{{.ImportPath}}'`) before in-container / worker binaries, which print no package line. A test that skips in phase A and passes in phase B under the same import path is green; a relative or different path does not match (stays red).
@@ -64,3 +64,11 @@ Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `-
 - The side-effect snapshot/restore cleanup (round 5) was REMOVED entirely: reviewer finding B1 showed it could destroy uncommitted work. `se_snapshot` records `path<TAB>sha256` of every path `git status -z` lists under `evidence/`; `se_report` writes NEW / MODIFIED / NO-LONGER-LISTED lines to the report file under the run's own output dir (its own output dir is excluded). NEW means newly listed as dirty by this run (a clean tracked file the run modified is NEW). Neither function modifies the working tree; tests X10-X14, X19 checksum a temp git repo's tree before/after (pre-existing dirty and untracked files, names with spaces and non-ASCII); mutants M45/M46/M50. Limits: a path containing a TAB and git rename entries are UNCONFIRMED/unsupported.
 - `PASS` followed by a bare `FAIL` inside a `# PKG` marker pair is a failed package (X15, M47). A `#` inside an allow-list entry (`seed#0`) is not a comment (X16/X17, M48). `--check` and the runner keep scratch files in a private mktemp dir, never in the evidence dir (X18, M49).
 - Follow-ups (not fixed here): a test name containing `|` cannot be allow-listed (fails closed); commits 79eb80f and 467372f carry `Roadmap-Item` in a non-final trailer paragraph (history is not rewritten); live phase A/B run and tests/live/mutation_check.sh still owed.
+
+## Round 8 follow-ups (review of a4ecfdb, F1/F2/F5/F6)
+- F2: default `--out` is a fresh untracked mktemp dir, never the tracked sealed evidence dir; non-empty `--out` refused (tests `F2_*`, mutants M51/M52).
+- F6: `TMPD`/`SCR` are checked non-empty after `mktemp` and removed with `${VAR:?}` in the runner and `mutation_check.sh`.
+- F1: when `INRE` is empty the B2c in-container loop is skipped with a logged line; no marker pair is written, so no false `INCOMPLETE empty-marker-pair`. Fail-closed: the tests remain net skips and the skip gate still needs an allow-list entry for each. A marker pair that really is empty (binary ran, zero tests) is still refused as INCOMPLETE; that is deliberate and documented, not a bug.
+- F5: an allow-list line with an empty package field (`|Test|reason|HRD-NNN`) is reported ALLOWLIST-MALFORMED (test `F5b_*`, mutant M53).
+- F3 (reviewer): paths containing a newline are mangled in the side-effect report (report-only; nothing is modified), in addition to TAB and rename entries.
+- Status: HRD-050 stays PROVISIONAL; the live phases were not re-run end to end in this round.
