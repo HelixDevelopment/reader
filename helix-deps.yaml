@@ -10,19 +10,19 @@ schema_version: 1
 deps:
   - name: containers
     ssh_url: git@github.com:vasic-digital/containers.git
-    ref: 22b4970
+    ref: d71b620
     why: "Rootless container runtime for live-test infrastructure (11.4.76 / 11.4.161)"
     layout: grouped
 
   - name: challenges
     ssh_url: git@github.com:vasic-digital/Challenges.git
-    ref: d94e554
+    ref: 04d5c31
     why: "Challenges framework: challenge-bank runner consumed by the Helix challenge banks (11.4.27 / 11.4.169)"
     layout: grouped
 
   - name: helixqa
     ssh_url: git@github.com:HelixDevelopment/HelixQA.git
-    ref: b16a089
+    ref: e19f9ab
     why: "HelixQA autonomous QA orchestration + test-bank execution for Helix end-to-end banks (11.4.27 / 11.4.278)"
     layout: grouped
 
