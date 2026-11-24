@@ -62,6 +62,14 @@ deps:
     why: "HelixQA go.mod replace target (digital.vasic.visionengine => ../vision_engine); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
     layout: grouped
 
+  - name: superspec
+    ssh_url: git@github.com:WangX0111/superspec.git
+    ref: c20ac6c
+    why: "Spec-Kit bridge for the superpowers skills (third-party, consumed at a pinned ref, never committed to; 11.4.288(A))"
+    layout: grouped
+    third_party: true
+    licence: MIT
+
 transitive_handling:
   recursive: true
   conflict_resolution: operator-required
