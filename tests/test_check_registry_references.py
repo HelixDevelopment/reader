@@ -35,7 +35,13 @@ class CheckerTest(unittest.TestCase):
         (self.root / "docs" / "upstream-issues").mkdir()
         (self.root / "docs" / "upstream-issues" / "n.md").write_text("see docs/in-upstream-doc-gone.md\n")
 
+    def stage(self):
+        # Tracking is what the checker measures: stage everything the working tree holds that git does not ignore.
+        subprocess.run(["git", "init", "-q"], cwd=self.root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=self.root, check=True)
+
     def run_script(self, script=SCRIPT):
+        self.stage()
         done = subprocess.run([sys.executable, str(script), "--root", str(self.root), "--json"], capture_output=True, text=True)
         return done.returncode, (json.loads(done.stdout) if done.stdout.strip() else {})
 
@@ -60,6 +66,7 @@ class CheckerTest(unittest.TestCase):
 
     def test_control_needle_blind_when_no_stored_path_resolves(self):
         (self.root / "evidence" / "a.txt").unlink()
+        self.stage()
         done = subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True, text=True)
         self.assertEqual(done.returncode, 2, done.stdout + done.stderr)
 
@@ -67,6 +74,39 @@ class CheckerTest(unittest.TestCase):
         (self.root / "docs" / "workable_items.db").unlink()
         done = subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True, text=True)
         self.assertEqual(done.returncode, 2, done.stdout + done.stderr)
+
+    def scenario_untracked(self, script=SCRIPT):
+        # An ignored file and an empty directory exist in the working tree but not in a clean clone.
+        (self.root / ".gitignore").write_text("*.out\n")
+        (self.root / "evidence" / "sealed.out").write_text("x\n")
+        (self.root / "tests" / "emptydir").mkdir(parents=True, exist_ok=True)
+        (self.root / "docs" / "helixtrack-sync.md").write_text("see `evidence/sealed.out` and tests/emptydir/ here\n")
+        rc, res = self.run_script(script)
+        return {m["path"] for m in res["items"] if m["kind"] == "doc-link"}
+
+    def test_untracked_ignored_and_empty_dirs_do_not_count_as_present(self):
+        self.assertIn("evidence/sealed.out", self.scenario_untracked())
+
+    def test_not_a_git_checkout_is_blind(self):
+        subprocess.run(["git", "init", "-q"], cwd=self.root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=self.root, check=True)
+        shutil.rmtree(self.root / ".git")
+        done = subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True, text=True, env={"PATH": "/usr/bin:/bin", "GIT_CEILING_DIRECTORIES": str(self.root.parent)})
+        self.assertEqual(done.returncode, 2, done.stdout + done.stderr)
+
+    def scenario_owndir(self, script=SCRIPT):
+        # A path cited relative to the document's OWN directory (docs/upstream-issues/x.md citing `sib.json`) resolves there.
+        sealed = self.root / "evidence" / "camp" / "ht"
+        (sealed / "live").mkdir(parents=True, exist_ok=True)
+        (sealed / "live" / "k.json").write_text("{}\n")
+        (self.root / "docs" / "upstream-issues").mkdir(exist_ok=True)
+        (self.root / "docs" / "upstream-issues" / "sib.json").write_text("{}\n")
+        (self.root / "docs" / "upstream-issues" / "x.md").write_text("Evidence `evidence/camp/ht/` and `sib.json` and `live/k.json`.\n")
+        rc, res = self.run_script(script)
+        return sorted(m["path"] for m in res["items"] if m["kind"] == "doc-relative-link")
+
+    def test_paths_relative_to_the_documents_own_directory_resolve(self):
+        self.assertEqual(self.scenario_owndir(), [])
 
     def scenario_default_docs(self, script=SCRIPT):
         # Every default doc glob must be scanned: one missing link per document class.
@@ -107,6 +147,7 @@ class CheckerTest(unittest.TestCase):
         out = []
         for bad in ("{not json", json.dumps({"entries": "x"}), json.dumps({"entries": [{"prefix": "", "task": "T"}]}), json.dumps({})):
             own.write_text(bad)
+            self.stage()
             done = subprocess.run([sys.executable, str(script), "--root", str(self.root)], capture_output=True, text=True)
             out.append((done.returncode, "Traceback" in done.stderr))
         return out
@@ -119,6 +160,8 @@ class CheckerTest(unittest.TestCase):
         mutants = {
             "default-docs-drop-helixtrack-sync": ('"docs/gap-register*.md", "docs/helixtrack-sync.md",', '"docs/gap-register*.md",', self.scenario_default_docs),
             "relative-links-ignored": ('if cited_dirs:', 'if False:', self.scenario_relative),
+            "untracked-counts-as-present": ('return q in tracked or q in tracked_dirs', 'return os.path.exists(os.path.join(root, q))', self.scenario_untracked),
+            "doc-own-dir-resolution-dropped": (' and not exists(os.path.join(os.path.dirname(rel), tok))', '', self.scenario_owndir),
             "malformed-map-traceback": ('print(f"BLIND: ownership map unreadable or malformed: {exc}", file=sys.stderr); return 2', 'raise', self.scenario_malformed),
         }
         for name, (old, new, scenario) in mutants.items():
@@ -144,12 +187,14 @@ class CheckerTest(unittest.TestCase):
             mutated.write_text(source.replace(old, new, 1))
             if name == "blind-is-pass":
                 (self.root / "docs" / "workable_items.db").unlink()
+                self.stage()
                 done = subprocess.run([sys.executable, str(mutated), "--root", str(self.root)], capture_output=True, text=True)
                 self.assertEqual(done.returncode, 0, name)  # the mutant misbehaves ...
                 self.assertNotEqual(subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True).returncode, 0)  # ... the real one does not
                 continue
             if name == "needle-removed":
                 (self.root / "evidence" / "a.txt").unlink()
+                self.stage()
                 done = subprocess.run([sys.executable, str(mutated), "--root", str(self.root)], capture_output=True, text=True)
                 self.assertNotEqual(done.returncode, 2, name)  # the mutant stops being blind ...
                 self.assertEqual(subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True).returncode, 2)

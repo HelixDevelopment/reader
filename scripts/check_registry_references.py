@@ -11,7 +11,7 @@ Classes of a missing path:
 Exit 0 = nothing missing; 1 = something missing (see classes); 2 = BLIND (registry unreadable, the ownership
 map malformed, or the control needle failed: no stored evidence path resolves at all), never a pass.
 """
-import argparse, glob, json, os, re, sqlite3, sys
+import argparse, subprocess, glob, json, os, re, sqlite3, sys
 
 DOC_LINK = re.compile(r"(?<![\w/.-])((?:docs|evidence|scripts|tests|deploy|config|tools|clients|core|server|README|CHANGELOG)[\w./@+-]*)")
 BACKTICK = re.compile(r"`([^`\s]+)`")
@@ -60,7 +60,20 @@ def main(argv=None):
         print("BLIND: registry database not found", file=sys.stderr); return 2
     db = sqlite3.connect(f"file:{dbp}?mode=ro", uri=True)
     paths = evidence_paths(db)
-    exists = lambda p: os.path.exists(os.path.join(root, p.split("#")[0]))
+    # Presence means TRACKED (git index), never merely present in the working tree: an ignored or
+    # untracked file or an empty directory does not exist for a clean clone (11.4.215).
+    try:
+        listed = subprocess.run(["git", "-C", root, "ls-files", "-z"], capture_output=True, check=True).stdout.decode("utf-8", "replace")
+    except (OSError, subprocess.CalledProcessError) as exc:
+        print(f"BLIND: not a git checkout, tracked files cannot be listed: {exc}", file=sys.stderr); return 2
+    tracked = {t for t in listed.split("\0") if t}
+    tracked_dirs = set()
+    for t in tracked:
+        while "/" in t:
+            t = t.rsplit("/", 1)[0]; tracked_dirs.add(t)
+    def exists(p):
+        q = os.path.normpath(p.split("#")[0]).rstrip("/")
+        return q in tracked or q in tracked_dirs
     # Control needle: a stored path known to be present must resolve through the SAME instrument.
     if not any(exists(p) for _, _, p in paths):
         print("BLIND: control needle failed (no stored evidence path resolves)", file=sys.stderr); return 2
@@ -92,7 +105,7 @@ def main(argv=None):
         # `evidence/c/h/`, an existing directory under evidence/): resolved against every cited directory and against the document's own directory; if it resolves under
         # none, it is reported under the first one. Limit: only backticked tokens with a slash or a file
         # extension are examined; a bare name such as `latest` cannot be told from prose.
-        cited_dirs = [m.rstrip(".,;:)") for m in sorted(found) if m.rstrip(".,;:)").endswith("/") and m.startswith("evidence/") and m.count("/") >= 3 and os.path.isdir(os.path.join(root, m))]
+        cited_dirs = [m.rstrip(".,;:)") for m in sorted(found) if m.rstrip(".,;:)").endswith("/") and m.startswith("evidence/") and m.count("/") >= 3 and exists(m)]
         if cited_dirs:
             for tok in sorted({t.group(1).rstrip(".,;:)") for t in BACKTICK.finditer(text)}):
                 if not REL_TOKEN.fullmatch(tok) or not ("/" in tok or re.search(r"\.\w{2,5}$", tok)):
