@@ -25,19 +25,31 @@
 # under evidence/ (hardcoded relative paths) are reverted/moved to $OUT/side_effects.
 # Exit: 0 green; 1 test failure; 3 skip-gate violation; 2 setup error.
 set -uo pipefail
+set -E
 export LC_ALL=C
+# Fail closed on a missing helper / tool (exit 127 anywhere, subshells included): never continue silently.
+# shellcheck disable=SC2154  # rc is set inside the trap string
+trap 'rc=$?; if [ $rc -eq 127 ]; then echo "FATAL: command not found (line $LINENO), aborting" >&2; exit 2; fi' ERR
+# Required tool features (checked, not assumed): without them every verdict could be wrong.
+printf 'a\n' | grep -qxF a && printf 'a\n' | grep -qE '^a$' && echo | awk 'BEGIN{exit 0}' && command -v sort >/dev/null && command -v comm >/dev/null \
+  || { echo "FATAL: required grep -x -F / grep -E / awk / sort / comm features unavailable" >&2; exit 2; }
+CWD0=$PWD
+abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
 ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
 OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
-NOENV=0; CHECKS=()
+NOENV=0; CHECKS=(); PB=""
 while [ $# -gt 0 ]; do case $1 in
-  --no-env) NOENV=1;; --out) OUT=$2; shift;; --allow) ALLOW=$2; shift;; --check) CHECKS+=("$2"); shift;;
+  --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
+  --print-phase-b) PB=$(abs "$2"); shift;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
+if [ ! -f "$ALLOW" ] || [ ! -r "$ALLOW" ]; then echo "SETUP-ERROR: allow-list '$ALLOW' missing or unreadable" >&2; exit 2; fi
 
 HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # Identity of a test is package<TAB>name (a bare name can be masked by a same-named test in another package).
 # log_records LOG... : TSV records (see parse_gotest.awk). Returns 2 if a log is missing/unreadable/empty
 # or holds no `--- PASS/SKIP/FAIL` line (blind instrument: a zero from it would say nothing).
+trim() { local v=$1; v=${v#"${v%%[![:space:]]*}"}; v=${v%"${v##*[![:space:]]}"}; printf '%s' "$v"; }
 LOGBAD=""
 log_records() {
   local l
@@ -61,10 +73,11 @@ skip_gate() {
   comm -23 "$OUT/.skip.txt" "$OUT/.pass.txt" > "$OUT/.netskip.txt"
   echo "skip census: $(wc -l < "$OUT/.skip.txt") distinct package|tests skipped somewhere, $(wc -l < "$OUT/.netskip.txt") never passed"
   : > "$OUT/.used.txt"
-  while IFS='|' read -r pk n r i; do
-    [ -z "${pk//[[:space:]]/}" ] && continue; case $pk in \#*) continue;; esac
-    if [ -z "${n//[[:space:]]/}" ] || ! [[ $r =~ [^[:space:]] ]] || ! [[ $i =~ ^[[:space:]]*HRD-[0-9]+[[:space:]]*$ ]]; then
-      echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason, item exactly HRD-<digits>)"; bad=1
+  while IFS='|' read -r pk n r i || [ -n "$pk$n$r$i" ]; do
+    pk=$(trim "$pk"); n=$(trim "$n"); r=$(trim "$r"); i=$(trim "$i")
+    [ -z "$pk" ] && continue; case $pk in \#*) continue;; esac
+    if [ -z "$n" ] || ! [[ $r =~ [^[:space:]] ]] || ! [[ $i =~ ^HRD-[0-9]+$ ]]; then
+      echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason without '|', item exactly HRD-<digits>)"; bad=1
     else echo "$pk|$n" >> "$OUT/.used.txt"; fi
   done < "$ALLOW"
   while read -r rec; do
@@ -79,11 +92,32 @@ skip_gate() {
       NORESULTS) echo "NO-RESULTS: $pk (package FAIL with no test results)"; bad=1;;
       PANIC) echo "PANIC: $pk $n"; bad=1;;
       TIMEOUT) echo "TIMEOUT: $pk"; bad=1;;
+      INCOMPLETE) echo "INCOMPLETE: $pk (test records with no closing PASS/FAIL or package line: truncated log?)"; bad=1;;
     esac
-  done < <(sort -u "$OUT/.rec.tsv" | grep -vP '^(PASS|SKIP|SEEN)\t')
+  done < <(sort -u "$OUT/.rec.tsv" | awk -F'\t' '$1!="PASS" && $1!="SKIP" && $1!="SEEN"')
   while read -r rec; do [ -n "$rec" ] && ! grep -qxF "$rec" "$OUT/.skip.txt" && echo "UNUSED-ALLOW (warning): $rec never skipped in these logs"; done < <(sort -u "$OUT/.used.txt")
   return $bad
 }
+
+# phase_b_sets LOG : derive the phase-B test lists from a phase-A log. Sets REGEX (all previously net-skipped
+# top-level tests that are not run elsewhere), INRE (in-container set), HRE (host-side set). Returns 2 on an
+# unusable log. Tests in package|name form are reduced to bare names for `go test -run`.
+HOSTRE='TestLiveLoadRemoteSource|TestLiveLoadRemoteSourceRclone|TestLiveLoadRemoteSourceWebDAV|TestLiveThrottleRemoteSourceHTTP|TestLiveSlowClientCatalogSurface|TestLiveSlowClientJobSurface'
+EXCL='TestLiveScaleCatalog|TestCatalogMultiProcessMerges|TestLCPLiveServerQualification|TestDumpLCPFeeds'
+phase_b_sets() {
+  LOGBAD=""; log_records "$1" > "$OUT/.pb.tsv"
+  [ -n "$LOGBAD" ] && { rm -f "$OUT/.pb.tsv"; return 2; }
+  REGEX=$(awk -F'\t' -v ex="^($EXCL)$" '
+    $1=="PASS"{p[$2"\t"$3]=1} $1=="SKIP"{s[$2"\t"$3]=1}
+    END{for(k in s) if(!(k in p)){split(k,a,"\t"); if(a[2]!~/\// && a[2]!~ex) u[a[2]]=1}
+        n=0; for(t in u) l[++n]=t; for(i=1;i<=n;i++)for(j=i+1;j<=n;j++)if(l[j]<l[i]){x=l[i];l[i]=l[j];l[j]=x}
+        for(i=1;i<=n;i++) printf "%s%s", (i>1?"|":""), l[i]; print ""}' "$OUT/.pb.tsv")
+  INRE=$(awk -v h="^($HOSTRE)$" 'BEGIN{RS="|"; ORS=""} {sub(/\n$/,"")} $0!="" && $0!~h {printf "%s%s", (c++?"|":""), $0}' <<<"$REGEX")
+  HRE=$(awk -v h="^($HOSTRE)$" 'BEGIN{RS="|"; ORS=""} {sub(/\n$/,"")} $0!="" && $0~h {printf "%s%s", (c++?"|":""), $0}' <<<"$REGEX")
+  rm -f "$OUT/.pb.tsv"; return 0
+}
+
+if [ -n "$PB" ]; then phase_b_sets "$PB" || { echo "GATE-BLIND: unusable phase-A log" >&2; exit 2; }; echo "REGEX=$REGEX"; echo "INRE=$INRE"; echo "HRE=$HRE"; exit 0; fi
 
 if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?; rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
   [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s), no verdict possible"; exit 2; }
@@ -134,12 +168,8 @@ if [ $NOENV = 0 ]; then
   export HELIX_LOAD_RUN=1 HELIX_LOAD_OUTPUT="$OUT/load_output.json"
   echo "=== B1 scale fixture ===" >> "$LB"
   ( cd server && HELIX_SCALE_KEEP=1 go test ./internal/catalog -count=1 -v -timeout 40m -run '^TestLiveScaleCatalog$' ) >> "$LB" 2>&1 || RC=1
-  REGEX=$(comm -23 <(names_of SKIP "$LA") <(names_of PASS "$LA") | grep -v '/' | grep -vE '^(TestLiveScaleCatalog|TestCatalogMultiProcessMerges|TestLCPLiveServerQualification|TestDumpLCPFeeds)$' | paste -sd'|')
+  phase_b_sets "$LA" || { echo "phase-B list construction failed (unusable phase-A log)" >&2; exit 2; }
   echo "=== B2 previously-skipped: $REGEX ===" >> "$LB"
-  # Host-side set: needs host binaries (rclone) or measures no PG latency.
-  HOSTRE='TestLiveLoadRemoteSource|TestLiveLoadRemoteSourceRclone|TestLiveLoadRemoteSourceWebDAV|TestLiveThrottleRemoteSourceHTTP|TestLiveSlowClientCatalogSurface|TestLiveSlowClientJobSurface'
-  INRE=$(tr '|' '\n' <<<"$REGEX" | grep -vxE "$HOSTRE" | grep -v '/' | paste -sd'|')
-  HRE=$(tr '|' '\n' <<<"$REGEX" | grep -xE "$HOSTRE" | paste -sd'|')
   echo "=== B2h host-side (measurement_path=host_forwarded): $HRE ===" >> "$LB"
   if [ -n "$HRE" ]; then
     ( cd server && HELIX_MEASUREMENT_PATH=host_forwarded go test ./... -count=1 -v -p 1 -timeout 60m -run "^($HRE)\$" ) >> "$LB" 2>&1 || RC=1
@@ -152,7 +182,8 @@ if [ $NOENV = 0 ]; then
     podman exec "$PFX-run" mkdir -p "/work/server/internal/$pk" "/work/evidence" >/dev/null
     podman cp "$TMPD/$pk.test" "$PFX-run:/work/server/internal/$pk/$pk.test" >> "$LB" 2>&1
     [ -d "server/internal/$pk/testdata" ] && podman cp "server/internal/$pk/testdata" "$PFX-run:/work/server/internal/$pk/testdata" >> "$LB" 2>&1
-    echo "# PKG ./internal/$pk (in-container)" >> "$LB"
+    IMP=$(cd server && go list -f '{{.ImportPath}}' "./internal/$pk") && [ -n "$IMP" ] || { echo "go list failed for $pk" >&2; exit 2; }
+    echo "# PKG $IMP" >> "$LB"
     podman exec -w "/work/server/internal/$pk" \
       -e HELIX_TEST_POSTGRES_DSN="postgres://postgres:$PGPW@127.0.0.1:5432/helix_test?sslmode=disable" \
       -e HELIX_TEST_REDIS_ADDR=127.0.0.1:6379 -e HELIX_LOAD_RUN=1 -e HELIX_MEASUREMENT_PATH=in_container_clean \
@@ -163,7 +194,8 @@ if [ $NOENV = 0 ]; then
   podman cp "$PFX-run:/work/evidence" "$OUT/in_container_evidence" >/dev/null 2>&1
   echo "=== B3 multi-process merges (4 workers + verify) ===" >> "$LB"
   ( cd server && go test -c -o "$TMPD/catalog.test" ./internal/catalog ) >> "$LB" 2>&1 || RC=1
-  echo "# PKG ./internal/catalog (multiprocess workers)" >> "$LB"
+  IMP=$(cd server && go list -f '{{.ImportPath}}' ./internal/catalog) && [ -n "$IMP" ] || { echo "go list failed for catalog" >&2; exit 2; }
+  echo "# PKG $IMP" >> "$LB"
   RUNTAG="hrd050$$"; WP=()
   for i in 0 1 2 3; do
     ( cd server/internal/catalog && HELIX_MP_ROLE=worker HELIX_MP_INDEX=$i HELIX_MP_PROCESSES=4 HELIX_MP_OPS=60 HELIX_MP_RUN=$RUNTAG \

@@ -9,8 +9,8 @@ W=$(mktemp -d); trap 'rm -rf "$W"' EXIT
 M=(
 "M1-F1-no-unusable-check@run_gated_tests.sh@s/\[ -n \"\$LOGBAD\" \] && return 2$/:/"
 "M2-F2-bare-name-key@parse_gotest.awk@s/print bk\\[i\\] \"\\\\t\" p \"\\\\t\" bn\\[i\\]/print bk[i] \"\\\\tX\\\\t\" bn[i]/"
-"M3-F3-space-only-reason@run_gated_tests.sh@s/! \\[\\[ \\\$r =~ \\[\\^\\[:space:\\]\\] \\]\\]/[ -z \"\${r\\/\\/ }\" ]/"
-"M4-F3-unanchored-item@run_gated_tests.sh@s/\[0-9\]+\[\[:space:\]\]\*\$ \]\]/[0-9]+ ]]/"
+"M3-F3-blank-reason-accepted@run_gated_tests.sh@s/! \[\[ \$r =~ \[^\[:space:\]\] \]\]/false/"
+"M4-F3-unanchored-item@run_gated_tests.sh@s/\^HRD-\[0-9\]+\$ \]\]/HRD-[0-9]+ ]]/"
 "M5-F4-ignore-FAIL-tests@run_gated_tests.sh@s/FAIL) echo \"FAILED-TEST: \\\$pk|\\\$n\"; bad=1;;/FAIL) :;;/"
 "M6-F4-ignore-build-failed@parse_gotest.awk@s/print \"BUILDFAIL/print \"IGNORED/"
 "M7-F5-ignore-timeout@parse_gotest.awk@s/print \"TIMEOUT/print \"IGNORED/"
@@ -18,6 +18,13 @@ M=(
 "M9-F5-ignore-no-results@run_gated_tests.sh@s/NORESULTS) echo \"NO-RESULTS: \\\$pk (package FAIL with no test results)\"; bad=1;;/NORESULTS) :;;/"
 "M10-F5-ignore-pkgfail@run_gated_tests.sh@s/PKGFAIL) echo \"PACKAGE-FAILED: \\\$pk\"; bad=1;;/PKGFAIL) :;;/"
 "M11-F8-no-unused-report@run_gated_tests.sh@s/echo \"UNUSED-ALLOW/echo \"IGNORED/"
+"M12-I1-ignore-incomplete@parse_gotest.awk@s/print \"INCOMPLETE/print \"IGNORED/"
+"M13-I4-no-allow-check@run_gated_tests.sh@s/if \[ ! -f \"\$ALLOW\" \] || \[ ! -r \"\$ALLOW\" \]/if false/"
+"M14-B1-phase-b-helper-missing@run_gated_tests.sh@s/^phase_b_sets() {/phase_b_setz() {/"
+"M15-B2-marker-relative@parse_gotest.awk@s/def = \$3; closed = 1/def = \".\/\" \$3; closed = 1/"
+"M16-m2-no-trim@run_gated_tests.sh@s/^trim() { local v=\$1;.*\$/trim() { printf '%s' \"\$1\"; }/"
+"M17-m2-drop-last-line@run_gated_tests.sh@s/ || \[ -n \"\$pk\$n\$r\$i\" \]//"
+"M18-B1-regex-excludes-nothing@run_gated_tests.sh@s/EXCL='TestLiveScaleCatalog|/EXCL='TestNeverMatches|/"
 )
 rc=0
 for m in "${M[@]}"; do
