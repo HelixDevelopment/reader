@@ -39,7 +39,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"runtime"
 	"sort"
 	"sync"
 	"sync/atomic"
@@ -48,6 +47,15 @@ import (
 
 	"github.com/helixreader/helix/server/internal/ingest"
 	"github.com/redis/go-redis/v9"
+)
+
+// The documented admission bounds, written out independently of the
+// production constants (maxPendingScans = 64, maxConcurrentScans = 2): an
+// assertion that read the production constant would follow a mutated or
+// changed value and could never fail.
+const (
+	docPendingBound = 64
+	docRunningBound = 2
 )
 
 const (
@@ -80,6 +88,12 @@ const (
 	// jobsDeadlineScanBudget is the context deadline of the slow scan with a
 	// timeout; its terminal state must arrive by then.
 	jobsDeadlineScanBudget = 500 * time.Millisecond
+	// jobsDeadlineScanDuration is how long the deadline arm's scan would run if
+	// it ignored its context: five times the budget, far above budget+slack, so
+	// a scan that does not honor its deadline cannot pass the elapsed check.
+	jobsDeadlineScanDuration = 5 * jobsDeadlineScanBudget
+	// jobsDeadlineSlackMS is the allowed overshoot of the deadline arm.
+	jobsDeadlineSlackMS = 300
 	// jobsShutdownBudget bounds the shutdown drain and the admission check
 	// after it.
 	jobsShutdownBudget = 5 * time.Second
@@ -213,6 +227,15 @@ func jobsSlowScanFn(runCtx context.Context) (ingest.Report, error) {
 	}
 }
 
+func jobsDeadlineScanFn(runCtx context.Context) (ingest.Report, error) {
+	select {
+	case <-time.After(jobsDeadlineScanDuration):
+		return ingest.Report{Files: 1, Works: 1}, nil
+	case <-runCtx.Done():
+		return ingest.Report{}, runCtx.Err()
+	}
+}
+
 func jobsFastScanFn(runCtx context.Context) (ingest.Report, error) {
 	return ingest.Report{Files: 2, Works: 2}, nil
 }
@@ -266,6 +289,45 @@ func runJobsSlowArm(t *testing.T, store *jobStore, arm jobsArmSpec, recordCreate
 
 	var wg sync.WaitGroup
 	slowJobIDs := []string{}
+
+	// ---- running/pending sampler: runs for the WHOLE arm (a sampler that only
+	// ran during the burst could report 0 and pass vacuously) ----
+	var maxRunning, maxNonTerminal, samples int64
+	updateMax := func(ptr *int64, v int) {
+		for {
+			cur := atomic.LoadInt64(ptr)
+			if int64(v) <= cur || atomic.CompareAndSwapInt64(ptr, cur, int64(v)) {
+				return
+			}
+		}
+	}
+	pollDone := make(chan struct{})
+	stopPoll := make(chan struct{})
+	go func() {
+		defer close(pollDone)
+		ticker := time.NewTicker(jobsBurstPollInterval)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ticker.C:
+				running, nonTerminal := 0, 0
+				for _, j := range store.list() {
+					if terminal(j.State) {
+						continue
+					}
+					nonTerminal++
+					if j.State == "running" {
+						running++
+					}
+				}
+				updateMax(&maxRunning, running)
+				updateMax(&maxNonTerminal, nonTerminal)
+				atomic.AddInt64(&samples, 1)
+			case <-stopPoll:
+				return
+			}
+		}
+	}()
 
 	// ---- slow clients: slow scan + trickle reads while the scan runs ----
 	for i := 0; i < arm.slow; i++ {
@@ -348,43 +410,7 @@ func runJobsSlowArm(t *testing.T, store *jobStore, arm jobsArmSpec, recordCreate
 
 	// ---- documented backpressure burst while the slow scans hold the sem ----
 	burstStart := time.Now()
-	var maxRunning, maxNonTerminal int64
-	updateMax := func(ptr *int64, v int) {
-		for {
-			cur := atomic.LoadInt64(ptr)
-			if int64(v) <= cur || atomic.CompareAndSwapInt64(ptr, cur, int64(v)) {
-				return
-			}
-		}
-	}
-	pollDone := make(chan struct{})
-	stopPoll := make(chan struct{})
-	go func() {
-		defer close(pollDone)
-		ticker := time.NewTicker(jobsBurstPollInterval)
-		defer ticker.Stop()
-		for {
-			select {
-			case <-ticker.C:
-				running, nonTerminal := 0, 0
-				for _, j := range store.list() {
-					if terminal(j.State) {
-						continue
-					}
-					nonTerminal++
-					if j.State == "running" {
-						running++
-					}
-				}
-				updateMax(&maxRunning, running)
-				updateMax(&maxNonTerminal, nonTerminal)
-			case <-stopPoll:
-				return
-			}
-		}
-	}()
-
-	burstAccepted, burstFull, burstOther := 0, 0, 0
+	burstAccepted, burstFull, burstOther, nonTermAtRejection := 0, 0, 0, 0
 	burstErrClasses := map[string]int{}
 	var burstMu sync.Mutex
 burstLoop:
@@ -396,6 +422,11 @@ burstLoop:
 			record(burstJob.ID)
 		case errors.Is(err, errScanQueueFull):
 			burstFull++
+			for _, j := range store.list() {
+				if !terminal(j.State) {
+					nonTermAtRejection++
+				}
+			}
 			burstMu.Lock()
 			burstErrClasses["scan_queue_full"]++
 			burstMu.Unlock()
@@ -407,8 +438,6 @@ burstLoop:
 			burstMu.Unlock()
 		}
 	}
-	close(stopPoll)
-	<-pollDone
 
 	// ---- fast reads while the documented queue-full bound has fired ----
 	for r := 0; r < jobsWhileFullReads; r++ {
@@ -419,6 +448,8 @@ burstLoop:
 	}
 
 	waitJobsArm(t, &wg, arm.name)
+	close(stopPoll)
+	<-pollDone
 
 	// Drain the admission-bound burst jobs so they do not count against the
 	// documented queue bound of the next arm.
@@ -432,14 +463,16 @@ burstLoop:
 	ev.FastReadP50MS, ev.FastReadP95MS, ev.FastReadP99MS = jobsLatencyPct(ev.FastReads)
 	ev.WhileFullReadP50MS, ev.WhileFullReadP95MS, ev.WhileFullReadP99MS = jobsLatencyPct(ev.FastReadsWhileFull)
 	ev.Backpressure = map[string]any{
-		"queue_full_count":  burstFull,
-		"other_errors":      burstOther,
-		"error_classes":     burstErrClasses,
-		"burst_accepted":    burstAccepted,
-		"max_running":       atomic.LoadInt64(&maxRunning),
-		"max_nonterminal":   atomic.LoadInt64(&maxNonTerminal),
-		"burst_budget_ms":   jobsBurstBudget.Milliseconds(),
-		"documented_bounds": map[string]int{"running": maxConcurrentScans, "pending": maxPendingScans},
+		"queue_full_count":         burstFull,
+		"other_errors":             burstOther,
+		"error_classes":            burstErrClasses,
+		"burst_accepted":           burstAccepted,
+		"max_running":              atomic.LoadInt64(&maxRunning),
+		"max_nonterminal":          atomic.LoadInt64(&maxNonTerminal),
+		"samples":                  atomic.LoadInt64(&samples),
+		"nonterminal_at_rejection": nonTermAtRejection,
+		"burst_budget_ms":          jobsBurstBudget.Milliseconds(),
+		"documented_bounds":        map[string]int{"running": docRunningBound, "pending": docPendingBound},
 	}
 	return ev
 }
@@ -480,6 +513,8 @@ func jobsSlowAsserts(ev jobsSlowClientEvidence) []jobsSlowAssert {
 		full, _ := bp["queue_full_count"].(int)
 		other, _ := bp["other_errors"].(int)
 		maxRunning, _ := bp["max_running"].(int64)
+		samples, _ := bp["samples"].(int64)
+		atRej, _ := bp["nonterminal_at_rejection"].(int)
 		detail = ""
 		if full < 1 {
 			detail += "no queue_full rejection observed;"
@@ -487,8 +522,40 @@ func jobsSlowAsserts(ev jobsSlowClientEvidence) []jobsSlowAssert {
 		if other != 0 {
 			detail += fmt.Sprintf("other_errors=%d;", other)
 		}
-		if maxRunning > int64(maxConcurrentScans) {
-			detail += fmt.Sprintf("max_running=%d exceeds documented %d;", maxRunning, maxConcurrentScans)
+		// Pending bound: the rejection must fire at exactly docPendingBound
+		// non-terminal jobs (tolerance: slow scans that finished between the
+		// rejection and the count), NOT at the 256-job retention cap.
+		if full >= 1 && (atRej > docPendingBound || atRej < docPendingBound-arm.SlowClients) {
+			detail += fmt.Sprintf("queue_full fired at %d non-terminal jobs, want %d (+-%d);", atRej, docPendingBound, arm.SlowClients)
+		}
+		// Running bound: the sampler must have produced data (control needle:
+		// a 0 with no samples proves nothing), the bound must never be exceeded
+		// and, with slow clients present, must actually be reached.
+		if samples < 5 {
+			detail += fmt.Sprintf("only %d running samples (sampler blind);", samples)
+		}
+		if maxRunning > int64(docRunningBound) {
+			detail += fmt.Sprintf("max_running=%d exceeds documented %d;", maxRunning, docRunningBound)
+		}
+		wantRunning := int64(arm.SlowClients)
+		if wantRunning > int64(docRunningBound) {
+			wantRunning = int64(docRunningBound)
+		}
+		if arm.SlowClients > 0 && maxRunning < wantRunning {
+			detail += fmt.Sprintf("max_running=%d, want %d (bound never exercised);", maxRunning, wantRunning)
+		}
+		// Serialization: with more slow scans than slots the last one waits for
+		// a slot, so the slowest reaches terminal no earlier than ~2 scan times.
+		if arm.SlowClients > docRunningBound {
+			slowest := 0.0
+			for _, sc := range arm.SlowScans {
+				if sc.TimeToTerminalMS > slowest {
+					slowest = sc.TimeToTerminalMS
+				}
+			}
+			if slowest < 1.5*float64(jobsSlowScanDuration.Milliseconds()) {
+				detail += fmt.Sprintf("slowest slow scan took %.0f ms, want >= %.0f (semaphore not serializing);", slowest, 1.5*float64(jobsSlowScanDuration.Milliseconds()))
+			}
 		}
 		add(arm.Arm+"_documented_backpressure_holds", detail)
 	}
@@ -496,7 +563,7 @@ func jobsSlowAsserts(ev jobsSlowClientEvidence) []jobsSlowAssert {
 		if ev.SlowWithDeadline.State != "canceled" {
 			return fmt.Sprintf("state=%q, want canceled", ev.SlowWithDeadline.State)
 		}
-		if ev.SlowWithDeadline.ElapsedMS > ev.SlowWithDeadline.BudgetMS+300 {
+		if ev.SlowWithDeadline.ElapsedMS > ev.SlowWithDeadline.BudgetMS+jobsDeadlineSlackMS {
 			return fmt.Sprintf("elapsed_ms=%.0f exceeds budget_ms=%.0f by slack;", ev.SlowWithDeadline.ElapsedMS, ev.SlowWithDeadline.BudgetMS)
 		}
 		return ""
@@ -519,18 +586,19 @@ func jobsSlowAsserts(ev jobsSlowClientEvidence) []jobsSlowAssert {
 	return out
 }
 
-// slowClientEvidenceRoot is the repository root: the httpapi test file lives
-// at server/internal/httpapi, four levels below it, so evidence always lands
-// in the repo's evidence/ tree regardless of the test working directory.
-func slowClientEvidenceRoot(t *testing.T) string {
-	t.Helper()
-	if _, thisFile, _, ok := runtime.Caller(0); ok {
-		root := filepath.Join(filepath.Dir(thisFile), "..", "..", "..")
-		if _, err := os.Stat(filepath.Join(root, "evidence")); err == nil {
-			return root
-		}
+// slowClientOutDir returns a fresh directory for this run's evidence. A live
+// run never writes into a tracked path (recorded evidence is frozen):
+// HELIX_SLOW_CLIENT_OUT names the directory (it must be missing or empty);
+// otherwise a fresh os.MkdirTemp directory outside the repository is used.
+func slowClientOutDir() (string, error) {
+	dir := os.Getenv("HELIX_SLOW_CLIENT_OUT")
+	if dir == "" {
+		return os.MkdirTemp("", "helix-slow-client-")
 	}
-	return "."
+	if entries, err := os.ReadDir(dir); err == nil && len(entries) > 0 {
+		return "", fmt.Errorf("HELIX_SLOW_CLIENT_OUT %s is not empty; refusing to overwrite recorded evidence", dir)
+	}
+	return dir, os.MkdirAll(dir, 0o755)
 }
 
 func writeJobsSlowClientEvidence(t *testing.T, ev jobsSlowClientEvidence) {
@@ -541,11 +609,13 @@ func writeJobsSlowClientEvidence(t *testing.T, ev jobsSlowClientEvidence) {
 		return
 	}
 	t.Logf("SLOWCLIENTJSON %s", data)
-	path := filepath.Join(slowClientEvidenceRoot(t), "evidence", "campaign-2026-11-20", "slow-client", "jobs_slow_client_results.json")
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		t.Errorf("mkdir evidence: %v", err)
+	dir, err := slowClientOutDir()
+	if err != nil {
+		t.Errorf("slow-client evidence dir: %v", err)
 		return
 	}
+	path := filepath.Join(dir, "jobs_slow_client_results.json")
+	t.Logf("slow-client evidence written to %s", path)
 	if err := os.WriteFile(path, append(data, '\n'), 0o644); err != nil {
 		t.Errorf("write evidence %s: %v", path, err)
 	}
@@ -555,11 +625,11 @@ func writeJobsSlowClientEvidence(t *testing.T, ev jobsSlowClientEvidence) {
 // (server/internal/httpapi/jobs.go) and asserts the documented behavior holds.
 func TestLiveSlowClientJobSurface(t *testing.T) {
 	if os.Getenv("HELIX_LOAD_RUN") != "1" {
-		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+		t.Skip("feature_disabled_by_config: HELIX_LOAD_RUN is not 1; measurement harness opted out")
 	}
 	addr := os.Getenv("HELIX_TEST_REDIS_ADDR")
 	if addr == "" {
-		t.Skip("HELIX_TEST_REDIS_ADDR is not configured; a live journal needs Redis")
+		t.Skip("topology_unsupported: HELIX_TEST_REDIS_ADDR is not configured; a live journal needs Redis")
 	}
 	client := redis.NewClient(&redis.Options{Addr: addr})
 	t.Cleanup(func() { _ = client.Close() })
@@ -587,8 +657,39 @@ func TestLiveSlowClientJobSurface(t *testing.T) {
 		created = append(created, id)
 	}
 
+	ev := runJobsSlowClient(t, store, recordCreated, "TestLiveSlowClientJobSurface")
+	writeJobsSlowClientEvidence(t, ev)
+	for _, a := range ev.Asserts {
+		if a.Violated {
+			t.Errorf("slow-client assert %s violated: %s", a.Name, a.Detail)
+		}
+	}
+}
+
+// TestSlowClientJobSurfaceHermetic runs the same harness against a real
+// in-process jobStore with no journal (no Redis needed). It exercises the
+// production jobStore (create/run/shutdown), not a double; only the Redis
+// journal leg is absent, so this is a hermetic check of the assertions and of
+// the store's documented bounds.
+func TestSlowClientJobSurfaceHermetic(t *testing.T) {
+	store := newJobStore()
+	ev := runJobsSlowClient(t, store, func(string) {}, "TestSlowClientJobSurfaceHermetic")
+	for _, a := range ev.Asserts {
+		if a.Violated {
+			t.Errorf("slow-client assert %s violated: %s", a.Name, a.Detail)
+		}
+	}
+	if len(ev.Asserts) < 10 {
+		t.Fatalf("only %d asserts evaluated", len(ev.Asserts))
+	}
+}
+
+// runJobsSlowClient drives both arms, the deadline arm and the shutdown arm on
+// store and returns the evidence with the asserts evaluated.
+func runJobsSlowClient(t *testing.T, store *jobStore, recordCreated func(string), testName string) jobsSlowClientEvidence {
+	t.Helper()
 	ev := jobsSlowClientEvidence{
-		Test:      "TestLiveSlowClientJobSurface",
+		Test:      testName,
 		Surface:   "scan-job surface (server/internal/httpapi/jobs.go)",
 		TestFile:  "server/internal/httpapi/slow_client_live_test.go",
 		EmittedAt: time.Now().UTC().Format(time.RFC3339),
@@ -604,7 +705,7 @@ func TestLiveSlowClientJobSurface(t *testing.T) {
 			"deadline_scan_budget_ms":  jobsDeadlineScanBudget.Milliseconds(),
 			"shutdown_budget_ms":       jobsShutdownBudget.Milliseconds(),
 			"arm_watchdog_s":           jobsArmWatchdog.Seconds(),
-			"documented_bounds":        map[string]int{"running": maxConcurrentScans, "pending": maxPendingScans},
+			"documented_bounds":        map[string]int{"running": docRunningBound, "pending": docPendingBound},
 		},
 	}
 	for _, arm := range []jobsArmSpec{
@@ -624,7 +725,7 @@ func TestLiveSlowClientJobSurface(t *testing.T) {
 	dlStart := time.Now()
 	dlRunCtx, dlRunCancel := context.WithTimeout(context.Background(), jobsDeadlineScanBudget)
 	defer dlRunCancel()
-	store.run(dlRunCtx, dlJob.ID, jobsSlowScanFn)
+	store.run(dlRunCtx, dlJob.ID, jobsDeadlineScanFn)
 	ev.SlowWithDeadline = jobsSlowDeadlineRecord{
 		State:     mustGetState(store, dlJob.ID),
 		ElapsedMS: jobsLatencyMS(dlStart),
@@ -648,12 +749,7 @@ func TestLiveSlowClientJobSurface(t *testing.T) {
 	}
 
 	ev.Asserts = jobsSlowAsserts(ev)
-	writeJobsSlowClientEvidence(t, ev)
-	for _, a := range ev.Asserts {
-		if a.Violated {
-			t.Errorf("slow-client assert %s violated: %s", a.Name, a.Detail)
-		}
-	}
+	return ev
 }
 
 func mustGetState(store *jobStore, id string) string {

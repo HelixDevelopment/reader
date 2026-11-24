@@ -13,8 +13,11 @@ package catalog
 //     lock;
 //   - no error storm: fast-client operations return no errors;
 //   - latency for fast clients is unaffected beyond the budget;
-//   - the documented pool backpressure holds: slow reads/writes hold their
-//     connections without exhausting the production pool caps.
+//
+// NOT asserted: pool state. Slow reads/writes hold connections, but no assert
+// inspects pool saturation or the injection hit count (stallHits); a run in
+// which the injection never fired is caught only indirectly by the lower
+// deadline window of the slow-client records.
 //
 // Injection: a pgx stdlib driver wrapper (slowConn) returns slow connections
 // to a *sql.DB wrapped by the in-package Postgres{db} seam. Slow reads stall
@@ -33,8 +36,10 @@ package catalog
 // Each arm then runs the write phase: one slow writer on a shared work key,
 // fast writers on the same key, and fast readers.
 //
-// Evidence: evidence/campaign-2026-11-20/slow-client/catalog_slow_client_results.json
-// records slow-client behavior per arm (error classes and timeouts), fast
+// Evidence: catalog_slow_client_results.json, written to a FRESH directory per
+// run (HELIX_SLOW_CLIENT_OUT, which must be missing or empty, else a new
+// os.MkdirTemp directory; recorded evidence is frozen and never overwritten).
+// It records slow-client behavior per arm (error classes and timeouts), fast
 // reader/writer p50/p95/p99 latency and every assert. Gate:
 // HELIX_TEST_POSTGRES_DSN, like the other live catalog tests.
 
@@ -47,7 +52,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strconv"
 	"strings"
 	"sync"
@@ -230,18 +234,17 @@ type catalogSlowClientEvidence struct {
 	Asserts         []catalogSlowAssert      `json:"asserts"`
 }
 
-// slowClientEvidenceRoot is the repository root: the catalog test file lives
-// at server/internal/catalog, four levels below it, so evidence always lands
-// in the repo's evidence/ tree regardless of the test working directory.
-func slowClientEvidenceRoot(t *testing.T) string {
-	t.Helper()
-	if _, thisFile, _, ok := runtime.Caller(0); ok {
-		root := filepath.Join(filepath.Dir(thisFile), "..", "..", "..")
-		if _, err := os.Stat(filepath.Join(root, "evidence")); err == nil {
-			return root
-		}
+// slowClientOutDir returns a fresh directory for this run's evidence and never
+// a tracked path: HELIX_SLOW_CLIENT_OUT (missing or empty) or a new MkdirTemp.
+func slowClientOutDir() (string, error) {
+	dir := os.Getenv("HELIX_SLOW_CLIENT_OUT")
+	if dir == "" {
+		return os.MkdirTemp("", "helix-slow-client-")
 	}
-	return "."
+	if entries, err := os.ReadDir(dir); err == nil && len(entries) > 0 {
+		return "", fmt.Errorf("HELIX_SLOW_CLIENT_OUT %s is not empty; refusing to overwrite recorded evidence", dir)
+	}
+	return dir, os.MkdirAll(dir, 0o755)
 }
 
 func writeCatalogSlowClientEvidence(t *testing.T, ev catalogSlowClientEvidence) {
@@ -252,11 +255,13 @@ func writeCatalogSlowClientEvidence(t *testing.T, ev catalogSlowClientEvidence) 
 		return
 	}
 	t.Logf("SLOWCLIENTJSON %s", data)
-	path := filepath.Join(slowClientEvidenceRoot(t), "evidence", "campaign-2026-11-20", "slow-client", "catalog_slow_client_results.json")
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		t.Errorf("mkdir evidence: %v", err)
+	dir, err := slowClientOutDir()
+	if err != nil {
+		t.Errorf("slow-client evidence dir: %v", err)
 		return
 	}
+	path := filepath.Join(dir, "catalog_slow_client_results.json")
+	t.Logf("slow-client evidence written to %s", path)
 	if err := os.WriteFile(path, append(data, '\n'), 0o644); err != nil {
 		t.Errorf("write evidence %s: %v", path, err)
 	}
@@ -591,11 +596,11 @@ func catalogSlowAsserts(ev catalogSlowClientEvidence) []catalogSlowAssert {
 // header for the arms, the injection and the recorded evidence.
 func TestLiveSlowClientCatalogSurface(t *testing.T) {
 	if os.Getenv("HELIX_LOAD_RUN") != "1" {
-		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+		t.Skip("feature_disabled_by_config: HELIX_LOAD_RUN is not 1; measurement harness opted out")
 	}
 	dsn := os.Getenv("HELIX_TEST_POSTGRES_DSN")
 	if dsn == "" {
-		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+		t.Skip("topology_unsupported: HELIX_TEST_POSTGRES_DSN is not configured")
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 4*time.Minute)
 	defer cancel()
