@@ -15,9 +15,11 @@ JDK=docker.io/library/eclipse-temurin@sha256:4e38bcd64a552586921cdd011831cabc0d5
 NODE=docker.io/library/node@sha256:12f54cafa58d0e96554ae05871e29663ff7241836377dc9a7916449b8adb062c                 # node 22 alpine (Capacitor CLI needs >= 22)
 SDKIMG=localhost/lava-android-builder@sha256:181e6f648e21030ba34678dd92250f2b523d51792c696b111305a572561c5e83         # LOCAL-ONLY image (no registry to pull it from; manifest digest + id b19c6898acd4 recorded in evidence by `seed`); only used to seed the SDK (sdkmanager)
 VOL=hrdiso-android-cache; CACHE_HOST=${HRD040_CACHE:-$HOME/.cache/hrd040-android}
-STAMP=$(date -u +%Y%m%dT%H%M%SZ); EVID=${EVID:-$REPO/evidence/android-matrix/run-$STAMP}; WORK=${HRD040_WORK:-$HOME/.cache/claude-tmp/hrd040-work}
+STAMP=$(date -u +%Y%m%dT%H%M%SZ); EVID_GIVEN=${EVID:-}; EVID=${EVID:-$REPO/evidence/android-matrix/run-$STAMP}; WORK=${HRD040_WORK:-$HOME/.cache/claude-tmp/hrd040-work}
 MATRIX=$REPO/qa/android_matrix/matrix.tsv; KVM=${HRD040_KVM:-/dev/kvm}; REAP=${HRD040_REAP:-$REPO/tools/isolation/reap.sh}
-RUNID=$$-$(date +%s); MINE=(); LIFE=${HRD040_LIFE:-7200}
+RUNID=${HRD040_RUNID:-$$-$(date +%s)}; MINE=(); LIFE=${HRD040_LIFE:-7200}   # HRD040_RUNID only pins the name suffix (tests: a colliding name must be refused)
+case $RUNID in ''|*[!A-Za-z0-9-]*) echo "[android_matrix] HRD040_RUNID must be [A-Za-z0-9-]+: '$RUNID'" >&2; exit 2;; esac
+case $LIFE in ''|*[!0-9]*|0|00*) echo "[android_matrix] HRD040_LIFE must be a positive integer (seconds; podman's --timeout 0 means NO timeout): '$LIFE'" >&2; exit 2;; esac
 INSTR_CLASSES=org.helixreader.app.MainActivitySmokeTest,com.getcapacitor.myapp.ExampleInstrumentedTest
 log() { echo "[android_matrix] $*" >&2; }
 cname() { echo "hrdiso-android-$1-$RUNID"; }
@@ -28,7 +30,7 @@ cleanup() { local c; for c in "${MINE[@]:-}"; do [ -n "$c" ] && podman rm -f "$c
 trap cleanup EXIT; trap 'exit 130' INT; trap 'exit 143' TERM
 fresh() { # refuse to reuse: a same-name container (pid reuse within one second, or a hand-made one) aborts the run
   if podman container exists "$1" 2>/dev/null; then log "container $1 already exists; refusing to reuse it"; exit 1; fi; }
-reap() { [ -x "$REAP" ] && "$REAP" >&2 || { log "reap.sh missing or not executable: $REAP"; exit 1; }; }
+reap() { [ -x "$REAP" ] || { log "reap.sh missing or not executable: $REAP"; exit 1; }; "$REAP" >&2 || { log "reap.sh failed (rc $?): $REAP"; exit 1; }; }
 
 # a build container: image, name, shell command ; $NET is --network none unless set to "" ; the cache volume is mounted
 build_ctr() { local img=$1 n=$2 cmd=$3; fresh "$n"; mine "$n"
@@ -36,12 +38,14 @@ build_ctr() { local img=$1 n=$2 cmd=$3; fresh "$n"; mine "$n"
     -v "$VOL:/cache:rw" -e GRADLE_USER_HOME=/cache/gradle -e ANDROID_HOME=/cache/sdk -e ANDROID_SDK_ROOT=/cache/sdk -e HOME=/cache/home \
     --entrypoint sh "$img" -c "$cmd" >/dev/null; }
 
-pack_src() { rm -rf "$WORK/src"; mkdir -p "$WORK/src" "$WORK/state"; git -C "$REPO" archive "${HRD040_REV:-HEAD}" clients | tar -x -C "$WORK/src"; }
+pack_src() { local rev; rev=$(git -C "$REPO" rev-parse "${HRD040_REV:-HEAD}") # the revision is resolved ONCE, here, and travels with the packed sources (stage_prepare -> prepared/.source_rev)
+  rm -rf "$WORK/src"; mkdir -p "$WORK/src" "$WORK/state"; git -C "$REPO" archive "$rev" clients | tar -x -C "$WORK/src"; echo "$rev" > "$WORK/state/source_rev.txt"; }
 
 stage_seed() { # one-time: SDK (builder image's SDK + platform 36) into the cache volume
+  [ -n "$EVID_GIVEN" ] || { log "seed records SDK provenance into the evidence dir: set EVID=<dir> (no stray directory is created inside the repository)"; exit 2; }
   local n; n=$(cname seed); mkdir -p "$EVID"; podman image inspect "$SDKIMG" --format '{{.Id}} {{.Digest}}' > "$EVID/sdk_builder_image.txt"
-  NET= build_ctr "$SDKIMG" "$n" 'mkdir -p /cache/home; [ -d /cache/sdk/platforms/android-36 ] || { cp -a /opt/android-sdk /cache/sdk && yes | /cache/sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=/cache/sdk "platforms;android-36" "build-tools;36.0.0" >/dev/null; }; ls /cache/sdk/platforms'
-  podman start -a "$n"; podman rm "$n" >/dev/null; }
+  NET= build_ctr "$SDKIMG" "$n" 'mkdir -p /cache/home; [ -d /cache/sdk/platforms/android-36 ] || { cp -a /opt/android-sdk /cache/sdk && yes | /cache/sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=/cache/sdk "platforms;android-36" "build-tools;36.0.0" >/dev/null; }; ls /cache/sdk/platforms /cache/sdk/build-tools'
+  podman start -a "$n" > "$EVID/sdk_packages.txt"; podman rm "$n" >/dev/null; }   # provenance: builder image id+digest and the platform / build-tools directories actually present
 
 stage_prepare() { # npm ci + web build + cap sync (network): produces node_modules, web/dist, android assets and the generated cordova plugin dir
   pack_src; local n; n=$(cname prep); fresh "$n"; mine "$n"
@@ -49,6 +53,7 @@ stage_prepare() { # npm ci + web build + cap sync (network): produces node_modul
     'set -e; cd /w/web && npm ci --ignore-scripts --no-audit --no-fund && npm run build && cd ../android && npm ci --ignore-scripts --no-audit --no-fund && npx cap sync android' >/dev/null
   podman cp "$WORK/src/clients/." "$n":/w
   podman start -a "$n"; rm -rf "${WORK:?}/prepared"; mkdir -p "$WORK/prepared"; podman cp "$n":/w/. "$WORK/prepared"; podman rm "$n" >/dev/null
+  cp "$WORK/state/source_rev.txt" "$WORK/prepared/.source_rev"
   log "prepared tree at $WORK/prepared (git-free, host-only)"; }
 
 # run a gradle task set in the JDK21 container on the prepared tree, offline, no network; copy results out to $2
@@ -69,7 +74,8 @@ stage_mutation() { # paired mutant: ApiRequestPolicy accepts POST; the unit test
   echo "gradle exit $rc (nonzero expected)" > "$d/exit.txt"; [ "$rc" -ne 0 ]; }
 
 stage_apk() { local d=$WORK/apk; log "assemble debug + androidTest APKs (offline)"; rm -rf "${d:?}"; mkdir -p "$d"
-  gradle_run ':app:assembleDebug :app:assembleDebugAndroidTest' "$d"; git -C "$REPO" rev-parse "${HRD040_REV:-HEAD}" > "$d/source_rev.txt"; cp "$d"/build/outputs/apk/debug/app-debug.apk "$d/app-debug.apk"; cp "$d"/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk "$d/app-debug-androidTest.apk"
+  [ -s "$WORK/prepared/.source_rev" ] || { log "no prepared/.source_rev: run the prepare stage first (the recorded revision is the one the sources were packed from)"; return 1; }
+  gradle_run ':app:assembleDebug :app:assembleDebugAndroidTest' "$d"; cp "$WORK/prepared/.source_rev" "$d/source_rev.txt"; cp "$d"/build/outputs/apk/debug/app-debug.apk "$d/app-debug.apk"; cp "$d"/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk "$d/app-debug-androidTest.apk"
   rm -rf "${d:?}/build"; ( cd "$d" && sha256sum app-debug.apk app-debug-androidTest.apk > apk.sha256.txt ); }
 
 stage_images() { # build the extra-API emulator images from the Containers submodule pin (network at build time; recipe is the submodule's own Containerfile)
@@ -83,7 +89,7 @@ adb() { local n=$1; shift; podman exec "$n" adb -s emulator-5554 "$@"; }
 
 pkg_hash() { local n=$1 role=$2 pkg=$3 path sha # read back FROM THE DEVICE: package path + sha256 of the installed base.apk
   path=$(adb "$n" shell "pm path $pkg" 2>/dev/null | tr -d '\r' | head -1 | sed 's/^package://')
-  sha=$(adb "$n" shell "sha256sum $path" 2>/dev/null | tr -d '\r' | awk '{print $1}')
+  sha=; [ -z "$path" ] || sha=$(adb "$n" shell "sha256sum $path" 2>/dev/null | tr -d '\r' | awk '{print $1}')   # no installed package: never hash an empty answer
   echo "$role ${path:-none} ${sha:-none}"; }
 
 stage_emulators() { local only=${1:-}; mkdir -p "$EVID"; cp "$MATRIX" "$EVID/matrix.tsv.txt"

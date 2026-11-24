@@ -224,7 +224,11 @@ What it does and does not do, stated as facts about the script (the guard still 
 - Lifetime: every container is named `hrdiso-android-<what>-<pid>-<epoch>` (unique per run, never reused; a same-name container aborts the run), carries
   `--timeout` (default 7200 s, `HRD040_LIFE`) and the labels `org.helix.isolation`, `org.helix.owner-pid` (the runner pid) and `org.helix.lease-ts`;
   `tools/isolation/reap.sh` runs before the first container; an `EXIT`/`INT`/`TERM` trap removes every container the run created.
-  `tools/android_matrix/tests/test_lifecycle.sh` drives the real script against a logging fake `podman` to prove this (RED against the earlier script).
+  `tools/android_matrix/tests/test_lifecycle.sh` drives the real script against a logging fake `podman` (no container is started) and asserts, by value: `--timeout` N>0
+  and the three labels on every `create`/`run` of the `prepare`, `unit`, `apk`, `seed` and `emulators` stages, `owner-pid` = the runner's live pid (not 1), `lease-ts` a recent
+  epoch, a name unique per run, a pinned colliding name REFUSED, no container left after an aborted run or after SIGTERM, `HRD040_LIFE` validated; `test_lifecycle_mutants.sh`
+  requires 17 mutants of the runner to FAIL it. What it does NOT prove: that real podman honours `--timeout`, that `reap.sh` reaps (only that it is called first), the SIGINT
+  path, or the cache volume / image lifetime.
 - Network: `--network none` for every container except the `seed`, `prepare` and `warm` stages (npm, Maven and SDK downloads) and the one-time `images` build.
   Emulator containers: `--network none`, `--device /dev/kvm` only (no other device, no published port), `--cap-drop ALL`, `no-new-privileges`;
   adb runs INSIDE the container (`podman exec ... adb -s emulator-5554`), there is no host adb and no host display.

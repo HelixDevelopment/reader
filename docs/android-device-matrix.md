@@ -49,22 +49,28 @@ runner reuses the submodule's container recipe (Containerfile, entrypoint) inste
 ## Reproduce
 
 ```bash
-tools/android_matrix/run_matrix.sh seed && tools/android_matrix/run_matrix.sh images   # once (network)
+export EVID=evidence/android-matrix/run-$(date -u +%Y%m%dT%H%M%SZ); mkdir -p "$EVID/selftests"   # EVID is required by `seed` (it refuses without it)
+tools/android_matrix/run_matrix.sh seed && tools/android_matrix/run_matrix.sh images   # once (network); seed writes sdk_builder_image.txt + sdk_packages.txt into $EVID
 tools/android_matrix/run_matrix.sh warm                                                   # once (network)
-export EVID=evidence/android-matrix/run-$(date -u +%Y%m%dT%H%M%SZ)
-tools/android_matrix/run_matrix.sh all          # prepare (network), unit, mutation (must fail), apk, emulators, summarize; exit 1 on any FAIL
+tools/android_matrix/run_matrix.sh all 2> "$EVID/runner.log"   # prepare (network), unit, mutation (must fail), apk, emulators, summarize; exit 1 on any FAIL or when no row ran
+bash tools/android_matrix/tests/test_lifecycle.sh > "$EVID/selftests/lifecycle_GREEN.txt"
+bash tools/android_matrix/tests/test_lifecycle_mutants.sh > "$EVID/selftests/lifecycle_mutants_killed.txt"   # every mutant must FAIL test_lifecycle.sh
+python3 -I tools/android_matrix/tests/test_summarize.py > "$EVID/selftests/summarize_GREEN.txt" 2>&1
 tools/android_matrix/run_matrix.sh seal         # tools/isolation/seal_evidence.sh "$EVID" (writes SHA256SUMS)
-bash tools/android_matrix/tests/test_lifecycle.sh && python3 -I tools/android_matrix/tests/test_summarize.py   # runner + summarizer self-tests
 ```
 
 Single stages (`unit`, `mutation`, `apk`, `emulators --rows a,b`) take the same `EVID`. The runner writes only publishable names into `$EVID`
 (junit xml and the matrix are stored as `*.xml.txt` / `matrix.tsv.txt`, so `seal` accepts the directory without hand renaming). `apk.sha256.txt` uses
-relative names; `source_rev.txt` is the git revision the APKs were built from (`HRD040_REV`, default `HEAD`).
+relative names; `source_rev.txt` is the git revision the sources were packed from at `prepare` time (`HRD040_REV`, default `HEAD`; resolved once and carried in `prepared/.source_rev`, so
+separately run stages cannot record a different revision than the one built). `apk` refuses without a prepared tree.
 
 ## Results (one run, 2026-11-24, host with usable `/dev/kvm`)
 
 Evidence (sealed, `SHA256SUMS` in each directory): `evidence/android-matrix/run-v2/` (all rows, unit, mutant, APK hashes, installed-package read-back,
 runner log, runner/summarizer self-tests with their RED runs) and `evidence/android-matrix/run-red/` (the RED run before the fix below, older runner).
+`runner.log` and `selftests/*` in the sealed runs contain absolute host paths (`/home/<user>/...`) as recorded; sealed evidence is frozen and is not edited, so that is a
+recorded note, not a fix. `run-v2` records the SDK builder image only by the pinned digest in `run_matrix.sh`; it has no `sdk_builder_image.txt` / `sdk_packages.txt` (the
+`seed` stage writes them from now on), so the seeded SDK in the cache volume is UNCONFIRMED for `run-v2`.
 `evidence/android-matrix/run-final/` is the SUPERSEDED first run (earlier runner, no installed-hash read-back, absolute paths in `apk.sha256.txt`); it stays only because earlier commits cite it and evidence is frozen once recorded. Sealed manifest of `run-v2`: sha256 of its `SHA256SUMS` = `77958a73aa4750cbe16de4a725957fd0a3af7d27ebebd85b0d48396baa913903`. APKs built from source revision `ef369a58bf6fb29e7c883b21889dcc6036ddfce2`
 (`source_rev.txt`); every row's installed `base.apk` sha256 equals the build (`installed.txt`).
 
@@ -81,17 +87,19 @@ runner log, runner/summarizer self-tests with their RED runs) and `evidence/andr
 Self-tests of the runner and the summarizer (`tools/android_matrix/tests/`): `test_lifecycle.sh` (fake `podman`, no containers) and `test_summarize.py`.
 Their RED runs against the previous runner/summarizer (b5b7112) and GREEN runs are in `run-v2/selftests/`; seven mutants of the new runner (no
 `--timeout`, no lease-ts label, no reap call, no EXIT trap, fixed container name, no fresh APK copy, no installed-hash read-back) are each killed by a
-named check (`lifecycle_mutants_7_of_7_killed.txt`).
+named check (`lifecycle_mutants_7_of_7_killed.txt`). After the second review (finding R1) `tests/test_lifecycle_mutants.sh` runs 17 mutants (no-op cleanup, missing
+lifetime args on build/prepare/emulator containers, no-op or non-refusing same-name check, timeout 0 or unvalidated, owner-pid 1, stale lease-ts, fixed name, no uninstall,
+no reap, no fresh APK copy, no EXIT trap, ...) and requires each to FAIL `test_lifecycle.sh`; two equivalent mutants are listed there as such.
 
 The emulator ran with KVM (rootless, device ACL) in containers with `--network none`; no host display, no host adb, no sudo. The screenshots show the
-WebView UI with "Unexpected error" in the library card because no server is configured; that statement rests on my own reading of one screenshot, not
-on a Vision-model judgement. This matrix checks that the shell starts and lays out on each API/size, NOT library behaviour (covered by the web/Android
+WebView UI with "Unexpected error" in the library card because no server is configured; that statement is the author's reading of one screenshot, while the pass/fail verdict of every row rests on the recorded machine checks (colour counts, sizes, hashes) and not on any
+Vision-model judgement. This matrix checks that the shell starts and lays out on each API/size, NOT library behaviour (covered by the web/Android
 live runs, HRD-022).
 
 Finding (fixed here, RED in `run-red/api34-phone/instrument.txt`): `ExampleInstrumentedTest` (Capacitor scaffold) asserted package
 `com.getcapacitor.app` while the app id is `org.helixreader.app`, so it failed on every device; it had never been run. The assertion now names the
-real id. Registry: NOT yet registered. PR 33 allocates HRD-122 and HRD-123 and the registry requires gap-free ids, so this finding is to be
-registered as HRD-124 (Bug, Low) after PR 33 lands (UNCONFIRMED until then); the fix itself is in this PR.
+real id. Registry: NOT yet registered. PR 33 (which would have allocated HRD-122 and HRD-123) was CLOSED unmerged on 2026-11-24, and the registry requires gap-free ids, so this finding
+is to be registered as HRD-124 (Bug, Low) only after HRD-122 and HRD-123 have landed (UNCONFIRMED until then); the fix itself is in this PR.
 
 Not run / UNCONFIRMED: orientation changes, foldables, API 24..29/31..33/35, ARM images, Android TV, `CronetLiveTest` (needs the h3 lab), the
 Containers `emulator-matrix` / `vm-matrix` / `distributed-test` binaries, behaviour on physical devices, flakiness (one run only), and the

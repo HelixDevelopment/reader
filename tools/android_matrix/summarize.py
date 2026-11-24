@@ -5,10 +5,13 @@ A RAN row is PASS only when ALL hold:
   display_matches_row     HRDMATRIX logcat line: sdk, width, dpi exact; height within 10 percent below the configured one (system bars)
   webview_fills_display   the same line: webview width == display width and webview height >= 85 percent of the display height
   screenshot_size_matches the PNG is exactly the row's width x height
-  screenshot_content      >= 8 distinct sampled colours in the CONTENT region (top and bottom 8 percent, the system bars, are excluded)
+  screenshot_content      >= 8 distinct sampled colours in the CONTENT region (top and bottom 8 percent, the system bars, are excluded) AND >= 8 in the BODY
+                          below the app header (rows 15..92 percent), so a screen with only the header strip left is not content
   installed_apk_matches   installed.txt (package path + sha256 read back FROM THE DEVICE) equals the build recorded in apk.sha256.txt, for the app and the test APK
   source_rev_recorded     source_rev.txt names the revision the APKs were built from
-If unit/exit.txt exists the JVM result is part of the verdict (`gradle exit 0` required); unit_mutant/exit.txt must say a NONZERO exit (the mutant is killed)."""
+If unit/exit.txt exists the JVM result is part of the verdict (`gradle exit 0` required); unit_mutant/exit.txt must say a NONZERO exit AND unit_mutant/junit must
+carry at least one test failure (`<failure`/`<error`): an infrastructure failure of the mutant build is not "the mutant was killed".
+The run is green (exit 0) only when at least one row actually RAN and nothing FAILed: zero rows, or only SKIP/BLOCKED rows, exit 1 (a quiet zero is not a pass)."""
 import json, os, re, sys, struct, zlib
 
 def png_read(path):
@@ -43,6 +46,11 @@ def content_colors(rows, h):
     for r in rows[-(-h * 8 // 100):h * 92 // 100]: seen |= r
     return len(seen)
 
+def body_colors(rows, h):
+    seen = set()
+    for r in rows[h * 15 // 100:h * 92 // 100]: seen |= r
+    return len(seen)
+
 def read(p):
     try: return open(p, errors="replace").read()
     except OSError: return ""
@@ -73,7 +81,7 @@ for name in sorted(os.listdir(ev)):
         pr = png_read(os.path.join(rd, "screen.png"))
         r["checks"]["screenshot_size_matches"] = bool(pr) and (pr[0], pr[1]) == (r["width"], r["height"])
         r["screenshot_content_colors"] = content_colors(pr[2], pr[1]) if pr else 0
-        r["checks"]["screenshot_content"] = r["screenshot_content_colors"] >= 8
+        r["checks"]["screenshot_content"] = r["screenshot_content_colors"] >= 8 and bool(pr) and body_colors(pr[2], pr[1]) >= 8
         inst = {}
         for ln in read(os.path.join(rd, "installed.txt")).splitlines():
             p = ln.split()
@@ -91,10 +99,15 @@ for k, want_zero in (("unit", True), ("unit_mutant", False)):
     t = read(os.path.join(ev, k, "exit.txt"))
     if t:
         m = re.search(r"gradle exit (\d+)", t); code = int(m.group(1)) if m else None
-        unit[k] = {"gradle_exit": code, "verdict": "PASS" if code is not None and ((code == 0) == want_zero) else "FAIL"}
+        ok = code is not None and ((code == 0) == want_zero)
+        if ok and not want_zero:   # the mutant must have been killed by a failing TEST, not by a broken build
+            jd = os.path.join(ev, k, "junit"); ok = any("<failure" in read(os.path.join(jd, f)) or "<error" in read(os.path.join(jd, f)) for f in (os.listdir(jd) if os.path.isdir(jd) else []))
+        unit[k] = {"gradle_exit": code, "verdict": "PASS" if ok else "FAIL"}
 json.dump({"source_rev": srcrev, "apk_sha256": built, "unit": unit, "rows": rows}, open(os.path.join(ev, "results.json"), "w"), indent=1)
 with open(os.path.join(ev, "summary.txt"), "w") as f:
     for k, v in unit.items(): f.write("%-14s %-8s gradle exit %s\n" % (k, v["verdict"], v["gradle_exit"]))
     for r in rows: f.write("%-14s %-8s %s\n" % (r["row_id"], r["verdict"], r.get("reason") or r.get("hrdmatrix") or ""))
 print(open(os.path.join(ev, "summary.txt")).read(), end="")
-sys.exit(1 if any(r["verdict"] == "FAIL" for r in rows) or any(u["verdict"] == "FAIL" for u in unit.values()) else 0)
+ran = any(r["state"] == "RAN" for r in rows)
+if not ran: print("no row RAN: nothing was verified (exit 1)", file=sys.stderr)
+sys.exit(1 if not ran or any(r["verdict"] == "FAIL" for r in rows) or any(u["verdict"] == "FAIL" for u in unit.values()) else 0)
