@@ -325,3 +325,64 @@ func TestRcloneRevalidateExitCodesMapToNotFound(t *testing.T) {
 		}
 	}
 }
+
+// An unparseable getlastmodified cannot revalidate: unknown (-1), never a
+// known size with a zero time.
+func TestWebDAVRevalidateUnparseableDateIsUnknown(t *testing.T) {
+	x := strings.Replace(propOK, "Mon, 23 Nov 2026 21:47:33 GMT", "not a date", 1)
+	size, _, err := revalServer(t, x).Revalidate(context.Background(), "b.bin")
+	if err != nil || size != -1 {
+		t.Fatalf("size=%d err=%v, want -1,nil", size, err)
+	}
+}
+
+func rangeOrigin(t *testing.T, cr string, body string) *WebDAV {
+	t.Helper()
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if cr != "" {
+			w.Header().Set("Content-Range", cr)
+		}
+		w.WriteHeader(206)
+		_, _ = io.WriteString(w, body)
+	}))
+	t.Cleanup(srv.Close)
+	c, err := NewWebDAV(Config{Protocol: "webdav", Endpoint: srv.URL + "/"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	return c.(*WebDAV)
+}
+
+func TestWebDAVOpenRangeSizedValidatesContentRange(t *testing.T) {
+	ctx := context.Background()
+	body := "0123456789"
+	ok := func(cr string, off, ln, size int64) error {
+		rc, err := rangeOrigin(t, cr, body).OpenRangeSized(ctx, "b.bin", off, ln, size)
+		if err == nil {
+			rc.Close()
+		}
+		return err
+	}
+	if err := ok("bytes 10-19/1000", 10, 10, 1000); err != nil {
+		t.Fatalf("exact window: %v", err)
+	}
+	if err := ok("bytes 10-19/1000", 10, 10, -1); err != nil {
+		t.Fatalf("unknown size skips the total check: %v", err)
+	}
+	for name, c := range map[string]struct {
+		cr          string
+		off, ln, sz int64
+	}{
+		"missing":   {"", 10, 10, 1000},
+		"garbage":   {"bytes a-b/c", 10, 10, 1000},
+		"star":      {"bytes 10-19/*", 10, 10, 1000},
+		"wrong lo":  {"bytes 11-20/1000", 10, 10, 1000},
+		"wrong end": {"bytes 10-18/1000", 10, 10, 1000},
+		"total":     {"bytes 10-19/1500", 10, 10, 1000},
+		"backwards": {"bytes 19-10/1000", 19, 0, 1000},
+	} {
+		if err := ok(c.cr, c.off, c.ln, c.sz); err == nil {
+			t.Errorf("%s: accepted", name)
+		}
+	}
+}

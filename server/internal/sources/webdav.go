@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"path"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -42,11 +43,48 @@ func (w *WebDAV) Open(ctx context.Context, name string) (io.ReadCloser, error) {
 // OpenRange serves a bounded byte window. The window is enforced locally so a
 // server that ignores Range (full 200 at offset 0) can never over-deliver.
 func (w *WebDAV) OpenRange(ctx context.Context, name string, offset, length int64) (io.ReadCloser, error) {
-	rc, err := w.http.OpenRange(ctx, name, offset, length)
-	if err != nil || length < 0 {
-		return rc, err
+	return w.OpenRangeSized(ctx, name, offset, length, -1)
+}
+
+// contentRangeRE matches a satisfied byte Content-Range: "bytes first-last/total".
+var contentRangeRE = regexp.MustCompile(`^bytes ([0-9]{1,18})-([0-9]{1,18})/([0-9]{1,18})$`)
+
+// OpenRangeSized is OpenRange plus the revalidated total size (-1 = unknown).
+// A 206 must carry a Content-Range naming exactly the requested window (and,
+// when size is known, the same complete length); anything else is refused so a
+// different or replaced representation is never relabelled as the requested one.
+func (w *WebDAV) OpenRangeSized(ctx context.Context, name string, offset, length, size int64) (io.ReadCloser, error) {
+	resp, err := w.http.rangeResponse(ctx, name, offset, length)
+	if err != nil {
+		return nil, err
 	}
-	return &limitedReadCloser{Reader: io.LimitReader(rc, length), Closer: rc}, nil
+	if resp.StatusCode == http.StatusPartialContent {
+		if err := checkContentRange(resp.Header.Get("Content-Range"), offset, length, size); err != nil {
+			resp.Body.Close()
+			return nil, err
+		}
+	}
+	if length < 0 {
+		return resp.Body, nil
+	}
+	return &limitedReadCloser{Reader: io.LimitReader(resp.Body, length), Closer: resp.Body}, nil
+}
+
+func checkContentRange(value string, offset, length, size int64) error {
+	m := contentRangeRE.FindStringSubmatch(strings.TrimSpace(value))
+	if m == nil {
+		return fmt.Errorf("source: 206 without a valid Content-Range")
+	}
+	first, _ := strconv.ParseInt(m[1], 10, 64)
+	last, _ := strconv.ParseInt(m[2], 10, 64)
+	total, _ := strconv.ParseInt(m[3], 10, 64)
+	if first != offset || (length >= 0 && last != offset+length-1) || last < first {
+		return fmt.Errorf("source: 206 Content-Range does not match the requested window")
+	}
+	if size >= 0 && total != size {
+		return fmt.Errorf("source: 206 complete length differs from the revalidated size")
+	}
+	return nil
 }
 
 type limitedReadCloser struct {

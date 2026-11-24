@@ -575,14 +575,20 @@ type openContentRevalidator interface {
 	OpenRevalidated(ctx context.Context, path string) (io.ReadSeekCloser, int64, time.Time, error)
 }
 
-func sourceReadFailure(c *gin.Context, err error) {
-	// Headers prepared for a success or partial response (length, range,
-	// validators, attachment name) must never ride on the error response: a
-	// stale Content-Length would truncate the JSON body for the client.
+// dropSuccessHeaders removes headers prepared for a success or partial
+// response so they cannot ride on an error response.
+func dropSuccessHeaders(c *gin.Context) {
 	h := c.Writer.Header()
 	for _, k := range []string{"Content-Range", "Content-Length", "ETag", "Accept-Ranges", "Content-Disposition"} {
 		h.Del(k)
 	}
+}
+
+func sourceReadFailure(c *gin.Context, err error) {
+	// Headers prepared for a success or partial response (length, range,
+	// validators, attachment name) must never ride on the error response: a
+	// stale Content-Length would truncate the JSON body for the client.
+	dropSuccessHeaders(c)
 	if errors.Is(err, sources.ErrNotFound) {
 		Error(c, http.StatusNotFound, "source file not found")
 		return
@@ -664,6 +670,7 @@ func (s *Server) content(c *gin.Context) {
 	if serveRange {
 		start, length, err := singleRange(rangeHeader, size)
 		if err != nil {
+			dropSuccessHeaders(c)
 			c.Header("Content-Range", fmt.Sprintf("bytes */%d", size))
 			Error(c, http.StatusRequestedRangeNotSatisfiable, "invalid byte range")
 			return
@@ -673,6 +680,7 @@ func (s *Server) content(c *gin.Context) {
 			var ok bool
 			rc, ok = connector.(sources.RangeConnector)
 			if !ok {
+				dropSuccessHeaders(c)
 				Error(c, http.StatusNotImplemented, "source does not support range reads")
 				return
 			}
@@ -692,7 +700,12 @@ func (s *Server) content(c *gin.Context) {
 			c.DataFromReader(http.StatusPartialContent, length, f.MIMEType, io.LimitReader(opened, length), nil)
 			return
 		}
-		reader, err := rc.OpenRange(c.Request.Context(), f.Path, start, length)
+		var reader io.ReadCloser
+		if sr, ok := rc.(sources.SizedRangeConnector); ok {
+			reader, err = sr.OpenRangeSized(c.Request.Context(), f.Path, start, length, size)
+		} else {
+			reader, err = rc.OpenRange(c.Request.Context(), f.Path, start, length)
+		}
 		if err != nil {
 			sourceReadFailure(c, err)
 			return

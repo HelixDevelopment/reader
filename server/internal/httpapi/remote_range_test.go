@@ -183,9 +183,12 @@ func TestWebDAVWithoutContentLengthNeverServesEmpty(t *testing.T) {
 	ts := httptest.NewServer(srv.Router())
 	defer ts.Close()
 	client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
-	st, _, b := doContent(t, client, http.MethodGet, ts.URL+"/v1/files/f/content", nil)
+	st, hd, b := doContent(t, client, http.MethodGet, ts.URL+"/v1/files/f/content", nil)
 	if st != 200 || !bytes.Equal(b, payload) {
 		t.Fatalf("full GET: status %d, %d bytes (want 200 and 1000)", st, len(b))
+	}
+	if cl := hd.Get("Content-Length"); cl != "" {
+		t.Fatalf("unknown size must not carry Content-Length, got %q", cl)
 	}
 	st, h, b := doContent(t, client, http.MethodGet, ts.URL+"/v1/files/f/content", map[string]string{"Range": "bytes=10-19"})
 	switch {
@@ -397,4 +400,136 @@ func TestIfRangeWeakValidatorGetsFull200(t *testing.T) {
 	if st != 206 || len(b) != 10 {
 		t.Fatalf("strong If-Range: status %d len %d, want 206 window", st, len(b))
 	}
+}
+
+// RFC 9110 15.3.7.1: a 206 must be inspected. An origin that answers a range
+// with a different window, a different complete length (file replaced) or no
+// Content-Range must never be relabelled as the requested window under the
+// scan-time ETag.
+func TestWebDAVMismatchedPartialContentIsRefused(t *testing.T) {
+	payload := bytes.Repeat([]byte("0123456789"), 100)
+	mod := time.Date(2026, 11, 23, 21, 47, 33, 0, time.UTC)
+	cases := []struct {
+		name    string
+		rng     string
+		cr      string // Content-Range the origin sends ("" = none)
+		from    int    // body = payload[from:from+10]
+		want    int
+		wantCR  string
+		wantTxt string
+	}{
+		{"control: correct window", "bytes=10-19", "bytes 10-19/1000", 10, 206, "bytes 10-19/1000", "0123456789"},
+		{"shifted window", "bytes=0-9", "bytes 5-14/1000", 5, 502, "", ""},
+		{"replaced file, different complete length", "bytes=10-19", "bytes 10-19/1500", 10, 502, "", ""},
+		{"no Content-Range", "bytes=10-19", "", 10, 502, "", ""},
+		{"garbage Content-Range", "bytes=10-19", "bytes ten-nineteen/1000", 10, 502, "", ""},
+		{"wrong end", "bytes=10-19", "bytes 10-29/1000", 10, 502, "", ""},
+	}
+	for _, c := range cases {
+		c := c
+		t.Run(c.name, func(t *testing.T) {
+			origin := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				if r.Method == "PROPFIND" {
+					w.WriteHeader(207)
+					fmt.Fprintf(w, `<?xml version="1.0"?><D:multistatus xmlns:D="DAV:"><D:response><D:href>/b.bin</D:href><D:propstat><D:prop><D:getcontentlength>1000</D:getcontentlength><D:getlastmodified>%s</D:getlastmodified><D:resourcetype/></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat></D:response></D:multistatus>`, mod.Format(http.TimeFormat))
+					return
+				}
+				if c.cr != "" {
+					w.Header().Set("Content-Range", c.cr)
+				}
+				w.WriteHeader(206)
+				_, _ = w.Write(payload[c.from : c.from+10])
+			}))
+			defer origin.Close()
+			conn, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: origin.URL + "/"})
+			if err != nil {
+				t.Fatal(err)
+			}
+			ts := remoteRouteFor(t, conn, payload, mod)
+			client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
+			st, h, b := doContent(t, client, "GET", ts.URL+"/v1/files/f/content", map[string]string{"Range": c.rng})
+			if st != c.want {
+				t.Fatalf("status %d, want %d (CR=%q body=%q)", st, c.want, h.Get("Content-Range"), b)
+			}
+			if c.want == 206 {
+				if h.Get("Content-Range") != c.wantCR || string(b) != c.wantTxt {
+					t.Fatalf("CR=%q body=%q", h.Get("Content-Range"), b)
+				}
+				return
+			}
+			assertErrorHeaders(t, st, c.want, h, b, "GET")
+		})
+	}
+}
+
+// A file that grew (live size > catalogued size) is not "current": no strong
+// ETag, no range eligibility, full 200 of the live bytes.
+func TestGrownFileIsNotCurrent(t *testing.T) {
+	catalogued := bytes.Repeat([]byte("0123456789"), 100)
+	live := bytes.Repeat([]byte("0123456789"), 110)
+	mod := time.Date(2026, 11, 23, 21, 47, 33, 0, time.UTC)
+	origin := remoteErrServer(t, &remoteErrOrigin{propfind: 207}, live, mod)
+	conn, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: origin.URL + "/"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	ts := remoteRouteFor(t, conn, catalogued, mod)
+	client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
+	st, h, b := doContent(t, client, "GET", ts.URL+"/v1/files/f/content", map[string]string{"Range": "bytes=0-9"})
+	if st != 200 || h.Get("ETag") != "" || h.Get("Accept-Ranges") != "" || len(b) != len(live) {
+		t.Fatalf("grown file: status %d etag=%q accept=%q len=%d, want plain 200 of %d bytes", st, h.Get("ETag"), h.Get("Accept-Ranges"), len(b), len(live))
+	}
+}
+
+// 416 must say what the representation length is (RFC 9110 15.5.17).
+func TestUnsatisfiableRangeReportsLength(t *testing.T) {
+	payload := bytes.Repeat([]byte("0123456789"), 100)
+	mod := time.Date(2026, 11, 23, 21, 47, 33, 0, time.UTC)
+	origin := remoteErrServer(t, &remoteErrOrigin{propfind: 207}, payload, mod)
+	conn, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: origin.URL + "/"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	ts := remoteRouteFor(t, conn, payload, mod)
+	client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
+	st, h, _ := doContent(t, client, "GET", ts.URL+"/v1/files/f/content", map[string]string{"Range": "bytes=5000-"})
+	if st != 416 || h.Get("Content-Range") != "bytes */1000" {
+		t.Fatalf("status %d Content-Range %q, want 416 bytes */1000", st, h.Get("Content-Range"))
+	}
+	for _, k := range []string{"ETag", "Accept-Ranges", "Content-Disposition"} {
+		if h.Get(k) != "" {
+			t.Fatalf("416 carries %s=%q", k, h.Get(k))
+		}
+	}
+}
+
+// noRangeConnector revalidates but offers no OpenRange: a Range request gets 501.
+type noRangeConnector struct {
+	inner *sources.WebDAV
+}
+
+func (n noRangeConnector) Capabilities() sources.Capabilities { return n.inner.Capabilities() }
+func (n noRangeConnector) Close() error                       { return n.inner.Close() }
+func (n noRangeConnector) List(ctx context.Context, p string) ([]sources.Entry, error) {
+	return n.inner.List(ctx, p)
+}
+func (n noRangeConnector) Open(ctx context.Context, p string) (io.ReadCloser, error) {
+	return n.inner.Open(ctx, p)
+}
+func (n noRangeConnector) Revalidate(ctx context.Context, p string) (int64, time.Time, error) {
+	return n.inner.Revalidate(ctx, p)
+}
+
+func TestRangeNotSupportedReturns501WithoutSuccessHeaders(t *testing.T) {
+	payload := bytes.Repeat([]byte("0123456789"), 100)
+	mod := time.Date(2026, 11, 23, 21, 47, 33, 0, time.UTC)
+	origin := remoteErrServer(t, &remoteErrOrigin{propfind: 207}, payload, mod)
+	inner, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: origin.URL + "/"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	ts := remoteRouteFor(t, noRangeConnector{inner: inner.(*sources.WebDAV)}, payload, mod)
+	client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
+	st, h, b := doContent(t, client, "GET", ts.URL+"/v1/files/f/content", map[string]string{"Range": "bytes=0-9"})
+	assertErrorHeaders(t, st, 501, h, b, "GET")
 }
