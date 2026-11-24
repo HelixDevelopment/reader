@@ -27,7 +27,8 @@
 set -uo pipefail
 set -E
 export LC_ALL=C
-# Fail closed on a missing helper / tool (exit 127 anywhere, subshells included): never continue silently.
+# Fail closed on a directly-invoked missing command (exit 127). LIMIT: it does NOT fire for a missing command inside
+# $(...) or in a `cmd || x` / `if cmd` context, so tools are also checked up front (preflight) and values checked before use.
 # shellcheck disable=SC2154  # rc is set inside the trap string
 trap 'rc=$?; if [ $rc -eq 127 ]; then echo "FATAL: command not found (line $LINENO), aborting" >&2; exit 2; fi' ERR
 # Required tool features (checked, not assumed): without them every verdict could be wrong.
@@ -37,13 +38,32 @@ CWD0=$PWD
 abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
 ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
 OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
-NOENV=0; CHECKS=(); PB=""
+NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
   --print-phase-b) PB=$(abs "$2"); shift;;
+  --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
+if [ $SELFTEST = 1 ]; then hrd_no_such_command_xyz; exit 0; fi
+# need TOOL...: exit 2 naming the first missing tool (checked before anything is started).
+need() { local t; for t in "$@"; do command -v "$t" >/dev/null 2>&1 || { echo "SETUP-ERROR: required tool '$t' not found" >&2; exit 2; }; done; }
+need git awk sort comm sed sha256sum find xargs
+[ $NOENV = 1 ] || { [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || [ -n "$SEALDIR" ] || need python3 go podman base64 tr head; }
+[ $PREFLIGHT = 1 ] && { echo "preflight ok"; exit 0; }
+[ $NOENV = 0 ] || [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || need go
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
 if [ ! -f "$ALLOW" ] || [ ! -r "$ALLOW" ]; then echo "SETUP-ERROR: allow-list '$ALLOW' missing or unreadable" >&2; exit 2; fi
+
+# seal_dir DIR : write DIR/SHA256SUMS (sha256 of every regular, non-hidden file except SHA256SUMS itself,
+# relative paths, fixed C-locale order). Self-contained: no external seal tool.
+seal_dir() {
+  local d=$1
+  [ -d "$d" ] || { echo "seal: no such dir $d" >&2; return 2; }
+  ( cd "$d" || exit 2
+    find . -type f ! -name SHA256SUMS ! -name '.*' ! -path '*/.*' -print | LC_ALL=C sort | sed 's|^\./||' | xargs -d '\n' -r sha256sum > .SHA256SUMS.tmp \
+      && mv .SHA256SUMS.tmp SHA256SUMS )
+}
+if [ -n "$SEALDIR" ]; then seal_dir "$SEALDIR"; exit $?; fi
 
 HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # Identity of a test is package<TAB>name (a bare name can be masked by a same-named test in another package).
@@ -55,7 +75,7 @@ log_records() {
   local l
   for l in "$@"; do
     if [ ! -f "$l" ] || [ ! -r "$l" ] || [ ! -s "$l" ]; then echo "LOG-UNUSABLE: $l (missing, unreadable or empty)" >&2; LOGBAD=1; continue; fi
-    if ! grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): ' "$l"; then echo "LOG-UNUSABLE: $l (no '--- PASS/SKIP/FAIL' line: not a go test -v log)" >&2; LOGBAD=1; continue; fi
+    if ! sed 's/\x1b\[[0-9;]*[A-Za-z]//g' "$l" | grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): '; then echo "LOG-UNUSABLE: $l (no '--- PASS/SKIP/FAIL' line: not a go test -v log)" >&2; LOGBAD=1; continue; fi
     awk -f "$HERE/parse_gotest.awk" "$l"
   done
 }
@@ -72,13 +92,19 @@ skip_gate() {
   awk -F'\t' '$1=="SKIP"{print $2"|"$3}' "$OUT/.rec.tsv" | sort -u > "$OUT/.skip.txt"
   comm -23 "$OUT/.skip.txt" "$OUT/.pass.txt" > "$OUT/.netskip.txt"
   echo "skip census: $(wc -l < "$OUT/.skip.txt") distinct package|tests skipped somewhere, $(wc -l < "$OUT/.netskip.txt") never passed"
-  : > "$OUT/.used.txt"
+  : > "$OUT/.used.txt"; local -A SEEN_ALLOW=()
   while IFS='|' read -r pk n r i || [ -n "$pk$n$r$i" ]; do
     pk=$(trim "$pk"); n=$(trim "$n"); r=$(trim "$r"); i=$(trim "$i")
     [ -z "$pk" ] && continue; case $pk in \#*) continue;; esac
     if [ -z "$n" ] || ! [[ $r =~ [^[:space:]] ]] || ! [[ $i =~ ^HRD-[0-9]+$ ]]; then
       echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason without '|', item exactly HRD-<digits>)"; bad=1
-    else echo "$pk|$n" >> "$OUT/.used.txt"; fi
+    else
+      if [ -n "${SEEN_ALLOW["$pk|$n"]:-}" ]; then
+        if [ "${SEEN_ALLOW["$pk|$n"]}" = "$r|$i" ]; then echo "DUPLICATE-ALLOW (warning): $pk|$n listed twice"
+        else echo "CONTRADICTORY-ALLOW: $pk|$n listed with different reason/item"; bad=1; fi
+      fi
+      SEEN_ALLOW["$pk|$n"]="$r|$i"; echo "$pk|$n" >> "$OUT/.used.txt"
+    fi
   done < "$ALLOW"
   while read -r rec; do
     [ -z "$rec" ] && continue
@@ -137,6 +163,7 @@ hdr "phase A (race, whole suite)" > "$LA"
 
 if [ $NOENV = 0 ]; then
   PGPORT=$(free_port); RPORT=$(free_port); PGPW=$(head -c 12 /dev/urandom | base64 | tr -dc 'A-Za-z0-9')
+  [ -n "$PGPORT" ] && [ -n "$RPORT" ] && [ -n "$PGPW" ] || { echo "SETUP-ERROR: could not allocate ports/password" >&2; exit 2; }
   podman run -d --name "$PFX-pg" --memory 512m -p "127.0.0.1:$PGPORT:5432" -p "127.0.0.1:$RPORT:6379" \
     -e POSTGRES_PASSWORD="$PGPW" -e POSTGRES_DB=helix_test "${HELIX_LIVE_PG_IMAGE:-docker.io/pgvector/pgvector:pg16}" \
     -c max_connections=200 -c fsync=off >/dev/null || { echo "pg start failed" >&2; exit 2; }
@@ -189,6 +216,7 @@ if [ $NOENV = 0 ]; then
       -e HELIX_TEST_REDIS_ADDR=127.0.0.1:6379 -e HELIX_LOAD_RUN=1 -e HELIX_MEASUREMENT_PATH=in_container_clean \
       -e HELIX_LOAD_OUTPUT=/tmp/load_output.json \
       "$PFX-run" "./$pk.test" -test.v -test.count=1 -test.timeout 60m -test.run "^($INRE)\$" >> "$LB" 2>&1 || RC=1
+    echo "# PKG-END $IMP" >> "$LB"
   done
   podman cp "$PFX-run:/tmp/load_output.json" "$OUT/load_output_in_container.json" >/dev/null 2>&1
   podman cp "$PFX-run:/work/evidence" "$OUT/in_container_evidence" >/dev/null 2>&1
@@ -199,12 +227,14 @@ if [ $NOENV = 0 ]; then
   RUNTAG="hrd050$$"; WP=()
   for i in 0 1 2 3; do
     ( cd server/internal/catalog && HELIX_MP_ROLE=worker HELIX_MP_INDEX=$i HELIX_MP_PROCESSES=4 HELIX_MP_OPS=60 HELIX_MP_RUN=$RUNTAG \
-        "$TMPD/catalog.test" -test.v -test.count=1 -test.run '^TestCatalogMultiProcessMerges$' ) >> "$LB" 2>&1 &
+        "$TMPD/catalog.test" -test.v -test.count=1 -test.run '^TestCatalogMultiProcessMerges$' ) > "$TMPD/worker$i.log" 2>&1 &
     WP+=($!)
   done
   for p in "${WP[@]}"; do wait "$p" || RC=1; done
+  for i in 0 1 2 3; do cat "$TMPD/worker$i.log" >> "$LB"; done   # fixed order, no interleaving
   ( cd server/internal/catalog && HELIX_MP_ROLE=verify HELIX_MP_INDEX=0 HELIX_MP_PROCESSES=4 HELIX_MP_OPS=60 HELIX_MP_RUN=$RUNTAG \
       "$TMPD/catalog.test" -test.v -test.count=1 -test.run '^TestCatalogMultiProcessMerges$' ) >> "$LB" 2>&1 || RC=1
+  echo "# PKG-END $IMP" >> "$LB"
   echo "=== B4 LCP live qualification ===" >> "$LB"
   mkdir -p "$OUT/lcp"
   ( cd server && go build -o "$TMPD/helix-server" ./cmd/helix-server && \
@@ -229,7 +259,7 @@ grep -hE '^\s*--- FAIL' "${LOGS[@]}" | sed 's/ (.*//' | sort -u > "$OUT/failures
 skip_gate "${LOGS[@]}"; G=$?
 cp "$OUT/.netskip.txt" "$OUT/netskips_$SUF.txt"; cp "$OUT/.skip.txt" "$OUT/skips_anywhere_$SUF.txt"
 rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
-tools/isolation/seal_evidence.sh "$OUT" >/dev/null
+seal_dir "$OUT" || { echo "sealing evidence failed" >&2; exit 2; }
 [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s)"; exit 2; }
 [ $G -ne 0 ] && { [ $RC -ne 0 ] && echo "ALSO: go test returned failures (see $OUT/failures_$SUF.txt)"; echo "SKIP-GATE FAILED"; exit 3; }
 [ $RC -ne 0 ] && { echo "TEST FAILURES (see $OUT/failures_$SUF.txt)"; exit 1; }

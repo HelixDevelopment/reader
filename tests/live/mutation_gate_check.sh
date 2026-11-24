@@ -25,6 +25,16 @@ M=(
 "M16-m2-no-trim@run_gated_tests.sh@s/^trim() { local v=\$1;.*\$/trim() { printf '%s' \"\$1\"; }/"
 "M17-m2-drop-last-line@run_gated_tests.sh@s/ || \[ -n \"\$pk\$n\$r\$i\" \]//"
 "M18-B1-regex-excludes-nothing@run_gated_tests.sh@s/EXCL='TestLiveScaleCatalog|/EXCL='TestNeverMatches|/"
+"M19-R5-seal-call-removed@run_gated_tests.sh@s/^seal_dir \"\$OUT\" ||.*$/:/"
+"M20-R3-markers-removed@run_gated_tests.sh@s/echo \"# PKG \$IMP\" >> \"\$LB\"/:/"
+"M21-R2-trap-wrong-code@run_gated_tests.sh@s/\[ \$rc -eq 127 \]/[ \$rc -eq 128 ]/"
+"M22-B3-pkg-end-ignored@parse_gotest.awk@s/^\/\^# PKG-END\/ {.*$/\/^# PKG-END\/ { next }/"
+"M23-R7-no-python3-preflight@run_gated_tests.sh@s/need python3 go podman/need go podman/"
+"M24-R1-untracked-seal-tool@run_gated_tests.sh@s/^seal_dir \"\$OUT\" ||/tools\/isolation\/seal_evidence.sh \"\$OUT\" ||/"
+"M25-m1-no-ansi-strip@parse_gotest.awk@s/^{ gsub.*$/{ sub(\/\\r$\/, \"\") }/"
+"M26-m3-contradiction-allowed@run_gated_tests.sh@s/different reason\/item\"; bad=1; fi/different reason\/item\"; fi/"
+"M27-R6-workers-interleave@run_gated_tests.sh@s/ > \"\$TMPD\/worker\$i.log\" 2>&1 &/ >> \"\$LB\" 2>\&1 \&/"
+"M28-R8-no-port-check@run_gated_tests.sh@s/SETUP-ERROR: could not allocate ports/IGNORED/"
 )
 rc=0
 for m in "${M[@]}"; do

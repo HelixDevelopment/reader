@@ -39,3 +39,10 @@ Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `-
 - Header of every log records `head`, `dirty_files` and `dirty_diff_sha`.
 - Gate tests: `tests/live/test_run_gated_tests.sh` (fixtures in `tests/live/fixtures`); mutants: `tests/live/mutation_gate_check.sh`. They test the gate's own logic, not any live test.
 - Sealed logs under `evidence/.../hrd050` predate the `# PKG` markers: their in-container phase-B results are not attributed to a package, so `--check` on them is stricter than when sealed. A fresh live run is owed (UNCONFIRMED until run).
+
+## Review round 3 additions
+- Sealing is self-contained: `seal_dir` (also `--seal DIR`) writes `SHA256SUMS` from `find` + C-locale `sort` + `sha256sum`, excluding itself and hidden files. Earlier heads called an untracked `tools/isolation/seal_evidence.sh`; the test `R1_runner_references_only_tracked_paths` now fails if the runner references any repo path not tracked in git.
+- Every `# PKG <import path>` marker is followed by `# PKG-END <import path>` after the run; `parse_gotest.awk` flushes buffered records to the marker's package at PKG-END / next marker / EOF, so B3 records can never be credited to B4's package. B3 workers write to per-worker logs concatenated in fixed order (0-3), then the verify run.
+- Tool availability is checked up front (`need`, `--preflight`: git awk sort comm sed sha256sum find xargs, and for live runs python3 go podman base64 tr head); ports/password are checked non-empty. The ERR trap only covers directly invoked missing commands (not `$(...)` or `|| x` contexts) and is tested with `--selftest-missing-cmd`.
+- ANSI escapes and CR are stripped before parsing. Contradictory allow-list entries (same Package|Test, different reason/item) exit 3; identical duplicates only warn.
+- Known limit: a column-0 `ok <pkg>` line printed by test code is indistinguishable from the go test package line and can flush records to the wrong package (UNCONFIRMED in practice).

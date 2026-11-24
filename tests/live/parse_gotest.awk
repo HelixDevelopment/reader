@@ -2,9 +2,13 @@
 # KIND: PASS SKIP FAIL (per test, from `--- X: Name`), BUILDFAIL / PKGFAIL / PANIC / TIMEOUT (per package).
 # Package attribution: test lines are buffered until the package terminator line `ok|FAIL <pkg> ...`;
 # `# PKG <pkg>` marker lines (written by run_gated_tests.sh before in-container/worker binaries, which
-# print no package line) flush the buffer and set the default package for leftovers.
+# print no package line) flush the buffer and set the default package for leftovers; `# PKG-END` (written after every such run)
+# flushes the buffer to that package and resets it, so a later go-test package line cannot claim the records.
+# ANSI escapes and CR are stripped first.
 function flush(p, i) { for (i = 1; i <= nb; i++) print bk[i] "\t" p "\t" bn[i]; nb = 0 }
 BEGIN { def = "(unlabeled)"; nb = 0 }
+{ gsub(/\033\[[0-9;]*[A-Za-z]/, ""); sub(/\r$/, "") }
+/^# PKG-END/ { if (nb > 0 && !closed) print "INCOMPLETE\t" def "\t-"; flush(def); def = "(unlabeled)"; closed = 1; next }
 /^# PKG / { flush(def); def = $3; closed = 1; next }
 /^(PASS|FAIL)[ \t]*\r?$/ { closed = 1; next }
 /^[ \t]*--- (PASS|SKIP|FAIL): / {

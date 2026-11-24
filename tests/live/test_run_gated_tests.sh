@@ -52,4 +52,42 @@ if [ "$prc" = 0 ] && [ "$pb" = "$want" ]; then pass=$((pass+1)); echo "ok   B1_p
 else fail=$((fail+1)); echo "FAIL B1_phase_b_lists_exact: rc=$prc got:"; sed 's/^/     | /' <<<"$pb"; fi
 "$GATE" --out "$W/out" --allow "$A" --print-phase-b "$FX/empty.log" >/dev/null 2>&1; prc=$?
 if [ "$prc" = 2 ]; then pass=$((pass+1)); echo "ok   B1_phase_b_unusable_log_rc2 (rc=2)"; else fail=$((fail+1)); echo "FAIL B1_phase_b_unusable_log_rc2: rc=$prc"; fi
+t B3_real_B2c_B3_B4_order_green   0 'GATE GREEN'                      $FX/allow_empty.txt $FX/b_real_order_phase_a.log $FX/b_real_order.log
+t m1_ansi_skip_seen               3 'UNLISTED-SKIP: .*/a\|TestX'      $FX/allow_empty.txt $FX/ansi_skip.log
+t m3_contradictory_allow_fails    3 'CONTRADICTORY-ALLOW'             $FX/allow_contradictory.txt $FX/good.log
+t m3_duplicate_allow_warns        0 'DUPLICATE-ALLOW'                 $FX/allow_duplicate.txt $FX/good.log
+# --- runner self-tests that need no containers ---
+chk() { local name=$1; shift; if "$@"; then pass=$((pass+1)); echo "ok   $name"; else fail=$((fail+1)); echo "FAIL $name"; fi; }
+SRC=$(dirname "$GATE")/run_gated_tests.sh
+# R3: every `# PKG` marker write has a matching `# PKG-END` write, and there are at least 3 (B2c, B3, plus none missing)
+nm=$(grep -c 'echo "# PKG \$IMP"' "$SRC"); ne=$(grep -c 'echo "# PKG-END \$IMP"' "$SRC")
+chk R3_markers_written_and_closed bash -c "[ $nm -ge 2 ] && [ $nm -eq $ne ]"
+# R5: the live path seals through seal_dir (self-contained), after the gate
+chk R5_live_path_calls_seal_dir grep -q '^seal_dir "\$OUT" ||' "$SRC"
+# R6: B3 workers write per-worker logs concatenated in fixed order
+chk R6_b3_per_worker_logs grep -q '> "\$TMPD/worker\$i.log"' "$SRC"
+chk R8_port_check_present grep -q 'SETUP-ERROR: could not allocate ports' "$SRC"
+# static: every repo path the runner references is tracked in git (no dependence on untracked tools)
+untracked=""
+for pth in $(grep -v '^[[:space:]]*#' "$SRC" | grep -oE '(tools|tests|scripts|docs|config|server|core)/[A-Za-z0-9_./-]+' | sort -u); do
+  case $pth in */) continue;; esac
+  [ -n "$(git -C "$ROOT" ls-files -- "$pth" | head -1)" ] || untracked="$untracked $pth"
+done
+chk R1_runner_references_only_tracked_paths test -z "$untracked"
+[ -z "$untracked" ] || echo "     untracked refs:$untracked"
+# R2: the ERR trap really aborts a missing command with exit 2
+out=$("$GATE" --selftest-missing-cmd 2>&1); rc=$?
+chk R2_err_trap_aborts_missing_command bash -c "[ $rc -eq 2 ]"
+# preflight: missing python3 => exit 2 (live mode); sandbox PATH with every tool except python3
+SB=$W/bin; mkdir -p "$SB"
+for tl in bash env git awk sort comm sed sha256sum find xargs go podman base64 tr head grep cat dirname date wc mktemp rm mkdir printf cut paste uniq; do p=$(command -v $tl) && ln -sf "$p" "$SB/$tl"; done
+out=$(PATH=$SB "$GATE" --preflight 2>&1); rc=$?
+chk R7_preflight_missing_python3_exit2 bash -c "[ $rc -eq 2 ] && grep -q \"'python3'\" <<<\"\$0\"" "$out"
+ln -sf "$(command -v python3)" "$SB/python3"
+out=$(PATH=$SB "$GATE" --preflight 2>&1); rc=$?
+chk R7b_preflight_all_tools_ok bash -c "[ $rc -eq 0 ]"
+# seal_dir: self-contained, excludes itself and hidden files, verifies, deterministic order
+SD=$W/seal; mkdir -p "$SD/sub"; echo a > "$SD/b.txt"; echo c > "$SD/sub/a.txt"; echo h > "$SD/.hidden"; echo old > "$SD/SHA256SUMS"
+"$GATE" --seal "$SD" >/dev/null 2>&1; src=$?
+chk R5b_seal_dir_verifies bash -c "[ $src -eq 0 ] && cd $SD && sha256sum -c SHA256SUMS >/dev/null && [ \$(wc -l < SHA256SUMS) -eq 2 ] && ! grep -q 'SHA256SUMS\\|hidden' SHA256SUMS && [ \"\$(awk '{print \$2}' SHA256SUMS | paste -sd,)\" = 'b.txt,sub/a.txt' ]"
 echo "cases passed=$pass failed=$fail"; [ $fail -eq 0 ]
