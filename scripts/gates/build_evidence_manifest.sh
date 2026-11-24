@@ -35,6 +35,9 @@
 #     something else than what the constitution gates read: false green, review C18). CR has its own CRLF check.
 #   - SOURCE_ESCAPE (source file absolute or with a '..' component, or resolving outside the root), source
 #     line 0, BAD_DATE (last_verified must be a real YYYY-MM-DD not in the future)
+#   - BAD_ID (id must be [A-Z]+-[0-9]+), byte-exact header (no extra column), git pathspecs are literal
+#     (a '?' or '*' in an evidence path never matches another file), and tracked evidence hidden with
+#     assume-unchanged / skip-worktree is VOLATILE_EVIDENCE
 #   - snapshot files and PROVENANCE.tsv must be git-tracked and unmodified on a git root (SNAPSHOT_UNTRACKED /
 #     SNAPSHOT_MODIFIED), so 'frozen' is not self-attested
 # Usage  : scripts/gates/build_evidence_manifest.sh [--check] [--root DIR]
@@ -65,6 +68,8 @@ ctl_check() { # ctl_check <file> <label>: refuse C0 controls except TAB, LF, CR 
   fi
 }
 ctl_check "$led" "ledger"; ctl_check "$root/$SNAP/PROVENANCE.tsv" "PROVENANCE.tsv"
+hidden_flag() { # hidden_flag <path>: prints the 'git ls-files -v' tag when it is not H (assume-unchanged h/S skip-worktree/...)
+  local t; t="$(git --literal-pathspecs -C "$root" ls-files -v -- "$1" 2>/dev/null | head -1 | cut -c1)"; [ -n "$t" ] && [ "$t" != H ] && echo "$t"; }
 iso_ok() { date -u -d "$1" +%s >/dev/null 2>&1 && [[ "$1" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:]+Z$ ]]; }
 if [ -f "$root/$SNAP/PROVENANCE.tsv" ]; then
   now="$(date -u +%s)"
@@ -87,8 +92,8 @@ if [ -f "$root/$SNAP/PROVENANCE.tsv" ]; then
     esac
   done < <(awk -F'\t' 'BEGIN{OFS="\037"} {print $1,$2,$3,$4,$5}' "$root/$SNAP/PROVENANCE.tsv")
 fi
-hdrline="$(grep -a '^HDR' "$parsed" | head -1 | cut -d$'\037' -f2- | tr '\037' ' ' | sed 's/ *$//')"
-if [ "$hdrline" != "$COLS" ]; then echo "FAIL COLUMN_COUNT header is '$hdrline', expected '$COLS'"; fail=1; fi
+hdrline="$(head -1 "$led" | tr -d '\r')"; hdrexp="$(echo "$COLS" | tr ' ' '\t')"
+if [ "$hdrline" != "$hdrexp" ]; then echo "FAIL COLUMN_COUNT header is '$(printf '%s' "$hdrline" | tr '\t' ' ')', expected exactly '$COLS' (tab separated, no extra column)"; fail=1; fi
 # frozen-evidence helpers
 snapdir="$root/$SNAP"
 prov_sha() { awk -F'\t' -v n="$1" 'NR>1 && $1==n {print $5}' "$snapdir/PROVENANCE.tsv" 2>/dev/null | head -1; }
@@ -97,6 +102,7 @@ while IFS=$'\037' read -r kind lineno id cap btype sev st layer src ev sha prod 
   [ "$kind" = HDR ] && continue
   if [ "$kind" = BADCOUNT ]; then echo "FAIL COLUMN_COUNT line $lineno has $id columns, expected 12"; fail=1; continue; fi
   rows=$((rows+1)); who="${id:-line $lineno}"
+  if [ -n "$id" ] && ! printf '%s' "$id" | LC_ALL=C grep -qE '^[A-Z]+-[0-9]+$'; then echo "FAIL $who BAD_ID id '$id' must match [A-Z]+-[0-9]+ (no invisible or lookalike characters)"; fail=1; fi
   case " $seen " in *" $id "*) [ -n "$id" ] && { echo "FAIL $who DUPLICATE_ID '$id' appears more than once"; fail=1; };; esac
   seen="$seen $id"
   i=0
@@ -133,8 +139,8 @@ while IFS=$'\037' read -r kind lineno id cap btype sev st layer src ev sha prod 
           b="${ev#"$SNAP"/}"; ps="$(prov_sha "$b")"
           if [ $isgit = 1 ]; then
             for sfile in "$SNAP/$b" "$SNAP/PROVENANCE.tsv"; do
-              if ! git -C "$root" ls-files --error-unmatch -- "$sfile" >/dev/null 2>&1; then echo "FAIL $who SNAPSHOT_UNTRACKED '$sfile' is not git-tracked; frozen evidence must be committed"; fail=1
-              elif ! git -C "$root" diff --quiet HEAD -- "$sfile" 2>/dev/null; then echo "FAIL $who SNAPSHOT_MODIFIED '$sfile' is tracked but modified (working tree or staged)"; fail=1; fi
+              if ! git --literal-pathspecs -C "$root" ls-files --error-unmatch -- "$sfile" >/dev/null 2>&1; then echo "FAIL $who SNAPSHOT_UNTRACKED '$sfile' is not git-tracked; frozen evidence must be committed"; fail=1
+              elif ! git --literal-pathspecs -C "$root" diff --quiet HEAD -- "$sfile" 2>/dev/null || [ -n "$(hidden_flag "$sfile")" ]; then echo "FAIL $who SNAPSHOT_MODIFIED '$sfile' is tracked but modified (working tree, staged, or hidden by assume-unchanged/skip-worktree)"; fail=1; fi
             done
           fi
           if [ -z "$ps" ]; then echo "FAIL $who SNAPSHOT_PROVENANCE '$b' has no row in $SNAP/PROVENANCE.tsv"; fail=1
@@ -142,10 +148,10 @@ while IFS=$'\037' read -r kind lineno id cap btype sev st layer src ev sha prod 
         *) if [ $isgit = 0 ]; then
              echo "FAIL $who NOT_GIT '$ev' cannot be proven frozen: root is not a git repository and the path is not a snapshot"; fail=1
            else
-             if ! git -C "$root" ls-files --error-unmatch -- "$ev" >/dev/null 2>&1; then
+             if ! git --literal-pathspecs -C "$root" ls-files --error-unmatch -- "$ev" >/dev/null 2>&1; then
                echo "FAIL $who VOLATILE_EVIDENCE '$ev' is untracked; snapshot it under $SNAP/ and cite the snapshot"; fail=1
-             elif ! git -C "$root" diff --quiet HEAD -- "$ev" 2>/dev/null; then
-               echo "FAIL $who VOLATILE_EVIDENCE '$ev' is tracked but modified (working tree or staged); cite a frozen snapshot"; fail=1
+             elif ! git --literal-pathspecs -C "$root" diff --quiet HEAD -- "$ev" 2>/dev/null || [ -n "$(hidden_flag "$ev")" ]; then
+               echo "FAIL $who VOLATILE_EVIDENCE '$ev' is tracked but modified (working tree, staged, or hidden by assume-unchanged/skip-worktree); cite a frozen snapshot"; fail=1
              fi
            fi;;
       esac

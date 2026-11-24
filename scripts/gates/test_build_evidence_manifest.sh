@@ -190,4 +190,48 @@ expect "untracked fabricated snapshot fails (C16)" "$d" SNAPSHOT_UNTRACKED
 d="$base/i2b"; snapmk "$d"; prov "$d" s.txt gone:deleted 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
 echo '# edit' >> "$d/$SNAP/PROVENANCE.tsv"; expect "modified PROVENANCE.tsv fails (I2)" "$d" SNAPSHOT_MODIFIED
 
+# ---- review of PR #9 head c56b39a (K1 survivors B01-B05,B10 + non-blocking N2-N4) ----
+# B04: an EMPTY tracked evidence file must be refused (headline invariant: non-empty evidence). The ledger carries
+# the empty-file sha so only the "missing or empty" check can notice.
+d="$base/b04"; mk "$d"; : > "$d/evidence/a.log"; cm "$d" e
+esha="$(sha256sum "$d/evidence/a.log" | cut -d' ' -f1)"
+awk -F'\t' -v OFS='\t' -v h="$esha" 'NR==2{$9=h} {print}' "$d/docs/claim_reality_ledger.tsv" > "$d/l.tmp" && mv "$d/l.tmp" "$d/docs/claim_reality_ledger.tsv"
+expect "empty tracked evidence file refused (B04)" "$d" "missing or empty"
+# B01: a NUL byte in a cell is refused (grep -P class must keep \x00)
+d="$base/b01"; mk "$d"; python3 - "$d/docs/claim_reality_ledger.tsv" <<'PY'
+import sys
+p=sys.argv[1]; b=open(p,'rb').read(); open(p,'wb').write(b.replace(b'cap two',b'cap\x00two'))
+PY
+expect "NUL byte in a ledger cell refused (B01)" "$d" CONTROL_BYTE
+# B03: PROVENANCE snapshot name must be a plain file name
+d="$base/b03"; snapmk "$d"; prov "$d" "sub/s.txt" README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
+expect "PROVENANCE name with '/' refused (B03)" "$d" "name must be a plain file name"
+d="$base/b03b"; snapmk "$d"; prov "$d" "..s.txt" README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
+expect "PROVENANCE name with '..' refused (B03)" "$d" "name must be a plain file name"
+# B10: the snapshot file itself must be tracked even when PROVENANCE.tsv is tracked
+d="$base/b10"; snapmk "$d"; prov "$d" s.txt gone:deleted 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"
+( cd "$d" && git add "$SNAP/PROVENANCE.tsv" && git -c user.email=t@t -c user.name=t commit -qm p ) >/dev/null 2>&1; "$tool" --root "$d" >/dev/null 2>&1
+expect "untracked snapshot file with tracked PROVENANCE refused (B10)" "$d" "SNAPSHOT_UNTRACKED '$SNAP/s.txt'"
+# B02: evidence reached through a symlinked PARENT directory
+d="$base/b02"; mk "$d"; mkdir -p "$d/evidence/real"; cp "$d/evidence/a.log" "$d/evidence/real/a.log"; ln -s real "$d/evidence/lnk"; cm "$d" l
+setev "$d" evidence/lnk/a.log; "$tool" --root "$d" >/dev/null 2>&1; expect "evidence under a symlinked parent dir refused (B02)" "$d" SYMLINK_EVIDENCE
+# B05 + N4: header must match byte-exactly (renamed column, extra empty 13th column)
+d="$base/b05"; mk "$d"; sed -i '1s/capability/capabilty/' "$d/docs/claim_reality_ledger.tsv"; expect "renamed header column refused (B05)" "$d" COLUMN_COUNT
+d="$base/n4"; mk "$d"; sed -i '1s/$/\t/' "$d/docs/claim_reality_ledger.tsv"; expect "header with an extra empty 13th column refused (N4)" "$d" COLUMN_COUNT
+# N2: glob characters in the evidence path must not match a different tracked file
+d="$base/h12"; mk "$d"; echo 'ok 1' > "$d/evidence/a.lo?"; setev "$d" 'evidence/a.lo?'; "$tool" --root "$d" >/dev/null 2>&1
+expect "untracked evidence named with a glob char refused (H12)" "$d" VOLATILE_EVIDENCE
+# N2: assume-unchanged / skip-worktree hide edits from git diff
+for fl in assume-unchanged skip-worktree; do
+  d="$base/h13$fl"; mk "$d"; ( cd "$d" && git update-index --$fl evidence/a.log ) >/dev/null 2>&1; echo edited >> "$d/evidence/a.log"; "$tool" --root "$d" >/dev/null 2>&1
+  expect "evidence under --$fl refused (H13/H14)" "$d" VOLATILE_EVIDENCE
+done
+# N3: ids must be [A-Z]+-[0-9]+ (invisible/lookalike characters refused)
+d="$base/n3"; mk "$d"; python3 - "$d/docs/claim_reality_ledger.tsv" <<'PY'
+import sys
+p=sys.argv[1]; t=open(p,encoding='utf-8').read(); open(p,'w',encoding='utf-8').write(t.replace('LED-002','LED-002​'))
+PY
+expect "id with a zero-width space refused (N3)" "$d" BAD_ID
+d="$base/n3b"; mk "$d"; sed -i '3s/^LED-002/led-002/' "$d/docs/claim_reality_ledger.tsv"; expect "lowercase id refused (N3)" "$d" BAD_ID
+
 echo "== $pass passed, $fail failed"; [ $fail = 0 ]

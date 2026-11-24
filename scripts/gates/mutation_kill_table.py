@@ -33,6 +33,20 @@ MUTANTS = [
  ('N05', B, 'manifest', 'last_verified date validation (C24)', 'then echo "FAIL $who BAD_DATE', 'then : "FAIL $who BAD_DATE'),
  ('N06', B, 'manifest', 'snapshot must be git-tracked (C16)', 'if ! git -C "$root" ls-files --error-unmatch -- "$sfile" >/dev/null 2>&1; then', 'if false; then'),
  ('N07', B, 'manifest', 'snapshot must be unmodified', 'elif ! git -C "$root" diff --quiet HEAD -- "$sfile" 2>/dev/null; then', 'elif false; then'),
+ ('B01', B, 'manifest', 'NUL byte member of the control-byte class', "CTL='[\\x00-\\x08", "CTL='[\\x01-\\x08"),
+ ('B02', B, 'manifest', 'symlinked PARENT directory not detected (leaf -L only)',
+  'if [ -L "$root/$ev" ] || [ "$(realpath -m "$root/$ev")" != "$rr/$ev" ]; then', 'if [ -L "$root/$ev" ]; then'),
+ ('B03', B, 'manifest', 'PROVENANCE plain-file-name rule', 'case "$pn" in ""|*/*|*..*)', 'case "$pn" in "")'),
+ ('B04', B, 'manifest', 'evidence file must be NON-EMPTY (-s)', 'elif [ -s "$root/$ev" ]; then', 'elif [ -e "$root/$ev" ]; then'),
+ ('B05', B, 'manifest', 'byte-exact header check', 'if [ "$hdrline" != "$hdrexp" ]; then', 'if false; then'),
+ ('B10', B, 'manifest', 'snapshot file itself must be git-tracked',
+  'for sfile in "$SNAP/$b" "$SNAP/PROVENANCE.tsv"; do', 'for sfile in "$SNAP/PROVENANCE.tsv"; do'),
+ ('N08', B, 'manifest', 'literal pathspecs (glob char in evidence path)',
+  'git --literal-pathspecs -C "$root" ls-files --error-unmatch -- "$ev"', 'git -C "$root" ls-files --error-unmatch -- "$ev"'),
+ ('N09', B, 'manifest', 'assume-unchanged / skip-worktree evidence', ' || [ -n "$(hidden_flag "$ev")" ]', ''),
+ ('N10', B, 'manifest', 'id grammar [A-Z]+-[0-9]+', 'if [ -n "$id" ] && ! printf', 'if false && ! printf'),
+ ('R03', 'run_local_gates.sh', 'runner', 'gate 6 not applied to the --constitution override',
+  '"$cg/cm_pr_delivery_account_name_free.sh" --root "$const"', '"$cg/cm_pr_delivery_account_name_free.sh" --root "$repo/submodules/constitution"'),
  ('M14', 'run_local_gates.sh', 'runner', 'gate 5 cm_pr_delivery_anchor_wired wiring replaced by true',
   'bash "$cg/cm_pr_delivery_anchor_wired.sh" --root "$const"', 'true'),
  ('M15', 'run_local_gates.sh', 'runner', 'gate 1 gofmt_clean wiring replaced by true', 'bash "$here/gofmt_clean.sh" "$root"', 'true'),
@@ -68,17 +82,25 @@ def main():
             print(f'BASELINE pre-fix script vs new manifest suite: rc={rc} {last}')
             for f in fails: print('  ' + f[:150])
             return 0
-        surv = err = 0
+        surv = err = 0; killed = total = 0
+        if not only:  # positive control: the UNMUTATED scratch copy must pass both suites, else every KILLED below is meaningless
+            s = scratch(tmp, 'control')
+            for suite in ('manifest', 'runner'):
+                rc, fails, last = run_suite(s, suite)
+                print(f'CONTROL  unmutated {suite} suite: rc={rc} {last}')
+                if rc != 0: print('ERROR    unmutated copy does not pass; kill table invalid'); return 2
         for mid, fn, suite, desc, old, new in MUTANTS:
             if only and mid not in only: continue
             s = scratch(tmp, mid); p = os.path.join(s, 'scripts', 'gates', fn); t = open(p).read()
             if old not in t: print(f'ERROR    {mid} {desc}: mutation does not apply'); err = 1; continue
             open(p, 'w').write(t.replace(old, new, 1))
-            rc, fails, last = run_suite(s, suite)
+            rc, fails, last = run_suite(s, suite); total += 1
             if rc != 0:
+                killed += 1
                 print(f'KILLED   {mid} {desc}  [{suite} suite: {len(fails)} failing case(s); first: {fails[0][:100] if fails else "?"}]')
             else:
                 print(f'SURVIVED {mid} {desc}  [{suite} suite still: {last}]'); surv = 1
+        print(f'SUMMARY  {killed} killed of {total} mutants defined and run (table defines {len(MUTANTS)})')
         return 2 if err else (1 if surv else 0)
 
 if __name__ == '__main__': sys.exit(main())

@@ -36,6 +36,11 @@ d="$base/m7"; mk "$d"; echo "see milos85vasic here" >> "$d/README.md"; out="$("$
 # M14: gate 5 (cm_pr_delivery_anchor_wired) wiring - an empty constitution tree must make exactly that gate FAIL the run
 d="$base/m14"; mk "$d"; mkdir -p "$base/emptyconst"; out="$("$g" --root "$d" --constitution "$base/emptyconst" 2>&1)"; rc=$?
 { [ $rc != 0 ] && echo "$out" | grep -q '^GATE cm_pr_delivery_anchor_wired FAIL'; } && ok "gate 5 FAIL on a constitution without the anchor fails the run (M14)" || bad "gate 5 wiring rc=$rc: $(echo "$out" | grep '^GATE' | tr '\n' '|')"
+# R03: gate 6 (cm_pr_delivery_account_name_free) must scan the --constitution override: an account of delivery.conf in its corpus fails exactly that gate
+d="$base/r03"; mk "$d"; mkdir -p "$base/dirtyconst"; acct="$(sed -n 's/^pr_reviewers=//p' "$repo/config/delivery.conf" | head -1)"
+for f in Constitution.md CLAUDE.md AGENTS.md QWEN.md GEMINI.md; do printf 'reviewer %s here\n' "$acct" > "$base/dirtyconst/$f"; done
+out="$("$g" --root "$d" --constitution "$base/dirtyconst" 2>&1)"; rc=$?
+{ [ $rc != 0 ] && echo "$out" | grep -q '^GATE cm_pr_delivery_account_name_free FAIL'; } && ok "gate 6 scans the --constitution override (R03)" || bad "gate 6 override rc=$rc: $(echo "$out" | grep '^GATE' | tr '\n' '|')"
 # installer
 i="$here/install_hooks.sh"; [ -x "$i" ] || { bad "install_hooks.sh missing"; echo "== $pass passed, $fail failed"; exit 1; }
 rh="$(git -C "$repo" rev-parse --git-path hooks)"; case "$rh" in /*) ;; *) rh="$repo/$rh";; esac
