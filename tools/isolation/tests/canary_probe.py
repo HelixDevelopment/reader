@@ -28,5 +28,4 @@ class Canary:
 
 def probe(wrapper_args, targets):
     r = run_raw(wrapper_args, ["node", "/opt/isoinside/net_probe.js", ",".join(dict.fromkeys(targets))])
-    line = [l for l in r.stdout.splitlines() if l.startswith("{")]
-    return (json.loads(line[-1]) if line else {}), r
+    return (r.json_after("{", keep_prefix=True) or {}), r

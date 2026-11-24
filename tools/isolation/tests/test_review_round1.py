@@ -40,8 +40,22 @@ class Stub:
         return self
     def __exit__(self, *a): shutil.rmtree(self.d, ignore_errors=True)
 
-def run_rc(script, args, st, cwd=None):
-    return subprocess.run([str(script)] + args, capture_output=True, text=True, env=st.env, cwd=cwd, timeout=60)
+def run_rc(script, args, st, cwd=None, tty=True):
+    """run a script with its stdout on a PTY (round 6, R6-I1: run_container.sh's attached mode refuses a non-terminal stdout); tty=False gives the old pipe."""
+    if not tty: return subprocess.run([str(script)] + args, capture_output=True, text=True, env=st.env, cwd=cwd, timeout=60)
+    import pty, threading
+    m, s_ = pty.openpty(); buf = []
+    def pump():
+        while True:
+            try: b = os.read(m, 65536)
+            except OSError: return
+            if not b: return
+            buf.append(b)
+    t = threading.Thread(target=pump, daemon=True); t.start()
+    try: r = subprocess.run([str(script)] + args, stdout=s_, stderr=subprocess.PIPE, text=True, env=st.env, cwd=cwd, timeout=60)
+    finally: os.close(s_)
+    t.join(5); os.close(m)
+    r.stdout = b"".join(buf).decode("utf-8", "replace").replace("\r\n", "\n"); return r
 
 class B2IsoWork(unittest.TestCase):
     """ISO_WORK may not be the repo, inside it, an ancestor of it, or a symlink to it - wherever the repo lives."""

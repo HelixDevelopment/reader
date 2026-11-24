@@ -66,8 +66,8 @@ class NetworkIsolation(unittest.TestCase):
     def test_bridge_really_reaches_upstream(self):
         r = c.run_raw(["-n", "hrdiso-nettest-c", "-b", str(self.sock)], ["node", "-e",
                "fetch('http://127.0.0.1:38191/healthz').then(r=>r.text()).then(t=>console.log('GOT:'+t))"])
-        self.assertIn("GOT:UPSTRM", r.stdout, r.stderr)
-        self.assertIn("GET /healthz -> 200", pathlib.Path(self.work, "access.log").read_text())
+        self.assertTrue(r.has_token("GOT:UPSTRM"), r.stderr)
+        self.assertTrue("GET /healthz -> 200" in pathlib.Path(self.work, "access.log").read_text(errors="replace"), "access.log lacks the GET /healthz line")   # no assertIn: its failure message would print container-controlled log text (R6-B1)
 
     ADMIN_JS = """
 const post = (p, body) => fetch('http://127.0.0.1:38191' + p, {method: 'POST', body: JSON.stringify(body), headers: {Authorization: 'Bearer anything', 'Content-Type': 'application/json'}}).then(r => r.status);
@@ -84,8 +84,8 @@ const post = (p, body) => fetch('http://127.0.0.1:38191' + p, {method: 'POST', b
 """
     def run_admin_attempts(self):
         r = c.run_raw(["-n", "hrdiso-nettest-d", "-b", str(self.sock)], ["node", "-e", self.ADMIN_JS % {"port": self.canary.port}])
-        line = [l for l in r.stdout.splitlines() if l.startswith("ADMIN:")]
-        self.assertTrue(line, r.stderr); return json.loads(line[0][6:])
+        out = r.json_after("ADMIN:")
+        self.assertTrue(out, r.stderr); return out
 
     def test_admin_routes_refused_from_inside_the_container(self):
         out = self.run_admin_attempts()
@@ -108,7 +108,7 @@ const post = (p, body) => fetch('http://127.0.0.1:38191' + p, {method: 'POST', b
                 try: urllib.request.urlopen(f"http://127.0.0.1:{port}/readyz", timeout=1); break
                 except Exception: time.sleep(0.5)
             r = c.run_raw(["-n", "hrdiso-nettest-e", "-b", f"{st}/sock"], ["node", "-e", self.ADMIN_JS % {"port": self.canary.port}])
-            out = json.loads([l for l in r.stdout.splitlines() if l.startswith("ADMIN:")][0][6:])
+            out = r.json_after("ADMIN:")
             for k in ("webdav_to_canary", "scan", "local_root", "list_sources", "admin_prefix"):
                 self.assertIn(out[k], (403, 404), out)
             self.assertEqual(self.canary.hits, 0)

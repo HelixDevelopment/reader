@@ -13,6 +13,9 @@
 #               copy goes to stderr (stdout stays empty). RAWDIR must be a HOST-ONLY directory: absolute, canonical, a real non-link directory, owned by you, mode 0700,
 #               not inside any rw-bound source. A consumer reads the raw files but must re-validate (json.loads / sanitize.py) anything it prints or publishes.
 #               Not combinable with -d. Without -o (attached) the output is the sanitized, merged, line-capped terminal stream and MUST NOT be parsed.
+#               Review round 6 (R6-I1): attached mode (no -o, no -d) REFUSES with exit 67 when its stdout is not a terminal, so a script cannot capture the terminal
+#               stream by any redirection / pipe / substitution shape: a machine consumer must say -o. Exit codes: 64 usage/validation, 65 isolation violation,
+#               66 image missing (the container never started: callers decide what that means), 67 attached mode without a terminal on stdout.
 #   -t          maximum lifetime in seconds (podman --timeout; default 1800): an orphaned container dies by itself
 #   -r / -w     read-only / read-write bind; sources must pass tools/isolation/bindcheck.py (allow-list)
 #   -e          explicit container env (the host env is never inherited)
@@ -72,6 +75,9 @@ if [ -n "$RAWDIR" ]; then
   for rs in "${RWSRC[@]:-}"; do [ -z "$rs" ] && continue
     case "$RAWDIR/" in "$rs"/*) echo "run_container: -o $RAWDIR lies inside the container-writable $rs: raw output must stay host-only" >&2; exit 64;; esac
   done
+fi
+if [ ${#DETACH[@]} -eq 0 ] && [ -z "$RAWDIR" ] && [ ! -t 1 ]; then
+  echo "run_container: attached mode needs a terminal on stdout (it prints the sanitized, merged, line-capped terminal stream, which must not be captured or parsed); a machine consumer must use -o RAWDIR (see tools/isolation/rawrun.py), a background run -d" >&2; exit 67
 fi
 podman image exists "$IMG" || { echo "image $IMG missing; build: podman build -t $IMG submodules/containers/images/gui-test" >&2; exit 66; }
 "$HERE/reap.sh" >/dev/null || true

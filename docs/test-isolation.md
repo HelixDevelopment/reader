@@ -355,7 +355,7 @@ Class R5-B1 "a consumer that PARSES what run_container.sh printed". Round 4 made
 4000-character-capped TERMINAL stream; that is right for a person and wrong for a parser (a HelixQA runner exited 0 with nothing published, the network gate could never pass).
 
 * `run_container.sh -o RAWDIR`: stdout and stderr go UNMERGED, byte for byte, uncapped, to `RAWDIR/stdout.raw` and `RAWDIR/stderr.raw` (mode 0600). RAWDIR is host-only: absolute,
-  canonical, a real non-link directory, owned by you, mode 0700, not inside a container-writable source, not combinable with `-d`. Nothing of the container reaches the terminal raw: a
+  canonical, a real non-link directory, owned by you, mode 0700, not inside a container-writable source (a `-w` source that lies inside RAWDIR is accepted: RAWDIR itself is never writable by the container, so the nesting is harmless, round 6 m7), not combinable with `-d`. The wrapper writes nothing of the container raw to the terminal (round 6 corrects the round-5 wording: the RAW BYTES are in the files, and a consumer that prints them itself, e.g. as an assertion message, is the R6-B1 defect, section 8.5): a
   sanitized copy (`[container] ` / `[container:stderr] ` prefixes) goes to stderr, stdout stays empty, the exit status is the container's. The raw files are not deleted by the wrapper.
   There is no size cap on the raw files (the container lifetime `-t` and its memory cap bound them; a total-bytes cap is UNCONFIRMED/not implemented).
 * A consumer reads the raw files but re-validates (`json.loads`) and sanitizes (`sanitize.py`) anything it prints or publishes. Python: `tools/isolation/rawrun.py run_raw(wrapper_args, cmd)`.
@@ -372,11 +372,56 @@ Class R5-B1 "a consumer that PARSES what run_container.sh printed". Round 4 made
 | `tools/isolation/tests/test_reaper.py` | no | stdout to DEVNULL |
 | `test_bindcheck.py`, `test_review_round*.py` | the wrapper itself | skipped by name in the gate |
 
-* Gate `tools/isolation/check_raw_consumers.py` (run by `assert_host_untouched.sh`): any shell line or Python subprocess call that captures run_container.sh output without `-o` (or a
-  `raw-consumer-exempt: <reason>` marker) FAILS; paired mutants restore the old redirection / drop `-o`.
+* Gate `tools/isolation/check_raw_consumers.py` (run by `assert_host_untouched.sh`): round 5 described it as catching any capture of run_container.sh output without `-o`. That claim was WRONG: the
+  round-6 review ran 27 evasion shapes and 20 evaded it (a variable holding the wrapper, `<(...)`, a function wrapper, `exec >file`, `&>`, `| grep -o`, `-o` inside the container command, `shell=True`,
+  `os.popen`, `.bash` files, other directories, ...). It is a text scan and stays only as DEFENCE IN DEPTH; the structural control is the wrapper's own refusal (section 8.5, R6-I1).
 * Minors: bidi / line-separator controls are stripped (mutant S4 now killed); a lone ESC never survives and may consume the one byte that follows it (a two-byte escape sequence is removed whole,
   which is the safe direction); the 4000-character line cap applies to the terminal copy only, raw files are uncapped.
 * Lint (R5-I1): the lint now builds a token view (quoted strings are one word, list / array separators become spaces) before global-option normalisation, so `podman --root "/tmp/a b" run`,
   `["podman","--root","/x","run"]`, `spawnSync("podman",["--root","/x","run"])` and `docker compose run`, `docker-compose up`, `podman-compose up`, `podman compose up` are findings.
-* Residual (UNCONFIRMED, honest): consumers other than the ones in the table that a future change adds are caught only by the gate's shapes (shell pipes / redirections / substitutions,
-  Python subprocess captures); an exotic capture (a named pipe, `exec >file`) is not seen. No live run (container-gated tests) was performed.
+* Residual (UNCONFIRMED, honest): see section 8.5; this paragraph's earlier "only exotic captures are missed" was superseded there. No live run (container-gated tests) was performed.
+
+### 8.5 Raw bytes stay in bytes; attached mode needs a terminal (review round 6)
+
+Round 6 (one more bounded round by operator decision) found two things in round 5's work.
+
+**R6-B1, the terminal-bytes class regressed.** Round 5 gave `rawrun.Raw` the raw container text in `.stdout` / `.stderr`, and `test_network_isolation.py` passed `r.stderr` as an assertion
+message, so a hostile container could put escape sequences on the operator's terminal through a failing test. Fixed as a class, not at the four call sites:
+
+* `Raw.raw_stdout` / `Raw.raw_stderr` are BYTES, documented UNSAFE TO PRINT. Every str-ish surface is sanitized only: `.stdout`, `.stderr`, `.wrapper_stderr`, `str()`, `repr()`, `format()`.
+  A parser uses `Raw.json_after(prefix)` (strict JSON, NaN/Infinity refused, any string holding a control / bidi / ESC character refused, `None` when absent) or `Raw.has_token(x)`; they return
+  data or a bool, never container text. `run_raw` captures bytes (no `text=True`), so no decoded container text travels in an exception either.
+* A bare `podman run|exec` whose output a test must read goes through `rawrun.run_direct`, which returns a `Raw`.
+* Sweep of every reader of container output (tests, qa/isolation, tools), with the fix and the paired mutant (`tests/test_review_round6.py`):
+
+| reader | what reached an assertion message / print | fix |
+|---|---|---|
+| `tests/test_network_isolation.py` | `r.stderr` (x3), `r.stdout` split by hand, `assertIn(..., access.log text)` | sanitized `.stderr`, `json_after` / `has_token`, `assertTrue(... in text, "fixed message")` |
+| `tests/canary_probe.py` | hand-split `r.stdout` | `json_after("{", keep_prefix=True)` |
+| `tests/test_runtime_checks.py` | `subprocess.run(text=True)` of bare `podman run`, `r.stderr` as message (x3) | `run_direct` / `run_raw` |
+| `tests/test_reaper.py` | none (reads only podman's own listings); had stdout to DEVNULL, which attached mode now refuses | uses `-o` with a private dir |
+| `qa/isolation/run_helixqa_container.sh` | none: raw files go to `helixqa_publish.py` only | unchanged (m5 below) |
+| `qa/isolation/run_web_live.sh`, `run_desktop_live.sh` | the terminal copy only, but attached mode now refuses a non-terminal stdout | `-o "$HW/raw"` (host-only dir) |
+| `qa/isolation/run_koreader_gui.sh` | `-d`; every `podman exec` output is piped through `sanitize.py` | unchanged |
+| `scripts/needle_*.sh` | `podman exec` into the project's own service containers; not part of this PR's tree of container-run code | NOT changed, UNCONFIRMED whether their output is trusted |
+
+* Gate additions (`check_raw_consumers.py`): any use of `raw_stdout` / `raw_stderr` outside `rawrun.py` (marker `raw-consumer-exempt: <reason>` for a deliberate parser) and any hand-captured
+  `podman run|exec|logs|cp|attach` output (`run -d`, which prints only the id, is exempt) are findings.
+* Test: no str attribute of `Raw` can hold ESC / C0 / C1 / bidi when the container emits all of them (the surface list is enumerated with `dir()`); a failing real consumer
+  (`test_runtime_checks` under a hostile podman stub) prints no control character; each of the checks has a mutant that puts raw text back and fails.
+
+**R6-I1, attached mode refuses a non-terminal stdout.** `run_container.sh` without `-o` and without `-d` now exits **67** (before `podman image exists`, after every validation, so the
+64/65 refusals keep their meaning) with "attached mode needs a terminal on stdout" when `[ -t 1 ]` is false. Any way of capturing the sanitized terminal stream (a redirect, `&>`, a pipe, a
+substitution, `<(...)`, `exec >file`, a variable holding the wrapper, a function wrapper, `shell=True`, `os.popen`) therefore fails at the wrapper instead of depending on a text scan.
+Exit codes of the wrapper: 64 usage / validation, 65 isolation violation, 66 image missing (the container never started), 67 attached mode without a terminal. Tests drive the reviewer's shapes
+FOR REAL against the wrapper (refused, `podman` never asked) and through the gate (flagged), and a wrapper without the refusal lets every shape capture (mutant). Tests that run the wrapper
+attached use a pseudo-terminal (`run_rc(tty=True)`).
+
+* The gate was corrected: it parses the options of each `run_container.sh` call like `getopts`, up to the first `--` (a `-o` inside the container command no longer counts), flags every attached
+  call without `-o` / `-d` whether or not it visibly captures, flags a variable or array that stores the wrapper, and covers `.bash` files. It is defence in depth and does NOT claim to catch every
+  capture: a command assembled at run time, a script in another language, or a file outside qa/ tools/ scripts/ tests/ is not seen; the wrapper's refusal is what stops those.
+* Minors: the publisher refuses NaN / Infinity and a result nested too deeply (exit 3, nothing published, the runner exits 1); the real `-o` path is tested end to end into the publisher with a stub
+  podman (parent-symlink RAWDIR refused with exit 64, JSON re-serialised never copied); when the container never starts (wrapper exit 64..67, no raw files) the runner exits 1 with the wrapper's status in
+  its message and publishes nothing (m5); a `-w` source inside RAWDIR is accepted and harmless (m7).
+* Residual (UNCONFIRMED, honest): a consumer that runs the wrapper with a real pseudo-terminal and parses the screen is not stopped (it gets the sanitized stream; this is the terminal's own
+  use); the sweep covers this PR's tree, not scripts elsewhere in the repository that read container output (for example `scripts/needle_*.sh`); no live run (container-gated tests) was performed.

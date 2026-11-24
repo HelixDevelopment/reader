@@ -4,7 +4,7 @@ The raw stdout is "<text report>\\n{\\n  json...}\\n" (helixqa --verbose --json)
   * splits at the first "\\n{\\n", parses the JSON part strictly (json.loads, must be an object) and RE-SERIALISES it (container bytes never reach evidence as-is),
   * sanitizes the text report and the stderr (sanitize.py: terminal controls removed, lines prefixed),
   * writes helixqa_http.txt / helixqa_http.json / helixqa_http.stderr.txt into OUT_DIR atomically - all three or none.
-Any failure (missing file, no split point, invalid JSON, not an object) => message on stderr, exit 3, NOTHING published; the caller keeps the raw files for the post-mortem.
+Any failure (missing file, no split point, invalid JSON, NaN/Infinity, nesting too deep, not an object) => message on stderr, exit 3, NOTHING published; the caller keeps the raw files for the post-mortem.
 It never prints a success line itself: the exit status is the verdict."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, "..", "..", "tools", "isolation"))
@@ -22,10 +22,14 @@ def main(argv):
     except OSError as e: fail(f"cannot read the raw streams: {e.strerror}")
     text = data.decode("utf-8", "replace"); i = text.find("\n{\n")
     if i < 0: fail("no JSON result block (newline, open brace, newline) in the container's stdout")
-    try: doc = json.loads(text[i + 1:])
-    except ValueError as e: fail(f"the JSON result block does not parse ({e})")
+    def non_finite(c): raise ValueError("non-finite number " + c)     # round 6: NaN / Infinity / -Infinity are not JSON; a result that carries one is refused
+    try: doc = json.loads(text[i + 1:], parse_constant=non_finite)
+    except RecursionError: fail("the JSON result block is nested too deeply")
+    except ValueError as e: fail(f"the JSON result block does not parse ({type(e).__name__})")
     if not isinstance(doc, dict): fail("the JSON result block is not an object")
-    files = {"helixqa_http.txt": sanitize.sanitize_bytes(text[:i + 1].encode("utf-8"), ""), "helixqa_http.json": json.dumps(doc, indent=2, ensure_ascii=True) + "\n",
+    try: body_json = json.dumps(doc, indent=2, ensure_ascii=True, allow_nan=False) + "\n"
+    except (RecursionError, ValueError): fail("the JSON result block cannot be re-serialised")
+    files = {"helixqa_http.txt": sanitize.sanitize_bytes(text[:i + 1].encode("utf-8"), ""), "helixqa_http.json": body_json,
              "helixqa_http.stderr.txt": sanitize.sanitize_bytes(err, "[container:stderr] ")}
     tmp = []
     try:

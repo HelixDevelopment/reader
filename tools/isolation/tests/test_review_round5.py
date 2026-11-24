@@ -157,7 +157,7 @@ class HelixqaRunner(Base):
     def test_parse_failure_fails_closed_publishes_nothing_keeps_the_raw_file_and_never_prints_success(self):
         for name, out in self.BROKEN.items():
             self.build(); r = self.run_it(out); self.assertNotEqual(r.returncode, 0, (name, r.stdout, r.stderr))
-            self.assertEqual([f for f in self.published() if f != "helixqa_http.exit.txt" or True], [], (name, self.published()))
+            self.assertEqual(self.published(), [], (name, self.published()))
             self.assertNotIn("helixqa exit=", r.stdout + r.stderr, name)
             kept = os.path.join(self.work, "hq-raw", "stdout.raw"); self.assertTrue(os.path.exists(kept), name); self.assertEqual(open(kept).read(), out, name)
             self.assertIn("nothing published", r.stderr)
@@ -175,7 +175,7 @@ class HelixqaRunner(Base):
         self.build(runner=s.replace(old, 'find "$RAW" -type f -delete; ' + old, 1)); self.run_it(self.BROKEN["no_split"])
         self.assertFalse(os.path.exists(os.path.join(self.work, "hq-raw", "stdout.raw")))
     def test_mutant_publisher_ignores_a_bad_json_block(self):
-        s = (QA / "helixqa_publish.py").read_text(); old = "doc = json.loads(text[i + 1:])"; self.assertIn(old, s)
+        s = (QA / "helixqa_publish.py").read_text(); old = "doc = json.loads(text[i + 1:], parse_constant=non_finite)"; self.assertIn(old, s)
         self.build(publisher=s.replace(old, "doc = {}", 1)); r = self.run_it(self.BROKEN["bad_json"]); self.assertEqual(r.returncode, 0)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------ gate (d)
@@ -193,22 +193,23 @@ class RawConsumersGate(Base):
     SH_BAD = ['out=$("$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd)', '"$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd > "$OUT/o.txt"',
               '"$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd | grep PASS', '"$R/tools/isolation/run_container.sh" -n hrdiso-x \\\n  -- cmd 2> err.txt',
               '"$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd 2>&1 | tee log']
-    SH_OK = ['"$R/tools/isolation/run_container.sh" -n hrdiso-x -o "$RAW" -- cmd > "$OUT/o.txt"', '"$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd > /dev/null 2>&1',
-             '"$R/tools/isolation/run_container.sh" -n hrdiso-x -- cmd || rc=$?', '# "$R/tools/isolation/run_container.sh" -n x -- cmd | grep PASS',
+    SH_OK = ['"$R/tools/isolation/run_container.sh" -n hrdiso-x -o "$RAW" -- cmd > "$OUT/o.txt"', '"$R/tools/isolation/run_container.sh" -n hrdiso-x -d -- cmd > /dev/null 2>&1',
+             '"$R/tools/isolation/run_container.sh" -n hrdiso-x -o "$RAW" -- cmd || rc=$?', '# "$R/tools/isolation/run_container.sh" -n x -- cmd | grep PASS',
              '"$R/tools/isolation/run_container.sh" -d -n hrdiso-x -- cmd | head -1  # raw-consumer-exempt: detached, prints only the container id']
-    def test_shell_captures_without_o_fail_and_raw_or_uncaptured_pass(self):
+    def test_shell_attached_without_o_or_d_fail_and_raw_or_detached_pass(self):
         for c in self.SH_BAD:
             r = self.gate({"qa/x.sh": "#!/bin/bash\n" + c + "\n"}); self.assertEqual(r.returncode, 1, (c, r.stdout, r.stderr))
         for c in self.SH_OK:
             r = self.gate({"qa/x.sh": "#!/bin/bash\n" + c + "\n"}); self.assertEqual(r.returncode, 0, (c, r.stdout, r.stderr))
     PY_BAD = ['import subprocess\ndef f():\n    cmd = ["tools/isolation/run_container.sh", "-n", "x", "--", "true"]\n    return subprocess.run(cmd, capture_output=True, text=True)\n',
               'import subprocess\nsubprocess.check_output(["tools/isolation/run_container.sh", "--", "true"])\n',
-              'import subprocess\nr = subprocess.run(["x/run_container.sh", "--", "true"], stdout=subprocess.PIPE)\n']
+              'import subprocess\nr = subprocess.run(["x/run_container.sh", "--", "true"], stdout=subprocess.PIPE)\n',
+              'import subprocess\nsubprocess.Popen(["x/run_container.sh", "--", "sleep", "1"], stdout=subprocess.DEVNULL)\n']
     PY_OK = ['import subprocess\nr = subprocess.run(["x/run_container.sh", "-o", "/d", "--", "true"], capture_output=True)\n',
-             'import subprocess\nsubprocess.Popen(["x/run_container.sh", "--", "sleep", "1"], stdout=subprocess.DEVNULL)\n',
+             'import subprocess\nsubprocess.Popen(["x/run_container.sh", "-d", "--", "sleep", "1"], stdout=subprocess.DEVNULL)\n',
              'import subprocess\ndef f():\n    # raw-consumer-exempt: refused before any container exists\n    return subprocess.run(["x/run_container.sh", "-n", "bad"], capture_output=True)\n',
              'from rawrun import run_raw\nr = run_raw(["-n", "x"], ["true"])\n']
-    def test_python_captures_without_o_fail_and_raw_or_uncaptured_pass(self):
+    def test_python_attached_without_o_or_d_fail_and_raw_or_detached_pass(self):
         for c in self.PY_BAD:
             r = self.gate({"tools/x.py": c}); self.assertEqual(r.returncode, 1, (c, r.stdout, r.stderr))
         for c in self.PY_OK:
@@ -219,7 +220,7 @@ class RawConsumersGate(Base):
         r = subprocess.run([sys.executable, "-I", str(self.G), os.path.join(self.d, "t")], capture_output=True, text=True); self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
         self.assertIn("run_helixqa_container.sh", r.stderr)
     def test_mutant_gate_that_never_flags(self):
-        t, f = mutated_copy("check_raw_consumers.py", "return bool(re.search(", "return False and bool(re.search("); self.addCleanup(shutil.rmtree, t, True)
+        t, f = mutated_copy("check_raw_consumers.py", 'if not ({"o", "d"} & flags_of(toks[k + 1:])):', "if False:"); self.addCleanup(shutil.rmtree, t, True)
         r = self.gate({"qa/x.sh": "#!/bin/bash\n" + self.SH_BAD[1] + "\n"}, script=f); self.assertEqual(r.returncode, 0)          # the mutant is blind: the real gate (test above) is not
     def test_the_existing_consumers_are_covered_by_the_gate_inputs(self):
         for rel in ("qa/isolation/run_helixqa_container.sh", "tools/isolation/tests/canary_probe.py", "tools/isolation/tests/test_network_isolation.py", "tools/isolation/tests/test_runtime_checks.py"):

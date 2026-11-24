@@ -1,18 +1,45 @@
 #!/usr/bin/env python3
-"""check_raw_consumers.py [ROOT] - gate (review round 5, R5-B1(d)): every script that PARSES what run_container.sh printed MUST use its raw-capture mode (-o).
-Without -o the wrapper's attached output is the sanitized, merged, "[container] "-prefixed, line-capped TERMINAL stream; parsing it is the false-green class round 5 found
-(a HelixQA runner that exited 0 with nothing published, a network gate that could never pass).
-A "consumer" is an invocation of run_container.sh whose output is captured:
-  shell    : a logical line (continuations joined) naming run_container.sh that has a pipe, a command substitution, or a redirection to anything but /dev/null;
-  python   : a function / module scope that builds a command list naming run_container.sh and also calls subprocess with capture_output / stdout=PIPE / check_output.
-It must contain "-o" (shell: a ` -o ` word; python: the constant "-o"), or the line/scope carries "raw-consumer-exempt: <non-empty reason>" (a call that is refused before any
-container exists, or detached). Files that TEST the wrapper itself (test_review_round*.py, test_bindcheck.py) and this gate's own files are skipped by name.
-Python consumers should go through tools/isolation/rawrun.py (no literal run_container.sh at all). exit 0 PASS / 1 FAIL (lists file:line) / 2 usage."""
-import ast, os, re, sys
+"""check_raw_consumers.py [ROOT] - gate (review round 5 R5-B1(d), widened in round 6 R6-B1/R6-I1): DEFENCE IN DEPTH for the rule "container output is read only through the raw-capture mode".
+THE STRUCTURAL FIX is in run_container.sh itself: attached mode (no -o, no -d) REFUSES, exit 67, when its stdout is not a terminal, so no redirection / pipe / substitution /
+process-substitution / exec-redirect / variable-indirection shape can capture the terminal stream. This gate is a LINT on top of that: it is a text scan and has blind spots
+(see docs/test-isolation.md section 8.4: a command assembled at run time, a script in a language it does not parse, a file outside qa/ tools/ scripts/ tests/); it does NOT
+claim to catch "any capture", the wrapper's refusal does.
+It flags, in .sh / .bash / .py files under qa, tools, scripts, tests (marker "raw-consumer-exempt: <reason>" on the line / in the function silences one finding):
+  shell  : an invocation of run_container.sh (a logical line, continuations joined) whose OPTIONS (parsed like getopts, up to the first "--": so a "-o" inside the container
+           command does not count) hold neither -o nor -d; an assignment that stores run_container.sh in a variable or array (indirection); process substitution / "exec >" /
+           "&>" / "| grep -o" shapes need no rule of their own, they are invocations without -o and are flagged by the first rule.
+  python : a call (subprocess.*, os.popen, os.system, asyncio.create_subprocess_*) whose command (a list/tuple literal, a name assigned from one, or a string) names
+           run_container.sh and whose options hold neither "-o" nor "-d"; ANY such call with shell=True / os.popen / os.system; a hand-made call of the container runtime's run / exec / logs / cp / attach verbs
+           that captures output (use rawrun.run_direct, whose str surfaces are sanitized); and any use of the UNSAFE-TO-PRINT attributes raw_stdout / raw_stderr outside
+           tools/isolation/rawrun.py (a parser uses Raw.json_after / Raw.has_token).
+Files that TEST the wrapper itself (test_review_round*.py, test_bindcheck.py) and this gate's own files are skipped by name.
+exit 0 PASS / 1 FAIL (lists file:line) / 2 usage."""
+import ast, os, re, shlex, sys
 
 SKIP = re.compile(r"(^|/)(test_review_round\d+\.py|test_bindcheck\.py|check_raw_consumers\.py|test_raw_consumers\.py|rawrun\.py|run_container\.sh)$")
+RAWLIB = re.compile(r"(^|/)rawrun\.py$")
 EXEMPT = re.compile(r"raw-consumer-exempt:\s*\S")
 DIRS = ("qa", "tools", "scripts", "tests")
+EXTS = (".sh", ".bash", ".py")
+WITH_ARG = set("nmctibprwe")          # run_container.sh getopts "dn:m:c:t:i:b:p:o:r:w:e:"
+UNSAFE_ATTRS = ("raw_stdout", "raw_stderr")
+RT_VERBS = {"run", "exec", "logs", "cp", "attach", "start"}
+
+
+def flags_of(tokens):
+    """the option letters a run_container.sh invocation really carries: getopts-style, stops at the first "--" or the first non-option word."""
+    got, i = set(), 0
+    while i < len(tokens):
+        t = tokens[i]
+        if t == "--" or not t.startswith("-") or t == "-": break
+        letters = t[1:]
+        for j, ch in enumerate(letters):
+            got.add(ch)
+            if ch in WITH_ARG:
+                if j == len(letters) - 1: i += 1          # the argument is the next word
+                break
+        i += 1
+    return got
 
 
 def shell_logical(text):
@@ -24,20 +51,22 @@ def shell_logical(text):
     return out
 
 
-def shell_captures(line):
-    code = line.split(" #")[0]
-    code = code.replace("||", " ").replace("&&", " ").replace("2>&1", " ")
-    if "$(" in code or "`" in code or "|" in code: return True
-    return bool(re.search(r"(?<![0-9&<])\d?>>?\s*(?!/dev/null)[^\s&]", code.replace("2>/dev/null", " ").replace(">/dev/null", " ").replace("> /dev/null", " ")))
-
-
 def check_shell(path, text):
     bad = []
     for n, ln in shell_logical(text):
-        if "run_container.sh" not in ln or ln.lstrip().startswith("#"): continue
-        if not re.search(r'run_container\.sh"?\s', ln) and not ln.rstrip().endswith("run_container.sh"): continue
-        if not shell_captures(ln) or re.search(r"\s-o[\s=]", ln) or EXEMPT.search(ln): continue
-        bad.append((path, n, "run_container.sh output is captured but the call has no -o (raw-capture) option"))
+        if "run_container.sh" not in ln or ln.lstrip().startswith("#") or EXEMPT.search(ln): continue
+        code = ln.split(" #")[0]
+        try: toks = shlex.split(code, posix=True)
+        except ValueError: bad.append((path, n, "unparsable line that names run_container.sh (cannot prove it has -o)")); continue
+        idx = [k for k, t in enumerate(toks) if t.endswith("run_container.sh") and not t.startswith("-")]
+        if not idx:                                              # named, but not a command word: a path in an echo / a test / a variable
+            if re.match(r"\s*(export\s+|local\s+|readonly\s+|declare\s+\S+\s+)?[A-Za-z_]\w*=\(?[^ ]*run_container\.sh", code) or re.search(r"\w=\(?\"?[^ ]*run_container\.sh", code):
+                bad.append((path, n, "run_container.sh stored in a variable / array: an indirect call cannot be linted, call it directly with -o or -d"));
+            continue
+        for k in idx:
+            if k > 0 and not toks[k].startswith(("<(", ">(", "$(", "(")) and toks[k - 1] in ("echo", "printf", "cat", "ls", "test", "[", "[[", "grep", "stat", "sha256sum", "chmod"): continue
+            if not ({"o", "d"} & flags_of(toks[k + 1:])):
+                bad.append((path, n, "run_container.sh invoked in attached mode (no -o / -d among its options): its stdout must be a terminal; a machine consumer uses -o RAWDIR"))
     return bad
 
 
@@ -45,16 +74,49 @@ def _strs(node):
     return [c.value for c in ast.walk(node) if isinstance(c, ast.Constant) and isinstance(c.value, str)]
 
 
+def _is_proc_call(call):
+    f = ast.unparse(call.func)
+    return bool(re.search(r"(^|\.)(run|Popen|call|check_call|check_output|getoutput|getstatusoutput|popen|system|create_subprocess_exec|create_subprocess_shell)$", f))
+
+
 def _captures(call):
-    if ast.unparse(call.func).endswith("check_output"): return True
+    f = ast.unparse(call.func)
+    if f.endswith(("check_output", "popen", "getoutput", "getstatusoutput")): return True
     return any(k.arg == "capture_output" or (k.arg == "stdout" and "PIPE" in ast.unparse(k.value)) for k in call.keywords)
 
 
+def _py_flags(cmd):
+    """option letters of a literal command: the strings of a list/tuple after the run_container.sh element."""
+    if isinstance(cmd, (ast.List, ast.Tuple)):
+        toks, seen = [], False
+        for e in cmd.elts:
+            if isinstance(e, ast.Constant) and isinstance(e.value, str):
+                if seen: toks.append(e.value)
+                elif e.value.endswith("run_container.sh"): seen = True
+            elif isinstance(e, ast.Starred):
+                toks.append("*")                              # unknown extras: stop here, what we saw is all we can prove
+                break
+            else:
+                if seen: toks.append("?")
+                elif "run_container.sh" in ast.unparse(e): seen = True
+        return flags_of(toks)
+    if isinstance(cmd, ast.Constant) and isinstance(cmd.value, str):
+        try: toks = shlex.split(cmd.value)
+        except ValueError: return set()
+        ix = [k for k, t in enumerate(toks) if t.endswith("run_container.sh")]
+        return flags_of(toks[ix[0] + 1:]) if ix else set()
+    return set()
+
+
 def check_python(path, text):
-    """a subprocess call whose COMMAND (a list literal, or a name assigned from one) names run_container.sh and which captures its stdout; the list must hold "-o"."""
     try: tree = ast.parse(text)
     except SyntaxError: return []
     lines = text.splitlines(); bad = []
+    in_lib = bool(RAWLIB.search(path))
+    for n in ast.walk(tree):                                      # the UNSAFE-TO-PRINT raw streams outside the library
+        if not in_lib and ((isinstance(n, ast.Attribute) and n.attr in UNSAFE_ATTRS) or (isinstance(n, ast.Constant) and isinstance(n.value, str) and n.value in UNSAFE_ATTRS)):
+            if not EXEMPT.search(lines[n.lineno - 1]):
+                bad.append((path, n.lineno, "uses the UNSAFE-TO-PRINT raw_stdout / raw_stderr outside rawrun.py (parse with Raw.json_after / Raw.has_token, show with .stdout / .stderr)"))
     scopes = [tree] + [n for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
     for sc in scopes:
         own, todo = [], list(ast.iter_child_nodes(sc))      # the scope's own nodes: nested functions are scopes of their own
@@ -63,17 +125,26 @@ def check_python(path, text):
             if not isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)): todo.extend(ast.iter_child_nodes(n))
         named = {}
         for n in own:
-            if isinstance(n, ast.Assign) and isinstance(n.value, (ast.List, ast.Tuple)) and any("run_container.sh" in x for x in _strs(n.value)):
+            if isinstance(n, ast.Assign) and any("run_container.sh" in x for x in _strs(n.value)) and isinstance(n.value, (ast.List, ast.Tuple, ast.Constant)):
                 for t in n.targets:
                     if isinstance(t, ast.Name): named[t.id] = n.value
         seg = "\n".join(lines[getattr(sc, "lineno", 1) - 1: getattr(sc, "end_lineno", len(lines))])
         for n in own:
-            if not isinstance(n, ast.Call) or not n.args or not _captures(n): continue
-            cmd = n.args[0]
-            if isinstance(cmd, ast.Name): cmd = named.get(cmd.id)
-            if not isinstance(cmd, (ast.List, ast.Tuple)) or not any("run_container.sh" in x for x in _strs(cmd)): continue
-            if "-o" in _strs(cmd) or EXEMPT.search(seg): continue
-            bad.append((path, cmd.lineno, "run_container.sh output is captured but the command has no \"-o\" (use tools/isolation/rawrun.py run_raw)"))
+            if not isinstance(n, ast.Call) or not _is_proc_call(n) or EXEMPT.search(seg): continue
+            cmd = n.args[0] if n.args else None
+            if isinstance(cmd, ast.Name): cmd = named.get(cmd.id, cmd)
+            if cmd is None: continue
+            text_ = " ".join(_strs(cmd))
+            shell_form = any(k.arg == "shell" and ast.unparse(k.value) == "True" for k in n.keywords) or re.search(r"\.(popen|system|getoutput|getstatusoutput|create_subprocess_shell)$", ast.unparse(n.func))
+            if "run_container.sh" in text_:
+                if shell_form:
+                    bad.append((path, n.lineno, "run_container.sh run through a shell string (shell=True / os.popen / os.system): use a list with -o, or tools/isolation/rawrun.py"))
+                elif not ({"o", "d"} & _py_flags(cmd)):
+                    bad.append((path, n.lineno, "run_container.sh invoked in attached mode (no \"-o\" / \"-d\" among its options): use tools/isolation/rawrun.py run_raw"))
+            elif isinstance(cmd, (ast.List, ast.Tuple)) and len(cmd.elts) >= 2 and all(isinstance(e, ast.Constant) for e in cmd.elts[:2]):
+                a, b = cmd.elts[0].value, cmd.elts[1].value
+                if a == "podman" and b in RT_VERBS and _captures(n) and not (b == "run" and any(isinstance(e, ast.Constant) and e.value == "-d" for e in cmd.elts)):   # `run -d` prints only the container id
+                    bad.append((path, n.lineno, f"podman {b} output is captured by hand: use tools/isolation/rawrun.py run_direct (sanitized str surfaces)"))
     return sorted(set(bad))
 
 
@@ -84,11 +155,13 @@ def scan(root):
             dn[:] = [x for x in dn if x not in (".git", "node_modules", "__pycache__")]
             for f in fn:
                 p = os.path.join(dp, f); rel = os.path.relpath(p, root)
-                if SKIP.search(rel) or not f.endswith((".sh", ".py")): continue
+                if SKIP.search(rel) or not f.endswith(EXTS): continue
                 try: text = open(p, encoding="utf-8").read()
                 except (OSError, UnicodeDecodeError): continue
-                if "run_container.sh" not in text: continue
-                bad += (check_shell if f.endswith(".sh") else check_python)(rel, text)
+                if not f.endswith(".py"):
+                    if "run_container.sh" in text: bad += check_shell(rel, text)
+                    continue
+                if "run_container.sh" in text or "raw_std" in text or "podman" in text: bad += check_python(rel, text)
     return bad
 
 

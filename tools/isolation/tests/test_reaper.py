@@ -1,16 +1,21 @@
 """F5 gate: a kill -9 of the runner must not leave an immortal container (lifetime cap) and the reaper removes the orphan.
 Only touches containers named hrdisorev-*."""
-import os, pathlib, signal, subprocess, time, unittest
+import os, pathlib, shutil, signal, subprocess, tempfile, time, unittest
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 NAME = "hrdisorev-test"
+
+def rawdir():
+    """round 6 (R6-I1): attached mode refuses a non-terminal stdout, and these runs have none - they use the raw-capture mode with a private host dir"""
+    d = os.path.realpath(tempfile.mkdtemp(prefix="reaper-raw-", dir=os.path.expanduser("~/.cache/claude-tmp"))); os.chmod(d, 0o700); return d
 
 def ps():
     return subprocess.run(["podman", "ps", "-a", "--filter", f"name={NAME}", "--format", "{{.Names}}"], capture_output=True, text=True).stdout.split()
 
 class Reaper(unittest.TestCase):
+    def setUp(self): self.raw = rawdir(); self.addCleanup(shutil.rmtree, self.raw, True)
     def tearDown(self): subprocess.run(["podman", "rm", "-f", NAME], capture_output=True)
     def test_killed_runner_orphan_is_reaped_and_capped(self):
-        p = subprocess.Popen([str(ROOT / "tools/isolation/run_container.sh"), "-n", NAME, "-t", "120", "--", "sleep", "300"],
+        p = subprocess.Popen([str(ROOT / "tools/isolation/run_container.sh"), "-n", NAME, "-t", "120", "-o", self.raw, "--", "sleep", "300"],
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         for _ in range(60):
             if ps(): break
@@ -29,7 +34,7 @@ class Reaper(unittest.TestCase):
         src = (ROOT / "tools/isolation/reap.sh").read_text()
         self.assertIn("hrdiso-*|hrdisorev-*", src); self.assertIn("label=org.helix.isolation", src)
     def test_live_runner_container_not_reaped(self):
-        p = subprocess.Popen([str(ROOT / "tools/isolation/run_container.sh"), "-n", NAME, "-t", "60", "--", "sleep", "30"],
+        p = subprocess.Popen([str(ROOT / "tools/isolation/run_container.sh"), "-n", NAME, "-t", "60", "-o", self.raw, "--", "sleep", "30"],
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         for _ in range(60):
             if ps(): break
