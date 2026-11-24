@@ -454,3 +454,12 @@ clear `BASH_ENV` (low risk: the caller already controls its environment; follow-
 `helixqa_http.txt` and `kosync_proof.out` are written with an empty prefix; the text is control-free but container-chosen, so it could forge a host-looking line (follow-up: prefix them).
 m3 is fixed (sanitize strips U+061C, zero-width U+200B-U+200D, U+2060 and BOM). The PR body wrongly said the container-never-starts status was 66: the runner exits 1 and names the wrapper status
 (64..67) in its message.
+
+### 8.7 Merging `main`: the gated-test runners (review round 8, B3)
+
+`github/main` (PRs #6, #11, #12) added `tests/live/run_gated_tests.sh`, `mutation_check.sh` and `test_run_gated_tests.sh`. The lint went red on them (11 + 3 `container-outside-isolation`, 2 `container-escape`,
+4 `obfuscated-exec`). Analysis: these scripts start their OWN named service containers (postgres, redis, a go-test runner) for non-GUI server tests, publish ports on 127.0.0.1 only, mount no host path, use no
+`--privileged`, and never touch a display or input device; the `--network container:<own postgres>` flag joins the runner to that service's network namespace, not the host's. Routing them through
+`run_container.sh` is not feasible (it is `--network none`, the tests need the database network). Resolution, narrowly scoped: four pinned `waive` entries (file x rule, content hash, one-year expiry,
+recorded in `waivers.history`), the same mechanism already used for the older campaign scripts. Any edit to a waived file voids its waiver, any other file with a container call stays red, and
+`test_review_round8.py::GatedRunnerWaiver` proves both (an edited waived file, a new unwaived file, and a copy without the waivers all fail the gate).

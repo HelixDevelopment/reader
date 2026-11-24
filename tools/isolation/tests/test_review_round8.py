@@ -212,5 +212,36 @@ class SanitizeAndParsers(Base):
             good = self.py(ISO, code); bad = self.py(pathlib.Path(t, "tools/isolation"), code)
             self.assertNotEqual(good, bad, "mutant survived: " + new[:30])
 
+# ---------------------------------------------------------------------------------------------------------------------------------------- B3
+class GatedRunnerWaiver(Base):
+    """main's tests/live scripts start their OWN non-GUI service containers (postgres / redis / a go-test runner, 127.0.0.1 only): narrowly waived, pinned by content; every other offender stays red."""
+    LIVE = ["tests/live/run_gated_tests.sh", "tests/live/mutation_check.sh", "tests/live/test_run_gated_tests.sh"]
+
+    def root(self):
+        sys.path.insert(0, str(ISO / "guard")); import assert_host_untouched as g
+        r = pathlib.Path(self.d, "r"); (r / "tools/isolation/guard").mkdir(parents=True)
+        for n in ("waivers.txt", "waivers.history"): shutil.copy(ISO / "guard" / n, r / "tools/isolation/guard" / n)
+        for f in self.LIVE:
+            (r / f).parent.mkdir(parents=True, exist_ok=True); shutil.copy(ROOT / f, r / f)
+        return g, r
+
+    def hits(self, g, r, only="tests/live"): return [h for h in g.scan(str(r)) if h[0].startswith(only)]
+
+    def test_repository_tests_live_is_clean_through_the_waivers(self):
+        g, r = self.root(); self.assertEqual(self.hits(g, r), [])
+
+    def test_waiver_is_per_file_and_per_rule(self):
+        g, r = self.root(); p = r / "tests/live/other_runner.sh"
+        p.write_text("#!/bin/bash\npodman run -d --name x img\n"); self.assertTrue(any("container-outside-isolation" in h[2] for h in self.hits(g, r)))
+        p.write_text("#!/bin/bash\npodman run -d --net=host img\n"); self.assertTrue(self.hits(g, r))
+
+    def test_edited_waived_file_goes_red_again(self):
+        g, r = self.root(); f = r / "tests/live/run_gated_tests.sh"; f.write_text(f.read_text() + "\npodman run --privileged -d x\n")
+        self.assertTrue(any(h[0] == "tests/live/run_gated_tests.sh" for h in self.hits(g, r)))
+
+    def test_mutant_without_the_waivers_is_red(self):
+        g, r = self.root(); (r / "tools/isolation/guard/waivers.txt").write_text("# kind|path|rule|justification\n")
+        self.assertTrue(self.hits(g, r))
+
 if __name__ == "__main__":
     unittest.main()

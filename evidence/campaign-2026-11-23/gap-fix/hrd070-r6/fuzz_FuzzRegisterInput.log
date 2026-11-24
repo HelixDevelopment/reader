@@ -1,0 +1,25 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/61 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 61/61 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 57697 (19229/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 6s, execs: 129470 (23921/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 9s, execs: 203651 (24734/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 12s, execs: 276024 (24119/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 15s, execs: 354479 (26152/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 18s, execs: 426574 (24030/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 21s, execs: 503406 (25619/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 24s, execs: 582385 (26321/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 27s, execs: 659581 (25728/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 30s, execs: 723054 (21159/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 33s, execs: 788757 (21900/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 36s, execs: 854389 (21883/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 39s, execs: 920591 (22065/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 42s, execs: 987339 (22247/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 45s, execs: 1057076 (23246/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 48s, execs: 1134654 (25860/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 51s, execs: 1210485 (25279/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 54s, execs: 1275775 (21761/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 57s, execs: 1348823 (24354/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 1m0s, execs: 1424036 (25069/sec), new interesting: 0 (total: 61)
+fuzz: elapsed: 1m0s, execs: 1424036 (0/sec), new interesting: 0 (total: 61)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	60.124s

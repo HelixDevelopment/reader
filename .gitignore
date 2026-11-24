@@ -205,6 +205,8 @@ google-services.json
 
 # Campaign evidence logs must survive the global *.log ignores above so
 # recorded verification (EVIDENCE.md pointers) is committable.
+# Hermetic gate-test fixtures (tests/live) are committed inputs, not run logs.
+!tests/live/fixtures/*.log
 !evidence/**/*.log
 
 # Local CLI settings, python bytecode, and SQLite scratch beside the registry DB.

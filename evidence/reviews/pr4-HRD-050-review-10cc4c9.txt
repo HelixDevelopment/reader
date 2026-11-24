@@ -1,0 +1,96 @@
+VERDICT: NO-GO
+HEAD: 10cc4c911da1de6c32b43e6d5021a7b90ab3db80
+
+Independent review 3 of PR #4 (task HRD-050), worktree /home/milosvasic/.cache/claude-tmp/wt-hrd050, clean at the head.
+`git ls-remote github` -> 10cc4c911da1de6c32b43e6d5021a7b90ab3db80 refs/heads/task/HRD-050-live-gated-tests (matches).
+The live PG/Redis suite was NOT run and no container was started (host load). The live phase-B path is UNRUN and
+everything said about it below is static reading plus hermetic reproductions.
+
+== Committed checks, re-run this session
+- bash tests/live/test_run_gated_tests.sh -> "cases passed=31 failed=0"
+- bash tests/live/mutation_gate_check.sh -> M1..M18 all KILLED, exit 0
+- shellcheck -S warning tests/live/*.sh -> no output, exit 0
+- evidence/campaign-2026-11-23/gap-fix/hrd050: `sha256sum -c SHA256SUMS` all OK; 46 entries = 46 files on disk, no extra/missing.
+
+== BLOCKING findings
+
+B-1 The live path calls a file that is not in the repository.
+  run_gated_tests.sh:232 runs `tools/isolation/seal_evidence.sh "$OUT"`. `git ls-tree -r HEAD` has no tools/ path at all
+  and `git ls-tree -r github/main | grep -c seal` = 0; in the main checkout `tools/` is untracked (`?? tools/`).
+  In this worktree `ls tools/isolation/seal_evidence.sh` -> "No such file or directory". On any clean checkout the
+  live run reaches line 232, gets exit 127, and the ERR trap exits 2 ("FATAL: command not found") AFTER the gate has
+  been computed: the live runner can never return 0, 1 or 3 from a clone of this head. (The ERR-trap abort on a
+  plain missing command was reproduced in a scratch script: `undefined_fn_x arg` -> "FATAL line 7", rc=2.) The PR's
+  "Full live run exits 3" was produced in a checkout that has the untracked tools/ dir. My mutant R5 (replace the
+  seal call with `:`) SURVIVES the committed tests, so nothing covers this call.
+
+B-2 Phase B3 results are attributed to the wrong package, so a full live run can never be GREEN.
+  In the B log the script writes `# PKG <catalog>` before the B3 workers; the test binaries print `--- PASS` and a
+  bare `PASS` (no `ok pkg` line). parse_gotest.awk keeps those records buffered (`PASS` only sets closed=1) and the
+  NEXT `ok ...` line - B4's `go test ./internal/httpapi` - flushes them with p=httpapi. Hermetic reproduction:
+    log: "# PKG example.com/m/cat / --- PASS: TestM / PASS / === B4 === / --- PASS: TestQ / PASS / ok example.com/m/http"
+    awk output: "PASS example.com/m/http TestM" and "PASS example.com/m/http TestQ"
+    gate with phase-A "--- SKIP: TestM ... ok example.com/m/cat": "UNLISTED-SKIP: example.com/m/cat|TestM", rc=3.
+  Real shape check: the sealed run_B_load.log has exactly this order (lines 2628-2652: B3 header, 5 x
+  "--- PASS: TestCatalogMultiProcessMerges" + "PASS", then "=== B4 LCP live qualification ==="), and the sealed
+  run_A_race_live.log:157 has "--- SKIP: TestCatalogMultiProcessMerges". Inserting the marker the current script
+  writes before B3 into a copy of the sealed B log and running the current gate gives
+    "UNLISTED-SKIP: github.com/helixreader/helix/server/internal/catalog|TestCatalogMultiProcessMerges"
+  although the test passed 5 times in B3. This is fail-closed (false RED, not false GREEN), but it means the gate
+  cannot reach GREEN on a real live run. No fixture covers "binary output followed by a go test run".
+  My mutant R3 (remove every `echo "# PKG $IMP" >> "$LB"` from the runner) SURVIVES: the tests check the parser's
+  marker handling but nothing checks that the runner writes markers or the resulting B-log layout. Fix options:
+  write a closing marker / flush after each binary run (e.g. a `# ENDPKG` line flushed with def), and add a fixture
+  that mirrors the real B2c -> B3 -> B4 sequence.
+
+== IMPORTANT
+
+I-1 The ERR trap does not do what its comment says ("exit 127 anywhere, subshells included: never continue
+  silently"). Reproduced in a scratch script with the same `set -uo pipefail; set -E; trap ... ERR`:
+    `P=$(nosuchcmd_x); echo continued` -> prints "FATAL line 6" then "continued P=''", rc=0 (continues);
+    `( cd /tmp && nosuchcmd_x ) || RC=1` -> no FATAL at all, "continued RC=1".
+  Live-path consequence: free_port uses python3 inside $(...); without python3 PGPORT/RPORT are empty, podman gets
+  `-p 127.0.0.1::5432` and the DSN becomes `postgres://...@127.0.0.1:/helix_test` - whether the driver then defaults
+  to host port 5432 is UNCONFIRMED, but the script's stated guarantee "never touches host 5432" is not enforced.
+  Missing `go` in phase A only sets RC=1 (later rescued by LOG-UNUSABLE -> exit 2, so not a false green).
+  My mutant R2 (trap tests 128 instead of 127) SURVIVES: the trap is untested. Fix: check `[ -n "$PGPORT" ]` etc.,
+  or `command -v python3 go podman git` up front, and correct the comment.
+
+== MINOR
+
+m-1 ANSI-coloured lines are invisible to the parser: a plain log with one "\e[33m--- SKIP: TestX\e[0m" line gives
+  "skip census: 0 ..." and GATE GREEN rc=0 (false green). `go test -v` itself does not colour; only a wrapper would.
+m-2 A column-0 `ok <pkg>` line printed by test code flushes the buffer with that package: a log where pkg b's TestX
+  passes and pkg a's TestX skips, followed by stray stdout "ok example.com/m/b", gives GATE GREEN rc=0 (a's skip
+  is attributed to b and masked). Contrived (needs a same-named test and an exact package path), but a false green.
+m-3 Duplicate / contradictory allow-list entries (same Package|Test twice with different reasons and items) are
+  accepted silently (GATE GREEN rc=0).
+m-4 B3 runs 4 worker processes appending to the same log concurrently; line interleaving is possible (effect on
+  parsing UNCONFIRMED).
+
+== Adversarial inputs that behaved correctly
+- same package with SKIP TestA + FAIL TestB -> UNLISTED-SKIP, FAILED-TEST, PACKAGE-FAILED, rc=3
+- allow-list with different case "Example.com/m/a" -> UNLISTED-SKIP + UNUSED-ALLOW warning, rc=3
+- log holding only "ok pkg [no tests to run]" -> LOG-UNUSABLE, GATE-BLIND rc=2
+- two logs, second empty / first empty -> LOG-UNUSABLE, rc=2 both orders
+- CRLF log -> skip still seen, UNLISTED-SKIP rc=3
+- relative --allow/--check paths from cwd=/ and from another directory -> resolved correctly (rc=3 / rc=0 as expected)
+- my mutants R1 (skips counted as passes) KILLED (5 cases), R6 (comm -23 -> -12) KILLED (7 cases)
+
+== Static trace of the live path (helpers)
+abs, trim, log_records, skip_gate, phase_b_sets, cleanup, free_port, hdr: all defined. ORIG is assigned (line 131)
+before the first hdr call (line 136). PGPW/PGPORT used only under NOENV=0 where they are set. `go list` markers are
+quoted and guarded (`&& [ -n "$IMP" ] || exit 2`). Undefined/untracked: tools/isolation/seal_evidence.sh (B-1).
+--print-phase-b on the fixture gives the exact expected REGEX/INRE/HRE (committed case B1 passes).
+
+== Evidence / honesty
+- hrd050-PROVENANCE.md honestly states the sealed logs were made at e9c89d3 on a dirty tree, predate the markers and
+  come partly from the old bare-name gate. PR body honestly reports exit 3, the throughput floor 30.35 vs 271.94 ops/s
+  (UNCONFIRMED environment vs regression), the owed fresh live run and that the live phase-B path never ran since the
+  fixes. It does NOT disclose B-1 (the run depended on an untracked tools/ dir).
+- All 3 commits carry `Roadmap-Item: HRD-050` and a Co-Authored-By line. No credential found in the diff or sealed
+  logs (only `$PGPW` references and a pattern description in a review file).
+- Only out-of-tree path besides evidence/ and tests/live/: docs/live-gated-tests.md.
+
+Reviewer: independent subagent (not the author, not reviewer 1 or 2); Opus; effort not settable/readable on this
+dispatch path (UNCONFIRMED).

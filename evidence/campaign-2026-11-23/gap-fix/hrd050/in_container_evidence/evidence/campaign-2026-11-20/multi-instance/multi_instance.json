@@ -1,0 +1,85 @@
+{
+  "campaign": "2026-11-20",
+  "test": "TestLiveLoadJobQueueMultiInstance",
+  "test_file": "server/internal/httpapi/load_jobs_multiinstance_test.go",
+  "measured_at": "2026-11-24T00:28:51Z",
+  "dsn": "redis://127.0.0.1:6379",
+  "redis_addr": "127.0.0.1:6379",
+  "redis_version": "7.4.11",
+  "instance_count": 2,
+  "total_jobs_submitted": 384,
+  "phases": [
+    {
+      "name": "single_instance_baseline",
+      "instances": 1,
+      "submitted": 384,
+      "accepted": 64,
+      "rejected_queue_full": 320,
+      "other_rejections": 0,
+      "executed": 64,
+      "double_executed": 0,
+      "lost": 0,
+      "failed_terminal_unexecuted": 0,
+      "executed_by_instance": {
+        "instance-1": 64
+      },
+      "accepted_by_store": {
+        "instance-1": 64
+      },
+      "peak_running_by_instance": {
+        "instance-1": 2
+      },
+      "produce_wall_ms": 7.089,
+      "wall_ms": 745.364,
+      "producer_rate_per_sec": 9027.142077342862,
+      "throughput_executed_per_sec": 85.86408788189394,
+      "latency_p50_ms": 379.871,
+      "latency_p95_ms": 723.551,
+      "claim_p50_ms": 358.685,
+      "claim_p95_ms": 703.13,
+      "exec_errors": null,
+      "panic_messages": []
+    },
+    {
+      "name": "two_instances",
+      "instances": 2,
+      "submitted": 384,
+      "accepted": 126,
+      "rejected_queue_full": 258,
+      "other_rejections": 0,
+      "executed": 126,
+      "double_executed": 0,
+      "lost": 0,
+      "failed_terminal_unexecuted": 0,
+      "executed_by_instance": {
+        "instance-1": 63,
+        "instance-2": 63
+      },
+      "accepted_by_store": {
+        "instance-1": 62,
+        "instance-2": 64
+      },
+      "peak_running_by_instance": {
+        "instance-1": 2,
+        "instance-2": 2
+      },
+      "produce_wall_ms": 10.013,
+      "wall_ms": 818.542,
+      "producer_rate_per_sec": 12582.638475431599,
+      "throughput_executed_per_sec": 153.9322356091685,
+      "latency_p50_ms": 396.896,
+      "latency_p95_ms": 775.707,
+      "claim_p50_ms": 376.495,
+      "claim_p95_ms": 754.723,
+      "exec_errors": null,
+      "panic_messages": []
+    }
+  ],
+  "assertions": {
+    "no_double_execution": true,
+    "no_lost_jobs": true,
+    "no_unhandled_errors": true,
+    "admission_caps_hold_per_consumer": true,
+    "multi_instance_throughput_ge_single_instance": true
+  }
+}

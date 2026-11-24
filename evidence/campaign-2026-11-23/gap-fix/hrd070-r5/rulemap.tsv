@@ -1,0 +1,96 @@
+# file	func	occurrence	branch text	disposition(KILL|EQUIV|UNREACHABLE:mutants)	oracle / justification
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(doc, &w); err != nil {	KILL:L00_syntax	not valid JSON object -> ErrLicenseSyntax (TestHRD070LicenseRejectionClasses raw docs)
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(doc, &generic); err != nil {	EQUIV:E01_generic_decode_EQUIV	second decode of an already-decoded object into map[string]json.RawMessage cannot fail (equivalent)
+core/pkg/lcp/license.go	Parse	1	if w.ID == "" {	KILL:L01_id,R02_id_errclass	absent id -> ErrIncomplete (class table)
+core/pkg/lcp/license.go	Parse	1	if w.Provider == "" {	KILL:L02_provider	absent provider -> ErrIncomplete
+core/pkg/lcp/license.go	Parse	1	if w.Issued == "" {	KILL:L03_issued_empty,R01_L03_issued_errclass	absent/empty issued -> ErrIncomplete (NOT equivalent: reviewer B1)
+core/pkg/lcp/license.go	Parse	1	if err != nil {	KILL:L04_issued_parse,R03_updated_errclass,M02_parsetime_err	malformed issued -> ErrLicenseSyntax
+core/pkg/lcp/license.go	Parse	1	if w.Updated != "" {	KILL:L06_updated_used,V07_lic_issued_dropped	updated value propagated; absent updated is legal
+core/pkg/lcp/license.go	Parse	1	if updated, err = parseTime(w.Updated, "updated"); err != nil {	KILL:L05_updated_parse	malformed updated -> ErrLicenseSyntax
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.Profile == "" {	KILL:L07_profile	absent encryption.profile -> ErrIncomplete
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.ContentKey.EncryptedValue == "" || w.Encryption.ContentKey.Algorithm == "" {	KILL:L08a_ck_value,L08b_ck_algorithm	content_key members required
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.UserKey.Algorithm == "" || w.Encryption.UserKey.KeyCheck == "" {	KILL:L09a_uk_algorithm,L09b_uk_keycheck	user_key members required
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(generic["encryption"], &hint); err != nil {	KILL:L00_syntax	encryption of wrong JSON type -> ErrLicenseSyntax (earlier typed decode rejects first; class table asserts the class)
+core/pkg/lcp/license.go	Parse	1	if hint.UserKey.TextHint == nil {	KILL:L10_text_hint	null/absent text_hint -> ErrIncomplete
+core/pkg/lcp/license.go	Parse	1	if len(w.Links) == 0 {	KILL:L11_links_nonempty	empty links -> ErrIncomplete
+core/pkg/lcp/license.go	Parse	1	for i, l := range w.Links {	KILL:L12_link_href	loop over links; per-link href
+core/pkg/lcp/license.go	Parse	1	if l.Href == "" {	KILL:L12_link_href	absent link href -> ErrIncomplete
+core/pkg/lcp/license.go	Parse	1	if w.Signature.Algorithm == "" || w.Signature.Certificate == "" || w.Signature.Value == "" {	KILL:L13a_sig_algorithm,L13b_sig_certificate,L13c_sig_value	signature members required
+core/pkg/lcp/license.go	Parse	1	if len(w.Rights) > 0 {	KILL:M01_rights_present	absent rights legal (zero struct)
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(w.Rights, &lic.Rights); err != nil {	KILL:L14_rights	rights wrong type/date -> ErrLicenseSyntax
+core/pkg/lcp/license.go	Parse	1	for k := range generic {	KILL:L15_unknown_sorted,L16_unknown_filter	loop collecting unknown members
+core/pkg/lcp/license.go	Parse	1	if !knownMembers[k] {	KILL:L16_unknown_filter	known members excluded from UnknownMembers
+core/pkg/lcp/license.go	parseTime	1	if err != nil {	KILL:M02_parsetime_err,R03_updated_errclass	RFC 3339 failure is ErrLicenseSyntax
+core/pkg/lcp/lsd.go	parseStatusTime	1	if err != nil {	KILL:M03_lsd_parsetime_err	bad date-time -> ErrStatusDocument
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if err := dec.Decode(&w); err != nil {	KILL:S02_decode	not a JSON object -> ErrStatusDocument
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if _, err := dec.Token(); !errors.Is(err, io.EOF) { // SPEC l.127: a single JSON object	KILL:S01_trailing	trailing data rejected
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.ID == nil || *w.ID == "" {	KILL:S03_id	id required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Status == nil {	KILL:S04_status_required	status required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Message == nil {	KILL:S05_message_required,V01_lsd_message_dropped	message required + value
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Updated == nil || w.Updated.License == nil || w.Updated.Status == nil {	KILL:S06_updated_required	updated.license/status required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Links == nil {	KILL:S07_links_required	links required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !d.Status.valid() {	KILL:S08_vocab,S08b_vocab_expired_dropped,R05_lsd_status_returned	status vocabulary
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if d.UpdatedLicense, err = parseStatusTime(*w.Updated.License, "updated.license"); err != nil {	KILL:S09_updated_license	bad updated.license
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if d.UpdatedStatus, err = parseStatusTime(*w.Updated.Status, "updated.status"); err != nil {	KILL:S10_updated_status	bad updated.status
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	for i, wl := range *w.Links {	KILL:S11_href,R06_lsd_templated_dropped,R07_lsd_link_type_dropped,V02_lsd_link_title,V03_lsd_link_profile	loop over links; values propagate
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if wl.Href == nil || *wl.Href == "" {	KILL:S11_href	link href required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if err != nil {	KILL:S12_rel_error	bad rel
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !hasLicense {	KILL:S13_license_link	license link required
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.PotentialRights != nil && w.PotentialRights.End != nil {	KILL:M04_potential_rights,S14b_pr_end_assigned	potential_rights.end presence
+core/pkg/lcp/lsd.go	ParseStatusDocument	2	if err != nil {	KILL:S14_pr_end_parse	bad potential_rights.end
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	for i, we := range w.Events {	KILL:R04_lsd_event_revoke,R08_lsd_event_name_dropped,V04_lsd_event_id	loop over events; values
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if we.Type != nil {	KILL:M05_event_type_present	event type optional but validated when present
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !statusEventTypes[*we.Type] {	KILL:S15_event_type,S15b_event_type_renew,R04_lsd_event_revoke	event type enumeration
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if we.Timestamp != nil {	KILL:M06_event_ts_present	event timestamp optional but validated when present
+core/pkg/lcp/lsd.go	ParseStatusDocument	3	if err != nil {	KILL:S16_event_ts	bad event timestamp
+core/pkg/lcp/lsd.go	parseRels	1	if len(raw) == 0 {	EQUIV:E02_parserels_empty_EQUIV	empty raw: next Unmarshal also fails -> same typed ErrStatusDocument (only the message differs)
+core/pkg/lcp/lsd.go	parseRels	1	if json.Unmarshal(raw, &one) == nil {	KILL:S12b_rel_empty	single string rel
+core/pkg/lcp/lsd.go	parseRels	1	if one == "" {	KILL:S12b_rel_empty	empty rel string rejected
+core/pkg/lcp/lsd.go	parseRels	1	if json.Unmarshal(raw, &many) != nil {	KILL:S12c_rel_type	rel must be string or array of strings
+server/internal/kosync/service.go	Register	1	if !s.registration {	KILL:K13_reg_switch,A09_register_disabled_err	registration switch
+server/internal/kosync/service.go	Register	1	if !validUsername.MatchString(username) || len(password) < 8 || len(password) > 72 {	KILL:K14_user_min,K14b_user_min_up,K14c_user_max,K14d_user_max_down,K14e_user_charset,R15_user_regex_anchor,K15_pass_min,K15b_pass_min_up,K16_pass_max,K16b_pass_max_down,A10_register_invalid_err	username grammar + password 8..72 bytes boundaries
+server/internal/kosync/service.go	Register	1	if err != nil {	UNREACHABLE:E04_register_hash_err_UNREACHABLE	bcrypt.GenerateFromPassword cannot fail for <=72-byte input (Register rejects longer first)
+server/internal/kosync/service.go	Authenticate	1	if username == "" || password == "" || len(username) > 255 || len(password) > 72 {	KILL:A03_auth_pass_empty,R12_auth_user_empty,R13_auth_user_len,R11_auth_pass_len,A01_auth_pass_boundary,A02_auth_user_boundary	4 Authenticate pre-checks incl >72-byte password (security-relevant)
+server/internal/kosync/service.go	Authenticate	1	if errors.Is(err, ErrUserNotFound) {	KILL:A05_auth_unknown_user_ok	unknown user -> ErrInvalidAuth
+server/internal/kosync/service.go	Authenticate	1	if err != nil {	KILL:A06_auth_store_error	store error passes through
+server/internal/kosync/service.go	Authenticate	1	if bcrypt.CompareHashAndPassword([]byte(verifier), []byte(password)) != nil {	KILL:A04_auth_wrong_password_ok	wrong password -> ErrInvalidAuth
+server/internal/kosync/service.go	PutProgress	1	if progress.Document == "" || progress.Progress == "" || progress.Device == "" ||	KILL:K01_doc_empty,K02_progress_empty,K03_device_empty,K04_doc_len,K04b_doc_len_off_by_one,K05_progress_len,K05b_progress_len_off_by_one,K06_device_len,K06b_device_len_off_by_one,K07_deviceid_len,K07b_deviceid_len_off_by_one,K08_nan,K10_pct_negative,K10b_pct_zero_rejected,K11_pct_upper_dropped,K11b_pct_upper_loose,K11c_pct_one_rejected,A08_put_validation_all	PutProgress field presence/length/percentage rules
+server/internal/kosync/service.go	PutProgress	1	if err := s.store.PutProgress(ctx, username, progress); err != nil {	KILL:A07_put_store_error,R14_put_returns_input,K12_timestamp	store error propagates; returns stored winner; server timestamp
+server/internal/kosync/service.go	GetProgress	1	if document == "" || len(document) > 255 {	KILL:K17_get_doc_empty,K17b_get_doc_len,K17c_get_doc_len_off,A11_get_invalid_err	GetProgress document bounds
+server/internal/opds/opds12.go	stamp	1	if t.IsZero() {	KILL:M07_stamp_zero	zero time rendered as epoch
+server/internal/opds/opds12.go	Navigation12	1	for _, n := range nav {	KILL:M08_nav12_loop,N01_nav12_href	navigation entries
+server/internal/opds/opds12.go	OpenSearch12	1	if base == "" {	EQUIV:E03_opensearch_base_EQUIV	`base = ""` assignment is a no-op (equivalent)
+server/internal/opds/opds12.go	selfPos	1	if q.After != nil {	KILL:M09_selfpos_cursor	self link in cursor mode
+server/internal/opds/opds12.go	nextPos	1	if !page.HasNext {	KILL:M10_nextpos_hasnext	no next on last page
+server/internal/opds/opds12.go	nextPos	1	if q.After != nil {	KILL:M11_nextpos_cursor	cursor-mode next
+server/internal/opds/opds12.go	nextPos	1	if cursor == nil {	KILL:M12_nextpos_nilcursor,R16_opds_next_offset	empty page offers no cursor; offset next
+server/internal/opds/opds12.go	pageURL	1	if q.Text != "" {	KILL:M13_pageurl_q	q carried
+server/internal/opds/opds12.go	pageURL	1	if q.Author != "" {	KILL:R18_opds_pageurl_author	author carried
+server/internal/opds/opds12.go	pageURL	1	if q.State != "" {	KILL:M14_pageurl_state	state carried
+server/internal/opds/opds12.go	pageURL	1	if pos.after != nil {	KILL:M15_pageurl_after	after carried
+server/internal/opds/opds12.go	pageURL	1	} else {	KILL:M15_pageurl_after,R16_opds_next_offset	offset carried
+server/internal/opds/opds12.go	Acquisition12	1	if len(page.Works) > 0 {	KILL:M16_acq12_updated	feed updated from first work
+server/internal/opds/opds12.go	Acquisition12	1	if q.After == nil && q.Offset > 0 {	KILL:M17a_acq12_prev_first,M17e_acq12_prev_cursor	previous only offset>0 and not cursor mode
+server/internal/opds/opds12.go	Acquisition12	1	if prev < 0 {	KILL:R17_opds_prev_clamp	previous clamp
+server/internal/opds/opds12.go	Acquisition12	1	if next := nextPos(q, page); next != nil {	KILL:M18a_acq12_next	next link
+server/internal/opds/opds12.go	Acquisition12	1	for _, w := range page.Works {	KILL:M19a_acq12_entries	entries loop (works)
+server/internal/opds/opds12.go	Acquisition12	1	for _, e := range w.Editions {	KILL:M19a_acq12_entries	entries loop (editions)
+server/internal/opds/opds20.go	Acquisition20	1	if q.After == nil && q.Offset > 0 {	KILL:M17b_acq20_prev_first	2.0 previous only offset>0
+server/internal/opds/opds20.go	Acquisition20	1	if prev < 0 {	KILL:M17c_acq20_prev_clamp	2.0 previous clamp
+server/internal/opds/opds20.go	Acquisition20	1	if next := nextPos(q, page); next != nil {	KILL:M18b_acq20_next	2.0 next link
+server/internal/opds/opds20.go	Acquisition20	1	for _, w := range page.Works {	KILL:M19b_acq20_entries	2.0 publications loop (works)
+server/internal/opds/opds20.go	Acquisition20	1	for _, e := range w.Editions {	KILL:M19b_acq20_entries	2.0 publications loop (editions)
+server/internal/opds/detail.go	entry12	1	for _, a := range e.Authors {	KILL:R20_opds12_authors	1.2 authors
+server/internal/opds/detail.go	entry12	1	for _, id := range e.Identifiers {	KILL:M20_identifiers12	1.2 identifiers
+server/internal/opds/detail.go	entry12	1	if e.Description != "" {	KILL:N10_summary12	1.2 summary
+server/internal/opds/detail.go	entry12	1	for _, s := range w.Subjects {	KILL:N09_categories12	1.2 categories
+server/internal/opds/detail.go	entry12	1	if e.CoverHREF != "" {	KILL:N02_thumb_href	1.2 cover image/thumbnail
+server/internal/opds/detail.go	entry12	1	for _, file := range e.Files {	KILL:O04_acq_href12,R22_opds12_alternate	1.2 file acquisition links
+server/internal/opds/detail.go	entry12	1	if file.DRMScheme == "lcp" && file.LicenseHREF != "" {	KILL:N03_lcp12_requires_href,M22_entry12_lcp_scheme	1.2 LCP license link only when lcp && href
+server/internal/opds/detail.go	entry12	1	if link, ok := streamLink(file.ID, streams[file.ID]); ok {	KILL:M21_stream_link	1.2 page-stream link
+server/internal/opds/detail.go	publication20	1	if e.Language != "" {	KILL:N11_language20	2.0 language
+server/internal/opds/detail.go	publication20	1	for _, a := range e.Authors {	KILL:M23_pub20_authors	2.0 authors
+server/internal/opds/detail.go	publication20	1	if e.Publisher != "" {	KILL:N07_publisher20	2.0 publisher
+server/internal/opds/detail.go	publication20	1	if e.CoverHREF != "" {	KILL:R23_opds20_cover	2.0 cover image
+server/internal/opds/detail.go	publication20	1	for _, file := range e.Files {	KILL:O13_acq_href20	2.0 file acquisition links
+server/internal/opds/detail.go	publication20	1	if file.DRMScheme == "lcp" && file.LicenseHREF != "" {	KILL:R19_opds20_lcp_link,M24_pub20_lcp_href	2.0 LCP license link only when lcp && href

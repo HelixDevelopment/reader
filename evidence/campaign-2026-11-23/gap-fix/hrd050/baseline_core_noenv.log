@@ -1,0 +1,1056 @@
+=== RUN   TestLRUEviction
+--- PASS: TestLRUEviction (0.00s)
+=== RUN   TestProtectedNeverEvicted
+--- PASS: TestProtectedNeverEvicted (0.00s)
+=== RUN   TestProtectionSurvivesRoutineTouch
+--- PASS: TestProtectionSurvivesRoutineTouch (0.00s)
+=== RUN   TestOversizedRejected
+--- PASS: TestOversizedRejected (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/cache	0.014s
+=== RUN   TestSameFormatRepackIsHonest
+--- PASS: TestSameFormatRepackIsHonest (0.00s)
+=== RUN   TestDocumentedMatrix
+--- PASS: TestDocumentedMatrix (0.00s)
+=== RUN   TestMatrixNeverOutrunsTheCode
+--- PASS: TestMatrixNeverOutrunsTheCode (0.00s)
+=== RUN   TestTargetsNeverBlocked
+--- PASS: TestTargetsNeverBlocked (0.00s)
+=== RUN   TestMandatedThoriumAndLCPExtensions
+--- PASS: TestMandatedThoriumAndLCPExtensions (0.00s)
+=== RUN   TestDetectCompoundBeforeGeneric
+--- PASS: TestDetectCompoundBeforeGeneric (0.00s)
+=== RUN   TestProtectedFormatsDoNotClaimConversion
+--- PASS: TestProtectedFormatsDoNotClaimConversion (0.00s)
+=== RUN   TestRegistrySnapshotIsSortedAndIndependent
+--- PASS: TestRegistrySnapshotIsSortedAndIndependent (0.00s)
+=== RUN   TestNoDescriptorClaimsUnimplementedRenderOrDRM
+--- PASS: TestNoDescriptorClaimsUnimplementedRenderOrDRM (0.00s)
+=== RUN   TestEveryDescriptorHasDetectionAndMIME
+--- PASS: TestEveryDescriptorHasDetectionAndMIME (0.00s)
+=== RUN   TestNoDescriptorClaimsUnimplementedAI
+--- PASS: TestNoDescriptorClaimsUnimplementedAI (0.00s)
+=== RUN   FuzzDetect
+=== RUN   FuzzDetect/seed#0
+=== RUN   FuzzDetect/seed#1
+=== RUN   FuzzDetect/seed#2
+=== RUN   FuzzDetect/seed#3
+=== RUN   FuzzDetect/seed#4
+=== RUN   FuzzDetect/seed#5
+--- PASS: FuzzDetect (0.00s)
+    --- PASS: FuzzDetect/seed#0 (0.00s)
+    --- PASS: FuzzDetect/seed#1 (0.00s)
+    --- PASS: FuzzDetect/seed#2 (0.00s)
+    --- PASS: FuzzDetect/seed#3 (0.00s)
+    --- PASS: FuzzDetect/seed#4 (0.00s)
+    --- PASS: FuzzDetect/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/formats	0.013s
+=== RUN   TestWordCount
+--- PASS: TestWordCount (0.00s)
+=== RUN   TestModelRoundTripShape
+--- PASS: TestModelRoundTripShape (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hdm	0.010s
+=== RUN   TestMonotonicWithFrozenClock
+--- PASS: TestMonotonicWithFrozenClock (0.00s)
+=== RUN   TestClockSkewBackward
+--- PASS: TestClockSkewBackward (0.00s)
+=== RUN   TestUpdateMerge
+--- PASS: TestUpdateMerge (0.00s)
+=== RUN   TestParseRoundTrip
+--- PASS: TestParseRoundTrip (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hlc	0.010s
+=== RUN   TestValidISBN13
+--- PASS: TestValidISBN13 (0.00s)
+=== RUN   TestInvalidISBN13
+--- PASS: TestInvalidISBN13 (0.00s)
+=== RUN   TestValidISBN10
+--- PASS: TestValidISBN10 (0.00s)
+=== RUN   TestCanonicalISBN
+--- PASS: TestCanonicalISBN (0.00s)
+=== RUN   TestExtractFromPage
+--- PASS: TestExtractFromPage (0.00s)
+=== RUN   TestExtractAdjacentSpaceSeparatedISBNs
+--- PASS: TestExtractAdjacentSpaceSeparatedISBNs (0.00s)
+=== RUN   TestExtractEmpty
+--- PASS: TestExtractEmpty (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/isbn	0.009s
+=== RUN   TestTXT
+--- PASS: TestTXT (0.00s)
+=== RUN   TestTXTWrapDeterministic
+--- PASS: TestTXTWrapDeterministic (0.00s)
+=== RUN   TestXHTMLEscaping
+--- PASS: TestXHTMLEscaping (0.00s)
+=== RUN   TestFB2RoundTrip
+--- PASS: TestFB2RoundTrip (0.00s)
+=== RUN   TestUnsupported
+--- PASS: TestUnsupported (0.00s)
+=== RUN   TestInvalidDoc
+--- PASS: TestInvalidDoc (0.00s)
+=== RUN   TestExportEPUBStructure
+--- PASS: TestExportEPUBStructure (0.00s)
+=== RUN   TestExportEPUBRoundTripExact
+--- PASS: TestExportEPUBRoundTripExact (0.00s)
+=== RUN   TestExportEPUBDeterministicBytes
+--- PASS: TestExportEPUBDeterministicBytes (0.00s)
+=== RUN   TestExportEPUBWithImagesRoundTripsResources
+--- PASS: TestExportEPUBWithImagesRoundTripsResources (0.00s)
+=== RUN   TestExportEPUBFailClosed
+=== RUN   TestExportEPUBFailClosed/code_block
+=== RUN   TestExportEPUBFailClosed/table_block
+=== RUN   TestExportEPUBFailClosed/list_block
+=== RUN   TestExportEPUBFailClosed/footnote_ref
+=== RUN   TestExportEPUBFailClosed/heading_level_9
+=== RUN   TestExportEPUBFailClosed/unnormalised_text
+=== RUN   TestExportEPUBFailClosed/trailing_space
+=== RUN   TestExportEPUBFailClosed/control_char
+=== RUN   TestExportEPUBFailClosed/empty_paragraph
+=== RUN   TestExportEPUBFailClosed/non-image_payload
+=== RUN   TestExportEPUBFailClosed/webp_payload
+=== RUN   TestExportEPUBFailClosed/path_separator_in_ref
+--- PASS: TestExportEPUBFailClosed (0.01s)
+    --- PASS: TestExportEPUBFailClosed/code_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/table_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/list_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/footnote_ref (0.00s)
+    --- PASS: TestExportEPUBFailClosed/heading_level_9 (0.00s)
+    --- PASS: TestExportEPUBFailClosed/unnormalised_text (0.00s)
+    --- PASS: TestExportEPUBFailClosed/trailing_space (0.00s)
+    --- PASS: TestExportEPUBFailClosed/control_char (0.00s)
+    --- PASS: TestExportEPUBFailClosed/empty_paragraph (0.00s)
+    --- PASS: TestExportEPUBFailClosed/non-image_payload (0.00s)
+    --- PASS: TestExportEPUBFailClosed/webp_payload (0.00s)
+    --- PASS: TestExportEPUBFailClosed/path_separator_in_ref (0.00s)
+=== RUN   TestExportEPUBTitleInjection
+--- PASS: TestExportEPUBTitleInjection (0.00s)
+=== RUN   TestExportCBZFailClosed
+--- PASS: TestExportCBZFailClosed (0.00s)
+=== RUN   TestTxtToEPUBFullChain
+--- PASS: TestTxtToEPUBFullChain (0.01s)
+=== RUN   TestMobiToEPUBThenPaginate
+--- PASS: TestMobiToEPUBThenPaginate (0.00s)
+=== RUN   TestEPUBToCBZRepack
+--- PASS: TestEPUBToCBZRepack (0.00s)
+=== RUN   TestFB2BinariesToEPUBImages
+--- PASS: TestFB2BinariesToEPUBImages (0.00s)
+=== RUN   TestTxtPaginateExact
+--- PASS: TestTxtPaginateExact (0.00s)
+=== RUN   FuzzExportEPUB
+=== RUN   FuzzExportEPUB/seed#0
+=== RUN   FuzzExportEPUB/seed#1
+=== RUN   FuzzExportEPUB/seed#2
+--- PASS: FuzzExportEPUB (0.00s)
+    --- PASS: FuzzExportEPUB/seed#0 (0.00s)
+    --- PASS: FuzzExportEPUB/seed#1 (0.00s)
+    --- PASS: FuzzExportEPUB/seed#2 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/convert	0.032s
+=== RUN   TestRoundTrip
+--- PASS: TestRoundTrip (0.01s)
+=== RUN   TestWrongPassphrase
+--- PASS: TestWrongPassphrase (0.01s)
+=== RUN   TestTamperDetected
+--- PASS: TestTamperDetected (0.01s)
+=== RUN   TestNonDeterministicCiphertext
+--- PASS: TestNonDeterministicCiphertext (0.01s)
+=== RUN   TestBadEnvelope
+--- PASS: TestBadEnvelope (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/crypto	0.043s
+=== RUN   TestSearchRanking
+--- PASS: TestSearchRanking (0.00s)
+=== RUN   TestSearchDeterministicTies
+--- PASS: TestSearchDeterministicTies (0.00s)
+=== RUN   TestCaseAndPunctuation
+--- PASS: TestCaseAndPunctuation (0.00s)
+=== RUN   TestEmptyAndLimits
+--- PASS: TestEmptyAndLimits (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/fts	0.012s
+=== RUN   TestValidateOK
+--- PASS: TestValidateOK (0.00s)
+=== RUN   TestValidateNoChapters
+--- PASS: TestValidateNoChapters (0.00s)
+=== RUN   TestValidateDuplicateChapterID
+--- PASS: TestValidateDuplicateChapterID (0.00s)
+=== RUN   TestValidateMissingImageRef
+--- PASS: TestValidateMissingImageRef (0.00s)
+=== RUN   TestWordCount
+--- PASS: TestWordCount (0.00s)
+=== RUN   TestFingerprintStableAndSensitive
+--- PASS: TestFingerprintStableAndSensitive (0.00s)
+=== RUN   TestFingerprintCaseAndWhitespaceInsensitive
+--- PASS: TestFingerprintCaseAndWhitespaceInsensitive (0.00s)
+=== RUN   TestFlatTOC
+--- PASS: TestFlatTOC (0.00s)
+=== RUN   TestValidateRejectsNilChapter
+--- PASS: TestValidateRejectsNilChapter (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/hdm	0.005s
+=== RUN   TestISBN13Valid
+--- PASS: TestISBN13Valid (0.00s)
+=== RUN   TestISBN10Valid
+--- PASS: TestISBN10Valid (0.00s)
+=== RUN   TestISBN10to13RoundTrip
+--- PASS: TestISBN10to13RoundTrip (0.00s)
+=== RUN   TestISBN13to10Rejects979
+--- PASS: TestISBN13to10Rejects979 (0.00s)
+=== RUN   TestIsASIN
+--- PASS: TestIsASIN (0.00s)
+=== RUN   TestRankCandidatesDeterministic
+--- PASS: TestRankCandidatesDeterministic (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/identify	0.007s
+=== RUN   TestCanonicalSpecExample
+--- PASS: TestCanonicalSpecExample (0.00s)
+=== RUN   TestCanonicalSpecDigestVector
+--- PASS: TestCanonicalSpecDigestVector (0.00s)
+=== RUN   TestSpecExampleIsNotAConformantLicense
+--- PASS: TestSpecExampleIsNotAConformantLicense (0.00s)
+=== RUN   TestSpecExampleSignatureIsUnverifiable
+--- PASS: TestSpecExampleSignatureIsUnverifiable (0.00s)
+=== RUN   TestCanonicalIsDeterministicAcrossMapOrder
+--- PASS: TestCanonicalIsDeterministicAcrossMapOrder (0.00s)
+=== RUN   TestCanonicalMatchesReferenceProducer
+--- PASS: TestCanonicalMatchesReferenceProducer (0.00s)
+=== RUN   TestCanonicalSpecModeEscaping
+--- PASS: TestCanonicalSpecModeEscaping (0.00s)
+=== RUN   TestCanonicalSortingAndArrayOrder
+--- PASS: TestCanonicalSortingAndArrayOrder (0.00s)
+=== RUN   TestCanonicalNumbers
+--- PASS: TestCanonicalNumbers (0.00s)
+=== RUN   TestCanonicalFloatDivergenceFromReference
+--- PASS: TestCanonicalFloatDivergenceFromReference (0.00s)
+=== RUN   TestCanonicalForSigningRemovesOnlyTopLevelSignature
+--- PASS: TestCanonicalForSigningRemovesOnlyTopLevelSignature (0.00s)
+=== RUN   TestCanonicalRejectsDuplicateMembers
+--- PASS: TestCanonicalRejectsDuplicateMembers (0.00s)
+=== RUN   TestCanonicalRejectsMalformedInput
+--- PASS: TestCanonicalRejectsMalformedInput (0.00s)
+=== RUN   TestContainerRefusesEncryptedExcludedResources
+=== RUN   TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read
+=== RUN   TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found
+=== RUN   TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable
+=== RUN   TestContainerRefusesEncryptedExcludedResources/the_package_document_is_an_EPUB_rootfile
+--- PASS: TestContainerRefusesEncryptedExcludedResources (0.58s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read (0.09s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found (0.17s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable (0.20s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/the_package_document_is_an_EPUB_rootfile (0.12s)
+=== RUN   TestContainerRejectsMalformedEncryptionXML
+=== RUN   TestContainerRejectsMalformedEncryptionXML/truncated_document
+=== RUN   TestContainerRejectsMalformedEncryptionXML/wrong_root_element
+=== RUN   TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer
+=== RUN   TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target
+=== RUN   TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number
+=== RUN   TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number
+--- PASS: TestContainerRejectsMalformedEncryptionXML (0.85s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/truncated_document (0.18s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/wrong_root_element (0.13s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer (0.09s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target (0.11s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number (0.13s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number (0.20s)
+=== RUN   TestContainerKeepsCipherReferencesInsideTheContainer
+--- PASS: TestContainerKeepsCipherReferencesInsideTheContainer (0.20s)
+=== RUN   TestContainerHonoursDeclaredOriginalLength
+--- PASS: TestContainerHonoursDeclaredOriginalLength (0.20s)
+=== RUN   TestContainerRejectsAlgorithmDisagreement
+--- PASS: TestContainerRejectsAlgorithmDisagreement (0.11s)
+=== RUN   TestContainerRefusesATamperedLicenseEndToEnd
+--- PASS: TestContainerRefusesATamperedLicenseEndToEnd (0.21s)
+=== RUN   TestContainerFirstLicenseEntryWins
+--- PASS: TestContainerFirstLicenseEntryWins (0.19s)
+=== RUN   TestContainerUnlocksAndReadsEveryResource
+--- PASS: TestContainerUnlocksAndReadsEveryResource (0.25s)
+=== RUN   TestContainerCiphertextBudgetCoversEncryptionOverhead
+--- PASS: TestContainerCiphertextBudgetCoversEncryptionOverhead (0.13s)
+=== RUN   TestContainerUnprotectedPublicationIsNotAnError
+--- PASS: TestContainerUnprotectedPublicationIsNotAnError (0.00s)
+=== RUN   TestContainerDetectsByEachMeans
+--- PASS: TestContainerDetectsByEachMeans (0.17s)
+=== RUN   TestContainerWrongPassphraseLeavesResourcesLocked
+--- PASS: TestContainerWrongPassphraseLeavesResourcesLocked (0.17s)
+=== RUN   TestFulfillOverLiveHTTP
+--- PASS: TestFulfillOverLiveHTTP (0.16s)
+=== RUN   TestFulfillAcceptsHexAndBase64Hash
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/lowercase_hex_(spec_Example_3,_reference_server)
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/uppercase_hex
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/std_base64_(spec_table_and_schema)
+--- PASS: TestFulfillAcceptsHexAndBase64Hash (0.56s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/lowercase_hex_(spec_Example_3,_reference_server) (0.14s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/uppercase_hex (0.13s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/std_base64_(spec_table_and_schema) (0.29s)
+=== RUN   TestFulfillRejectsBadHashEncodings
+=== RUN   TestFulfillRejectsBadHashEncodings/base64_of_16_bytes
+=== RUN   TestFulfillRejectsBadHashEncodings/base64_of_other_digest
+=== RUN   TestFulfillRejectsBadHashEncodings/short_hex
+=== RUN   TestFulfillRejectsBadHashEncodings/url_base64
+=== RUN   TestFulfillRejectsBadHashEncodings/empty-ish
+--- PASS: TestFulfillRejectsBadHashEncodings (0.79s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/base64_of_16_bytes (0.22s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/base64_of_other_digest (0.18s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/short_hex (0.09s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/url_base64 (0.19s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/empty-ish (0.10s)
+=== RUN   TestFulfillToleratesStringLength
+--- PASS: TestFulfillToleratesStringLength (0.32s)
+=== RUN   TestParseRejectsBadLengths
+=== RUN   TestParseRejectsBadLengths/non-numeric
+=== RUN   TestParseRejectsBadLengths/float
+=== RUN   TestParseRejectsBadLengths/empty_string
+=== RUN   TestParseRejectsBadLengths/bool
+=== RUN   TestParseRejectsBadLengths/object
+=== RUN   TestParseRejectsBadLengths/negative_number
+=== RUN   TestParseRejectsBadLengths/negative_string
+--- PASS: TestParseRejectsBadLengths (1.52s)
+    --- PASS: TestParseRejectsBadLengths/non-numeric (0.17s)
+    --- PASS: TestParseRejectsBadLengths/float (0.09s)
+    --- PASS: TestParseRejectsBadLengths/empty_string (0.19s)
+    --- PASS: TestParseRejectsBadLengths/bool (0.13s)
+    --- PASS: TestParseRejectsBadLengths/object (0.19s)
+    --- PASS: TestParseRejectsBadLengths/negative_number (0.14s)
+    --- PASS: TestParseRejectsBadLengths/negative_string (0.61s)
+=== RUN   TestFulfillRefusesNonEPUBTypes
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/pdf+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/audiobook+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/divina+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/pdf
+=== RUN   TestFulfillRefusesNonEPUBTypes/type_absent
+=== RUN   TestFulfillRefusesNonEPUBTypes/parameters_and_case
+--- PASS: TestFulfillRefusesNonEPUBTypes (1.56s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/pdf+lcp (0.08s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/audiobook+lcp (0.26s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/divina+lcp (0.42s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/pdf (0.28s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/type_absent (0.30s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/parameters_and_case (0.22s)
+=== RUN   TestFulfillAllowUnverified
+--- PASS: TestFulfillAllowUnverified (1.20s)
+=== RUN   TestFulfillToMatchesFulfill
+--- PASS: TestFulfillToMatchesFulfill (0.26s)
+=== RUN   TestFulfillToDetectsSourceChangingBetweenPasses
+--- PASS: TestFulfillToDetectsSourceChangingBetweenPasses (0.28s)
+=== RUN   TestFulfillToSourceShorterThanDeclared
+--- PASS: TestFulfillToSourceShorterThanDeclared (0.33s)
+=== RUN   TestFulfillRefusesTemplatedHref
+--- PASS: TestFulfillRefusesTemplatedHref (0.22s)
+=== RUN   TestFulfillTemplatedErrorDoesNotEchoHref
+--- PASS: TestFulfillTemplatedErrorDoesNotEchoHref (0.25s)
+=== RUN   TestUnreadableErrorNeverPrintsNil
+--- PASS: TestUnreadableErrorNeverPrintsNil (0.00s)
+=== RUN   TestFulfillEmbedsLicenseAndUnlocks
+--- PASS: TestFulfillEmbedsLicenseAndUnlocks (0.16s)
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/tampered_bytes
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/wrong_length
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/wrong_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/non-hex_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_length
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_publication_link
+--- PASS: TestFulfillRefusesWhatItCannotVouchFor (1.60s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/tampered_bytes (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/wrong_length (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/wrong_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/non-hex_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_length (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_publication_link (0.00s)
+=== RUN   TestFulfillRefusesNonPublications
+--- PASS: TestFulfillRefusesNonPublications (0.43s)
+=== RUN   TestFulfillNeverRewritesALicensedContainer
+--- PASS: TestFulfillNeverRewritesALicensedContainer (0.37s)
+=== RUN   TestUserKeyIsRawSHA256OfPassphrase
+--- PASS: TestUserKeyIsRawSHA256OfPassphrase (0.00s)
+=== RUN   TestKeyCheckRoundTripAndWrongPassphrase
+--- PASS: TestKeyCheckRoundTripAndWrongPassphrase (0.00s)
+=== RUN   TestKeyCheckDetectsTamperedLicenseID
+--- PASS: TestKeyCheckDetectsTamperedLicenseID (0.00s)
+=== RUN   TestContentKeyRoundTrip
+--- PASS: TestContentKeyRoundTrip (0.00s)
+=== RUN   TestContentKeyRejectsWrongLength
+--- PASS: TestContentKeyRejectsWrongLength (0.00s)
+=== RUN   TestDecryptCBCRejectsMalformedCiphertext
+--- PASS: TestDecryptCBCRejectsMalformedCiphertext (0.00s)
+=== RUN   TestDecryptCBCAcceptsReferencePaddingScheme
+--- PASS: TestDecryptCBCAcceptsReferencePaddingScheme (0.00s)
+=== RUN   TestEncryptDecryptRoundTripEveryLength
+--- PASS: TestEncryptDecryptRoundTripEveryLength (0.00s)
+=== RUN   TestDecryptUserFields
+--- PASS: TestDecryptUserFields (0.00s)
+=== RUN   TestDecryptUserIgnoresUnknownEncryptedMembers
+--- PASS: TestDecryptUserIgnoresUnknownEncryptedMembers (0.00s)
+=== RUN   TestSealKeysRejectsUndecodableBase64
+--- PASS: TestSealKeysRejectsUndecodableBase64 (0.00s)
+=== RUN   TestParseRejectsNonJSONLicense
+--- PASS: TestParseRejectsNonJSONLicense (0.00s)
+=== RUN   TestLicenseRoundTripsThroughJSONKeepsRawBytes
+--- PASS: TestLicenseRoundTripsThroughJSONKeepsRawBytes (0.00s)
+=== RUN   TestParseRejectsIncompleteLicenses
+=== RUN   TestParseRejectsIncompleteLicenses/id
+=== RUN   TestParseRejectsIncompleteLicenses/provider
+=== RUN   TestParseRejectsIncompleteLicenses/issued
+=== RUN   TestParseRejectsIncompleteLicenses/links
+=== RUN   TestParseRejectsIncompleteLicenses/signature
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/profile
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/content_key/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/content_key/encrypted_value
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/key_check
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/text_hint
+=== RUN   TestParseRejectsIncompleteLicenses/signature/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/signature/certificate
+=== RUN   TestParseRejectsIncompleteLicenses/signature/value
+--- PASS: TestParseRejectsIncompleteLicenses (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/id (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/provider (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/issued (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/links (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/profile (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/content_key/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/content_key/encrypted_value (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/key_check (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/text_hint (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/certificate (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/value (0.00s)
+=== RUN   TestParseAcceptsAnEmptyTextHint
+--- PASS: TestParseAcceptsAnEmptyTextHint (0.00s)
+=== RUN   TestParseRejectsEmptyLinkHref
+--- PASS: TestParseRejectsEmptyLinkHref (0.00s)
+=== RUN   TestParseRejectsMalformedDates
+--- PASS: TestParseRejectsMalformedDates (0.00s)
+=== RUN   TestParseDefaultsUpdatedToIssued
+--- PASS: TestParseDefaultsUpdatedToIssued (0.00s)
+=== RUN   TestParseRightsAbsentIsNotZero
+--- PASS: TestParseRightsAbsentIsNotZero (0.00s)
+=== RUN   TestParseRightsRejectsWrongType
+--- PASS: TestParseRightsRejectsWrongType (0.00s)
+=== RUN   TestParseAcceptsAndReportsUnknownMembers
+--- PASS: TestParseAcceptsAndReportsUnknownMembers (0.00s)
+=== RUN   TestLinkLookupAcceptsRelAndRels
+--- PASS: TestLinkLookupAcceptsRelAndRels (0.00s)
+=== RUN   TestCheckProfileMatrix
+=== RUN   TestCheckProfileMatrix/profile
+=== RUN   TestCheckProfileMatrix/content_key
+=== RUN   TestCheckProfileMatrix/user_key
+=== RUN   TestCheckProfileMatrix/signature
+--- PASS: TestCheckProfileMatrix (0.00s)
+    --- PASS: TestCheckProfileMatrix/profile (0.00s)
+    --- PASS: TestCheckProfileMatrix/content_key (0.00s)
+    --- PASS: TestCheckProfileMatrix/user_key (0.00s)
+    --- PASS: TestCheckProfileMatrix/signature (0.00s)
+=== RUN   TestCheckPassphraseRefusesUnsupportedProfile
+--- PASS: TestCheckPassphraseRefusesUnsupportedProfile (0.00s)
+=== RUN   TestParseRejectsNonObjectTopLevel
+--- PASS: TestParseRejectsNonObjectTopLevel (0.00s)
+=== RUN   TestParseStatusDocumentEveryStatus
+=== RUN   TestParseStatusDocumentEveryStatus/ready
+=== RUN   TestParseStatusDocumentEveryStatus/active
+=== RUN   TestParseStatusDocumentEveryStatus/revoked
+=== RUN   TestParseStatusDocumentEveryStatus/returned
+=== RUN   TestParseStatusDocumentEveryStatus/cancelled
+=== RUN   TestParseStatusDocumentEveryStatus/expired
+--- PASS: TestParseStatusDocumentEveryStatus (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/ready (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/active (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/revoked (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/returned (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/cancelled (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/expired (0.00s)
+=== RUN   TestParseStatusDocumentRejects
+=== RUN   TestParseStatusDocumentRejects/missing_status
+=== RUN   TestParseStatusDocumentRejects/missing_updated.status
+=== RUN   TestParseStatusDocumentRejects/uppercase_status
+=== RUN   TestParseStatusDocumentRejects/bad_updated.license
+=== RUN   TestParseStatusDocumentRejects/no_license_link
+=== RUN   TestParseStatusDocumentRejects/event_bad_type
+=== RUN   TestParseStatusDocumentRejects/missing_id
+=== RUN   TestParseStatusDocumentRejects/missing_message
+=== RUN   TestParseStatusDocumentRejects/missing_updated.license
+=== RUN   TestParseStatusDocumentRejects/missing_links
+=== RUN   TestParseStatusDocumentRejects/unknown_status
+=== RUN   TestParseStatusDocumentRejects/empty_status
+=== RUN   TestParseStatusDocumentRejects/link_without_rel
+=== RUN   TestParseStatusDocumentRejects/link_rel_wrong_type
+=== RUN   TestParseStatusDocumentRejects/bad_potential_end
+=== RUN   TestParseStatusDocumentRejects/license_link_no_href
+=== RUN   TestParseStatusDocumentRejects/event_bad_timestamp
+=== RUN   TestParseStatusDocumentRejects/id_wrong_json_type
+=== RUN   TestParseStatusDocumentRejects/missing_updated
+=== RUN   TestParseStatusDocumentRejects/not_json
+=== RUN   TestParseStatusDocumentRejects/array
+=== RUN   TestParseStatusDocumentRejects/empty
+=== RUN   TestParseStatusDocumentRejects/trailing
+--- PASS: TestParseStatusDocumentRejects (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated.status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/uppercase_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/bad_updated.license (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/no_license_link (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/event_bad_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_id (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_message (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated.license (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_links (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/unknown_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/empty_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/link_without_rel (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/link_rel_wrong_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/bad_potential_end (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/license_link_no_href (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/event_bad_timestamp (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/id_wrong_json_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/not_json (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/array (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/empty (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/trailing (0.00s)
+=== RUN   TestParseStatusDocumentFullExample
+--- PASS: TestParseStatusDocumentFullExample (0.00s)
+=== RUN   TestExpandLinkTemplate
+=== RUN   TestExpandLinkTemplate/register_id+name
+=== RUN   TestExpandLinkTemplate/renew_with_end
+=== RUN   TestExpandLinkTemplate/renew_without_end_drops_it
+=== RUN   TestExpandLinkTemplate/nothing_defined
+=== RUN   TestExpandLinkTemplate/reserved_chars_encoded
+=== RUN   TestExpandLinkTemplate/unicode_utf8
+=== RUN   TestExpandLinkTemplate/existing_query_uses_&-continuation
+=== RUN   TestExpandLinkTemplate/no_expression
+=== RUN   TestExpandLinkTemplate/unsupported_operator
+=== RUN   TestExpandLinkTemplate/unterminated
+=== RUN   TestExpandLinkTemplate/unknown_variable
+--- PASS: TestExpandLinkTemplate (0.00s)
+    --- PASS: TestExpandLinkTemplate/register_id+name (0.00s)
+    --- PASS: TestExpandLinkTemplate/renew_with_end (0.00s)
+    --- PASS: TestExpandLinkTemplate/renew_without_end_drops_it (0.00s)
+    --- PASS: TestExpandLinkTemplate/nothing_defined (0.00s)
+    --- PASS: TestExpandLinkTemplate/reserved_chars_encoded (0.00s)
+    --- PASS: TestExpandLinkTemplate/unicode_utf8 (0.00s)
+    --- PASS: TestExpandLinkTemplate/existing_query_uses_&-continuation (0.00s)
+    --- PASS: TestExpandLinkTemplate/no_expression (0.00s)
+    --- PASS: TestExpandLinkTemplate/unsupported_operator (0.00s)
+    --- PASS: TestExpandLinkTemplate/unterminated (0.00s)
+    --- PASS: TestExpandLinkTemplate/unknown_variable (0.00s)
+=== RUN   TestNeedsLicenseRefresh
+=== RUN   TestNeedsLicenseRefresh/status_newer
+=== RUN   TestNeedsLicenseRefresh/equal
+=== RUN   TestNeedsLicenseRefresh/status_older
+=== RUN   TestNeedsLicenseRefresh/different_zone_same_instant
+=== RUN   TestNeedsLicenseRefresh/local_has_no_updated,_uses_issued
+--- PASS: TestNeedsLicenseRefresh (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/status_newer (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/equal (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/status_older (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/different_zone_same_instant (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/local_has_no_updated,_uses_issued (0.00s)
+=== RUN   TestSelectLicenseLinkByProfile
+=== RUN   TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_1
+=== RUN   TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_2
+=== RUN   TestSelectLicenseLinkByProfile/unsupported_ignored
+=== RUN   TestSelectLicenseLinkByProfile/nothing_supported_=>_none
+=== RUN   TestSelectLicenseLinkByProfile/sole_link_without_profile_accepted
+=== RUN   TestSelectLicenseLinkByProfile/profile-less_ignored_when_others_exist
+--- PASS: TestSelectLicenseLinkByProfile (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_1 (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_2 (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/unsupported_ignored (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/nothing_supported_=>_none (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/sole_link_without_profile_accepted (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/profile-less_ignored_when_others_exist (0.00s)
+=== RUN   TestLSDProblemDocuments
+=== RUN   TestLSDProblemDocuments/registration_400
+=== RUN   TestLSDProblemDocuments/return_already_403
+=== RUN   TestLSDProblemDocuments/renew_date_403_plain_json_ctype
+=== RUN   TestLSDProblemDocuments/server_503
+=== RUN   TestLSDProblemDocuments/html_error_page
+=== RUN   TestLSDProblemDocuments/problem_body_that_is_not_an_object
+=== RUN   TestLSDProblemDocuments/empty_body
+--- PASS: TestLSDProblemDocuments (0.00s)
+    --- PASS: TestLSDProblemDocuments/registration_400 (0.00s)
+    --- PASS: TestLSDProblemDocuments/return_already_403 (0.00s)
+    --- PASS: TestLSDProblemDocuments/renew_date_403_plain_json_ctype (0.00s)
+    --- PASS: TestLSDProblemDocuments/server_503 (0.00s)
+    --- PASS: TestLSDProblemDocuments/html_error_page (0.00s)
+    --- PASS: TestLSDProblemDocuments/problem_body_that_is_not_an_object (0.00s)
+    --- PASS: TestLSDProblemDocuments/empty_body (0.00s)
+=== RUN   TestLSDRefusesSuccessThatIsNotAStatusDocument
+--- PASS: TestLSDRefusesSuccessThatIsNotAStatusDocument (0.00s)
+=== RUN   TestLSDTransportErrorsCarryNoQueryString
+--- PASS: TestLSDTransportErrorsCarryNoQueryString (0.00s)
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/register:_no_link
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/return:_no_link
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/renew:_no_link
+--- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/register:_no_link (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/return:_no_link (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/renew:_no_link (0.00s)
+=== RUN   TestLSDRequestShape
+--- PASS: TestLSDRequestShape (0.00s)
+=== RUN   TestLSDStateTransitionChecks
+=== RUN   TestLSDStateTransitionChecks/register_ready->active
+=== RUN   TestLSDStateTransitionChecks/register_still_ready_is_a_contradiction
+=== RUN   TestLSDStateTransitionChecks/register_may_report_revoked
+=== RUN   TestLSDStateTransitionChecks/return_->_returned
+=== RUN   TestLSDStateTransitionChecks/return_->_cancelled
+=== RUN   TestLSDStateTransitionChecks/return_left_active_is_a_contradiction
+=== RUN   TestLSDStateTransitionChecks/return_->_expired_is_a_contradiction
+--- PASS: TestLSDStateTransitionChecks (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/register_ready->active (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/register_still_ready_is_a_contradiction (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/register_may_report_revoked (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_returned (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_cancelled (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_left_active_is_a_contradiction (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_expired_is_a_contradiction (0.00s)
+=== RUN   TestLSDRefusesAnotherLicensesDocument
+--- PASS: TestLSDRefusesAnotherLicensesDocument (0.00s)
+=== RUN   TestLSDOversizedBodyRefused
+--- PASS: TestLSDOversizedBodyRefused (0.02s)
+=== RUN   TestLSDLiveLoopbackLifecycle
+--- PASS: TestLSDLiveLoopbackLifecycle (0.00s)
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/provider_that_does_not_activate_is_caught
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/provider_answering_for_another_license_is_caught
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/return_before_activation_cancels
+--- PASS: TestLSDLiveRegisterRefusalsAndFaults (0.00s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/provider_that_does_not_activate_is_caught (0.00s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/provider_answering_for_another_license_is_caught (0.00s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/return_before_activation_cancels (0.00s)
+=== RUN   TestLSDInteractiveRenewalURLMustBeAbsoluteHTTP
+--- PASS: TestLSDInteractiveRenewalURLMustBeAbsoluteHTTP (0.00s)
+=== RUN   TestParseStatusDocumentSparseEvents
+--- PASS: TestParseStatusDocumentSparseEvents (0.00s)
+=== RUN   TestParseStatusDocumentEmptyRelArray
+--- PASS: TestParseStatusDocumentEmptyRelArray (0.00s)
+=== RUN   TestLSDStateChangingRequestsNeverFollowRedirects
+--- PASS: TestLSDStateChangingRequestsNeverFollowRedirects (0.00s)
+=== RUN   TestLSDUntemplatedHrefWithTemplateExpressionIsRefused
+--- PASS: TestLSDUntemplatedHrefWithTemplateExpressionIsRefused (0.00s)
+=== RUN   TestIssueProtectUnlockRoundTrip
+--- PASS: TestIssueProtectUnlockRoundTrip (0.20s)
+=== RUN   TestProtectDeclaresCompressionAndStoresCiphertext
+--- PASS: TestProtectDeclaresCompressionAndStoresCiphertext (0.27s)
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_container_that_already_carries_a_license
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_zip_that_is_not_a_publication
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_publication_with_nothing_left_to_seal
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_key_of_the_wrong_size
+--- PASS: TestProtectRefusesContainersItCannotHonestlyReturn (0.17s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_container_that_already_carries_a_license (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_zip_that_is_not_a_publication (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_publication_with_nothing_left_to_seal (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_key_of_the_wrong_size (0.00s)
+=== RUN   TestIssueRefusesIncompleteRequests
+=== RUN   TestIssueRefusesIncompleteRequests/no_provider
+=== RUN   TestIssueRefusesIncompleteRequests/no_links
+=== RUN   TestIssueRefusesIncompleteRequests/a_link_without_an_href
+--- PASS: TestIssueRefusesIncompleteRequests (0.14s)
+    --- PASS: TestIssueRefusesIncompleteRequests/no_provider (0.00s)
+    --- PASS: TestIssueRefusesIncompleteRequests/no_links (0.00s)
+    --- PASS: TestIssueRefusesIncompleteRequests/a_link_without_an_href (0.00s)
+=== RUN   TestIssueAcceptsAnyPassphrase
+=== RUN   TestIssueAcceptsAnyPassphrase/len=0
+=== RUN   TestIssueAcceptsAnyPassphrase/len=34
+=== RUN   TestIssueAcceptsAnyPassphrase/len=1024
+--- PASS: TestIssueAcceptsAnyPassphrase (0.90s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=0 (0.27s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=34 (0.11s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=1024 (0.52s)
+=== RUN   TestIssueSealsOnlyRequestedUserFields
+--- PASS: TestIssueSealsOnlyRequestedUserFields (0.28s)
+=== RUN   TestVerifyAcceptsARealChain
+--- PASS: TestVerifyAcceptsARealChain (0.10s)
+=== RUN   TestVerifyRejectsOneChangedByte
+--- PASS: TestVerifyRejectsOneChangedByte (0.16s)
+=== RUN   TestVerifyRejectsForeignChain
+--- PASS: TestVerifyRejectsForeignChain (0.42s)
+=== RUN   TestSignRefusesKeyCertificateMismatch
+--- PASS: TestSignRefusesKeyCertificateMismatch (0.47s)
+=== RUN   TestSignExcisesAPlaceholderSignature
+--- PASS: TestSignExcisesAPlaceholderSignature (0.23s)
+=== RUN   TestVerifyRejectsNonProfileSignatureAlgorithm
+--- PASS: TestVerifyRejectsNonProfileSignatureAlgorithm (0.27s)
+=== RUN   TestVerifyWithoutRootsConfigured
+--- PASS: TestVerifyWithoutRootsConfigured (0.16s)
+=== RUN   TestRevokedProviderCertificateIsRefused
+--- PASS: TestRevokedProviderCertificateIsRefused (0.09s)
+=== RUN   TestCertificateValidityWindows
+=== RUN   TestCertificateValidityWindows/expires_before_issue
+=== RUN   TestCertificateValidityWindows/begins_after_issue
+=== RUN   TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update
+=== RUN   TestCertificateValidityWindows/valid_across_issue_and_last_update
+--- PASS: TestCertificateValidityWindows (0.80s)
+    --- PASS: TestCertificateValidityWindows/expires_before_issue (0.25s)
+    --- PASS: TestCertificateValidityWindows/begins_after_issue (0.07s)
+    --- PASS: TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update (0.25s)
+    --- PASS: TestCertificateValidityWindows/valid_across_issue_and_last_update (0.24s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/lcp	17.796s
+=== RUN   TestCBZPageOrder
+--- PASS: TestCBZPageOrder (0.00s)
+=== RUN   TestCBZNoImages
+--- PASS: TestCBZNoImages (0.00s)
+=== RUN   TestCBZRejectsOversizedImage
+--- PASS: TestCBZRejectsOversizedImage (0.08s)
+=== RUN   TestCBZRejectsExcessPages
+--- PASS: TestCBZRejectsExcessPages (0.02s)
+=== RUN   TestPagePayloadsFollowEnumeratedOrder
+--- PASS: TestPagePayloadsFollowEnumeratedOrder (0.00s)
+=== RUN   TestPageIndexOutOfRange
+--- PASS: TestPageIndexOutOfRange (0.00s)
+=== RUN   TestPageInflationIsBounded
+--- PASS: TestPageInflationIsBounded (0.13s)
+=== RUN   TestStreamMediaTypeReadsOnlySignatures
+--- PASS: TestStreamMediaTypeReadsOnlySignatures (0.08s)
+=== RUN   TestStreamMediaTypeCases
+=== RUN   TestStreamMediaTypeCases/png
+=== RUN   TestStreamMediaTypeCases/jpeg
+=== RUN   TestStreamMediaTypeCases/gif
+=== RUN   TestStreamMediaTypeCases/mixed_types_have_no_single_honest_type
+=== RUN   TestStreamMediaTypeCases/extension_is_not_proof
+=== RUN   TestStreamMediaTypeCases/webp_is_not_streamable
+=== RUN   TestStreamMediaTypeCases/payload_shorter_than_any_signature
+=== RUN   TestStreamMediaTypeCases/empty_payload
+--- PASS: TestStreamMediaTypeCases (0.00s)
+    --- PASS: TestStreamMediaTypeCases/png (0.00s)
+    --- PASS: TestStreamMediaTypeCases/jpeg (0.00s)
+    --- PASS: TestStreamMediaTypeCases/gif (0.00s)
+    --- PASS: TestStreamMediaTypeCases/mixed_types_have_no_single_honest_type (0.00s)
+    --- PASS: TestStreamMediaTypeCases/extension_is_not_proof (0.00s)
+    --- PASS: TestStreamMediaTypeCases/webp_is_not_streamable (0.00s)
+    --- PASS: TestStreamMediaTypeCases/payload_shorter_than_any_signature (0.00s)
+    --- PASS: TestStreamMediaTypeCases/empty_payload (0.00s)
+=== RUN   TestSniffMediaType
+--- PASS: TestSniffMediaType (0.00s)
+=== RUN   TestPagesEnumeration
+--- PASS: TestPagesEnumeration (0.00s)
+=== RUN   TestPagesIDsAgreeWithParse
+--- PASS: TestPagesIDsAgreeWithParse (0.00s)
+=== RUN   TestPagesFailsClosed
+--- PASS: TestPagesFailsClosed (0.02s)
+=== RUN   TestPagesDoesNotInflate
+--- PASS: TestPagesDoesNotInflate (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+=== RUN   FuzzPages
+=== RUN   FuzzPages/seed#0
+=== RUN   FuzzPages/seed#1
+--- PASS: FuzzPages (0.00s)
+    --- PASS: FuzzPages/seed#0 (0.00s)
+    --- PASS: FuzzPages/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	0.364s
+=== RUN   TestParseEPUB
+--- PASS: TestParseEPUB (0.00s)
+=== RUN   TestXHTMLRetainsListTableAndDivContent
+--- PASS: TestXHTMLRetainsListTableAndDivContent (0.00s)
+=== RUN   TestParsePercentEncodedManifestHrefs
+--- PASS: TestParsePercentEncodedManifestHrefs (0.00s)
+=== RUN   TestParseCorruptZip
+--- PASS: TestParseCorruptZip (0.00s)
+=== RUN   TestParseMissingRootfile
+--- PASS: TestParseMissingRootfile (0.00s)
+=== RUN   TestParseRejectsOversizedRequiredEntries
+=== RUN   TestParseRejectsOversizedRequiredEntries/META-INF/container.xml
+=== RUN   TestParseRejectsOversizedRequiredEntries/OEBPS/ch1.xhtml
+--- PASS: TestParseRejectsOversizedRequiredEntries (0.10s)
+    --- PASS: TestParseRejectsOversizedRequiredEntries/META-INF/container.xml (0.06s)
+    --- PASS: TestParseRejectsOversizedRequiredEntries/OEBPS/ch1.xhtml (0.04s)
+=== RUN   TestSpineEnumeration
+--- PASS: TestSpineEnumeration (0.00s)
+=== RUN   TestSpineDetectsRepeatsAndMissingManifestItems
+--- PASS: TestSpineDetectsRepeatsAndMissingManifestItems (0.00s)
+=== RUN   TestSpineFailsClosed
+=== RUN   TestSpineFailsClosed/not_a_zip
+=== RUN   TestSpineFailsClosed/missing_container
+=== RUN   TestSpineFailsClosed/oversized_container
+=== RUN   TestSpineFailsClosed/malformed_container_xml
+=== RUN   TestSpineFailsClosed/no_rootfile
+=== RUN   TestSpineFailsClosed/missing_opf
+=== RUN   TestSpineFailsClosed/empty_spine
+=== RUN   TestSpineFailsClosed/absolute_href
+=== RUN   TestSpineFailsClosed/root-path_href
+--- PASS: TestSpineFailsClosed (0.04s)
+    --- PASS: TestSpineFailsClosed/not_a_zip (0.00s)
+    --- PASS: TestSpineFailsClosed/missing_container (0.00s)
+    --- PASS: TestSpineFailsClosed/oversized_container (0.02s)
+    --- PASS: TestSpineFailsClosed/malformed_container_xml (0.00s)
+    --- PASS: TestSpineFailsClosed/no_rootfile (0.00s)
+    --- PASS: TestSpineFailsClosed/missing_opf (0.00s)
+    --- PASS: TestSpineFailsClosed/empty_spine (0.00s)
+    --- PASS: TestSpineFailsClosed/absolute_href (0.00s)
+    --- PASS: TestSpineFailsClosed/root-path_href (0.00s)
+=== RUN   TestSpineCompressedBombIsBounded
+--- PASS: TestSpineCompressedBombIsBounded (0.07s)
+=== RUN   TestSpineRejectsExcessSpineItems
+--- PASS: TestSpineRejectsExcessSpineItems (0.02s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+=== RUN   FuzzSpine
+=== RUN   FuzzSpine/seed#0
+=== RUN   FuzzSpine/seed#1
+--- PASS: FuzzSpine (0.00s)
+    --- PASS: FuzzSpine/seed#0 (0.00s)
+    --- PASS: FuzzSpine/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	0.252s
+=== RUN   TestFB2BinariesBecomeResources
+--- PASS: TestFB2BinariesBecomeResources (0.00s)
+=== RUN   TestFB2DanglingImageHrefSkipped
+--- PASS: TestFB2DanglingImageHrefSkipped (0.00s)
+=== RUN   TestFB2BinariesFailClosed
+=== RUN   TestFB2BinariesFailClosed/malformed_base64
+=== RUN   TestFB2BinariesFailClosed/empty_id
+=== RUN   TestFB2BinariesFailClosed/duplicate_id
+--- PASS: TestFB2BinariesFailClosed (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/malformed_base64 (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/empty_id (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/duplicate_id (0.00s)
+=== RUN   TestFB2RejectsOversizedBinary
+--- PASS: TestFB2RejectsOversizedBinary (1.65s)
+=== RUN   TestFB2BinaryAggregateBoundIsArithmeticallySound
+--- PASS: TestFB2BinaryAggregateBoundIsArithmeticallySound (0.00s)
+=== RUN   TestFB2UnclosedNestedSectionsNoPanic
+--- PASS: TestFB2UnclosedNestedSectionsNoPanic (0.00s)
+=== RUN   TestParseFB2
+--- PASS: TestParseFB2 (0.00s)
+=== RUN   TestParseGarbage
+--- PASS: TestParseGarbage (0.00s)
+=== RUN   TestEmptyBody
+--- PASS: TestEmptyBody (0.00s)
+=== RUN   TestFB2RejectsExcessiveNesting
+--- PASS: TestFB2RejectsExcessiveNesting (0.00s)
+=== RUN   TestFB2RejectsOversizedInput
+--- PASS: TestFB2RejectsOversizedInput (0.06s)
+=== RUN   TestFB2RejectsInvalidISBNMetadata
+--- PASS: TestFB2RejectsInvalidISBNMetadata (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+=== RUN   FuzzParse/seed#2
+=== RUN   FuzzParse/4a3dc8cee8c1c385
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+    --- PASS: FuzzParse/seed#2 (0.00s)
+    --- PASS: FuzzParse/4a3dc8cee8c1c385 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/fb2	1.763s
+=== RUN   TestParseMOBINoCompression
+--- PASS: TestParseMOBINoCompression (0.00s)
+=== RUN   TestParseMOBIPalmDOCCompression
+--- PASS: TestParseMOBIPalmDOCCompression (0.00s)
+=== RUN   TestBadRecordCount
+--- PASS: TestBadRecordCount (0.00s)
+=== RUN   TestTruncated
+--- PASS: TestTruncated (0.00s)
+=== RUN   TestPalmDOCTokenClasses
+=== RUN   TestPalmDOCTokenClasses/literals_and_byte_pair
+=== RUN   TestPalmDOCTokenClasses/back_reference
+=== RUN   TestPalmDOCTokenClasses/overlapping_back_reference
+--- PASS: TestPalmDOCTokenClasses (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/literals_and_byte_pair (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/back_reference (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/overlapping_back_reference (0.00s)
+=== RUN   TestPalmDOCRejectsMalformedAndOverflow
+--- PASS: TestPalmDOCRejectsMalformedAndOverflow (0.00s)
+=== RUN   TestMOBIRejectsAggregateTextOverflow
+--- PASS: TestMOBIRejectsAggregateTextOverflow (0.23s)
+=== RUN   TestPalmDOCPagination
+--- PASS: TestPalmDOCPagination (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/mobi	0.272s
+=== RUN   TestReadAllBounds
+--- PASS: TestReadAllBounds (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/parseutil	0.005s
+=== RUN   TestChaptersAndHeadings
+--- PASS: TestChaptersAndHeadings (0.00s)
+=== RUN   TestAllCapsHeading
+--- PASS: TestAllCapsHeading (0.00s)
+=== RUN   TestNoHeadingsSingleChapter
+--- PASS: TestNoHeadingsSingleChapter (0.00s)
+=== RUN   TestEmpty
+--- PASS: TestEmpty (0.00s)
+=== RUN   TestLongUnwrappedLineWithinInputBudget
+--- PASS: TestLongUnwrappedLineWithinInputBudget (0.02s)
+=== RUN   TestTXTRejectsOversizedInput
+--- PASS: TestTXTRejectsOversizedInput (0.17s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	0.236s
+=== RUN   TestParseAcquisitionLinks
+--- PASS: TestParseAcquisitionLinks (0.00s)
+=== RUN   TestParseAcceptsBothAtomDateForms
+--- PASS: TestParseAcceptsBothAtomDateForms (0.00s)
+=== RUN   TestParseAcquisitionLinkErrors
+=== RUN   TestParseAcquisitionLinkErrors/no_pse_link
+=== RUN   TestParseAcquisitionLinkErrors/bad_type_rejected_per_MUST_image_types
+=== RUN   TestParseAcquisitionLinkErrors/missing_pageNumber_template
+=== RUN   TestParseAcquisitionLinkErrors/count_zero_invalid
+=== RUN   TestParseAcquisitionLinkErrors/count_missing
+=== RUN   TestParseAcquisitionLinkErrors/lastRead_zero_violates_numbering_starts_at_1
+=== RUN   TestParseAcquisitionLinkErrors/lastReadDate_must_conform_to_the_Atom_date_construct
+=== RUN   TestParseAcquisitionLinkErrors/malformed_xml
+--- PASS: TestParseAcquisitionLinkErrors (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/no_pse_link (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/bad_type_rejected_per_MUST_image_types (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/missing_pageNumber_template (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/count_zero_invalid (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/count_missing (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/lastRead_zero_violates_numbering_starts_at_1 (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/lastReadDate_must_conform_to_the_Atom_date_construct (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/malformed_xml (0.00s)
+=== RUN   TestPageURL
+=== RUN   TestPageURL/first_page
+=== RUN   TestPageURL/last_page_N-1_ok
+=== RUN   TestPageURL/page_N_rejected
+=== RUN   TestPageURL/negative_page_rejected
+=== RUN   TestPageURL/both_templates
+=== RUN   TestPageURL/maxWidth_required_when_template_present
+--- PASS: TestPageURL (0.00s)
+    --- PASS: TestPageURL/first_page (0.00s)
+    --- PASS: TestPageURL/last_page_N-1_ok (0.00s)
+    --- PASS: TestPageURL/page_N_rejected (0.00s)
+    --- PASS: TestPageURL/negative_page_rejected (0.00s)
+    --- PASS: TestPageURL/both_templates (0.00s)
+    --- PASS: TestPageURL/maxWidth_required_when_template_present (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/pse	0.006s
+=== RUN   TestScopePrecedence
+--- PASS: TestScopePrecedence (0.00s)
+=== RUN   TestClearOverrideFallsBack
+--- PASS: TestClearOverrideFallsBack (0.00s)
+=== RUN   TestSetCreatesStores
+--- PASS: TestSetCreatesStores (0.00s)
+=== RUN   TestInvalidScopeHasDeliberateFailure
+--- PASS: TestInvalidScopeHasDeliberateFailure (0.00s)
+=== RUN   TestKeysSortedUnion
+--- PASS: TestKeysSortedUnion (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/settings	0.006s
+=== RUN   TestRegistryUnknownProtocol
+--- PASS: TestRegistryUnknownProtocol (0.00s)
+=== RUN   TestManagerAddListBind
+--- PASS: TestManagerAddListBind (0.00s)
+=== RUN   TestManagerCloseAllDeterministic
+--- PASS: TestManagerCloseAllDeterministic (0.00s)
+=== RUN   TestCloseAllCollectsErrors
+--- PASS: TestCloseAllCollectsErrors (0.00s)
+=== RUN   TestProtocolOf
+--- PASS: TestProtocolOf (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/source	0.007s
+=== RUN   TestCRUDAndPersistence
+--- PASS: TestCRUDAndPersistence (0.02s)
+=== RUN   TestKeysSorted
+--- PASS: TestKeysSorted (0.02s)
+=== RUN   TestRejectsBucketTraversal
+--- PASS: TestRejectsBucketTraversal (0.00s)
+=== RUN   TestCorruptBucketIsNeverSilentlyOverwritten
+--- PASS: TestCorruptBucketIsNeverSilentlyOverwritten (0.00s)
+=== RUN   TestAtomicWriteNoTmpLeft
+--- PASS: TestAtomicWriteNoTmpLeft (0.01s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/store	0.061s
+=== RUN   TestPaginateExactPacking
+--- PASS: TestPaginateExactPacking (0.00s)
+=== RUN   TestPaginateSpansChapters
+--- PASS: TestPaginateSpansChapters (0.00s)
+=== RUN   TestPaginateOversizedBlockGetsOwnPage
+--- PASS: TestPaginateOversizedBlockGetsOwnPage (0.00s)
+=== RUN   TestPaginateImageBlocksAnchorWithoutChars
+--- PASS: TestPaginateImageBlocksAnchorWithoutChars (0.00s)
+=== RUN   TestPaginateUsesFlatTOCOrderIncludingChildren
+--- PASS: TestPaginateUsesFlatTOCOrderIncludingChildren (0.00s)
+=== RUN   TestPaginateFailClosed
+=== RUN   TestPaginateFailClosed/zero_budget
+=== RUN   TestPaginateFailClosed/negative_budget
+=== RUN   TestPaginateFailClosed/no_chapters
+=== RUN   TestPaginateFailClosed/chapter_without_blocks
+=== RUN   TestPaginateFailClosed/duplicate_ids
+--- PASS: TestPaginateFailClosed (0.00s)
+    --- PASS: TestPaginateFailClosed/zero_budget (0.00s)
+    --- PASS: TestPaginateFailClosed/negative_budget (0.00s)
+    --- PASS: TestPaginateFailClosed/no_chapters (0.00s)
+    --- PASS: TestPaginateFailClosed/chapter_without_blocks (0.00s)
+    --- PASS: TestPaginateFailClosed/duplicate_ids (0.00s)
+=== RUN   TestPageOfBoundariesAndOrdering
+--- PASS: TestPageOfBoundariesAndOrdering (0.00s)
+=== RUN   TestClockCompareDominance
+--- PASS: TestClockCompareDominance (0.00s)
+=== RUN   TestClockConcurrent
+--- PASS: TestClockConcurrent (0.00s)
+=== RUN   TestMergeIdempotentCommutative
+--- PASS: TestMergeIdempotentCommutative (0.00s)
+=== RUN   TestResolveDominant
+--- PASS: TestResolveDominant (0.00s)
+=== RUN   TestResolveConcurrentFurthestWins
+--- PASS: TestResolveConcurrentFurthestWins (0.00s)
+=== RUN   TestResolveConcurrentTieDeterministic
+--- PASS: TestResolveConcurrentTieDeterministic (0.00s)
+=== RUN   TestResolveEqualClocksFurthestAndCommutative
+--- PASS: TestResolveEqualClocksFurthestAndCommutative (0.00s)
+=== RUN   TestResolveDifferentBooks
+--- PASS: TestResolveDifferentBooks (0.00s)
+=== RUN   FuzzPaginate
+=== RUN   FuzzPaginate/seed#0
+=== RUN   FuzzPaginate/seed#1
+=== RUN   FuzzPaginate/seed#2
+--- PASS: FuzzPaginate (0.00s)
+    --- PASS: FuzzPaginate/seed#0 (0.00s)
+    --- PASS: FuzzPaginate/seed#1 (0.00s)
+    --- PASS: FuzzPaginate/seed#2 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/sync	0.006s
+=== RUN   TestParseValid
+--- PASS: TestParseValid (0.00s)
+=== RUN   TestParseBadVersion
+--- PASS: TestParseBadVersion (0.00s)
+=== RUN   TestParseBadColor
+--- PASS: TestParseBadColor (0.00s)
+=== RUN   TestContrastMath
+--- PASS: TestContrastMath (0.00s)
+=== RUN   TestContrastWhiteOnBlackIs21
+--- PASS: TestContrastWhiteOnBlackIs21 (0.00s)
+=== RUN   TestValidateRejectsLowTextContrast
+--- PASS: TestValidateRejectsLowTextContrast (0.00s)
+=== RUN   TestLineHeightBounds
+--- PASS: TestLineHeightBounds (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/theme	0.007s
+=== RUN   TestAllProtocolsStreamOrRange
+--- PASS: TestAllProtocolsStreamOrRange (0.00s)
+=== RUN   TestInsecureProtocolsFlagged
+--- PASS: TestInsecureProtocolsFlagged (0.00s)
+=== RUN   TestSyncCapableBackends
+--- PASS: TestSyncCapableBackends (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/sources	0.005s
