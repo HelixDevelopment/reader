@@ -1,0 +1,8 @@
+# HRD-040 Android device matrix. Columns (TAB separated): row_id  api  image  width  height  density_dpi  class
+# image: registry image pinned by digest, or a local tag built by `run_matrix.sh images` from the Containers submodule pin (recipe in docs/android-device-matrix.md).
+# A row whose image is not present on the host is an honest SKIP (reason image_absent), never a stand-in.
+api34-phone	34	ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e	1080	2400	420	phone
+api34-small	34	ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e	720	1280	320	small-phone
+api34-tablet	34	ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e	1600	2560	320	tablet
+api30-phone	30	localhost/hrd040-emu:api30-x86_64	1080	2400	420	phone
+api36-phone	36	localhost/hrd040-emu:api36-x86_64	1080	2400	420	phone
