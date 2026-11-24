@@ -1,0 +1,28 @@
+## GREEN
+gofmt clean (core, server)
+exit=0
+ok  	github.com/helixreader/helix/core/cache	0.025s
+ok  	github.com/helixreader/helix/core/formats	0.009s
+ok  	github.com/helixreader/helix/core/hdm	0.006s
+ok  	github.com/helixreader/helix/core/hlc	0.005s
+ok  	github.com/helixreader/helix/core/isbn	0.012s
+ok  	github.com/helixreader/helix/core/pkg/convert	0.054s
+ok  	github.com/helixreader/helix/core/pkg/crypto	0.094s
+ok  	github.com/helixreader/helix/core/pkg/fts	0.008s
+ok  	github.com/helixreader/helix/core/pkg/hdm	0.009s
+ok  	github.com/helixreader/helix/core/pkg/identify	0.011s
+ok  	github.com/helixreader/helix/core/pkg/lcp	21.723s
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	0.587s
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	0.426s
+ok  	github.com/helixreader/helix/core/pkg/parse/fb2	2.487s
+ok  	github.com/helixreader/helix/core/pkg/parse/mobi	0.521s
+ok  	github.com/helixreader/helix/core/pkg/parse/parseutil	0.009s
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	0.445s
+ok  	github.com/helixreader/helix/core/pkg/pse	0.005s
+ok  	github.com/helixreader/helix/core/pkg/settings	0.011s
+ok  	github.com/helixreader/helix/core/pkg/source	0.012s
+ok  	github.com/helixreader/helix/core/pkg/store	0.102s
+ok  	github.com/helixreader/helix/core/pkg/sync	0.015s
+ok  	github.com/helixreader/helix/core/pkg/theme	0.016s
+ok  	github.com/helixreader/helix/core/sources	0.011s
+exit=0
