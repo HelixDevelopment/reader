@@ -1,0 +1,22 @@
+# mutation kill table, scripts/gates/mutation_kill_table.py, PR #9 review fixes (B1,B2,non-blocking)
+# round 1 (13 mutants, first definitions); N03 SURVIVED there (redundant realpath branch masked the lexical '..' check) -> test added, mutant re-run below as KILLED; N06 definition was corrected and re-run below
+KILLED   M03 VERIFIED/PARTIAL/BLOCKED need an evidence file  [manifest suite: 3 failing case(s); first: FAIL VERIFIED with evidence none fails (M03) (rc=0): ledger/manifest consistent: rows=2 with_evidenc]
+KILLED   M04 ledger sha != real sha compare  [manifest suite: 1 failing case(s); first: FAIL ledger sha != real sha fails (M04) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   M05 manifest differs from ledger-implied (cmp)  [manifest suite: 2 failing case(s); first: FAIL manifest with an extra row fails (M05) (rc=0): ledger/manifest consistent: rows=2 with_evidence]
+KILLED   M08 PROVENANCE sha-mismatch check  [manifest suite: 1 failing case(s); first: FAIL PROVENANCE sha != snapshot sha fails (M08) (rc=0): WARN STALE_SNAPSHOT 's.txt': source README.m]
+KILLED   M10 source file:line existence check  [manifest suite: 4 failing case(s); first: FAIL source file missing fails (M10) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   M11 claim_status closed set  [manifest suite: 2 failing case(s); first: FAIL claim_status outside the closed set fails (M11) (rc=0): ledger/manifest consistent: rows=2 with]
+KILLED   N01 control-byte refusal in ledger + PROVENANCE (B1)  [manifest suite: 9 failing case(s); first: FAIL 0x1F in a cell refused (C18 false-green) (rc=1): FAIL LED-002 bad claim_status 'low'|FAIL LED-0]
+KILLED   N02 control-byte refusal in PROVENANCE only  [manifest suite: 1 failing case(s); first: FAIL control byte in PROVENANCE.tsv refused (rc=1): FAIL SNAPSHOT_AUTHENTICITY 's.txt': captured_at/]
+SURVIVED N03 source path escape (C14)  [manifest suite still: == 65 passed, 0 failed]
+KILLED   N04 source line 0 (C15)  [manifest suite: 1 failing case(s); first: FAIL source line 0 fails (C15) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   N05 last_verified date validation (C24)  [manifest suite: 4 failing case(s); first: FAIL last_verified 'yesterday' fails BAD_DATE (C24) (rc=1): ledger/manifest INCONSISTENT|]
+KILLED   N06 snapshot must be git-tracked (C16)  [manifest suite: 1 failing case(s); first: FAIL untracked fabricated snapshot fails (C16) (rc=0): ledger/manifest consistent: rows=2 with_evide]
+KILLED   N07 snapshot must be unmodified  [manifest suite: 1 failing case(s); first: FAIL modified PROVENANCE.tsv fails (I2) (rc=1): FAIL SNAPSHOT_AUTHENTICITY '# edit': snapshot file m]
+# round 2 (after adding the N03/N03b tests and correcting N06)
+KILLED   N03 source path escape (C14)  [manifest suite: 1 failing case(s); first: FAIL source '..' component fails SOURCE_ESCAPE even when the target does not exist (rc=1): FAIL LED-]
+KILLED   N03b source realpath-outside-root check (symlinked dir)  [manifest suite: 1 failing case(s); first: FAIL source through a symlinked dir resolving outside the root fails SOURCE_ESCAPE (rc=0): FAIL LED-]
+KILLED   N06 snapshot must be git-tracked (C16)  [manifest suite: 1 failing case(s); first: FAIL untracked fabricated snapshot fails (C16) (rc=0): ledger/manifest consistent: rows=2 with_evide]
+# runner suite mutants
+KILLED   M14 gate 5 cm_pr_delivery_anchor_wired wiring replaced by true  [runner suite: 1 failing case(s); first: FAIL gate 5 wiring rc=1: GATE gofmt_clean PASS|GATE build_evidence_manifest_check PASS|GATE cm_machi]
+KILLED   M15 gate 1 gofmt_clean wiring replaced by true  [runner suite: 1 failing case(s); first: FAIL gofmt mutation rc=0]

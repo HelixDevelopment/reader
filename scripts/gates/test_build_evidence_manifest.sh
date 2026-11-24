@@ -25,6 +25,7 @@ mk() { # mk <dir>: tracked good tree with one evidence row and one none row
   "$tool" --root "$d" >/dev/null 2>&1
 }
 run() { "$tool" --check --root "$1" 2>&1; }
+cm() { ( cd "$1" && git add -A && git -c user.email=t@t -c user.name=t commit -qm "${2:-c}" ) >/dev/null 2>&1; }
 
 # 0 baseline
 d="$base/ok"; mk "$d"; out="$(run "$d")"; rc=$?
@@ -74,7 +75,7 @@ awk -F'\t' -v OFS='\t' -v p="$SNAP/s.txt" 'NR==2{$8=p} {print}' "$d/docs/claim_r
 # snapshot with provenance accepted; then tampered snapshot rejected
 sha="$(sha256sum "$d/$SNAP/s.txt" | cut -d' ' -f1)"
 printf 'snapshot\tsource_path\tcaptured_at\tsnapshotted_at\tsha256\ns.txt\tREADME.md\t2026-11-23T00:00:00Z\t2026-11-23T00:00:01Z\t%s\n' "$sha" > "$d/$SNAP/PROVENANCE.tsv"
-"$tool" --root "$d" >/dev/null 2>&1; out="$(run "$d")"; rc=$?
+cm "$d"; "$tool" --root "$d" >/dev/null 2>&1; out="$(run "$d")"; rc=$?
 [ $rc = 0 ] && ok "snapshot with matching provenance accepted" || bad "good snapshot rejected: $out"
 echo 'tamper' >> "$d/$SNAP/s.txt"; out="$(run "$d")"; rc=$?
 [ $rc != 0 ] && ok "tampered snapshot rejected" || bad "tampered snapshot accepted"
@@ -100,9 +101,9 @@ expect "forged nonexistent source + 2099 date fails" "$d" SNAPSHOT_AUTHENTICITY
 snapmk "$base/future"; prov "$d" s.txt README.md 2099-01-01T00:00:00Z 2099-01-02T00:00:00Z "$sha"; "$tool" --root "$d" >/dev/null 2>&1; expect "future captured_at fails" "$d" SNAPSHOT_AUTHENTICITY
 snapmk "$base/order"; prov "$d" s.txt README.md 2026-11-23T10:00:00Z 2026-11-23T09:00:00Z "$sha"; "$tool" --root "$d" >/dev/null 2>&1; expect "captured after snapshotted fails" "$d" SNAPSHOT_AUTHENTICITY
 snapmk "$base/gone"; prov "$d" s.txt "gone:" 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; "$tool" --root "$d" >/dev/null 2>&1; expect "gone without reason fails" "$d" SNAPSHOT_AUTHENTICITY
-snapmk "$base/gone2"; prov "$d" s.txt "gone:deleted by cleanup" 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; "$tool" --root "$d" >/dev/null 2>&1
+snapmk "$base/gone2"; prov "$d" s.txt "gone:deleted by cleanup" 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
 out="$(run "$d")"; rc=$?; [ $rc = 0 ] && ok "gone with reason accepted" || bad "gone+reason rejected: $out"
-snapmk "$base/stale"; printf "different\nx\ny\n" > "$d/README.md"; prov "$d" s.txt README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; (cd "$d" && git add -A && git -c user.email=t@t -c user.name=t commit -qm r) >/dev/null 2>&1; "$tool" --root "$d" >/dev/null 2>&1
+snapmk "$base/stale"; printf "different\nx\ny\n" > "$d/README.md"; prov "$d" s.txt README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d" r; "$tool" --root "$d" >/dev/null 2>&1
 out="$(run "$d")"; rc=$?; { echo "$out" | grep -q 'WARN STALE_SNAPSHOT'; } && ok "source sha drift reported as WARN STALE_SNAPSHOT" || bad "no stale warning (rc=$rc): $out"
 # 3 staged modification / non-git
 d="$base/staged"; mk "$d"; echo more >> "$d/evidence/a.log"; (cd "$d" && git add evidence/a.log); "$tool" --root "$d" >/dev/null 2>&1; expect "staged modification fails" "$d" VOLATILE_EVIDENCE
@@ -113,5 +114,80 @@ d="$base/sym"; mk "$d"; ln -s a.log "$d/evidence/link.log"; (cd "$d" && git add 
 d="$base/dup"; mk "$d"; sed -n 3p "$d/docs/claim_reality_ledger.tsv" | sed 's/^LED-002/LED-001/' >> "$d/docs/claim_reality_ledger.tsv"; "$tool" --root "$d" >/dev/null 2>&1; expect "duplicate id rejected" "$d" DUPLICATE_ID
 # 7 CRLF
 d="$base/crlf"; mk "$d"; sed -i 's/$/\r/' "$d/docs/claim_reality_ledger.tsv"; expect "CRLF reported explicitly" "$d" 'CRLF line endings'
+
+# ---- review of PR #9 (HRD-051/052 NO-GO fixes) ----
+# Every new case below isolates ONE check: the manifest is kept consistent so no other check can kill it.
+# B1: 0x1F (and other C0 bytes) in a cell must be refused, never desync the cell parser (review C18)
+d="$base/c18"; mk "$d"
+python3 - "$d/docs/claim_reality_ledger.tsv" <<'PY'
+import sys
+p=sys.argv[1]; L=open(p,encoding='utf-8').read().split('\n')
+# row 3 (BUILT, evidence none): inject 0x1F into the capability cell and mark its real status VERIFIED with evidence none
+c=L[2].split('\t'); c[1]='x\x1fy'; c[4]='VERIFIED'; L[2]='\t'.join(c)
+open(p,'w',encoding='utf-8').write('\n'.join(L))
+PY
+expect "0x1F in a cell refused (C18 false-green)" "$d" CONTROL_BYTE
+for b in '\x01' '\x08' '\x0b' '\x0c' '\x1b' '\x7f'; do
+  d="$base/ctl$b"; mk "$d"; python3 - "$d/docs/claim_reality_ledger.tsv" "$b" <<'PY'
+import sys
+p,b=sys.argv[1],sys.argv[2].encode().decode('unicode_escape')
+t=open(p,encoding='utf-8').read(); open(p,'w',encoding='utf-8').write(t.replace('note b','note'+b+'b'))
+PY
+  expect "control byte $b in ledger refused (C14-C17,C24 class)" "$d" CONTROL_BYTE
+done
+d="$base/ctlprov"; snapmk "$d"; prov "$d" s.txt README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"
+python3 - "$d/$SNAP/PROVENANCE.tsv" <<'PY'
+import sys
+p=sys.argv[1]; t=open(p).read(); open(p,'w').write(t.replace('README.md','README.md\x1f'))
+PY
+cm "$d"; "$tool" --root "$d" >/dev/null 2>&1; expect "control byte in PROVENANCE.tsv refused" "$d" CONTROL_BYTE
+# the build mode must also refuse to write over a poisoned ledger
+d="$base/c18b"; mk "$d"; python3 - "$d/docs/claim_reality_ledger.tsv" <<'PY'
+import sys
+p=sys.argv[1]; t=open(p).read(); open(p,'w').write(t.replace('cap two','cap\x1ftwo'))
+PY
+out="$("$tool" --root "$d" 2>&1)"; rc=$?; { [ $rc != 0 ] && echo "$out" | grep -q CONTROL_BYTE; } && ok "build mode refuses a control byte" || bad "build mode accepted control byte (rc=$rc)"
+
+# B2 M03: VERIFIED / PARTIAL / BLOCKED with evidence none (manifest stays consistent: none rows are not in it)
+for stt in VERIFIED PARTIAL BLOCKED; do
+  d="$base/m03$stt"; mk "$d"; sed -i "3s/BUILT/$stt/" "$d/docs/claim_reality_ledger.tsv"
+  expect "$stt with evidence none fails (M03)" "$d" "requires an evidence file"
+done
+# B2 M04: ledger sha differs from the real sha while manifest is right
+d="$base/m04"; mk "$d"; awk -F'\t' -v OFS='\t' 'NR==2{$9="0000000000000000000000000000000000000000000000000000000000000000"} {print}' "$d/docs/claim_reality_ledger.tsv" > "$d/l.tmp" && mv "$d/l.tmp" "$d/docs/claim_reality_ledger.tsv"
+expect "ledger sha != real sha fails (M04)" "$d" "ledger sha"
+# B2 M05: manifest differs from what the ledger implies (extra data row; still non-empty so VACUOUS cannot kill it)
+d="$base/m05"; mk "$d"; printf 'LED-001\tSOURCE\tevidence/a.log\t%s\n' "$(sha256sum "$d/evidence/a.log" | cut -d' ' -f1)" >> "$d/docs/evidence/gate_evidence_manifest.tsv"
+expect "manifest with an extra row fails (M05)" "$d" "differs from what the ledger implies"
+d="$base/m05b"; mk "$d"; sed -i 's/\tSOURCE\t/\tARTIFACT\t/' "$d/docs/evidence/gate_evidence_manifest.tsv"
+expect "manifest with an altered layer fails (M05)" "$d" "differs from what the ledger implies"
+# B2 M08: PROVENANCE sha differs from the snapshot while the ledger and manifest carry the real sha
+d="$base/m08"; snapmk "$d"; prov "$d" s.txt README.md 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
+out="$(run "$d")"; [ $? = 0 ] || bad "m08 setup not green: $out"
+sed -i "s/$sha/1111111111111111111111111111111111111111111111111111111111111111/" "$d/$SNAP/PROVENANCE.tsv"; cm "$d" p
+expect "PROVENANCE sha != snapshot sha fails (M08)" "$d" "sha differs from PROVENANCE.tsv"
+# B2 M10: source file:line existence (missing file, line beyond end, line 0, non-numeric); I1 path escape
+srcset() { awk -F'\t' -v OFS='\t' -v p="$2" 'NR==2{$7=p} {print}' "$1/docs/claim_reality_ledger.tsv" > "$1/l.tmp" && mv "$1/l.tmp" "$1/docs/claim_reality_ledger.tsv"; }
+d="$base/m10a"; mk "$d"; srcset "$d" nonexistent.md:1; expect "source file missing fails (M10)" "$d" "not an existing file:line"
+d="$base/m10b"; mk "$d"; srcset "$d" README.md:99; expect "source line past end fails (M10)" "$d" "not an existing file:line"
+d="$base/m10c"; mk "$d"; srcset "$d" README.md:0; expect "source line 0 fails (C15)" "$d" "not an existing file:line"
+d="$base/m10d"; mk "$d"; srcset "$d" README.md:x; expect "source line non-numeric fails (M10)" "$d" "not an existing file:line"
+d="$base/i1"; mk "$d"; srcset "$d" "../../../../../../../../etc/passwd:1"; expect "source path escape fails (C14)" "$d" SOURCE_ESCAPE
+d="$base/i1c"; mk "$d"; srcset "$d" "../nonexistent_outside.md:1"; expect "source '..' component fails SOURCE_ESCAPE even when the target does not exist" "$d" SOURCE_ESCAPE
+d="$base/i1d"; mk "$d"; mkdir -p "$d/out"; echo x > "$d/out/f.txt"; mkdir "$base/outside_target"; printf 'a\nb\n' > "$base/outside_target/f.txt"; ln -s "$base/outside_target" "$d/lnk"; srcset "$d" "lnk/f.txt:1"; expect "source through a symlinked dir resolving outside the root fails SOURCE_ESCAPE" "$d" "SOURCE_ESCAPE.*resolves outside"
+d="$base/i1b"; mk "$d"; srcset "$d" "/etc/passwd:1"; expect "absolute source path fails (C14)" "$d" SOURCE_ESCAPE
+# B2 M11: claim_status closed set (a status that needs no evidence so no other check fires)
+d="$base/m11"; mk "$d"; sed -i '3s/BUILT/DONE/' "$d/docs/claim_reality_ledger.tsv"; expect "claim_status outside the closed set fails (M11)" "$d" "bad claim_status"
+d="$base/m11b"; mk "$d"; sed -i '3s/BUILT/built/' "$d/docs/claim_reality_ledger.tsv"; expect "lowercase claim_status fails (C19)" "$d" "bad claim_status"
+# C24 last_verified date validation
+for v in "yesterday" "2026-13-45" "2099-01-01" "2026-1-1"; do
+  d="$base/lv$v"; mk "$d"; awk -F'\t' -v OFS='\t' -v v="$v" 'NR==2{$11=v} {print}' "$d/docs/claim_reality_ledger.tsv" > "$d/l.tmp" && mv "$d/l.tmp" "$d/docs/claim_reality_ledger.tsv"
+  expect "last_verified '$v' fails BAD_DATE (C24)" "$d" BAD_DATE
+done
+# I2 snapshot files and PROVENANCE must be tracked and clean (C16 fabricated untracked snapshot)
+d="$base/i2a"; snapmk "$d"; prov "$d" s.txt gone:never_existed 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; "$tool" --root "$d" >/dev/null 2>&1
+expect "untracked fabricated snapshot fails (C16)" "$d" SNAPSHOT_UNTRACKED
+d="$base/i2b"; snapmk "$d"; prov "$d" s.txt gone:deleted 2026-11-23T09:00:00Z 2026-11-23T10:00:00Z "$sha"; cm "$d"; "$tool" --root "$d" >/dev/null 2>&1
+echo '# edit' >> "$d/$SNAP/PROVENANCE.tsv"; expect "modified PROVENANCE.tsv fails (I2)" "$d" SNAPSHOT_MODIFIED
 
 echo "== $pass passed, $fail failed"; [ $fail = 0 ]

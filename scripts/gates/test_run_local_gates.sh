@@ -33,14 +33,19 @@ d="$base/m6"; mk "$d"; rm "$d/config/delivery.conf"; out="$("$g" --root "$d" 2>&
 { [ $rc != 0 ] && echo "$out" | grep -q '^GATE cm_pr_delivery_account_name_free FAIL'; } && ok "missing delivery config fails run" || bad "missing config rc=$rc"
 d="$base/m7"; mk "$d"; echo "see milos85vasic here" >> "$d/README.md"; out="$("$g" --root "$d" 2>&1)"; rc=$?
 [ $rc = 0 ] && ok "account in a consumer file outside the canon corpus does not trip the canon-corpus gate (scope as documented)" || bad "m7 rc=$rc"
+# M14: gate 5 (cm_pr_delivery_anchor_wired) wiring - an empty constitution tree must make exactly that gate FAIL the run
+d="$base/m14"; mk "$d"; mkdir -p "$base/emptyconst"; out="$("$g" --root "$d" --constitution "$base/emptyconst" 2>&1)"; rc=$?
+{ [ $rc != 0 ] && echo "$out" | grep -q '^GATE cm_pr_delivery_anchor_wired FAIL'; } && ok "gate 5 FAIL on a constitution without the anchor fails the run (M14)" || bad "gate 5 wiring rc=$rc: $(echo "$out" | grep '^GATE' | tr '\n' '|')"
 # installer
 i="$here/install_hooks.sh"; [ -x "$i" ] || { bad "install_hooks.sh missing"; echo "== $pass passed, $fail failed"; exit 1; }
-before="$(ls "$repo/.git/hooks" 2>/dev/null | sort | tr '\n' ' ')"
+rh="$(git -C "$repo" rev-parse --git-path hooks)"; case "$rh" in /*) ;; *) rh="$repo/$rh";; esac
+[ -d "$rh" ] && ok "repo hooks dir observable ($rh), so the untouched check is not vacuous" || bad "repo hooks dir $rh not observable: the untouched check would be vacuous"
+before="$(ls "$rh" 2>/dev/null | sort | tr '\n' ' ')"
 hd="$base/hooks"; mkdir -p "$hd"; "$i" --hooks-dir "$hd" >/dev/null 2>&1; rc=$?
 { [ $rc = 0 ] && [ -x "$hd/pre-commit" ] && grep -q run_local_gates "$hd/pre-commit"; } && ok "installer writes executable pre-commit into given dir" || bad "installer rc=$rc"
-after="$(ls "$repo/.git/hooks" 2>/dev/null | sort | tr '\n' ' ')"; [ "$before" = "$after" ] && ok "repo .git/hooks untouched" || bad "repo hooks changed"
+after="$(ls "$rh" 2>/dev/null | sort | tr '\n' ' ')"; [ "$before" = "$after" ] && ok "repo .git/hooks untouched" || bad "repo hooks changed"
 "$i" --hooks-dir "$hd" >/dev/null 2>&1; rc=$?; [ $rc != 0 ] && ok "installer refuses to overwrite foreign/existing hook" || bad "installer overwrote"
-"$i" >/dev/null 2>&1; rc=$?; [ $rc = 0 ] && [ "$(ls "$repo/.git/hooks" | sort | tr '\n' ' ')" = "$before" ] && ok "installer without --hooks-dir only prints (dry run)" || bad "installer default mutated or failed"
+"$i" >/dev/null 2>&1; rc=$?; [ $rc = 0 ] && [ "$(ls "$rh" | sort | tr '\n' ' ')" = "$before" ] && ok "installer without --hooks-dir only prints (dry run)" || bad "installer default mutated or failed"
 # round 2: dangling symlink + missing value
 ln -s /nonexistent/target "$hd/pre-push-dangling"; mkdir -p "$base/h2"; ln -s /nonexistent/x "$base/h2/pre-commit"
 "$i" --hooks-dir "$base/h2" >/dev/null 2>&1; rc=$?; { [ $rc != 0 ] && [ -L "$base/h2/pre-commit" ] && [ "$(readlink "$base/h2/pre-commit")" = /nonexistent/x ]; } && ok "dangling symlink treated as existing, not overwritten" || bad "dangling symlink rc=$rc"

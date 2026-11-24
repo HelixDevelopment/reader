@@ -30,6 +30,13 @@
 #     source_path that exists or is 'gone:<reason>', ISO captured_at/snapshotted_at not in the future and
 #     captured_at <= snapshotted_at; a still-present source whose sha differs from the snapshot prints
 #     'WARN STALE_SNAPSHOT' (not a failure: snapshots are point-in-time)
+#   - CONTROL_BYTE: any C0 control byte other than TAB/LF/CR (or DEL) in the ledger or in a PROVENANCE.tsv is
+#     refused (a 0x1F inside a cell would desync the single-pass cell join below and let a row read as
+#     something else than what the constitution gates read: false green, review C18). CR has its own CRLF check.
+#   - SOURCE_ESCAPE (source file absolute or with a '..' component, or resolving outside the root), source
+#     line 0, BAD_DATE (last_verified must be a real YYYY-MM-DD not in the future)
+#   - snapshot files and PROVENANCE.tsv must be git-tracked and unmodified on a git root (SNAPSHOT_UNTRACKED /
+#     SNAPSHOT_MODIFIED), so 'frozen' is not self-attested
 # Usage  : scripts/gates/build_evidence_manifest.sh [--check] [--root DIR]
 set -u
 mode=build; root="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -50,6 +57,14 @@ awk -F'\t' 'BEGIN{OFS="\037"} NR==1{printf "HDR"; for(i=1;i<=NF;i++) printf "\03
   NF!=12{print "BADCOUNT",NR,NF; next}
   {printf "ROW\037%d",NR; for(i=1;i<=12;i++) printf "\037%s",$i; printf "\n"}' "$led" > "$parsed"
 if grep -q $'\r' "$led"; then echo "FAIL CRLF line endings in $led (lines: $(grep -n $'\r' "$led" | cut -d: -f1 | head -5 | tr '\n' ' ')) - convert to LF"; fail=1; fi
+CTL='[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]'
+ctl_check() { # ctl_check <file> <label>: refuse C0 controls except TAB, LF, CR (CR has its own check) and DEL
+  [ -f "$1" ] || return 0
+  if LC_ALL=C grep -naP "$CTL" "$1" >/dev/null 2>&1; then
+    echo "FAIL CONTROL_BYTE $2 contains a control byte (lines: $(LC_ALL=C grep -naP "$CTL" "$1" | cut -d: -f1 | head -5 | tr '\n' ' ')) - refused"; fail=1
+  fi
+}
+ctl_check "$led" "ledger"; ctl_check "$root/$SNAP/PROVENANCE.tsv" "PROVENANCE.tsv"
 iso_ok() { date -u -d "$1" +%s >/dev/null 2>&1 && [[ "$1" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:]+Z$ ]]; }
 if [ -f "$root/$SNAP/PROVENANCE.tsv" ]; then
   now="$(date -u +%s)"
@@ -93,7 +108,15 @@ while IFS=$'\037' read -r kind lineno id cap btype sev st layer src ev sha prod 
   done
   case "$st" in BUILT|VERIFIED|PARTIAL|NOT_IMPLEMENTED|BLOCKED) ;; *) echo "FAIL $who bad claim_status '$st'"; fail=1;; esac
   sf="${src%:*}"; sl="${src##*:}"
-  if [ ! -f "$root/$sf" ] || ! [[ "$sl" =~ ^[0-9]+$ ]] || [ "$sl" -gt "$(wc -l < "$root/$sf")" ]; then echo "FAIL $who source '$src' is not an existing file:line"; fail=1; fi
+  srcbad=0
+  case "/$sf/" in //*|*/../*) echo "FAIL $who SOURCE_ESCAPE source file '$sf' is absolute or has a '..' component"; fail=1; srcbad=1;; esac
+  if [ $srcbad = 0 ] && [ -e "$root/$sf" ]; then
+    case "$(realpath -m "$root/$sf")/" in "$(realpath -m "$root")"/*) ;; *) echo "FAIL $who SOURCE_ESCAPE source '$sf' resolves outside the root"; fail=1; srcbad=1;; esac
+  fi
+  if [ $srcbad = 0 ]; then
+    if [ ! -f "$root/$sf" ] || ! [[ "$sl" =~ ^[0-9]+$ ]] || [ "$sl" -lt 1 ] || [ "$sl" -gt "$(wc -l < "$root/$sf")" ]; then echo "FAIL $who source '$src' is not an existing file:line (line must be 1..last)"; fail=1; fi
+  fi
+  if ! [[ "$lv" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || ! date -u -d "$lv" +%F 2>/dev/null | grep -qx "$lv" || [[ "$lv" > "$(date -u +%F)" ]]; then echo "FAIL $who BAD_DATE last_verified '$lv' is not a real YYYY-MM-DD date not in the future"; fail=1; fi
   newsha="none"
   if [ -n "$ev" ] && [ "$ev" != none ]; then
     pathbad=0
@@ -108,6 +131,12 @@ while IFS=$'\037' read -r kind lineno id cap btype sev st layer src ev sha prod 
       case "$ev" in
         "$SNAP"/*)
           b="${ev#"$SNAP"/}"; ps="$(prov_sha "$b")"
+          if [ $isgit = 1 ]; then
+            for sfile in "$SNAP/$b" "$SNAP/PROVENANCE.tsv"; do
+              if ! git -C "$root" ls-files --error-unmatch -- "$sfile" >/dev/null 2>&1; then echo "FAIL $who SNAPSHOT_UNTRACKED '$sfile' is not git-tracked; frozen evidence must be committed"; fail=1
+              elif ! git -C "$root" diff --quiet HEAD -- "$sfile" 2>/dev/null; then echo "FAIL $who SNAPSHOT_MODIFIED '$sfile' is tracked but modified (working tree or staged)"; fail=1; fi
+            done
+          fi
           if [ -z "$ps" ]; then echo "FAIL $who SNAPSHOT_PROVENANCE '$b' has no row in $SNAP/PROVENANCE.tsv"; fail=1
           elif [ "$ps" != "$newsha" ]; then echo "FAIL $who SNAPSHOT_PROVENANCE '$b' sha differs from PROVENANCE.tsv (snapshot altered)"; fail=1; fi;;
         *) if [ $isgit = 0 ]; then
