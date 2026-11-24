@@ -29,8 +29,12 @@ MUTANTS = {
     "missing-trailer": [("        if len(vals) != 1:", "        if False:")],
     "wrong-base": [('"--base", ctx.base, "--head", ctx.branch, "--title", title, "--body", body, mutating=True)  # MUT:base', '"--base", "develop", "--head", ctx.branch, "--title", title, "--body", body, mutating=True)  # MUT:base')],
     "evidence-hash-mismatch": [("hashlib.sha256(p.stdout).hexdigest() != sha.lower()", "False")],
-    "evidence-all-commits-checked": [("            if latest.setdefault(path, h) != h:  # MUT:supersede", "            if False:  # MUT:supersede")],
-    "evidence-check-superseded-not-latest": [("            if latest.setdefault(path, h) != h:  # MUT:supersede", "            if latest.setdefault(path, h) == h:  # MUT:supersede")],
+    "evidence-all-commits-checked": [("            is_latest = latest.setdefault(path, h) == h  # MUT:supersede", "            is_latest = True  # MUT:supersede")],
+    "evidence-check-superseded-not-latest": [("            is_latest = latest.setdefault(path, h) == h  # MUT:supersede", "            is_latest = latest.setdefault(path, h) != h  # MUT:supersede")],
+    "evidence-drop-own-tree-check": [("            tree = head if is_latest else h  # MUT:owntree", "            tree = head  # MUT:owntree")],
+    "evidence-superseded-unchecked": [("            if p.returncode != 0:\n                problems.append(\"%s: evidence %s absent from %s", "            if not is_latest:\n                continue\n            if p.returncode != 0:\n                problems.append(\"%s: evidence %s absent from %s")],
+    "evidence-same-commit-duplicate-superseded": [("            is_latest = latest.setdefault(path, h) == h  # MUT:supersede", "            is_latest = latest.setdefault(path, h) == h and path not in seen_in_commit  # MUT:supersede\n            seen_in_commit.add(path)"),
+        ("    for h, body in commits(ctx, base_tip, head):  # git log order: newest first", "    for h, body in commits(ctx, base_tip, head):  # git log order: newest first\n        seen_in_commit = set()")],
     "evidence-validity-only-for-latest": [('            if path.startswith("/") or ".." in path.split("/") or not path.startswith(evdir):', '            first = latest.setdefault(path, h) == h\n            if first and (path.startswith("/") or ".." in path.split("/") or not path.startswith(evdir)):')],
     "evidence-absent-not-reported": [("            if p.returncode != 0:\n                problems.append(\"%s: evidence %s absent", "            if False:\n                problems.append(\"%s: evidence %s absent")],
     "evidence-superseded-note-dropped": [('        say("NOTE: evidence %s: earlier', '        (lambda *a: None)("NOTE: evidence %s: earlier')],
@@ -44,6 +48,7 @@ MUTANTS = {
     "mirror-force": [('"push", "--porcelain", m, "%s:refs/heads/%s"', '"push", "--force", "--porcelain", m, "%s:refs/heads/%s"')],
     "retire-without-ancestry": [("        if not (has_obj(ctx, mt) and is_anc(ctx, btip, mt)):", "        if False:")],
 }
+# Not testable cheaply (needs date-skewed parallel branches), no mutant: `log --topo-order` in commits().
 # Equivalent mutant, documented and not counted: merge's `go["head"] != head` duplicates the head-keyed record file name.
 
 

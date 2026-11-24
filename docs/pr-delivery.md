@@ -48,11 +48,13 @@ Add `--dry-run` before the subcommand (`deliver.py --dry-run open ...`) to print
 
 Every `Evidence:` / `red` / `green` citation in every commit of the PR range must be repository-relative and under `evidence/`
 (absolute, `..` or outside-dir paths are INCONCLUSIVE and refused, even when a later commit cites the same path again). The cited
-sha256 must equal the hash of the path in the head tree only for the LATEST citation of that path (newest commit first in `git log`
-order). Earlier citations of the same path are SUPERSEDED, because a later commit legitimately regenerated the file; they are printed
-as `NOTE: evidence <path>: earlier citation(s) superseded ...` and are not problems. A path cited once, an absent path, or a hash
-mismatch on the latest citation is refused exactly as before. Limit: a superseded citation is no longer checked against anything, so
-its hash is not proof of the old content; history is never rewritten (section 11.4.113) to fix it.
+sha256 must equal the hash of the path in the head tree for the LATEST citation of that path (newest commit first in `git log --topo-order`;
+two citations of one path in the same commit are both treated as latest). Each EARLIER citation of the same path is SUPERSEDED (a later commit
+legitimately regenerated the file) but must still equal the path's content in ITS OWN citing commit's tree (`git show <commit>:<path>`;
+absent there = refused), so a forged or wrong earlier hash is still refused. Superseded citations are printed as
+`NOTE: evidence <path>: earlier citation(s) superseded ...`. A path cited once, an absent path, or a mismatch on the latest citation is refused
+exactly as before. Limit: with parallel branches and skewed commit dates "latest" may be a commit that is not after the other citing commit;
+that fails closed (a false refusal), never a false pass.
 
 ## How the independent GO is produced and verified
 
