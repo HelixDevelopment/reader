@@ -1,0 +1,35 @@
+== RED sources
+# github.com/helixreader/helix/server/internal/sources [github.com/helixreader/helix/server/internal/sources.test]
+internal/sources/remote_revalidate_test.go:49:22: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:54:20: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:58:20: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:62:23: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:66:20: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:69:20: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:82:25: c.(*WebDAV).OpenRange undefined (type *WebDAV has no field or method OpenRange)
+internal/sources/remote_revalidate_test.go:136:40: revalServer(t, body).Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:149:41: revalServer(t, body).Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:205:38: revalServer(t, x).Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:205:38: too many errors
+== RED httpapi
+--- FAIL: TestSingleRangeRFC9110 (0.00s)
+    range_parse_test.go:42: "bytes=0-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=0 len=1000
+    range_parse_test.go:42: "bytes=5-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=5 len=995
+    range_parse_test.go:42: "bytes=-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=0 len=1000
+    range_parse_test.go:42: "bytes=+1-5" -> start=1 len=5 err=<nil>; want ok=false start=0 len=0
+--- FAIL: TestRemoteSourcesHonourRange (0.42s)
+    --- FAIL: TestRemoteSourcesHonourRange/webdav (0.01s)
+        remote_range_test.go:114: Range GET status 200, want 206 (Accept-Ranges="" body="\x9d\x94\x8b:.\xdc;!\xcb~ \x82!\xdfP\xb6\xa3\t\xff=^Kzڮ\x18~\xb4\xe9\xfe1\xfa\x1dF\xe3@\x88b\xe7lk\x89\xa8\xe7\
+    --- FAIL: TestRemoteSourcesHonourRange/rclone (0.09s)
+        remote_range_test.go:114: Range GET status 200, want 206 (Accept-Ranges="" body="\x9d\x94\x8b:.\xdc;!\xcb~ \x82!\xdfP\xb6\xa3\t\xff=^Kzڮ\x18~\xb4\xe9\xfe1\xfa\x1dF\xe3@\x88b\xe7lk\x89\xa8\xe7\
+--- FAIL: TestOpenRangeFailureDoesNotLeakPartialHeaders (0.00s)
+    remote_range_test.go:231: status 200, want 502
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.447s
+FAIL
+== RED N1 (router without header clearing)
+--- FAIL: TestOpenRangeFailureDoesNotLeakPartialHeaders (0.00s)
+    remote_range_test.go:229: read body: unexpected EOF
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.015s
+FAIL

@@ -1,0 +1,22 @@
+BASELINE: GREEN
+MUTANT M1_rclone_no_revalidate: KILLED
+MUTANT M2_webdav_size_off_by_one: KILLED
+MUTANT M3_webdav_unbounded_range: KILLED
+MUTANT M4_rclone_notfound_swallowed: KILLED
+MUTANT M5_webdav_collection_accepted: KILLED
+MUTANT M6_webdav_missing_mtime_trusted: KILLED
+MUTANT M7_list_collection_ignored: KILLED
+MUTANT M8_nonnumeric_length_is_zero: KILLED
+MUTANT M14_list_invented_size: KILLED
+MUTANT M15_contentlength_accepts_sign: KILLED
+MUTANT M9_first_propstat_only: KILLED
+MUTANT M10_lastbyte_overflow_416: KILLED
+MUTANT M11_firstbyte_overflow_clamped: KILLED
+MUTANT M12_suffix_overflow_416: KILLED
+MUTANT M13_signed_numbers_accepted: KILLED
+MUTANT O7_rclone_isdir_unchecked: KILLED
+MUTANT O9b_propstat_status_filter_off: KILLED
+MUTANT O10_end_clamp_off_by_one: KILLED
+MUTANT O11_rclone_revalidate_traversal_unchecked: KILLED
+MUTANT O12_rclone_bad_modtime_is_error: KILLED
+MUTANT M16_openrange_failure_headers_leak: KILLED
