@@ -21,7 +21,7 @@ M=(
 "M12-I1-ignore-incomplete@parse_gotest.awk@s/print \"INCOMPLETE/print \"IGNORED/"
 "M13-I4-no-allow-check@run_gated_tests.sh@s/if \[ ! -f \"\$ALLOW\" \] || \[ ! -r \"\$ALLOW\" \]/if false/"
 "M14-B1-phase-b-helper-missing@run_gated_tests.sh@s/^phase_b_sets() {/phase_b_setz() {/"
-"M15-B2-marker-relative@parse_gotest.awk@s/def = \$3; closed = 1/def = \".\/\" \$3; closed = 1/"
+"M15-B2-marker-relative@parse_gotest.awk@s/def = \$3; open = 1/def = \".\/\" \$3; open = 1/"
 "M16-m2-no-trim@run_gated_tests.sh@s/^trim() { local v=\$1;.*\$/trim() { printf '%s' \"\$1\"; }/"
 "M17-m2-drop-last-line@run_gated_tests.sh@s/ || \[ -n \"\$pk\$n\$r\$i\" \]//"
 "M18-B1-regex-excludes-nothing@run_gated_tests.sh@s/EXCL='TestLiveScaleCatalog|/EXCL='TestNeverMatches|/"
@@ -35,13 +35,26 @@ M=(
 "M26-m3-contradiction-allowed@run_gated_tests.sh@s/different reason\/item\"; bad=1; fi/different reason\/item\"; fi/"
 "M27-R6-workers-interleave@run_gated_tests.sh@s/ > \"\$TMPD\/worker\$i.log\" 2>&1 &/ >> \"\$LB\" 2>\&1 \&/"
 "M28-R8-no-port-check@run_gated_tests.sh@s/SETUP-ERROR: could not allocate ports/IGNORED/"
+"M29-B1-grep-q-in-pipe@run_gated_tests.sh@s/| grep -E '\^\[\[:space:\]\]\*--- (PASS|SKIP|FAIL): ' >\/dev\/null; then/| grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): '; then/"
+"M30-m1-no-dashdash@run_gated_tests.sh@s/sha256sum -- >/sha256sum >/"
+"M31-m3-no-sort@run_gated_tests.sh@s/| LC_ALL=C sort | sed 's|^/| sed 's|^/"
+"M32-m4-worker-failure-ignored@run_gated_tests.sh@s/wait \"\$p\" || RC=1; done/wait \"\$p\"; done/"
+"M33-m6-end-mismatch-ignored@parse_gotest.awk@s/else if (\$3 != def) print/else if (0) print/"
+"M34-m5-open-at-eof-ignored@parse_gotest.awk@s/if (open) print \"INCOMPLETE.t\" def \".tmarker-open/if (0) print \"INCOMPLETE.t\" def \".tmarker-open/"
+"M35-m5-pkgline-while-open-ignored@parse_gotest.awk@s/if (open) { print \"INCOMPLETE.t\" def \".tpackage-line/if (0) { print \"INCOMPLETE.t\" def \".tpackage-line/"
+"M36-m8-seq-not-needed@run_gated_tests.sh@s/xargs seq cp/xargs cp/"
 )
+# Baseline control: the UNMUTATED copy must pass every case, else a mutant's "kill" could be an artefact of the copy.
+mkcopy() { rm -rf "$W/c"; mkdir -p "$W/c/tests/live"; cp "$ROOT"/tests/live/run_gated_tests.sh "$ROOT"/tests/live/parse_gotest.awk "$ROOT"/tests/live/allowed_skips.txt "$W/c/tests/live/"; }
+mkcopy
+if ! GATE="$W/c/tests/live/run_gated_tests.sh" bash "$ROOT/tests/live/test_run_gated_tests.sh" >"$W/base.txt" 2>&1; then
+  echo "BASELINE-FAILED: unmutated copy does not pass all cases; no mutant result is valid"; grep '^FAIL ' "$W/base.txt"; exit 2; fi
+echo "baseline: unmutated copy passes ($(tail -1 "$W/base.txt"))"
 rc=0
 for m in "${M[@]}"; do
+  [ -z "${ONLY:-}" ] || case " $ONLY " in *" ${m%%-*} "*) ;; *) continue;; esac
   IFS='@' read -r id file sedx <<<"$m"
-  rm -rf "$W/c"; mkdir -p "$W/c"; cp "$ROOT"/tests/live/run_gated_tests.sh "$ROOT"/tests/live/parse_gotest.awk "$W/c/"
-  # the gate resolves ROOT as ../.. of itself: mirror the layout
-  mkdir -p "$W/c/tests/live"; mv "$W/c/run_gated_tests.sh" "$W/c/parse_gotest.awk" "$W/c/tests/live/"
+  mkcopy
   sed -i "$sedx" "$W/c/tests/live/$file"
   if cmp -s "$W/c/tests/live/$file" "$ROOT/tests/live/$file"; then echo "$id: MUTATION-NOT-APPLIED (sed matched nothing)"; rc=1; continue; fi
   if GATE="$W/c/tests/live/run_gated_tests.sh" bash "$ROOT/tests/live/test_run_gated_tests.sh" >"$W/o.txt" 2>&1; then

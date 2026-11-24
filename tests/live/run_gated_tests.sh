@@ -32,7 +32,7 @@ export LC_ALL=C
 # shellcheck disable=SC2154  # rc is set inside the trap string
 trap 'rc=$?; if [ $rc -eq 127 ]; then echo "FATAL: command not found (line $LINENO), aborting" >&2; exit 2; fi' ERR
 # Required tool features (checked, not assumed): without them every verdict could be wrong.
-printf 'a\n' | grep -qxF a && printf 'a\n' | grep -qE '^a$' && echo | awk 'BEGIN{exit 0}' && command -v sort >/dev/null && command -v comm >/dev/null \
+printf 'a\n' | grep -xF a >/dev/null && printf 'a\n' | grep -E '^a$' >/dev/null && echo | awk 'BEGIN{exit 0}' && command -v sort >/dev/null && command -v comm >/dev/null \
   || { echo "FATAL: required grep -x -F / grep -E / awk / sort / comm features unavailable" >&2; exit 2; }
 CWD0=$PWD
 abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
@@ -42,13 +42,16 @@ NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
   --print-phase-b) PB=$(abs "$2"); shift;;
-  --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;;
+  --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;; --selftest-wait) SELFTEST=2;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
+# wait_workers PID... : wait for background workers; any non-zero exit sets RC=1 (B3 failure propagation).
+wait_workers() { local p; for p in "$@"; do wait "$p" || RC=1; done; }
 if [ $SELFTEST = 1 ]; then hrd_no_such_command_xyz; exit 0; fi
+if [ $SELFTEST = 2 ]; then RC=0; ( exit 0 ) & a=$!; ( exit 3 ) & b=$!; wait_workers $a $b; [ $RC -eq 1 ] && exit 7; exit 8; fi
 # need TOOL...: exit 2 naming the first missing tool (checked before anything is started).
 need() { local t; for t in "$@"; do command -v "$t" >/dev/null 2>&1 || { echo "SETUP-ERROR: required tool '$t' not found" >&2; exit 2; }; done; }
-need git awk sort comm sed sha256sum find xargs
-[ $NOENV = 1 ] || { [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || [ -n "$SEALDIR" ] || need python3 go podman base64 tr head; }
+need git awk sort comm sed sha256sum find xargs seq cp tee basename dirname date mktemp cat wc rm mkdir cut paste tr head
+[ $NOENV = 1 ] || { [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || [ -n "$SEALDIR" ] || need python3 go podman base64; }
 [ $PREFLIGHT = 1 ] && { echo "preflight ok"; exit 0; }
 [ $NOENV = 0 ] || [ -n "$PB" ] || [ ${#CHECKS[@]} -gt 0 ] || need go
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
@@ -60,7 +63,7 @@ seal_dir() {
   local d=$1
   [ -d "$d" ] || { echo "seal: no such dir $d" >&2; return 2; }
   ( cd "$d" || exit 2
-    find . -type f ! -name SHA256SUMS ! -name '.*' ! -path '*/.*' -print | LC_ALL=C sort | sed 's|^\./||' | xargs -d '\n' -r sha256sum > .SHA256SUMS.tmp \
+    find . -type f ! -name SHA256SUMS ! -name '.*' ! -path '*/.*' -print | LC_ALL=C sort | sed 's|^\./||' | xargs -d '\n' -r sha256sum -- > .SHA256SUMS.tmp \
       && mv .SHA256SUMS.tmp SHA256SUMS )
 }
 if [ -n "$SEALDIR" ]; then seal_dir "$SEALDIR"; exit $?; fi
@@ -75,7 +78,8 @@ log_records() {
   local l
   for l in "$@"; do
     if [ ! -f "$l" ] || [ ! -r "$l" ] || [ ! -s "$l" ]; then echo "LOG-UNUSABLE: $l (missing, unreadable or empty)" >&2; LOGBAD=1; continue; fi
-    if ! sed 's/\x1b\[[0-9;]*[A-Za-z]//g' "$l" | grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): '; then echo "LOG-UNUSABLE: $l (no '--- PASS/SKIP/FAIL' line: not a go test -v log)" >&2; LOGBAD=1; continue; fi
+    # NOTE: never `grep -q` at the end of a pipe under pipefail: early exit SIGPIPEs the writer (rc 141) on big logs.
+    if ! sed 's/\x1b\[[0-9;]*[A-Za-z]//g' "$l" | grep -E '^[[:space:]]*--- (PASS|SKIP|FAIL): ' >/dev/null; then echo "LOG-UNUSABLE: $l (no '--- PASS/SKIP/FAIL' line: not a go test -v log)" >&2; LOGBAD=1; continue; fi
     awk -f "$HERE/parse_gotest.awk" "$l"
   done
 }
@@ -118,7 +122,7 @@ skip_gate() {
       NORESULTS) echo "NO-RESULTS: $pk (package FAIL with no test results)"; bad=1;;
       PANIC) echo "PANIC: $pk $n"; bad=1;;
       TIMEOUT) echo "TIMEOUT: $pk"; bad=1;;
-      INCOMPLETE) echo "INCOMPLETE: $pk (test records with no closing PASS/FAIL or package line: truncated log?)"; bad=1;;
+      INCOMPLETE) echo "INCOMPLETE: $pk ($n; truncated log, unclosed or mismatched # PKG marker, or records with no closing PASS/FAIL)"; bad=1;;
     esac
   done < <(sort -u "$OUT/.rec.tsv" | awk -F'\t' '$1!="PASS" && $1!="SKIP" && $1!="SEEN"')
   while read -r rec; do [ -n "$rec" ] && ! grep -qxF "$rec" "$OUT/.skip.txt" && echo "UNUSED-ALLOW (warning): $rec never skipped in these logs"; done < <(sort -u "$OUT/.used.txt")
@@ -176,7 +180,7 @@ if [ $NOENV = 0 ]; then
   podman run -d --name "$PFX-run" --memory 2g --network "container:$PFX-pg" "${HELIX_LIVE_RUNNER_IMAGE:-docker.io/library/alpine:3.22}" sleep 7200 >/dev/null || { echo "runner start failed" >&2; exit 2; }
   CTRS+=("$PFX-run")
   for _ in $(seq 1 90); do podman exec "$PFX-pg" pg_isready -U postgres -d helix_test >/dev/null 2>&1 \
-     && podman exec "$PFX-redis" redis-cli ping 2>/dev/null | grep -q PONG && break; sleep 1; done
+     && [ "$(podman exec "$PFX-redis" redis-cli ping 2>/dev/null)" = PONG ] && break; sleep 1; done
   podman exec "$PFX-pg" pg_isready -U postgres -d helix_test >/dev/null || { echo "pg not ready" >&2; exit 2; }
   export HELIX_TEST_POSTGRES_DSN="postgres://postgres:$PGPW@127.0.0.1:$PGPORT/helix_test?sslmode=disable"
   export HELIX_TEST_REDIS_ADDR="127.0.0.1:$RPORT"
@@ -230,7 +234,7 @@ if [ $NOENV = 0 ]; then
         "$TMPD/catalog.test" -test.v -test.count=1 -test.run '^TestCatalogMultiProcessMerges$' ) > "$TMPD/worker$i.log" 2>&1 &
     WP+=($!)
   done
-  for p in "${WP[@]}"; do wait "$p" || RC=1; done
+  wait_workers "${WP[@]}"
   for i in 0 1 2 3; do cat "$TMPD/worker$i.log" >> "$LB"; done   # fixed order, no interleaving
   ( cd server/internal/catalog && HELIX_MP_ROLE=verify HELIX_MP_INDEX=0 HELIX_MP_PROCESSES=4 HELIX_MP_OPS=60 HELIX_MP_RUN=$RUNTAG \
       "$TMPD/catalog.test" -test.v -test.count=1 -test.run '^TestCatalogMultiProcessMerges$' ) >> "$LB" 2>&1 || RC=1

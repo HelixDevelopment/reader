@@ -80,7 +80,7 @@ out=$("$GATE" --selftest-missing-cmd 2>&1); rc=$?
 chk R2_err_trap_aborts_missing_command bash -c "[ $rc -eq 2 ]"
 # preflight: missing python3 => exit 2 (live mode); sandbox PATH with every tool except python3
 SB=$W/bin; mkdir -p "$SB"
-for tl in bash env git awk sort comm sed sha256sum find xargs go podman base64 tr head grep cat dirname date wc mktemp rm mkdir printf cut paste uniq; do p=$(command -v $tl) && ln -sf "$p" "$SB/$tl"; done
+for tl in bash env git awk sort comm sed sha256sum find xargs go podman base64 tr head grep cat dirname date wc mktemp rm mkdir printf cut paste uniq seq cp tee basename stat; do p=$(command -v $tl) && ln -sf "$p" "$SB/$tl"; done
 out=$(PATH=$SB "$GATE" --preflight 2>&1); rc=$?
 chk R7_preflight_missing_python3_exit2 bash -c "[ $rc -eq 2 ] && grep -q \"'python3'\" <<<\"\$0\"" "$out"
 ln -sf "$(command -v python3)" "$SB/python3"
@@ -90,4 +90,30 @@ chk R7b_preflight_all_tools_ok bash -c "[ $rc -eq 0 ]"
 SD=$W/seal; mkdir -p "$SD/sub"; echo a > "$SD/b.txt"; echo c > "$SD/sub/a.txt"; echo h > "$SD/.hidden"; echo old > "$SD/SHA256SUMS"
 "$GATE" --seal "$SD" >/dev/null 2>&1; src=$?
 chk R5b_seal_dir_verifies bash -c "[ $src -eq 0 ] && cd $SD && sha256sum -c SHA256SUMS >/dev/null && [ \$(wc -l < SHA256SUMS) -eq 2 ] && ! grep -q 'SHA256SUMS\\|hidden' SHA256SUMS && [ \"\$(awk '{print \$2}' SHA256SUMS | paste -sd,)\" = 'b.txt,sub/a.txt' ]"
+t m5_unclosed_marker_then_ok_incomplete 3 'INCOMPLETE'              $FX/allow_empty.txt $FX/marker_unclosed_then_ok.log
+t m6_pkg_end_path_mismatch        3 'INCOMPLETE.*PKG-END-path-mismatch' $FX/allow_empty.txt $FX/marker_end_mismatch.log
+t m5_marker_open_at_eof           3 'INCOMPLETE.*marker-open-at-EOF'  $FX/allow_empty.txt $FX/marker_open_at_eof.log
+t m5_pkgline_inside_marker_then_end 3 'INCOMPLETE.*package-line-while-marker-open' $FX/allow_empty.txt $FX/marker_ok_then_end.log
+t m5_nested_marker                3 'INCOMPLETE.*nested-or-unclosed'  $FX/allow_empty.txt $FX/marker_nested.log
+t m6_stray_pkg_end                3 'INCOMPLETE.*PKG-END-without-open' $FX/allow_empty.txt $FX/marker_stray_end.log
+# B1 class: logs larger than the pipe buffer must still get a real verdict (grep -q under pipefail SIGPIPEs the writer)
+BIG=$W/big.log; BIGS=$W/big_skip.log
+awk 'BEGIN{for(i=0;i<30000;i++) printf "=== RUN   TestN%d\n--- PASS: TestN%d (0.00s)\n",i,i; print "PASS"; printf "ok  \texample.com/m/big\t1s\n"}' > "$BIG"
+{ cat "$BIG"; printf '=== RUN   TestZ\n--- SKIP: TestZ (0.00s)\nPASS\nok  \texample.com/m/big2\t1s\n'; } > "$BIGS"
+chk B1_big_log_over_1MiB bash -c "[ \$(stat -c %s $BIG) -gt 1048576 ]"
+t B1_big_log_green                0 'GATE GREEN'                      $FX/allow_empty.txt $BIG
+t B1_big_log_unlisted_skip_rc3    3 'UNLISTED-SKIP: .*big2\|TestZ'    $FX/allow_empty.txt $BIGS
+out=$("$GATE" --out "$W/out" --allow "$A" --print-phase-b "$BIGS" 2>&1); rc=$?
+chk B1_big_log_phase_b_lists bash -c "[ $rc -eq 0 ] && grep -q '^REGEX=TestZ$' <<<\"\$0\"" "$out"
+# seal_dir: option-like names, spaces, deterministic sorted order (many files so directory order is not sorted)
+SD2=$W/seal2; mkdir -p "$SD2"; for n in -x -c --help 'a b' $(seq 30 -1 1 | sed 's/^/f/'); do echo "$n" > "$SD2/$n"; done
+"$GATE" --seal "$SD2" >/dev/null 2>&1; src=$?
+chk m1_seal_option_like_names bash -c "[ $src -eq 0 ] && cd $SD2 && sha256sum -c SHA256SUMS >/dev/null 2>&1 && [ \$(wc -l < SHA256SUMS) -eq 34 ] && grep -q ' --help\$' SHA256SUMS"
+chk m3_seal_order_is_sorted bash -c "cd $SD2 && awk '{ \$1=\"\"; print substr(\$0,2) }' SHA256SUMS > $W/names.txt && LC_ALL=C sort $W/names.txt | cmp -s - $W/names.txt"
+# m4: B3 worker failure propagates into RC
+"$GATE" --selftest-wait >/dev/null 2>&1; wrc=$?
+chk m4_worker_failure_sets_RC bash -c "[ $wrc -eq 7 ]"
+# m8: a missing common tool (seq) is a setup error, exit 2
+rm -f "$SB/seq"; out=$(PATH=$SB "$GATE" --preflight 2>&1); rc=$?
+chk m8_missing_seq_exit2 bash -c "[ $rc -eq 2 ] && grep -q \"'seq'\" <<<\"\$0\"" "$out"
 echo "cases passed=$pass failed=$fail"; [ $fail -eq 0 ]

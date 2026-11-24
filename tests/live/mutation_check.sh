@@ -17,7 +17,7 @@ PGPORT=$(free_port); RPORT=$(free_port); PGPW=$(head -c 12 /dev/urandom | base64
 podman run -d --name "$PFX-pg" --memory 512m -p "127.0.0.1:$PGPORT:5432" -e POSTGRES_PASSWORD="$PGPW" -e POSTGRES_DB=helix_test \
   "${HELIX_LIVE_PG_IMAGE:-docker.io/pgvector/pgvector:pg16}" -c max_connections=200 -c fsync=off >/dev/null || exit 2; CTRS+=("$PFX-pg")
 podman run -d --name "$PFX-redis" --memory 128m -p "127.0.0.1:$RPORT:6379" "${HELIX_LIVE_REDIS_IMAGE:-docker.io/library/redis:7-alpine}" >/dev/null || exit 2; CTRS+=("$PFX-redis")
-for _ in $(seq 1 90); do podman exec "$PFX-pg" pg_isready -U postgres -d helix_test >/dev/null 2>&1 && podman exec "$PFX-redis" redis-cli ping 2>/dev/null | grep -q PONG && break; sleep 1; done
+for _ in $(seq 1 90); do podman exec "$PFX-pg" pg_isready -U postgres -d helix_test >/dev/null 2>&1 && [ "$(podman exec "$PFX-redis" redis-cli ping 2>/dev/null)" = PONG ] && break; sleep 1; done
 LIVEENV=("HELIX_TEST_POSTGRES_DSN=postgres://postgres:$PGPW@127.0.0.1:$PGPORT/helix_test?sslmode=disable" "HELIX_TEST_REDIS_ADDR=127.0.0.1:$RPORT")
 
 # id|file(relative to repo)|old|new|package|killing live test
