@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 62, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -2115,3 +2115,615 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testi
 - 2026-11-24 — Started by AI: Review round 1 of PR #8 returned NO-GO; fixing dangling references, id choice, HRD-034 scope note and minors; evidence: evidence/workable-items/registry-hardening-pr8
 - 2026-11-24 — Updated by AI: Narrow HRD-085 scope after PR #10 review: executable product code removed, ownership map added; evidence: docs/tracking/pending_ownership.json
 - 2026-11-24 — Updated by AI: Acceptance corrected to what is achievable: zero NOWHERE references cannot be reached by registry-tooling work alone; the earlier text named stale counts and a pass criterion this item cannot meet.; evidence: evidence/workable-items/registry-hardening-pr8/final_check_references.txt
+
+## [HRD-086] Allocate registry identifiers HRD-086 to HRD-103 for work streams landed or reviewed on 2026-11-24
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Registry change that allocates tracked identifiers for the Cronet and HTTP/3 clients, the Go live verifiers, the Go mutation and UI verifiers, the packaging ignore rules, the Android HTTP/3 lab follow-up and the review follow-ups, so every branch and pull request can carry a valid Roadmap-Item trailer. This item is the change's own item and closes when the registry pull request is merged and read back.
+
+**Affected scope:** docs/workable_items.db and the generated docs/Issues*, docs/Fixed*, docs/tracking/helixtrack-outbox.json only.
+
+**Reproduction / current observation:** Work streams exist (Cronet, Go verifiers, packaging, review follow-ups) with no HRD ids, so their commits cannot carry a Roadmap-Item trailer that resolves in the registry.
+
+**Acceptance:** HRD-087 to HRD-103 exist once each, validate and diff PASS, python3 -m unittest -v tests.test_workable_items passes, and the PR is merged with a merge commit and read back. No duplicate of an existing item (HRD-084 constitution pin update is not duplicated).
+
+**Closure criteria:** HRD-087 to HRD-103 exist once each, validate and diff PASS, python3 -m unittest -v tests.test_workable_items passes, and the PR is merged with a merge commit and read back. No duplicate of an existing item (HRD-084 constitution pin update is not duplicated).
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:05Z / 2026-11-24T16:39:05Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-087] Cronet and HTTP/3 clients: desktop Chromium-session h3, Android Cronet forced QUIC, server access log middleware and qa/h3 verifier
+
+**Status:** Queued
+
+**Type:** Feature
+
+**Severity:** High
+
+**Reopens:** 0
+
+**Description:** Stream A. Adds HTTP/3 capable client transports: the desktop client talks h3 through a Chromium session, the Android client uses Cronet with QUIC forced, the server gains a HELIX_ACCESS_LOG middleware so negotiated protocol is observable server side, and qa/h3 holds the verification harness. Stacked on pull request #18. Evidence: /home/milosvasic/.cache/claude-tmp/wt-cronet-state/final with a matrix of 28 files and an android bundle of 13 files. Evidence is held outside the repository under /home/milosvasic/.cache/claude-tmp and is not yet sealed into evidence/ (UNCONFIRMED: a later change must copy and seal it with tools/isolation/seal_evidence.sh).
+
+**Affected scope:** clients/desktop, clients/android, server/internal/httpapi (access log middleware), qa/h3, docs on transports.
+
+**Reproduction / current observation:** Before: no client negotiates HTTP/3 and the server cannot show which protocol served a request. Reproduce by running the qa/h3 matrix and reading the access log protocol field.
+
+**Acceptance:** Desktop h3 session and Android Cronet request are shown by the server access log as h3 (matrix 28 files, android 13 files re-run on a clean checkout), PR #18 stacking resolved, and every gap below is closed or tracked. UNCONFIRMED: Android h3 end to end (private CA QUIC certificate verification fails with error -356), tracked as its own item.
+
+**Closure criteria:** Desktop h3 session and Android Cronet request are shown by the server access log as h3 (matrix 28 files, android 13 files re-run on a clean checkout), PR #18 stacking resolved, and every gap below is closed or tracked. UNCONFIRMED: Android h3 end to end (private CA QUIC certificate verification fails with error -356), tracked as its own item.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:05Z / 2026-11-24T16:39:05Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-088] Android HTTP/3 lab: prove QUIC certificate verification (error -356) with a writable-system or known-root lab
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** High
+
+**Reopens:** 0
+
+**Description:** Follow-up of the Cronet stream. Android Cronet with forced QUIC fails certificate verification against the private CA (net error -356), so Android h3 is UNCONFIRMED. A lab is needed where the private CA is trusted at system level (writable system image or a known publicly rooted certificate) and h3 is shown by the server access log from the real Android client in a rootless container (test isolation rule).
+
+**Affected scope:** clients/android Cronet configuration, qa/h3 android leg, emulator image in the Containers submodule, trust store provisioning.
+
+**Reproduction / current observation:** Run the Android h3 leg: the request fails with -356 and the access log shows no h3 request. Evidence bundle: /home/milosvasic/.cache/claude-tmp/wt-cronet-state/final (android 13 files), unsealed.
+
+**Acceptance:** In the lab the Android client completes an h3 request, the server access log records protocol h3 for it, the evidence is sealed under evidence/ with sha256, and a negative control (untrusted CA) still fails closed.
+
+**Closure criteria:** In the lab the Android client completes an h3 request, the server access log records protocol h3 for it, the evidence is sealed under evidence/ with sha256, and a negative control (untrusted CA) still fails closed.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:06Z / 2026-11-24T16:39:06Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-089] Go live verifiers: server, transport and backup-restore checks as Go commands in server/internal/liveverify
+
+**Status:** Queued
+
+**Type:** Feature
+
+**Severity:** High
+
+**Reopens:** 0
+
+**Description:** Stream B. Port of the Python live verification to Go: package server/internal/liveverify plus the commands helix-verify-live-server, helix-verify-live-transport and helix-verify-backup-restore. Recorded results: live-server-go 77 passed and 0 failed, live-transport-go 15 passed and 0 failed, backup-restore-go 13 passed and 0 failed. Evidence is held outside the repository under /home/milosvasic/.cache/claude-tmp and is not yet sealed into evidence/ (UNCONFIRMED: a later change must copy and seal it with tools/isolation/seal_evidence.sh).
+
+**Affected scope:** server/internal/liveverify, cmd/helix-verify-live-server, cmd/helix-verify-live-transport, cmd/helix-verify-backup-restore, evidence live-server-go, live-transport-go, backup-restore-go.
+
+**Reproduction / current observation:** Run the three commands against a live server container and read the pass and fail counts; compare with the Python verifier results.
+
+**Acceptance:** Commands build and pass on a clean checkout with real services (no stubs), mutation of the verifier kills at least one mutant per check family, evidence sealed in the repo, and gates reference the Go verifiers.
+
+**Closure criteria:** Commands build and pass on a clean checkout with real services (no stubs), mutation of the verifier kills at least one mutant per check family, evidence sealed in the repo, and gates reference the Go verifiers.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:06Z / 2026-11-24T16:39:06Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-090] Go mutation and UI verifiers: tools/verify gomutate and uiverify ported from Python
+
+**Status:** Queued
+
+**Type:** Feature
+
+**Severity:** High
+
+**Reopens:** 0
+
+**Description:** Stream C. Adds tools/verify with gomutate (Go mutation runner) and uiverify (UI verification) and evidence go-verify-port-2026-11-24. The Python-versus-Go live UI comparison is UNCONFIRMED: no run has shown both produce the same verdicts on the same UI. Evidence is held outside the repository under /home/milosvasic/.cache/claude-tmp and is not yet sealed into evidence/ (UNCONFIRMED: a later change must copy and seal it with tools/isolation/seal_evidence.sh).
+
+**Affected scope:** tools/verify/gomutate, tools/verify/uiverify, evidence/go-verify-port-2026-11-24.
+
+**Reproduction / current observation:** Run gomutate on core and server and uiverify on the web client in the isolation container; compare verdicts with the Python tools.
+
+**Acceptance:** Equivalent verdicts to the Python tools on the same inputs (documented diff, zero unexplained differences), control and mutant pairs for every check, evidence sealed, and the UNCONFIRMED live comparison either completed or recorded as a limit.
+
+**Closure criteria:** Equivalent verdicts to the Python tools on the same inputs (documented diff, zero unexplained differences), control and mutant pairs for every check, evidence sealed, and the UNCONFIRMED live comparison either completed or recorded as a limit.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:06Z / 2026-11-24T16:39:06Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-091] Packaging: ignore local-only paths and reference the Koodo-reader bundle by hash manifest
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Add .gitignore entries for .claude symlinks, *.bak backups, background_queue.md and .env.sh, and replace the vendored Koodo-reader bundle by a hash-reference manifest. Existing branch task/HRD-PKG-gitignore at /home/milosvasic/.cache/claude-tmp/wt-gitignore (commit 7cdd283) must be renamed to the allocated id and its Roadmap-Item trailer fixed once this item exists.
+
+**Affected scope:** .gitignore, the Koodo-reader bundle manifest, branch and trailer hygiene for task/HRD-PKG-gitignore.
+
+**Reproduction / current observation:** git status of a working checkout lists .claude symlinks, .bak files, background_queue.md and .env.sh as untracked noise, and the bundle bytes are not hash-referenced.
+
+**Acceptance:** Entries ignore exactly those paths (git check-ignore proves each), the manifest lists the bundle sha256 and the commit trailer names this item id; the branch is renamed task/HRD-nnn-\<slug> and merged by pull request.
+
+**Closure criteria:** Entries ignore exactly those paths (git check-ignore proves each), the manifest lists the bundle sha256 and the commit trailer names this item id; the branch is renamed task/HRD-nnn-\<slug> and merged by pull request.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-092] PR #5 review follow-ups FU1 to FU5 and F5
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects the open follow-ups recorded by the independent review of pull request #5: FU1, FU2, FU3, FU4, FU5 and finding F5. The exact wording of each lives in the review record. UNCONFIRMED: the review text was not re-read while allocating this item, so each follow-up must be transcribed from the review into this item before work starts.
+
+**Affected scope:** Files named in the PR #5 review record.
+
+**Reproduction / current observation:** Open the PR #5 review comments and list FU1 to FU5 and F5 with their cited lines.
+
+**Acceptance:** Each of FU1 to FU5 and F5 is fixed or explicitly closed with evidence, each in its own commit carrying this id.
+
+**Closure criteria:** Each of FU1 to FU5 and F5 is fixed or explicitly closed with evidence, each in its own commit carrying this id.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-093] PR #10 review follow-ups N1 to N7 and F-a, F-b, F-c (registry hardening)
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects the open follow-ups of the independent review of pull request #10 (registry hardening): notes N1 to N7 and findings F-a, F-b and F-c. UNCONFIRMED: the individual texts must be transcribed from the review record before work starts.
+
+**Affected scope:** scripts/workable_items.py, scripts/verify_workable_items.py, tests/test_workable_items.py, docs/workable-items.md.
+
+**Reproduction / current observation:** Read the PR #10 review comments and list N1 to N7, F-a, F-b, F-c.
+
+**Acceptance:** Every item fixed or closed with evidence, tests added where behavior changes, validate and diff PASS.
+
+**Closure criteria:** Every item fixed or closed with evidence, tests added where behavior changes, validate and diff PASS.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-094] Follow-ups of the reviews of pull requests #15 and #17
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects the open follow-ups of the independent reviews of pull requests #15 and #17. UNCONFIRMED: the specific findings must be transcribed from the review records, no ids were available when this item was allocated.
+
+**Affected scope:** Files named in the PR #15 and PR #17 review records.
+
+**Reproduction / current observation:** Read the review comments of #15 and #17 and list every open follow-up.
+
+**Acceptance:** Every listed follow-up fixed or closed with evidence in its own commit carrying this id.
+
+**Closure criteria:** Every listed follow-up fixed or closed with evidence in its own commit carrying this id.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-095] PR #16 review follow-ups F1 to F6
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects findings F1, F2, F3, F4, F5 and F6 of the independent review of pull request #16. UNCONFIRMED: the texts must be transcribed from the review record before work starts.
+
+**Affected scope:** Files named in the PR #16 review record.
+
+**Reproduction / current observation:** Read the PR #16 review and list F1 to F6.
+
+**Acceptance:** Each of F1 to F6 fixed or closed with evidence.
+
+**Closure criteria:** Each of F1 to F6 fixed or closed with evidence.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:09Z / 2026-11-24T16:39:09Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-096] PR #18 review follow-ups N1 to N6
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects notes N1 to N6 of the independent review of pull request #18 (the base of the Cronet stack). UNCONFIRMED: texts to be transcribed from the review record.
+
+**Affected scope:** Files named in the PR #18 review record.
+
+**Reproduction / current observation:** Read the PR #18 review and list N1 to N6.
+
+**Acceptance:** Each of N1 to N6 fixed or closed with evidence.
+
+**Closure criteria:** Each of N1 to N6 fixed or closed with evidence.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:09Z / 2026-11-24T16:39:09Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-097] PR #19 review follow-ups m1 to m7
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects the minor findings m1 to m7 of the independent review of pull request #19. UNCONFIRMED: texts to be transcribed from the review record.
+
+**Affected scope:** Files named in the PR #19 review record.
+
+**Reproduction / current observation:** Read the PR #19 review and list m1 to m7.
+
+**Acceptance:** Each of m1 to m7 fixed or closed with evidence.
+
+**Closure criteria:** Each of m1 to m7 fixed or closed with evidence.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T16:39:10Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-098] PR #20 review follow-ups N1 to N3
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Collects notes N1, N2 and N3 of the independent review of pull request #20. UNCONFIRMED: texts to be transcribed from the review record.
+
+**Affected scope:** Files named in the PR #20 review record.
+
+**Reproduction / current observation:** Read the PR #20 review and list N1 to N3.
+
+**Acceptance:** Each of N1 to N3 fixed or closed with evidence.
+
+**Closure criteria:** Each of N1 to N3 fixed or closed with evidence.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T16:39:10Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-099] PR #21 finding F3: make the retry bound consumer data
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Finding F3 of the review of pull request #21: the retry bound must be consumer DATA (configuration), not a literal in code, in line with the constitution rule that bounds are data. UNCONFIRMED: the exact code location and current literal must be taken from the review record.
+
+**Affected scope:** The retry loop named in the PR #21 review and its configuration file.
+
+**Reproduction / current observation:** Locate the hard-coded retry bound named in the PR #21 review.
+
+**Acceptance:** The bound is read from configuration with a documented default, a test proves a changed value changes behavior, and a gate or grep shows no remaining literal.
+
+**Closure criteria:** The bound is read from configuration with a documented default, a test proves a changed value changes behavior, and a gate or grep shows no remaining literal.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T16:39:10Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-100] Constitution wave: decide doc_processor main versus master divergence (submodule pin)
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision.
+
+**Affected scope:** submodules/doc_processor, helix-deps.yaml, docs/submodule-pins-on-main-2026-11-23.md.
+
+**Reproduction / current observation:** git -C submodules/doc_processor branch -a and compare main with master and with the recorded gitlink.
+
+**Acceptance:** Recorded operator decision (section 11.4.66), pin on the canonical main, helix-deps.yaml consistent, mirror parity table PRESENT on every upstream.
+
+**Closure criteria:** Recorded operator decision (section 11.4.66), pin on the canonical main, helix-deps.yaml consistent, mirror parity table PRESENT on every upstream.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-101] Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** The llm_orchestrator submodule cannot be fetched from the gitlab-helix remote because credentials are missing or rejected, so its pin cannot be verified on main (relates to HRD-053). Credentials must be provided through the environment by variable name only and are never written to the repository. UNCONFIRMED: whether the cause is a missing deploy key, an expired token or an access grant.
+
+**Affected scope:** submodules/llm_orchestrator remotes, local git configuration of the operator host.
+
+**Reproduction / current observation:** git ls-remote against the gitlab-helix remote of llm_orchestrator fails authentication.
+
+**Acceptance:** git ls-remote succeeds with variable-name referenced credentials, no secret appears in tracked files or evidence, and the pin is verified reachable from the upstream main.
+
+**Closure criteria:** git ls-remote succeeds with variable-name referenced credentials, no secret appears in tracked files or evidence, and the pin is verified reachable from the upstream main.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-102] Constitution wave: bump challenges, containers and helixqa submodule pins on main
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Move the pins of the challenges, containers and helixqa submodules to the latest commit on each upstream main by pull request in each own-org repository first, then the parent pin bump with a mirror parity table. Related to HRD-052, HRD-053 and HRD-084 (constitution pin update, not duplicated here). UNCONFIRMED: which of the three are already on main.
+
+**Affected scope:** submodules/challenges, submodules/containers, submodules/helixqa, helix-deps.yaml.
+
+**Reproduction / current observation:** Compare each recorded gitlink with the upstream main tip (git ls-remote).
+
+**Acceptance:** Each gitlink equals or is an ancestor of the upstream main on every upstream, helix-deps.yaml refs agree, parity table PRESENT, and gates pass after the bump.
+
+**Closure criteria:** Each gitlink equals or is an ancestor of the upstream main on every upstream, helix-deps.yaml refs agree, parity table PRESENT, and gates pass after the bump.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-103] Constitution wave: declare superspec as a third_party dependency in helix-deps.yaml
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Low
+
+**Reopens:** 0
+
+**Description:** Add superspec to helix-deps.yaml with third_party true and a licence field, as required by the dependency manifest rule that every non-own-org dependency is declared third-party. UNCONFIRMED: the licence text and ref have to be read from the superspec checkout.
+
+**Affected scope:** helix-deps.yaml and the manifest verifier output.
+
+**Reproduction / current observation:** scripts/deps_manifest verification reports superspec as an undeclared or mis-declared dependency (verify with the constitution manifest verifier).
+
+**Acceptance:** helix-deps.yaml lists superspec with third_party true, a licence and a ref, and the manifest verifier passes.
+
+**Closure criteria:** helix-deps.yaml lists superspec with third_party true, a licence and a ref, and the manifest verifier passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
