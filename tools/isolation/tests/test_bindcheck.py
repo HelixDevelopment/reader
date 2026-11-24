@@ -76,6 +76,20 @@ class N5(unittest.TestCase):
             self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
             self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}))
             self.assertIsNotNone(self.chk("rw", sock, "/opt/isoinside", {"ISO_WORK": d}, bridge=True))
+    def test_bridge_dir_may_hold_its_one_real_unix_socket_only(self):
+        # HRD-076: a real run has <dir>/h.sock (a unix socket); the bridge bind must accept exactly that and nothing else
+        import socket
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock)
+            s = socket.socket(socket.AF_UNIX); s.bind(sock + "/h.sock")
+            try:
+                self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}), "socket refused without --bridge")
+                s2 = socket.socket(socket.AF_UNIX); s2.bind(sock + "/other.sock")
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "a second socket is refused")
+                s2.close()
+            finally:
+                s.close()
     def test_iso_work_must_be_absolute_canonical_dedicated_and_not_sensitive(self):
         home = os.path.expanduser("~")
         bad = ["relative/dir", "~/.cache/claude-tmp/x", CT, CT + "/../../.ssh", CT + "/a/../b", CT + "//x", home + "/.ssh", home + "/.config/x", home + "/.gnupg",

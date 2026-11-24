@@ -1,0 +1,55 @@
+{
+  "client": "desktop",
+  "app": "Helix Reader 0.1.0 (Electron 45.4.1, Chromium 156.0.8078.100)",
+  "scenes": [
+    {
+      "file": "desktop-library.png",
+      "scenario": "Linux desktop client signed in at launch from its stored settings: library of 27 works",
+      "viewport": "1280x832",
+      "color_scheme": "app",
+      "note": "page content, window 1280x860"
+    },
+    {
+      "file": "desktop-xvfb-root-library.png",
+      "scenario": "Whole container-private X screen (Xvfb :99) with the app window, via ImageMagick import inside the container",
+      "viewport": "root",
+      "color_scheme": "app",
+      "note": "not the operator display"
+    },
+    {
+      "file": "desktop-search.png",
+      "scenario": "Server-side search \"Glass\" narrows 27 works to 1",
+      "viewport": "1280x832",
+      "color_scheme": "app",
+      "note": "query Glass"
+    },
+    {
+      "file": "desktop-work-detail.png",
+      "scenario": "Work detail for a plain-text work",
+      "viewport": "1280x832",
+      "color_scheme": "app",
+      "note": "field-notes"
+    },
+    {
+      "file": "desktop-reader-large-text.png",
+      "scenario": "Built-in reader with text size raised three steps (A+)",
+      "viewport": "1280x832",
+      "color_scheme": "app",
+      "note": "font-size 24px"
+    },
+    {
+      "file": "desktop-reader-dark-theme.png",
+      "scenario": "Dark theme in the desktop reader (header theme switch clicked twice from system)",
+      "viewport": "1280x832",
+      "color_scheme": "app",
+      "note": "label Theme: dark"
+    },
+    {
+      "file": "desktop-walkthrough-steps.webm",
+      "scenario": "Step video of the desktop session: one real Xvfb screen frame per step, 1 frame/s (a slideshow of real frames, NOT a continuous screen recording)",
+      "viewport": "1280x860",
+      "color_scheme": "app",
+      "note": "video"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
+In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -1775,7 +1775,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 
 ## [HRD-076] Real screenshots and video of everyday use of ALL clients captured only in the isolated container runner and embedded in every doc category
 
-**Status:** Queued
+**Status:** In progress
 
 **Type:** Feature
 
@@ -1801,11 +1801,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-23T22:49:59Z / 2026-11-23T22:49:59Z
+**Created / modified:** 2026-11-23T22:49:59Z / 2026-11-24T20:14:42Z
 
 **History:**
 
 - 2026-11-23 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Started by AI: HRD-076: web, desktop and KOReader captured in the isolated runner; Android not re-captured (UNCONFIRMED); PR open for independent review; evidence: evidence/screenshots
 
 ## [HRD-077] WebDAV.List listed directories as zero-byte files
 

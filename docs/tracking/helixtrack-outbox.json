@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T18:57:59Z",
+  "generated_at": "2026-11-24T20:14:51Z",
   "records": [
     {
       "client_key": "HRD-001",
@@ -2117,11 +2117,11 @@
         "description": "BACKGROUND IMPORTANT operator directive 2026-11-23: obtain real, stunning screenshots and video of everyday use of ALL clients (web at several screen sizes, Electron desktop, KOReader sync/OPDS/PSE flows, Android emulator) showing power-feature use cases, captured ONLY in the isolated container runner (tools/isolation, qa/isolation; HARD RULE: never touch the operator desktop or apps), each with a capture manifest (client, version, scenario, resolution, sha256, command), and embed them in ALL docs: user guides, manuals, tutorials, quick starts, FAQs and the README. Create every missing doc category exhaustively (11.4.257 user-manual/guide/FAQ coverage, 11.4.258 architecture/data-flow/state-machine/sequence diagrams, 11.4.212 README as canonical entry point). ROOT CAUSE (UNCONFIRMED unless stated): docs carry little or no real captured media of the clients in everyday use; capture runs so far were test-evidence oriented, not documentation oriented. PROPOSED FIX: scenario catalogue per client and power feature, container-only capture runner producing PNG/MP4 plus manifest, vision verification of each asset (HRD-039), doc generator embedding assets by manifest id, and a gate failing on embedded media without a manifest row. Cross-links (11.4.214, text): HRD-038, HRD-039, HRD-040, HRD-043, HRD-044, HRD-061, HRD-062, HRD-069 (capture runners and vision), HRD-059 (documentation drift). Owner suggestion: docs+qa.",
         "evidence_path": "",
         "forensic_anchor": "User work-item request",
-        "last_modified": "2026-11-23T22:49:59Z",
+        "last_modified": "2026-11-24T20:14:42Z",
         "reopens_count": 0,
         "reproduction": "Observable current behavior: docs contain no real captured screenshots or video of the clients in everyday use and several doc categories are missing.",
         "severity": "High",
-        "status": "Queued",
+        "status": "In progress",
         "title": "Real screenshots and video of everyday use of ALL clients captured only in the isolated container runner and embedded in every doc category",
         "type": "Feature"
       },

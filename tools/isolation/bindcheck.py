@@ -78,7 +78,7 @@ def checkout_ancestor(path):
             return None
         p = q
 
-def hostile_tree_error(real):
+def hostile_tree_error(real, bridge_sock=None):
     """-> reason when the tree below `real` holds a deny-table name, any symlink, fifo/device/socket or hard-linked file, or is too big to certify."""
     n = 0
     for dp, dn, fn in os.walk(real, followlinks=False):
@@ -97,6 +97,8 @@ def hostile_tree_error(real):
                 return f"{full}: {e.strerror}"
             if stat.S_ISLNK(st.st_mode):
                 return f"{full} is a symlink: the host would follow it"
+            if bridge_sock and full == bridge_sock and stat.S_ISSOCK(st.st_mode):
+                continue   # the bridge directory exists to hold exactly this one unix socket (<dir>/h.sock), nothing else
             if not (stat.S_ISDIR(st.st_mode) or stat.S_ISREG(st.st_mode)):
                 return f"{full} is a fifo/device/socket: a host read would block or act on it"
             if stat.S_ISREG(st.st_mode) and st.st_nlink != 1:
@@ -185,7 +187,7 @@ def check(mode, src, dst, repo, env=os.environ, bridge=False, now=None):
         c = None if inside(real, ev) else checkout_ancestor(real)
         if c:
             return f"rw source {real} is, or lies inside, the git checkout/worktree {c}"
-        h = hostile_tree_error(real) if os.path.isdir(real) else None
+        h = hostile_tree_error(real, os.path.join(real, "h.sock") if bridge and dst == "/run/helixsock" else None) if os.path.isdir(real) else None
         if h:
             return f"rw source refused: {h}"
         if inside(real, ev):
