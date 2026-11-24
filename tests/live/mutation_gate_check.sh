@@ -55,7 +55,7 @@ M=(
 "M46-R6-snapshot-not-nul-separated@run_gated_tests.sh@s/--porcelain -z /--porcelain /"
 "M47-R7-bare-fail-in-marker-ignored@parse_gotest.awk@s/if (open) print \"PKGFAIL/if (0) print \"PKGFAIL/"
 "M48-R8-hash-anywhere-is-comment@run_gated_tests.sh@s/case \$pk in \\\\#\*) continue;; esac/case \$pk\$n in *\\\\#*) continue;; esac/"
-"M49-m5-scratch-in-out-dir@run_gated_tests.sh@s/^SCR=\$(mktemp -d) || exit 2; trap 'rm -rf \"\$SCR\"' EXIT/SCR=\$OUT/"
+"M49-m5-scratch-in-out-dir@run_gated_tests.sh@s/^SCR=\$(mktemp -d) || exit 2; \[ -n \"\$SCR\" \] || exit 2$/SCR=\$OUT/;s/rm -rf \"\${SCR:?}\"; //"
 "M51-F2-default-out-is-sealed-dir@run_gated_tests.sh@s/^if \[ -z \"\$OUT\" \]; then OUT=\$(mktemp -d [^;]*;/if [ -z \"\$OUT\" ]; then OUT=evidence\/campaign-2026-11-23\/gap-fix\/hrd050; OUTDEF=0;/"
 "M52-F2-nonempty-out-not-refused@run_gated_tests.sh@s/\&\& \[ \$OUTDEF = 0 \] \&\& \[ -d \"\$OUT\" \]/\&\& false \&\& [ -d \"\$OUT\" ]/"
 "M53-F5-empty-package-silently-ignored@run_gated_tests.sh@s/echo \"ALLOWLIST-MALFORMED: empty package field[^;]*; bad=1; continue; fi/continue; fi/"
