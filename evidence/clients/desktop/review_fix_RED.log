@@ -1,0 +1,8 @@
+✔ blank password is kept while the server origin is unchanged (51.310496ms)
+✖ blank password is NOT carried over to a different server origin (2.630638ms)
+✔ an explicitly typed password is used for the new origin (1.689698ms)
+✔ forget-password clears the stored password, reloads, and is shell-only (6.325787ms)
+✔ connection UI and preload expose a forget-password action (2.536488ms)
+✖ failing tests:
+✖ blank password is NOT carried over to a different server origin (2.630638ms)
+  AssertionError [ERR_ASSERTION]: credentials leaked to http://b.example: Basic dTpzZWNyZXQtQQ==

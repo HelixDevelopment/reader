@@ -1,0 +1,73 @@
+{
+  "name": "hrdiso-hqa",
+  "image": "localhost/helix-gui-test:1",
+  "created": "2026-11-24T00:16:34.346597478+01:00",
+  "network_mode": "none",
+  "privileged": false,
+  "cap_drop": [
+    "CAP_CHOWN",
+    "CAP_DAC_OVERRIDE",
+    "CAP_FOWNER",
+    "CAP_FSETID",
+    "CAP_KILL",
+    "CAP_NET_BIND_SERVICE",
+    "CAP_SETFCAP",
+    "CAP_SETGID",
+    "CAP_SETPCAP",
+    "CAP_SETUID",
+    "CAP_SYS_CHROOT"
+  ],
+  "cap_add": [],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "memory": 536870912,
+  "memory_swap": 536870912,
+  "pids_limit": 512,
+  "oom_score_adj": 500,
+  "userns_mode": "private",
+  "lifetime_timeout_s": 1800,
+  "binds": [
+    "/home/milosvasic/Projects/helix_reader/qa/helixqa/banks:/work/banks:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/iso-work/st-hq/sock:/run/helixsock:rw,rprivate,rbind",
+    "/home/milosvasic/Projects/helix_reader/qa/isolation/inside:/opt/isoinside:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/iso-work/bin/helixqa:/work/helixqa:ro,rprivate,rbind"
+  ],
+  "devices": [],
+  "ports": {},
+  "env_names": [
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "HOSTNAME",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "container"
+  ],
+  "labels": {
+    "io.buildah.version": "1.42.1",
+    "org.helix.isolation": "gui-test",
+    "org.helix.lease-ts": "1795475794",
+    "org.helix.owner-pid": "2197757",
+    "org.opencontainers.image.version": "24.04"
+  },
+  "entrypoint": [
+    "/usr/local/bin/gui-entrypoint.sh"
+  ],
+  "cmd": [
+    "sh",
+    "/opt/isoinside/launch.sh",
+    "--bridge",
+    "38191",
+    "/run/helixsock/h.sock",
+    "--",
+    "/work/helixqa",
+    "http",
+    "--banks",
+    "/work/banks",
+    "--base-url",
+    "http://127.0.0.1:38191",
+    "--verbose",
+    "--json"
+  ]
+}

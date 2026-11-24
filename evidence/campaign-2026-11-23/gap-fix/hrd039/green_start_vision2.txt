@@ -1,0 +1,73 @@
+[llmctl] wrote /home/milosvasic/.local/state/llmctl/services/vision.env
+started vision UNPUBLISHED for validation (loopback 127.0.0.1:45031 only, not in the registry; mode=gpu, reserved 2048 MiB RAM + 4030 MiB VRAM) - it is published only after its validation PASSES
+[llmctl] validation: running the deterministic validation suite(s) of 'vision' before it is used (it is quarantined: loopback, private port, unpublished)
+suite vision-golden-v1 (vision) hash 9f6908567f369950e4d14118e2ef21a9bccc8cfb3cb49ab8204558b97818a33b
+endpoint http://127.0.0.1:45031
+judge self-test: 108/108 canned controls judged as required
+model identity: endpoint serves ['/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf', '/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf']
+served model file: /home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf (confirmed by cmdline, props, v1/models)
+[PASS] 01_text_large/read (1.52s, finish=stop)
+       answer: "ORANGE TIGER\n42"
+[PASS] 02_shapes_count/red_circles (1.13s, finish=stop)
+       answer: "3"
+[PASS] 02_shapes_count/blue_squares (1.16s, finish=stop)
+       answer: "2"
+[PASS] 03_login_form/transcribe (1.33s, finish=stop)
+       answer: "SIGN IN\nUSERNAME\nPASSWORD\nLOGIN"
+[PASS] 03_login_form/screen_type (1.46s, finish=stop)
+       answer: "This screenshot depicts a classic, pixelated login screen reminiscent of early 1980s computer systems."
+[PASS] 04_list_view/items (1.25s, finish=stop)
+       answer: "APPLE\nBANANA\nCHERRY\nGRAPE"
+[PASS] 04_list_view/count (1.12s, finish=stop)
+       answer: "4"
+[PASS] 05_table/transcribe (1.61s, finish=stop)
+       answer: "NAME   AGE   CITY\nANNA   31   PARIS\nBORIS  45   OSLO\nCLARA  27   ROME"
+[PASS] 05_table/lookup (1.09s, finish=stop)
+       answer: "OSLO"
+[PASS] 06_dialog/transcribe (1.26s, finish=stop)
+       answer: "WARNING\nDELETE FILE?\nCANCEL\nDELETE"
+[PASS] 06_dialog/buttons (1.18s, finish=stop)
+       answer: "CANCEL, DELETE"
+[PASS] 07_dark_theme/transcribe (1.25s, finish=stop)
+       answer: "SETTINGS\nDARK MODE\nVOLUME 75"
+[PASS] 07_dark_theme/theme (1.09s, finish=stop)
+       answer: "Dark"
+[PASS] 08_small_text/invoice (1.09s, finish=stop)
+       answer: "7731"
+[PASS] 08_small_text/total (1.27s, finish=stop)
+       answer: "58.40"
+[PASS] 09_color_blocks/colors (1.26s, finish=stop)
+       answer: "Red, Green, Blue"
+[PASS] 90_bad_blank/read (1.24s, finish=stop)
+       answer: "NO TEXT"
+[PASS] 91_bad_wrong_content/read (1.31s, finish=stop)
+       answer: "PURPLE HORSE\n17"
+[PASS] control 90_bad_blank vs 01_text_large/read: golden checks correctly FAIL on the control image (exact_words: expected the words 'ORANGE TIGER 42', got 'NO TEXT'; forbidden: answer claims ['NO TEXT'])
+       answer: "NO TEXT"
+[PASS] control 91_bad_wrong_content vs 01_text_large/read: golden checks correctly FAIL on the control image (exact_words: expected the words 'ORANGE TIGER 42', got 'PURPLE HORSE 17'; forbidden: answer claims ['PURPLE', 'HORSE', '17'])
+       answer: "PURPLE HORSE\n17"
+[PASS] determinism 01_text_large/read: repeat=3 byte-identical
+[PASS] determinism 02_shapes_count/red_circles: repeat=3 byte-identical
+[PASS] determinism 02_shapes_count/blue_squares: repeat=3 byte-identical
+[PASS] determinism 03_login_form/transcribe: repeat=3 byte-identical
+[PASS] determinism 03_login_form/screen_type: repeat=3 byte-identical
+[PASS] determinism 04_list_view/items: repeat=3 byte-identical
+[PASS] determinism 04_list_view/count: repeat=3 byte-identical
+[PASS] determinism 05_table/transcribe: repeat=3 byte-identical
+[PASS] determinism 05_table/lookup: repeat=3 byte-identical
+[PASS] determinism 06_dialog/transcribe: repeat=3 byte-identical
+[PASS] determinism 06_dialog/buttons: repeat=3 byte-identical
+[PASS] determinism 07_dark_theme/transcribe: repeat=3 byte-identical
+[PASS] determinism 07_dark_theme/theme: repeat=3 byte-identical
+[PASS] determinism 08_small_text/invoice: repeat=3 byte-identical
+[PASS] determinism 08_small_text/total: repeat=3 byte-identical
+[PASS] determinism 09_color_blocks/colors: repeat=3 byte-identical
+[PASS] determinism 90_bad_blank/read: repeat=3 byte-identical
+[PASS] determinism 91_bad_wrong_content/read: repeat=3 byte-identical
+VERDICT: PASS pass=38 fail=0 undetermined=0
+[llmctl] validation state for 'vision': pass -> /home/milosvasic/.local/state/llmctl/validation/vision.json
+[llmctl] evidence: /home/milosvasic/.local/state/llmctl/verify/validate-vision.log
+error: port 8082 for "vision" is already in use by another program; set LLMCTL_PORT_VISION=<free port> (or LLMCTL_PORT_VISION=auto) to choose another, or LLMCTL_PORT_STRATEGY=dynamic
+ERROR: cannot start 'vision': no usable port
+ERROR: validation: 'vision' PASSED but could not be published (see above) - it is NOT served
+exit=1

@@ -1,0 +1,17 @@
+## RED: require-validated vision before this work (2026-11-23T21:46:53Z)
+ERROR: profile 'vision' is NOT validated for use:
+  - record is 2288707s old (max 604800s, LLMCTL_VALIDATION_MAX_AGE)
+ERROR: run: llmctl validate vision
+exit=1
+
+## llmctl status
+no llmctl services running
+WARN: llmctl-onnx@decide-nli.service is enabled but failed (it is down; a SIGKILLed unit is not restarted by design. Cause: journalctl --user -u llmctl-onnx@decide-nli.service; start it with: llmctl start <profile>)
+host reserve: 4 CPU(s) [0-1,8-9] + 4336 MiB kept for the system; models: CPUs [2-7,10-15], 17345 MiB (llmctl capacity)
+
+0
+evidence/campaign-2026-11-23/helixtrack/runs/20261123T212401Z/03-compare1.traffic.jsonl
+evidence/campaign-2026-11-23/helixtrack/runs/20261123T212401Z/04-pull1.traffic.jsonl
+evidence/campaign-2026-11-23/gap-audit/gates_run.txt
+evidence/campaign-2026-11-23/helixtrack/runs/20261123T212401Z/15c.traffic.jsonl
+evidence/campaign-2026-11-23/helixtrack/runs/20261123T212401Z/14-pull-final.traffic.jsonl

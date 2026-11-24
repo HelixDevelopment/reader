@@ -1,0 +1,11 @@
+    soak_test.go:257: SOAK iterations=6000 samples=20 slope=9.31 B/iter steady_growth=34200 B goroutine_delta=0 heap_first=1253616 heap_last=1339864
+--- PASS: TestSoakServerRequestMixDoesNotLeak (1.29s)
+    soak_test.go:407: REMOTE SOAK webdav iterations=3000 slope=19.29 B/iter r2=0.83 goroutine_delta=0 lingering_rclone_workers=0
+    soak_test.go:407: REMOTE SOAK rclone iterations=300 slope=42.44 B/iter r2=0.46 goroutine_delta=0 lingering_rclone_workers=0
+--- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses (53.35s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/webdav (35.68s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/rclone (17.67s)
+    soak_test.go:477: RCLONE CONCURRENCY requests=50 peak_rclone_helper_processes=13 lingering=0
+--- PASS: TestRcloneConcurrentRangePeakProcesses (1.08s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	55.736s

@@ -1,0 +1,3 @@
+F1 RED (before fix): wrapper = pasta:--map-host-loopback,10.0.2.2; probe from inside a container (node net_probe.js), canary = host python listener on 127.0.0.1:41537
+{'10.0.2.2:41537': 'open', '10.0.2.2:5037': 'open', '10.0.2.2:8432': 'open', '10.0.2.2:55432': 'open', '10.0.2.2:11434': 'open', '10.0.2.2:22': 'open', '10.0.2.2:631': 'open', '1.1.1.1:443': 'open'}
+canary_hits_on_host= 1   => ALL host loopback services AND the internet reachable from the container.

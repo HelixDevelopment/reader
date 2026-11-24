@@ -1,0 +1,21 @@
+PASS  HLX-WEB-001 Library view lists the fixture titles from the live server
+      PASS open client :: navigated to http://127.0.0.1:4173/
+      PASS 401 state shown :: waited for role=alert
+      PASS open settings :: clicked role=button[name='Settings']
+      PASS enter username :: filled input[autocomplete=username] with 9 chars
+      PASS enter password :: filled input[type=password] with 11 chars
+      PASS save :: clicked role=button[name='Save']
+      PASS library heading :: waited for role=heading[name='Library']
+      PASS comic card :: waited for role=button[name='Open hq-comic']
+      PASS comic visible :: visible: role=button[name='Open hq-comic']
+      PASS novel visible :: visible: role=button[name='Open hq-novel']
+      PASS mixed visible :: visible: role=button[name='Open hq-mixed']
+      PASS notes visible :: visible: role=button[name='Open hq-notes']
+FAIL  HLX-WEB-002 Search narrows the library to the matching title
+      PASS open client :: navigated to http://127.0.0.1:4173/
+      PASS comic card :: waited for role=button[name='Open hq-comic']
+      PASS type query :: filled input[type=search] with 8 chars
+      FAIL other titles gone :: playwright assertNotVisible role=button[name='Open hq-novel']: IS visible (expected hidden)
+
+web bank summary: 15 PASS, 1 FAIL, 0 SKIP steps
+exit=1

@@ -1,0 +1,10 @@
+=== RUN   TestLiveLoadJobQueueMultiInstance
+    load_jobs_multiinstance_test.go:626: MULTI single_instance_baseline: submitted=384 accepted=64 rejected_queue_full=320 other_rejected=0 executed=64 lost=0 double=0 by_instance=map[instance-1:64] peak=map[instance-1:2] produce_ms=10.4 wall_ms=837 producer_rate=6138.2/s throughput=76.5/s latency_p50=413.25ms p95=800.91ms claim_p50=392.38ms claim_p95=780.46ms
+    load_jobs_multiinstance_test.go:627: MULTI two_instances: submitted=384 accepted=127 rejected_queue_full=257 other_rejected=0 executed=127 lost=0 double=0 by_instance=map[instance-1:64 instance-2:63] peak=map[instance-1:2 instance-2:2] produce_ms=12.7 wall_ms=917 producer_rate=10036.3/s throughput=138.5/s latency_p50=401.22ms p95=868.91ms claim_p50=380.73ms claim_p95=848.31ms
+    load_jobs_multiinstance_test.go:639: MULTI wrote evidence: ../../../evidence/campaign-2026-11-20/multi-instance/multi_instance.json
+    load_jobs_multiinstance_test.go:641: LOADJSON {"emitted_at":"2026-11-23T17:57:58Z","instance_count":2,"multi_instance_executed":127,"multi_latency_p50":401.223,"multi_single_throughput_ratio":1.8107391303399392,"multi_throughput":138.51911072912316,"redis_addr":"127.0.0.1:34379","single_instance_executed":64,"single_latency_p50":413.246,"single_throughput":76.49865649234535,"test":"job_queue_multiinstance","total_jobs":384}
+    load_jobs_multiinstance_test.go:655: MULTI summary single_instance_baseline: accepted=64 executed=64 throughput=76.5/s p50=413.25ms p95=800.91ms
+    load_jobs_multiinstance_test.go:657: MULTI summary two_instances: accepted=127 executed=127 by_instance=map[instance-1:64 instance-2:63] throughput=138.5/s p50=401.22ms p95=868.91ms
+--- PASS: TestLiveLoadJobQueueMultiInstance (1.83s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	1.834s

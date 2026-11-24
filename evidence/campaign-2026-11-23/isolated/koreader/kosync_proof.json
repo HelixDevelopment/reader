@@ -1,0 +1,73 @@
+{
+  "source": "evidence/campaign-2026-11-23/isolated/koreader/kosync_bodies.jsonl",
+  "verdict": "PASS",
+  "checks": [
+    {
+      "check": "at least 2 progress pushes and 2 non-empty pulls recorded",
+      "status": "PASS",
+      "evidence": {
+        "puts": 3,
+        "pulls_nonempty": 2
+      }
+    },
+    {
+      "check": "A pushed page 4/9 (0.4444)",
+      "status": "PASS",
+      "evidence": {
+        "request": {
+          "document": "585a404323a6105ff0eb4404628956fc",
+          "device": "Linux",
+          "device_id": "2BC4800C5FF14B65BB18684BDE51B014",
+          "percentage": 0.4444,
+          "progress": "/body/DocFragment[2]/body/h1/text().0"
+        }
+      }
+    },
+    {
+      "check": "B's pull response equals A's pushed progress/percentage",
+      "status": "PASS",
+      "evidence": {
+        "response": {
+          "document": "585a404323a6105ff0eb4404628956fc",
+          "progress": "/body/DocFragment[2]/body/h1/text().0",
+          "percentage": 0.4444,
+          "device": "Linux",
+          "device_id": "2BC4800C5FF14B65BB18684BDE51B014",
+          "timestamp": 1795475618
+        }
+      }
+    },
+    {
+      "check": "B pushed page 6/9 (0.6667)",
+      "status": "PASS",
+      "evidence": {
+        "request": {
+          "document": "585a404323a6105ff0eb4404628956fc",
+          "device_id": "F6EF2D7BEAE54472944D88787302A7A4",
+          "device": "Linux",
+          "progress": "/body/DocFragment[2]/body/p[8]/text().266",
+          "percentage": 0.6666
+        }
+      }
+    },
+    {
+      "check": "A's later pull returns B's progress",
+      "status": "PASS",
+      "evidence": {
+        "response": {
+          "document": "585a404323a6105ff0eb4404628956fc",
+          "progress": "/body/DocFragment[2]/body/p[8]/text().266",
+          "percentage": 0.6666,
+          "device": "Linux",
+          "device_id": "F6EF2D7BEAE54472944D88787302A7A4",
+          "timestamp": 1795475688
+        }
+      }
+    },
+    {
+      "check": "device ids differ between A and B",
+      "status": "PASS",
+      "evidence": {}
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "status": "PASS",
+  "pass": 77,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "health endpoint",
+      "status": "PASS"
+    },
+    {
+      "name": "admin authentication boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "catalog authentication boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "live local source creation",
+      "status": "PASS"
+    },
+    {
+      "name": "live scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "live in-place ingestion",
+      "status": "PASS"
+    },
+    {
+      "name": "live catalog query",
+      "status": "PASS"
+    },
+    {
+      "name": "file identity and source association",
+      "status": "PASS"
+    },
+    {
+      "name": "content identity and size",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 1.2 acquisition feed",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 2.0 publication feed",
+      "status": "PASS"
+    },
+    {
+      "name": "OpenSearch description",
+      "status": "PASS"
+    },
+    {
+      "name": "single-range content download",
+      "status": "PASS"
+    },
+    {
+      "name": "HEAD content metadata without body",
+      "status": "PASS"
+    },
+    {
+      "name": "stale If-Range returns complete representation",
+      "status": "PASS"
+    },
+    {
+      "name": "multi-range request uses complete-response fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "attachment remains identity encoded",
+      "status": "PASS"
+    },
+    {
+      "name": "gzip content negotiation",
+      "status": "PASS"
+    },
+    {
+      "name": "live page-stream source creation",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream scan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream fixtures ingested: {\"files\":5,\"removed\":0,\"works\":5}",
+      "status": "PASS"
+    },
+    {
+      "name": "every page-stream fixture is catalogued by digest: live-server-cbr-stub.cbr,live-server-forge.cbz,live-server-mixed.cbz,live-server-plain.txt,live-server-pse.cbz",
+      "status": "PASS"
+    },
+    {
+      "name": "a CBZ edition advertises exactly one page stream",
+      "status": "PASS"
+    },
+    {
+      "name": "pse:count equals the pages in the archive",
+      "status": "PASS"
+    },
+    {
+      "name": "the advertised stream type comes from the page bytes, not the file name",
+      "status": "PASS"
+    },
+    {
+      "name": "the stream href names this file and the page template",
+      "status": "PASS"
+    },
+    {
+      "name": "a stream the server cannot position carries no pse:lastRead",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-mixed.cbz refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-forge.cbz refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-cbr-stub.cbr refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt is not advertised as pageable",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt still ships whole",
+      "status": "PASS"
+    },
+    {
+      "name": "live-server-plain.txt refuses page requests as well as the advertisement",
+      "status": "PASS"
+    },
+    {
+      "name": "page 0 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 0 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page 1 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 1 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page 2 is served byte-identical to the archive member",
+      "status": "PASS"
+    },
+    {
+      "name": "page 2 is tagged with the catalogued file digest",
+      "status": "PASS"
+    },
+    {
+      "name": "page past the last returns the valid range",
+      "status": "PASS"
+    },
+    {
+      "name": "a non-integer page number is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "an unknown file has no page stream",
+      "status": "PASS"
+    },
+    {
+      "name": "the acquisition feed carries the stream link",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS 2.0 invents no page-stream extension",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS-PSE client round trip: \u003cnil\u003e",
+      "status": "PASS"
+    },
+    {
+      "name": "the PSE client fetched every advertised page",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync registration or deterministic rerun",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync 402 is a duplicate account, not disabled registration",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync authentication",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync progress write",
+      "status": "PASS"
+    },
+    {
+      "name": "KOSync progress read",
+      "status": "PASS"
+    },
+    {
+      "name": "pgvector memory write",
+      "status": "PASS"
+    },
+    {
+      "name": "pgvector scoped search",
+      "status": "PASS"
+    },
+    {
+      "name": "internal progress write",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL catalog survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "completed scan job survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "restored scan job appears in the scan list",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync account survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis KOSync progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Redis internal progress survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source identity reattaches after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "page-stream source reattaches after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "OPDS-PSE client round trip after restart: \u003cnil\u003e",
+      "status": "PASS"
+    },
+    {
+      "name": "existing file identity serves after source re-registration",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart source rescan accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "post-restart reconciliation preserves present file",
+      "status": "PASS"
+    },
+    {
+      "name": "stable source rescan does not duplicate files",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test catalog cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test page-stream catalog cleanup failed for: ",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test memory cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "post-test progress cleanup",
+      "status": "PASS"
+    }
+  ],
+  "identity": {
+    "binaries_sha256": {
+      "helix-pse-check": "5109659650c30c1030a8916919721923dc16f1f03bc3b3e4eadb78fddd860b15",
+      "helix-server": "9448b8995a6dce87f96a55a903f8dd1de286ec59ddbf29a0747c76931bbee8b1"
+    },
+    "git": {
+      "head": "6f668f838f36e6f9283210eaf2d49b7b4ec26c9e",
+      "dirty": true
+    },
+    "postgresql": {
+      "version": "17.12 (Debian 17.12-1.pgdg12+1)",
+      "endpoint": "127.0.0.1:55433"
+    },
+    "redis": {
+      "version": "7.4.12",
+      "run_id": "bde56937578acf25a6bb6341ebd40a3f262933ac",
+      "address": "127.0.0.1:57391"
+    }
+  }
+}

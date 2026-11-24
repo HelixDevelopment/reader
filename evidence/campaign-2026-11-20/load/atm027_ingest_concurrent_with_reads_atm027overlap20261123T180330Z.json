@@ -1,0 +1,101 @@
+{
+  "assertions": {
+    "merge_ops_per_sec": 209.25863036384328,
+    "repo_browse_knee_ms": 27.7,
+    "repo_browse_p95_ms": 6.967,
+    "repo_browse_p95_within_knee": true,
+    "text_search_knee_s": 12,
+    "text_search_p99_ms": 9.746,
+    "text_search_p99_s": 0.009746000000000001,
+    "text_search_p99_within_knee": true,
+    "write_floor_ops_per_sec": 271.94,
+    "write_throughput_floor_met": false,
+    "zero_ingest_errors": true,
+    "zero_read_errors": false
+  },
+  "emitted_at": "2026-11-23T18:03:43Z",
+  "ingest_arms": [
+    {
+      "name": "merge_work",
+      "workers": 3,
+      "ops": 2513,
+      "errors": {},
+      "ops_per_sec": 209.25863036384328,
+      "p50_ms": 12.842,
+      "p95_ms": 19.634,
+      "p99_ms": 43.717
+    },
+    {
+      "name": "reconcile_source",
+      "workers": 3,
+      "ops": 2517,
+      "errors": {},
+      "ops_per_sec": 209.59171214715224,
+      "p50_ms": 12.795,
+      "p95_ms": 19.693,
+      "p99_ms": 44.326
+    }
+  ],
+  "measurement_path": "host_atm027_overlap",
+  "overlap_seconds": 12,
+  "overlap_wall_seconds": 12.00906264,
+  "read_arms": [
+    {
+      "name": "repo_browse",
+      "clients": 4,
+      "requests": 9041,
+      "rows_read": 180010,
+      "errors": {
+        "repo browse page has 18 works, want 20": 48,
+        "repo browse page has 19 works, want 20": 714
+      },
+      "p50_ms": 5.191,
+      "p95_ms": 6.967,
+      "p99_ms": 8.636
+    },
+    {
+      "name": "opds_search",
+      "clients": 2,
+      "requests": 17205,
+      "rows_read": 34901,
+      "errors": {},
+      "p50_ms": 0.818,
+      "p95_ms": 5.776,
+      "p99_ms": 7.116
+    },
+    {
+      "name": "text_search",
+      "clients": 2,
+      "requests": 3914,
+      "rows_read": 77871,
+      "errors": {},
+      "p50_ms": 5.985,
+      "p95_ms": 7.855,
+      "p99_ms": 9.746
+    }
+  ],
+  "rows_read": 292782,
+  "rows_written": {
+    "works": 0,
+    "editions": 0,
+    "files": 0,
+    "identifiers": 0,
+    "metadata_evidence": 0
+  },
+  "run_tag": "atm027overlap20261123T180330Z",
+  "seeded_rows": {
+    "works": 0,
+    "editions": 0,
+    "files": 0,
+    "identifiers": 0,
+    "metadata_evidence": 0
+  },
+  "test": "ingest_concurrent_with_reads",
+  "write_throughput": {
+    "floor_ops_per_sec": 271.94,
+    "floor_source": "evidence/campaign-2026-11-20/lock-scope/summary.md (legacy-global arm)",
+    "merge_ops_per_sec": 209.25863036384328,
+    "reconcile_ops_per_sec": 209.59171214715224,
+    "sharded_arm_ops_per_sec": 1592.21
+  }
+}

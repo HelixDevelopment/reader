@@ -1,0 +1,66 @@
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.479s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 1.058s
+
+OK
+
+matrix: 177 caught of 177 required; residual documented: 10 uncaught ['RESIDUAL_chr_built_name', 'RESIDUAL_hex_decoded_name', 'RESIDUAL_command_from_file', 'RESIDUAL_config_driven', 'RESIDUAL_unlisted_tool', 'RESIDUAL_chr_built_name2', 'RESIDUAL_env_driven_cmd', 'RESIDUAL_node_modules_data', 'RESIDUAL_python_import_side_effect', 'RESIDUAL_binary_payload'], 0 unexpectedly caught []
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.365s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.342s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.155s
+
+OK
+test_admin_routes_refused_against_real_server_and_no_source_created (test_network_isolation.NetworkIsolation.test_admin_routes_refused_against_real_server_and_no_source_created) ... /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 404: 'Not Found'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+/usr/lib/python3.14/subprocess.py:1139: ResourceWarning: subprocess 1872064 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.14/subprocess.py:1139: ResourceWarning: subprocess 1872063 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_admin_routes_refused_from_inside_the_container (test_network_isolation.NetworkIsolation.test_admin_routes_refused_from_inside_the_container) ... ok
+test_bridge_really_reaches_upstream (test_network_isolation.NetworkIsolation.test_bridge_really_reaches_upstream) ... ok
+test_no_bridge_nothing_open (test_network_isolation.NetworkIsolation.test_no_bridge_nothing_open) ... ok
+test_with_bridge_only_the_proxy_port_open (test_network_isolation.NetworkIsolation.test_with_bridge_only_the_proxy_port_open) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.906s
+
+OK
+/usr/lib/python3.14/subprocess.py:1139: ResourceWarning: subprocess 1872031 is still running
+<sys>:0: ResourceWarning: unclosed <socket.socket fd=5, family=2, type=1, proto=0, laddr=('127.0.0.1', 33805)>
+......
+----------------------------------------------------------------------
+Ran 6 tests in 4.586s
+
+OK
+...../home/milosvasic/Projects/helix_reader/tools/isolation/tests/test_reaper.py:66: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/rl-yz8txt1q/owner.pid' mode='w' encoding='UTF-8'>
+  d = tempfile.mkdtemp(prefix="rl-"); f = os.path.join(d, "owner.pid"); open(f, "w").write(str(os.getpid()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..
+----------------------------------------------------------------------
+Ran 7 tests in 57.925s
+
+OK
+NOTICE pinned waivers active: 13 (self 5, denylist 2, waive 6); third-party script files given the HARD subset only: 6716
+assert_host_untouched: PASS (0 finding(s); files scanned 699, symlinks 59 (outside repo 0))
+
+real	1m40.341s
+user	0m32.124s
+sys	0m6.748s

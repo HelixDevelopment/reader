@@ -1,0 +1,15 @@
+AssertionError: False is not true : missing /home/milosvasic/Projects/helix_reader/clients/supported-platforms.json
+
+======================================================================
+FAIL: test_verified_and_built_entries_name_their_evidence (tests.test_supported_platforms.SupportedPlatformsTest.test_verified_and_built_entries_name_their_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tests/test_supported_platforms.py", line 32, in setUp
+    self.assertTrue(MATRIX.is_file(), f"missing {MATRIX}")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : missing /home/milosvasic/Projects/helix_reader/clients/supported-platforms.json
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=7)

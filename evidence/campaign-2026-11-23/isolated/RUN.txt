@@ -1,0 +1,24 @@
+Isolated GUI/E2E evidence, 2026-11-23. Policy/architecture: docs/test-isolation.md.
+Image: localhost/helix-gui-test:1 (ubuntu:24.04 + Xvfb + openbox + xdotool + ImageMagick + node 22.12.0 sha256-verified), id 65b4b467208d ; Containerfile submodules/containers/images/gui-test/Dockerfile
+Run flags (tools/isolation/run_container.sh): rootless podman 5.7.0, --network none (the only host path is one unix socket behind a method/path allow-list, bridged to 127.0.0.1:38191 inside), --cap-drop ALL, no-new-privileges, --userns=keep-id, memory=swap cap, pids-limit, oom-score-adj 500; no host sockets, no DISPLAY from host.
+Server: helix-server built from the working tree (server/, includes uncommitted opds changes) sha256 d1e8f3bedc7430b4a3ab7c0a38c23376e9a03b9a4bc5506c15fe5e53402508e1; web/koreader/desktop runs used .helix-verify/bin/helix-server-live sha256 0461c1c1a911ce9ef2f0f1f58aa8d661a0f4ea6e7ffcdd41f1a03f42bf6e4cc5
+helixqa: submodules/helixqa @ b16a089, CGO_ENABLED=0 build sha256 db17abe466ced0bc7b29c83163f30dda18da53fd610fb3be528704b6b8d617f1
+KOReader: 2026.07-1 (host deb install files bind-mounted read-only from /usr/lib/koreader).
+Browser: Chrome for Testing from ~/.cache/ms-playwright/chromium-1228 (read-only mount); Electron 45.4.1 unpacked app clients/desktop/out/helix-reader-linux-x64.
+Throwaway credentials were generated per run and are not recorded; KOSync userkey redacted in sink files.
+Vision model NOT validated: UNVERIFIED, no claim rests on screenshots alone.
+
+HARDENING (review F1-F6, 2026-11-23, second pass): all suites re-run with the hardened wrapper (--network none + unix-socket bridge,
+bind allow-list, lifetime caps, runtime assertions): web 67/67, desktop 11/11 (Chromium sandbox OFF, see desktop/RUN.txt),
+KOReader GUI with machine-proven KOSync bodies (koreader/kosync_proof.json PASS), helixqa http 34 cases 32 PASS 0 FAIL 2 SKIP.
+Per-run container facts: */container_proof.json. Gate and RED/GREEN logs: hardening/. HelixQA web cases HLX-WEB-001/002 belong to tests/helixqa_web (HRD-038).
+
+SUPERSEDED (kept for the record; round-2 review N6): the first-pass text of the 'Run flags' line above read
+  "--network pasta:--map-host-loopback,10.0.2.2 ..."
+That network mode exposed EVERY host loopback service and the internet to the container (review F1, RED in hardening/F1_RED.log) and
+was replaced by --network none + unix-socket bridge (hardening/F1_GREEN logs). Nothing in this directory was produced with the pasta mode
+after the F1 fix: all suites were re-run (see HARDENING above and the round-2 section below).
+
+ROUND 2 (review N1-N6): proxy method/path allow-list with per-run random admin tokens that never enter a container (N1); lint v3 with pinned
+waivers (N2/N3); reaper startup-grace + per-run redis (N4); bind-allow-list hardening and fresh-only evidence dirs (N5); the Chromium sandbox
+check is a WARN (recorded, NOT verified) while the sandbox is off (N6). Details and RED/GREEN logs: hardening/N*_RED.log, hardening/N*_GREEN.log.

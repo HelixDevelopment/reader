@@ -1,0 +1,30 @@
+== MUTATION accept-placeholder-project
+FAIL: test_placeholder_project_is_not_deployable (__main__.T.test_placeholder_project_is_not_deployable)
+FAILED (failures=1)
+== MUTATION accept-placeholder-app
+FAIL: test_placeholder_project_is_not_deployable (__main__.T.test_placeholder_project_is_not_deployable)
+FAILED (failures=1)
+== MUTATION drop-not-run-line
+FAIL: test_cli_exit_codes_and_plan (__main__.T.test_cli_exit_codes_and_plan)
+FAIL: test_config_valid_never_implies_deployment (__main__.T.test_config_valid_never_implies_deployment)
+FAILED (failures=2)
+== MUTATION deployment-state-lies
+FAIL: test_real_ids_and_artifacts_are_deployable_but_still_not_run (__main__.T.test_real_ids_and_artifacts_are_deployable_but_still_not_run)
+FAILED (failures=1)
+== MUTATION skip-credential-scan
+FAIL: test_credentials_detected_without_echo (__main__.T.test_credentials_detected_without_echo)
+FAIL: test_service_account_and_private_key_detected (__main__.T.test_service_account_and_private_key_detected)
+FAILED (failures=2)
+== MUTATION echo-secret-value
+FAIL: test_credentials_detected_without_echo (__main__.T.test_credentials_detected_without_echo)
+FAILED (failures=1)
+== MUTATION missing-artifact-not-blocking
+FAIL: test_missing_artifact_blocks (__main__.T.test_missing_artifact_blocks)
+FAILED (failures=1)
+== MUTATION skip-firebase-json-check
+FAIL: test_bad_firebase_json (__main__.T.test_bad_firebase_json)
+FAIL: test_unparseable_firebase_json (__main__.T.test_unparseable_firebase_json)
+FAILED (failures=2)
+== MUTATION no-sha
+FAIL: test_artifact_sha256_reported (__main__.T.test_artifact_sha256_reported)
+FAILED (failures=1)

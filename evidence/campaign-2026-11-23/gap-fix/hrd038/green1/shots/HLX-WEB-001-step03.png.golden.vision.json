@@ -1,0 +1,20 @@
+{
+  "answer": "Helix Reader\nTheme: system\nSettings\nServer settings\nServer address\nsame origin\nLeave empty when this page is served by (or proxied to) the Helix server.\nUsername (optional)\nPassword (kept for this session only)\nSave\nCancel",
+  "forbidden_hit": [],
+  "image": "HLX-WEB-001-step03.png",
+  "image_sha256": "84e1efcee21c04a3d3238a5c66d4cd8b48cb94f48f8d9c7f1f8eccc41f2354b3",
+  "missing": [],
+  "model": "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf",
+  "must_contain": [
+    "Server settings",
+    "Username"
+  ],
+  "must_not_contain": [
+    "hq-novel"
+  ],
+  "profile": "vision",
+  "prompt": "Transcribe every piece of text visible in this screenshot, exactly as written, one item per line. Do not describe the picture and do not add anything that is not visible.",
+  "role": "golden",
+  "verdict": "PASS",
+  "verdict_file": "HLX-WEB-001-step03.png.golden.vision.json"
+}

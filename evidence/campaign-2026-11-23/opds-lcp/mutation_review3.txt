@@ -1,0 +1,7 @@
+KILLED T1 epoch check dropped (leases only) :: --- FAIL: TestGCEpochGuardsLeaseCycleDuringReRead (0.27s) |     lcp_epoch_test.go:46: referenced artifact deleted: stat /home/milosvasic/.cache/claude-tmp/TestGCEpochGuardsLeaseCycleDuringReRead3587181881/002/lcp/64b517d
+KILLED A1 document-defined failures counted against host :: --- FAIL: TestHostBackoffIgnoresDocumentDefinedFailures (0.68s) |     lcp_attack_test.go:51: hits=3 files=0 skipped=[a0.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a1.
+KILLED A2 overflowing sum comparison :: --- FAIL: TestAdmitCannotOverflow (0.00s) |     lcp_attack_test.go:161: admit(MaxInt64) after 100 bytes = <nil>, want budget refusal (sum overflowed)
+KILLED A2 no early reject + overflowing sum :: --- FAIL: TestScanByteBudgetSurvivesHugeStatedLength (1.13s) |     lcp_attack_test.go:86: hits=3 files=3
+KILLED A3 no post-catalog age re-check :: FAIL	github.com/helixreader/helix/server/internal/ingest [build failed] | ./lcp_gc.go:221:2: declared and not used: now
+KILLED A3 no post-catalog age re-check :: FAIL	github.com/helixreader/helix/server/internal/ingest [build failed] | ./lcp_gc.go:226:5: declared and not used: ct
+KILLED A3 no post-catalog age re-check :: --- FAIL: TestCrossProcessGCSparesCacheHitBeforeMerge (0.14s) |     lcp_attack_test.go:148: artifact referenced by the catalog was deleted by the other process: stat /home/milosvasic/.cache/claude-tmp/TestCrossProcessGCSpare

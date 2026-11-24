@@ -1,0 +1,17 @@
+{
+ "id": "conflict-text-changed",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "7832d267626753ff51fed7db515c4f82715bd0a6c4ac6e60616cc21365f644c0",
+ "expect_failing_checks": [
+  "sync-conflict-delta"
+ ],
+ "operations": [
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "Conflict resolved",
+   "new": "Resolved",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "cde70bd34fe5f220f1ec9647f05f17478be37180f8162c16e840bb3849b90a93"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "next-noop",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "fc79f17b8110bc8cd30e3c503015d172362c8aa47761d6cfe09b1649337d7b8a",
+ "expect_failing_checks": [
+  "reader-next-delta"
+ ],
+ "operations": [
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "onClick:()=>k(Math.min(fl.length-1,B+1)),disabled:B===fl.length-1",
+   "new": "onClick:()=>k(B),disabled:B===fl.length-1",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "b3e286018cba0e067a3545af6c763c9dcf8c3835a2b4357713f0866db4a634cc"
+  }
+ ]
+}

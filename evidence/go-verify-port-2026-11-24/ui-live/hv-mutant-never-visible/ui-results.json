@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "base_url": "http://127.0.0.1:4173/",
+  "viewports": [
+    {
+      "viewport": {
+        "name": "phone",
+        "width": 375,
+        "height": 812
+      },
+      "checks": [
+        {
+          "id": "viewport-run",
+          "status": "FAIL",
+          "evidence": {
+            "exception": "*errors.errorString",
+            "message": "timeout waiting for label(\"Search library\" exact=false): element is not visible"
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024
+      },
+      "checks": [
+        {
+          "id": "viewport-run",
+          "status": "FAIL",
+          "evidence": {
+            "exception": "*errors.errorString",
+            "message": "timeout waiting for label(\"Search library\" exact=false): element is not visible"
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1024,
+        "height": 900
+      },
+      "checks": [
+        {
+          "id": "viewport-run",
+          "status": "FAIL",
+          "evidence": {
+            "exception": "*errors.errorString",
+            "message": "timeout waiting for label(\"Search library\" exact=false): element is not visible"
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "name": "wide",
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": [
+        {
+          "id": "viewport-run",
+          "status": "FAIL",
+          "evidence": {
+            "exception": "*errors.errorString",
+            "message": "timeout waiting for label(\"Search library\" exact=false): element is not visible"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 0,
+    "fail": 4,
+    "skip": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "helix-reader-desktop",
+  "productName": "Helix Reader",
+  "version": "0.1.0",
+  "description": "Helix Reader Linux desktop shell around clients/web",
+  "private": true,
+  "main": "main.js",
+  "license": "UNLICENSED",
+  "author": "Helix Reader",
+  "scripts": {
+    "test": "node --test test/",
+    "start": "node -e \"console.error('Electron must not be launched on the host desktop; run it in the isolated container: qa/isolation/run_desktop_live.sh');process.exit(64)\"",
+    "package": "bash scripts/package.sh"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "45.4.1",
+    "playwright-core": "1.65.1"
+  }
+}

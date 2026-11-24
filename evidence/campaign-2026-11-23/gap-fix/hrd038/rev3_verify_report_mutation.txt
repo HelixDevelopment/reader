@@ -1,0 +1,20 @@
+baseline on the copy: GREEN
+M1 symlinked report allowed: KILLED
+M2 unreadable report ignored: KILLED
+M3 empty cases allowed: KILLED
+M4 duplicate ids allowed: KILLED
+M5 attempts not required: KILLED
+M6 bool attempts accepted: KILLED
+M7 page state not required: KILLED
+M8 unsafe name allowed: KILLED
+M9 symlink screenshot allowed: KILLED
+M10 sha not compared: KILLED
+M11 totals not compared: KILLED
+M12 FAIL/SKIP tolerated: KILLED
+M13 unpinned allowed: KILLED
+M14 case pin ignored: KILLED
+M15 step pin ignored: KILLED
+M16 pin_errors ignored: KILLED
+M17 stray png ignored: KILLED
+M18 exit always 0: KILLED
+mutation: 18 mutants, 0 survived/invalid; working tree untouched

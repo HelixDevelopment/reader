@@ -1,0 +1,8 @@
+    zz_probe_test.go:14:   16 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged  0/10
+    zz_probe_test.go:14:   32 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:   48 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:   64 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:  100 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:  128 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:  256 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10
+    zz_probe_test.go:14:  300 B/iter: per-iteration-allocation leak flagged 10/10; single-growing-slice (staircase) leak flagged 10/10

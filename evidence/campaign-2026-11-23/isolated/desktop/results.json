@@ -1,0 +1,127 @@
+{
+  "gui": true,
+  "checks": [
+    {
+      "id": "server-has-works",
+      "status": "PASS",
+      "evidence": {
+        "expected": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "window-title",
+      "status": "PASS",
+      "evidence": {
+        "title": "Helix Reader"
+      }
+    },
+    {
+      "id": "origin-is-app-scheme",
+      "status": "PASS",
+      "evidence": {
+        "url": "app://helix/index.html"
+      }
+    },
+    {
+      "id": "real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "chromium-sandbox-state",
+      "status": "WARN",
+      "evidence": {
+        "electron_processes": 7,
+        "renderers": [
+          {
+            "pid": "95",
+            "seccomp": "2"
+          }
+        ],
+        "any_no_sandbox_flag": true,
+        "sandboxed": false,
+        "expected": false
+      }
+    },
+    {
+      "id": "no-node-in-renderer",
+      "status": "PASS",
+      "evidence": {
+        "require": "undefined",
+        "process": "undefined",
+        "shell": "undefined"
+      }
+    },
+    {
+      "id": "csp-blocks-external-fetch",
+      "status": "PASS",
+      "evidence": {
+        "net": "blocked"
+      }
+    },
+    {
+      "id": "no-cookies",
+      "status": "PASS",
+      "evidence": {
+        "cookie": ""
+      }
+    },
+    {
+      "id": "no-console-errors",
+      "status": "PASS",
+      "evidence": {
+        "unexpected": [],
+        "expected_csp_probe_errors": 2
+      }
+    },
+    {
+      "id": "password-never-in-userdata-json",
+      "status": "PASS",
+      "evidence": {
+        "files": [
+          "Cache",
+          "Code Cache",
+          "Cookies",
+          "Cookies-journal",
+          "Crashpad",
+          "DIPS",
+          "DIPS-wal",
+          "DawnGraphiteCache",
+          "DawnWebGPUCache",
+          "DevToolsActivePort",
+          "Dictionaries",
+          "Extension State",
+          "GPUCache",
+          "GPUPersistentCache",
+          "Local Storage",
+          "Session Storage",
+          "Shared Dictionary",
+          "Trust Tokens",
+          "Trust Tokens-journal",
+          "blob_storage",
+          "declarative_performance_observer.db",
+          "declarative_performance_observer.db-journal"
+        ]
+      }
+    },
+    {
+      "id": "navigation-locked-to-app-origin",
+      "status": "PASS",
+      "evidence": {
+        "nav": "attempted",
+        "url": "app://helix/index.html#/works/work-9910010bb9fd5331bc89251a"
+      }
+    }
+  ],
+  "failed": 0
+}

@@ -1,0 +1,16 @@
+KILLED         navigation: drop host check
+KILLED         navigation: allow https
+KILLED         request: allow https
+KILLED         server url: allow embedded credentials
+KILLED         proxy: allow all methods
+KILLED         proxy: leak set-cookie
+KILLED         proxy: forward cookie
+KILLED         proxy: forward host
+KILLED         proxy: forward x-http-method-override
+KILLED         proxy: forward x-forwarded-*
+KILLED         main: carry stored password to a different server origin
+KILLED         proxy: allow encoded dot/slash
+KILLED         static: allow .. segments
+EQUIVALENT     static: no root containment (unreachable: '..' segments are rejected earlier; containment kept as defence in depth)
+KILLED         csp: script unsafe-inline
+KILLED         secrets: persist without encryption
