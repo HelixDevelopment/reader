@@ -274,14 +274,16 @@ class I1Lint(unittest.TestCase):
         for c in self.BENIGN: self.assertEqual(self.scan(g, c), [], c)
     def test_global_option_shape_still_gets_the_escape_check(self):
         g = load(self.G, "g_r4i1b"); self.assertIn("container-escape", self.scan(g, "podman --root /tmp/r run --privileged img"))
-    def mutant(self, old, new):
-        s = self.G.read_text(); self.assertIn(old, s); t = tempfile.mkdtemp(prefix="i1m-", dir=CT); self.addCleanup(shutil.rmtree, t, True)
+    def mutant(self, old, new, extra=None):
+        s = self.G.read_text(); self.assertIn(old, s)
+        if extra: self.assertIn(extra[0], s); s = s.replace(extra[0], extra[1], 1)      # round 5: the token view also normalises list forms, so that view is mutated too
+        t = tempfile.mkdtemp(prefix="i1m-", dir=CT); self.addCleanup(shutil.rmtree, t, True)
         p = pathlib.Path(t, "m.py"); p.write_text(s.replace(old, new, 1)); return load(p, "g_i1m" + str(abs(hash(old))))
     def test_mutant_without_global_option_normalisation_misses_the_global_shapes(self):
         gm = self.mutant("return _GLOBOPT.sub(lambda m: m.group(1), b)", "return b")
         missed = [c for c in self.SHAPES[:6] if "container-outside-isolation" not in self.scan(gm, c)]; self.assertGreaterEqual(len(missed), 3, missed)
     def test_mutant_without_the_list_form_misses_python_lists(self):
-        gm = self.mutant('(?:podman-remote|buildah|runc|crun', '(?:zzzx|buildah|runc|crun')
+        gm = self.mutant('(?:podman-remote|buildah|runc|crun', '(?:zzzx|buildah|runc|crun', extra=("tuple(_normrt(_tokview(v)) for v in views)", "()"))
         self.assertNotIn("container-outside-isolation", self.scan(gm, 'subprocess.run(["podman-remote","run","x"])'))
     def test_mutant_without_the_extra_family_misses_incus_and_kubectl(self):
         gm = self.mutant('incus\\s+(?:exec|launch|start|shell|run)\\b|', "")

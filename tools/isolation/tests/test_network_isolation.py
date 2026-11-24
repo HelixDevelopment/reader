@@ -64,9 +64,8 @@ class NetworkIsolation(unittest.TestCase):
         self.assertEqual(self.canary.hits, 0)
 
     def test_bridge_really_reaches_upstream(self):
-        cmd = [str(ROOT / "tools/isolation/run_container.sh"), "-n", "hrdiso-nettest-c", "-b", str(self.sock), "--", "node", "-e",
-               "fetch('http://127.0.0.1:38191/healthz').then(r=>r.text()).then(t=>console.log('GOT:'+t))"]
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        r = c.run_raw(["-n", "hrdiso-nettest-c", "-b", str(self.sock)], ["node", "-e",
+               "fetch('http://127.0.0.1:38191/healthz').then(r=>r.text()).then(t=>console.log('GOT:'+t))"])
         self.assertIn("GOT:UPSTRM", r.stdout, r.stderr)
         self.assertIn("GET /healthz -> 200", pathlib.Path(self.work, "access.log").read_text())
 
@@ -84,8 +83,7 @@ const post = (p, body) => fetch('http://127.0.0.1:38191' + p, {method: 'POST', b
 })();
 """
     def run_admin_attempts(self):
-        cmd = [str(ROOT / "tools/isolation/run_container.sh"), "-n", "hrdiso-nettest-d", "-b", str(self.sock), "--", "node", "-e", self.ADMIN_JS % {"port": self.canary.port}]
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        r = c.run_raw(["-n", "hrdiso-nettest-d", "-b", str(self.sock)], ["node", "-e", self.ADMIN_JS % {"port": self.canary.port}])
         line = [l for l in r.stdout.splitlines() if l.startswith("ADMIN:")]
         self.assertTrue(line, r.stderr); return json.loads(line[0][6:])
 
@@ -109,8 +107,7 @@ const post = (p, body) => fetch('http://127.0.0.1:38191' + p, {method: 'POST', b
             for _ in range(60):
                 try: urllib.request.urlopen(f"http://127.0.0.1:{port}/readyz", timeout=1); break
                 except Exception: time.sleep(0.5)
-            cmd = [str(ROOT / "tools/isolation/run_container.sh"), "-n", "hrdiso-nettest-e", "-b", f"{st}/sock", "--", "node", "-e", self.ADMIN_JS % {"port": self.canary.port}]
-            r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            r = c.run_raw(["-n", "hrdiso-nettest-e", "-b", f"{st}/sock"], ["node", "-e", self.ADMIN_JS % {"port": self.canary.port}])
             out = json.loads([l for l in r.stdout.splitlines() if l.startswith("ADMIN:")][0][6:])
             for k in ("webdav_to_canary", "scan", "local_root", "list_sources", "admin_prefix"):
                 self.assertIn(out[k], (403, 404), out)

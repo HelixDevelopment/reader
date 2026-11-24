@@ -120,7 +120,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
 
 ## 4. Guard and gate (F2) - a lint
 
-* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 265-case evader matrix, pinned-waiver tests, bind tests, proxy
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 268-case evader matrix, pinned-waiver tests, bind tests, proxy
   route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
   startup-race tests; needs rootless podman and the image).
 * Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
@@ -150,7 +150,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   15 lines of a file under `qa/isolation/inside/` or `submodules/containers/images/` (ignored anywhere else). Such files
   must not be executable and may not be referenced by file name from host-side files (only the directory mount is allowed).
 * Exemptions are PINNED (N3) in `tools/isolation/guard/waivers.txt`, one line `kind|path|sha256|rule|justification|expires`, exact
-  paths only (no globs), expiry at most 366 days out: `self` (the lint's own NINE sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
+  paths only (no globs), expiry at most 366 days out: `self` (the lint's own TEN sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
   `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`,
   `tests/test_review_round1.py`, `tests/test_review_round2.py`, `tests/test_review_round3.py`; not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
   thing in order to refuse it is honoured ONLY in a pinned file under `tools/isolation/`; an unpinned marker is itself a finding
@@ -162,7 +162,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
   (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
 * Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
-  `mutants_codec.py`): 265 cases = 253 REQUIRED (round 4 added 22 global-option / wider-runtime-family shapes and 4 Python list forms; earlier: 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
+  `mutants_codec.py`): 279 cases = 268 REQUIRED, 11 documented residuals (round 5 added 14 shapes - quoted global-option values with spaces, Python list / JS array forms, docker compose / docker-compose / podman-compose - and one former residual, a command substitution in the command word, is now caught; round 4 added 22 global-option / wider-runtime-family shapes and 4 Python list forms; earlier: 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
   extensions, container escapes, inside-script references, obfuscation, recon) and 12 documented RESIDUAL cases. HONEST
   CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
   80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
@@ -348,3 +348,35 @@ Tests and paired mutants: `tools/isolation/tests/test_review_round4.py`.
   `systemd-nspawn`, `machinectl`, `flatpak-spawn`, `multipass`, `limactl`, `vagrant`, `host-spawn`, `ch-run`, `podman start -a`, `container runlabel`,
   `pod create` and the Python / JS list form of the whole family are findings; 26 matrix entries were added. Waiver counts after this round:
   16 container-outside-isolation rows (unchanged, `run_container.sh` repinned), 9 `self` sources (round 3 had 8; the new one is `test_review_round4.py`).
+
+### 8.4 Raw-capture mode for consumers of container output (review round 5)
+
+Class R5-B1 "a consumer that PARSES what run_container.sh printed". Round 4 made the attached output of `run_container.sh` a sanitized, merged, `[container] `-prefixed,
+4000-character-capped TERMINAL stream; that is right for a person and wrong for a parser (a HelixQA runner exited 0 with nothing published, the network gate could never pass).
+
+* `run_container.sh -o RAWDIR`: stdout and stderr go UNMERGED, byte for byte, uncapped, to `RAWDIR/stdout.raw` and `RAWDIR/stderr.raw` (mode 0600). RAWDIR is host-only: absolute,
+  canonical, a real non-link directory, owned by you, mode 0700, not inside a container-writable source, not combinable with `-d`. Nothing of the container reaches the terminal raw: a
+  sanitized copy (`[container] ` / `[container:stderr] ` prefixes) goes to stderr, stdout stays empty, the exit status is the container's. The raw files are not deleted by the wrapper.
+  There is no size cap on the raw files (the container lifetime `-t` and its memory cap bound them; a total-bytes cap is UNCONFIRMED/not implemented).
+* A consumer reads the raw files but re-validates (`json.loads`) and sanitizes (`sanitize.py`) anything it prints or publishes. Python: `tools/isolation/rawrun.py run_raw(wrapper_args, cmd)`.
+* Consumer table (grep of the whole tree for `run_container.sh`; each parsing consumer has a behavioural test and a paired mutant in `tests/test_review_round5.py`):
+
+| consumer | parses output? | handling |
+|---|---|---|
+| `qa/isolation/run_helixqa_container.sh` | yes (text + JSON split) | `-o` + `qa/isolation/helixqa_publish.py`; fails closed: any split / JSON failure exits 1, publishes nothing, keeps `hq-raw/`, prints no success line; exit record is `helixqa_http.exit.txt` (the old `.exit` name is not allow-listed) |
+| `tools/isolation/tests/canary_probe.py` (used by `test_network_isolation.py`) | yes (JSON line) | `run_raw` |
+| `tools/isolation/tests/test_network_isolation.py` (3 call sites) | yes (`GOT:`, `ADMIN:`) | `run_raw` |
+| `tools/isolation/tests/test_runtime_checks.py` (wrapper case) | yes (env names) | `run_raw` |
+| `qa/isolation/run_web_live.sh`, `run_desktop_live.sh` | no | terminal copy only; evidence comes from a `-w` dir through `scan --allow` |
+| `qa/isolation/run_koreader_gui.sh` | no (detached) | `podman exec` output through `sanitize.py` (round 4) |
+| `tools/isolation/tests/test_reaper.py` | no | stdout to DEVNULL |
+| `test_bindcheck.py`, `test_review_round*.py` | the wrapper itself | skipped by name in the gate |
+
+* Gate `tools/isolation/check_raw_consumers.py` (run by `assert_host_untouched.sh`): any shell line or Python subprocess call that captures run_container.sh output without `-o` (or a
+  `raw-consumer-exempt: <reason>` marker) FAILS; paired mutants restore the old redirection / drop `-o`.
+* Minors: bidi / line-separator controls are stripped (mutant S4 now killed); a lone ESC never survives and may consume the one byte that follows it (a two-byte escape sequence is removed whole,
+  which is the safe direction); the 4000-character line cap applies to the terminal copy only, raw files are uncapped.
+* Lint (R5-I1): the lint now builds a token view (quoted strings are one word, list / array separators become spaces) before global-option normalisation, so `podman --root "/tmp/a b" run`,
+  `["podman","--root","/x","run"]`, `spawnSync("podman",["--root","/x","run"])` and `docker compose run`, `docker-compose up`, `podman-compose up`, `podman compose up` are findings.
+* Residual (UNCONFIRMED, honest): consumers other than the ones in the table that a future change adds are caught only by the gate's shapes (shell pipes / redirections / substitutions,
+  Python subprocess captures); an exotic capture (a named pipe, `exec >file`) is not seen. No live run (container-gated tests) was performed.

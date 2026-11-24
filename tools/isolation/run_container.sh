@@ -8,6 +8,11 @@
 #   -p FILE     also write the container's isolation facts (podman inspect subset, env names only) to FILE. FILE must be a HOST-ONLY path: absolute,
 #               canonical, its directory a real (non-link) directory that is NOT inside any rw-bound source (review round 3: a container could
 #               otherwise rewrite the proof). Publish it into the evidence dir AFTER the container stopped (safe_io put).
+#   -o RAWDIR   RAW-CAPTURE mode (review round 5, R5-B1) for every consumer that PARSES the container's output: stdout and stderr are written UNMERGED, byte for byte,
+#               to RAWDIR/stdout.raw and RAWDIR/stderr.raw (mode 0600, no length cap) and NOTHING of them reaches the terminal raw; only a sanitized, "[container] "-prefixed
+#               copy goes to stderr (stdout stays empty). RAWDIR must be a HOST-ONLY directory: absolute, canonical, a real non-link directory, owned by you, mode 0700,
+#               not inside any rw-bound source. A consumer reads the raw files but must re-validate (json.loads / sanitize.py) anything it prints or publishes.
+#               Not combinable with -d. Without -o (attached) the output is the sanitized, merged, line-capped terminal stream and MUST NOT be parsed.
 #   -t          maximum lifetime in seconds (podman --timeout; default 1800): an orphaned container dies by itself
 #   -r / -w     read-only / read-write bind; sources must pass tools/isolation/bindcheck.py (allow-list)
 #   -e          explicit container env (the host env is never inherited)
@@ -17,9 +22,9 @@
 # Container names must start hrdiso- or hrdisorev-; stale ones from a killed runner are reaped on every start.
 set -eu
 HERE=$(cd "$(dirname "$0")" && pwd); REPO=$(cd "$HERE/../.." && pwd)
-NAME=hrdiso-$$; MEM=2g; CPUS=2; LIFE=1800; IMG=localhost/helix-gui-test:1; BINDS=(); DSTS=(); ENVS=(); DETACH=(); BRIDGE=; PROOF=; RWSRC=()
-while getopts "dn:m:c:t:i:b:p:r:w:e:" o; do case $o in
-  d) DETACH=(-d);; n) NAME=$OPTARG;; m) MEM=$OPTARG;; c) CPUS=$OPTARG;; t) LIFE=$OPTARG;; i) IMG=$OPTARG;; b) BRIDGE=$OPTARG;; p) PROOF=$OPTARG;;
+NAME=hrdiso-$$; MEM=2g; CPUS=2; LIFE=1800; IMG=localhost/helix-gui-test:1; BINDS=(); DSTS=(); ENVS=(); DETACH=(); BRIDGE=; PROOF=; RAWDIR=; RWSRC=()
+while getopts "dn:m:c:t:i:b:p:o:r:w:e:" o; do case $o in
+  d) DETACH=(-d);; n) NAME=$OPTARG;; m) MEM=$OPTARG;; c) CPUS=$OPTARG;; t) LIFE=$OPTARG;; i) IMG=$OPTARG;; b) BRIDGE=$OPTARG;; p) PROOF=$OPTARG;; o) RAWDIR=$OPTARG;;
   r) IFS=: read -r s d <<<"$OPTARG"; case " ${DSTS[*]:-} " in *" $d "*) echo "run_container: duplicate destination $d" >&2; exit 64;; esac
      real=$(python3 -I "$HERE/bindcheck.py" ro "$s" "$d") || exit 64; DSTS+=("$d"); BINDS+=(-v "$real:$d:ro");;
   w) IFS=: read -r s d <<<"$OPTARG"; case " ${DSTS[*]:-} " in *" $d "*) echo "run_container: duplicate destination $d" >&2; exit 64;; esac
@@ -59,6 +64,15 @@ if [ -n "$PROOF" ]; then
     case "$PDIR/" in "$rs"/*) echo "run_container: -p $PROOF lies inside the container-writable $rs: keep the proof in a host-only directory and publish it after the run" >&2; exit 64;; esac
   done
 fi
+if [ -n "$RAWDIR" ]; then
+  [ ${#DETACH[@]} -eq 0 ] || { echo "run_container: -o cannot be combined with -d" >&2; exit 64; }
+  [[ $RAWDIR =~ ^/[A-Za-z0-9_./-]+$ ]] && [ "$(python3 -I -c 'import os,sys;print(os.path.normpath(sys.argv[1]))' "$RAWDIR")" = "$RAWDIR" ] || { echo "run_container: -o must be a canonical absolute path of [A-Za-z0-9_./-]: $RAWDIR" >&2; exit 64; }
+  [ -d "$RAWDIR" ] && [ ! -L "$RAWDIR" ] && [ "$(realpath "$RAWDIR")" = "$RAWDIR" ] || { echo "run_container: -o directory $RAWDIR must be an existing real directory (no symlink in its path)" >&2; exit 64; }
+  [ "$(stat -c '%a %u' "$RAWDIR")" = "700 $(id -u)" ] || { echo "run_container: -o directory $RAWDIR must be mode 0700 and owned by you" >&2; exit 64; }
+  for rs in "${RWSRC[@]:-}"; do [ -z "$rs" ] && continue
+    case "$RAWDIR/" in "$rs"/*) echo "run_container: -o $RAWDIR lies inside the container-writable $rs: raw output must stay host-only" >&2; exit 64;; esac
+  done
+fi
 podman image exists "$IMG" || { echo "image $IMG missing; build: podman build -t $IMG submodules/containers/images/gui-test" >&2; exit 66; }
 "$HERE/reap.sh" >/dev/null || true
 [ -z "$PROOF" ] || { python3 -I "$HERE/container_proof.py" "$NAME" "$PROOF" >/dev/null 2>&1 & }
@@ -72,5 +86,13 @@ RUN=(podman run "${DETACH[@]}" --rm --name "$NAME" --network none --timeout "$LI
 # every line prefixed "[container] ") before they reach the operator's terminal, a tee or a log; podman's exit status is preserved via PIPESTATUS.
 # Detached mode prints only the container id (host-generated) and keeps the exec.
 if [ ${#DETACH[@]} -gt 0 ]; then exec "${RUN[@]}"; fi
+if [ -n "$RAWDIR" ]; then
+  # R5-B1: machine consumers get the container's streams raw and UNMERGED in host-only files; the terminal sees only a sanitized copy (on stderr)
+  rm -f "$RAWDIR/stdout.raw" "$RAWDIR/stderr.raw"; RC=0
+  ( umask 077; set -C; "${RUN[@]}" > "$RAWDIR/stdout.raw" 2> "$RAWDIR/stderr.raw" ) || RC=$?
+  python3 -I "$HERE/sanitize.py" < "$RAWDIR/stdout.raw" >&2 || true
+  python3 -I "$HERE/sanitize.py" --prefix "[container:stderr] " < "$RAWDIR/stderr.raw" >&2 || true
+  exit "$RC"
+fi
 "${RUN[@]}" 2>&1 | python3 -I "$HERE/sanitize.py"
 exit "${PIPESTATUS[0]}"

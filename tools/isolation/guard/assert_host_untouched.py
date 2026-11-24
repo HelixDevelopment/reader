@@ -81,7 +81,7 @@ TOOLS = ["xdotool", "ydotool", "dotool", "wtype", "wmctrl", "xclip", "xsel", "wl
          "chromium", "chromium-browser", "google-chrome", "firefox", "electron", "gio", "xwininfo", "xdpyinfo", "xvkbd"]
 # R3-I4: the runtime family beyond podman/docker/nerdctl: every other way of starting a process in a namespace / sandbox / container is the same class
 # ("a runtime call that bypasses run_container.sh"). Command-position anchored so prose and identifiers do not match.
-RUNTIME_EXTRA = (r"(?:^|[\s;&|(`'\"=/{}])(?:podman-remote\s+\S|buildah\s+(?:run|bud|build)\b|runc\s+(?:run|exec|create|start)\b|lxc\s+(?:exec|launch|start|shell|run)\b|"
+RUNTIME_EXTRA = (r"(?:^|[\s;&|(`'\"=/{}])(?:(?:docker|podman|nerdctl)\s+compose\s+(?:run|up|start|exec|create)\b|(?:docker|podman|nerdctl)-compose\s+(?:run|up|start|exec|create)\b|podman-remote\s+\S|buildah\s+(?:run|bud|build)\b|runc\s+(?:run|exec|create|start)\b|lxc\s+(?:exec|launch|start|shell|run)\b|"
                  r"lxc-(?:execute|attach|start|create)\b|(?:apptainer|singularity)\s+(?:run|exec|shell|instance)\b|distrobox(?:-enter|-create|\s+(?:enter|create|run))\b|"
                  r"toolbox\s+(?:run|enter|create)\b|flatpak\s+run\b|systemd-run\b|bwrap\b|nsenter\b|unshare\b|chroot\b|"
                  r"crun\s+(?:run|exec|create|start)\b|incus\s+(?:exec|launch|start|shell|run)\b|ctr\s+(?:\S+\s+)*?(?:run|exec|start)\b|kubectl\s+(?:run|exec|debug|attach|cp)\b|"
@@ -94,9 +94,14 @@ RUNTIME_EXTRA = (r"(?:^|[\s;&|(`'\"=/{}])(?:podman-remote\s+\S|buildah\s+(?:run|
 # R4-I1: a GLOBAL option between the CLI and the subcommand (`podman --root X run`, `docker --context c run`, `docker -H h run`, `podman --remote exec`) must not hide
 # the subcommand: tokenize-ish normalisation drops leading `-x`/`--x[=v]`/`--x v` words before run/create/exec/cp/start (an option's value is the next word unless that word is
 # itself a subcommand), the original view is still checked as well.
-_GLOBOPT = re.compile(r"\b(podman|docker|nerdctl|buildah)((?:\s+--?[A-Za-z][\w-]*(?:=\S+|\s+(?!(?:container|pod|run|create|exec|cp|start|build|runlabel)\b)[^\s-]\S*)?)+)(?=\s+(?:container\s+|pod\s+)?(?:run|create|exec|cp|start|runlabel)\b)")
+_GLOBOPT = re.compile(r"\b(podman|docker|nerdctl|buildah)((?:\s+--?[A-Za-z][\w-]*(?:=\S+|\s+(?!(?:container|pod|compose|run|create|exec|cp|start|build|runlabel)\b)[^\s-]\S*)?)+)(?=\s+(?:container\s+|pod\s+)?(?:compose\s+(?:run|up|start|exec|create)|run|create|exec|cp|start|runlabel)\b)")
 def _normrt(b):
     return _GLOBOPT.sub(lambda m: m.group(1), b)
+def _tokview(b):
+    """review round 5 (R5-I1): a TOKEN view - quoted strings become one word (inner whitespace -> "_", quotes dropped), list / array separators become spaces - so the same
+    shape written as a shell word list, a quoted value with spaces, a Python list ["podman","--root",...] or a JS spawnSync("podman",[...]) array normalises identically."""
+    t = re.sub(r'"([^"]*)"|\'([^\']*)\'', lambda m: re.sub(r"\s+", "_", m.group(1) if m.group(1) is not None else m.group(2)), b)
+    return re.sub(r"\s+", " ", re.sub(r"[\[\],()]", " ", t))
 
 CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b|" + RUNTIME_EXTRA)
 # R2-I2: ANY container-runtime run/create/exec/cp outside tools/isolation/ (the one place that owns the hardened launch path) is a finding unless
@@ -122,7 +127,7 @@ ANY = _union(None)
 _SPLICE1 = re.compile(r"[\"']\s*\+\s*[\"']"); _SPLICE2 = re.compile(r"(?<=\w)(?:''|\"\")(?=\w)"); _SPLICE3 = re.compile(r"(?<=[A-Za-z])\\(?=[A-Za-z])")
 _QUOTES = re.compile(r"[\"'\\]")
 _GLOBCH = re.compile(r"[*?\[]")
-_CMDWORDS = ("podman", "docker", "nerdctl", "buildah", "crun", "incus", "ctr", "kubectl", "firejail", "toolbx", "systemd-nspawn", "machinectl", "flatpak-spawn", "multipass", "limactl", "vagrant", "host-spawn", "ch-run", "runc", "lxc", "apptainer", "singularity", "distrobox", "toolbox", "flatpak", "systemd-run", "bwrap", "nsenter", "unshare", "chroot")
+_CMDWORDS = ("compose", "podman", "docker", "nerdctl", "buildah", "crun", "incus", "ctr", "kubectl", "firejail", "toolbx", "systemd-nspawn", "machinectl", "flatpak-spawn", "multipass", "limactl", "vagrant", "host-spawn", "ch-run", "runc", "lxc", "apptainer", "singularity", "distrobox", "toolbox", "flatpak", "systemd-run", "bwrap", "nsenter", "unshare", "chroot")
 
 JSON_RULES = {"headed-browser", "electron-launch", "container-escape", "display-env", "xdotool-family", "uinput", "gui-automation-lib", "portal-or-dbus", "x11-socket"}
 ANY_DATA = _union(JSON_RULES)
@@ -417,7 +422,7 @@ def scan(root, include_submodules=False, stats=None):
             low = nb.lower()
             if not any(w in low for w in _CMDWORDS) and not VARCMD.search(nb) and "kube" not in low and "qemu" not in low and "emulator" not in low and "isolation" not in low and not (shell and _GLOBCH.search(nb)):
                 continue
-            cviews = tuple(dict.fromkeys(views + tuple(_normrt(v) for v in views)))
+            cviews = tuple(dict.fromkeys(views + tuple(_normrt(v) for v in views) + tuple(_normrt(_tokview(v)) for v in views)))
             if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in cviews) or (kind == "code" and any(KUBE.search(b) for b in views)):
                 fh.append((rel, n, "container-escape", text.strip()[:160]))
             if kind == "code" and any(CONTAINER_USE.search(b) for b in cviews):   # no blanket tools/isolation/ exemption (review round 3): each legitimate file carries its own pinned waiver row

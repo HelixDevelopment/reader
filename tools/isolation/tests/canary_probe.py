@@ -1,6 +1,7 @@
 """Helper for the network gate: run a container with the given wrapper args and probe host-loopback canaries."""
 import json, socket, subprocess, threading, os, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / "tools/isolation")); from rawrun import run_raw   # R5-B1: parse the RAW container streams, never the sanitized terminal copy
 
 def listening_ports():
     """Every TCP port a host process is listening on (loopback or wildcard)."""
@@ -26,7 +27,6 @@ class Canary:
     def close(self): self.s.close()
 
 def probe(wrapper_args, targets):
-    cmd = [str(ROOT / "tools/isolation/run_container.sh"), *wrapper_args, "--", "node", "/opt/isoinside/net_probe.js", ",".join(dict.fromkeys(targets))]
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    r = run_raw(wrapper_args, ["node", "/opt/isoinside/net_probe.js", ",".join(dict.fromkeys(targets))])
     line = [l for l in r.stdout.splitlines() if l.startswith("{")]
     return (json.loads(line[-1]) if line else {}), r

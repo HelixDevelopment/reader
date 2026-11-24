@@ -1,5 +1,5 @@
 """F2 runtime gate: the in-container launch.sh refuses a container that carries host display/session state."""
-import pathlib, subprocess, unittest
+import pathlib, subprocess, sys, unittest
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 IMG = "localhost/helix-gui-test:1"
 def direct(extra, cmd=("true",)):
@@ -27,7 +27,8 @@ class Runtime(unittest.TestCase):
                             IMG, "sh", "/opt/isoinside/launch.sh", "--", "true"], capture_output=True, text=True, timeout=90)
         self.assertEqual(r.returncode, 65, r.stderr)
     def test_container_env_via_wrapper_has_no_host_session(self):
-        r = subprocess.run([str(ROOT / "tools/isolation/run_container.sh"), "-n", "hrdiso-rt3", "--", "env"], capture_output=True, text=True, timeout=90)
+        sys.path.insert(0, str(ROOT / "tools/isolation")); from rawrun import run_raw     # R5-B1: the container's env is PARSED, so read the raw stream
+        r = run_raw(["-n", "hrdiso-rt3"], ["env"], timeout=90)
         for k in ("WAYLAND", "XAUTHORITY", "DBUS", "XDG_RUNTIME_DIR", "SSH_AUTH_SOCK"):
             self.assertNotIn(k, r.stdout)
 if __name__ == "__main__":
