@@ -28,7 +28,7 @@ deps:
 
   - name: doc_processor
     ssh_url: git@github.com:HelixDevelopment/DocProcessor.git
-    ref: 12a5fb7
+    ref: 01084c9ef060549121d5304ada0adceb4c4481db
     why: "HelixQA go.mod replace target (digital.vasic.docprocessor => ../doc_processor); required so submodules/helixqa builds reproducibly (11.4.28 / 11.4.278)"
     layout: grouped
 
