@@ -1,0 +1,16 @@
+g_test.go
+=== RUN   TestDiff
+    g_test.go:110: docs=2013620 accepted-by-original=493131
+    g_test.go:112: C02_canon_decode_err_EQUIV diffs=0
+    g_test.go:112: C10_wtm_key_notstring_UNREACHABLE diffs=0
+    g_test.go:112: C11_wtm_decode_err_EQUIV diffs=0
+    g_test.go:112: C22_snd_key_notstring_UNREACHABLE diffs=0
+    g_test.go:112: C28_snd_default_UNREACHABLE diffs=0
+    g_test.go:112: C47_wc_default_UNREACHABLE diffs=0
+    g_test.go:112: C63_cn_first_empty_digits_EQUIV diffs=0
+    g_test.go:112: C64_cn_second_empty_digits_UNREACHABLE diffs=0
+--- PASS: TestDiff (191.94s)
+PASS
+ok  	diffh	191.964s
+
+[exited with code 0]

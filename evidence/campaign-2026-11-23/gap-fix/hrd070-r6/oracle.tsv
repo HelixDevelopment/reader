@@ -1,0 +1,26 @@
+# file	func	oracle (function-level fallback for rows without a hand-written reason)
+core/pkg/lcp/canonical.go	Canonical	spec mode is the default (upper-case hex, normalised numbers): TestHRD070CanonicalOutput
+core/pkg/lcp/canonical.go	CanonicalAsReference	reference mode (lower-case hex, numbers passed through): TestHRD070CanonicalOutput
+core/pkg/lcp/canonical.go	CanonicalForSigning	spec mode is the signing default: TestHRD070CanonicalForSigning
+core/pkg/lcp/canonical.go	CanonicalForSigningMode	TestHRD070CanonicalForSigning: expected strings and sentinels by hand (signature member removed, rest canonical)
+core/pkg/lcp/canonical.go	canonicalNumber	TestHRD070CanonicalOutput / CanonicalRejections: rule 4 normalisation and the exponent limits, expected strings by hand
+core/pkg/lcp/canonical.go	canonicalWithMode	TestHRD070CanonicalOutput / CanonicalRejections: expected strings and sentinels derived by hand from LCP 1.0 section 5.3 rules 1-5
+core/pkg/lcp/canonical.go	noDuplicateMembers	TestHRD070CanonicalRejections: RFC 8259 duplicate-member and trailing-data cases, sentinel ErrAmbiguousLicense / ErrLicenseSyntax
+core/pkg/lcp/canonical.go	scanNoDupes	TestHRD070CanonicalRejections: duplicate members at any depth, arrays, scalars, truncation; sentinels by hand
+core/pkg/lcp/canonical.go	withoutTopLevelMember	TestHRD070CanonicalForSigning: members, order, truncation and shape cases with hand-derived expected strings/sentinels
+core/pkg/lcp/canonical.go	writeCanonical	TestHRD070CanonicalOutput: every JSON value kind, separators and member order, expected strings by hand (rules 1-3)
+core/pkg/lcp/canonical.go	writeCanonicalString	TestHRD070CanonicalOutput: rule 5 escapes, hex case per mode, U+2028/9 per mode, expected strings by hand
+core/pkg/lcp/license.go	Link.UnmarshalJSON	TestHRD070LinkLength and the Parse-level length cases: non-negative integer as number or string, absent/null = 0
+core/pkg/lcp/lsd.go	LSDLink.HasRel	TestHRD070LSDLinkHasRel and the legal-document tests: relation lookup in any position
+core/pkg/lcp/lsd.go	NeedsLicenseRefresh	TestHRD070StatusVocabularyAndRefresh: SPEC l.244 table of nil/equal/older/newer/issued-fallback cases by hand
+core/pkg/lcp/lsd.go	StatusValue.valid	TestHRD070StatusVocabularyAndRefresh: the six words of SPEC l.151 and nothing else
+core/pkg/lcp/lsd.go	statusErr	every status rejection is errors.Is ErrStatusDocument (TestHRD070LSDRejectionClasses)
+server/internal/kosync/memory.go	Memory.Close	TestHRD070MemoryStore: Close returns nil
+server/internal/kosync/memory.go	Memory.CreateUser	TestHRD070MemoryStore: duplicate user is ErrUserExists and keeps the first verifier
+server/internal/kosync/memory.go	Memory.GetProgress	TestHRD070MemoryStore: missing is ErrProgressNotFound, users and documents independent
+server/internal/kosync/memory.go	Memory.PutProgress	TestHRD070MemoryStore: higher or equal percentage replaces, lower never regresses, first write wins even below zero
+server/internal/kosync/memory.go	Memory.UserVerifier	TestHRD070MemoryStore: unknown user is ErrUserNotFound
+server/internal/kosync/memory.go	NewMemory	TestHRD070MemoryStore: a new store accepts progress for any user
+server/internal/kosync/service.go	NewService	registration flag honoured: TestHRD070RegisterBoundaries
+server/internal/opds/pse.go	PageStreamHREF	TestHRD070PageStreamHREF: literal {pageNumber} token last, file id path-escaped
+server/internal/opds/pse.go	streamLink	TestHRD070StreamLink: OPDS-PSE count >= 1 and image/jpeg|gif|png only

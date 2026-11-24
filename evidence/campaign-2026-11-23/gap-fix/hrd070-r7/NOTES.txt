@@ -1,0 +1,10 @@
+HRD-070 round 7 (one extra round after independent NO-GO B1 on PR #12 head b1ecbb9; beyond the 11.4.276 budget, disclosed).
+Defect found by the reviewer: the r6 equivalence claim for X18 was FALSE. Go typed decode matches member names case-insensitively,
+generic["encryption"] is case-sensitive, so a top-level "Encryption" member passes the typed checks and fails the second decode:
+unmutated Parse -> ErrLicenseSyntax, X18 -> ErrIncomplete.
+Change: new test TestHRD070ParseCaseVariantEncryptionMember (core/pkg/lcpfuzz/lcpfuzz_r7_test.go). X18 re-run: KILLED (x18_rerun.log).
+Re-run scope (honest): ONLY X18 + neighbours L07, L09b, L10, X14, E01, C02 (7 mutants, x18_rerun.log). The other 306 mutants were NOT re-run:
+a test was only added, which cannot turn a recorded kill into a survivor; mutation.log is the r6 log with the X18 entry replaced by the re-run result.
+Result now: 313 mutants, 299 killed, 14 survived (5 EQUIV + 7 UNREACHABLE rows in the rule table; rule table 188 KILL / 5 EQUIV / 7 UNREACHABLE).
+Regenerated: rulemap.tsv, RULES.md (enumerate_rules.py map + check: OK 200 branches in 48 covered functions). hrd070-r6 is untouched.
+Follow-up N1 (production bug, NOT fixed here): Parse accepts case-variant member names ("ID" accepted as id and also listed in UnknownMembers).

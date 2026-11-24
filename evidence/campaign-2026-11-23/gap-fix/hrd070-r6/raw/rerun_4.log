@@ -1,0 +1,19 @@
+MUTANT X21_wcs_switch_selector: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 293-293
+  restored: GREEN again
+MUTANT X22_pageurl_offset_dropped: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/opds12.go 115-115
+  restored: GREEN again
+MUTANT X23_acq12_entries_dropped: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+--- FAIL: TestHRD070OPDSEntry12 (0.00s)
+  edits server/internal/opds/opds12.go 144-144
+  restored: GREEN again
+MUTANT X24_acq20_publications_dropped: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/opds20.go 28-28
+  restored: GREEN again

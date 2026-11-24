@@ -1,0 +1,3 @@
+HRD-070 round 2 (review pr3 F1-F4). Mutation kill proof in mutation.log: 15/15 KILLED incl. M4 (signature check -> if false).
+Equivalent mutant (not listed): disabling the `w.Issued == ""` check is unobservable because parseTime("") then rejects with a syntax error.
+Scripts are path-independent (script-relative root; override with R=). 5-minute runs of all 6 targets: fuzz_summary.txt (all exit=0, 0 crashers).

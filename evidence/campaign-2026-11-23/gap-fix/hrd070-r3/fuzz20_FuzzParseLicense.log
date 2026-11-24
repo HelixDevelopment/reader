@@ -1,0 +1,11 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/594 completed
+fuzz: elapsed: 1s, gathering baseline coverage: 594/594 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 80644 (26881/sec), new interesting: 0 (total: 594)
+fuzz: elapsed: 6s, execs: 271320 (63546/sec), new interesting: 0 (total: 594)
+fuzz: elapsed: 9s, execs: 438893 (55852/sec), new interesting: 0 (total: 594)
+fuzz: elapsed: 12s, execs: 598588 (53247/sec), new interesting: 1 (total: 595)
+fuzz: elapsed: 15s, execs: 762055 (54486/sec), new interesting: 1 (total: 595)
+fuzz: elapsed: 18s, execs: 918208 (52045/sec), new interesting: 1 (total: 595)
+fuzz: elapsed: 20s, execs: 998912 (34067/sec), new interesting: 1 (total: 595)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	20.410s
