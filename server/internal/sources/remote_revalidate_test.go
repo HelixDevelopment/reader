@@ -373,14 +373,14 @@ func TestWebDAVOpenRangeSizedValidatesContentRange(t *testing.T) {
 		cr          string
 		off, ln, sz int64
 	}{
-		"missing":   {"", 10, 10, 1000},
-		"garbage":   {"bytes a-b/c", 10, 10, 1000},
-		"star":      {"bytes 10-19/*", 10, 10, 1000},
-		"wrong lo":  {"bytes 11-20/1000", 10, 10, 1000},
-		"wrong end": {"bytes 10-18/1000", 10, 10, 1000},
+		"missing":                {"", 10, 10, 1000},
+		"garbage":                {"bytes a-b/c", 10, 10, 1000},
+		"star":                   {"bytes 10-19/*", 10, 10, 1000},
+		"wrong lo":               {"bytes 11-20/1000", 10, 10, 1000},
+		"wrong end":              {"bytes 10-18/1000", 10, 10, 1000},
 		"wrong start, right end": {"bytes 9-19/1000", 10, 10, 1000},
-		"total":     {"bytes 10-19/1500", 10, 10, 1000},
-		"backwards": {"bytes 19-10/1000", 19, 0, 1000},
+		"total":                  {"bytes 10-19/1500", 10, 10, 1000},
+		"backwards":              {"bytes 19-10/1000", 19, 0, 1000},
 	} {
 		if err := ok(c.cr, c.off, c.ln, c.sz); err == nil {
 			t.Errorf("%s: accepted", name)
