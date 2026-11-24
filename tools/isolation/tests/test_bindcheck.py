@@ -76,6 +76,56 @@ class N5(unittest.TestCase):
             self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
             self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}))
             self.assertIsNotNone(self.chk("rw", sock, "/opt/isoinside", {"ISO_WORK": d}, bridge=True))
+    def test_bridge_dir_may_hold_its_one_real_unix_socket_only(self):
+        # HRD-076: a real run has <dir>/h.sock (a unix socket); the bridge bind must accept exactly that and nothing else
+        import socket
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock)
+            s = socket.socket(socket.AF_UNIX); s.bind(sock + "/h.sock")
+            try:
+                self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}), "socket refused without --bridge")
+                s2 = socket.socket(socket.AF_UNIX); s2.bind(sock + "/other.sock")
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "a second socket is refused")
+                s2.close()
+            finally:
+                s.close()
+    def test_bridge_exemption_needs_a_real_socket_not_a_fifo_or_hardlink_named_h_sock(self):
+        # HRD-076 review I-3: the exemption is for a SOCKET named h.sock only; a fifo or a hard-linked regular file with that name stays refused
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock)
+            os.mkfifo(sock + "/h.sock")
+            self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "fifo named h.sock must be refused")
+            os.unlink(sock + "/h.sock")
+            with open(d + "/orig", "w") as f: f.write("x")
+            os.link(d + "/orig", sock + "/h.sock")
+            self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "hard-linked file named h.sock must be refused")
+    def test_bridge_exemption_is_the_exact_top_level_path_not_any_file_named_h_sock(self):
+        # HRD-076 review I-5: a socket named h.sock in a SUBDIRECTORY of the bridge dir is refused, with and without the top-level h.sock
+        import socket
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock); os.mkdir(sock + "/sub")
+            inner = socket.socket(socket.AF_UNIX); inner.bind(sock + "/sub/h.sock")
+            try:
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "nested h.sock alone must be refused")
+                outer = socket.socket(socket.AF_UNIX); outer.bind(sock + "/h.sock")
+                try:
+                    self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "nested h.sock beside the top-level one must be refused")
+                finally:
+                    outer.close()
+            finally:
+                inner.close()
+    def test_bridge_exemption_applies_to_the_helixsock_destination_only(self):
+        # HRD-076 review M2: a real h.sock is accepted for dst /run/helixsock only, never for another destination even with --bridge
+        import socket
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock)
+            s = socket.socket(socket.AF_UNIX); s.bind(sock + "/h.sock")
+            try:
+                self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
+                self.assertIsNotNone(self.chk("rw", sock, "/opt/other", {"ISO_WORK": d}, bridge=True))
+            finally:
+                s.close()
     def test_iso_work_must_be_absolute_canonical_dedicated_and_not_sensitive(self):
         home = os.path.expanduser("~")
         bad = ["relative/dir", "~/.cache/claude-tmp/x", CT, CT + "/../../.ssh", CT + "/a/../b", CT + "//x", home + "/.ssh", home + "/.config/x", home + "/.gnupg",

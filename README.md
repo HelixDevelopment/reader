@@ -168,7 +168,11 @@ credentials or secrets.
 - [`docs/testing.md`](docs/testing.md) + [`docs/testing/`](docs/testing) — qualification matrix and result index
 - [`docs/android-device-matrix.md`](docs/android-device-matrix.md) — Android API-level x screen-size matrix in rootless containers (HRD-040)
 - [`tools/verify/README.md`](tools/verify/README.md) — Go mutation runner and container-only UI verifier, with [`PARITY.md`](tools/verify/PARITY.md)
-- [`docs/faq.md`](docs/faq.md) — production readiness, accounts, formats, protocols
+- [`docs/quickstart.md`](docs/quickstart.md) — server and clients in five steps, with real screenshots
+- [`docs/screenshots.md`](docs/screenshots.md) — index of real client screenshots/videos, capture manifests, how to reproduce, what is UNCONFIRMED
+- Client manuals: [`web`](docs/manuals/web_client_manual.md), [`Linux desktop`](docs/manuals/desktop_client_manual.md), [`KOReader`](docs/manuals/koreader_manual.md), [`Android`](docs/manuals/android_client_manual.md)
+- Tutorials: [`first library tour`](docs/tutorials/first_library_tour.md), [`KOReader OPDS and sync`](docs/tutorials/koreader_opds_and_sync.md)
+- [`docs/faq.md`](docs/faq.md) — production readiness, accounts, formats, protocols, screenshots
 - [`docs/scalability-review.md`](docs/scalability-review.md), [`docs/research/`](docs/research) — design studies
 - [`docs/workable-items.md`](docs/workable-items.md) — workable-items registry (`docs/workable_items.db` is authoritative; Issues/Fixed docs are generated)
 
