@@ -1,0 +1,5 @@
+--- FAIL: TestRedisProgressConflictResolutionAndPersistence (0.00s)
+    redis_test.go:32: conflict resolution wrong: {BookID:book DeviceID:b Pos:{Chapter:1 Block:0 Offset:0} Clock:0x28ca6a36188}
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/syncstore	0.018s
+FAIL

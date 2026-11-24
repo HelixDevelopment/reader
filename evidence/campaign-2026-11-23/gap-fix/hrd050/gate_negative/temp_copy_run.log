@@ -1,0 +1,13 @@
+=== RUN   TestMonotonicWithFrozenClock
+--- PASS: TestMonotonicWithFrozenClock (0.00s)
+=== RUN   TestClockSkewBackward
+--- PASS: TestClockSkewBackward (0.00s)
+=== RUN   TestUpdateMerge
+--- PASS: TestUpdateMerge (0.00s)
+=== RUN   TestParseRoundTrip
+--- PASS: TestParseRoundTrip (0.00s)
+=== RUN   TestZZDeliberateNewSkip
+    zz_new_skip_test.go:5: deliberate new skip to prove the gate fails (HRD-050 step 6)
+--- SKIP: TestZZDeliberateNewSkip (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hlc	0.015s

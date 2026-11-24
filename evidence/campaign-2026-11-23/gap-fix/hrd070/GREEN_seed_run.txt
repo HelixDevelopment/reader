@@ -1,0 +1,16 @@
+# GREEN: working tree fuzz inventory + seed-corpus run
+server/internal/opds/fuzz_test.go:26:func FuzzOPDSGeneration(f *testing.F) {
+server/internal/kosync/fuzz_test.go:15:func FuzzPutProgressBody(f *testing.F) {
+server/internal/kosync/fuzz_test.go:53:func FuzzRegisterInput(f *testing.F) {
+core/pkg/lcpfuzz/lcpfuzz_test.go:52:func FuzzParseLicense(f *testing.F) {
+core/pkg/lcpfuzz/lcpfuzz_test.go:76:func FuzzCanonical(f *testing.F) {
+core/pkg/lcpfuzz/lcpfuzz_lsd_test.go:18:func FuzzParseStatusDocument(f *testing.F) {
+--- PASS: TestSeedLicenseIsAccepted (0.00s)
+--- PASS: FuzzParseLicense (0.00s)
+--- PASS: FuzzCanonical (0.01s)
+ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	0.015s
+--- PASS: FuzzOPDSGeneration (0.00s)
+ok  	github.com/helixreader/helix/server/internal/opds	0.016s
+--- PASS: FuzzPutProgressBody (0.06s)
+--- PASS: FuzzRegisterInput (0.06s)
+ok  	github.com/helixreader/helix/server/internal/kosync	0.123s

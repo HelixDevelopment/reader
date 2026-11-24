@@ -1,0 +1,6 @@
+=== RUN   TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+    lock_scope_test.go:257: production: lost update: 1 editions survived 8 concurrent merges of one work
+--- FAIL: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.09s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/catalog	0.099s
+FAIL

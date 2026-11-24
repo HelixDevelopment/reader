@@ -144,8 +144,8 @@ func (r *Registry) Protocols() []Protocol {
 type Manager struct {
 	reg     *Registry
 	mu      sync.Mutex
-	sources map[string]Driver           // config ID -> connected driver
-	binds   map[string]string           // source ID -> sync account ID (optional)
+	sources map[string]Driver // config ID -> connected driver
+	binds   map[string]string // source ID -> sync account ID (optional)
 }
 
 func NewManager(reg *Registry) *Manager {

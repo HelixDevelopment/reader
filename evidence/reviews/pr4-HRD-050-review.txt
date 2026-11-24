@@ -1,0 +1,53 @@
+VERDICT: NO-GO
+HEAD: 79eb80f4d2406915c0203a205724e457ef9eb613
+Reviewer: independent subagent (not the author), 2026-11-24. Scope: tests/live/{run_gated_tests.sh,allowed_skips.txt,mutation_check.sh}, docs/live-gated-tests.md, evidence/campaign-2026-11-23/gap-fix/hrd050/**. No live runs, no containers started (host load). Scratch copies only, outside the repo.
+Head verified: git ls-remote github -> 79eb80f4... refs/heads/task/HRD-050-live-gated-tests; merge-base with github/main = e9c89d3 (head contains base tip). Trailer "Roadmap-Item: HRD-050" present.
+
+CONFIRMED OK
+- sha256sum -c SHA256SUMS in the evidence dir: rc=0.
+- --check on sealed live logs (run_A_race_live.log + run_B_load.log): rc=3, UNLISTED-SKIP TestLiveLoadIngestConcurrentWithReads (skipped in A, FAILed in B = never passed).
+- --check on baseline_server_noenv.log + baseline_core_noenv.log: rc=3 (RED). 47 SKIP lines in baseline_server_noenv.log matches the doc claim.
+- Malformed allow-list (empty reason): rc=3 ALLOWLIST-MALFORMED.
+- Throughput-floor failure (30.35 vs 271.94 ops/s, run_B_load.log:2421-2424) is disclosed in the PR body and is NOT allow-listed (allow-list has only FuzzRegisterInput/seed#0).
+- mutation_summary.txt: M1, M3 KILLED-ONLY-BY-LIVE; M2 NOT-PROVEN (control no-env also fails via TestRedisProgressConflictResolutionAndPersistence). PR body says "2 live-only mutants" - consistent.
+- bash -n OK for both scripts. Secrets scan of the diff: no credential literal found (PG password generated at runtime, not logged).
+
+FINDINGS (source-defect class: the skip gate itself can report GREEN falsely)
+F1 [IMPORTANT] Blind instrument false-green. --check on a missing file or an empty file prints "GATE GREEN" exit 0
+   (names_of uses grep 2>/dev/null; no existence / non-empty / control-needle check). Reproduced:
+   --check nonexist.log -> "skip census: 0 ... GATE GREEN rc=0"; --check empty.log -> same. §11.4.201(6)/§11.4.273.
+   Fix: refuse (exit 2) when a log is missing/unreadable or contains zero "--- PASS/SKIP/FAIL" lines.
+F2 [IMPORTANT] Test identity is the bare name, not package+name. A test that SKIPs in package b is masked by a same-named
+   test PASSing in package a. Reproduced on a synthetic log (TestOpen PASS in a, SKIP in b) -> GATE GREEN rc=0.
+   Not hypothetical: the repo has duplicate top-level names that are env-gated, e.g. TestWithPoolAppliesLimits in
+   server/internal/catalog/postgres_coldstart_test.go and server/internal/aimemory/pool_test.go (both SKIP in the
+   no-env baseline). If one stops receiving env while the other passes, the gate stays green. Also FuzzParse,
+   TestNewPostgresRejectsPoolBeforeDialing, TestPoolSettingsValidation, TestWordCount are duplicated.
+   Fix: key on package (from the "ok/FAIL <pkg>" line or `go test -json`) and allow-list by pkg.Test.
+F3 [IMPORTANT] Allow-list reason validation strips only spaces (${r// }). A tab-only reason is accepted:
+   "TestLiveLoadIngestConcurrentWithReads|<TAB>|HRD-050" -> GATE GREEN rc=0 (the currently failing test becomes green).
+   Fix: [[ $r =~ [^[:space:]] ]]; also anchor the item to ^\s*HRD-[0-9]+\s*$.
+F4 [MINOR->IMPORTANT for --check] --check is skip-gate only and ignores "--- FAIL" lines, "[build failed]" packages and
+   panics: a log with a FAIL plus allowed skips, or a build-failed package, returns GATE GREEN rc=0 (reproduced with a
+   build-failure log). The full run catches these via RC=1, but the docs present --check as a gate on "an existing -v log".
+   Either make --check also fail on FAIL/build-failed/panic lines or label its output "SKIP-GATE ONLY" and document it.
+   Also: in a full run a skip violation (exit 3) masks test failures (exit 1); print both.
+F5 [MINOR] Absence is not detected: tests that never ran (package build failure, TestMain exiting early, -run filter
+   mismatch, timeout panic) produce no SKIP line and are invisible to the gate. No TestMain-level skip found in the tree
+   today (grep of TestMain bodies for os.Exit(0)/Skip: none), so UNCONFIRMED whether this bites now; a baseline-count
+   comparison (expected test set) would close it.
+F6 [MINOR] SUBRE (line 114) is computed and never used (shellcheck SC2034): skipped subtests are not re-run in phase B;
+   they stay net-skips and fail the gate (safe direction), but the code reads as if they were handled.
+F7 [MINOR] Evidence provenance: run_A/run_B headers say head=e9c89d3 (the base, not this PR head) and the run used
+   server/internal/httpapi/load_concurrent_test.go, which is absent at 79eb80f (ls: No such file). The tree was dirty;
+   the header records no dirty flag/diff hash, so the sealed live evidence is not reproducible from this head. PR body
+   discloses the missing file; add `git status --porcelain` hash to the header.
+F8 [MINOR] Evidence dir contains files the current script does not produce (skips_live.txt, race_load_output.json,
+   first_attempt_*.log) without a README explaining them; stale allow-list entries are never reported.
+F9 [MINOR] shellcheck -S warning: SC2164 (cd without ||exit) in both scripts, SC2154 in mutation_check trap, SC2034.
+F10 [MINOR] No committed executable regression test for the gate (gate_negative/*.txt are recorded outputs only) and no
+   paired mutant of the gate logic; F1-F3 would have been caught by such a test. PR body: "Test types run: NOT STATED",
+   "Evidence: none cited" although evidence is committed.
+
+Reason for NO-GO: F1-F3 are reproduced false-GREEN paths in the deliverable's own gate (a skip gate that can pass a
+skip / an unreadable log). Re-review after fixes with negative fixtures for F1-F4 committed as a test.

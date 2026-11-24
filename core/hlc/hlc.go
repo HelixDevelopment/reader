@@ -44,7 +44,7 @@ type Clock struct {
 	now  func() int64
 }
 
-func New() *Clock { return &Clock{now: func() int64 { return time.Now().UnixMilli() }} }
+func New() *Clock                          { return &Clock{now: func() int64 { return time.Now().UnixMilli() }} }
 func NewWithClock(now func() int64) *Clock { return &Clock{now: now} }
 
 func (c *Clock) Now() Timestamp {

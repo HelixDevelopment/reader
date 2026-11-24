@@ -1,0 +1,8 @@
+HRD-070 round 4 (structural round, Constitution 11.4.276(E)) - notes
+
+1. RULES.md enumerates every enforced rule with production location, oracle and the mutant that kills it. mutate.sh applies each mutant to a scratch COPY (script-relative), requires the seed run to go RED, restores and checks GREEN. Result (mutation.log): 88 KILLED, 2 SURVIVED as documented equivalents (L03_issued_empty_EQUIV, K09_inf_EQUIV), 0 NOT APPLIED, every restore GREEN.
+2. Correction of an earlier claim: round 3 NOTES/commit message said malformed `updated` was covered by a seed. That was FALSE; no such seed existed (reviewer N2). L05_updated_parse / L06_updated_used now kill it.
+3. Oracle fix found by the 15s smoke fuzz: encoding/json matches member names case-insensitively while the independent map decoding was case-sensitive (false positive on keys like "Content_keY"). Oracles now look members up case-insensitively and skip documents with case-colliding duplicate members.
+4. No fuzz corpus is committed: core/pkg/lcpfuzz/testdata was removed (it held only the false-positive crasher); no other testdata/fuzz directory is added by this PR.
+5. fuzz_results.json: 300s fuzz of all six targets with the FINAL tests (run_fuzz.sh, FUZZTIME=300s).
+6. Not claimed: production behaviour beyond the listed rules; fuzzing proves absence of crashers only for the time/inputs run.

@@ -1,0 +1,161 @@
+VERDICT: NO-GO
+HEAD: 71de7b9d9f1bb515fcf1f182b8374fa03c6be815
+
+Independent review, round 5, PR #4 (HRD-050), branch task/HRD-050-live-gated-tests.
+Head confirmed with `git ls-remote github`: 71de7b9d9f1bb515fcf1f182b8374fa03c6be815 refs/heads/task/HRD-050-live-gated-tests
+Reviewer worktree: clean `git worktree add --detach .../wt-rev4 71de7b9` (removed at the end). No containers, no live run, nothing pushed.
+Reviewer: Opus 5.5 (effort as dispatched; not readable from inside the session - UNCONFIRMED).
+
+=====================================================================
+BLOCKING
+=====================================================================
+
+B1. The 28 `.log` gate fixtures are not in the PR; on a clean checkout of the head the gate test fails 36/58 and the mutation harness refuses (BASELINE-FAILED, exit 2).
+  `.gitignore:174:*.log` ignores tests/live/fixtures/*.log. The commit tree has 0 of them:
+    $ git check-ignore -v tests/live/fixtures/good.log
+    .gitignore:174:*.log	tests/live/fixtures/good.log
+    $ git ls-tree -r 71de7b9 --name-only | grep -c 'fixtures/.*\.log'
+    0
+    $ git ls-files tests/live/fixtures | wc -l
+    13          (only the allow_*.txt files)
+  In the author's worktree they exist only as ignored files (`git status --ignored` shows `!! tests/live/fixtures/good.log` etc.).
+  Clean-checkout run of the head:
+    $ bash tests/live/test_run_gated_tests.sh
+    FAIL golden_good_green: want rc=0 /GATE GREEN/ got rc=2
+         | LOG-UNUSABLE: .../tests/live/fixtures/good.log (missing, unreadable or empty)
+    ... (34 more FAIL lines of the same shape) ...
+    cases passed=22 failed=36
+    $ bash tests/live/mutation_gate_check.sh
+    BASELINE-FAILED: unmutated copy does not pass all cases; no mutant result is valid
+    rc=2
+  So the PR body claims "cases passed=58 failed=0" and "M1-M36 all KILLED" are true only in the author's checkout; from the
+  repository (what a reviewer, another agent or a later run gets) both are false. The PR body and docs cite
+  "tests/live/fixtures/*" as evidence; that evidence is not in the repository (§11.4.215, §11.4.297(E): cited evidence must
+  resolve from the head tree). Same class as round-3 B-1 (dependency on an untracked file); the round-3 guard
+  `R1_runner_references_only_tracked_paths` only scans paths the RUNNER references, not the fixtures the TEST references,
+  which is why it did not catch this.
+  Fix: `git add -f tests/live/fixtures/*.log` (or a `!tests/live/fixtures/*.log` negation in .gitignore), and extend the R1
+  check to the test harness's own fixture paths (every `$FX/...` it names must be tracked).
+
+=====================================================================
+IMPORTANT
+=====================================================================
+
+I1. PANIC and TIMEOUT verdicts are not independently pinned by the suite: removing `bad=1` from either case survives all 58 cases.
+  Own mutants (run with the author's fixtures copied in, after B1, so the suite was green on the baseline):
+    X1-panic-not-bad   (PANIC) echo ...; bad=1;;  ->  PANIC) echo ...;;)    SURVIVED 0
+    X2-timeout-not-bad (TIMEOUT) echo ...; bad=1;; ->  TIMEOUT) echo ...;;) SURVIVED 0
+  They survive because panic.log / timeout.log also carry a `FAIL <pkg>` line (PKGFAIL -> rc 3), and M7/M8 are killed only by
+  the output regex. Real false-green under X1 (in-container binary panicking before any test record, inside markers - the B2c
+  shape, which prints no package line):
+    log: "# PKG ex.com/m/c / panic: init failed / goroutine 1 [running]: / # PKG-END ex.com/m/c / --- PASS: TestQ / PASS / ok ex.com/m/a"
+    original gate: PANIC: ex.com/m/c init failed / SKIP-GATE FAILED  rc=3
+    X1 mutant:     PANIC: ex.com/m/c init failed / GATE GREEN        rc=0
+  (In live mode the in-container exec's non-zero exit sets RC=1, so the runner still fails; the `--check` path is not protected.)
+  Fix: fixtures with a panic / timeout and NO package FAIL line (marker-wrapped), expecting rc=3.
+
+I2. The unlisted-skip lookup is not pinned against prefix matching: `grep -qxF "$rec"` -> `grep -qF "$rec"` survives (X4, SURVIVED 0).
+  Concrete false green under the mutant: allow-list `ex.com/m/a|TestXY|r|HRD-1`, log skips `ex.com/m/a|TestX`:
+    original: UNUSED-ALLOW (warning) ... / SKIP-GATE FAILED
+    mutant:   UNUSED-ALLOW (warning) ... / GATE GREEN
+  The current code is correct (-x); the suite simply has no fixture where an allow entry is a superstring of a skipped test.
+  Fix: add that fixture (TestX skipped, only TestXY listed -> rc 3).
+
+I3. The live result of this PR is not green and the live phase-B path at this head has never been run (disclosed in the PR body;
+  restated because it bounds what GO could mean). Sealed summary: run_B_load.log FAIL=1 (TestLiveLoadIngestConcurrentWithReads);
+  headers say head=e9c89d3 on a dirty tree. Any GO on this PR is a GO on the gate's source/hermetic logic only; HRD-050 itself
+  stays PROVISIONAL (§11.4.290) until a live run from a clean checkout. UNCONFIRMED: live behaviour of every review-round fix.
+
+I4. Side-effect cleanup can discard concurrent work in a shared checkout. After the run, every `evidence/` path that is new in
+  `git status` since the start is copied to $OUT/side_effects and then `rm -f` (untracked) or `git checkout --` (tracked).
+  A file another agent/operator creates or edits under evidence/ during the 40+ minute run is reverted (a copy survives in
+  side_effects, so it is recoverable, but the working copy is silently changed). Recommend: only revert paths the run's own
+  tests are known to write, or refuse to run in a checkout with other writers (§9.2 / §11.4.84). Not reproduced live (no live run).
+
+=====================================================================
+MINOR
+=====================================================================
+
+m1. Commits 79eb80f and 467372f: `git log --format='%(trailers:key=Roadmap-Item,valueonly)'` prints nothing for them because
+  `Roadmap-Item: HRD-050` is not in the final trailer paragraph (it is followed by a separate Co-Authored-By paragraph). The
+  text is present; parsers that read trailers do not see it. Disclosed in the PR body; no rewrite possible (no force).
+    71de7b9 HRD-050 / 4e3f307 HRD-050 / 10cc4c9 HRD-050 / 467372f (empty) / 79eb80f (empty)
+m2. Item regex accepts `HRD-` with empty digits only if mutated; the current `^HRD-[0-9]+$` is correct, but no fixture pins the
+  empty-digit case (X5 `+` -> `*` SURVIVED). Add `HRD-` as a malformed fixture.
+m3. A reason consisting only of U+00A0 (NBSP) is accepted as non-blank (LC_ALL=C: bytes C2 A0 are not [:space:]):
+    allow `ex.com/m/a|TestX|<NBSP>|HRD-050` -> GATE GREEN rc=0.
+m4. Package-line regex accepts a SPACE after `ok`/`FAIL` (`[ \t]+`). go test always writes a TAB before the import path; a
+  test printing "ok  ex.com/m/a fake" at column 0 re-attributes buffered records (adversarial A10: skip then forged ok then
+  PASS -> GATE GREEN). This is the documented column-0 limit, but requiring `\t` would close the cheap form of it.
+m5. A truncated log that ends after a bare `PASS` with no `ok <pkg>` line gives no INCOMPLETE (A4b: PASS-only -> GATE GREEN);
+  skips in such a log become `(unlabeled)|Name` and still fail (A4). There is no expected-package census in --check mode, so a
+  log cut at a package boundary is not detected. In live mode go test's exit code covers it.
+m6. An empty `# PKG x` / `# PKG-END x` pair (binary never produced output) yields no record and no INCOMPLETE (A15 -> GREEN).
+  Fail-closed only through the skip census.
+m7. Doc claim "no early-exit consumer in a pipe in tests/live/*.sh" is not literally true:
+  test_run_gated_tests.sh:74 `$(git -C "$ROOT" ls-files -- "$pth" | head -1)` (inside $(), status ignored, harmless).
+m8. X6 (drop CR strip) and X10 (widen ok regex) survived; both are near-equivalent mutants (CRLF only matters for bare PASS/FAIL
+  lines before a PKG-END). Listed for completeness, not a finding by themselves.
+m9. Sealed SHA256SUMS uses `./`-prefixed paths (older seal tool) while seal_dir now writes bare paths; it verifies (46/46) but
+  is not reproducible by the current script. Disclosed in hrd050-PROVENANCE.md. The tracked file
+  side_effects/evidence/campaign-2026-11-23/gap-fix/hrd070/SHA256SUMS is not covered by the outer seal (excluded by name).
+
+=====================================================================
+WHAT WAS RUN (evidence pasted from this session)
+=====================================================================
+
+(1) Gate test + shellcheck
+  Clean head (no ignored fixtures):      cases passed=22 failed=36   (see B1)
+  With the author's 28 ignored fixtures copied in (reviewer worktree, untracked):  cases passed=58 failed=0, rc=0
+  `shellcheck -S warning tests/live/*.sh` -> no output, sc=0
+
+(2) Full mutation run on the final tree, ONLY unset (with fixtures copied in):
+  baseline: unmutated copy passes (cases passed=58 failed=0)
+  M1..M36: all 36 KILLED (case counts 1..22), rc=0
+  Same harness on the clean head: BASELINE-FAILED, rc=2 (B1).
+
+(3) Class sweeps
+  Pipe/pipefail/early-exit (every pipeline in tests/live/*.sh enumerated): run_gated_tests.sh:35 capability probe (printf|grep, fine);
+  hdr `git status|wc`, `(git diff;..)|sha256sum|cut` (full readers); seal_dir find|sort|sed|xargs (failure -> no mv, rc != 0);
+  log_records `sed|grep -E >/dev/null` (full reader, the round-4 fix); skip_gate `awk|sort -u`, `< <(sort -u|awk)`;
+  side-effects `git status|grep -vxFf|while read` (full reader; empty pattern file prints all, ok); summary `grep -c` in $(),
+  `grep -hE|sed|sort -u`. Test harness: only `ls-files|head -1` inside $() (m7). No `| grep -q`, no `-m`, no awk-exit consumer
+  remains. No pipeline whose status decides a verdict can be SIGPIPEd. CLEAN except m7.
+  Parse/marker class (every awk rule enumerated): CR/ANSI strip; PKG-END (no-open / mismatch / unclosed records); PKG (nested);
+  bare PASS|FAIL closer; `--- X:` record; `ok|FAIL <pkg>` (marker-open check, BUILDFAIL/PKGFAIL/NORESULTS); TIMEOUT; PANIC; END
+  (open-at-EOF, unclosed records). Gaps found: m4 (space-separated ok), m5 (truncation after bare PASS), m6 (empty marker pair),
+  I1 (PANIC/TIMEOUT not independently pinned). No false green found in the UNMUTATED gate beyond the documented forgery limits.
+
+(4) Adversarial inputs (19 own logs/allow-lists, unmutated gate, --check):
+  A1 CRLF+ANSI skip -> rc3 UNLISTED (ok)          A2 subtest skip, parent pass -> rc3 UNLISTED TestP/sub (ok)
+  A3 skip log1 / pass log2 same pkg -> rc0 (ok)    A4 truncated after PASS, skip -> rc3 (unlabeled) (ok)
+  A4b truncated after PASS, pass-only -> rc0 (m5)  A5 truncated mid-package -> rc3 INCOMPLETE (ok)
+  A6 NBSP-only reason -> rc0 (m3)                  A7 reason `$(touch ..) \* \`id\` ;` -> rc0, no command executed (ok)
+  A8 CRLF allow-list -> rc0 (ok)                   A9 interleaved pkgs -> rc3 misattributed skip fails closed (ok)
+  A10 forged `ok  pkg` line -> rc0 (m4, documented limit)
+  A11 4.07 MB log, FAIL at end -> rc3 FAILED-TEST + PACKAGE-FAILED (ok)
+  A12 NUL bytes in log -> rc3 UNLISTED (ok)        A13 indented forged `--- PASS` in output -> rc3 (ok)
+  A14 tab-indented subtest skip -> rc3 (ok)        A15 empty marker pair -> rc0 (m6)
+  A16 skip line without duration -> rc3 (ok)       A17 TestMain exit FAIL with only passes -> rc3 PACKAGE-FAILED (ok)
+  A18 `# note` after item -> rc3 MALFORMED (ok)    A19 `?` no-test-files + (cached) -> rc3 (ok)
+  A20 skip A / pass B + other FAIL -> rc3 (ok)     A21 allow-list without final newline -> rc0 (ok)
+  A23 contradictory items -> rc3 (ok)              A24 marker-wrapped panic, no records -> rc3 (ok; X1 mutant -> rc0, I1)
+  A25 allow superstring TestXY, skip TestX -> rc3 (ok; X4 mutant -> rc0, I2)
+  Own mutants (not in M1-M36): X1 panic-not-bad SURVIVED; X2 timeout-not-bad SURVIVED; X3 incomplete-not-bad KILLED(7);
+  X4 unlisted-substring-match SURVIVED; X5 item-empty-digits SURVIVED; X6 no-CR-strip SURVIVED (near-equivalent);
+  X7 precheck-no-ANSI-strip KILLED(1); X8 buildfail-not-bad KILLED(1); X9 EOF-records-dropped KILLED(1);
+  X10 ok-regex-widened SURVIVED (equivalent).
+
+(5) Sealed evidence + trailers
+  $ cd evidence/campaign-2026-11-23/gap-fix/hrd050 && sha256sum -c SHA256SUMS   -> lines=46 ok=46, no failures (clean checkout)
+  Trailers: see m1 (3 of 5 commits parse as Roadmap-Item: HRD-050; 2 carry it in a non-final paragraph).
+
+(6) Doc vs behaviour
+  docs/live-gated-tests.md "Gate tests: ... (fixtures in tests/live/fixtures)" - fixtures not tracked (B1).
+  "the class was swept (no | grep -q, no early-exit consumer in a pipe)" - true for verdict-bearing pipes; one harmless
+  `| head -1` in $() (m7). "--check ... exits 3 for ... panic, timeout" - true for the unmutated gate (A24), but not pinned by
+  tests (I1). "A fresh live run is owed (UNCONFIRMED until run)" - agreed, still owed.
+  UNCONFIRMED (not run by this review): any live PG/Redis run, tests/live/mutation_check.sh (live mutants), --no-env baseline.
+
+GO condition: B1 fixed (fixtures tracked, harness green from a clean clone, R1 extended to the test's fixtures). I1/I2 strongly
+recommended in the same change (cheap fixtures, they close two surviving false-green mutants).

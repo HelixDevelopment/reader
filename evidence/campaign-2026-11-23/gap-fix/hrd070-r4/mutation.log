@@ -1,0 +1,346 @@
+MUTANT L01_id: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#4 (0.00s)
+  restored: GREEN again
+MUTANT L02_provider: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT L04_issued_parse: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#35 (0.00s)
+  restored: GREEN again
+MUTANT L05_updated_parse: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#36 (0.00s)
+  restored: GREEN again
+MUTANT L06_updated_used: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#3 (0.00s)
+  restored: GREEN again
+MUTANT L07_profile: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#13 (0.00s)
+  restored: GREEN again
+MUTANT L08a_ck_value: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#25 (0.00s)
+  restored: GREEN again
+MUTANT L08b_ck_algorithm: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#27 (0.00s)
+  restored: GREEN again
+MUTANT L09a_uk_algorithm: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#29 (0.00s)
+  restored: GREEN again
+MUTANT L09b_uk_keycheck: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#30 (0.00s)
+  restored: GREEN again
+MUTANT L10_text_hint: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#31 (0.00s)
+  restored: GREEN again
+MUTANT L11_links_nonempty: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#8 (0.00s)
+  restored: GREEN again
+MUTANT L12_link_href: KILLED
+  restored: GREEN again
+MUTANT L13a_sig_algorithm: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#19 (0.00s)
+  restored: GREEN again
+MUTANT L13b_sig_certificate: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#21 (0.00s)
+  restored: GREEN again
+MUTANT L13c_sig_value: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#23 (0.00s)
+  restored: GREEN again
+MUTANT L14_rights: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#41 (0.00s)
+  restored: GREEN again
+MUTANT L15_unknown_sorted: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#46 (0.00s)
+  restored: GREEN again
+MUTANT L16_unknown_filter: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#3 (0.00s)
+  restored: GREEN again
+MUTANT L00_syntax: KILLED
+  restored: GREEN again
+MUTANT L03_issued_empty_EQUIV: SURVIVED (equivalent, expected)
+  restored: GREEN again
+MUTANT S01_trailing: KILLED
+  restored: GREEN again
+MUTANT S03_id: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#57 (0.00s)
+  restored: GREEN again
+MUTANT S04_status_required: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#58 (0.00s)
+  restored: GREEN again
+MUTANT S05_message_required: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#59 (0.00s)
+  restored: GREEN again
+MUTANT S06_updated_required: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#52 (0.00s)
+  restored: GREEN again
+MUTANT S07_links_required: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#61 (0.00s)
+  restored: GREEN again
+MUTANT S08_vocab: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#64 (0.00s)
+  restored: GREEN again
+MUTANT S08b_vocab_expired_dropped: KILLED
+--- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+  restored: GREEN again
+MUTANT S09_updated_license: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#72 (0.00s)
+  restored: GREEN again
+MUTANT S10_updated_status: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#73 (0.00s)
+  restored: GREEN again
+MUTANT S11_href: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#74 (0.00s)
+  restored: GREEN again
+MUTANT S12_rel_error: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#78 (0.00s)
+  restored: GREEN again
+MUTANT S12b_rel_empty: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#79 (0.00s)
+  restored: GREEN again
+MUTANT S12c_rel_type: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#80 (0.00s)
+  restored: GREEN again
+MUTANT S13_license_link: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#76 (0.00s)
+  restored: GREEN again
+MUTANT S14_pr_end_parse: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#87 (0.00s)
+  restored: GREEN again
+MUTANT S14b_pr_end_assigned: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#86 (0.00s)
+  restored: GREEN again
+MUTANT S15_event_type: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#94 (0.00s)
+  restored: GREEN again
+MUTANT S15b_event_type_renew: KILLED
+--- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+  restored: GREEN again
+MUTANT S16_event_ts: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#95 (0.00s)
+  restored: GREEN again
+MUTANT S02_decode: KILLED
+  restored: GREEN again
+MUTANT K01_doc_empty: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#11 (0.00s)
+  restored: GREEN again
+MUTANT K02_progress_empty: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#12 (0.00s)
+  restored: GREEN again
+MUTANT K03_device_empty: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#13 (0.00s)
+  restored: GREEN again
+MUTANT K04_doc_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#19 (0.00s)
+  restored: GREEN again
+MUTANT K04b_doc_len_off_by_one: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#15 (0.00s)
+  restored: GREEN again
+MUTANT K05_progress_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#20 (0.00s)
+  restored: GREEN again
+MUTANT K05b_progress_len_off_by_one: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#16 (0.00s)
+  restored: GREEN again
+MUTANT K06_device_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#21 (0.00s)
+  restored: GREEN again
+MUTANT K06b_device_len_off_by_one: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#17 (0.00s)
+  restored: GREEN again
+MUTANT K07_deviceid_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#22 (0.00s)
+  restored: GREEN again
+MUTANT K07b_deviceid_len_off_by_one: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#18 (0.00s)
+  restored: GREEN again
+MUTANT K08_nan: KILLED
+--- FAIL: TestHRD070PutProgressUnreachableByJSON (0.05s)
+    fuzz_test.go:101: NaN percentage not rejected: <nil>
+  restored: GREEN again
+MUTANT K09_inf_EQUIV: SURVIVED (equivalent, expected)
+  restored: GREEN again
+MUTANT K10_pct_negative: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#5 (0.00s)
+  restored: GREEN again
+MUTANT K10b_pct_zero_rejected: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#4 (0.00s)
+  restored: GREEN again
+MUTANT K11_pct_upper_dropped: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#1 (0.00s)
+  restored: GREEN again
+MUTANT K11b_pct_upper_loose: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#8 (0.00s)
+  restored: GREEN again
+MUTANT K11c_pct_one_rejected: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#7 (0.00s)
+  restored: GREEN again
+MUTANT K12_timestamp: KILLED
+--- FAIL: FuzzPutProgressBody (0.05s)
+    --- FAIL: FuzzPutProgressBody/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT K13_reg_switch: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.11s)
+    fuzz_test.go:123: registration off: <nil>
+  restored: GREEN again
+MUTANT K14_user_min: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.32s)
+    fuzz_test.go:138: Register(2-byte user, 8-byte pass): err=<nil> want ok=false
+  restored: GREEN again
+MUTANT K14b_user_min_up: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.22s)
+    fuzz_test.go:138: Register(3-byte user, 8-byte pass): err=kosync: invalid input want ok=true
+  restored: GREEN again
+MUTANT K14c_user_max: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.32s)
+    fuzz_test.go:138: Register(33-byte user, 8-byte pass): err=<nil> want ok=false
+  restored: GREEN again
+MUTANT K14d_user_max_down: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.23s)
+    fuzz_test.go:138: Register(32-byte user, 72-byte pass): err=kosync: invalid input want ok=true
+  restored: GREEN again
+MUTANT K14e_user_charset: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.21s)
+    fuzz_test.go:138: Register(5-byte user, 8-byte pass): err=kosync: invalid input want ok=true
+  restored: GREEN again
+MUTANT K15_pass_min: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.32s)
+    fuzz_test.go:138: Register(3-byte user, 7-byte pass): err=<nil> want ok=false
+  restored: GREEN again
+MUTANT K15b_pass_min_up: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.16s)
+    fuzz_test.go:138: Register(3-byte user, 8-byte pass): err=kosync: invalid input want ok=true
+  restored: GREEN again
+MUTANT K16_pass_max: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.27s)
+    fuzz_test.go:138: Register(3-byte user, 73-byte pass): err=hash verifier: bcrypt: password length exceeds 72 bytes want ok=false
+  restored: GREEN again
+MUTANT K16b_pass_max_down: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.22s)
+    fuzz_test.go:138: Register(32-byte user, 72-byte pass): err=kosync: invalid input want ok=true
+  restored: GREEN again
+MUTANT K17_get_doc_empty: KILLED
+--- FAIL: TestHRD070GetProgressBoundary (0.06s)
+    fuzz_test.go:112: document length 0: invalid=false want true (kosync: progress not found)
+  restored: GREEN again
+MUTANT K17b_get_doc_len: KILLED
+--- FAIL: TestHRD070GetProgressBoundary (0.05s)
+    fuzz_test.go:112: document length 256: invalid=false want true (kosync: progress not found)
+  restored: GREEN again
+MUTANT K17c_get_doc_len_off: KILLED
+--- FAIL: TestHRD070GetProgressBoundary (0.05s)
+    fuzz_test.go:112: document length 255: invalid=true want false (kosync: invalid input)
+  restored: GREEN again
+MUTANT O01_feed_title12: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O02_entry_title12: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O03_entry_id12: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O04_acq_href12: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#1 (0.00s)
+  restored: GREEN again
+MUTANT O05_opensearch_template: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O06_opensearch_xml: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O07_acq12_xml: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O08_feed_title20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O09_numberOfItems: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O10_pub_title20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O10b_pub_title_tag: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O11_identifier20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O12_self20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#1 (0.00s)
+  restored: GREEN again
+MUTANT O13_acq_href20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#1 (0.00s)
+  restored: GREEN again
+MUTANT O14_edition20_context: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again
+MUTANT O15_feed_context20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again

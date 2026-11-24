@@ -1,0 +1,94 @@
+VERDICT: NO-GO
+HEAD: 4e3f307f43be5fa3da3214b9114365017bcb9c94
+Reviewer: independent (not the author, not a reviewer of rounds 1-3). Round 4 of max 5. Date 2026-11-24.
+Model: claude-opus-5-5 (Opus); effort: not settable/readable on this dispatch path, so no effort is claimed.
+Scope: worktree /home/milosvasic/.cache/claude-tmp/wt-hrd050, clean at the head; `git ls-remote github` shows
+refs/heads/task/HRD-050-live-gated-tests = 4e3f307f43be5fa3da3214b9114365017bcb9c94. Live PG/Redis suite, containers and
+tests/live/mutation_check.sh were NOT run (host load); the live phase-B path is UNRUN at this head.
+
+== What was run (output captured this session) ==
+- bash tests/live/test_run_gated_tests.sh            -> "cases passed=44 failed=0", rc=0
+- bash tests/live/mutation_gate_check.sh             -> M1..M28 all "KILLED", rc=0 (but see I1)
+- shellcheck -S warning tests/live/*.sh              -> clean, rc=0
+- run_gated_tests.sh --preflight                     -> "preflight ok", rc=0
+- run_gated_tests.sh --selftest-missing-cmd          -> "FATAL: command not found (line 47), aborting", rc=2
+- run_gated_tests.sh --print-phase-b <sealed run_A_race_live.log>  -> LOG-UNUSABLE ... GATE-BLIND, rc=2   (see B1)
+- run_gated_tests.sh --check <sealed run_A> --check <sealed run_B> -> LOG-UNUSABLE x2, GATE-BLIND, rc=2   (see B1)
+- sealed dir: `sha256sum -c SHA256SUMS` -> rc=0, 46 entries; listed set == set of files on disk (46, excluding SHA256SUMS).
+
+== BLOCKING ==
+B1. The gate is BLIND on every real-sized log; the live run cannot reach a verdict (regression introduced in 4e3f307).
+    log_records (run_gated_tests.sh:78) does
+      if ! sed 's/\x1b\[...//g' "$l" | grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): '; then ... LOG-UNUSABLE
+    under `set -o pipefail`. `grep -q` exits on the first match, sed is killed by SIGPIPE (141) once the log exceeds the
+    pipe buffer, the pipeline status is 141, and the log is declared "not a go test -v log". Reproduced deterministically:
+      bash -c 'set -uo pipefail; export LC_ALL=C; sed ... "$1" | grep -qE ...; echo rc=$? ps=${PIPESTATUS[*]}' _ run_A_race_live.log
+      -> rc=141 ps=141 0   (3/3, also 3/3 on a generated 977818-byte log)
+      run_gated_tests.sh --check run_A_race_live.log -> gate=2 gate=2 gate=2 (the sealed log has 1024 '--- X:' lines)
+      generated 20000-PASS log + allow_empty.txt -> "LOG-UNUSABLE ... GATE-BLIND", rc=2 (should be GATE GREEN)
+    Consequence on the live path: phase_b_sets "$LA" (line 198) fails after phase A + B1 and the run aborts with
+    "phase-B list construction failed", exit 2; even if it did not, the final skip_gate is GATE-BLIND. 10cc4c9 used a
+    plain `grep -qE ... "$l"` (no pipe) and is not affected: on the sealed log it produces a verdict.
+    Every committed fixture is a few hundred bytes, so the 44 cases cannot see this. The PR body sentence "`--check` on
+    them is now stricter" is inaccurate at this head: `--check` on the sealed logs returns GATE-BLIND.
+    Verified fix (scratch copy only): replace `grep -qE '...'` with `grep -E '...' >/dev/null` (no early exit) ->
+    44/44 cases still pass and `--check` on the sealed logs gives a real verdict (UNLISTED-SKIP / FAILED-TEST, rc=3).
+    Required with the fix: a regression case on a log larger than the pipe buffer (generate it in the test, do not
+    commit a large file) and a paired mutant that restores `grep -q` in the pipeline.
+
+== IMPORTANT ==
+I1. mutation_gate_check.sh has no unmutated-baseline control and its copy is broken: it copies only
+    run_gated_tests.sh + parse_gotest.awk, not allowed_skips.txt, so `--seal` in the copy hits
+    "SETUP-ERROR: allow-list ... missing" and R5b_seal_dir_verifies FAILS for every copy, mutated or not
+    (unmutated copy: "cases passed=43 failed=1"). Every mutant therefore gets one free kill; a mutant whose only
+    killing case is R5b would be reported KILLED while surviving. Re-measured with a fixed harness (scratch copy that
+    also copies allowed_skips.txt): M1..M28 all still KILLED (kill counts drop by exactly 1, M13 stays 1), so no hidden
+    survivor today. Fix: copy allowed_skips.txt, and run the unmutated copy first and require 0 failures before any mutant.
+
+== MINOR (follow-ups) ==
+m1. seal_dir option injection: names are passed to sha256sum without `--`. A file named `--help` -> seal rc=0 and
+    SHA256SUMS contains sha256sum's help text (fail-open; the file is unsealed); `-x.txt`, `-c` -> rc=123 (fail closed).
+    `sha256sum --` fixes all three (verified: --help / -x.txt / ok all "OK" under -c). Evidence names are runner-chosen,
+    so exposure is low.
+m2. A filename containing a backslash: seal rc=0 but `sha256sum -c` (uutils coreutils 0.10.0 on this host) fails to
+    verify its own escaped entry. UNCONFIRMED whether GNU sha256sum behaves the same. Newline in a name -> fail closed.
+m3. Reviewer mutant N4 (drop `LC_ALL=C sort` from seal_dir) SURVIVED: the ordering assertion in R5b passes because
+    find already returns the two fixture files in order. Determinism of the order is claimed but not tested.
+m4. Reviewer mutant N5 (`wait "$p" || RC=1` -> `wait "$p"`, B3 worker failures ignored) SURVIVED: live-path RC
+    propagation has no test (live path unrun; disclosed).
+m5. Text-parser carrier: a test that prints a column-0 `ok  <pkg> ...` line mid-output flushes its buffered records to
+    that package. Fixture a8 (SKIP TestX, fake `ok b`, later b PASSes TestX, then `ok a`) -> GATE GREEN (false green).
+    Unclosed `# PKG a` followed by another package's `ok b` line (a4) -> records credited to b, GATE GREEN. The runner
+    always writes PKG-END, so a4 needs a runner defect; a8 needs a test printing a go-test package line. docs line 45
+    ("B3 records can never be credited to B4's package") overclaims. Follow-up: `go test -json`.
+m6. `# PKG-END <path>` is not compared with the open `# PKG <path>` (fixture a1, mismatched path, attributed to the
+    opened package; no warning).
+m7. Commits 79eb80f and 467372f carry `Roadmap-Item: HRD-050` in a paragraph before the final Co-Authored-By paragraph,
+    so `git log --format='%(trailers:key=Roadmap-Item)'` returns empty for them; 10cc4c9 and 4e3f307 parse correctly.
+    Cannot be rewritten (no force); record it.
+m8. Tools used on the live path but not in `need`: seq, cp, tee, basename, date, mktemp. A missing `seq` inside $(...)
+    does not trip the ERR trap (as the script itself documents).
+
+== Verified OK / answers to the brief ==
+- Round-3 blockers: (a) no untracked tool: R1 static test + M24 KILLED, seal_dir is in-script; (b) B3/B4 attribution:
+  PKG/PKG-END written around B2c (per package) and B3 (workers + verify), B4/B5 carry their own go-test package lines;
+  N1 (PKG-END flushes to "(unlabeled)") KILLED by B3_real_B2c_B3_B4_order_green; (c) ERR trap: selftest exits 2;
+  limitation inside $(...), `||`, `if` documented and preflight `need` added.
+- R7 "names python3" is NOT a no-op: with out="... tool 'python3' ..." the check returns 0, with "'go'" or "" it returns 1.
+- Worker logs: per-worker files concatenated 0..3 in fixed order after all waits, then verify; reordering workers does
+  not change attribution (one package).
+- seal_dir: excludes SHA256SUMS and hidden files/paths, .SHA256SUMS.tmp is hidden so never self-included, C-locale
+  deterministic (re-seal byte-identical), spaces OK, `sha256sum -c` passes on a fresh dir.
+- Adversarial inputs caught by the gate: nested markers (a2), marker printed inside test output (a3), CRLF+ANSI
+  together (a6), allow-list package with trailing slash (fails closed: UNLISTED-SKIP + UNUSED-ALLOW).
+- Reviewer gate mutants: N1 KILLED, N2 (netskip ignores passes) KILLED, N3 (seal includes itself) KILLED, N6 (HOSTRE
+  inverted) KILLED, N7 (bare PASS line not closing) KILLED, N9 (B3 PKG-END removed) KILLED; N4, N5 SURVIVED (m3, m4).
+- Evidence/provenance/PR body: discloses the untracked-tool dependency, the dirty-tree non-reproducible sealed logs,
+  the failing floor (run_B_load.log:2421 "MergeWork throughput 30.35 ops/s below the lock-scope floor 271.94"), the
+  owed fresh live run and the absence of GO. Secret scan of the PR diff (DSN with password, POSTGRES_PASSWORD=value,
+  key/secret=value): no hit.
+
+== To reach GO (round 5) ==
+Fix B1 with a >pipe-buffer regression case + paired mutant; fix I1 (copy allow-list + baseline-must-be-clean step);
+correct the PR-body `--check` sentence; m1 (`sha256sum --`) is a one-token fix worth folding in. m2-m8 may stay as
+tracked follow-ups.

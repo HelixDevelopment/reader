@@ -1,0 +1,45 @@
+VERDICT: NO-GO
+HEAD: e79fc65824cacfba2b8d13ac3db3a7416401c6a2
+Reviewer: independent subagent (not the author), Claude Opus 5.5, effort not reported by the dispatch path (UNCONFIRMED). Date 2026-11-24.
+Scope: PR #3, branch task/HRD-070-fuzz-targets. git ls-remote github: e79fc65824cacfba2b8d13ac3db3a7416401c6a2 refs/heads/task/HRD-070-fuzz-targets.
+Worktree /home/milosvasic/.cache/claude-tmp/wt-hrd070 clean at that head. All mutations ran in a scratch copy, never in the worktree; every mutant was restored and the restored copy re-ran GREEN.
+
+PASSED CHECKS
+- Previous M4 (lcp.Parse signature check -> `if false`): KILLED by the seed run (FuzzParseLicense/seed#7). Previous NO-GO finding is fixed.
+- gofmt -l on core/pkg/lcpfuzz server/internal/opds server/internal/kosync: empty output.
+- go vet + go test -count=1: ok core/pkg/lcpfuzz, ok server/internal/opds, ok server/internal/kosync.
+- 20s fuzz, unmutated copy (identical to the worktree), all 6 targets PASS, no crasher written:
+  FuzzParseLicense 21.088s, FuzzCanonical 21.108s, FuzzParseStatusDocument 21.105s, FuzzOPDSGeneration 21.083s, FuzzPutProgressBody 20.409s, FuzzRegisterInput 20.188s.
+- sha256sum -c SHA256SUMS: hrd070-r2 12/12 OK, hrd070 11/11 OK.
+- Changed paths outside evidence/ are only core/pkg/lcpfuzz/lcpfuzz_test.go, core/pkg/lcpfuzz/lcpfuzz_lsd_test.go, server/internal/kosync/fuzz_test.go, server/internal/opds/fuzz_test.go. No production-code edits. Diff scan for password/secret/token/api_key/PRIVATE KEY: only prose hits in the earlier review file, no secret values.
+- Both commits (dfb13c7, e79fc65) carry the line `Roadmap-Item: HRD-070` (matched by scripts/pr/deliver.py's line regex).
+
+REVIEWER-AUTHORED MUTATIONS (not in the author's list), seed run then 30s fuzz:
+  R1 license.go:202 issued parse error ignored (`if err != nil` -> `if false`)        SURVIVED seed + 30s fuzz
+  R2 lsd.go:232 empty link href accepted (`|| *wl.Href == ""` dropped)               SURVIVED seed + 30s fuzz
+  R3 lsd.go:227 updated.status parse error ignored                                    KILLED by fuzz in 23.6s
+  R4 lsd.go:213 updated/updated.license/updated.status required check -> `if false`   KILLED by seed run (seed#37)
+  R5 kosync service.go:73 `progress.Percentage < 0` dropped                            SURVIVED seed + 30s fuzz
+  R6 kosync service.go:72 `len(progress.Device) > 255` dropped                         SURVIVED seed + 30s fuzz
+  R7 kosync service.go:76 server timestamp not set (client timestamp kept)             SURVIVED seed + 30s fuzz (killed by unit test TestAccountValidationAuthenticationAndProgress; the fuzz oracle does not check Timestamp)
+  R8 opds12.go:63 OpenSearch output with `&lt;` unescaped to `<`                       KILLED by seed run
+
+ORACLE-CAPABILITY CONTROL for R1, R2, R5, R6 (one hand-written triggering corpus input, run as a seed):
+  unmutated + input: PASS for all four (negative control);
+  mutant + input: FAIL for all four, with the right oracle message:
+    R1 lcpfuzz_test.go:93 "accepted license lacks issued" (issued "not-a-date")
+    R2 lcpfuzz_lsd_test.go:52 "link 0 has empty href" (LSD link href "")
+    R5 fuzz_test.go:42 "persisted out-of-contract record" (percentage -0.5)
+    R6 fuzz_test.go:42 "persisted out-of-contract record" (device of 300 bytes)
+  So the assertions are correct; the defect is the seed corpus, not the oracle.
+  Package unit tests: R1, R5, R7 are killed by existing unit tests; R2 and R6 are killed by nothing in the repository.
+
+FINDINGS
+F5 (blocking under this review's bar, class test-instrumentation): four of eight reviewer mutations (R1, R2, R5, R6) survive the seed run and a 30s fuzz. The fuzz targets only find a regression when it happens on a member removal or a structural change; boundary violations of a present member (malformed date, empty string, negative number, over-long string) are not seeded and 30s of mutation-based fuzzing did not reach them. R2 and R6 are not covered by any other test either.
+  Fix: add seeds derived from the valid seeds: license with issued "not-a-date" (and updated malformed); LSD with a link href "" and with updated.license malformed; kosync bodies with percentage -0.5, and document/progress/device/device_id each 256 bytes. Then re-run R1, R2, R5, R6 and require KILLED by the seed run.
+F6 (minor, test-instrumentation): FuzzPutProgressBody does not assert that the stored Timestamp is server-set (R7). Optional: assert got.Timestamp != p.Timestamp or compare to a fixed clock if the service allows injecting one.
+F7 (minor, process): in both commits `Roadmap-Item: HRD-070` sits in its own paragraph above `Co-Authored-By`, so `git interpret-trailers --parse` reports only Co-Authored-By. deliver.py accepts it (line regex) and the merged commits 1d902b2 and 6c4ea17 have the same shape, so this is consistent with the project; noted, not blocking.
+
+Not checked / UNCONFIRMED: the author's 5-minute runs (not re-run; only their logs' checksums were verified); fuzzing longer than 30s per mutant.
+
+Evidence (reviewer scratch, outside the repository): scratchpad/mut.sh, mut_out.txt, ctl.sh, ctl_out.txt, unit.sh, unit_out.txt, tmp.9W9ThPo9qp/*.seed|*.fuzz under /home/milosvasic/.cache/claude-tmp/claude-1000/-home-milosvasic-Projects-helix-reader/4783d69d-a063-560b-d52a-4fcb6adc6609/.

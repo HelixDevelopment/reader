@@ -1,0 +1,28 @@
+VERDICT: NO-GO
+HEAD: dfb13c760ed21c96bb4df2a40b7797a41eaec801
+Reviewer: independent subagent (not the author), 2026-11-24. Model Opus; effort not settable/readable on this dispatch path (UNCONFIRMED).
+Scope: PR #3 task/HRD-070-fuzz-targets, single commit dfb13c7 vs github/main (16 files, +906, test files + evidence only).
+
+CHECKS RUN (this session)
+- git ls-remote github: refs/heads/task/HRD-070-fuzz-targets = dfb13c7... (matches local HEAD).
+- Commit trailer "Roadmap-Item: HRD-070" present.
+- No production-code edits: every changed path is *_test.go or under evidence/. No secrets found by diff scan.
+- gofmt -l (3 packages): no output. go vet (3 packages): no output.
+- go test seed corpora: lcpfuzz ok (TestSeedLicenseIsAccepted, FuzzParseStatusDocument, FuzzParseLicense, FuzzCanonical PASS); opds ok; kosync ok.
+- 20s fuzz, -parallel 4, all rc=0: FuzzParseLicense 980511 execs; FuzzCanonical 548582; FuzzParseStatusDocument 14315; FuzzOPDSGeneration 40018; FuzzPutProgressBody 493763; FuzzRegisterInput 552060. No testdata/fuzz crashers written (git status clean).
+- Evidence: sha256sum -c SHA256SUMS -> all 11 OK. Logs consistent with fuzz_summary.txt (5 targets, exit 0, 5m runs) and mutation.log (4 mutants KILLED, restored GREEN).
+
+REVIEWER-AUTHORED MUTATIONS (scratch copy, originals restored, sha256 re-verified identical)
+- M1 lcp.Parse provider check disabled -> FuzzParseLicense seed FAILS (seed#0, #3). KILLED.
+- M2 kosync PutProgress drop "Percentage > 1" -> FuzzPutProgressBody seed#1/#4 FAIL. KILLED (same idea as author's kosync_pct_upper).
+- M3 kosync Register drop "len(password) > 72" -> FuzzRegisterInput seed#5 FAILS. KILLED.
+- M5 OpenSearch12 returns unescaped hand-built XML -> FuzzOPDSGeneration seed#1 FAILS ("invalid character entity"). KILLED.
+- M4 lcp.Parse signature check replaced by `if false` -> seed run ok AND 20s fuzz PASS. SURVIVED.
+
+FINDINGS
+F1 (important, test-instrumentation, blocks GO under §11.4.194(6)(d)): FuzzParseLicense oracle asserts only l.ID != "" && l.Provider != "". The seed() comment claims removing each of id/provider/issued/encryption/links/signature proves "a parser that stops enforcing it would accept an incomplete license", but for issued/encryption/links/signature nothing fails: M4 (signature check removed) survives seeds and fuzzing. Fix: assert every §7.2 mandatory member on an accepted license (non-zero Issued, Encryption.Profile/ContentKey/UserKey fields, len(Links)>0 with non-empty Href, Signature.Algorithm/Certificate/Value), then re-run M4 and show it KILLED.
+F2 (minor): FuzzParseLicense error branch `!errors.Is(..Syntax) && !errors.Is(..Incomplete) && err.Error()==""` can essentially never fire; it does not check error typing as the comment implies. Either require errors.Is(ErrLicenseSyntax||ErrIncomplete) (if that is the contract) or drop the check.
+F3 (minor): lcpfuzz_lsd_test.go header says "Build with -tags lsd once lsd.go is present" but the file has no build constraint and lsd.go exists; comment is stale. FuzzParseStatusDocument has no 5-minute run, no mutation and is absent from fuzz_summary.txt / GREEN_seed_run.txt test lines; its oracle (non-nil on nil error) is weak.
+F4 (minor): evidence scripts mutate.sh / run_fuzz_5min.sh hard-code R=/home/milosvasic/Projects/helix_reader (main worktree), so the evidence was produced from that tree, not reproducibly from this branch head; whether that tree's test files equalled dfb13c7 at run time is UNCONFIRMED.
+
+Not blocking otherwise: the kosync, OPDS and canonical-idempotence oracles are real (mutations killed); no production edits.
