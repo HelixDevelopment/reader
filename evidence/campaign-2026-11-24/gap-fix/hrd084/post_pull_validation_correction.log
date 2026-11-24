@@ -1,0 +1,44 @@
+# correction note for HRD-084 evidence (follow-ups F32-1, F32-2 of the independent review at 32077f3f)
+# run 2026-11-24T20:45:59Z, constitution at 7ac2926fa727e6fe7dade28b98a4177012649fac, hub root = submodules/constitution; rc captured directly, never through a pipe
+== cm_hub_engine_no_ownorg_nesting --root submodules/constitution
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/token_optimizer — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/session_orchestrator — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/continuum — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/anti_bluff — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/helix_perf_cache — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/docs_chain — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/verification — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/verify — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/repo-qa — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/repo-proof — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/donespec — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/agentic-validation — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/skill-doctor — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/verfix — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/MVT — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/wave-dpctf — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/mcp-audio-tweaker — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/polyscreen-mcp — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/video-quality-mcp — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/claude-video — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/watch-skill — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/design-toolkit — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/llmctl — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/open_design — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/claude_toolkit — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/containers — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/superspec — not checked out; nothing to inspect
+⚠ CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP (exit 3) — no hub engine is checked out; nothing was inspected (not a PASS)
+rc=3
+== cm_llmctl_submodule_nonrecursive --root submodules/constitution
+CM-LLMCTL-SUBMODULE-NONRECURSIVE: marker recursive_init: false present
+CM-LLMCTL-SUBMODULE-NONRECURSIVE: SKIP (2) — submodules/llmctl is not checked out; nothing can re-enter this constitution through it
+✅ CM-LLMCTL-SUBMODULE-NONRECURSIVE: PASS
+rc=0
+== verify_helix_deps_manifests --root .
+SKIP(third_party)	submodules/constitution/submodules/open_design	leaf	nexu-io/open-design is not in the own-org list; no manifest required
+BLIND	submodules/constitution/submodules/claude_toolkit	leaf	own-org repository not checked out (git submodule update --init -- submodules/constitution/submodules/claude_toolkit); cannot verify
+BLIND	submodules/constitution/submodules/containers	leaf	own-org repository not checked out (git submodule update --init -- submodules/constitution/submodules/containers); cannot verify
+SKIP(third_party)	submodules/constitution/submodules/superspec	leaf	WangX0111/superspec is not in the own-org list; no manifest required
+VERDICT: BLIND (pass=2 fail=0 blind=19 skip_third_party=18 known=0)
+rc=2

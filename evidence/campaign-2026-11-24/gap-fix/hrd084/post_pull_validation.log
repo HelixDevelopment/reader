@@ -1,0 +1,25 @@
+# constitution 7ac2926fa727e6fe7dade28b98a4177012649fac in worktree HEAD f9d14dc5e2aea6b21676b3cb4674e0b52be50d73
+## verify_helix_deps_manifests
+SKIP(third_party)	submodules/constitution/submodules/open_design	leaf	nexu-io/open-design is not in the own-org list; no manifest required
+BLIND	submodules/constitution/submodules/claude_toolkit	leaf	own-org repository not checked out (git submodule update --init -- submodules/constitution/submodules/claude_toolkit); cannot verify
+BLIND	submodules/constitution/submodules/containers	leaf	own-org repository not checked out (git submodule update --init -- submodules/constitution/submodules/containers); cannot verify
+SKIP(third_party)	submodules/constitution/submodules/superspec	leaf	WangX0111/superspec is not in the own-org list; no manifest required
+VERDICT: BLIND (pass=2 fail=0 blind=19 skip_third_party=18 known=0)
+rc=0
+## cm_hub_engine_no_ownorg_nesting
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/security — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/vision_engine — not checked out; nothing to inspect
+CM-HUB-ENGINE-NO-OWNORG-NESTING: SKIP submodules/llms_verifier — not checked out; nothing to inspect
+❌ CM-HUB-ENGINE-NO-OWNORG-NESTING: FAIL
+rc=1
+## cm_llmctl_submodule_nonrecursive
+CM-LLMCTL-SUBMODULE-NONRECURSIVE: FAIL — helix-deps.yaml has no llmctl entry
+CM-LLMCTL-SUBMODULE-NONRECURSIVE: SKIP (2) — submodules/llmctl is not checked out; nothing can re-enter this constitution through it
+❌ CM-LLMCTL-SUBMODULE-NONRECURSIVE: FAIL
+rc=1
+## cm_helix_deps_manifest_present
+BLIND	submodules/constitution/submodules/containers	leaf	own-org repository not checked out (git submodule update --init -- submodules/constitution/submodules/containers); cannot verify
+SKIP(third_party)	submodules/constitution/submodules/superspec	leaf	WangX0111/superspec is not in the own-org list; no manifest required
+VERDICT: BLIND (pass=2 fail=0 blind=19 skip_third_party=18 known=0)
+⚠ CM-HELIX-DEPS-MANIFEST-PRESENT: BLIND (exit 2) — something could not be verified (see BLIND lines); this is not a PASS
+rc=2
