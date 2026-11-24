@@ -83,7 +83,7 @@ all give `SyncError`, a message on stderr, an `aborted` report and exit 3, with 
 **Baseline ordering.** A ticket's state baseline is advanced to the desired content only after the read-back verification succeeded; a failed read-back leaves the previous (or as-created) baseline, so the next run treats the item as `update`, not as a conflict.
 
 **Transport failures.** Anything the HTTP stack throws (refused/reset/timeout, `BadStatusLine`, `IncompleteRead`, a 200 response whose body is not JSON) becomes `TransportError`
-(reported as an `error` action, partial report written, exit 3), never a traceback.
+(reported as an `error` action, partial report written, exit 3), never a traceback. Since fix round 1 this also holds for malformed server responses (a ticket without `id`, `data` of the wrong type, deeply nested or over-size bodies, non-text fields): every parsed server field is shape-validated (`ShapeError`), bodies are capped at 8 MiB, `--report` is replaced by an `InProgress`/aborted marker as soon as the run starts so a stale report never survives, and an unexpected exception is reported as an aborted run (exit 3). All server- or tree-derived text printed to stderr or written to the report is escaped by `safe_text` (every Unicode C* character, ESC/OSC/CSI/C1, bidi, NUL, CR, line separators) and capped. A registry record whose status or type has no Core mapping is reported as `unmapped` (exit 2) and the batch continues.
 
 ## Transport safety
 
@@ -107,7 +107,7 @@ HT_BASE_URL=... HT_USER=... HT_PASSWORD=...   # or --env-file (mode 0600)
 python3 tools/helixtrack-sync/helixtrack_sync.py push|pull|compare --state S.json [--dry-run] [--overwrite-remote] [--no-probe] \
   [--outbox docs/tracking/helixtrack-outbox.json] [--db docs/workable_items.db] [--record traffic.jsonl] [--report r.json]
 ```
-Tests: `cd tools/helixtrack-sync && python3 -I -m unittest discover -s . -p 'test_*.py'` (68 tests). Mutation check: `python3 -I evidence/campaign-2026-11-23/helixtrack/run_mutants.py` (31 mutants, all killed).
+Tests: `cd tools/helixtrack-sync && python3 -I -m unittest discover -s . -p 'test_*.py'` (126 tests at fix round 1; run with `PYTHONPATH=.` because `-I` hides the test module). Mutation checks: `evidence/campaign-2026-11-23/helixtrack/run_mutants.py` (rounds 1-3 mutants) and `evidence/campaign-2026-11-23/helixtrack/fix-round-1/run_mutants_r1.py` (fix-round-1 mutants); counts and results are in the logs next to them, not restated here.
 
 ## Recommended HRD-029 wording
 

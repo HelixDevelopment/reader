@@ -27,6 +27,7 @@ import re
 import sqlite3
 import stat
 import sys
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -57,8 +58,38 @@ UNPUSHED_PAYLOAD_FIELDS = frozenset({"closure_criteria", "composes_with", "foren
 
 
 # ---------------------------------------------------------------- errors
+MAX_RESPONSE_BYTES = 8 * 1024 * 1024
+MSG_LIMIT = 300
+
+
+def safe_text(value, limit=MSG_LIMIT):
+    """Server-/tree-derived text made safe for a terminal, a log and a report: every character of Unicode
+    category C* (controls incl. ESC, BEL, NUL, CR, C1 such as CSI 0x9b, format chars incl. bidi overrides and
+    zero-width, surrogates, private use, unassigned) and the line/paragraph separators is escaped, then the text is
+    capped.  Newlines are escaped too, so one message is always one line."""
+    try:
+        text = value if isinstance(value, str) else str(value)
+    except Exception:
+        text = "<unprintable %s>" % type(value).__name__
+    out = []
+    for ch in text:
+        cat = unicodedata.category(ch)
+        if cat[0] == "C" or cat in ("Zl", "Zp") or (ch != " " and cat == "Zs"):
+            cp = ord(ch)
+            out.append("\\x%02x" % cp if cp < 0x100 else "\\u%04x" % cp if cp < 0x10000 else "\\U%08x" % cp)
+        else:
+            out.append(ch)
+    res = "".join(out)
+    return res if len(res) <= limit else res[:limit] + "...[truncated %d]" % (len(res) - limit)
+
+
+def emit_warning(text):
+    print("warning: %s" % safe_text(text), file=sys.stderr)
+
+
 class SyncError(Exception):
-    pass
+    def __str__(self):
+        return safe_text(Exception.__str__(self))
 
 
 class MappingError(SyncError):
@@ -105,6 +136,10 @@ class TransportError(CoreError):
     pass
 
 
+class ShapeError(CoreError):
+    """The server answered, but not in the shape Core documents."""
+
+
 class RedirectRefused(CoreError):
     pass
 
@@ -138,7 +173,8 @@ class Recorder:
                  "http_status": status, "response": redact(response)}
         self.entries.append(entry)
         if self.path:
-            with open(self.path, "a", encoding="utf-8") as fh:
+            fd = os.open(self.path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o600)
+            with os.fdopen(fd, "a", encoding="utf-8") as fh:
                 fh.write(json.dumps(entry, ensure_ascii=False, sort_keys=True) + "\n")
 
 
@@ -242,8 +278,10 @@ class CoreClient:
             headers["Authorization"] = "Bearer " + self._jwt
         try:
             status, resp = self._t("POST", "/do", headers, body)
-        except (OSError, urllib.error.URLError, http.client.HTTPException, ValueError) as exc:
-            raise TransportError("transport failure: %s" % type(exc).__name__)
+        except (OSError, urllib.error.URLError, http.client.HTTPException, ValueError, RecursionError,
+                MemoryError) as exc:
+            detail = (": " + safe_text(exc, 120)) if isinstance(exc, (ValueError, RecursionError)) else ""
+            raise TransportError("transport failure: %s%s" % (type(exc).__name__, detail))
         if self._rec:
             self._rec.add("POST", "/do", headers, body, status, resp)
         if 300 <= status < 400:
@@ -254,9 +292,18 @@ class CoreClient:
     def _do(self, body, auth=True, _relogin=True):
         status, resp = self._raw(body, auth)
         resp = resp if isinstance(resp, dict) else {}
-        code, msg = resp.get("errorCode"), resp.get("errorMessage") or "HTTP %s" % status
+        code, msg = resp.get("errorCode"), resp.get("errorMessage")
+        if not isinstance(msg, str) or not msg:
+            msg = "HTTP %s" % status
+        if not isinstance(code, int) or isinstance(code, bool):
+            code = None
         if status == 200 and code == -1:
-            return resp.get("data") or {}
+            data = resp.get("data")
+            if data is None:
+                return {}
+            if not isinstance(data, dict):
+                raise ShapeError("response data is %s, expected an object" % type(data).__name__, status, code)
+            return data
         if status == 401:
             if auth and _relogin and code in (1002, 1003):
                 self.login()
@@ -268,7 +315,8 @@ class CoreClient:
             raise NotFoundError(msg, status, code)
         if status == 409:
             if code == 3006:
-                m = re.search(r"Current version:\s*(\d+)", resp.get("errorMessageLocalised") or "")
+                loc = resp.get("errorMessageLocalised")
+                m = re.search(r"Current version:\s*(\d+)", loc if isinstance(loc, str) else "")
                 raise VersionConflict(msg, int(m.group(1)) if m else None)
             raise ConflictError(msg, status, code)
         if status == 400:
@@ -279,36 +327,84 @@ class CoreClient:
 
     def login(self):
         data = self._do({"action": "authenticate", "data": {"username": self._u, "password": self._p}}, auth=False)
-        if not data.get("token"):
+        if not isinstance(data.get("token"), str) or not data["token"]:
             raise AuthError("authenticate returned no token (is Core running with local auth?)")
         self._jwt = data["token"]
 
+    @staticmethod
+    def _obj(value, what):
+        if not isinstance(value, dict):
+            raise ShapeError("%s is %s, expected an object" % (what, type(value).__name__))
+        return value
+
+    @staticmethod
+    def _id(value, what):
+        if isinstance(value, bool) or not isinstance(value, (str, int)) or value == "":
+            raise ShapeError("%s has a missing or invalid id" % what)
+        return value
+
+    @classmethod
+    def _ticket(cls, value, what="ticket"):
+        """Every server field the tool later uses is validated here: id (str|int), title/description/status/
+        type (str or absent), version (int or absent)."""
+        t = cls._obj(value, what)
+        cls._id(t.get("id"), what)
+        for f in ("title", "description", "status", "type", "modified", "created"):
+            if t.get(f) is not None and not isinstance(t[f], (str, int)):
+                raise ShapeError("%s field %s has an invalid type" % (what, f))
+        for f in ("title", "description", "status", "type"):
+            if t.get(f) is not None and not isinstance(t[f], str):
+                raise ShapeError("%s field %s is not text" % (what, f))
+        if t.get("version") is not None and (isinstance(t["version"], bool) or not isinstance(t["version"], int)):
+            raise ShapeError("%s field version is not an integer" % what)
+        return t
+
+    @classmethod
+    def _items(cls, data, what, item_check):
+        items = data.get("items", [])
+        if items is None:
+            return []
+        if not isinstance(items, list):
+            raise ShapeError("%s items is %s, expected a list" % (what, type(items).__name__))
+        return [item_check(i) for i in items]
+
     def ensure_project(self, key, name, create=True):
-        for p in self._do({"action": "list", "object": "project", "data": {}}).get("items", []):
+        def chk(p):
+            self._obj(p, "project")
+            if p.get("identifier") is not None and not isinstance(p["identifier"], str):
+                raise ShapeError("project identifier is not text")
+            return p
+        for p in self._items(self._do({"action": "list", "object": "project", "data": {}}), "project list", chk):
             if p.get("identifier") == key:
-                return p["id"]
+                return self._id(p.get("id"), "project")
         if not create:
             return None
         data = self._do({"action": "create", "object": "project",
                          "data": {"key": key, "name": name, "description": "Helix Reader registry mirror"}})
-        return data["project"]["id"]
+        return self._id(self._obj(data.get("project"), "created project").get("id"), "created project")
 
     def list_tickets(self, project_id):
-        return self._do({"action": "list", "object": "ticket", "data": {"project_id": project_id}}).get("items", [])
+        data = self._do({"action": "list", "object": "ticket", "data": {"project_id": project_id}})
+        return self._items(data, "ticket list", self._ticket)
 
     def read_ticket(self, ticket_id):
-        return self._do({"action": "read", "object": "ticket", "data": {"id": ticket_id}})["ticket"]
+        return self._ticket(self._do({"action": "read", "object": "ticket", "data": {"id": ticket_id}}).get("ticket"))
 
     def create_ticket(self, project_id, fields):
         data = self._do({"action": "create", "object": "ticket", "data": {
             "project_id": project_id, "title": fields["title"], "description": fields["description"],
             "type": fields["type"]}})
-        return data["ticket"]["id"]
+        return self._id(self._obj(data.get("ticket"), "created ticket").get("id"), "created ticket")
 
     def modify_ticket(self, ticket_id, version, **fields):
         data = {"id": ticket_id, "version": version}
         data.update({k: v for k, v in fields.items() if k in ("title", "description", "status")})
-        return self._do({"action": "modify", "object": "ticket", "data": data})["ticket"]["version"]
+        t = self._obj(self._do({"action": "modify", "object": "ticket", "data": data}).get("ticket"),
+                      "modified ticket")
+        v = t.get("version")
+        if isinstance(v, bool) or not isinstance(v, int):
+            raise ShapeError("modified ticket has no integer version")
+        return v
 
     def probe_version(self, ticket_id):
         """Core's read/list omit `version`.  A modify carrying an impossible version is rejected with 409 BEFORE
@@ -332,6 +428,15 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
         return None                      # every 3xx surfaces as an HTTPError; nothing is ever re-sent
 
 
+def _load_body(raw):
+    if len(raw) > MAX_RESPONSE_BYTES:
+        raise ValueError("response body exceeds %d bytes" % MAX_RESPONSE_BYTES)
+    try:
+        return json.loads(raw or b"null")
+    except RecursionError:
+        raise ValueError("response nesting too deep")
+
+
 def urllib_transport(base_url, timeout=30):
     check_base_url(base_url)
     host = urllib.parse.urlparse(base_url).hostname or ""
@@ -345,14 +450,14 @@ def urllib_transport(base_url, timeout=30):
                                      headers, method=method)
         try:
             with opener.open(req, timeout=timeout) as resp:
-                return resp.status, json.loads(resp.read() or b"null")
+                return resp.status, _load_body(resp.read(MAX_RESPONSE_BYTES + 1))
         except urllib.error.HTTPError as exc:
             try:
-                raw = exc.read()
+                raw = exc.read(MAX_RESPONSE_BYTES + 1)
             finally:
                 exc.close()
             try:
-                return exc.code, json.loads(raw or b"null")
+                return exc.code, _load_body(raw)
             except ValueError:
                 return exc.code, None
     return transport
@@ -376,7 +481,7 @@ class Report:
 
     @property
     def has_conflicts(self):
-        return any(a["action"] in ("conflict", "unpushable", "duplicate", "remote-deleted") for a in self.actions)
+        return any(a["action"] in ("conflict", "unpushable", "duplicate", "remote-deleted", "unmapped") for a in self.actions)
 
     @property
     def has_drift(self):
@@ -569,6 +674,9 @@ def push(client, project_id, records, state, dry_run=False, overwrite_remote=Fal
         try:
             _push_one(client, project_id, rec, state, matched, problems, dry_run, overwrite_remote, history,
                       None if dry_run else checkpoint, report)
+        except MappingError as exc:                      # this record cannot be mapped: skip it, keep the batch
+            report.add(record_key(rec), "unmapped", reason=str(exc))
+            continue
         except (CoreError, ReadbackMismatch) as exc:
             report.fail(record_key(rec), exc)
             if checkpoint and not dry_run:
@@ -623,6 +731,8 @@ def pull(client, project_id, records, state, history=None, probe=True):
                                              "registry_status": REVERSE_STATUS.get(rf["status"]),
                                              "note": "proposal only; the tool never edits the registry"})
             report.add(key, action, changed_fields=changed, **info, **extra)
+        except MappingError as exc:
+            report.add(key, "unmapped", reason=str(exc))
         except (CoreError, ReadbackMismatch) as exc:
             report.fail(key, exc)
             break
@@ -850,6 +960,10 @@ def main(argv=None, environ=None, transport=None):
     lock = StateLock(args.state + ".lock")
     try:
         lock.acquire()
+        if args.report:      # a previous run's report must never survive as if it described this run
+            save_json_atomic(args.report, {"mode": args.command, "aborted": True, "warnings": [],
+                                           "error": {"type": "InProgress",
+                                                     "message": "run started and not finished"}})
         if args.env_file:
             load_env_file(args.env_file, environ)
         base, user, pw = environ.get("HT_BASE_URL"), environ.get("HT_USER"), environ.get("HT_PASSWORD")
@@ -859,7 +973,7 @@ def main(argv=None, environ=None, transport=None):
         records = load_outbox(args.outbox)               # all inputs validated BEFORE login
         history = load_history(args.db, warnings) if args.db else None
         for w in warnings:
-            print("warning: %s" % w, file=sys.stderr)
+            emit_warning(w)
         state = load_state(args.state)
         client = CoreClient(transport or urllib_transport(base), user, pw, Recorder(args.record))
         client.login()
@@ -886,10 +1000,17 @@ def main(argv=None, environ=None, transport=None):
             print(json.dumps({k: out[k] for k in ("mode", "total", "matching")}))
             return 0 if out["matching"] == out["total"] else 2
     except SyncError as exc:
-        print("error: %s: %s" % (type(exc).__name__, exc), file=sys.stderr)
+        print("error: %s: %s" % (type(exc).__name__, safe_text(exc)), file=sys.stderr)
         if args.report and not isinstance(exc, LockError):     # never clobber the running instance's report
             save_json_atomic(args.report, {"mode": args.command, "aborted": True, "warnings": warnings,
                                            "error": {"type": type(exc).__name__, "message": str(exc)}})
+        return 3
+    except Exception as exc:                                  # last resort: honest abort, never a traceback
+        print("error: unexpected %s: %s" % (type(exc).__name__, safe_text(exc)), file=sys.stderr)
+        if args.report:
+            save_json_atomic(args.report, {"mode": args.command, "aborted": True, "warnings": warnings,
+                                           "error": {"type": "Unexpected" + type(exc).__name__,
+                                                     "message": safe_text(exc)}})
         return 3
     finally:
         lock.release()

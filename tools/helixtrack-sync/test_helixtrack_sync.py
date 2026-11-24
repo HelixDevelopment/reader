@@ -1174,7 +1174,8 @@ class Gap3LockTests(_MainBase):
             self.assertEqual(b.returncode, 3, b.stderr)
             self.assertIn("lock", b.stderr)
             self.assertEqual(len(srv.hits), 1, "second instance must not have contacted the server")
-            self.assertFalse(os.path.exists(self.report))
+            # the running first instance wrote its in-progress marker; the refused second one wrote nothing else
+            self.assertEqual(json.loads(slurp(self.report, "r"))["error"]["type"], "InProgress")
         finally:
             gate.set()
             ao, ae = a.communicate(timeout=20)
@@ -1701,3 +1702,267 @@ class Gap7Tests(_MainBase):
             rep = json.loads(slurp(self.report, "r"))
             self.assertEqual(len(rep["warnings"]), 1, cmd)
             self.assertIn("stale", rep["warnings"][0])
+
+
+# ------------------------------------------------------------------ fix round 1 (review NO-GO of 662a1f2)
+import unicodedata  # noqa: E402
+
+HOSTILE = ("bad\x1b]0;PWNED\x07\x1b]52;c;AAAA\x07\x1b[2J\x1b[31mRED\x9b31m\x85‮⁦x\x00y\rz​"
+           " \x7f")
+
+
+def _no_controls(case, text, what=""):
+    for ch in text:
+        if ch in "\n":
+            continue
+        cat = unicodedata.category(ch)
+        case.assertFalse(cat[0] == "C" or cat in ("Zl", "Zp"), "%s: unescaped U+%04X in %r" % (what, ord(ch), text))
+
+
+class SafeTextTests(unittest.TestCase):
+    def test_every_control_class_is_escaped(self):
+        out = hs.safe_text(HOSTILE, 10000)
+        _no_controls(self, out, "safe_text")
+        self.assertIn("RED", out)
+        self.assertNotIn("\x1b", out)
+
+    def test_length_capped_and_non_str_accepted(self):
+        self.assertLessEqual(len(hs.safe_text("a" * 100000)), 400)
+        self.assertEqual(hs.safe_text(None), "None")
+
+
+class B2TerminalInjectionTests(_MainBase):
+    """Server text must never reach stderr/report unescaped (login, listing, compare, per-item, warnings)."""
+
+    def hostile(self, action, obj, status):
+        def inj(a, o, d):
+            if (a, o) == (action, obj):
+                return status, {"errorCode": 1004, "errorMessage": HOSTILE, "errorMessageLocalised": HOSTILE}
+        self.fake.fail_on = inj
+
+    def check(self, cmd, action, obj, status, what):
+        self.hostile(action, obj, status)
+        code, out, err = self.run_main(cmd)
+        self.assertEqual(code, 3, what)
+        for stream, text in (("stderr", err), ("stdout", out), ("report", slurp(self.report, "r"))):
+            self.assertNotIn("\x1b", text, what + " " + stream)
+            self.assertNotIn("\x9b", text, what + " " + stream)
+            self.assertNotIn("\x07", text, what + " " + stream)
+            self.assertNotIn("‮", text, what + " " + stream)
+        _no_controls(self, err, what + " stderr")
+
+    def test_login_401(self):
+        orig = self.fake.transport
+
+        def tr(m, p, h, b):
+            if b.get("action") == "authenticate":
+                return 401, {"errorCode": 1004, "errorMessage": HOSTILE}
+            return orig(m, p, h, b)
+        self.fake.transport = tr
+        code, out, err = self.run_main("push")
+        self.assertEqual(code, 3)
+        _no_controls(self, err, "login stderr")
+        for text in (err, out, slurp(self.report, "r")):
+            self.assertNotIn("\x1b", text)
+            self.assertNotIn("\x07", text)
+
+    def test_listing_500_push_pull_compare(self):
+        for cmd in ("push", "pull", "compare"):
+            self.check(cmd, "list", "ticket", 500, "list " + cmd)
+
+    def test_project_list_401_and_403(self):
+        for st in (401, 403, 404, 400, 409):
+            self.check("pull", "list", "project", st, "project %d" % st)
+
+    def test_per_item_error_message_in_report_is_escaped(self):
+        self.check("push", "create", "ticket", 400, "create")
+
+    def test_warning_text_is_escaped(self):
+        buf = io.StringIO()
+        with contextlib.redirect_stderr(buf):
+            hs.emit_warning("x\x1b[2Jy")
+        self.assertNotIn("\x1b", buf.getvalue())
+
+    def test_exception_str_is_sanitised_for_every_syncerror(self):
+        for exc in (hs.CoreError(HOSTILE), hs.AuthError(HOSTILE), hs.SyncError(HOSTILE), hs.MappingError(HOSTILE),
+                    hs.ReadbackMismatch(HOSTILE), hs.VersionConflict(HOSTILE)):
+            _no_controls(self, str(exc), type(exc).__name__)
+
+
+class B3MalformedResponseTests(_MainBase):
+    def inject(self, match, status, body):
+        def inj(a, o, d):
+            if (a, o) == match:
+                return status, body
+        self.fake.fail_on = inj
+
+    def assert_aborted(self, cmd, what):
+        with open(self.report, "w") as fh:
+            fh.write('{"stale": "previous run said synced"}')
+        code, out, err = self.run_main(cmd)
+        self.assertEqual(code, 3, what)
+        self.assertNotIn("Traceback", err, what)
+        rep = json.loads(slurp(self.report, "r"))
+        self.assertTrue(rep.get("aborted"), what)
+        self.assertNotIn("stale", rep, what)
+        # must be the DESIGNED rejection (a CoreError subclass), not the last-resort safety net
+        self.assertNotIn("Unexpected", rep["error"]["type"], what + ": " + json.dumps(rep["error"]))
+        self.assertIn(rep["error"]["type"], ("ShapeError", "ServerError", "AuthError"), what)
+
+    def test_malformed_shapes_abort_cleanly(self):
+        cases = [
+            ("ticket item without id", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": [{"title": "x"}]}}),
+            ("items not list", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": {"a": 1}}}),
+            ("items empty dict", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": {}}}),
+            ("items of ints", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": [1, 2]}}),
+            ("data is list", ("list", "ticket"), 200, {"errorCode": -1, "data": [1, 2]}),
+            ("data is string", ("list", "ticket"), 200, {"errorCode": -1, "data": "x"}),
+            ("title not str", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": [{"id": "a", "title": 5}]}}),
+            ("id is dict", ("list", "ticket"), 200, {"errorCode": -1, "data": {"items": [{"id": {"a": 1}}]}}),
+            ("project item no id", ("list", "project"), 200,
+             {"errorCode": -1, "data": {"items": [{"identifier": "HRD"}]}}),
+            ("project item not dict", ("list", "project"), 200, {"errorCode": -1, "data": {"items": [7]}}),
+            ("token not str", ("authenticate", None), 200, {"errorCode": -1, "data": {"token": {"a": 1}}}),
+            ("errorMessage not str", ("list", "ticket"), 500, {"errorCode": 1, "errorMessage": {"x": 1}}),
+        ]
+        for what, match, status, body in cases:
+            if match[0] == "authenticate":
+                orig = self.fake.transport
+
+                def tr(m, p, h, b, _o=orig, _body=body):
+                    if b.get("action") == "authenticate":
+                        return 200, _body
+                    return _o(m, p, h, b)
+                self.fake.transport, saved = tr, orig
+                try:
+                    self.assert_aborted("push", what)
+                finally:
+                    self.fake.transport = saved
+                continue
+            self.inject(match, status, body)
+            for cmd in ("push", "pull", "compare"):
+                self.assert_aborted(cmd, "%s/%s" % (what, cmd))
+
+    def test_create_and_modify_and_read_shapes(self):
+        self.inject(("create", "ticket"), 200, {"errorCode": -1, "data": {"ticket": {}}})
+        self.assert_aborted("push", "create no id")
+        self.inject(("create", "ticket"), 200, {"errorCode": -1, "data": {"ticket": "x"}})
+        self.assert_aborted("push", "create ticket str")
+        self.fake.fail_on = None
+        self.assertEqual(self.run_main("push")[0], 0)
+        self.fake.remote_edit("HRD-001", description="remote edit forces a version probe (read)")
+        self.inject(("read", "ticket"), 200, {"errorCode": -1, "data": {"ticket": [1]}})
+        self.assert_aborted("pull", "read ticket list")
+        self.fake.fail_on = None
+        orig = self.fake.transport
+
+        def tr(m, p, h, b):
+            if b.get("action") == "modify":
+                return 409, {"errorCode": 3006, "errorMessage": "c", "errorMessageLocalised": 7}
+            return orig(m, p, h, b)
+        self.fake.transport = tr
+        self.assert_aborted("pull", "localised not str")
+
+    def test_deep_nesting_and_huge_body_via_real_transport(self):
+        class H(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *a):
+                pass
+
+            def do_POST(self):
+                n = int(self.headers.get("Content-Length") or 0)
+                self.rfile.read(n)
+                body = self.server.body
+                self.send_response(200)
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+        for what, body in (("nested", b"[" * 200000 + b"]" * 200000),
+                           ("huge", b'{"errorCode":-1,"data":{"items":[],"pad":"' + b"a" * (hs.MAX_RESPONSE_BYTES + 10) + b'"}}')):
+            srv = serve(H, body=body)
+            stop(self, srv)
+            base = "http://127.0.0.1:%d" % srv.server_address[1]
+            self.write_env(0o600, base)
+            with open(self.report, "w") as fh:
+                fh.write('{"stale": 1}')
+            out, err = io.StringIO(), io.StringIO()
+            argv = ["push", "--outbox", self.outbox, "--state", self.state, "--report", self.report,
+                    "--env-file", self.env]
+            with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+                code = hs.main(argv, environ={})
+            self.assertEqual(code, 3, what)
+            self.assertNotIn("Traceback", err.getvalue(), what)
+            rep = json.loads(slurp(self.report, "r"))
+            self.assertTrue(rep.get("aborted"), what)
+            self.assertEqual(rep["error"]["type"], "TransportError", what)
+            self.assertIn("exceeds" if what == "huge" else "nesting", rep["error"]["message"], what)
+
+    def test_client_level_shapes_and_raw_recursion(self):
+        def t(resp):
+            return lambda m, p, h, b: resp
+        c = hs.CoreClient(t((200, {"errorCode": -1, "data": {"ticket": {"id": "t"}}})), "u", "p")
+        with self.assertRaises(hs.ShapeError):
+            c.modify_ticket("t", 1, title="x")
+        c = hs.CoreClient(t((200, {"errorCode": -1, "data": {"ticket": {"id": "t", "version": "2"}}})), "u", "p")
+        with self.assertRaises(hs.ShapeError):
+            c.modify_ticket("t", 1, title="x")
+
+        def deep(*a):
+            raise RecursionError("x")
+        with self.assertRaises(hs.TransportError):
+            hs.CoreClient(deep, "u", "p").list_tickets("p")
+
+    def test_unexpected_exception_still_aborts_report(self):
+        orig = hs.push
+
+        def boom(*a, **k):
+            raise RuntimeError("x\x1b[2J")
+        hs.push = boom
+        self.addCleanup(setattr, hs, "push", orig)
+        with open(self.report, "w") as fh:
+            fh.write('{"stale": 1}')
+        code, _, err = self.run_main("push")
+        self.assertEqual(code, 3)
+        self.assertNotIn("\x1b", err)
+        self.assertTrue(json.loads(slurp(self.report, "r")).get("aborted"))
+
+    def test_report_marked_aborted_at_start_even_if_killed_midway(self):
+        with open(self.report, "w") as fh:
+            fh.write('{"stale": 1}')
+        seen = {}
+
+        def spy(*a, **k):
+            seen["r"] = json.loads(slurp(self.report, "r"))
+            raise hs.TransportError("stop")
+        orig = hs.push
+        hs.push = spy
+        self.addCleanup(setattr, hs, "push", orig)
+        self.run_main("push")
+        self.assertTrue(seen["r"].get("aborted"))
+        self.assertNotIn("stale", seen["r"])
+
+
+class NonBlockingFoldInTests(_MainBase):
+    def test_unmapped_status_skips_that_record_not_the_batch(self):
+        self.recs[0]["payload"]["status"] = "Reopened"
+        with open(self.outbox, "w") as fh:
+            json.dump({"records": self.recs}, fh)
+        code, out, _ = self.run_main("push")
+        counts = json.loads(out)["counts"]
+        self.assertEqual(counts.get("create"), 2)
+        self.assertEqual(counts.get("unmapped"), 1)
+        self.assertEqual(code, 2)
+        self.assertEqual(len(self.fake.tickets), 2)
+
+    def test_record_file_is_0600(self):
+        rec_path = self.p("traffic.jsonl")
+        self.run_main("push", "--record", rec_path)
+        self.assertEqual(stat.S_IMODE(os.stat(rec_path).st_mode), 0o600)
+
+    def test_dry_run_performs_zero_writes_even_if_main_passed_a_checkpoint(self):
+        self.run_main("push", "--dry-run")
+        self.assertEqual(self.fake.writes(), [])
+        c = client(self.fake)
+        self.fake.calls.clear()
+        rep = hs.push(c, PID, self.recs, {}, dry_run=True, checkpoint=lambda s: self.fail("checkpoint in dry-run"))
+        self.assertEqual(self.fake.writes(), [])
+        self.assertEqual(sorted(actions(rep).values()), ["create"] * 3)
