@@ -1,0 +1,17 @@
+--- FAIL: TestFollowerOfSilentLeaderNeverGetsEmptyNil (0.44s)
+    lcp_flight_test.go:47: follower got (empty, nil)
+--- FAIL: TestBackoffLeaderNeverYieldsEmptyNilUnderConcurrency (0.26s)
+    lcp_flight_test.go:79: 102 callers got a nil error with no artifact
+--- FAIL: TestLeaderPanicDoesNotStrandFollowers (0.59s)
+    lcp_flight_test.go:128: leader panic was swallowed
+--- FAIL: TestFollowerDoesNotInheritLeaderCancel (0.66s)
+    lcp_flight_test.go:164: live follower failed because the leader was cancelled: lcp fulfillment: publication download failed: connection failed
+--- FAIL: TestFollowerDoesNotInheritLeaderBudgetRefusal (0.33s)
+    lcp_flight_test.go:187: follower = {SHA256: Size:0}, lcp fulfillment: scan fetch budget reached; retry on the next scan; want its own fetch
+--- FAIL: TestRedirectLoopDoesNotLockHost (0.85s)
+    lcp_flight_test.go:253: redirect-loop licenses locked a healthy host: files=0 skipped=[a0.lcpl: LCP fulfillment: lcp fulfillment: publication download failed: connection failed a1.lcpl: LCP fulfillment: lcp fulfillment: public
+--- FAIL: TestHost429CountsAgainstHost (1.76s)
+    lcp_flight_test.go:269: a host answering 429 was hit 8 times across distinct licenses
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/ingest	5.989s
+FAIL

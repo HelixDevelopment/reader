@@ -1,0 +1,54 @@
+{
+  "@context": "https://readium.org/webpub-manifest/context.jsonld",
+  "metadata": {
+    "title": "Helix Publications",
+    "numberOfItems": 1
+  },
+  "links": [
+    {
+      "href": "/opds/2.0/publications?limit=20\u0026offset=0",
+      "type": "application/opds+json",
+      "rel": "self"
+    },
+    {
+      "href": "/opds/2.0",
+      "type": "application/opds+json",
+      "rel": "start"
+    },
+    {
+      "href": "/opds/2.0/publications?q={searchTerms}",
+      "type": "application/opds+json",
+      "rel": "search",
+      "templated": true
+    }
+  ],
+  "publications": [
+    {
+      "metadata": {
+        "title": "Sealed",
+        "identifier": "urn:helix:edition:e9",
+        "modified": "2026-01-02T03:04:05Z"
+      },
+      "links": [
+        {
+          "href": "/opds/2.0/editions/e9",
+          "type": "application/opds-publication+json",
+          "rel": "self"
+        },
+        {
+          "href": "/v1/files/f9/license",
+          "type": "application/vnd.readium.lcp.license.v1.0+json",
+          "rel": "http://opds-spec.org/acquisition",
+          "title": "LCP license",
+          "properties": {
+            "indirectAcquisition": [
+              {
+                "type": "application/epub+zip"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

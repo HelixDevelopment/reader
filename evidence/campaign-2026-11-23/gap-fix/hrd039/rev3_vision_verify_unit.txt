@@ -1,0 +1,19 @@
+test_blind_model_accepting_wrong_screen_fails_the_run (test_vision_verify.T.test_blind_model_accepting_wrong_screen_fails_the_run) ... ok
+ok
+test_explicit_endpoint_different_from_llmctl_is_refused (test_vision_verify.T.test_explicit_endpoint_different_from_llmctl_is_refused) ... ok
+test_explicit_endpoint_equal_to_llmctl_is_accepted (test_vision_verify.T.test_explicit_endpoint_equal_to_llmctl_is_accepted) ... ok
+test_forbidden_text_fails (test_vision_verify.T.test_forbidden_text_fails) ... ok
+test_goldens_are_judged_before_controls_regardless_of_manifest_order (test_vision_verify.T.test_goldens_are_judged_before_controls_regardless_of_manifest_order) ... ok
+ok
+test_manifest_rules (test_vision_verify.T.test_manifest_rules) ... ok
+test_manifest_without_cases_golden_or_bad_control_is_rejected (test_vision_verify.T.test_manifest_without_cases_golden_or_bad_control_is_rejected) ... ok
+test_model_mismatch_is_a_failure_and_recorded (test_vision_verify.T.test_model_mismatch_is_a_failure_and_recorded) ... ok
+test_must_not_contain_control_needs_its_string_on_the_paired_golden (test_vision_verify.T.test_must_not_contain_control_needs_its_string_on_the_paired_golden) ... ok
+test_substring_match_is_case_insensitive (test_vision_verify.T.test_substring_match_is_case_insensitive) ... ok
+test_token_match_distinguishes_similar_titles (test_vision_verify.T.test_token_match_distinguishes_similar_titles) ... ok
+test_unvalidated_model_refused_and_writes_no_verdict (test_vision_verify.T.test_unvalidated_model_refused_and_writes_no_verdict) ... ok
+test_vacuous_control_is_a_defect (test_vision_verify.T.test_vacuous_control_is_a_defect) ... ok
+ok
+test_wrong_golden_fails (test_vision_verify.T.test_wrong_golden_fails) ... ok
+Ran 17 tests in 2.586s
+OK

@@ -1,0 +1,980 @@
+{
+ "suite": "vision-golden-v1",
+ "kind": "vision",
+ "suite_hash": "9f6908567f369950e4d14118e2ef21a9bccc8cfb3cb49ab8204558b97818a33b",
+ "endpoint": "http://127.0.0.1:20000",
+ "expect_model": "gemma-3-4b-it-Q4_K_M.gguf",
+ "results": [
+  {
+   "key": "01_text_large/read",
+   "role": "golden",
+   "prompt": "Read all the text in this image exactly as written. Reply with only the text, nothing else. If the image contains no text at all, reply exactly: NO TEXT",
+   "verdict": "PASS",
+   "answer": "ORANGE TIGER\n42",
+   "finish_reason": "stop",
+   "seconds": 1.499,
+   "reasons": []
+  },
+  {
+   "key": "02_shapes_count/red_circles",
+   "role": "golden",
+   "prompt": "How many red circles are in this image? Answer with a single number.",
+   "verdict": "PASS",
+   "answer": "3",
+   "finish_reason": "stop",
+   "seconds": 1.168,
+   "reasons": []
+  },
+  {
+   "key": "02_shapes_count/blue_squares",
+   "role": "golden",
+   "prompt": "How many blue squares are in this image? Answer with a single number.",
+   "verdict": "PASS",
+   "answer": "2",
+   "finish_reason": "stop",
+   "seconds": 1.166,
+   "reasons": []
+  },
+  {
+   "key": "03_login_form/transcribe",
+   "role": "golden",
+   "prompt": "This is a screenshot of a software user interface. Transcribe every piece of text you can read in it, one item per line. Output only the text.",
+   "verdict": "PASS",
+   "answer": "SIGN IN\nUSERNAME\nPASSWORD\nLOGIN",
+   "finish_reason": "stop",
+   "seconds": 1.299,
+   "reasons": []
+  },
+  {
+   "key": "03_login_form/screen_type",
+   "role": "golden",
+   "prompt": "What kind of screen is shown in this screenshot? Answer in one short sentence.",
+   "verdict": "PASS",
+   "answer": "This screenshot depicts a classic, pixelated login screen reminiscent of early 1980s computer systems.",
+   "finish_reason": "stop",
+   "seconds": 1.509,
+   "reasons": []
+  },
+  {
+   "key": "04_list_view/items",
+   "role": "golden",
+   "prompt": "Read the items of the list below the FRUITS header from top to bottom, one per line. Output only the items.",
+   "verdict": "PASS",
+   "answer": "APPLE\nBANANA\nCHERRY\nGRAPE",
+   "finish_reason": "stop",
+   "seconds": 1.306,
+   "reasons": []
+  },
+  {
+   "key": "04_list_view/count",
+   "role": "golden",
+   "prompt": "How many items are in the list below the FRUITS header? Answer with a single number.",
+   "verdict": "PASS",
+   "answer": "4",
+   "finish_reason": "stop",
+   "seconds": 1.106,
+   "reasons": []
+  },
+  {
+   "key": "05_table/transcribe",
+   "role": "golden",
+   "prompt": "Transcribe this table row by row, separating the cells of a row with spaces. Output only the table text.",
+   "verdict": "PASS",
+   "answer": "NAME   AGE   CITY\nANNA   31   PARIS\nBORIS  45   OSLO\nCLARA  27   ROME",
+   "finish_reason": "stop",
+   "seconds": 1.533,
+   "reasons": []
+  },
+  {
+   "key": "05_table/lookup",
+   "role": "golden",
+   "prompt": "In this table, what is the CITY of BORIS? Answer with one word.",
+   "verdict": "PASS",
+   "answer": "OSLO",
+   "finish_reason": "stop",
+   "seconds": 1.073,
+   "reasons": []
+  },
+  {
+   "key": "06_dialog/transcribe",
+   "role": "golden",
+   "prompt": "This is a screenshot of a dialog box. Transcribe every piece of text in it. Output only the text.",
+   "verdict": "PASS",
+   "answer": "WARNING\nDELETE FILE?\nCANCEL\nDELETE",
+   "finish_reason": "stop",
+   "seconds": 1.237,
+   "reasons": []
+  },
+  {
+   "key": "06_dialog/buttons",
+   "role": "golden",
+   "prompt": "What are the labels of the two buttons in this dialog? Answer with the two labels only.",
+   "verdict": "PASS",
+   "answer": "CANCEL, DELETE",
+   "finish_reason": "stop",
+   "seconds": 1.144,
+   "reasons": []
+  },
+  {
+   "key": "07_dark_theme/transcribe",
+   "role": "golden",
+   "prompt": "Transcribe every piece of text in this screenshot, one item per line. Output only the text.",
+   "verdict": "PASS",
+   "answer": "SETTINGS\nDARK MODE\nVOLUME 75",
+   "finish_reason": "stop",
+   "seconds": 1.222,
+   "reasons": []
+  },
+  {
+   "key": "07_dark_theme/theme",
+   "role": "golden",
+   "prompt": "Is the background of this interface dark or light? Answer with one word.",
+   "verdict": "PASS",
+   "answer": "Dark",
+   "finish_reason": "stop",
+   "seconds": 1.079,
+   "reasons": []
+  },
+  {
+   "key": "08_small_text/invoice",
+   "role": "golden",
+   "prompt": "What is the invoice number shown in this receipt? Answer with the number only.",
+   "verdict": "PASS",
+   "answer": "7731",
+   "finish_reason": "stop",
+   "seconds": 1.157,
+   "reasons": []
+  },
+  {
+   "key": "08_small_text/total",
+   "role": "golden",
+   "prompt": "What is the TOTAL amount shown in this receipt? Answer with the number only.",
+   "verdict": "PASS",
+   "answer": "58.40",
+   "finish_reason": "stop",
+   "seconds": 1.19,
+   "reasons": []
+  },
+  {
+   "key": "09_color_blocks/colors",
+   "role": "golden",
+   "prompt": "Name the colors of the three squares from left to right, one word per color.",
+   "verdict": "PASS",
+   "answer": "Red, Green, Blue",
+   "finish_reason": "stop",
+   "seconds": 1.201,
+   "reasons": []
+  },
+  {
+   "key": "90_bad_blank/read",
+   "role": "control-self",
+   "prompt": "Read all the text in this image exactly as written. Reply with only the text, nothing else. If the image contains no text at all, reply exactly: NO TEXT",
+   "verdict": "PASS",
+   "answer": "NO TEXT",
+   "finish_reason": "stop",
+   "seconds": 1.093,
+   "reasons": []
+  },
+  {
+   "key": "91_bad_wrong_content/read",
+   "role": "control-self",
+   "prompt": "Read all the text in this image exactly as written. Reply with only the text, nothing else. If the image contains no text at all, reply exactly: NO TEXT",
+   "verdict": "PASS",
+   "answer": "PURPLE HORSE\n17",
+   "finish_reason": "stop",
+   "seconds": 1.193,
+   "reasons": []
+  }
+ ],
+ "controls": [
+  {
+   "key": "90_bad_blank vs 01_text_large/read",
+   "verdict": "PASS",
+   "answer": "NO TEXT",
+   "golden_reasons": [
+    "exact_words: expected the words 'ORANGE TIGER 42', got 'NO TEXT'",
+    "forbidden: answer claims ['NO TEXT']"
+   ]
+  },
+  {
+   "key": "91_bad_wrong_content vs 01_text_large/read",
+   "verdict": "PASS",
+   "answer": "PURPLE HORSE\n17",
+   "golden_reasons": [
+    "exact_words: expected the words 'ORANGE TIGER 42', got 'PURPLE HORSE 17'",
+    "forbidden: answer claims ['PURPLE', 'HORSE', '17']"
+   ]
+  }
+ ],
+ "determinism": [
+  {
+   "key": "01_text_large/read",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "02_shapes_count/red_circles",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "02_shapes_count/blue_squares",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "03_login_form/transcribe",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "03_login_form/screen_type",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "04_list_view/items",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "04_list_view/count",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "05_table/transcribe",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "05_table/lookup",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "06_dialog/transcribe",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "06_dialog/buttons",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "07_dark_theme/transcribe",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "07_dark_theme/theme",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "08_small_text/invoice",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "08_small_text/total",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "09_color_blocks/colors",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "90_bad_blank/read",
+   "identical": true,
+   "repeat": 3
+  },
+  {
+   "key": "91_bad_wrong_content/read",
+   "identical": true,
+   "repeat": 3
+  }
+ ],
+ "judge_selftest": [
+  {
+   "probe": "01_text_large/read",
+   "answer": "ORANGE TIGER\n42",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "orange tiger 42",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "PURPLE HORSE 17",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'PURPLE HORSE 17'; forbidden: answer claims ['PURPLE', 'HORSE', '17']"
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "ORANGE TIGER 420",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'ORANGE TIGER 420'"
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) empty answer"
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "NO TEXT",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'NO TEXT'; forbidden: answer claims ['NO TEXT']"
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "There is no ORANGE TIGER 42 here",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'THERE IS NO ORANGE TIGER 42 HERE'"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "There are three red circles.",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "4",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, the answer states 4"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "I cannot count them.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'I cannot count them' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 or 4",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3 or 4' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/blue_squares",
+   "answer": "2",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/blue_squares",
+   "answer": "3",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 2, the answer states 3"
+  },
+  {
+   "probe": "03_login_form/transcribe",
+   "answer": "SIGN IN\nUSERNAME\nPASSWORD\nLOGIN",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "03_login_form/transcribe",
+   "answer": "SIGN IN\nUSERNAME",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['PASSWORD', 'LOGIN']"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "A login screen.",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "A settings page.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['LOGIN', 'LOG IN', 'SIGN IN', 'SIGN-IN', 'SIGNIN'] asserted outside a parenthetical aside; forbidden: answer claims ['SETTINGS']"
+  },
+  {
+   "probe": "04_list_view/items",
+   "answer": "APPLE\nBANANA\nCHERRY\nGRAPE",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "04_list_view/items",
+   "answer": "BANANA\nAPPLE\nCHERRY\nGRAPE",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'APPLE BANANA CHERRY GRAPE', got 'BANANA APPLE CHERRY GRAPE'"
+  },
+  {
+   "probe": "04_list_view/count",
+   "answer": "4",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "04_list_view/count",
+   "answer": "5",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 4, the answer states 5"
+  },
+  {
+   "probe": "05_table/transcribe",
+   "answer": "NAME AGE CITY\nANNA 31 PARIS\nBORIS 45 OSLO\nCLARA 27 ROME",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "05_table/transcribe",
+   "answer": "NAME AGE CITY\nBORIS 45 OSLO\nANNA 31 PARIS\nCLARA 27 ROME",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'NAME AGE CITY ANNA 31 PARIS BORIS 45 OSLO CLARA 27 ROME', got 'NAME AGE CITY BORIS 45 OSLO ANNA 31 PARIS CLARA 27 ROME'"
+  },
+  {
+   "probe": "05_table/lookup",
+   "answer": "PARIS",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['OSLO']; forbidden: answer claims ['PARIS']"
+  },
+  {
+   "probe": "05_table/lookup",
+   "answer": "OSLO",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/transcribe",
+   "answer": "WARNING\nDELETE FILE?\nCANCEL\nDELETE",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/transcribe",
+   "answer": "WARNING\nCANCEL",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['DELETE FILE']"
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "CANCEL, DELETE",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "OK, CANCEL",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['OK']"
+  },
+  {
+   "probe": "07_dark_theme/transcribe",
+   "answer": "SETTINGS\nDARK MODE\nVOLUME 75",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "07_dark_theme/transcribe",
+   "answer": "SETTINGS\nDARK MODE\nVOLUME 57",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['75']"
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "Light",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['DARK', 'BLACK'] asserted outside a parenthetical aside; forbidden: answer claims ['LIGHT']"
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "Dark",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "7731",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "7781",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 7731, the answer states 7781"
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58.40",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58.04",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 58.4, the answer states 58.04"
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "Blue, green, red",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'RED GREEN BLUE', got 'BLUE GREEN RED'"
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "Red, Green, Blue",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "Red, green, blue, red",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'RED GREEN BLUE', got 'RED GREEN BLUE RED'"
+  },
+  {
+   "probe": "90_bad_blank/read",
+   "answer": "NO TEXT",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "90_bad_blank/read",
+   "answer": "ORANGE TIGER 42",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['NO TEXT']; forbidden: answer claims ['ORANGE', 'TIGER', '42']"
+  },
+  {
+   "probe": "91_bad_wrong_content/read",
+   "answer": "PURPLE HORSE\n17",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "91_bad_wrong_content/read",
+   "answer": "ORANGE TIGER 42",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['PURPLE', 'HORSE', '17']; forbidden: answer claims ['ORANGE', 'TIGER', '42']"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "Not 3.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'Not 3' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "There are not 3 red circles.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'There are not 3' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 or more",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3 or more' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "At least 3",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'At least 3' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "About 3",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'About 3' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3rd",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3rd' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3%",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3%' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3/4",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3/4' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "Three. No wait - four.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, 'No wait - four' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 (three)",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "\u0663",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "\uff13",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "**3**",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "Three.",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "```\n3\n```",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "TIGER ORANGE 42",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'TIGER ORANGE 42'"
+  },
+  {
+   "probe": "01_text_large/read",
+   "answer": "ORANGE TIGER 42 ZEBRA",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'ORANGE TIGER 42', got 'ORANGE TIGER 42 ZEBRA'"
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Delete is not there, only Cancel.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['IS', 'NOT', 'THERE', 'ONLY']"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "A login-less dashboard.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['LOGIN', 'LOG IN', 'SIGN IN', 'SIGN-IN', 'SIGNIN'] asserted outside a parenthetical aside; forbidden: answer claims ['DASHBOARD']"
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "Not sure, dark.",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "Dark. No, wait - light.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['DARK', 'BLACK'] asserted outside a parenthetical aside; forbidden: answer claims ['LIGHT']; max_words: 4 words, at most 3 asked"
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "Not red, green, blue.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'RED GREEN BLUE', got 'NOT RED GREEN BLUE'"
+  },
+  {
+   "probe": "04_list_view/items",
+   "answer": "The list is NOT apple, banana, cherry, grape.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'APPLE BANANA CHERRY GRAPE', got 'THE LIST IS NOT APPLE BANANA CHERRY GRAPE'"
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "7,731",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 7731, '7,731' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "INV-7731",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58.40 is not the total",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 58.4, '58.40 is not the total' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "$58.40",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58,40",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Cancel. Delete is not there.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['IS', 'NOT', 'THERE']"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "There are 3 red circles",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 circles",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 million red circles",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3 million' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 red circles I think",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3 red circles I think' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "3 pairs",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, '3 pairs' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "02_shapes_count/blue_squares",
+   "answer": "2 blue squares",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/blue_squares",
+   "answer": "2 squares apparently",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 2, '2 squares apparently' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "04_list_view/count",
+   "answer": "4 items",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "04_list_view/count",
+   "answer": "4 hundred",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 4, '4 hundred' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58.40 USD",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/total",
+   "answer": "58.40 and a half",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 58.4, '58.40 and a half' is not just a number (a hedge, comparison, negation, unit, ordinal, alternative or a word the probe does not allow)"
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "Invoice No. 7731",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "No. 7731",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "08_small_text/invoice",
+   "answer": "Invoice No. 7731. No. 7732",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 7731, the answer states several different numbers 7731, 7732"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "A dashboard (login screen is next).",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['LOGIN', 'LOG IN', 'SIGN IN', 'SIGN-IN', 'SIGNIN'] asserted outside a parenthetical aside; forbidden: answer claims ['DASHBOARD']"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "This is a dashboard; the login screen comes next.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) forbidden: answer claims ['DASHBOARD']"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "This is a login screen (username and password).",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "04_list_view/items",
+   "answer": "APPLE\nBANANA\nCHERRY\nGRAPE\nMANGO",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'APPLE BANANA CHERRY GRAPE', got 'APPLE BANANA CHERRY GRAPE MANGO'"
+  },
+  {
+   "probe": "05_table/transcribe",
+   "answer": "NAME AGE CITY\nANNA 31 PARIS\nBORIS 45 OSLO\nCLARA 27 ROME\nDAVID 50 LIMA",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'NAME AGE CITY ANNA 31 PARIS BORIS 45 OSLO CLARA 27 ROME', got 'NAME AGE CITY ANNA 31 PARIS BORIS 45 OSLO CLARA 27 ROME DAVID 50 LIMA'"
+  },
+  {
+   "probe": "05_table/transcribe",
+   "answer": "| NAME | AGE | CITY |\n|---|---|---|\n| ANNA | 31 | PARIS |\n| BORIS | 45 | OSLO |\n| CLARA | 27 | ROME |",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Delete and Cancel",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Cancel, Delete - no OK button.",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Cancel, Delete, OK",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['OK']"
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Neither Cancel nor Delete; Save and Close.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['NEITHER', 'NOR', 'SAVE', 'CLOSE']"
+  },
+  {
+   "probe": "06_dialog/buttons",
+   "answer": "Cancel, Delete, not OK but Save",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) label_set: words other than the labels: ['NOT', 'OK', 'BUT', 'SAVE']"
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "light? no, dark",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "red, green, and blue",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "red green blue yellow",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'RED GREEN BLUE', got 'RED GREEN BLUE YELLOW'"
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "From right to left: red, green, blue",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) exact_words: expected the words 'RED GREEN BLUE', got 'FROM RIGHT TO LEFT RED GREEN BLUE'"
+  },
+  {
+   "probe": "09_color_blocks/colors",
+   "answer": "Here's the breakdown of the colors from left to right:\n\n*   Red\n*   Green\n*   Blue",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "02_shapes_count/red_circles",
+   "answer": "I count 3 red circles. 4.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) number_equals: expected 3, the answer states several different numbers 3, 4"
+  },
+  {
+   "probe": "03_login_form/screen_type",
+   "answer": "A file browser (the login screen is next).",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_any: none of ['LOGIN', 'LOG IN', 'SIGN IN', 'SIGN-IN', 'SIGNIN'] asserted outside a parenthetical aside"
+  },
+  {
+   "probe": "07_dark_theme/theme",
+   "answer": "(Dark)",
+   "ok": true,
+   "detail": "judged PASS (want PASS) "
+  },
+  {
+   "probe": "05_table/lookup",
+   "answer": "Oslo is incorrect.",
+   "ok": true,
+   "detail": "judged FAIL (want FAIL) contains_all: missing (or only negated) ['OSLO']"
+  }
+ ],
+ "notes": [],
+ "repeat": 3,
+ "quick": false,
+ "served_models": [
+  "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf",
+  "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf"
+ ],
+ "served_model": {
+  "expected": "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf",
+  "confirmed": true,
+  "sources": [
+   "cmdline",
+   "props",
+   "v1/models"
+  ],
+  "path": "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf",
+  "size": 2489757856,
+  "mtime_ns": 1789646156728509147,
+  "pids": [
+   826476
+  ]
+ },
+ "verdict": "PASS",
+ "exit_code": 0,
+ "counts": {
+  "pass": 38,
+  "fail": 0,
+  "undetermined": 0
+ }
+}

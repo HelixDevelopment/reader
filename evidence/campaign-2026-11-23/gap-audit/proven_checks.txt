@@ -1,0 +1,113 @@
+== evidence/clients/web/MANIFEST.sha256
+OK 26
+== evidence/clients/android/MANIFEST.sha256
+OK 6
+== evidence/clients/android/run-20261123T211340Z/MANIFEST.sha256
+OK 15
+== evidence/campaign-2026-11-23/helixqa/SHA256SUMS
+OK 17
+== evidence/campaign-2026-11-23/firebase/SHA256SUMS
+OK 6
+== evidence/campaign-2026-11-23/opds-lcp/evidence.sha256
+OK 7
+== web results
+{'client': 'http://127.0.0.1:4173/', 'server_titles': 3, 'chrome': '/home/milosvasic/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome', 'passed': 67, 'failed': 0, 'checks': 67}
+== ui results
+{'schema_version': 1, 'base_url': 'http://127.0.0.1:4173/', 'viewports': [{'viewport': {'name': 'phone', 'width': 375, 'height': 812}, 'checks': [{'id': 'viewport-meta', 'status': 'PASS', 'evidence': 'one viewport declaration'}, {'id': 'no-horizontal-overflow', 'status': 'PASS', 'evidence': {'scroll': 375, 'client': 375}}, {'id': 'sample-data-disclosure', 'status': 'PASS', 'evidence': 'backend state disclosed and visible: Sample data only · no backend connected'}, {'id': 'search-filter', 'status': 'PASS', 'evidence': 'six books reduced to one'}, {'id': 'reader-next-delta', 'status': 'PASS', 'e
+== ui-mutation
+{
+  "schema_version": 1,
+  "mutation": "viewport declaration removed from built index.html",
+  "expected": "non-zero verifier exit and viewport-meta failure at all four viewports",
+  "verifier_exit": 1,
+  "failures": [
+    {
+      "viewport": "phone",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "tablet",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "desktop",
+      "id": "viewport-meta"
+    },
+    {
+      "viewport": "wide",
+      "id": "viewport-meta"
+    }
+  ],
+  "== helixqa totals
+green-1 34 32 0 2
+helixqa exit=0
+green-2 34 32 0 2
+helixqa exit=0
+red-mutant 34 23 9 2
+helixqa exit=1
+== desktop
+helix-reader_0.1.0_amd64.deb: FAILED open or read
+sha256sum: helix-reader-0.1.0-linux-x64.tar.gz: No such file or directory
+helix-reader-0.1.0-linux-x64.tar.gz: FAILED open or read
+sha256sum: WARNING: 2 listed files could not be read
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 171.584145
+{
+  "gui": false,
+  "note": "handler-level live check; no Electron window",
+  "checks": [
+    {
+      "id": "server-direct-has-works",
+      "status": "PASS",
+      "evidence": {
+        "titles": [
+          "hq-novel",
+          "hq-notes",
+          "hq-mixed",
+          "hq-comic"
+        ]
+      }
+    },
+    {
+      "id": "server-sends-no-cors-headers (why the proxy exists)",
+      "status": "PASS",
+      "evidence": {
+        "access-control-allow-origin": null
+      }
+    },
+    {
+      "id": "proxy-with-stored-creds-returns-real-titles",
+      "status": "PASS",
+      "evidence": {
+    == android
+HRD-022 Android run 20261123T211340Z. Emulator: AVD 'default' (Android 14 / API 34 google_apis x86_64) inside rootless podman container (image ghcr.io/vasic-digital/lava-android-emulator:api34-x86_64 
+Server: fresh go build of server/cmd/helix-server, in-memory catalog, 127.0.0.1:28592, OPDS Basic creds (throwaway, not recorded). A logging pass-through proxy on 127.0.0.1:28591 recorded requests (se
+Library: Alice's Adventures in Wonderland.epub, epub3.epub (title 'zip'), field-notes.txt, orbital-gardens.txt.
+Steps: install APK, launch, (Settings form filled through WebView DevTools Runtime.evaluate because on-screen Gboard made adb input unreliable), library loads 4 works, tap field-notes via adb input ta
+The first 401 in the access log is the app's startup request using the persisted username with the session-only password empty; the 200s follow after credentials were entered.
+== file types
+total 1364
+drwxrwxr-x 2 milosvasic milosvasic   4096 Nov 23 22:13 .
+drwxrwxr-x 3 milosvasic milosvasic   4096 Nov 23 22:13 ..
+-rw-rw-r-- 1 milosvasic milosvasic  71173 Nov 23 22:13 01_library_portrait.png
+-rw-rw-r-- 1 milosvasic milosvasic  13318 Nov 23 22:13 01_library_portrait_uidump.xml
+-rw-rw-r-- 1 milosvasic milosvasic  66420 Nov 23 22:13 02_detail_portrait.png
+-rw-rw-r-- 1 milosvasic milosvasic  10088 Nov 23 22:13 02_detail_portrait_uidump.xml
+-rw-rw-r-- 1 milosvasic milosvasic 106166 Nov 23 22:13 03_reader_txt_portrait.png
+-rw-rw-r-- 1 milosvasic milosvasic   9856 Nov 23 22:13 03_reader_txt_portrait_uidump.xml
+-rw-rw-r-- 1 milosvasic milosvasic  72204 Nov 23 22:13 04_reader_txt_landscape.png
+-rw-rw-r-- 1 milosvasic milosvasic   9854 Nov 23 22:13 04_reader_txt_landscape_uidump.xml
+-rw-rw-r-- 1 milosvasic milosvasic   1341 Nov 23 22:13 MANIFEST.sha256
+-rw-rw-r-- 1 milosvasic milosvasic   1171 Nov 23 22:13 RUN.txt
+-rw-rw-r-- 1 milosvasic milosvasic    114 Nov 23 22:13 apk_sha256.txt
+-rw-rw-r-- 1 milosvasic milosvasic     82 Nov 23 22:13 device_fingerprint.txt
+-rw-rw-r-- 1 milosvasic milosvasic 451816 Nov 23 22:13 logcat_full.txt
+-rw-r--r-- 1 milosvasic milosvasic 529021 Nov 23 22:13 run_screenrecord.mp4
+-rw-rw-r-- 1 milosvasic milosvasic   1146 Nov 23 22:13 server_proxy_access.log
+-rw-rw-r-- 1 milosvasic milosvasic     25 Nov 23 22:13 wm_size.txt

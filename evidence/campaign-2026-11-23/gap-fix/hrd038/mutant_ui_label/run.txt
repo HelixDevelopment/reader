@@ -1,0 +1,53 @@
+Local node exec failed: exit status 1
+Output: node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('role=button[name=\'Open hq-comic\']') to be visible
+
+    at [eval]:6:14 {
+  log: [
+    "  - waiting for locator('role=button[name=\\'Open hq-comic\\']') to be visible"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.12.0
+
+Local node exec failed: exit status 1
+Output: node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('role=button[name=\'Open hq-comic\']') to be visible
+
+    at [eval]:6:14 {
+  log: [
+    "  - waiting for locator('role=button[name=\\'Open hq-comic\\']') to be visible"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.12.0
+
+FAIL  HLX-WEB-001 Library view lists the fixture titles from the live server
+      PASS open client :: navigated to http://127.0.0.1:4173/
+      PASS 401 state shown :: waited for role=alert
+      PASS open settings :: clicked role=button[name='Settings']
+      PASS enter username :: filled input[autocomplete=username] with 9 chars
+      PASS enter password :: filled input[type=password] with 11 chars
+      PASS save :: clicked role=button[name='Save']
+      PASS library heading :: waited for role=heading[name='Library']
+      FAIL comic card :: playwright waitFor role=button[name='Open hq-comic']: wait for role=button[name='Open hq-comic']: node exec: exec: "podman": executable file not found in $PATH
+output: 
+FAIL  HLX-WEB-002 Search narrows the library to the matching title
+      PASS open client :: navigated to http://127.0.0.1:4173/
+      FAIL comic card :: playwright waitFor role=button[name='Open hq-comic']: wait for role=button[name='Open hq-comic']: node exec: exec: "podman": executable file not found in $PATH
+output: 
+
+web bank summary: 8 PASS, 2 FAIL, 0 SKIP steps
+exit=1
