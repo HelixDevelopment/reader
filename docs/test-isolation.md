@@ -1,0 +1,221 @@
+# Test isolation policy and architecture
+
+Status: policy binding since 2026-11-23 (operator hard rule, stated twice); hardened after the independent isolation
+review (findings F1-F6, evidence `evidence/campaign-2026-11-23/isolated/hardening/`).
+
+## 1. The rule
+
+Automated tests must NEVER directly access or affect the logged-in user's desktop, display, windows, input devices,
+clipboard, browser or apps, on any host. Every autonomous GUI / E2E / emulator test runs INSIDE an isolated rootless
+container built on the Containers submodule (`submodules/containers`) and driven through HelixQA (`submodules/helixqa`,
+banks in `qa/helixqa/`). No credential of the operator (sudo password, tokens) is ever used. Other projects' containers
+(`lava-*`, `helixagent-*`, `helixcode-*`, `boba-*`, `qbittorrent`, `workshop-*`, `helixqual-*`) are never touched; ours are
+named `hrdiso-*` (tests: `hrdisorev-*`).
+
+**The container is the boundary. The guard (section 4) is a lint**: it catches honest mistakes early and has a documented
+residual; it is not what keeps the host safe.
+
+## 2. What runs where
+
+| Layer | Runs on host | Runs in the container |
+|---|---|---|
+| helix-server (Go, no GUI) | yes, loopback, a free port picked per run | no |
+| Logging proxy (`tools/isolation/access_proxy.py`) | yes, on a UNIX SOCKET `<state>/sock/h.sock` (mode 0600, dir 0700) | no |
+| redis (disposable, `hrdiso-redis-<runid>`, 128 MB, 1 h lifetime, per run) | rootless container, loopback on a free port picked per run (server only) | n/a |
+| Web client e2e (Playwright + Chrome for Testing) | no | yes (`localhost/helix-gui-test:1`) |
+| KOReader GUI (SDL on private Xvfb, xdotool, screenshots) | no | yes |
+| Electron desktop client e2e | no | yes |
+| HelixQA HTTP banks (`helixqa http`) | no (static binary built on host, executed in container) | yes |
+| HelixQA web bank browser cases (HLX-WEB-001/002) | no | yes, by `tests/helixqa_web/run_web_bank.sh` (HRD-038, separate work, container name `hrd038-web` is outside the `hrdiso-` namespace: reported, not changed) |
+| Android emulator | no | yes, own container, headless, `/dev/kvm` device (section 6) |
+
+The host only ever runs non-GUI processes (server, proxy, redis, `podman`). Drivers such as xdotool, Xvfb, openbox,
+ImageMagick and Chromium exist only inside the image.
+
+## 3. Architecture
+
+```
+host (logged-in desktop: never touched)
+ |  helix-server 127.0.0.1:<free port>  <- access_proxy (route allow-list)  unix:<state>/sock/h.sock   (access.log + KOSync bodies, redacted)
+ |  redis hrdiso-redis-<runid> (podman, 127.0.0.1:<free port>, server only)
+ |
+ +-- podman run --network none   (tools/isolation/run_container.sh)
+       localhost/helix-gui-test:1  (submodules/containers/images/gui-test/)
+       /run/helixsock/h.sock  <- the ONLY thing handed in (bind of <state>/sock)
+       qa/isolation/inside/launch.sh: runtime assertions, then node sockbridge.js 127.0.0.1:38191 -> h.sock, then the test
+       entrypoint: private Xvfb :99 (-nolisten tcp), optional openbox
+```
+
+**Network (finding F1).** The first design used podman's `pasta --map-host-loopback`, which exposes EVERY host loopback
+service (adb 5037, postgres 8432/55432, ollama 11434, cups 631, ssh 22, ...) and the internet to the container (RED log:
+`hardening/F1_RED.log`). Now the container runs with `--network none`: it has only `lo`. The one path to the test server is
+a unix socket bind-mounted from the host and bridged to the container's own `127.0.0.1:38191` by a 10-line in-container
+node bridge. Options evaluated: (a) `pasta -T <port>` forwards host-to-container, not the direction needed, and without
+`--map-host-loopback` pasta cannot reach host loopback at all; (b) per-port nft rules need root; (c) `--network none` +
+unix socket works rootless, is deny-by-default and also blocks all outbound internet. Chosen: (c). The permanent gate test
+`tools/isolation/tests/test_network_isolation.py` probes from inside a container every TCP port a host process listens on
+(loopback and wildcard), the host's own IPs, the pasta gateway names, `1.1.1.1:443` and a canary listener: nothing is
+reachable, and with `-b` only `127.0.0.1:38191` opens and really reaches the upstream through the proxy. Outbound
+internet is DENIED by default for every suite (none of them needs it; the browsers/KOReader are bind-mounted). The Android
+emulator container (section 6) is a separate recipe with its own published adb port and no host-loopback map.
+
+**Proxy route policy (N1).** The unix socket is not a free pass to the host server: `access_proxy.py` is default-DENY with a
+per-policy method+path allow-list. Allowed (GET/HEAD): `/healthz`, `/readyz`, `/opds/...`, `/opds-pse/stream/<id>/<n>`,
+`/v1/works[/<id>]`, `/v1/editions/<id>`, `/v1/files/<id>/content|license`, `/v1/covers/<id>`, `/v1/formats`, `/v1/protocols`,
+`/syncs/progress/<doc>`, `/users/auth`; plus `PUT /syncs/progress` and `POST /users/create` (KOSync). Everything else - in
+particular `POST /v1/sources`, `/v1/scans`, any `/v1/admin/...`, local-root or webdav source registration - is answered
+`403 {"error":"isolation proxy: route not allowed"}` and never reaches the server (logged `DENIED`). Path tricks (encoded
+slashes, backslashes, NULs, `//`, dot segments) are denied; chunked bodies get 411, bad/negative `Content-Length` 400, more than
+8 MiB 413, handler exceptions 502 (logged, never fatal, nothing leaked). Policy `helixqa` additionally allows `GET /v1/scans`
+and `POST /v1/sources` ONLY with the empty JSON body `{}` (that is what the bank's negative cases send); the bank's hard-coded
+literal bearer is rewritten by the proxy to the real admin token on those two routes only. The admin token is RANDOM per run, is
+passed to the proxy through its environment, and never enters a container; setup (registering the fixture source, scanning)
+is done host-side by `start_server.sh` before any container starts. There is no fixed admin literal in `tools/isolation` or
+`qa/isolation` any more except the bank's own fixture string used as the proxy's mapping KEY. Tests:
+`tests/test_proxy_policy.py` (unit, real proxy on unix sockets) and `tests/test_network_isolation.py` (from inside a container,
+through the bridge: `POST /v1/sources` with a webdav endpoint pointing at a host canary, `POST /v1/scans`, a local-root source are
+refused, the canary records 0 hits, no source exists afterwards - also against the REAL server when `HELIX_SERVER_BIN` is set).
+RED: `hardening/N1_RED.log`.
+
+**No host display/session.** No X11/Wayland socket, `/dev/input`, D-Bus or `XDG_RUNTIME_DIR` is mounted; `DISPLAY` is never
+passed (the entrypoint pins the container-private `:99`). `run_container.sh` refuses such env/mounts (exit 64) and the
+in-container `launch.sh` asserts at RUNTIME that none exists (exit 65): no WAYLAND/XAUTHORITY/DBUS/XDG_RUNTIME_DIR/
+SSH_AUTH_SOCK variables, no foreign X socket, no `/dev/input|uinput|dri`, nothing in `/run/user`, no display/dbus mount in
+`mountinfo`, only the `lo` interface. Tested by `tests/test_runtime_checks.py` (it deliberately bypasses the wrapper to
+prove the runtime check alone).
+
+**Bind allow-list (F3, N5).** `tools/isolation/bindcheck.py` (called for every `-r/-w` and for the `-b` bridge): the source's
+resolved real path (symlinks followed) must lie inside the repo `clients/`, `qa/`, `tools/isolation/`,
+`submodules/containers/images/`, the Playwright cache `~/.cache/ms-playwright`, `/usr/lib/koreader` (all read-only) or under
+`ISO_WORK` (read-write only for its sub-directories) or `evidence/` sub-directories (read-write, never the root itself).
+Always refused: `$HOME`, `/`, `/tmp`, `/dev/shm`, `/var/tmp`, system dirs, any ancestor of `$HOME`, anything inside - or an ancestor
+of - `~/.ssh .config .gnupg .aws .kube .docker .mozilla .local .password-store .claude*` and similar, sources containing `:` `,`
+or control characters (mount-option injection). Destinations must be absolute and canonical (`normpath`-equal: no `..`, `//`,
+`.`, trailing `/`, charset `[A-Za-z0-9_./-]`), below `/work /opt/ /out /prof /fx /pw /ms-playwright`, and may never be, lie
+inside or cover `/opt/isoinside` or `/run/helixsock` (the latter only for the `-b` bridge itself); `run_container.sh` also
+refuses duplicate destinations. `ISO_WORK` must be absolute, canonical, symlink-free, strictly inside
+`~/.cache/claude-tmp` or `~/.cache/helix-iso`, and clear of the sensitive dirs. A read-write bind under `evidence/` is only
+accepted for the run's OWN FRESH directory: nothing below it may be a `SHA256SUMS` seal or older than 6 h, so a sealed or stale
+sibling is never writable; `tools/isolation/fresh_out.sh <dir>` (called by every runner) moves an existing output dir into
+`~/.cache/claude-tmp/evidence-archive/` (never deletes) and recreates it empty. `bindcheck.py` prints the RESOLVED path and the
+wrapper hands exactly that to podman (`-v "$real:$dst"`), so a symlink swapped after the check cannot redirect the mount.
+Tests: `tests/test_bindcheck.py` (RED `hardening/N5_RED.log`, GREEN `hardening/N5_GREEN.log`).
+
+**Lifetime (F5, N4).** Every container gets `--timeout` (default 1800 s; `-t`), an owner label (`org.helix.owner-pid`, or
+`org.helix.owner-file` for redis), a lease label `org.helix.lease-ts`, and `tools/isolation/reap.sh`, which every start runs,
+removes stale `hrdiso-*` / `hrdisorev-*` containers whose owner is gone (nothing else, ever). STARTUP GRACE: a container
+younger than `REAP_GRACE` seconds (default 120; lease label, else creation time) is never reaped, and `start_server.sh` writes
+its owner file (naming the live script) BEFORE it creates redis, so a parallel start can no longer have its brand-new redis
+killed. Redis and the server are per run: container `hrdiso-redis-<runid>`, free loopback ports bound-checked per run,
+recorded in `<state>/run.env` and `<state>/redis.name`; there is no shared fixed `hrdiso-redis`, so parallel suites never
+`flushall` each other. The server and proxy run under `timeout 3600`, redis under `--timeout 3600`. Tests:
+`tests/test_reaper.py` (kill -9 orphan reaped after the window and capped; live run not reaped; the startup RACE: owner file
+missing inside the window is kept, then reaped; expired lease reaped; live owner kept; unique per-run ids and owner-file-first order).
+RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
+
+**Resources.** memory = swap cap, `--cpus`, `--pids-limit 512`, `--oom-score-adj 500`, `--cap-drop ALL`,
+`no-new-privileges`, `--userns=keep-id` (`submodules/containers/docs/RESOURCE_LIMITS.md`). One test container at a time.
+`-p FILE` records the container's isolation facts (`podman inspect` subset; env VALUES never) next to the evidence
+(`container_proof.json`).
+
+## 4. Guard and gate (F2) - a lint
+
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 187-case evader matrix, pinned-waiver tests, bind tests, proxy
+  route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
+  startup-race tests; needs rootless podman and the image).
+* Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
+  shebang as code and WITHOUT one as data (data-safe rule subset: never silently skipped); any file with a shebang or the exec bit;
+  Dockerfile/Containerfile/Makefile, `.claude/{agents,commands,skills}`, `prompts/`, `.git/hooks`. Directories named `build out
+  dist .cache .gradle evidence venv target __pycache__` are no longer blind spots: their script-like files (script extension,
+  shebang or exec bit) get the FULL rule set. Third-party `node_modules` trees: only script-like files, and only the HARD
+  subset (input injection, clipboard, uinput path, portal/dbus, GUI-automation libs, container escapes); the count is printed
+  (`third-party script files ...`). Binaries (NUL bytes) are skipped (residual). Symlinks are followed (inside the repo) or flagged
+  (outside) and counted; `submodules/` is scanned host-side in report mode only (`--submodules`, report:
+  `hardening/submodule_host_entrypoints_report.txt`; submodules are not edited).
+* Rules (see `assert_host_untouched.py`): input injection and window/clipboard/screenshot tools, desktop launchers,
+  uinput/evdev, scrcpy, `adb ... input`, GUI-automation libraries, session-bus/portal calls, x11grab/pipewire capture, ANY use of
+  the display/session environment names (DISPLAY except the container-private `:99`, WAYLAND_DISPLAY, XAUTHORITY,
+  XDG_RUNTIME_DIR, DBUS_*), X11/Wayland sockets, headed browsers, electron/chrome/chromium/firefox launches, windowed
+  `emulator -avd` and `qemu` without `-display none|-nographic`, host-service probes (`localhost:5037` adb server), environment
+  reconnaissance (`env | grep wayl`), and container escapes on continuation-joined lines matched on BOTH the raw and the
+  quote-stripped view (`--net="host"`, `-v "/":/h`): ANY `--network/--net` other than `none` (so the old pasta
+  `--map-host-loopback` mode is caught), `--map-host-loopback`, `allow_host_loopback`, `--privileged`, `--cap-add`, `--device`
+  other than `/dev/kvm`, `--security-opt` other than `no-new-privileges` (`label=disable`, `seccomp=unconfined`), `--pid/--ipc/
+  --userns/--uts host`, `--volumes-from`, `--mount` (except tmpfs/volume), `-v` with an absolute, `~`, `$HOME` or `..` source (`$PWD/..`),
+  `podman kube play`/`play kube`, `docker compose up`, remote `-H`; references to inside-scripts from host files
+  (`sh qa/isolation/inside/*`, globs, `cd qa/isolation/inside && ./x.sh`); and obfuscation: `base64 -d` (also into a variable),
+  `source <(curl ...)`, `sh <<< "$X"`, `sh -c "$X"`, `curl | sh`, `eval "$X"`, `${X}tool` / `$(cmd)tool` command concatenation, glob and
+  charclass command names that expand to a known tool (`xdoto?l`, `x[d]otool`, in shell files), `"a"+"b"`, `x''y`, `x"d"otool`, `x\y`.
+* Allowlist, ONLY for code that runs inside a container image: the marker `isolation: runs-inside-container` in the first
+  15 lines of a file under `qa/isolation/inside/` or `submodules/containers/images/` (ignored anywhere else). Such files
+  must not be executable and may not be referenced by file name from host-side files (only the directory mount is allowed).
+* Exemptions are PINNED (N3) in `tools/isolation/guard/waivers.txt`, one line `kind|path|sha256|rule|justification|expires`, exact
+  paths only (no globs), expiry at most 366 days out: `self` (the lint's own FIVE sources: `assert_host_untouched.py`,
+  `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`;
+  not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
+  thing in order to refuse it is honoured ONLY in a pinned file under `tools/isolation/`; an unpinned marker is itself a finding
+  `denylist-marker-unpinned` and exempts nothing), `waive` (findings of one rule in one pinned file: the spec-kit `eval` scripts,
+  three third-party `xdg-open` shims). A changed pinned file (`waiver-pin-mismatch`), a deleted waiver (the file is scanned
+  again and fails), an expired, orphaned, malformed or hand-edited entry (`waiver-expired|orphan|malformed|unrecorded`) FAILS the
+  gate. Pins are created and updated only with `tools/isolation/guard/pin_waivers.py add|repin|remove`, which appends
+  `utc|action|path|old|new|reason` to `waivers.history` and prints `RE-PINNED ... old -> new`; a pin whose hash has no history
+  record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
+  (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
+* Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
+  `mutants_codec.py`): 187 cases = 177 REQUIRED (all caught; the 83 earlier ones plus the 94 round-2 evaders: skip-dir hiding,
+  extensions, container escapes, inside-script references, obfuscation, recon) and 10 documented RESIDUAL cases. HONEST
+  CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
+  80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
+  reviewer's list, class by class, so equality with the reviewer's set is UNCONFIRMED. REAL REMAINING (uncaught) classes: command
+  names computed at run time (chr/hex/base64 held in data), command lines read from environment, files or config at run time,
+  tools not in the rule list, code executed by third-party imports/binaries/`node_modules` (HARD subset only) and NUL-containing
+  files, glob names in non-shell files, and anything a future tool does that no rule names. RED:
+  `hardening/N2_RED.log` (`n2_red_baseline.py`, a RECONSTRUCTION of the round-1 behaviour, evaded 61 of the 94 new cases and none of the 83 earlier ones; the earlier F2 RED
+  is `hardening/F2_RED_old_ruleset_vs_matrix.log`); GREEN: `hardening/N2_GREEN.log`.
+* `run_isolated.sh -- <cmd>`: `env -i` allow-list (PATH HOME LANG LC_ALL TZ `HELIX_*` `QA_*` `HQA_*`), never forwards
+  session variables, re-asserts the final environment (exit 65), refuses `--require-display` and host-GUI commands (64).
+* `clients/desktop/package.json` `start` does not launch Electron on the host; it prints the instruction and exits 64.
+
+## 5. How to run each suite
+
+Prerequisites (once): `podman build -t localhost/helix-gui-test:1 submodules/containers/images/gui-test`; a helix-server
+binary (`HELIX_SERVER_BIN`); `export ISO_WORK=$HOME/.cache/claude-tmp/<dedicated-dir>` (state, fixtures, profiles; must lie strictly inside `~/.cache/claude-tmp` or `~/.cache/helix-iso`); Playwright
+browsers in `~/.cache/ms-playwright`.
+
+* Web (67 checks): `python3 -I qa/isolation/make_gui_fixtures.py web $ISO_WORK/fx-web`;
+  `tools/isolation/start_server.sh start $HELIX_SERVER_BIN $ISO_WORK/st $ISO_WORK/fx-web`;
+  `qa/isolation/run_web_live.sh $ISO_WORK/st <out>`; `tools/isolation/start_server.sh stop $ISO_WORK/st`.
+* KOReader GUI: `qa/isolation/run_koreader_gui.sh <out>` (starts and stops its own server; also writes
+  `kosync_bodies.jsonl` and the machine verdict `kosync_proof.json`).
+* Desktop: `qa/isolation/run_desktop_live.sh $ISO_WORK/st <out>` (server as for web).
+* HelixQA HTTP banks: `qa/isolation/run_helixqa_container.sh <out>` (`HELIXQA_BIN` = `CGO_ENABLED=0 go build ./cmd/helixqa`).
+* HelixQA web bank: `tests/helixqa_web/run_web_bank.sh` (HRD-038, not run or modified here).
+* Android: `tools/isolation/run_android_emulator.sh start|adb|stop` (section 6).
+* Evidence manifest: `tools/isolation/seal_evidence.sh <dir>` (atomic `SHA256SUMS`).
+
+## 6. Android (canonical recipe)
+
+Verified by another agent (`evidence/clients/android/run-20261123T211340Z/`): AVD `default` (API 34, google_apis, x86_64)
+from `ghcr.io/vasic-digital/lava-android-emulator:api34-x86_64`, own rootless container, `--device /dev/kvm
+--userns=keep-id`, `-no-window -no-audio`, no host display, `adb connect` to the mapped loopback port, a logging proxy for
+server access. `tools/isolation/run_android_emulator.sh` encodes that recipe (UNVERIFIED as a script: not executed by the
+isolation work). The emulator needs its own published adb port, so it does not use the `--network none` wrapper; it must
+never be given the host-loopback map. The guard treats `emulator ... -no-window` as the allowed pattern.
+
+## 7. HelixQA and the Vision oracle
+
+`helixqa http` runs in the container (`run_helixqa_container.sh`: 34 cases, 32 PASS, 0 FAIL, 2 SKIP - the web cases,
+because `helixqa http` never executes `playwright:` steps; they are executed by `tests/helixqa_web/run_web_bank.sh`).
+The Vision model is not validated: any screenshot-based judgement is UNVERIFIED and no claim rests on it. Oracles used
+here: DOM/accessibility assertions, HTTP bodies, server-side sink records (access log, KOSync request/response bodies,
+redis), pixel probes of KOReader's rendered pages.
+
+## 8. Known limits
+
+* Chromium's own sandbox is OFF for the Electron run: with it on, Electron fails to launch in the unprivileged rootless
+  container (`hardening/desktop_sandbox_attempt.log`; `--cap-add SYS_ADMIN` is not acceptable). Evidence therefore says
+  "DOM/CSP/navigation behaviour verified with the Chromium sandbox disabled", never "sandboxed".
+* The KOReader GUI is driven by coordinates calibrated against KOReader 2026.07-1 at 600x800; a first launch of a fresh
+  profile needs a warm-up (the runner does it); KOReader is closed by SIGTERM and still pushes progress.
+* The lint has residual classes (section 4); only the container is the boundary.
+* Disk: the image is about 0.9 GB; browsers and KOReader are bind-mounted.

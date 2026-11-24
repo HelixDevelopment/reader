@@ -1,0 +1,459 @@
+{
+  "client": "http://127.0.0.1:4173/",
+  "server_titles": [
+    "orbital-gardens",
+    "The Glass Meridian",
+    "field-notes"
+  ],
+  "chrome": "/ms-playwright/chromium-1228/chrome-linux64/chrome",
+  "passed": 67,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "server-has-works",
+      "status": "PASS",
+      "evidence": {
+        "expected": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "phone-light:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "phone-light:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "phone-light:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 375,
+        "cw": 375
+      }
+    },
+    {
+      "id": "phone-light:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "phone-light:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "phone-light:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(250, 248, 244)"
+    },
+    {
+      "id": "phone-light:search-filters-server-side",
+      "status": "PASS",
+      "evidence": "The Glass Meridian"
+    },
+    {
+      "id": "phone-light:empty-state",
+      "status": "PASS",
+      "evidence": "No works match shown"
+    },
+    {
+      "id": "phone-light:detail-author",
+      "status": "PASS",
+      "evidence": "author from EPUB metadata"
+    },
+    {
+      "id": "phone-light:epub-download-is-real-zip",
+      "status": "PASS",
+      "evidence": {
+        "suggested": "The Glass Meridian.epub",
+        "bytes": 1784
+      }
+    },
+    {
+      "id": "phone-light:txt-reader-renders-live-content",
+      "status": "PASS",
+      "evidence": {
+        "paragraphs": 3
+      }
+    },
+    {
+      "id": "phone-light:text-size-delta",
+      "status": "PASS",
+      "evidence": {
+        "before": "18px",
+        "after": "20px"
+      }
+    },
+    {
+      "id": "phone-light:unreachable-error-state",
+      "status": "PASS",
+      "evidence": "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+    },
+    {
+      "id": "phone-light:retry-button",
+      "status": "PASS",
+      "evidence": "visible"
+    },
+    {
+      "id": "phone-light:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: net::ERR_UNSAFE_PORT"
+      ]
+    },
+    {
+      "id": "tablet-light:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "tablet-light:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "tablet-light:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 768,
+        "cw": 768
+      }
+    },
+    {
+      "id": "tablet-light:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "tablet-light:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "tablet-light:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(250, 248, 244)"
+    },
+    {
+      "id": "tablet-light:search-filters-server-side",
+      "status": "PASS",
+      "evidence": "The Glass Meridian"
+    },
+    {
+      "id": "tablet-light:empty-state",
+      "status": "PASS",
+      "evidence": "No works match shown"
+    },
+    {
+      "id": "tablet-light:detail-author",
+      "status": "PASS",
+      "evidence": "author from EPUB metadata"
+    },
+    {
+      "id": "tablet-light:epub-download-is-real-zip",
+      "status": "PASS",
+      "evidence": {
+        "suggested": "The Glass Meridian.epub",
+        "bytes": 1784
+      }
+    },
+    {
+      "id": "tablet-light:txt-reader-renders-live-content",
+      "status": "PASS",
+      "evidence": {
+        "paragraphs": 3
+      }
+    },
+    {
+      "id": "tablet-light:text-size-delta",
+      "status": "PASS",
+      "evidence": {
+        "before": "18px",
+        "after": "20px"
+      }
+    },
+    {
+      "id": "tablet-light:unreachable-error-state",
+      "status": "PASS",
+      "evidence": "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+    },
+    {
+      "id": "tablet-light:retry-button",
+      "status": "PASS",
+      "evidence": "visible"
+    },
+    {
+      "id": "tablet-light:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: net::ERR_UNSAFE_PORT"
+      ]
+    },
+    {
+      "id": "desktop-light:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "desktop-light:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "desktop-light:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 1280,
+        "cw": 1280
+      }
+    },
+    {
+      "id": "desktop-light:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "desktop-light:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "desktop-light:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(250, 248, 244)"
+    },
+    {
+      "id": "desktop-light:search-filters-server-side",
+      "status": "PASS",
+      "evidence": "The Glass Meridian"
+    },
+    {
+      "id": "desktop-light:empty-state",
+      "status": "PASS",
+      "evidence": "No works match shown"
+    },
+    {
+      "id": "desktop-light:detail-author",
+      "status": "PASS",
+      "evidence": "author from EPUB metadata"
+    },
+    {
+      "id": "desktop-light:epub-download-is-real-zip",
+      "status": "PASS",
+      "evidence": {
+        "suggested": "The Glass Meridian.epub",
+        "bytes": 1784
+      }
+    },
+    {
+      "id": "desktop-light:txt-reader-renders-live-content",
+      "status": "PASS",
+      "evidence": {
+        "paragraphs": 3
+      }
+    },
+    {
+      "id": "desktop-light:text-size-delta",
+      "status": "PASS",
+      "evidence": {
+        "before": "18px",
+        "after": "20px"
+      }
+    },
+    {
+      "id": "desktop-light:unreachable-error-state",
+      "status": "PASS",
+      "evidence": "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+    },
+    {
+      "id": "desktop-light:retry-button",
+      "status": "PASS",
+      "evidence": "visible"
+    },
+    {
+      "id": "desktop-light:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: net::ERR_UNSAFE_PORT"
+      ]
+    },
+    {
+      "id": "phone-dark:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "phone-dark:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "phone-dark:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 375,
+        "cw": 375
+      }
+    },
+    {
+      "id": "phone-dark:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "phone-dark:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "phone-dark:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(20, 19, 15)"
+    },
+    {
+      "id": "phone-dark:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ]
+    },
+    {
+      "id": "tablet-dark:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "tablet-dark:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "tablet-dark:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 768,
+        "cw": 768
+      }
+    },
+    {
+      "id": "tablet-dark:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "tablet-dark:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "tablet-dark:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(20, 19, 15)"
+    },
+    {
+      "id": "tablet-dark:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ]
+    },
+    {
+      "id": "desktop-dark:401-error-state",
+      "status": "PASS",
+      "evidence": "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+    },
+    {
+      "id": "desktop-dark:real-titles-in-dom",
+      "status": "PASS",
+      "evidence": {
+        "shown": [
+          "orbital-gardens",
+          "The Glass Meridian",
+          "field-notes"
+        ]
+      }
+    },
+    {
+      "id": "desktop-dark:no-horizontal-overflow",
+      "status": "PASS",
+      "evidence": {
+        "sw": 1280,
+        "cw": 1280
+      }
+    },
+    {
+      "id": "desktop-dark:no-overlap",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "id": "desktop-dark:touch-targets>=40px",
+      "status": "PASS",
+      "evidence": {
+        "smaller": 0
+      }
+    },
+    {
+      "id": "desktop-dark:theme-applied",
+      "status": "PASS",
+      "evidence": "rgb(20, 19, 15)"
+    },
+    {
+      "id": "desktop-dark:no-unexpected-console-errors",
+      "status": "PASS",
+      "evidence": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ]
+    }
+  ]
+}
