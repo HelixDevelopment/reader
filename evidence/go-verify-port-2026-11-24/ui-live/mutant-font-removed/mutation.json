@@ -1,0 +1,16 @@
+{
+ "id": "font-removed",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "bc8ffd05a99ce96085c9634a77832167c27a4296defabf8636b7b177d854f346",
+ "expect_failing_checks": [
+  "console-errors",
+  "missing-assets"
+ ],
+ "operations": [
+  {
+   "file": "fonts/NotoSans-SemiBold.woff",
+   "removed": true,
+   "sha256_before": "4e731a06f8131c179bbf0e61ab0fc1ca10ee52bbacbac2d5863d8ae2837b3849"
+  }
+ ]
+}
