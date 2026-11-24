@@ -1,0 +1,10 @@
+## RED
+gofmt drift:
+core/hdm/hdm.go
+core/hlc/hlc.go
+core/pkg/crypto/crypto.go
+core/pkg/source/source.go
+core/pkg/source/source_test.go
+exit=1
+SELF-TEST PASS: clean accepted, misformat mutation rejected
+exit=0

@@ -21,9 +21,9 @@ import (
 const EnvelopeVersion byte = 1
 
 var (
-	ErrBadEnvelope  = errors.New("crypto: malformed envelope")
-	ErrDecrypt      = errors.New("crypto: decryption failed (wrong key or tampered)")
-	ErrKeySize      = errors.New("crypto: key must be 32 bytes")
+	ErrBadEnvelope = errors.New("crypto: malformed envelope")
+	ErrDecrypt     = errors.New("crypto: decryption failed (wrong key or tampered)")
+	ErrKeySize     = errors.New("crypto: key must be 32 bytes")
 )
 
 // kdf derives a 32-byte key from passphrase+salt via iterated SHA-256

@@ -10,9 +10,9 @@ import (
 
 // fakeDriver is an in-memory Driver for tests.
 type fakeDriver struct {
-	proto   Protocol
-	conn    bool
-	closed  bool
+	proto    Protocol
+	conn     bool
+	closed   bool
 	closeErr error
 }
 
