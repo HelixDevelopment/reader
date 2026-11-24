@@ -1,0 +1,10 @@
+config_valid: True
+deployability: NOT_DEPLOYABLE
+config_errors: none
+blockers: ['PLACEHOLDER_PROJECT_ID', 'PLACEHOLDER_APP_ID']
+artifact: clients/android/android/app/build/outputs/apk/debug/app-debug.apk sha256=8c1dc018ded5e71caca2f078e734da97426e6813f552fdf7dcdfe8693556943a
+planned commands (NOT executed):
+  firebase appdistribution:distribute clients/android/android/app/build/outputs/apk/debug/app-debug.apk --app 1:000000000000:android:REPLACE_ME --groups-file deploy/firebase/groups.txt --release-notes-file deploy/firebase/release-notes.md --project <deploy/firebase/.firebaserc default>   # env: GOOGLE_APPLICATION_CREDENTIALS (value never read)
+  firebase deploy --only hosting --config deploy/firebase/firebase.json --project <default>
+DEPLOYMENT: NOT RUN
+require-deployable exit=3

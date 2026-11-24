@@ -1,0 +1,33 @@
+# KOReader real opdsparser.lua over live Helix OPDS 1.2 feed (Basic auth)
+has monolibtic? no (libs/libkoreader-monolibtic.so: cannot open shared object file: No such file or directory)
+lib_search_path: libs/?
+lib_basic_format: lib%s.so
+lib_version_format: lib%s.so.%s
+ffi.load: rt.so.1 (RTLD_GLOBAL)
+ffi.findlib: utf8proc [3]
+ffi.load: libs/libutf8proc.so.3
+RESULT feed.title=	Helix Publications	entries=	4
+ENTRY	1	Moby-Dick
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-49774b5e4e5184381b181be4 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-08298e636a0e08a48f238616/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-7ab791e5d0ba0cda3d202430/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-f00261cd91b10baf474486a9/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	2	Poesía completa
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-4ebcc925672ecf3682460d2b stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-702429a6f478c92ffb5e7c38/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-816ce767879a50422c376dcc/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-825bef50d6b0ce2c549f46f8/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	3	The Strange Case of Dr. Jekyll and Mr. Hyde
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-b33b91c89e363c4528e41a42 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-9926a748bc965ed7dbf400cb/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-a76d43bbf364d55436f7ebb3/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/epub+zip href=/v1/files/file-c76a76be5cb75f1c3f30ab4d/content stream_count(opdsbrowser.lua:826 rule)=nil
+ENTRY	4	comic
+   LINK rel=alternate type=application/atom+xml;type=entry;profile=opds-catalog href=/opds/1.2/editions/edition-122b87e67e316a3da54239c3 stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-78edbfc91ae9b9fae7529607/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-cc9ee72e7aba92206b451cca/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://opds-spec.org/acquisition type=application/vnd.comicbook+zip href=/v1/files/file-eca4991ac01ff0a2ce6d601d/content stream_count(opdsbrowser.lua:826 rule)=nil
+   LINK rel=http://vaemendis.net/opds-pse/stream type=image/png href=/opds-pse/stream/file-eca4991ac01ff0a2ce6d601d/{pageNumber} stream_count(opdsbrowser.lua:826 rule)=4
+FEEDLINK rel=self href=/opds/1.2/publications?limit=50&offset=0
+FEEDLINK rel=start href=/opds/1.2
+FEEDLINK rel=search href=/opds/1.2/opensearch.xml

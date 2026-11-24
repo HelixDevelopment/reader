@@ -1,0 +1,67 @@
+{
+  "name": "hrdiso-uiv",
+  "image": "localhost/helix-gui-test:1",
+  "created": "2026-11-24T17:34:05.223141624+01:00",
+  "network_mode": "none",
+  "privileged": false,
+  "cap_drop": [
+    "CAP_CHOWN",
+    "CAP_DAC_OVERRIDE",
+    "CAP_FOWNER",
+    "CAP_FSETID",
+    "CAP_KILL",
+    "CAP_NET_BIND_SERVICE",
+    "CAP_SETFCAP",
+    "CAP_SETGID",
+    "CAP_SETPCAP",
+    "CAP_SETUID",
+    "CAP_SYS_CHROOT"
+  ],
+  "cap_add": [],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "memory": 2147483648,
+  "memory_swap": 2147483648,
+  "pids_limit": 512,
+  "oom_score_adj": 500,
+  "userns_mode": "private",
+  "lifetime_timeout_s": 1800,
+  "binds": [
+    "/home/milosvasic/.cache/claude-tmp/wt-goverify2/evidence/go-verify-port-2026-11-24/ui-live/mutant-source-validation-removed:/out:rw,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/wt-goverify2/qa/isolation/inside:/opt/isoinside:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd-uiv-iso/uiv/bin:/work/bin:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd-uiv-iso/uiv/dist:/work/dist:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/wt-goverify2/qa/isolation/inside:/work/inside:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/ms-playwright:/ms-playwright:ro,rprivate,rbind"
+  ],
+  "devices": [],
+  "ports": {},
+  "env_names": [
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "HOSTNAME",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "PLAYWRIGHT_BROWSERS_PATH",
+    "container"
+  ],
+  "labels": {
+    "io.buildah.version": "1.42.1",
+    "org.helix.isolation": "gui-test",
+    "org.helix.lease-ts": "1795538045",
+    "org.helix.owner-pid": "4014984",
+    "org.opencontainers.image.version": "24.04"
+  },
+  "entrypoint": [
+    "/usr/local/bin/gui-entrypoint.sh"
+  ],
+  "cmd": [
+    "sh",
+    "/opt/isoinside/launch.sh",
+    "--",
+    "sh",
+    "/work/inside/uiverify_live.sh"
+  ]
+}

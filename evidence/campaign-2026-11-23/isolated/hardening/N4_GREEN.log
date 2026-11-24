@@ -1,0 +1,15 @@
+test_killed_runner_orphan_is_reaped_and_capped (test_reaper.Reaper.test_killed_runner_orphan_is_reaped_and_capped) ... ok
+test_live_runner_container_not_reaped (test_reaper.Reaper.test_live_runner_container_not_reaped) ... ok
+test_reaper_ignores_foreign_names (test_reaper.Reaper.test_reaper_ignores_foreign_names) ... ok
+test_expired_lease_with_missing_owner_is_reaped (test_reaper.StartupRace.test_expired_lease_with_missing_owner_is_reaped) ... ok
+test_owner_file_missing_within_grace_is_not_reaped_then_is (test_reaper.StartupRace.test_owner_file_missing_within_grace_is_not_reaped_then_is) ... ok
+test_owner_file_naming_live_process_is_kept_even_when_old (test_reaper.StartupRace.test_owner_file_naming_live_process_is_kept_even_when_old) ... /home/milosvasic/Projects/helix_reader/tools/isolation/tests/test_reaper.py:66: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/rl-m0w2dkl2/owner.pid' mode='w' encoding='UTF-8'>
+  d = tempfile.mkdtemp(prefix="rl-"); f = os.path.join(d, "owner.pid"); open(f, "w").write(str(os.getpid()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_start_server_writes_owner_file_before_creating_redis_and_uses_per_run_names (test_reaper.StartupRace.test_start_server_writes_owner_file_before_creating_redis_and_uses_per_run_names) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 57.372s
+
+OK

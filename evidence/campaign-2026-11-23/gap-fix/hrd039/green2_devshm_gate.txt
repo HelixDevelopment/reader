@@ -1,0 +1,11 @@
+  ok: llmctl-llama@ carries no ProtectSystem=/PrivateTmp= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-llama@: NoNewPrivileges kept
+  ok: llmctl-onnx@ carries no ProtectSystem=/PrivateTmp= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-onnx@: NoNewPrivileges kept
+  ok: llmctl-colibri@ carries no ProtectSystem=/PrivateTmp= (HRD-039: /dev/shm admission gate)
+  ok: llmctl-colibri@: NoNewPrivileges kept
+  replaying generated llama@ properties: -p NoNewPrivileges=yes
+  ok: the real admission gate accepts /dev/shm under the GENERATED engine unit's sandbox properties
+  fact: control with ProtectSystem=full -> the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user 
+RESULT: PASS
+rc=0

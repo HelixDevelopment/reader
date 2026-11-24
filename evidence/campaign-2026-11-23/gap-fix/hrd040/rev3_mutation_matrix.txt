@@ -1,0 +1,65 @@
+baseline on the copy: GREEN
+M1 min_rows ignored: KILLED
+M2 duplicates allowed: KILLED
+M3 required API ignored: KILLED
+M4 required form factor ignored: KILLED
+M5 boot error ignored: KILLED
+M6 boot_seconds ignored: KILLED
+M7 adb state ignored: KILLED
+M8 test_passed ignored: KILLED
+M9 all_passed trusted: KILLED
+M10 unknown rows allowed: KILLED
+M11 missing spec rows allowed: KILLED
+M12 exit always 0: KILLED
+M13 api/form factor vs spec ignored: KILLED
+M14 test class not compared: KILLED
+M15 tests_run not required: KILLED
+M16 build sha not bound: KILLED
+M17 pre-run sha not bound: KILLED
+M18 post-run sha not bound: KILLED
+M19 attestation apk_sha ignored: KILLED
+M20 row apk_sha ignored: KILLED
+M21 manifest optional: KILLED
+M22 manifest hashes not checked: KILLED
+M23 manifest need not list attestation/binding: KILLED
+M24 prose log lines accepted: KILLED
+M25 first log line wins: KILLED
+M26 gradle log need not be in manifest: KILLED
+M28 bool tests_run accepted: KILLED
+M29 float api_level accepted: KILLED
+M30 TEST mode accepted: KILLED
+M31 run_apk path unchecked: KILLED
+M32 run_apk not under apk-<sha>/: KILLED
+M33 run_apk existence unchecked: KILLED
+M34 run_apk hash unchecked: KILLED
+M35 run_apk need not be in manifest: KILLED
+M36 hex case-sensitive (binding): KILLED
+M37 hex case-sensitive (manifest): KILLED
+M38 malformed manifest line tolerated: KILLED
+M39 symlinked inputs accepted: KILLED
+M40 manifest symlink member accepted: KILLED
+M41 unreadable attestation crashes/ignored: KILLED
+M42 bool boot_seconds accepted: KILLED
+M43 preflight TEST_CLASS check dropped: KILLED
+M44 exact image match loosened: KILLED
+M45 preflight refusal exits 0: KILLED
+M46 APK vs build record not compared: KILLED
+M47 disk check dropped: KILLED
+M48 zip check dropped: KILLED
+M49 test overrides honoured in production: KILLED
+M50 wrong runner flag: KILLED
+M51 container image not passed: KILLED
+M52 production honours alternate build record: KILLED
+M53 SDK content not validated: KILLED
+M54 adb executability not checked: KILLED
+M55 binding mode always PRODUCTION: KILLED
+M58 emulator override honoured in production: KILLED
+M59 run APK copy writable: KILLED
+M60 post-run hash taken from the source APK: KILLED
+M61 one invocation, wrong per-API image: KILLED
+M62 merge step skipped: KILLED
+M63 evidence not sealed: KILLED
+M56 merge trusts all_passed: KILLED
+M57 merge keeps log path unprefixed: KILLED
+mutation: 62 mutants, 0 survived/invalid; working tree untouched
+done

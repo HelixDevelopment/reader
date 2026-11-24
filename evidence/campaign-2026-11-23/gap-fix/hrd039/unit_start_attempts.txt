@@ -1,0 +1,18 @@
+## llmctl start vision (attempt 3, TimeoutStart 600s)
+[llmctl] wrote /home/milosvasic/.local/state/llmctl/services/vision.env
+Warning: The unit file, source configuration file or drop-ins of llmctl-llama@vision.service changed on disk. Run 'systemctl --user daemon-reload' to reload units.
+Job for llmctl-llama@vision.service failed because a fatal signal was delivered to the control process.
+See "systemctl --user status llmctl-llama@vision.service" and "journalctl --user -xeu llmctl-llama@vision.service" for details.
+ERROR: failed to start 'vision': the service backend refused to start it (see: llmctl logs vision; on Linux, check 'llmctl install' has been run and 'systemctl --user status llmctl-llama@vision.service')
+[llmctl] restored the env record of 'vision' as it was before its quarantine start
+exit=1
+
+## journal of the unit: killed at ~81s wall each time (60s validator probe + 20s TimeoutStop) while the unit sat in ExecStartPre gate
+2026-11-23T16:13:11+01:00 anton systemd[2565]: Starting llmctl-llama@vision.service - llmctl llama.cpp inference server (profile vision)...
+2026-11-23T16:14:32+01:00 anton systemd[2565]: llmctl-llama@vision.service: Consumed 4.359s CPU time over 1min 21.110s wall clock time, 11.3M memory peak.
+2026-11-23T22:47:01+01:00 anton systemd[2540]: Starting llmctl-llama@vision.service - llmctl llama.cpp inference server (profile vision)...
+2026-11-23T22:48:23+01:00 anton systemd[2540]: llmctl-llama@vision.service: Consumed 3.339s CPU time over 1min 21.491s wall clock time, 11.5M memory peak.
+2026-11-23T22:50:52+01:00 anton systemd[2540]: Starting llmctl-llama@vision.service - llmctl llama.cpp inference server (profile vision)...
+2026-11-23T22:52:14+01:00 anton systemd[2540]: llmctl-llama@vision.service: Consumed 3.462s CPU time over 1min 21.822s wall clock time, 13.9M memory peak.
+2026-11-23T22:53:20+01:00 anton systemd[2540]: Starting llmctl-llama@vision.service - llmctl llama.cpp inference server (profile vision)...
+2026-11-23T22:54:42+01:00 anton systemd[2540]: llmctl-llama@vision.service: Consumed 4.397s CPU time over 1min 21.624s wall clock time, 13.9M memory peak.

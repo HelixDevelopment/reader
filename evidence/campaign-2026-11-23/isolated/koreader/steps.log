@@ -1,0 +1,28 @@
+2026-11-23T23:11:39Z warm-up: first launch of each fresh profile shows one-time notices that swallow the first tap; dismiss and exit
+2026-11-23T23:12:31Z profile A: start, OPDS browse, download, read now
+2026-11-23T23:13:39Z A close: exited
+23:13:19.550802+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+23:13:38.426951+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-23T23:13:42Z profile B: start, OPDS browse, download
+2026-11-23T23:14:43Z B docsettings: 
+2026-11-23T23:14:43Z B turns 2 pages
+2026-11-23T23:14:49Z B close: exited
+23:13:19.550802+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+23:13:38.426951+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+23:14:30.372215+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=205 auth=ye
+23:14:48.658850+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-23T23:14:52Z A re-open book: pull B's progress
+2026-11-23T23:15:12Z A docsettings: ["percent_finished"] = 0.44444444444444
+2026-11-23T23:15:13Z A close: exited
+23:13:19.550802+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+23:13:38.426951+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+23:14:30.372215+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=205 auth=ye
+23:14:48.658850+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+23:14:53.420460+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=209 auth=ye
+23:15:12.624904+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-23T23:15:16Z PSE: profile B streams the CBZ
+2026-11-23T23:16:04Z pse page1 centre pixel: srgb(200,30,30)
+2026-11-23T23:16:09Z pse page2 centre pixel: srgb(30,200,30)
+2026-11-23T23:16:11Z B close: exited
+PASS
+2026-11-23T23:16:12Z done

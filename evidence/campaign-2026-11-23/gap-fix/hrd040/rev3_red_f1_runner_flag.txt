@@ -1,0 +1,7 @@
+## RED (F1): old wrapper argv against the REAL emulator-matrix (built from submodules/containers)
+ERROR: invalid runner "container": must be one of auto, containerized, host-direct
+exit=2
+
+## argv with --runner containerized but no --container-image
+ERROR: --container-image is required when the resolved runner is containerized
+exit=2

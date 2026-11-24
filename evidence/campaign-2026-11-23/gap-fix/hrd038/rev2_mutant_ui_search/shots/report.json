@@ -1,0 +1,264 @@
+{
+  "bank": "Helix Reader web client",
+  "pass": 15,
+  "fail": 1,
+  "skip": 0,
+  "cases": [
+    {
+      "id": "HLX-WEB-001",
+      "name": "Library view lists the fixture titles from the live server",
+      "verdict": "PASS",
+      "steps": [
+        {
+          "name": "open client",
+          "action": "playwright: navigate http://127.0.0.1:4173/",
+          "verdict": "PASS",
+          "message": "navigated to http://127.0.0.1:4173/",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step01.png",
+          "screenshot_sha256": "723bfb5fc3b7d3002f5b5f8fa680fe1b20e66a3f332e572109017f13eb0c90c7",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "f5cc04c78dd182de04fd92f5056a620308068a2bdea5065543b9b09600cff3b9"
+          }
+        },
+        {
+          "name": "401 state shown",
+          "action": "playwright: waitFor role=alert",
+          "verdict": "PASS",
+          "message": "waited for role=alert",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step02.png",
+          "screenshot_sha256": "723bfb5fc3b7d3002f5b5f8fa680fe1b20e66a3f332e572109017f13eb0c90c7",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "f5cc04c78dd182de04fd92f5056a620308068a2bdea5065543b9b09600cff3b9"
+          }
+        },
+        {
+          "name": "open settings",
+          "action": "playwright: click role=button[name='Settings']",
+          "verdict": "PASS",
+          "message": "clicked role=button[name='Settings']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step03.png",
+          "screenshot_sha256": "2530ea0d8073f7bc9fd938e934d3fd0feb946163ba2ea0e6b3600c5669b671ba",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/settings",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "01eac53f49762a41f55e5b775065707902afae05e09150f5d64a5026619ec04a"
+          }
+        },
+        {
+          "name": "enter username",
+          "action": "playwright: fill input[autocomplete=username] hq-reader",
+          "verdict": "PASS",
+          "message": "filled input[autocomplete=username] with 9 chars",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step04.png",
+          "screenshot_sha256": "97f8f667796e5162601ea7dadd38751176fa53c223b41631f1f3772ab5f8b2a7",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/settings",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "01eac53f49762a41f55e5b775065707902afae05e09150f5d64a5026619ec04a"
+          }
+        },
+        {
+          "name": "enter password",
+          "action": "playwright: fill input[type=password] hq-password",
+          "verdict": "PASS",
+          "message": "filled input[type=password] with 11 chars",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step05.png",
+          "screenshot_sha256": "420a9f19fa827ed431a3467b880ba58bfac05061df18662f1cd576e1c1e14905",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/settings",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "01eac53f49762a41f55e5b775065707902afae05e09150f5d64a5026619ec04a"
+          }
+        },
+        {
+          "name": "save",
+          "action": "playwright: click role=button[name='Save']",
+          "verdict": "PASS",
+          "message": "clicked role=button[name='Save']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step06.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "library heading",
+          "action": "playwright: waitFor role=heading[name='Library']",
+          "verdict": "PASS",
+          "message": "waited for role=heading[name='Library']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step07.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "comic card",
+          "action": "playwright: waitFor role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "waited for role=button[name='Open hq-comic']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step08.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "comic visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-comic']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step09.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "novel visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-novel']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-novel']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step10.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "mixed visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-mixed']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-mixed']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step11.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "notes visible",
+          "action": "playwright: assertVisible role=button[name='Open hq-notes']",
+          "verdict": "PASS",
+          "message": "visible: role=button[name='Open hq-notes']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-001-step12.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/#/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HLX-WEB-002",
+      "name": "Search narrows the library to the matching title",
+      "verdict": "FAIL",
+      "steps": [
+        {
+          "name": "open client",
+          "action": "playwright: navigate http://127.0.0.1:4173/",
+          "verdict": "PASS",
+          "message": "navigated to http://127.0.0.1:4173/",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-002-step01.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "comic card",
+          "action": "playwright: waitFor role=button[name='Open hq-comic']",
+          "verdict": "PASS",
+          "message": "waited for role=button[name='Open hq-comic']",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-002-step02.png",
+          "screenshot_sha256": "9d84c7ac17ed4e9f0ec4d6c5a7e174502c204cc6b9952c03ad429d4466525d83",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "type query",
+          "action": "playwright: fill input[type=search] hq-comic",
+          "verdict": "PASS",
+          "message": "filled input[type=search] with 8 chars",
+          "attempts": 1,
+          "screenshot": "HLX-WEB-002-step03.png",
+          "screenshot_sha256": "ed5482b59a1b7dce5b1d9becfb5722f552b78b28d8021e86d2dc05c7adf792f9",
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        },
+        {
+          "name": "other titles gone",
+          "action": "playwright: assertNotVisible role=button[name='Open hq-novel']",
+          "verdict": "FAIL",
+          "message": "playwright assertNotVisible role=button[name='Open hq-novel']: IS visible (expected hidden)",
+          "attempts": 10,
+          "page_state": {
+            "url": "http://127.0.0.1:4173/",
+            "viewport_width": 1920,
+            "viewport_height": 937,
+            "dom_text_sha256": "b0ad1e937c5a2eb5ac0be65c86a6180782b4dce44b7f4c2c8d34e774e2f1ae5c"
+          }
+        }
+      ]
+    }
+  ],
+  "pin_errors": [
+    "bank has 16 steps in the selected cases, bank pins 17",
+    "15 steps PASSed, bank pins 17"
+  ]
+}

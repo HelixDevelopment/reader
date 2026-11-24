@@ -1,0 +1,94 @@
+{
+  "acquisition_href": "/v1/files/file-ce4c6db12f9e19891071a3d6/content",
+  "campaign": "2026-11-23",
+  "checks": [
+    {
+      "detail": "status 201 {\"id\":\"live-lcp\",\"protocol\":\"local\",\"capabilities\":{\"recursive_list\":true,\"range_read\":true,\"watch\":false,\"native\":true}}",
+      "name": "source created",
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"created_at\":\"2026-11-23T22:06:28.938901704Z\",\"finished_at\":\"2026-11-23T22:06:28.961906769Z\",\"id\":\"scan-62dd5b382027abb59b44d56228f93c45\",\"report\":{\"files\":1,\"removed\":0,\"warnings\":[\"Sealed Book.lcpl: LCP license signature not verified server-side; readers verify and unlock\"],\"works\":1},\"source_id\":\"live-lcp\",\"state\":\"succeeded\"}",
+      "name": "scan finished without skipping the license",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "opds feed requires credentials",
+      "status": "PASS"
+    },
+    {
+      "detail": "license=\"/v1/files/file-ce4c6db12f9e19891071a3d6/license\"",
+      "name": "feed carries the license acquisition link (rel acquisition, license type)",
+      "status": "PASS"
+    },
+    {
+      "detail": "status 200 bytes 4560 sha256 09ec968c6891f23c585db43da6eefe19cfb53cb00abd04481d3520c37d3c8295",
+      "name": "download is byte-identical to the independently fulfilled EPUB",
+      "status": "PASS"
+    },
+    {
+      "detail": "attachment; filename=\"Sealed Book.epub\"",
+      "name": "download disposition and type",
+      "status": "PASS"
+    },
+    {
+      "detail": "status 206",
+      "name": "range request",
+      "status": "PASS"
+    },
+    {
+      "detail": "status 401",
+      "name": "download requires credentials",
+      "status": "PASS"
+    },
+    {
+      "detail": "status 200",
+      "name": "license served byte-identical to the source .lcpl",
+      "status": "PASS"
+    },
+    {
+      "detail": "unlock=\u003cnil\u003e resource=\u003cnil\u003e",
+      "name": "unlock round trip with the test passphrase",
+      "status": "PASS"
+    },
+    {
+      "detail": "lcp: passphrase does not match this license",
+      "name": "wrong passphrase is refused",
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"created_at\":\"2026-11-23T22:06:29.077656329Z\",\"finished_at\":\"2026-11-23T22:06:29.081122315Z\",\"id\":\"scan-0f0849be83039291c4b33bd83f6d4309\",\"report\":{\"files\":1,\"removed\":0,\"warnings\":[\"Sealed Book.lcpl: LCP license signature not verified server-side; readers verify and unlock\"],\"works\":1},\"source_id\":\"live-lcp\",\"state\":\"succeeded\"}",
+      "name": "rescan keeps the same license acquisition link",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 entries",
+      "name": "source directory untouched (HRD-004)",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "server log holds no passphrase",
+      "status": "PASS"
+    },
+    {
+      "detail": "09ec968c6891f23c585db43da6eefe19cfb53cb00abd04481d3520c37d3c8295.epub,license-daea71716f7f2389e456a01cdb9b077f84a88cbf8e01ce7d08e5fad385b065e7.idx",
+      "name": "cache holds exactly the artifact and its license index",
+      "status": "PASS"
+    }
+  ],
+  "downloaded_bytes": 4560,
+  "downloaded_sha256": "09ec968c6891f23c585db43da6eefe19cfb53cb00abd04481d3520c37d3c8295",
+  "expected_artifact_bytes": 4560,
+  "expected_artifact_sha256": "09ec968c6891f23c585db43da6eefe19cfb53cb00abd04481d3520c37d3c8295",
+  "item": "HRD-031",
+  "license_href": "/v1/files/file-ce4c6db12f9e19891071a3d6/license",
+  "not_verified": [
+    "real LCP provider or Readium LCP server",
+    "third-party LCP reader unlock",
+    "PostgreSQL-backed catalog for this flow",
+    "license signature trust chain on the server (by design; readers verify)"
+  ],
+  "scope": "LCP license -\u003e fulfilled EPUB over OPDS, in-memory catalog"
+}

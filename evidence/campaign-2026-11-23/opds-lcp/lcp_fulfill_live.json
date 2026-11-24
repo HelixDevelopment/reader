@@ -1,0 +1,26 @@
+{
+  "downloaded_bytes": 14020,
+  "fulfilled_bytes": 16648,
+  "fulfilled_sha256": "1fedcead62826f3d8e6f42b65340a58d78c37cfcbe7733dd805198355ca76137",
+  "http_requests_served": [
+    "/license.lcpl",
+    "/pub.epub"
+  ],
+  "license_id": "8e91c995-a272-4c4e-afff-d6c9f7168a65",
+  "license_media_type": "application/vnd.readium.lcp.license.v1.0+json",
+  "provider": "in-repo Issue+Protect (NOT a third-party LCP provider)",
+  "publication_link_length": 14020,
+  "publication_link_sha256": "810f3ec2b3433a2fa5911e1ee16f4c38f9447fd60f632bd3ef92e0e54ee39aba",
+  "resources_decrypted_and_byte_equal": 10,
+  "signature_mode_is_reference": true,
+  "signature_mode_verified": 1,
+  "tampered_download_refused": "lcp: publication does not match the license's publication link: SHA-256 differs",
+  "test": "TestFulfillOverLiveHTTP",
+  "transport": "net/http over loopback TCP (httptest.NewServer)",
+  "unconfirmed": [
+    "interop with a real LCP provider/License Authority",
+    "interop with a third-party reader app",
+    "license status document (LSD) handling",
+    "Readium root certificate trust (Helix embeds none)"
+  ]
+}

@@ -1,0 +1,9 @@
+Chromium sandbox attempt (SANDBOX_OFF=0, chromiumSandbox:true, no extra caps/privileges), 2026-11-23T22:10:45Z:
+PASS server-has-works {"expected":["orbital-gardens","The Glass Meridian","field-notes"]}
+/work/node_modules/playwright-core/lib/coreBundle.js:45950
+  const failError = new Error("Process failed to launch!");
+                    ^
+
+Error: Process failed to launch!
+
+Node.js v22.12.0

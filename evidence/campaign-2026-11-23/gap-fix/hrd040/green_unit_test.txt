@@ -1,0 +1,17 @@
+test_refuses_when_images_and_test_class_missing (test_android_matrix.PreflightTests.test_refuses_when_images_and_test_class_missing) ... ok
+test_adb_state_offline (test_android_matrix.VerifierTests.test_adb_state_offline) ... ok
+test_all_passed_flag_not_trusted (test_android_matrix.VerifierTests.test_all_passed_flag_not_trusted) ... ok
+test_apk_sha_mismatch_or_missing_sidecar (test_android_matrix.VerifierTests.test_apk_sha_mismatch_or_missing_sidecar) ... ok
+test_boot_error_and_zero_boot_time (test_android_matrix.VerifierTests.test_boot_error_and_zero_boot_time) ... ok
+test_duplicate_rows_do_not_count (test_android_matrix.VerifierTests.test_duplicate_rows_do_not_count) ... ok
+test_green_12_rows (test_android_matrix.VerifierTests.test_green_12_rows) ... ok
+test_manifest_tamper (test_android_matrix.VerifierTests.test_manifest_tamper) ... ok
+test_missing_api_and_form_factor (test_android_matrix.VerifierTests.test_missing_api_and_form_factor) ... ok
+test_no_rows (test_android_matrix.VerifierTests.test_no_rows) ... ok
+test_red_broken_apk_row (test_android_matrix.VerifierTests.test_red_broken_apk_row) ... ok
+test_too_few_rows (test_android_matrix.VerifierTests.test_too_few_rows) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.808s
+
+OK

@@ -1,0 +1,10 @@
+KILLED R5-1 follower inherits silent/cancelled leader (compiles) :: --- FAIL: TestFollowerOfSilentLeaderNeverGetsEmptyNil (0.42s) |     lcp_flight_test.go:50: follower should have retried as leader and succeeded: lcp fulfillment: no artifact produced
+SURVIVED R5-2 leader panic strands followers (compiles) :: 
+KILLED R5-3 newcomer leader skips cache re-check (compiles) :: --- FAIL: TestNewLeaderRechecksCacheBeforeDownloading (0.27s) |     lcp_flight_test.go:228: origin downloads = 2, want 1
+KILLED R5-4 redirect loop counted against host (compiles) :: --- FAIL: TestRedirectLoopDoesNotLockHost (0.61s) |     lcp_flight_test.go:253: redirect-loop licenses locked a healthy host: files=0 skipped=[a0.lcpl: LCP fulfillment: lcp fulfillment: publication download failed: connect
+KILLED R5-5 429 not host-attributed (compiles) :: --- FAIL: TestHost429CountsAgainstHost (1.75s) |     lcp_flight_test.go:269: a host answering 429 was hit 8 times across distinct licenses
+KILLED R5-6 reclaim ctime guard removed (compiles) :: --- FAIL: TestGCSparesBackdatedMtimeWithFreshCtime (0.19s) |     lcp_flight_test.go:290: artifact with old mtime but fresh ctime was collected: stat /home/milosvasic/.cache/claude-tmp/TestGCSparesBackdatedMtimeWithFreshCtime1753059
+KILLED R5-7 budget refusal inherited by follower (compiles) :: --- FAIL: TestFollowerDoesNotInheritLeaderBudgetRefusal (0.50s) |     lcp_flight_test.go:187: follower = {SHA256: Size:0}, lcp fulfillment: scan fetch budget reached; retry on the next scan; want its own fetch
+
+--- Annotation (additive) ---
+R5-2 is an EQUIVALENT mutant: with the recover() removed, the plain deferred function still ends the flight with err==nil, which sends followers to retry; the recover only adds the 'leader aborted' message.
