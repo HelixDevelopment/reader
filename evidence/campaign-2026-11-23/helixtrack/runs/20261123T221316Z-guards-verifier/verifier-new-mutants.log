@@ -1,0 +1,21 @@
+KILLED   N1 lock file unlinked before release -> test_lock_is_released_after_every_exit_path
+SURVIVED N2 state remembered (desired) before readback verify -> suite passed
+SURVIVED N2b update: state remembered before verify -> suite passed
+KILLED   N3 redirect refused only on GET -> test_real_transport_never_follows_redirects_or_forwards_authorization
+SURVIVED N4 userinfo checked only on parsed netloc -> suite passed
+SURVIVED N5 env mode checked after reading token -> suite passed
+SURVIVED N5b env file non-regular (fifo/dir) accepted -> suite passed
+KILLED   N6 PROBE_VERSION constant is a real version -> test_probe_version_does_not_mutate
+KILLED   N7 push continues after first item error -> test_mid_batch_503_exit_3_partial_state_and_report_then_resume
+SURVIVED N7b no checkpoint on abort -> suite passed
+KILLED   N8 push exit code uses has_drift -> test_corrupt_state_files_exit_3_before_login
+KILLED   N8b pull exit code uses has_conflicts -> test_pull_drift_exits_2_and_compare_mismatch_exits_2
+SURVIVED N9 abort report written non-atomically -> suite passed
+SURVIVED N10 history db mode rwc -> suite passed
+KILLED   N11 atomic save file mode 0644 -> test_state_is_written_atomically_with_no_temp_leftovers
+SURVIVED N12 lock file mode 0644 -> suite passed
+KILLED   N13 lock error exit code 1 not 3 path (LockError not SyncError) -> test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber
+KILLED   N14 resume: duplicate extras ignored when ticket known -> test_forged_title_next_to_known_ticket_is_reported_duplicate
+SURVIVED N15 HTTP 200 html swallowed as None body ok -> suite passed
+SURVIVED N16 lock acquired after env/url validation -> suite passed
+new_mutants=20 survivors_or_inapplicable=11

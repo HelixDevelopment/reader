@@ -1,0 +1,345 @@
+test_expired_jwt_triggers_single_relogin (test_helixtrack_sync.ErrorMappingTests.test_expired_jwt_triggers_single_relogin) ... ok
+test_http_errors_map_to_typed_exceptions (test_helixtrack_sync.ErrorMappingTests.test_http_errors_map_to_typed_exceptions) ... ok
+test_login_failure_is_auth_error (test_helixtrack_sync.ErrorMappingTests.test_login_failure_is_auth_error) ... ok
+test_probe_version_does_not_mutate (test_helixtrack_sync.ErrorMappingTests.test_probe_version_does_not_mutate) ... ok
+test_transport_failure_maps (test_helixtrack_sync.ErrorMappingTests.test_transport_failure_maps) ... ok
+test_version_conflict_carries_current_version (test_helixtrack_sync.ErrorMappingTests.test_version_conflict_carries_current_version) ... ok
+test_compare_registry_to_remote_field_by_field (test_helixtrack_sync.FieldCompareTests.test_compare_registry_to_remote_field_by_field) ... ok
+test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed (test_helixtrack_sync.FieldCoverageTests.test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed) ... ok
+test_unpushed_fields_do_not_change_the_remote_hash (test_helixtrack_sync.FieldCoverageTests.test_unpushed_fields_do_not_change_the_remote_hash) ... ok
+test_http_client_and_value_errors_become_transport_error (test_helixtrack_sync.Gap1TransportErrorTests.test_http_client_and_value_errors_become_transport_error) ... ERROR
+test_main_exit_3_with_partial_report_when_transport_raises_midway (test_helixtrack_sync.Gap1TransportErrorTests.test_main_exit_3_with_partial_report_when_transport_raises_midway) ... ERROR
+test_real_transport_html_200_body_is_transport_error_not_traceback (test_helixtrack_sync.Gap1TransportErrorTests.test_real_transport_html_200_body_is_transport_error_not_traceback) ... ERROR
+test_corrupt_outbox_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_corrupt_outbox_exit_3_before_login) ... ERROR
+test_corrupt_state_files_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_corrupt_state_files_exit_3_before_login) ... ERROR
+test_unreadable_history_db_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_unreadable_history_db_exit_3_before_login) ... ERROR
+test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber (test_helixtrack_sync.Gap3LockTests.test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber) ... FAIL
+test_lock_is_released_after_every_exit_path (test_helixtrack_sync.Gap3LockTests.test_lock_is_released_after_every_exit_path) ... ERROR
+test_two_concurrent_processes_second_is_refused (test_helixtrack_sync.Gap3LockTests.test_two_concurrent_processes_second_is_refused) ... ----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58170)
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 484, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1142, in do_POST
+    h.wfile.write(body)
+    ~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+ERROR
+test_plain_urls_still_accepted (test_helixtrack_sync.Gap4UrlDifferentialTests.test_plain_urls_still_accepted) ... ok
+test_refusal_message_never_echoes_userinfo (test_helixtrack_sync.Gap4UrlDifferentialTests.test_refusal_message_never_echoes_userinfo) ... FAIL
+test_userinfo_backslash_and_friends_refused (test_helixtrack_sync.Gap4UrlDifferentialTests.test_userinfo_backslash_and_friends_refused) ... FAIL
+test_compare_report_is_written_atomically (test_helixtrack_sync.Gap5GuardTests.test_compare_report_is_written_atomically) ... ok
+test_env_file_any_group_or_other_bit_refused (test_helixtrack_sync.Gap5GuardTests.test_env_file_any_group_or_other_bit_refused) ... ok
+test_every_conflict_kind_drives_exit_code_2 (test_helixtrack_sync.Gap5GuardTests.test_every_conflict_kind_drives_exit_code_2) ... ok
+test_history_db_opened_read_only_and_left_untouched (test_helixtrack_sync.Gap5GuardTests.test_history_db_opened_read_only_and_left_untouched) ... ok
+test_http_200_with_non_ok_error_code_and_unknown_4xx_fail (test_helixtrack_sync.Gap5GuardTests.test_http_200_with_non_ok_error_code_and_unknown_4xx_fail) ... ok
+test_is_loopback_rejects_lookalike_hostnames (test_helixtrack_sync.Gap5GuardTests.test_is_loopback_rejects_lookalike_hostnames) ... ok
+test_key_must_be_anchored_at_title_start (test_helixtrack_sync.Gap5GuardTests.test_key_must_be_anchored_at_title_start) ... ok
+test_known_ticket_missing_from_list_but_readable_is_not_remote_deleted (test_helixtrack_sync.Gap5GuardTests.test_known_ticket_missing_from_list_but_readable_is_not_remote_deleted) ... ok
+test_persistent_401_relogin_is_bounded (test_helixtrack_sync.Gap5GuardTests.test_persistent_401_relogin_is_bounded) ... ok
+test_redact_handles_lists_at_any_depth (test_helixtrack_sync.Gap5GuardTests.test_redact_handles_lists_at_any_depth) ... ok
+test_unpushable_type_change_exits_2_via_main (test_helixtrack_sync.Gap5GuardTests.test_unpushable_type_change_exits_2_via_main) ... ok
+test_version_retry_is_capped_at_one (test_helixtrack_sync.Gap5GuardTests.test_version_retry_is_capped_at_one) ... ok
+test_atomic_save_keeps_old_file_when_the_write_fails (test_helixtrack_sync.MainTests.test_atomic_save_keeps_old_file_when_the_write_fails) ... ok
+test_clean_push_pull_compare_exit_zero (test_helixtrack_sync.MainTests.test_clean_push_pull_compare_exit_zero) ... ok
+test_dry_run_never_writes_state_or_remote (test_helixtrack_sync.MainTests.test_dry_run_never_writes_state_or_remote) ... ok
+test_env_file_0644_refused_exit_3_and_0600_accepted (test_helixtrack_sync.MainTests.test_env_file_0644_refused_exit_3_and_0600_accepted) ... ok
+test_login_failure_exit_3_without_leaking_password (test_helixtrack_sync.MainTests.test_login_failure_exit_3_without_leaking_password) ... ok
+test_mid_batch_503_exit_3_partial_state_and_report_then_resume (test_helixtrack_sync.MainTests.test_mid_batch_503_exit_3_partial_state_and_report_then_resume) ... ok
+test_plain_http_and_uppercase_http_refused_before_any_request (test_helixtrack_sync.MainTests.test_plain_http_and_uppercase_http_refused_before_any_request) ... ok
+test_pull_drift_exits_2_and_compare_mismatch_exits_2 (test_helixtrack_sync.MainTests.test_pull_drift_exits_2_and_compare_mismatch_exits_2) ... ok
+test_pull_no_probe_flag (test_helixtrack_sync.MainTests.test_pull_no_probe_flag) ... ok
+test_push_conflict_exits_2 (test_helixtrack_sync.MainTests.test_push_conflict_exits_2) ... ok
+test_state_is_written_atomically_with_no_temp_leftovers (test_helixtrack_sync.MainTests.test_state_is_written_atomically_with_no_temp_leftovers) ... FAIL
+test_description_carries_owned_fields_marker_history (test_helixtrack_sync.MappingTests.test_description_carries_owned_fields_marker_history) ... ok
+test_every_registry_status_maps_to_core_vocabulary (test_helixtrack_sync.MappingTests.test_every_registry_status_maps_to_core_vocabulary) ... ok
+test_hash_deterministic_and_sensitive (test_helixtrack_sync.MappingTests.test_hash_deterministic_and_sensitive) ... ok
+test_type_and_title_key (test_helixtrack_sync.MappingTests.test_type_and_title_key) ... ok
+test_forged_title_next_to_known_ticket_is_reported_duplicate (test_helixtrack_sync.MatchingTests.test_forged_title_next_to_known_ticket_is_reported_duplicate) ... ok
+test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create (test_helixtrack_sync.MatchingTests.test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create) ... ok
+test_marker_line_matches_when_state_lost_and_title_lost_key (test_helixtrack_sync.MatchingTests.test_marker_line_matches_when_state_lost_and_title_lost_key) ... ok
+test_orphans_include_marker_only_and_title_only_claims (test_helixtrack_sync.MatchingTests.test_orphans_include_marker_only_and_title_only_claims) ... ok
+test_default_pull_documents_that_it_issues_probe_modifies (test_helixtrack_sync.ProbeSafetyTests.test_default_pull_documents_that_it_issues_probe_modifies) ... ok
+test_probe_sends_current_fields_and_never_a_marker_title (test_helixtrack_sync.ProbeSafetyTests.test_probe_sends_current_fields_and_never_a_marker_title) ... ok
+test_pull_no_probe_issues_no_modify_requests (test_helixtrack_sync.ProbeSafetyTests.test_pull_no_probe_issues_no_modify_requests) ... ok
+test_server_that_ignores_version_is_not_corrupted_and_is_detected (test_helixtrack_sync.ProbeSafetyTests.test_server_that_ignores_version_is_not_corrupted_and_is_detected) ... ok
+test_clean_pull_is_all_in_sync (test_helixtrack_sync.PullTests.test_clean_pull_is_all_in_sync) ... ok
+test_missing_remote_and_deleted_ticket (test_helixtrack_sync.PullTests.test_missing_remote_and_deleted_ticket) ... ok
+test_pull_never_mutates_remote (test_helixtrack_sync.PullTests.test_pull_never_mutates_remote) ... ok
+test_pull_status_proposal_maps_to_registry_vocabulary (test_helixtrack_sync.PullTests.test_pull_status_proposal_maps_to_registry_vocabulary) ... ok
+test_registry_ahead_and_both_changed_are_distinguished (test_helixtrack_sync.PullTests.test_registry_ahead_and_both_changed_are_distinguished) ... ok
+test_remote_edit_detected_with_fields_and_version (test_helixtrack_sync.PullTests.test_remote_edit_detected_with_fields_and_version) ... ok
+test_concurrent_content_edit_during_modify_becomes_conflict (test_helixtrack_sync.PushTests.test_concurrent_content_edit_during_modify_becomes_conflict) ... ok
+test_concurrent_writer_between_probe_and_modify_retries_once (test_helixtrack_sync.PushTests.test_concurrent_writer_between_probe_and_modify_retries_once) ... ok
+test_dry_run_performs_no_writes (test_helixtrack_sync.PushTests.test_dry_run_performs_no_writes) ... ok
+test_duplicate_remote_keys_and_orphans_reported (test_helixtrack_sync.PushTests.test_duplicate_remote_keys_and_orphans_reported) ... ok
+test_first_push_creates_each_item_once_with_status (test_helixtrack_sync.PushTests.test_first_push_creates_each_item_once_with_status) ... ok
+test_lost_state_rematches_by_title_key_without_duplicates (test_helixtrack_sync.PushTests.test_lost_state_rematches_by_title_key_without_duplicates) ... ok
+test_overwrite_remote_flag_resolves_conflict_to_registry (test_helixtrack_sync.PushTests.test_overwrite_remote_flag_resolves_conflict_to_registry) ... ok
+test_readback_mismatch_is_detected (test_helixtrack_sync.PushTests.test_readback_mismatch_is_detected) ... ok
+test_registry_change_updates_with_version_from_probe (test_helixtrack_sync.PushTests.test_registry_change_updates_with_version_from_probe) ... ok
+test_remote_edit_is_never_silently_overwritten (test_helixtrack_sync.PushTests.test_remote_edit_is_never_silently_overwritten) ... ok
+test_repush_is_idempotent_no_writes_no_duplicates (test_helixtrack_sync.PushTests.test_repush_is_idempotent_no_writes_no_duplicates) ... ok
+test_type_change_is_reported_unpushable_not_silently_dropped (test_helixtrack_sync.PushTests.test_type_change_is_reported_unpushable_not_silently_dropped) ... ok
+test_recorded_traffic_never_contains_secrets (test_helixtrack_sync.RedactionTests.test_recorded_traffic_never_contains_secrets) ... ok
+test_redact_handles_nested_and_headers (test_helixtrack_sync.RedactionTests.test_redact_handles_nested_and_headers) ... ok
+test_3xx_from_any_transport_is_refused (test_helixtrack_sync.RedirectTests.test_3xx_from_any_transport_is_refused) ... ok
+test_real_transport_never_follows_redirects_or_forwards_authorization (test_helixtrack_sync.RedirectTests.test_real_transport_never_follows_redirects_or_forwards_authorization) ... ok
+test_dry_run_reports_without_recreating (test_helixtrack_sync.RemoteDeletedTests.test_dry_run_reports_without_recreating) ... ok
+test_never_synced_missing_item_is_still_a_plain_create (test_helixtrack_sync.RemoteDeletedTests.test_never_synced_missing_item_is_still_a_plain_create) ... ok
+test_overwrite_remote_recreates_explicitly (test_helixtrack_sync.RemoteDeletedTests.test_overwrite_remote_recreates_explicitly) ... ok
+test_pull_reports_remote_deleted (test_helixtrack_sync.RemoteDeletedTests.test_pull_reports_remote_deleted) ... ok
+test_push_reports_remote_deleted_and_does_not_recreate (test_helixtrack_sync.RemoteDeletedTests.test_push_reports_remote_deleted_and_does_not_recreate) ... ok
+test_checkpoint_runs_after_every_item_and_never_in_dry_run (test_helixtrack_sync.ResumeTests.test_checkpoint_runs_after_every_item_and_never_in_dry_run) ... ok
+test_failed_status_modify_after_create_does_not_become_false_conflict (test_helixtrack_sync.ResumeTests.test_failed_status_modify_after_create_does_not_become_false_conflict) ... ok
+test_interrupted_create_with_lost_state_reconciles (test_helixtrack_sync.ResumeTests.test_interrupted_create_with_lost_state_reconciles) ... ok
+test_mid_batch_503_is_reported_checkpointed_and_resumable (test_helixtrack_sync.ResumeTests.test_mid_batch_503_is_reported_checkpointed_and_resumable) ... ok
+test_pull_error_is_reported_not_raised (test_helixtrack_sync.ResumeTests.test_pull_error_is_reported_not_raised) ... ok
+test_state_checkpointed_between_create_and_status_modify_even_on_hard_crash (test_helixtrack_sync.ResumeTests.test_state_checkpointed_between_create_and_status_modify_even_on_hard_crash) ... ok
+test_allows_https_and_loopback_http_any_case (test_helixtrack_sync.UrlGuardTests.test_allows_https_and_loopback_http_any_case) ... ok
+test_refuses_everything_but_https_or_loopback_http (test_helixtrack_sync.UrlGuardTests.test_refuses_everything_but_https_or_loopback_http) ... ok
+test_transport_constructor_enforces_guard_too (test_helixtrack_sync.UrlGuardTests.test_transport_constructor_enforces_guard_too) ... ok
+
+======================================================================
+ERROR: test_http_client_and_value_errors_become_transport_error (test_helixtrack_sync.Gap1TransportErrorTests.test_http_client_and_value_errors_become_transport_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1002, in test_http_client_and_value_errors_become_transport_error
+    c.login()
+    ~~~~~~~^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 268, in login
+    data = self._do({"action": "authenticate", "data": {"username": self._u, "password": self._p}}, auth=False)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 242, in _do
+    status, resp = self._raw(body, auth)
+                   ~~~~~~~~~^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 231, in _raw
+    status, resp = self._t("POST", "/do", headers, body)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 999, in boom
+    raise _e
+http.client.BadStatusLine: garbage
+
+======================================================================
+ERROR: test_main_exit_3_with_partial_report_when_transport_raises_midway (test_helixtrack_sync.Gap1TransportErrorTests.test_main_exit_3_with_partial_report_when_transport_raises_midway)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1028, in test_main_exit_3_with_partial_report_when_transport_raises_midway
+    code = hs.main(argv, environ={}, transport=flaky)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 734, in main
+    rep = push(client, pid, records, state, args.dry_run, args.overwrite_remote, history,
+               None if args.dry_run else checkpoint)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 555, in push
+    _push_one(client, project_id, rec, state, matched, problems, dry_run, overwrite_remote, history,
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              None if dry_run else checkpoint, report)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 509, in _push_one
+    tid = _create(client, project_id, desired, state, key, checkpoint)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 487, in _create
+    got = _verify(client, tid, desired)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 448, in _verify
+    got = client.read_ticket(ticket_id)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 287, in read_ticket
+    return self._do({"action": "read", "object": "ticket", "data": {"id": ticket_id}})["ticket"]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 242, in _do
+    status, resp = self._raw(body, auth)
+                   ~~~~~~~~~^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 231, in _raw
+    status, resp = self._t("POST", "/do", headers, body)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1022, in flaky
+    raise _e
+http.client.BadStatusLine: x
+
+======================================================================
+ERROR: test_real_transport_html_200_body_is_transport_error_not_traceback (test_helixtrack_sync.Gap1TransportErrorTests.test_real_transport_html_200_body_is_transport_error_not_traceback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1009, in test_real_transport_html_200_body_is_transport_error_not_traceback
+    c.login()
+    ~~~~~~~^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 268, in login
+    data = self._do({"action": "authenticate", "data": {"username": self._u, "password": self._p}}, auth=False)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 242, in _do
+    status, resp = self._raw(body, auth)
+                   ~~~~~~~~~^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 231, in _raw
+    status, resp = self._t("POST", "/do", headers, body)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 335, in transport
+    return resp.status, json.loads(resp.read() or b"null")
+                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+ERROR: test_corrupt_outbox_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_corrupt_outbox_exit_3_before_login)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1087, in test_corrupt_outbox_exit_3_before_login
+    self.assert_refused_before_login("outbox " + what)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1053, in assert_refused_before_login
+    code, _, err = self.run_main("push")
+                   ~~~~~~~~~~~~~^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 721, in main
+    records = _load_json(args.outbox, {}).get("records")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+ERROR: test_corrupt_state_files_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_corrupt_state_files_exit_3_before_login)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1069, in test_corrupt_state_files_exit_3_before_login
+    self.assert_refused_before_login("state " + what)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1053, in assert_refused_before_login
+    code, _, err = self.run_main("push")
+                   ~~~~~~~~~~~~~^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 725, in main
+    state = _load_json(args.state, {})
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 673, in _load_json
+    return json.load(fh)
+           ~~~~~~~~~^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 298, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+ERROR: test_unreadable_history_db_exit_3_before_login (test_helixtrack_sync.Gap2CorruptInputTests.test_unreadable_history_db_exit_3_before_login)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1096, in test_unreadable_history_db_exit_3_before_login
+    code, _, err = self.run_main("push", "--db", db)
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 831, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 724, in main
+    history = load_history(args.db) if args.db else None
+              ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py", line 654, in load_history
+    for atm, ev, actor, on, reason in con.execute(
+                                      ~~~~~~~~~~~^
+            "SELECT atm_id,event_type,actor,on_date,reason FROM item_history ORDER BY sequence"):
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.DatabaseError: file is not a database
+
+======================================================================
+ERROR: test_lock_is_released_after_every_exit_path (test_helixtrack_sync.Gap3LockTests.test_lock_is_released_after_every_exit_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1126, in test_lock_is_released_after_every_exit_path
+    fd = os.open(self.state + ".lock", os.O_RDWR)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/milosvasic/.cache/claude-tmp/tmpx2fgcdtc/state.json.lock'
+
+======================================================================
+ERROR: test_two_concurrent_processes_second_is_refused (test_helixtrack_sync.Gap3LockTests.test_two_concurrent_processes_second_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1163, in test_two_concurrent_processes_second_is_refused
+    b = subprocess.run(argv, capture_output=True, text=True, timeout=8)
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', '-I', '/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/helixtrack_sync.py', 'push', '--outbox', '/home/milosvasic/.cache/claude-tmp/tmpweyco65o/outbox.json', '--state', '/home/milosvasic/.cache/claude-tmp/tmpweyco65o/state.json', '--report', '/home/milosvasic/.cache/claude-tmp/tmpweyco65o/report.json', '--env-file', '/home/milosvasic/.cache/claude-tmp/tmpweyco65o/ht.env']' timed out after 8 seconds
+
+======================================================================
+FAIL: test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber (test_helixtrack_sync.Gap3LockTests.test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1110, in test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber
+    self.assertEqual(code, 3, cmd)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: 0 != 3 : push
+
+======================================================================
+FAIL: test_refusal_message_never_echoes_userinfo (test_helixtrack_sync.Gap4UrlDifferentialTests.test_refusal_message_never_echoes_userinfo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1189, in test_refusal_message_never_echoes_userinfo
+    with self.assertRaises(hs.SyncError) as cm:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: SyncError not raised
+
+======================================================================
+FAIL: test_userinfo_backslash_and_friends_refused (test_helixtrack_sync.Gap4UrlDifferentialTests.test_userinfo_backslash_and_friends_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 1182, in test_userinfo_backslash_and_friends_refused
+    with self.assertRaises(hs.SyncError, msg=repr(bad)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SyncError not raised : 'http://evil@127.0.0.1'
+
+======================================================================
+FAIL: test_state_is_written_atomically_with_no_temp_leftovers (test_helixtrack_sync.MainTests.test_state_is_written_atomically_with_no_temp_leftovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/hrd029fix_scratch/red/test_helixtrack_sync.py", line 885, in test_state_is_written_atomically_with_no_temp_leftovers
+    self.assertEqual(sorted(os.listdir(self.tmp)), ["ht.env", "outbox.json", "report.json", "state.json", "state.json.lock"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['ht.env', 'outbox.json', 'report.json', 'state.json'] != ['ht.env', 'outbox.json', 'report.json', 'state.json', 'state.json.lock']
+
+Second list contains 1 additional elements.
+First extra element 4:
+'state.json.lock'
+
+- ['ht.env', 'outbox.json', 'report.json', 'state.json']
++ ['ht.env', 'outbox.json', 'report.json', 'state.json', 'state.json.lock']
+?                                                      +++++++++++++++++++
+
+
+----------------------------------------------------------------------
+Ran 92 tests in 13.174s
+
+FAILED (failures=4, errors=8)

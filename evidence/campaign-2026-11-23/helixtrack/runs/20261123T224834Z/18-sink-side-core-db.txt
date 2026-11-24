@@ -1,0 +1,19 @@
+-- live tickets per project / min,max version
+HRD|75|1|4
+HRX|75|1|2
+-- soft-deleted tickets (HRD-015 original)
+[HRD-015]|1
+-- HRD-007 history (version|action|user)
+1|create|syncu
+1|create|syncu
+2|modify|syncu
+2|modify|syncu
+3|modify|remu
+4|modify|syncu
+-- HRD-009 history (version|action|user)
+1|create|syncu
+2|modify|syncu
+3|modify|remu
+4|modify|syncu
+-- probe side effects: history rows with title 'probe' (must be 0)
+0

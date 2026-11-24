@@ -1,0 +1,18 @@
+-- tickets / versions
+35|1|4
+-- distinct HRD keys
+35
+-- statuses
+blocked|1
+done|23
+in_progress|4
+open|7
+-- types
+bug|6
+feature|15
+task|14
+-- HRD-007 history (version|action|user)
+1|create|hrd_sync
+2|modify|hrd_sync
+3|modify|hrd_remote_editor
+4|modify|hrd_sync

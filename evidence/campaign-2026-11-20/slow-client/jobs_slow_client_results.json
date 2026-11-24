@@ -1,0 +1,1256 @@
+{
+  "test": "TestLiveSlowClientJobSurface",
+  "surface": "scan-job surface (server/internal/httpapi/jobs.go)",
+  "test_file": "server/internal/httpapi/slow_client_live_test.go",
+  "emitted_at": "2026-11-24T00:26:56Z",
+  "parameters": {
+    "arm_margin_ms": 1000,
+    "arm_watchdog_s": 20,
+    "burst_budget_ms": 5000,
+    "burst_poll_interval_ms": 25,
+    "deadline_scan_budget_ms": 500,
+    "documented_bounds": {
+      "pending": 64,
+      "running": 2
+    },
+    "fast_read_budget_ms": 400,
+    "fast_reads_per_client": 10,
+    "fast_reads_while_full": 10,
+    "shutdown_budget_ms": 5000,
+    "slow_scan_duration_ms": 600,
+    "slow_trickle_interval_ms": 20
+  },
+  "arms": [
+    {
+      "arm": "a_one_slow_one_fast",
+      "slow_clients": 1,
+      "fast_clients": 1,
+      "slow_scans": [
+        {
+          "client": "slow_reader_0",
+          "state": "succeeded",
+          "time_to_terminal_ms": 601.925
+        }
+      ],
+      "slow_trickle_reads": [
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.03
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.032
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.043
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.05
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.046
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.026
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.04
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.035
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.038
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.041
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.04
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.024
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.031
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.026
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.038
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.032
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.036
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.027
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.038
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.044
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.062
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.039
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.041
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.038
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.039
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.042
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.035
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.043
+        }
+      ],
+      "fast_scans": [
+        {
+          "client": "fast_scan_0",
+          "op": "run",
+          "latency_ms": 1.068
+        }
+      ],
+      "fast_reads": [
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.003
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.004
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.001
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.002
+        }
+      ],
+      "fast_reads_while_queue_full": [
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.026
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.019
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.017
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.016
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.018
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.017
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.017
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.018
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.016
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.018
+        }
+      ],
+      "fast_read_errors": 0,
+      "fast_read_p50_ms": 0.004,
+      "fast_read_p95_ms": 0.004,
+      "fast_read_p99_ms": 0.004,
+      "while_full_read_p50_ms": 0.026,
+      "while_full_read_p95_ms": 0.026,
+      "while_full_read_p99_ms": 0.026,
+      "backpressure": {
+        "burst_accepted": 63,
+        "burst_budget_ms": 5000,
+        "documented_bounds": {
+          "pending": 64,
+          "running": 2
+        },
+        "error_classes": {
+          "scan_queue_full": 1
+        },
+        "max_nonterminal": 0,
+        "max_running": 0,
+        "other_errors": 0,
+        "queue_full_count": 1
+      }
+    },
+    {
+      "arm": "b_three_slow_plus_fast",
+      "slow_clients": 3,
+      "fast_clients": 3,
+      "slow_scans": [
+        {
+          "client": "slow_reader_0",
+          "state": "succeeded",
+          "time_to_terminal_ms": 601.762
+        },
+        {
+          "client": "slow_reader_1",
+          "state": "succeeded",
+          "time_to_terminal_ms": 601.459
+        },
+        {
+          "client": "slow_reader_2",
+          "state": "succeeded",
+          "time_to_terminal_ms": 1202.58
+        }
+      ],
+      "slow_trickle_reads": [
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.119
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.093
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.056
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.12
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.194
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.086
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.136
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.17
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.136
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.124
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.142
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.167
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.067
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.091
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.158
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.104
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.079
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.059
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.094
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.164
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.047
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.126
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.193
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.275
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.112
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.047
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.074
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.069
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.089
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.154
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.079
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.133
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.057
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.093
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.107
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.265
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.067
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.097
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.178
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.053
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.096
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.168
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.083
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.073
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.055
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.061
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.108
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.053
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.067
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.057
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.202
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.074
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.119
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.144
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.092
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.065
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.098
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.09
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.083
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.076
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.104
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.157
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.11
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.108
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.18
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.248
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.061
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.132
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.209
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.057
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.092
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.164
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.065
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.103
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.087
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.054
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.083
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.057
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.124
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.194
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.264
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.054
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.108
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.145
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.091
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.089
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.052
+        },
+        {
+          "client": "slow_reader_1",
+          "op": "get_and_list",
+          "latency_ms": 0.081
+        },
+        {
+          "client": "slow_reader_0",
+          "op": "get_and_list",
+          "latency_ms": 0.09
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.087
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.081
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.085
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.089
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.079
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.07
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.089
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.104
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.113
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.092
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.095
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.096
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.083
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.083
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.082
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.073
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.06
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.104
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.066
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.114
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.087
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.073
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.085
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.077
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.093
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.12
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.089
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.088
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.067
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.075
+        },
+        {
+          "client": "slow_reader_2",
+          "op": "get_and_list",
+          "latency_ms": 0.055
+        }
+      ],
+      "fast_scans": [
+        {
+          "client": "fast_scan_0",
+          "op": "run",
+          "latency_ms": 601.184
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "run",
+          "latency_ms": 601.559
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "run",
+          "latency_ms": 601.811
+        }
+      ],
+      "fast_reads": [
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.068
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.057
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.06
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.051
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.079
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.047
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.076
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_0",
+          "op": "get_and_list",
+          "latency_ms": 0.053
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.051
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.046
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.047
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.046
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.044
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_1",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.051
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.044
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.053
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.046
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.045
+        },
+        {
+          "client": "fast_scan_2",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        }
+      ],
+      "fast_reads_while_queue_full": [
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.052
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.047
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.048
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.061
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.049
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.05
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.048
+        },
+        {
+          "client": "fast_reader_while_full",
+          "op": "get_and_list",
+          "latency_ms": 0.048
+        }
+      ],
+      "fast_read_errors": 0,
+      "fast_read_p50_ms": 0.079,
+      "fast_read_p95_ms": 0.079,
+      "fast_read_p99_ms": 0.079,
+      "while_full_read_p50_ms": 0.061,
+      "while_full_read_p95_ms": 0.061,
+      "while_full_read_p99_ms": 0.061,
+      "backpressure": {
+        "burst_accepted": 58,
+        "burst_budget_ms": 5000,
+        "documented_bounds": {
+          "pending": 64,
+          "running": 2
+        },
+        "error_classes": {
+          "scan_queue_full": 1
+        },
+        "max_nonterminal": 64,
+        "max_running": 2,
+        "other_errors": 0,
+        "queue_full_count": 1
+      }
+    }
+  ],
+  "slow_scan_with_deadline": {
+    "state": "canceled",
+    "elapsed_ms": 501.473,
+    "budget_ms": 500
+  },
+  "shutdown": {
+    "elapsed_ms": 0.016,
+    "budget_ms": 5000
+  },
+  "create_after_shutdown": {
+    "rejected": true,
+    "error_class": "scan_store_closed"
+  },
+  "asserts": [
+    {
+      "name": "a_one_slow_one_fast_slow_scans_terminal_within_budget",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_slow_trickle_reads_bounded",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_fast_read_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_fast_reads_unaffected_while_queue_full",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_documented_backpressure_holds",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_slow_scans_terminal_within_budget",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_slow_trickle_reads_bounded",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_fast_read_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_fast_reads_unaffected_while_queue_full",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_documented_backpressure_holds",
+      "violated": false
+    },
+    {
+      "name": "slow_scan_with_deadline_timeout_honored",
+      "violated": false
+    },
+    {
+      "name": "shutdown_bounded",
+      "violated": false
+    },
+    {
+      "name": "create_after_shutdown_rejected",
+      "violated": false
+    }
+  ]
+}
