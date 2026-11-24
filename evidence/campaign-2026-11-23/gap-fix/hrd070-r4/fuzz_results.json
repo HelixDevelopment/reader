@@ -1,0 +1,7 @@
+[
+{"target":"FuzzParseStatusDocument","package":"core/pkg/lcpfuzz","fuzztime":"300s","exit":0,"crasher_files":0,"execs":11746887,"new_interesting":25},
+{"target":"FuzzParseLicense","package":"core/pkg/lcpfuzz","fuzztime":"300s","exit":0,"crasher_files":0,"execs":9214588,"new_interesting":14},
+{"target":"FuzzCanonical","package":"core/pkg/lcpfuzz","fuzztime":"300s","exit":0,"crasher_files":0,"execs":6500746,"new_interesting":35},
+{"target":"FuzzOPDSGeneration","package":"server/internal/opds","fuzztime":"300s","exit":0,"crasher_files":0,"execs":339065,"new_interesting":56},
+{"target":"FuzzPutProgressBody","package":"server/internal/kosync","fuzztime":"300s","exit":0,"crasher_files":0,"execs":8558157,"new_interesting":19},
+{"target":"FuzzRegisterInput","package":"server/internal/kosync","fuzztime":"300s","exit":0,"crasher_files":0,"execs":8932878,"new_interesting":0}]

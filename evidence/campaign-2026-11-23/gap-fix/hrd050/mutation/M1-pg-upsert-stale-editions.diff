@@ -1,0 +1,11 @@
+--- /home/milosvasic/Projects/helix_reader/server/internal/catalog/postgres.go	2026-11-23 20:18:36.658321087 +0100
++++ /home/milosvasic/.cache/claude-tmp/tmp.XLiqD3UHm3/M1-pg-upsert-stale-editions/server/internal/catalog/postgres.go	2026-11-24 00:37:09.725819767 +0100
+@@ -462,7 +462,7 @@
+ // affected ids in bulk — the set-based form of the old per-edition
+ // delete/reinsert loop.
+ func deleteWorkEditions(ctx context.Context, tx *sql.Tx, workID string) ([]string, error) {
+-	rows, err := tx.QueryContext(ctx, "DELETE FROM editions WHERE work_id=$1 RETURNING id", workID)
++	rows, err := tx.QueryContext(ctx, "DELETE FROM editions WHERE work_id=$1 AND false RETURNING id", workID)
+ 	if err != nil {
+ 		return nil, err
+ 	}

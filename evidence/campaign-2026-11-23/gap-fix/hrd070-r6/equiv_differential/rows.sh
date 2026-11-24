@@ -1,0 +1,8 @@
+run C10_wtm_key_notstring_UNREACHABLE core ./pkg/lcpfuzz $CN '/^func withoutTopLevelMember/,/^}/{/key, ok := keyTok.(string)/{n;s/if !ok {/if !ok \&\& false {/}}' "$LRE"
+run C22_snd_key_notstring_UNREACHABLE core ./pkg/lcpfuzz $CN "/^func scanNoDupes/,/^}/{/case .{.:/,/case .\[.:/{/key, ok := keyTok.(string)/{n;s/if !ok {/if !ok \&\& false {/}}}" "$LRE"
+run C28_snd_default_UNREACHABLE core ./pkg/lcpfuzz $CN '/^func scanNoDupes/,/^}/s/return fmt.Errorf("%w: unexpected %v", ErrLicenseSyntax, d)/return nil/' "$LRE"
+run C47_wc_default_UNREACHABLE core ./pkg/lcpfuzz $CN 's/return fmt.Errorf("lcp: cannot canonicalize %T", v)/return nil/' "$LRE"
+run C63_cn_first_empty_digits_EQUIV core ./pkg/lcpfuzz $CN '0,/if digits == "" {/s/if digits == "" {/if false {/' "$LRE"
+run C64_cn_second_empty_digits_UNREACHABLE core ./pkg/lcpfuzz $CN '/digits = strings.TrimLeft(digits, "0")/{n;s/if digits == "" {/if false {/}' "$LRE"
+run C02_canon_decode_err_EQUIV core ./pkg/lcpfuzz $CN 's/if err := dec.Decode(&v); err != nil {/if err := dec.Decode(\&v); err != nil \&\& false {/' "$LRE"
+run C11_wtm_decode_err_EQUIV core ./pkg/lcpfuzz $CN '/^func withoutTopLevelMember/,/^}/s/if err := dec.Decode(&raw); err != nil {/if err := dec.Decode(\&raw); err != nil \&\& false {/' "$LRE"

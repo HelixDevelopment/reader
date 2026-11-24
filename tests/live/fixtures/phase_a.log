@@ -1,0 +1,21 @@
+=== RUN   TestL
+--- SKIP: TestL (0.00s)
+PASS
+ok  	example.com/m/a	0.1s
+=== RUN   TestOther
+--- PASS: TestOther (0.00s)
+PASS
+ok  	example.com/m/a	0.1s
+=== RUN   TestSub
+--- SKIP: TestSub/inner (0.00s)
+--- PASS: TestSub (0.00s)
+PASS
+ok  	example.com/m/b	0.1s
+=== RUN   TestLiveLoadRemoteSource
+--- SKIP: TestLiveLoadRemoteSource (0.00s)
+PASS
+ok  	example.com/m/b	0.1s
+=== RUN   TestLiveScaleCatalog
+--- SKIP: TestLiveScaleCatalog (0.00s)
+PASS
+ok  	example.com/m/b	0.1s

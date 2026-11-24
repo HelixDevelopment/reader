@@ -1,0 +1,20 @@
+=== B2c in-container
+# PKG example.com/m/catalog
+=== RUN   TestInC
+--- PASS: TestInC (0.1s)
+PASS
+# PKG-END example.com/m/catalog
+=== B3 multi-process merges (4 workers + verify) ===
+# PKG example.com/m/catalog
+=== RUN   TestMP
+--- PASS: TestMP (27.68s)
+PASS
+=== RUN   TestMP
+--- PASS: TestMP (28.00s)
+PASS
+# PKG-END example.com/m/catalog
+=== B4 LCP live qualification ===
+=== RUN   TestLCP
+--- PASS: TestLCP (0.50s)
+PASS
+ok  	example.com/m/httpapi	0.513s

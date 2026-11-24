@@ -1,0 +1,158 @@
+VERDICT: NO-GO
+HEAD: c76d338b70a62e261a7d93aefda3697d032a1dfb
+
+Review round 6 of PR #4 (HRD-050 live gated-test runner + skip gate), HelixDevelopment/reader.
+Reviewer: independent subagent (producer != verifier, 11.4.142/.209), model Opus 5.5; reasoning effort not settable/readable
+on this dispatch path (11.4.231(F.2)), so no effort level is claimed.
+Head confirmed: `git ls-remote github` -> c76d338b70a62e261a7d93aefda3697d032a1dfb refs/heads/task/HRD-050-live-gated-tests
+and refs/pull/4/head; `gh pr view 4` headRefOid = c76d338b70a62e261a7d93aefda3697d032a1dfb, state OPEN.
+Checkout: CLEAN detached worktree `git worktree add --detach ~/.cache/claude-tmp/wt-rev4b c76d338`, `git status --short | wc -l` = 0
+before and after the test runs. No containers, no live run, nothing pushed, no PR file edited.
+
+SCOPE OF ANY FUTURE GO: hermetic gate logic only. The HRD-050 live path (phase A/B with PG/Redis containers,
+tests/live/mutation_check.sh) was NOT run by me and, per the PR body, has never been run end to end since the review
+fixes: UNCONFIRMED.
+
+PROCESS NOTE (11.4.276): this is review round 6 (reviews 467372f-era review.txt, 467372f, 10cc4c9, 4e3f307, 71de7b9, c76d338).
+11.4.276(G) sets R_max default and hard ceiling 5 unless a recorded operator decision names the item. I found no such record
+in the PR. A NO-GO at round 6 therefore needs the 11.4.276(E)(3) escalation to an operator decision (re-scope / structural
+replacement / waiver), not a round 7 under the same approach. Not mine to decide; recorded.
+
+====================================================================================================
+1. Reproduction of the author's claims in the clean worktree
+====================================================================================================
+$ bash tests/live/test_run_gated_tests.sh      (real 7.9s)
+  ...
+  ok   I4_run_created_untracked_removed_and_copied
+  ok   I4_run_modified_clean_tracked_reverted
+  ok   I4_preexisting_changes_untouched
+  ok   R1b_tests_and_fixtures_tracked_not_ignored
+  cases passed=71 failed=0                                  rc=0       -> CONFIRMED 71/0
+
+$ shellcheck -S warning tests/live/*.sh  -> sc=0 ; bash -n tests/live/*.sh -> 0   CONFIRMED clean
+$ git ls-files tests/live | wc -l        -> 56
+Class sweep: every file under tests/live: `git check-ignore -q --no-index` and `git ls-files --error-unmatch` -> no IGNORED,
+no UNTRACKED. Every path in the PR diff (git diff --name-only e9c89d3 c76d338): no tracked-but-ignored path.
+Every repo path referenced in tests/live/*.sh, parse_gotest.awk and docs/live-gated-tests.md: all resolvable ones tracked;
+the unresolved ones are placeholders/prose/test-sandbox names only (evidence/x/*, evidence/.../hrd050,
+tools/isolation/seal_evidence.sh mentioned as history in the doc and as mutant M24's text, tests/harness from a comment,
+server/internal/ingest/lcp* a glob in mutation_check.sh). The round-5 blocker (ignored fixtures) is FIXED.
+.gitignore: `+!tests/live/fixtures/*.log` (negation placed after the global *.log ignores).
+
+$ env -u ONLY bash tests/live/mutation_gate_check.sh   (real 6m7s, rc=0)
+  baseline: unmutated copy passes (cases passed=71 failed=0)
+  KILLED lines = 46 ; SURVIVED / NOT-APPLIED lines = 0
+  ... M45-I4-touch-preexisting-changes: KILLED (1 case(s) failed)
+      M46-I4-no-copy-before-revert: KILLED (2 case(s) failed)      -> CONFIRMED M1-M46 46/46 killed
+
+Sealed evidence: (cd evidence/campaign-2026-11-23/gap-fix/hrd050 && sha256sum -c SHA256SUMS) -> rc=0, 46 entries, all OK;
+LC_ALL=C comm -3 of the on-disk file list vs SHA256SUMS names -> empty (exact coverage). CONFIRMED.
+
+--check on the sealed logs at this head (out dir in scratch):
+  skip census: 21 distinct package|tests skipped somewhere, 8 never passed
+  7 x UNLISTED-SKIP (aimemory|TestLiveLoadVectorSearch, catalog|TestCatalogIdentityLockScopeThroughput,
+  catalog|TestCatalogMultiProcessMerges, catalog|TestLiveLoadConcurrencyLadder, catalog|TestLiveLoadWriteContention,
+  catalog|TestLiveScaleBatchPhases, httpapi|TestLiveLoadIngestConcurrentWithReads)
+  FAILED-TEST: .../httpapi|TestLiveLoadIngestConcurrentWithReads ; SKIP-GATE FAILED ; rc=3
+  -> matches the PR body ("exit 3, 7 UNLISTED-SKIP + FAILED-TEST"). CONFIRMED.
+
+Trailers (git interpret-trailers --parse per commit e9c89d3..c76d338): c76d338, 71de7b9, 4e3f307, 10cc4c9 carry
+`Roadmap-Item: HRD-050`; 467372f and 79eb80f do not (Roadmap-Item is in a non-final paragraph). Disclosed in the PR body;
+not rewritable without force (11.4.113). Minor, accepted as disclosed.
+
+PR body vs head: head c76d338, 71/0, 46/46, shellcheck clean, seal OK, --check rc 3 all match what I measured.
+One claim is literally true but misleading in the environment this runner is used in (see B1): "I4 side-effect cleanup
+only touches paths clean before the run".
+
+====================================================================================================
+2. BLOCKING
+====================================================================================================
+B1 (source-defect, data-safety surface 9.2 / 11.4.287 spirit; not minor-class per 11.4.276(G.2)):
+   se_restore deletes / reverts files even when the backup copy FAILED, and it acts on any file that became dirty after the
+   snapshot, including another agent's concurrent work in a shared checkout. Uncommitted work can be destroyed with rc 0.
+
+   Code (tests/live/run_gated_tests.sh, se_restore):
+     mkdir -p "$dest/$(dirname "$path")"; cp -- "$path" "$dest/$path"
+     if [ "$st" = "??" ]; then rm -f -- "$path"; else git checkout -- "$path"; fi
+   Neither mkdir nor cp is checked; `set -e` is not set; the rm/checkout runs regardless.
+
+   Reproduction with the UNMUTATED gate's own --selftest-side-effects (scratch git repo, nothing of the operator's touched):
+   (a) copy destination unwritable (stands in for ENOSPC/EACCES during a multi-hour run):
+       snapshot; then "another writer" creates evidence/y/precious.txt and edits clean tracked evidence/y/t.txt;
+       chmod 555 <before>.d ; restore:
+         mkdir: Permission denied
+         cp: cannot create regular file '.../b2.txt.d/evidence/y/t.txt': No such file or directory
+         mkdir: Permission denied
+         cp: cannot create regular file '.../b2.txt.d/evidence/y/precious.txt': No such file or directory
+         restore2=0
+       Result: evidence/y/ contains only t.txt with content "base"; precious.txt GONE; the "precious2" edit GONE;
+       `find <before>.d -type f` -> nothing. Irreversible loss, reported as success (rc 0).
+   (b) concurrent writer, normal disk: snapshot; another agent writes evidence/y/other_agent_new.txt and edits clean tracked
+       evidence/y/agent_tracked.txt; restore -> other_agent_new.txt removed from its place, agent_tracked.txt reverted to
+       "base"; content only survives under <OUT>/side_effects/. The runner defaults ROOT to the repository it lives in
+       (the shared main worktree in this project) and runs for up to hours, so any other agent writing under evidence/
+       during that window has its work silently moved away. The docs and PR body do not state this limit; the PR body's
+       "only touches paths clean before the run" reads as a safety guarantee it is not.
+   Minimum fix: copy-then-verify (cp && cmp) before rm/checkout, skip + report on any failure, non-zero/loud status; list every
+   moved path in the run output; and either document "run only in a dedicated worktree" with a refusal when other writers
+   are detected, or limit cleanup to files proven written by the run. Add a test with an unwritable/failed copy (a mutant
+   removing the guard must die) and a test with a pre-existing untracked file inside an untracked directory (see I2).
+
+====================================================================================================
+3. IMPORTANT (test-instrumentation; follow-up unless fixed with B1)
+====================================================================================================
+I1 Own mutant R4 SURVIVED: removing the OUT-exclusion line in se_restore
+     -    [ -n "$skip" ] && case "$path" in "$skip"/*) continue;; esac
+     +    :
+   No test exercises the 3-argument se_restore (the selftest passes 2 args). In a live run this mutant would revert the
+   run's own freshly written tracked logs in $OUT (run_A_race_live.log, run_B_load.log are tracked) back to the old sealed
+   versions and remove new ones. A load-bearing line with no killing test.
+I2 Own mutants R2 and R3 SURVIVED: dropping `--untracked-files=all` from se_snapshot (R2) or from se_restore (R3).
+   R2 with the real restore means a pre-existing untracked file inside an untracked directory is listed only as its
+   directory in the snapshot, so restore (with =all) sees the file as new and deletes it: exactly the 11.4.122/9.2 case M45
+   claims to guard, but the I4 fixture only has pre-existing untracked files inside a tracked directory. R3 means
+   test-created files in brand-new directories (the real side_effects in this PR are of that shape:
+   side_effects/evidence/campaign-2026-11-23/gap-fix/hrd038/rev3_green1/*) are left behind. The current code is correct;
+   the tests do not pin it.
+
+====================================================================================================
+4. MINOR (follow-up list)
+====================================================================================================
+m1 (source-defect, --check only) Adversarial A1: inside a `# PKG`/`# PKG-END` pair, `--- PASS: TestA` followed by a bare
+   `FAIL` line (binary failed with no `--- FAIL` record) -> `GATE GREEN`, rc 0. The parser rule
+   `/^(PASS|FAIL)[ \t]*$/ { closed = 1 }` treats a bare FAIL like PASS. The full live run is protected by RC (`|| RC=1` ->
+   exit 1), and I found no realistic producer in the current marker sections (no TestMain in server/ or core/; in-container
+   binaries are built without -race, so "race detected outside of test execution" cannot occur there), hence minor; but the
+   documented `--check` contract ("exits 3 for ... failed package") is false for this input. Own mutant R7 (bare FAIL no
+   longer sets closed) SURVIVED, confirming no fixture covers it; R7 is also a candidate fix (yields INCOMPLETE).
+m2 Own mutant R8 SURVIVED: treating any line whose package+test contains `#` as a comment would silently drop the only real
+   allow-list entry (kosync|FuzzRegisterInput/seed#0). No case runs the real allowed_skips.txt against a `seed#N` skip.
+m3 A3: a test name containing `|` (Go keeps `|` in subtest names) cannot be allow-listed at all (ALLOWLIST-MALFORMED +
+   UNLISTED-SKIP). Fail-closed direction; document it.
+m4 Paths that `git status --porcelain` quotes (spaces, non-ASCII: `"evidence/y/a b.txt"`,
+   `"evidence/y/\303\274n\303\257.txt"`) are silently skipped by se_restore: a test side effect with such a name is neither
+   moved nor reported. Safe direction, but silent; use `-z` or report skipped entries.
+m5 `--check` with the default --out writes .rec.tsv/.pass.txt/... inside the tracked evidence dir; two concurrent runs in one
+   checkout race on those temp files. Use a mktemp dir for scratch.
+m6 Commits 79eb80f and 467372f lack a final-paragraph Roadmap-Item trailer (disclosed).
+
+Equivalent/killed own mutants (for the record): R1 (untracked never removed) KILLED(1); R5 (timeout classified as panic)
+KILLED(2); R6 (subtests enter phase-B list) KILLED(1); R9 (cut -c3) KILLED(1); R10 (netskip = all skips) KILLED(3);
+R11 (UNUSED-ALLOW made `false` inside the loop) SURVIVED but is EQUIVALENT (the loop status never feeds `bad`).
+
+Adversarial inputs that behaved correctly (rc shown): A2 bare FAIL + `FAIL\tpkg` -> PACKAGE-FAILED rc3; A4 DATA RACE text
+with PASS -> rc0 (documented limit: go test fails the test itself); A5 `fatal error:` after PASS inside marker -> INCOMPLETE
+rc3; A6 marker with only a crun error line -> INCOMPLETE empty-marker-pair rc3; A7 allow-listed test that also FAILs ->
+FAILED-TEST + PACKAGE-FAILED rc3; A8 CRLF allow-list 3 fields -> MALFORMED rc3, 4 fields -> GREEN rc0 (CR trimmed);
+A9 `ok ... [no tests to run]` with SKIP -> UNLISTED rc3; A10 PASS in a log with no package line -> INCOMPLETE rc3, skip not
+masked; A11 failing subtest under passing parent -> FAILED-TEST rc3; A12 Arabic-Indic digits in HRD id -> MALFORMED rc3;
+A13 directory as log -> GATE-BLIND rc2; A14 directory as allow-list -> SETUP-ERROR rc2.
+
+====================================================================================================
+5. Verdict
+====================================================================================================
+NO-GO: one blocking finding (B1, data loss of uncommitted work with rc 0, reproduced on the unmutated gate). The round-5
+blocker is fixed and every round-5 count claim reproduces from a clean checkout (71/0, 46/46, seal OK, --check rc 3).
+I1/I2 should land with the B1 fix since they test the same function. m1-m6 can be follow-up items.
+Unrun / UNCONFIRMED: the live phase A/B path, tests/live/mutation_check.sh live mutants, behaviour on a real disk-full.
+Round budget: round 6 exceeds R_max 5 (11.4.276(G)); escalation to an operator decision is required.

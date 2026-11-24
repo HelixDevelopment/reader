@@ -1,0 +1,11 @@
+--- /home/milosvasic/Projects/helix_reader/server/internal/catalog/postgres.go	2026-11-23 20:18:36.658321087 +0100
++++ /home/milosvasic/.cache/claude-tmp/tmp.XLiqD3UHm3/M3-pg-identity-lock-removed/server/internal/catalog/postgres.go	2026-11-24 00:37:16.736034620 +0100
+@@ -217,7 +217,7 @@
+ // lock.
+ func lockIdentities(ctx context.Context, tx *sql.Tx, keys []string) error {
+ 	for _, key := range keys {
+-		if _, err := tx.ExecContext(ctx, "SELECT pg_advisory_xact_lock($1, hashtext($2))", identityLockSpace, key); err != nil {
++		if _, err := tx.ExecContext(ctx, "SELECT 1 WHERE $1::int IS NOT NULL AND $2::text IS NOT NULL", identityLockSpace, key); err != nil {
+ 			return fmt.Errorf("catalog: identity lock %q: %w", key, err)
+ 		}
+ 	}

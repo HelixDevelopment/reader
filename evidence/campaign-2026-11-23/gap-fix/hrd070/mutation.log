@@ -1,0 +1,16 @@
+MUTANT lcp_id_check: KILLED
+--- FAIL: FuzzParseLicense (0.00s)
+    --- FAIL: FuzzParseLicense/seed#2 (0.00s)
+  restored: GREEN again
+MUTANT kosync_pct_upper: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#1 (0.00s)
+  restored: GREEN again
+MUTANT kosync_username_len: KILLED
+--- FAIL: FuzzRegisterInput (0.17s)
+    --- FAIL: FuzzRegisterInput/seed#2 (0.06s)
+  restored: GREEN again
+MUTANT opds12_truncate: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  restored: GREEN again

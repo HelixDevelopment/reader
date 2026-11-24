@@ -1,0 +1,12 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/360 completed
+fuzz: elapsed: 1s, gathering baseline coverage: 360/360 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 5152 (1717/sec), new interesting: 0 (total: 360)
+fuzz: elapsed: 6s, execs: 10179 (1676/sec), new interesting: 0 (total: 360)
+fuzz: elapsed: 9s, execs: 12139 (653/sec), new interesting: 1 (total: 361)
+fuzz: elapsed: 12s, execs: 13547 (469/sec), new interesting: 1 (total: 361)
+fuzz: elapsed: 15s, execs: 13547 (0/sec), new interesting: 1 (total: 361)
+fuzz: elapsed: 18s, execs: 13547 (0/sec), new interesting: 1 (total: 361)
+fuzz: elapsed: 21s, execs: 13547 (0/sec), new interesting: 1 (total: 361)
+fuzz: elapsed: 21s, execs: 13547 (0/sec), new interesting: 1 (total: 361)
+PASS
+ok  	github.com/helixreader/helix/server/internal/opds	21.046s

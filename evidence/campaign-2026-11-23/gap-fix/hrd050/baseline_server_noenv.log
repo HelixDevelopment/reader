@@ -1,0 +1,896 @@
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+=== RUN   TestVerifyPageAcceptsAHonestPage
+--- PASS: TestVerifyPageAcceptsAHonestPage (0.00s)
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/payload_is_not_the_image
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/wrong_type
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/short_body
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/no_etag
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/rangeable
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/uncached
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/shared_cache
+--- PASS: TestVerifyPageRejectsEveryBrokenDelivery (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/payload_is_not_the_image (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/wrong_type (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/short_body (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/no_etag (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/rangeable (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/uncached (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/shared_cache (0.00s)
+=== RUN   TestVerifyPageRejectsRepeatedETag
+--- PASS: TestVerifyPageRejectsRepeatedETag (0.00s)
+=== RUN   TestMatchesType
+--- PASS: TestMatchesType (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/cmd/helix-pse-check	0.010s
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+=== RUN   TestPoolSettingsValidation
+=== RUN   TestPoolSettingsValidation/defaults_are_valid
+=== RUN   TestPoolSettingsValidation/zero_idle_is_valid
+=== RUN   TestPoolSettingsValidation/zero_max_open
+=== RUN   TestPoolSettingsValidation/negative_max_open
+=== RUN   TestPoolSettingsValidation/idle_above_open
+=== RUN   TestPoolSettingsValidation/negative_idle
+=== RUN   TestPoolSettingsValidation/zero_lifetime
+=== RUN   TestPoolSettingsValidation/negative_lifetime
+--- PASS: TestPoolSettingsValidation (0.00s)
+    --- PASS: TestPoolSettingsValidation/defaults_are_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_idle_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_above_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_idle (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_lifetime (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_lifetime (0.00s)
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/idle_above_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_max_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_dimensions
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/dimensions_above_the_ceiling
+--- PASS: TestNewPostgresRejectsPoolBeforeDialing (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/idle_above_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_max_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_dimensions (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/dimensions_above_the_ceiling (0.00s)
+=== RUN   TestWithPoolAppliesLimits
+    pool_test.go:86: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestWithPoolAppliesLimits (0.00s)
+=== RUN   TestLivePostgresVectorMemory
+    postgres_live_test.go:13: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresVectorMemory (0.00s)
+=== RUN   TestPrepareDeterministicIdentityAndHash
+--- PASS: TestPrepareDeterministicIdentityAndHash (0.00s)
+=== RUN   TestPrepareRejectsInvalidMetadata
+--- PASS: TestPrepareRejectsInvalidMetadata (0.00s)
+=== RUN   TestPrepareRecomputesContentHashWithContent
+--- PASS: TestPrepareRecomputesContentHashWithContent (0.00s)
+=== RUN   TestVectorValidation
+--- PASS: TestVectorValidation (0.00s)
+=== RUN   TestLiveLoadVectorSearch
+    vector_load_test.go:244: HELIX_TEST_POSTGRES_DSN and HELIX_LOAD_RUN=1 are both required for the vector load benchmark
+--- SKIP: TestLiveLoadVectorSearch (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.006s
+=== RUN   TestLiveScaleBatchPhases
+    catalog_phase_test.go:35: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveScaleBatchPhases (0.00s)
+=== RUN   TestLiveScaleCatalog
+    catalog_scale_test.go:54: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveScaleCatalog (0.00s)
+=== RUN   TestCursorRoundTripsExactly
+--- PASS: TestCursorRoundTripsExactly (0.00s)
+=== RUN   TestCursorRejectsMalformedInput
+--- PASS: TestCursorRejectsMalformedInput (0.00s)
+=== RUN   TestMemoryCursorWalkEqualsOffsetWalk
+--- PASS: TestMemoryCursorWalkEqualsOffsetWalk (0.00s)
+=== RUN   TestMemoryHasNextAndEmptyPages
+--- PASS: TestMemoryHasNextAndEmptyPages (0.00s)
+=== RUN   TestLivePostgresCursorWalkMatchesOffset
+    cursor_test.go:171: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresCursorWalkMatchesOffset (0.00s)
+=== RUN   TestMemoryReferencedLCPArtifacts
+--- PASS: TestMemoryReferencedLCPArtifacts (0.00s)
+=== RUN   TestLivePostgresReferencedLCPArtifacts
+    lcp_refs_test.go:68: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresReferencedLCPArtifacts (0.00s)
+=== RUN   TestLiveLoadConcurrencyLadder
+    load_test.go:511: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadConcurrencyLadder (0.00s)
+=== RUN   TestLiveLoadWriteContention
+    load_test.go:700: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadWriteContention (0.00s)
+=== RUN   TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+    lock_scope_test.go:234: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.00s)
+=== RUN   TestCatalogMergeNeedleUnlockedLosesWriters
+    lock_scope_test.go:282: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogMergeNeedleUnlockedLosesWriters (0.00s)
+=== RUN   TestCatalogFileClaimByDistinctWorksKeepsOneRow
+    lock_scope_test.go:336: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogFileClaimByDistinctWorksKeepsOneRow (0.00s)
+=== RUN   TestCatalogFileClaimNeedleUnlockedDuplicatesRow
+    lock_scope_test.go:367: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogFileClaimNeedleUnlockedDuplicatesRow (0.00s)
+=== RUN   TestCatalogReconcileExcludesSameSourceMerge
+    lock_scope_test.go:397: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogReconcileExcludesSameSourceMerge (0.00s)
+=== RUN   TestIdentityLockKeysCoverEverySharedRow
+--- PASS: TestIdentityLockKeysCoverEverySharedRow (0.00s)
+=== RUN   TestTransientConcurrencyClassification
+--- PASS: TestTransientConcurrencyClassification (0.00s)
+=== RUN   TestCatalogIdentityLockScopeThroughput
+    lock_scope_test.go:577: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogIdentityLockScopeThroughput (0.00s)
+=== RUN   TestCatalogEditionOwnershipIsDecidedOnce
+    lock_scope_test.go:688: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogEditionOwnershipIsDecidedOnce (0.00s)
+=== RUN   TestCatalogMultiProcessMerges
+    lock_scope_test.go:748: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestCatalogMultiProcessMerges (0.00s)
+=== RUN   TestMemorySearchDeterministicAndDeepCopy
+--- PASS: TestMemorySearchDeterministicAndDeepCopy (0.00s)
+=== RUN   TestMemoryRepeatMergeIsIdempotent
+--- PASS: TestMemoryRepeatMergeIsIdempotent (0.00s)
+=== RUN   TestFindEditionAndFindFileReturnDeepClones
+--- PASS: TestFindEditionAndFindFileReturnDeepClones (0.00s)
+=== RUN   TestMemoryRejectsInvalidIdentificationState
+--- PASS: TestMemoryRejectsInvalidIdentificationState (0.00s)
+=== RUN   TestMemoryValidationAndDelete
+--- PASS: TestMemoryValidationAndDelete (0.00s)
+=== RUN   TestMemoryRejectsIncompleteFileIdentityLikePostgres
+--- PASS: TestMemoryRejectsIncompleteFileIdentityLikePostgres (0.00s)
+=== RUN   TestMergeWorkDedupsEvidenceAndIsIdempotent
+--- PASS: TestMergeWorkDedupsEvidenceAndIsIdempotent (0.00s)
+=== RUN   TestMergeWorkDoesNotAliasCallerSlices
+--- PASS: TestMergeWorkDoesNotAliasCallerSlices (0.00s)
+=== RUN   TestMergeWorkUnionsEditionsFilesIdentifiers
+--- PASS: TestMergeWorkUnionsEditionsFilesIdentifiers (0.00s)
+=== RUN   TestMergeWorkReplacesChangedFileAtSameSourcePath
+--- PASS: TestMergeWorkReplacesChangedFileAtSameSourcePath (0.00s)
+=== RUN   TestLivePostgresBatchLoadMatchesRowByRow
+    postgres_batch_test.go:22: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresBatchLoadMatchesRowByRow (0.00s)
+=== RUN   TestMigrateFromEmptySchema
+    postgres_coldstart_test.go:21: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestMigrateFromEmptySchema (0.00s)
+=== RUN   TestMigrationFilesDoNotRecordOwnVersion
+--- PASS: TestMigrationFilesDoNotRecordOwnVersion (0.00s)
+=== RUN   TestPoolSettingsValidation
+=== RUN   TestPoolSettingsValidation/defaults_are_valid
+=== RUN   TestPoolSettingsValidation/zero_idle_is_valid
+=== RUN   TestPoolSettingsValidation/idle_equal_to_open_is_valid
+=== RUN   TestPoolSettingsValidation/zero_max_open
+=== RUN   TestPoolSettingsValidation/negative_max_open
+=== RUN   TestPoolSettingsValidation/idle_above_open
+=== RUN   TestPoolSettingsValidation/negative_idle
+=== RUN   TestPoolSettingsValidation/zero_lifetime
+=== RUN   TestPoolSettingsValidation/negative_lifetime
+--- PASS: TestPoolSettingsValidation (0.00s)
+    --- PASS: TestPoolSettingsValidation/defaults_are_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_idle_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_equal_to_open_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_above_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_idle (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_lifetime (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_lifetime (0.00s)
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/idle_above_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_max_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime
+--- PASS: TestNewPostgresRejectsPoolBeforeDialing (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/idle_above_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_max_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime (0.00s)
+=== RUN   TestWithPoolAppliesLimits
+    postgres_coldstart_test.go:224: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestWithPoolAppliesLimits (0.00s)
+=== RUN   TestLivePostgresHRDUpsertDuplicateSourcePathCurrentIDWins
+    postgres_hrd_live_test.go:37: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresHRDUpsertDuplicateSourcePathCurrentIDWins (0.00s)
+=== RUN   TestLivePostgresHRDUpsertDuplicateEditionIDFailsLoud
+    postgres_hrd_live_test.go:65: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresHRDUpsertDuplicateEditionIDFailsLoud (0.00s)
+=== RUN   TestLivePostgresHRDUpsertBeyondBindParameterLimit
+    postgres_hrd_live_test.go:93: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresHRDUpsertBeyondBindParameterLimit (0.00s)
+=== RUN   TestHRDCurrentFileIDGoldenVector
+--- PASS: TestHRDCurrentFileIDGoldenVector (0.00s)
+=== RUN   TestRejectDuplicateEditionIDsUnit
+--- PASS: TestRejectDuplicateEditionIDsUnit (0.00s)
+=== RUN   TestLivePostgresHRDClaimFilesAcrossChunkBoundary
+    postgres_hrd_live_test.go:171: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresHRDClaimFilesAcrossChunkBoundary (0.00s)
+=== RUN   TestLivePostgresCatalogRoundTrip
+    postgres_live_test.go:14: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresCatalogRoundTrip (0.00s)
+=== RUN   TestLivePostgresUpsertReplacesEditionSet
+    postgres_live_test.go:98: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresUpsertReplacesEditionSet (0.00s)
+=== RUN   TestLiveReconcileSourceKeepsListedFileAndEdition
+    reconcile_live_test.go:26: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveReconcileSourceKeepsListedFileAndEdition (0.00s)
+=== RUN   TestLiveSlowClientCatalogSurface
+    slow_client_live_test.go:594: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveSlowClientCatalogSurface (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	0.008s
+=== RUN   TestLoopbackClassification
+--- PASS: TestLoopbackClassification (0.00s)
+=== RUN   TestEnvironmentValidation
+=== RUN   TestEnvironmentValidation/non-loopback_requires_admin_token
+=== RUN   TestEnvironmentValidation/TLS_certificate_without_key
+=== RUN   TestEnvironmentValidation/OPDS_user_without_password
+=== RUN   TestEnvironmentValidation/invalid_HTTP3
+=== RUN   TestEnvironmentValidation/invalid_Brotli
+=== RUN   TestEnvironmentValidation/invalid_dimensions
+=== RUN   TestEnvironmentValidation/AI_memory_requires_PostgreSQL
+--- PASS: TestEnvironmentValidation (0.00s)
+    --- PASS: TestEnvironmentValidation/non-loopback_requires_admin_token (0.00s)
+    --- PASS: TestEnvironmentValidation/TLS_certificate_without_key (0.00s)
+    --- PASS: TestEnvironmentValidation/OPDS_user_without_password (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_HTTP3 (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_Brotli (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_dimensions (0.00s)
+    --- PASS: TestEnvironmentValidation/AI_memory_requires_PostgreSQL (0.00s)
+=== RUN   TestPoolConfiguration
+=== RUN   TestPoolConfiguration/defaults_match_the_historical_hardcoded_limits
+=== RUN   TestPoolConfiguration/catalog_override
+=== RUN   TestPoolConfiguration/idle_above_open_rejected
+=== RUN   TestPoolConfiguration/zero_max_open_rejected
+=== RUN   TestPoolConfiguration/negative_idle_rejected
+=== RUN   TestPoolConfiguration/zero_lifetime_rejected
+=== RUN   TestPoolConfiguration/non-integer_max_open_rejected
+=== RUN   TestPoolConfiguration/non-integer_lifetime_rejected
+--- PASS: TestPoolConfiguration (0.00s)
+    --- PASS: TestPoolConfiguration/defaults_match_the_historical_hardcoded_limits (0.00s)
+    --- PASS: TestPoolConfiguration/catalog_override (0.00s)
+    --- PASS: TestPoolConfiguration/idle_above_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/zero_max_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/negative_idle_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/zero_lifetime_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/non-integer_max_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/non-integer_lifetime_rejected (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/config	0.008s
+=== RUN   TestCacheValidatesAndReusesImage
+--- PASS: TestCacheValidatesAndReusesImage (0.01s)
+=== RUN   TestCacheRejectsNonImage
+--- PASS: TestCacheRejectsNonImage (0.00s)
+=== RUN   TestPublicIPRejectsLocalAndPrivate
+--- PASS: TestPublicIPRejectsLocalAndPrivate (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/covers	0.013s
+=== RUN   TestContentRevalidatesSizeAfterGrowthAndShrink
+--- PASS: TestContentRevalidatesSizeAfterGrowthAndShrink (0.00s)
+=== RUN   TestContentIfRangeHonorsETag
+--- PASS: TestContentIfRangeHonorsETag (0.00s)
+=== RUN   TestContentStaleETagCannotSpliceChangedEqualSizeFile
+--- PASS: TestContentStaleETagCannotSpliceChangedEqualSizeFile (0.00s)
+=== RUN   TestContentMultiRangeFallsBackToFull200
+--- PASS: TestContentMultiRangeFallsBackToFull200 (0.00s)
+=== RUN   TestContentUnknownSizeSafeFallback
+--- PASS: TestContentUnknownSizeSafeFallback (0.00s)
+=== RUN   TestContentAndCoverHEAD
+--- PASS: TestContentAndCoverHEAD (0.00s)
+=== RUN   TestContentStaysIdentityUnderAcceptEncoding
+--- PASS: TestContentStaysIdentityUnderAcceptEncoding (0.00s)
+=== RUN   TestContentDeletedLocalFileReturns404
+--- PASS: TestContentDeletedLocalFileReturns404 (0.00s)
+=== RUN   TestContentGETValidatesAndReadsSameOpenedHandle
+--- PASS: TestContentGETValidatesAndReadsSameOpenedHandle (0.00s)
+=== RUN   TestWorksCursorWalkOverHTTP
+--- PASS: TestWorksCursorWalkOverHTTP (0.00s)
+=== RUN   TestWorksRejectsMalformedCursor
+--- PASS: TestWorksRejectsMalformedCursor (0.00s)
+=== RUN   TestOPDSFeedLinksAreFollowable
+--- PASS: TestOPDSFeedLinksAreFollowable (0.00s)
+=== RUN   TestJournalSurvivesStoreReconstruction
+--- PASS: TestJournalSurvivesStoreReconstruction (0.00s)
+=== RUN   TestRestoreMarksInFlightScansInterrupted
+--- PASS: TestRestoreMarksInFlightScansInterrupted (0.00s)
+=== RUN   TestRestoreSkipsUnreadableAndStaleRecords
+--- PASS: TestRestoreSkipsUnreadableAndStaleRecords (0.00s)
+=== RUN   TestRestorePreservesLiveRecords
+--- PASS: TestRestorePreservesLiveRecords (0.00s)
+=== RUN   TestJournalFailureDoesNotFailScans
+redis: 2026/11/23 23:58:57 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:58:57 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:58:58 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:58:58 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+2026/11/23 23:58:58 WARN scan journal write failed job=scan-722f53b005ca0eca340893b7d220e25f state=running error="dial tcp 127.0.0.1:46849: connect: connection refused"
+redis: 2026/11/23 23:58:59 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:58:59 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:59:00 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+redis: 2026/11/23 23:59:00 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:46849: connect: connection refused
+2026/11/23 23:59:00 WARN scan journal write failed job=scan-722f53b005ca0eca340893b7d220e25f state=succeeded error="dial tcp 127.0.0.1:46849: connect: connection refused"
+--- PASS: TestJournalFailureDoesNotFailScans (3.37s)
+=== RUN   TestJournalIndexIsBounded
+--- PASS: TestJournalIndexIsBounded (0.09s)
+=== RUN   TestJournalRejectsRecordWithoutIdentity
+--- PASS: TestJournalRejectsRecordWithoutIdentity (0.00s)
+=== RUN   TestJobStoreBoundsConcurrencyAndCancelsQueuedWork
+--- PASS: TestJobStoreBoundsConcurrencyAndCancelsQueuedWork (0.03s)
+=== RUN   TestJobStoreRecoversPanicAndReportsFailure
+--- PASS: TestJobStoreRecoversPanicAndReportsFailure (0.00s)
+=== RUN   TestJobStoreSanitizesScanFailureCredentials
+--- PASS: TestJobStoreSanitizesScanFailureCredentials (0.00s)
+=== RUN   TestJobStoreQueueCapAndShutdownDrain
+--- PASS: TestJobStoreQueueCapAndShutdownDrain (0.00s)
+=== RUN   TestJobStoreRetentionAndSnapshotIsolation
+--- PASS: TestJobStoreRetentionAndSnapshotIsolation (0.00s)
+=== RUN   TestJobStoreShutdownTimeout
+--- PASS: TestJobStoreShutdownTimeout (0.02s)
+=== RUN   TestLCPContentRejectsSameSizeTamper
+--- PASS: TestLCPContentRejectsSameSizeTamper (0.23s)
+=== RUN   TestLCPContentTamperDetectedOnFirstRequest
+--- PASS: TestLCPContentTamperDetectedOnFirstRequest (0.25s)
+=== RUN   TestLCPLicenseIsTheEmbeddedLicenseNotTheLiveSource
+--- PASS: TestLCPLicenseIsTheEmbeddedLicenseNotTheLiveSource (0.32s)
+=== RUN   TestLCPLicenseDoesNotNeedTheSource
+--- PASS: TestLCPLicenseDoesNotNeedTheSource (0.11s)
+=== RUN   TestLCPLiveServerQualification
+    lcp_live_test.go:34: set HELIX_LCP_LIVE_BIN and HELIX_LCP_LIVE_EVIDENCE to run the live qualification
+--- SKIP: TestLCPLiveServerQualification (0.00s)
+=== RUN   TestLCPFulfilledContentIsServedByteExactAndRanged
+--- PASS: TestLCPFulfilledContentIsServedByteExactAndRanged (0.32s)
+=== RUN   TestLCPLicenseRouteServesTheLicenseOnly
+--- PASS: TestLCPLicenseRouteServesTheLicenseOnly (0.20s)
+=== RUN   TestLCPLicenseRouteRefusesNonLCPFiles
+--- PASS: TestLCPLicenseRouteRefusesNonLCPFiles (0.00s)
+=== RUN   TestLCPRoutesRequireOPDSCredentialsWhenConfigured
+--- PASS: TestLCPRoutesRequireOPDSCredentialsWhenConfigured (0.18s)
+=== RUN   TestLCPOPDSFeedsAdvertiseFulfilledEPUBAndLicense
+--- PASS: TestLCPOPDSFeedsAdvertiseFulfilledEPUBAndLicense (0.12s)
+=== RUN   TestLCPContentFailsClosedWhenCacheUnavailable
+--- PASS: TestLCPContentFailsClosedWhenCacheUnavailable (0.13s)
+=== RUN   TestLCPDisabledByDefaultFromEnv
+--- PASS: TestLCPDisabledByDefaultFromEnv (0.00s)
+=== RUN   TestLiveLoadIngestConcurrentWithReads
+    load_concurrent_test.go:362: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadIngestConcurrentWithReads (0.00s)
+=== RUN   TestLiveLoadContentDelivery
+    load_delivery_test.go:275: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadContentDelivery (0.00s)
+=== RUN   TestLiveLoadKOSync
+    load_delivery_test.go:764: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadKOSync (0.00s)
+=== RUN   TestLiveLoadJobQueueMultiInstance
+    load_jobs_multiinstance_test.go:597: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadJobQueueMultiInstance (0.00s)
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:122: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadJobQueueDurability (0.00s)
+=== RUN   TestLiveLoadRemoteSourceRclone
+    load_remote_rclone_test.go:74: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSourceRclone (0.00s)
+=== RUN   TestLiveLoadRemoteSource
+    load_remote_test.go:154: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSource (0.00s)
+=== RUN   TestLiveThrottleRemoteSourceHTTP
+    load_remote_throttle_test.go:121: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveThrottleRemoteSourceHTTP (0.00s)
+=== RUN   TestLiveLoadRemoteSourceWebDAV
+    load_remote_webdav_test.go:76: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSourceWebDAV (0.00s)
+=== RUN   TestLiveLoadHTTPLadder
+    load_test.go:462: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLiveLoadHTTPLadder (0.00s)
+=== RUN   TestPageStreamFeedAndServe
+--- PASS: TestPageStreamFeedAndServe (0.00s)
+=== RUN   TestPageStreamRefusesArchivesWithoutOneHonestType
+--- PASS: TestPageStreamRefusesArchivesWithoutOneHonestType (0.00s)
+=== RUN   TestPageStreamRefusesProtectedAndUnknownFormats
+--- PASS: TestPageStreamRefusesProtectedAndUnknownFormats (0.00s)
+=== RUN   TestPageStreamRefusesFileChangedAfterScan
+--- PASS: TestPageStreamRefusesFileChangedAfterScan (0.00s)
+=== RUN   TestPageStreamRequiresFeedCredentials
+--- PASS: TestPageStreamRequiresFeedCredentials (0.00s)
+=== RUN   TestSingleRangeRFC9110
+--- PASS: TestSingleRangeRFC9110 (0.00s)
+=== RUN   TestRemoteSourcesHonourRange
+=== RUN   TestRemoteSourcesHonourRange/webdav
+=== RUN   TestRemoteSourcesHonourRange/rclone
+--- PASS: TestRemoteSourcesHonourRange (0.41s)
+    --- PASS: TestRemoteSourcesHonourRange/webdav (0.03s)
+    --- PASS: TestRemoteSourcesHonourRange/rclone (0.27s)
+=== RUN   TestWebDAVWithoutContentLengthNeverServesEmpty
+--- PASS: TestWebDAVWithoutContentLengthNeverServesEmpty (0.00s)
+=== RUN   TestContentRangeAndTraversalSafeDisposition
+--- PASS: TestContentRangeAndTraversalSafeDisposition (0.00s)
+=== RUN   TestCompressionBrotliGzipAndIdentityRefusal
+--- PASS: TestCompressionBrotliGzipAndIdentityRefusal (0.00s)
+=== RUN   TestCompressionNetworkContentLength
+--- PASS: TestCompressionNetworkContentLength (0.00s)
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/br
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/gzip
+--- PASS: TestCompressionIdentityFallbackPreservesKeepAlive (0.00s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/br (0.00s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/gzip (0.00s)
+=== RUN   TestAdminAuthenticationAndOPDS
+--- PASS: TestAdminAuthenticationAndOPDS (0.00s)
+=== RUN   TestSourceRegistrationAndScanJob
+--- PASS: TestSourceRegistrationAndScanJob (0.01s)
+=== RUN   TestSourceDeletionWaitsForScanAndScanAdmission
+--- PASS: TestSourceDeletionWaitsForScanAndScanAdmission (0.01s)
+=== RUN   TestSingleRangeForms
+--- PASS: TestSingleRangeForms (0.00s)
+=== RUN   TestKOReaderSyncProtocol
+--- PASS: TestKOReaderSyncProtocol (0.64s)
+=== RUN   TestKOReaderSyncRejectsInvalidAndOversizeProgress
+--- PASS: TestKOReaderSyncRejectsInvalidAndOversizeProgress (0.33s)
+=== RUN   TestScanRequestBodyLimit
+--- PASS: TestScanRequestBodyLimit (0.00s)
+=== RUN   TestStableSourceIDReattachesCatalogAfterRestart
+--- PASS: TestStableSourceIDReattachesCatalogAfterRestart (0.00s)
+=== RUN   TestLiveSlowClientJobSurface
+    slow_client_live_test.go:558: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveSlowClientJobSurface (0.00s)
+=== RUN   TestSoakDetectorCatchesLeaksAtTheClaimedFloor
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (1.02s)
+=== RUN   TestSoakDetectorNoFalsePositiveOnCleanWorkload
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (1.29s)
+=== RUN   TestSoakServerRequestMixDoesNotLeak
+    soak_test.go:257: SOAK iterations=6000 samples=20 slope=10.37 B/iter steady_growth=42520 B goroutine_delta=0 heap_first=1987616 heap_last=2058968
+--- PASS: TestSoakServerRequestMixDoesNotLeak (1.36s)
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/webdav
+    soak_test.go:407: REMOTE SOAK webdav iterations=3000 slope=6.53 B/iter r2=0.51 goroutine_delta=0 lingering_rclone_workers=0
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/rclone
+    soak_test.go:407: REMOTE SOAK rclone iterations=300 slope=95.47 B/iter r2=0.96 goroutine_delta=0 lingering_rclone_workers=0
+--- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses (50.56s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/webdav (35.21s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/rclone (15.35s)
+=== RUN   TestRcloneConcurrentRangePeakProcesses
+    soak_test.go:477: RCLONE CONCURRENCY requests=50 peak_rclone_helper_processes=42 lingering=0
+--- PASS: TestRcloneConcurrentRangePeakProcesses (1.00s)
+=== RUN   TestSoakDetectorCatchesStaircaseLeaks
+--- PASS: TestSoakDetectorCatchesStaircaseLeaks (4.73s)
+=== RUN   TestSoakDetectorNoFalsePositiveOnBurstyShapes
+--- PASS: TestSoakDetectorNoFalsePositiveOnBurstyShapes (17.78s)
+=== RUN   TestRcloneWorkersCounterSeesZombiesAndLiveHelpers
+--- PASS: TestRcloneWorkersCounterSeesZombiesAndLiveHelpers (1.63s)
+=== RUN   FuzzSingleRange
+=== RUN   FuzzSingleRange/seed#0
+=== RUN   FuzzSingleRange/seed#1
+=== RUN   FuzzSingleRange/seed#2
+=== RUN   FuzzSingleRange/seed#3
+=== RUN   FuzzSingleRange/seed#4
+=== RUN   FuzzSingleRange/seed#5
+--- PASS: FuzzSingleRange (0.00s)
+    --- PASS: FuzzSingleRange/seed#0 (0.00s)
+    --- PASS: FuzzSingleRange/seed#1 (0.00s)
+    --- PASS: FuzzSingleRange/seed#2 (0.00s)
+    --- PASS: FuzzSingleRange/seed#3 (0.00s)
+    --- PASS: FuzzSingleRange/seed#4 (0.00s)
+    --- PASS: FuzzSingleRange/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	86.219s
+=== RUN   TestRequireSecureEndpoint
+=== RUN   TestRequireSecureEndpoint/https_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_loopback_IP_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_localhost_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_without_credentials
+=== RUN   TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local
+--- PASS: TestRequireSecureEndpoint (0.00s)
+    --- PASS: TestRequireSecureEndpoint/https_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_loopback_IP_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_localhost_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_without_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local (0.00s)
+=== RUN   TestSanitizeError
+--- PASS: TestSanitizeError (0.00s)
+=== RUN   TestGoogleBooksErrorDoesNotLeakAPIKey
+--- PASS: TestGoogleBooksErrorDoesNotLeakAPIKey (0.00s)
+=== RUN   TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo
+--- PASS: TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo (0.00s)
+=== RUN   TestGoogleBooksCrossOriginRedirectDoesNotLeakKey
+--- PASS: TestGoogleBooksCrossOriginRedirectDoesNotLeakKey (0.00s)
+=== RUN   TestLLMRejectsCleartextEndpointWithCredentials
+--- PASS: TestLLMRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestLLMLoopbackCleartextAllowed
+--- PASS: TestLLMLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevRejectsCleartextEndpointWithCredentials
+--- PASS: TestJevRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestJevLoopbackCleartextAllowed
+--- PASS: TestJevLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevErrorDoesNotLeakUserinfo
+--- PASS: TestJevErrorDoesNotLeakUserinfo (0.00s)
+=== RUN   TestPipelineStoredErrorsAreSanitized
+--- PASS: TestPipelineStoredErrorsAreSanitized (0.00s)
+=== RUN   TestValidEmbeddedISBNAccepted
+--- PASS: TestValidEmbeddedISBNAccepted (0.00s)
+=== RUN   TestLLMCandidateCannotAutoAccept
+--- PASS: TestLLMCandidateCannotAutoAccept (0.00s)
+=== RUN   TestDecisionModelCanOnlyDowngrade
+--- PASS: TestDecisionModelCanOnlyDowngrade (0.00s)
+=== RUN   TestInvalidISBNRejected
+--- PASS: TestInvalidISBNRejected (0.00s)
+=== RUN   TestOpenLibraryClientAndNoKeyLeak
+--- PASS: TestOpenLibraryClientAndNoKeyLeak (0.00s)
+=== RUN   TestOpenAICompatibleContract
+--- PASS: TestOpenAICompatibleContract (0.00s)
+=== RUN   TestModelResponseBodiesAreBounded
+=== RUN   TestModelResponseBodiesAreBounded/llm
+=== RUN   TestModelResponseBodiesAreBounded/jev
+--- PASS: TestModelResponseBodiesAreBounded (0.01s)
+    --- PASS: TestModelResponseBodiesAreBounded/llm (0.01s)
+    --- PASS: TestModelResponseBodiesAreBounded/jev (0.00s)
+=== RUN   TestLLMRedirectDoesNotLeakProviderKey
+--- PASS: TestLLMRedirectDoesNotLeakProviderKey (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/identify	0.021s
+=== RUN   TestFileIDGoldenVectors
+--- PASS: TestFileIDGoldenVectors (0.00s)
+=== RUN   TestFileIdentityIsCaseSensitive
+--- PASS: TestFileIdentityIsCaseSensitive (0.00s)
+=== RUN   TestScanDifferentBytesWithSameISBNShareWorkAndEdition
+--- PASS: TestScanDifferentBytesWithSameISBNShareWorkAndEdition (0.00s)
+=== RUN   TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork
+--- PASS: TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork (0.00s)
+=== RUN   TestMemoryFullScanReconcilesDeletedSourceFiles
+--- PASS: TestMemoryFullScanReconcilesDeletedSourceFiles (0.00s)
+=== RUN   TestLivePostgresFullScanReconcilesDeletedSourceFiles
+    identity_regression_test.go:177: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresFullScanReconcilesDeletedSourceFiles (0.00s)
+=== RUN   TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork
+    identity_regression_test.go:204: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork (0.00s)
+=== RUN   TestMemoryRescanRehomesLegacyCaseFoldedFileID
+--- PASS: TestMemoryRescanRehomesLegacyCaseFoldedFileID (0.00s)
+=== RUN   TestLivePostgresRescanRehomesLegacyCaseFoldedFileID
+    identity_regression_test.go:319: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresRescanRehomesLegacyCaseFoldedFileID (0.00s)
+=== RUN   TestLivePostgresDifferentBytesWithSameISBNShareEdition
+    identity_regression_test.go:324: HELIX_TEST_POSTGRES_DSN is not configured
+--- SKIP: TestLivePostgresDifferentBytesWithSameISBNShareEdition (0.00s)
+=== RUN   TestISBNIdentityCanonicalizesSchemePairAndOrder
+--- PASS: TestISBNIdentityCanonicalizesSchemePairAndOrder (0.00s)
+=== RUN   TestEPUBISBNHyphenationDoesNotForkIdentity
+--- PASS: TestEPUBISBNHyphenationDoesNotForkIdentity (0.00s)
+=== RUN   TestHost4xxDocumentDefinedDoesNotLockHost
+--- PASS: TestHost4xxDocumentDefinedDoesNotLockHost (0.68s)
+=== RUN   TestOperatorCancelRecordsNoFailure
+--- PASS: TestOperatorCancelRecordsNoFailure (0.75s)
+=== RUN   TestFailedFetchChargesOnlyBytesRead
+    lcp_adv_test.go:99: scan1 files=1 warnings=[z.lcpl: LCP license signature not verified server-side; readers verify and unlock]
+    lcp_adv_test.go:104: scan2 files=1
+--- PASS: TestFailedFetchChargesOnlyBytesRead (1.95s)
+=== RUN   TestConcurrentScansDownloadOnce
+    lcp_adv_test.go:143: origin hits=1 distinct artifacts=1 entries=[8615234e78d571ca0d016353024826fbe43df73afeaae6412ac298f3e68511ab.epub license-92853e4f0000f4e122fb0ff9091a7bd0884021b545684ba4f50212371c29ed2b.idx]
+--- PASS: TestConcurrentScansDownloadOnce (0.41s)
+=== RUN   TestCacheHitVsCrossProcessGCStress
+    lcp_adv_test.go:183: fulfil returned success but artifact gone: 0/300
+--- PASS: TestCacheHitVsCrossProcessGCStress (0.20s)
+=== RUN   TestCacheHitTouchesBeforeHashing
+--- PASS: TestCacheHitTouchesBeforeHashing (0.28s)
+=== RUN   TestCacheHitRefusedWhenArtifactVanishesAfterHash
+--- PASS: TestCacheHitRefusedWhenArtifactVanishesAfterHash (0.09s)
+=== RUN   TestHostBackoffIgnoresDocumentDefinedFailures
+    lcp_attack_test.go:51: hits=4 files=1 skipped=[a0.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a1.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a2.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs]
+--- PASS: TestHostBackoffIgnoresDocumentDefinedFailures (1.00s)
+=== RUN   TestScanByteBudgetSurvivesHugeStatedLength
+    lcp_attack_test.go:86: hits=1 files=1
+--- PASS: TestScanByteBudgetSurvivesHugeStatedLength (0.86s)
+=== RUN   TestCrossProcessGCSparesCacheHitBeforeMerge
+--- PASS: TestCrossProcessGCSparesCacheHitBeforeMerge (0.31s)
+=== RUN   TestAdmitCannotOverflow
+--- PASS: TestAdmitCannotOverflow (0.00s)
+=== RUN   TestGCSkipsLeasedArtifactUntilScanCloses
+--- PASS: TestGCSkipsLeasedArtifactUntilScanCloses (0.26s)
+=== RUN   TestGCOverCapWarnsAndKeepsReferenced
+--- PASS: TestGCOverCapWarnsAndKeepsReferenced (0.11s)
+=== RUN   TestScanBudgetLimitsDistinctFetches
+--- PASS: TestScanBudgetLimitsDistinctFetches (1.19s)
+=== RUN   TestScanBudgetLimitsTotalBytes
+--- PASS: TestScanBudgetLimitsTotalBytes (0.96s)
+=== RUN   TestHostBackoffAcrossDistinctLicenses
+--- PASS: TestHostBackoffAcrossDistinctLicenses (2.10s)
+=== RUN   TestFailureMapEvictsOldestOnly
+--- PASS: TestFailureMapEvictsOldestOnly (0.00s)
+=== RUN   TestGCEpochGuardsLeaseCycleDuringReRead
+--- PASS: TestGCEpochGuardsLeaseCycleDuringReRead (0.22s)
+=== RUN   TestFollowerOfSilentLeaderNeverGetsEmptyNil
+--- PASS: TestFollowerOfSilentLeaderNeverGetsEmptyNil (0.34s)
+=== RUN   TestBackoffLeaderNeverYieldsEmptyNilUnderConcurrency
+--- PASS: TestBackoffLeaderNeverYieldsEmptyNilUnderConcurrency (0.19s)
+=== RUN   TestEmptyResultNeverReachesCatalog
+--- PASS: TestEmptyResultNeverReachesCatalog (0.56s)
+=== RUN   TestLeaderPanicDoesNotStrandFollowers
+--- PASS: TestLeaderPanicDoesNotStrandFollowers (0.57s)
+=== RUN   TestFollowerDoesNotInheritLeaderCancel
+--- PASS: TestFollowerDoesNotInheritLeaderCancel (2.17s)
+=== RUN   TestFollowerDoesNotInheritLeaderBudgetRefusal
+--- PASS: TestFollowerDoesNotInheritLeaderBudgetRefusal (0.48s)
+=== RUN   TestNewLeaderRechecksCacheBeforeDownloading
+--- PASS: TestNewLeaderRechecksCacheBeforeDownloading (0.34s)
+=== RUN   TestRedirectLoopDoesNotLockHost
+--- PASS: TestRedirectLoopDoesNotLockHost (0.68s)
+=== RUN   TestHost429CountsAgainstHost
+--- PASS: TestHost429CountsAgainstHost (1.83s)
+=== RUN   TestGCSparesBackdatedMtimeWithFreshCtime
+--- PASS: TestGCSparesBackdatedMtimeWithFreshCtime (0.09s)
+=== RUN   TestLCPLTemplatedHrefNeverEchoed
+--- PASS: TestLCPLTemplatedHrefNeverEchoed (0.28s)
+=== RUN   TestLCPFulfillUnverifiableRefusedBeforeDownload
+--- PASS: TestLCPFulfillUnverifiableRefusedBeforeDownload (0.21s)
+=== RUN   TestLCPFulfillContentLengthMismatchAbortsEarly
+--- PASS: TestLCPFulfillContentLengthMismatchAbortsEarly (0.17s)
+=== RUN   TestLCPFulfillBacksOffAfterFailure
+--- PASS: TestLCPFulfillBacksOffAfterFailure (0.20s)
+=== RUN   TestLCPDialsValidatedIPNotHostname
+--- PASS: TestLCPDialsValidatedIPNotHostname (0.16s)
+=== RUN   TestLCPResolverReturningPrivateIsBlocked
+--- PASS: TestLCPResolverReturningPrivateIsBlocked (0.26s)
+=== RUN   TestRestrictedIPReviewForms
+--- PASS: TestRestrictedIPReviewForms (0.00s)
+=== RUN   TestLCPCacheGCAfterSourceFileDeleted
+--- PASS: TestLCPCacheGCAfterSourceFileDeleted (0.30s)
+=== RUN   TestLCPCacheGCOnLicenseChangeKeepsReferenced
+--- PASS: TestLCPCacheGCOnLicenseChangeKeepsReferenced (0.26s)
+=== RUN   TestLCPCacheGCRespectsGraceAndCap
+--- PASS: TestLCPCacheGCRespectsGraceAndCap (0.46s)
+=== RUN   TestGCKeepsReferencedArtifactWhenWorkMovesDuringRead
+--- PASS: TestGCKeepsReferencedArtifactWhenWorkMovesDuringRead (0.10s)
+=== RUN   TestGCReverifiesUnreferencedBeforeUnlink
+--- PASS: TestGCReverifiesUnreferencedBeforeUnlink (0.19s)
+=== RUN   TestGCCapNeverEvictsInsideGraceWindow
+--- PASS: TestGCCapNeverEvictsInsideGraceWindow (0.30s)
+=== RUN   TestOpenVerifiedDetectsSameSizeRewriteWithRestoredMtime
+--- PASS: TestOpenVerifiedDetectsSameSizeRewriteWithRestoredMtime (0.26s)
+=== RUN   TestLCPFulfillCapsBodyAtStatedLength
+--- PASS: TestLCPFulfillCapsBodyAtStatedLength (0.09s)
+=== RUN   TestLCPLScanFulfillsStoresAndStaysIdempotent
+--- PASS: TestLCPLScanFulfillsStoresAndStaysIdempotent (0.23s)
+=== RUN   TestLCPLWithoutFulfillerIsStillSkipped
+--- PASS: TestLCPLWithoutFulfillerIsStillSkipped (0.00s)
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/hash_mismatch
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/length_mismatch
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unreachable_host
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/private_address_blocked_by_default_and_never_contacted
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/redirect_to_a_private_address_is_blocked
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_body
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_chunked_body_without_Content-Length
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/wrong_type_is_explicitly_unsupported_and_not_fetched
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/templated_href
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_file:///etc/passwd
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_ftp://example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_http://user:pw@example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_//example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/slow_provider_times_out
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/http_error_status
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unverifiable_link_fails_closed_unless_opted_in
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/not_a_license
+--- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact (5.25s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/hash_mismatch (0.10s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/length_mismatch (0.24s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unreachable_host (0.13s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/private_address_blocked_by_default_and_never_contacted (0.24s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/redirect_to_a_private_address_is_blocked (0.14s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_body (0.28s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_chunked_body_without_Content-Length (0.22s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/wrong_type_is_explicitly_unsupported_and_not_fetched (0.24s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/templated_href (0.19s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_file:///etc/passwd (0.39s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_ftp://example.org/p.epub (0.11s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_http://user:pw@example.org/p.epub (0.22s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_//example.org/p.epub (0.26s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/slow_provider_times_out (2.09s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/http_error_status (0.17s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unverifiable_link_fails_closed_unless_opted_in (0.24s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/not_a_license (0.00s)
+=== RUN   TestLCPLScanReportsFailureWithoutLeakingURLs
+--- PASS: TestLCPLScanReportsFailureWithoutLeakingURLs (0.23s)
+=== RUN   TestLCPArtifactPathRejectsNonHashes
+--- PASS: TestLCPArtifactPathRejectsNonHashes (0.00s)
+=== RUN   TestRestrictedIP
+--- PASS: TestRestrictedIP (0.00s)
+=== RUN   TestScanTextIndexesInPlaceAndReportsUnknown
+--- PASS: TestScanTextIndexesInPlaceAndReportsUnknown (0.00s)
+=== RUN   TestScanSameContentAtDistinctPathsSharesOneWork
+--- PASS: TestScanSameContentAtDistinctPathsSharesOneWork (0.00s)
+=== RUN   TestRescanKeepsStableWorkEditionFileIdentity
+--- PASS: TestRescanKeepsStableWorkEditionFileIdentity (0.00s)
+=== RUN   TestPrefixScanNeverPrunesOutsideListingScope
+--- PASS: TestPrefixScanNeverPrunesOutsideListingScope (0.00s)
+=== RUN   TestFullScanRetainsListedFileWhenIngestFails
+--- PASS: TestFullScanRetainsListedFileWhenIngestFails (0.00s)
+=== RUN   TestScanReportCountsWorksTouchedByThisScan
+--- PASS: TestScanReportCountsWorksTouchedByThisScan (0.00s)
+=== RUN   TestIdentityIDsStableAgainstMetadataImprovement
+--- PASS: TestIdentityIDsStableAgainstMetadataImprovement (0.00s)
+=== RUN   TestSanitizeErrorStripsURLCredentials
+--- PASS: TestSanitizeErrorStripsURLCredentials (0.00s)
+=== RUN   TestScanSanitizesConnectorErrorsInReport
+--- PASS: TestScanSanitizesConnectorErrorsInReport (0.00s)
+=== RUN   TestSanitizeLocationStripsOnlyAbsoluteURLCredentials
+--- PASS: TestSanitizeLocationStripsOnlyAbsoluteURLCredentials (0.00s)
+=== RUN   TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs
+--- PASS: TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs (0.00s)
+=== RUN   TestScanSanitizesURLEntryLocationsInReport
+--- PASS: TestScanSanitizesURLEntryLocationsInReport (0.00s)
+=== RUN   TestScanSourceListErrorPreservesSemantics
+--- PASS: TestScanSourceListErrorPreservesSemantics (0.00s)
+=== RUN   TestReadBoundedRejectsOverflow
+--- PASS: TestReadBoundedRejectsOverflow (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/ingest	27.590s
+?   	github.com/helixreader/helix/server/internal/ingest/lcpfixture	[no test files]
+=== RUN   TestLiveRedisKOSyncRoundTrip
+    redis_live_test.go:16: HELIX_TEST_REDIS_ADDR is not configured
+--- SKIP: TestLiveRedisKOSyncRoundTrip (0.00s)
+=== RUN   TestRedisPutProgressRetriesWatchConflict
+--- PASS: TestRedisPutProgressRetriesWatchConflict (0.00s)
+=== RUN   TestRedisStoreRoundTripAndIsolation
+--- PASS: TestRedisStoreRoundTripAndIsolation (0.00s)
+=== RUN   TestAccountValidationAuthenticationAndProgress
+--- PASS: TestAccountValidationAuthenticationAndProgress (0.32s)
+=== RUN   TestStaleProgressCannotRewindReader
+--- PASS: TestStaleProgressCannotRewindReader (0.05s)
+=== RUN   TestRegistrationAndProgressRejection
+--- PASS: TestRegistrationAndProgressRejection (0.05s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	0.438s
+=== RUN   TestAcquisition12CursorLinksRoundTrip
+--- PASS: TestAcquisition12CursorLinksRoundTrip (0.00s)
+=== RUN   TestAcquisition20CursorLinksRoundTrip
+--- PASS: TestAcquisition20CursorLinksRoundTrip (0.00s)
+=== RUN   TestNextLinkFollowsHasNextNotTheTotal
+--- PASS: TestNextLinkFollowsHasNextNotTheTotal (0.00s)
+=== RUN   TestLCPEntry12LicenseAcquisitionWithIndirect
+--- PASS: TestLCPEntry12LicenseAcquisitionWithIndirect (0.00s)
+=== RUN   TestLCPPublication20LicenseAcquisitionWithIndirect
+--- PASS: TestLCPPublication20LicenseAcquisitionWithIndirect (0.00s)
+=== RUN   TestDumpLCPFeeds
+    lcp_test.go:107: HELIX_OPDS_DUMP not set
+--- SKIP: TestDumpLCPFeeds (0.00s)
+=== RUN   TestOPDS12WellFormedMultiEditionAndPaging
+--- PASS: TestOPDS12WellFormedMultiEditionAndPaging (0.00s)
+=== RUN   TestOPDS20WellFormedAndTyped
+--- PASS: TestOPDS20WellFormedAndTyped (0.00s)
+=== RUN   TestStandaloneEditionDocuments
+--- PASS: TestStandaloneEditionDocuments (0.00s)
+=== RUN   TestOpenSearchTemplateEscaped
+--- PASS: TestOpenSearchTemplateEscaped (0.00s)
+=== RUN   TestStreamLinkRoundTripsThroughTheParser
+--- PASS: TestStreamLinkRoundTripsThroughTheParser (0.00s)
+=== RUN   TestFeedDeclaresThePSENamespace
+--- PASS: TestFeedDeclaresThePSENamespace (0.00s)
+=== RUN   TestIllegalStreamsAreNeverAdvertised
+=== RUN   TestIllegalStreamsAreNeverAdvertised/no_pages
+=== RUN   TestIllegalStreamsAreNeverAdvertised/negative_pages
+=== RUN   TestIllegalStreamsAreNeverAdvertised/not_an_image_type
+=== RUN   TestIllegalStreamsAreNeverAdvertised/empty_type
+=== RUN   TestIllegalStreamsAreNeverAdvertised/no_stream_resolved
+--- PASS: TestIllegalStreamsAreNeverAdvertised (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/no_pages (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/negative_pages (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/not_an_image_type (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/empty_type (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/no_stream_resolved (0.00s)
+=== RUN   TestOnlyResolvedFilesGetLinks
+--- PASS: TestOnlyResolvedFilesGetLinks (0.00s)
+=== RUN   TestEditionEntryStandaloneCarriesNamespaceAndLink
+--- PASS: TestEditionEntryStandaloneCarriesNamespaceAndLink (0.00s)
+=== RUN   TestOPDS20InventsNoPageStream
+--- PASS: TestOPDS20InventsNoPageStream (0.00s)
+=== RUN   TestPageStreamHREFShape
+--- PASS: TestPageStreamHREFShape (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/opds	0.009s
+=== RUN   TestValidateAcquisitionIP
+=== RUN   TestValidateAcquisitionIP/loopback_v4
+=== RUN   TestValidateAcquisitionIP/loopback_v6
+=== RUN   TestValidateAcquisitionIP/private_10/8
+=== RUN   TestValidateAcquisitionIP/private_192.168
+=== RUN   TestValidateAcquisitionIP/private_172.16
+=== RUN   TestValidateAcquisitionIP/private_v6_ula
+=== RUN   TestValidateAcquisitionIP/cgnat
+=== RUN   TestValidateAcquisitionIP/link-local_metadata
+=== RUN   TestValidateAcquisitionIP/link-local_v6
+=== RUN   TestValidateAcquisitionIP/unspecified_v4
+=== RUN   TestValidateAcquisitionIP/unspecified_v6
+=== RUN   TestValidateAcquisitionIP/multicast_v4
+=== RUN   TestValidateAcquisitionIP/multicast_v6
+=== RUN   TestValidateAcquisitionIP/broadcast
+=== RUN   TestValidateAcquisitionIP/public_v4
+=== RUN   TestValidateAcquisitionIP/public_v6
+--- PASS: TestValidateAcquisitionIP (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_10/8 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_192.168 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_172.16 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_v6_ula (0.00s)
+    --- PASS: TestValidateAcquisitionIP/cgnat (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_metadata (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/broadcast (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v6 (0.00s)
+=== RUN   TestSameOriginAddress
+--- PASS: TestSameOriginAddress (0.00s)
+=== RUN   TestHTTPRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestHTTPRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestHTTPAllowsSameOriginRedirect
+--- PASS: TestHTTPAllowsSameOriginRedirect (0.00s)
+=== RUN   TestHTTPBodyStreamingHasNoWholeTransferDeadline
+--- PASS: TestHTTPBodyStreamingHasNoWholeTransferDeadline (0.05s)
+=== RUN   TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders
+--- PASS: TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders (0.00s)
+=== RUN   TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault
+--- PASS: TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault (0.00s)
+=== RUN   TestOPDSSameOriginLoopbackAllowedWithoutFlag
+--- PASS: TestOPDSSameOriginLoopbackAllowedWithoutFlag (0.00s)
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true
+--- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true (0.00s)
+=== RUN   TestOPDSRejectsRedirectToCrossOriginLoopback
+--- PASS: TestOPDSRejectsRedirectToCrossOriginLoopback (0.00s)
+=== RUN   TestOPDSRejectsOversizedFeed
+--- PASS: TestOPDSRejectsOversizedFeed (0.10s)
+=== RUN   TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot
+--- PASS: TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot (0.01s)
+=== RUN   TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths
+--- PASS: TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths (0.00s)
+=== RUN   TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities
+--- PASS: TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities (0.00s)
+=== RUN   TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval
+--- PASS: TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval (0.00s)
+=== RUN   TestRcloneOpenBoundsStderr
+--- PASS: TestRcloneOpenBoundsStderr (0.01s)
+=== RUN   TestRcloneOpenRangeBoundsStderr
+--- PASS: TestRcloneOpenRangeBoundsStderr (0.01s)
+=== RUN   TestWebDAVRevalidate
+--- PASS: TestWebDAVRevalidate (0.00s)
+=== RUN   TestWebDAVOpenRangeBoundsIgnoringServer
+--- PASS: TestWebDAVOpenRangeBoundsIgnoringServer (0.00s)
+=== RUN   TestWebDAVListSkipsCollectionsWithSecondPropstat
+--- PASS: TestWebDAVListSkipsCollectionsWithSecondPropstat (0.00s)
+=== RUN   TestWebDAVRevalidateAbsentLengthIsUnknownNotZero
+--- PASS: TestWebDAVRevalidateAbsentLengthIsUnknownNotZero (0.00s)
+=== RUN   TestWebDAVRevalidateMixedPropstatOrder
+--- PASS: TestWebDAVRevalidateMixedPropstatOrder (0.00s)
+=== RUN   TestWebDAVListStrictContentLength
+--- PASS: TestWebDAVListStrictContentLength (0.01s)
+=== RUN   TestWebDAVListSkipsCollectionWithLength
+--- PASS: TestWebDAVListSkipsCollectionWithLength (0.00s)
+=== RUN   TestLocalListOpenAndTraversal
+--- PASS: TestLocalListOpenAndTraversal (0.00s)
+=== RUN   TestDefaultRegistryCoverage
+--- PASS: TestDefaultRegistryCoverage (0.00s)
+=== RUN   TestWebDAVList
+--- PASS: TestWebDAVList (0.00s)
+=== RUN   TestWebDAVListAppliesConfiguredHeaders
+--- PASS: TestWebDAVListAppliesConfiguredHeaders (0.00s)
+=== RUN   TestWebDAVRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestWebDAVRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestWebDAVRejectsOversizedResponse
+--- PASS: TestWebDAVRejectsOversizedResponse (0.03s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/sources	0.274s
+=== RUN   TestLiveRedisProgressConflictAndReconnect
+    redis_live_test.go:16: HELIX_TEST_REDIS_ADDR is not configured
+--- SKIP: TestLiveRedisProgressConflictAndReconnect (0.00s)
+=== RUN   TestRedisProgressConflictResolutionAndPersistence
+--- PASS: TestRedisProgressConflictResolutionAndPersistence (0.00s)
+=== RUN   TestProgressValidation
+--- PASS: TestProgressValidation (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.008s
