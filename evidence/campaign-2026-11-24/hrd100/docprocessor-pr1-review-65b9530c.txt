@@ -1,0 +1,133 @@
+VERDICT: GO
+HEAD: 65b9530c8ec52254e1bb38a5403ad0ea7c991274
+QUALIFIER: GO-with-follow-ups (§11.4.276(G)); no open Important findings
+
+Independent review of HelixDevelopment/DocProcessor PR #1 (HRD-100), branch task/HRD-100-restore-master-carriers,
+head 65b9530c8ec52254e1bb38a5403ad0ea7c991274, base main 527e03125d7f49923498e91c6b7784d7b3ad9c18.
+Reviewer: independent subagent (producer != verifier, §11.4.240). Model: Opus 5.5 (claude-opus-5-5); reasoning effort
+is not readable on this dispatch path (§11.4.231(F.2)), so no effort is claimed. Nothing was posted on the platform,
+nothing merged or pushed. Work done in a fresh SSH clone under
+/home/milosvasic/.cache/claude-tmp/docproc-pr1-review-Duyyy4/ (docproc/, scratch files in s/); the primary tree
+/home/milosvasic/Projects/helix_reader was not touched.
+
+Scope of the GO: the diff 527e031..65b9530 is correct, complete for its stated purpose (undo the text the merge 527e031
+resurrected) and honestly described. The GO does not cover the pre-existing CONSTITUTION.md content (see R1), and it
+does not replace the merge preconditions still open (M5, M2).
+
+== Verified (captured this session)
+- PR state read with gh: OPEN, not draft, MERGEABLE, headRefOid 65b9530c..., baseRefOid 527e031...; 1 commit.
+- Fast-forward: the single commit's parent is 527e031; `git merge-base --is-ancestor 527e031 65b9530` rc=0;
+  rev-list 527e031..65b9530 = 1, 65b9530..527e031 = 0.
+- Upstreams (ls-remote, all four: github HelixDevelopment, gitlab helixdevelopment1, github vasic-digital, gitlab
+  vasic-digital): refs/heads/main = 527e031 (base unmoved), refs/heads/master = 12a5fb7, HEAD -> refs/heads/master on all
+  four. The task branch exists on GitHub HelixDevelopment only (= 65b9530), as the PR body says.
+- Diff scope: exactly 4 files - M AGENTS.md (-1349), M CLAUDE.md (-1866), M README.md (+1),
+  A docs/governance/main_86f1a98_carrier_backfill_archive.md (+1459). No .go file touched.
+- Carriers vs master 12a5fb7: blob ids at head equal master for AGENTS.md (e26fb60), CLAUDE.md (7de89cd), GEMINI.md
+  (465805b), QWEN.md (d6545c2); `cmp` of `git show` output equal for all four (109 lines each). Negative control: head
+  AGENTS.md vs 527e031 AGENTS.md -> cmp differs (EOF at line 109), rc=1.
+- Lockstep: pairwise diff of the four carriers differs only in the agent's own file name (lines 1, 3, 5, 10). After
+  normalising the file-name token, 1 distinct body (sha256 prefix d6bbe3bc8ac87d08, count 4). Positive control: one
+  planted extra line in a copy of QWEN.md -> 2 distinct bodies.
+- Foreign names: `grep -cE 'ATMOSphere|HelixCode|\bLava\b'` = 0,0,0,0 on the four head carriers; broader
+  case-insensitive needle `atmos|helix.?code|lava|catalogiz|helix.?reader|yole|mistiq` = no match (rc=1). Whole head
+  tree via `git grep` excluding CONSTITUTION.md and the archive: no match (rc=1); positive control, same command on
+  527e031: AGENTS.md 15, CLAUDE.md 35 hits; master 12a5fb7 whole tree: none, with a positive control needle
+  ('Doc-Processor') found. Negative control (fabricated needle) = 0.
+- CONST-043 / force-push-with-approval wording: 0 on all four head carriers; no "force" or "approv" token at all in the
+  head carriers. Positive control on 527e031: AGENTS.md 4, CLAUDE.md 4 with my pattern (the PR states 5/5 with its own
+  pattern; pattern-dependent, not a discrepancy of substance); the exact wording "...may be performed without explicit,
+  in-conversation user approval per operation" is at 527e031 AGENTS.md:114 and CLAUDE.md:114, as stated.
+- Archive byte fidelity: 86f1a98 has one parent (bea9e9e = merge-base of main and master); rev-list bea9e9e..86f1a98 = 1;
+  its numstat is 698/0 AGENTS.md, 698/0 CLAUDE.md, 762/0 CONSTITUTION.md, one `@@ -N,0` hunk per file (pure append,
+  prefix of 86f1a98 file == bea9e9e file, cmp). Archive lines 58..755 `cmp`-equal to the 698 lines 86f1a98 appended to
+  AGENTS.md; lines 761..1458 `cmp`-equal to those appended to CLAUDE.md (the two additions differ from each other at
+  line 624, and block1 vs the CLAUDE addition differs, rc=1 - negative control). The blocks sit in 4-backtick fences
+  (lines 57/756, 760/1459); no line inside the blocks starts with 4 backticks (positive control: the 4 fence lines
+  match). Header says "This copy binds nothing ... where this copy and the constitution differ, the constitution wins",
+  names the foreign names and the CONST-043 wording, and restates §11.4.113. Header facts checked: 86f1a98 dated
+  2026-06-22; 3a9d2ff removed -2903 AGENTS.md / -2728 CLAUDE.md / -1658 CONSTITUTION.md lines; 5692e52 is the lockstep
+  commit; CONSTITUTION.md lines 54..815 at head `cmp`-equal to the 762 lines 86f1a98 appended, lines 1..53 equal master.
+- PR provenance table re-derived independently at 527e031: AGENTS 1..109 == master, 110..760 == last 651 lines of
+  bea9e9e, 761..1458 == the 86f1a98 addition; CLAUDE 1..109 == master, 110..1277 == last 1168 of bea9e9e, 1278..1975 ==
+  the addition (all `cmp`). The table is accurate.
+- README: +1 line in the Governance list linking docs/governance/main_86f1a98_carrier_backfill_archive.md; the target
+  exists at head; the archive is linked from README, so not an orphan (§11.4.212). README at 527e031 == master README.
+- Tree vs master: `git diff --name-status 12a5fb7 65b9530` = M CONSTITUTION.md, M README.md, A archive - exactly the
+  three files the PR body names.
+- CONSTITUTION.md: blob at head == 527e031 (unchanged by the PR). It contains 17 lines matching the foreign-name
+  pattern and 3 CONST-043 lines (138, 142, 460); line 142 "Severity-equivalent to a force-push without CONST-043 / §9.2
+  authorization" presupposes an authorised force-push path. The PR body flags exactly this (17, 3, the quoted line) as
+  owner decision 2. Honest.
+- Conflict markers: `git grep -nIE '^(<<<<<<<|>>>>>>>|=======$)' 65b9530` = none (rc=1). Positive control: the same
+  instrument on a scratch commit holding a conflicted file finds it (rc=0).
+- Build/tests at 65b9530 (go1.26.8): go build ./... rc=0; go vet ./... rc=0; go test -count=1 ./... 10/10 ok;
+  go test -race -count=1 ./... (CONTRIBUTING.md's form) 10/10 ok.
+- scripts/host-power-management/check-no-suspend-calls.sh . rc=0; --prove-failure (TMPDIR in the scratch dir):
+  22 passed, 0 failed, 0 undetermined - reproduces the PR's claim.
+- Code/doc coupling: no Go code or script reads AGENTS.md/CLAUDE.md/docs/governance; scripts/demo-all.sh reads the first
+  ```bash block after "### Acceptance demo for this module" - at line 43 in both 527e031 and head CLAUDE.md, so the demo
+  extraction is unchanged (not executed by me). The four head carriers are byte-identical to the previous Helix Reader
+  pin 12a5fb7, so reader-side behaviour over these files returns to the pre-PR#37 state.
+- Commit: subject "docs: ..." (conventional, per CONTRIBUTING.md); trailers via `git interpret-trailers --parse`:
+  `Roadmap-Item: HRD-100`, `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. Message claims checked and true.
+
+== Findings (all minor / process; none blocks the change itself)
+M1 (process-doc, minor). Branch name task/HRD-100-restore-master-carriers differs from the parent PR's
+  task/HRD-100-doc-processor-pin-main, which §11.4.297(F)(1) asks for. The PR body flags it as UNCONFIRMED - honest.
+  Whether §11.4.297 binds DocProcessor at all is itself UNCONFIRMED: the reader's config/delivery.conf (read from GitHub
+  main) lists `own_repositories=.:HelixDevelopment/reader:pr` only, and DocProcessor's CONTRIBUTING.md only says
+  "Create a feature branch" / "Request review from maintainers". Follow-up: record the decision, or rename the branch on
+  GitHub (keeps the PR, no force).
+M2 (process, minor; merge precondition). The PR body does not state the landing form. The repo allows squash AND
+  rebase merges (allow_squash_merge=true, allow_rebase_merge=true, allow_merge_commit=true) and main is not protected
+  (`protected: false`). The merger must use a merge commit or a fast-forward (§11.4.297(A), §11.4.288(B)(3)), never
+  squash/rebase; since the head is already a fast-forward of main, an ff push or "Create a merge commit" both keep
+  65b9530 on main. State it in the body before merging.
+M3 (minor, §11.4.273(e)). The checks table cites "the same check script" (foreign names / CONST-043 / lockstep counts on
+  527e031 vs head vs master) without a path or sha; the instrument is neither committed nor cited. My independent
+  re-measurement reproduced every stated result (count differences are pattern-dependent only). Follow-up: cite the
+  command or attach the script by path + sha256.
+M4 (process-doc, minor). Moving main's 698 lines out of the binding carriers into the archive is itself a choice the
+  reader PR #37 review (F1) called an owner decision. The PR makes it as a reversible, content-preserving step (archive
+  + git history), which I agree with (R1), but owner decision 1 only offers "keep, move or delete the archive file"; it
+  should also name "put the 698 lines back into all four carriers (to keep lockstep)" and state that the move is the
+  author's reversible choice pending the owner (§11.4.101/§11.4.122).
+M5 (process; merge precondition). No self-review on the platform yet (reviews 0, PR comments 0, line comments 0);
+  §11.4.297(C) requires it before the merge. The "no reviewer possible" line is in the body, but a `report-and-merge`
+  policy is recorded only for the reader repo (delivery.conf), not for DocProcessor - UNCONFIRMED that it applies.
+N1 (note). After the merge: read main back on all four upstreams and fast-forward the three mirrors (§2.1, never force),
+  then re-pin reader PR #37 to that commit (§11.4.297(F)); master is still the default branch on all four upstreams
+  (§11.4.288 retirement open) - all flagged in the PR body.
+N2 (note, pre-existing, out of scope). scripts/no-silent-skips.sh exits 1 at head (3 skips annotated
+  `SKIP-OK: #legacy-untriaged`, not a ticket number); it scans only code files, which this docs-only PR does not touch.
+
+== R1 Recommendation (not a decision): restore master's 53-line CONSTITUTION.md too?
+Recommendation: yes, archive the 762 lines and restore master's 53-line CONSTITUTION.md - but only with the owner's
+recorded decision (§11.4.66), as a follow-up PR or an extension of this one; do not hold this PR for it.
+Reasons for restoring:
+  (a) Master removed the long CONSTITUTION.md on purpose in the same inherit-by-reference move (3a9d2ff: -1658 lines),
+      exactly as for the carriers.
+  (b) The kept 762 lines put 17 foreign-project lines into a file whose own first 53 lines (master) declare the module
+      "fully decoupled and project-not-aware (§11.4.28)" - the file contradicts itself; master's whole tree has none.
+  (c) Line 142 presupposes an authorised force-push path ("force-push without CONST-043 / §9.2 authorization"), in a
+      binding file that says it "MUST NOT weaken any inherited rule"; §11.4.113 allows none (canon wins, but a binding
+      file that reads otherwise is a hazard).
+  (d) The 762 lines are a dated (2026-06-22) copy of canon anchors that canon has since amended; under inherit-by-
+      reference they are stale duplicates (§11.4.141, §11.4.227 restate-vs-reference).
+  (e) After it, the DocProcessor tree would equal master except README + archive: the cleanest pin for reader PR #37,
+      and main == master in content, which makes retiring master (§11.4.288) trivial.
+Reasons the PR's narrower choice is defensible: CONSTITUTION.md has no lockstep sibling, and the merge resurrected no
+  deleted text there, so the merge-defect rationale that forces the carrier fix does not apply; removing main-only
+  content from a binding file is the owner's call (§11.4.122), and the PR discloses it accurately.
+If the owner keeps the 762 lines, at least line 142's wording should be corrected and the foreign names removed, which
+  is also an edit of main-only content and needs the same decision. Track the decision as a linked follow-up item
+  (§11.4.197, §11.4.214 link under HRD-100), before HRD-100 can reach VERIFIED-DONE.
+
+== Follow-ups to register (§11.4.276(G.2))
+F-a: branch-name / delivery-mode decision for DocProcessor (M1, M5 policy).
+F-b: cite or commit the counting instrument (M3).
+F-c: complete the owner-decision list (M4).
+F-d: owner decision on CONSTITUTION.md's 762 lines (R1).
+Merge preconditions (not follow-ups): M2 landing form stated and used; M5 self-review done and read back; the GO record
+for exactly 65b9530 read back.

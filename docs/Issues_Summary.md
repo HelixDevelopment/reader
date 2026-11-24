@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testing: 0, Reopened: 0
+In progress: 19, In testing: 0, Operator-blocked: 0, Queued: 78, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -81,7 +81,7 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 | HRD-097 | Task | Medium | Queued | 0 | PR #19 review follow-ups m1 to m7 |
 | HRD-098 | Task | Medium | Queued | 0 | PR #20 review follow-ups N1 to N3 |
 | HRD-099 | Task | Medium | Queued | 0 | PR #21 finding F3: make the retry bound consumer data |
-| HRD-100 | Task | Medium | Queued | 0 | Constitution wave: decide doc_processor main versus master divergence (submodule pin) |
+| HRD-100 | Task | Medium | In progress | 0 | Constitution wave: decide doc_processor main versus master divergence (submodule pin) |
 | HRD-101 | Task | Medium | Queued | 0 | Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched |
 | HRD-102 | Task | Medium | Queued | 0 | Constitution wave: bump challenges, containers and helixqa submodule pins on main |
 | HRD-103 | Task | Low | Queued | 0 | Constitution wave: declare superspec as a third_party dependency in helix-deps.yaml |

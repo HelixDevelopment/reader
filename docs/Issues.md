@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testing: 0, Reopened: 0
+In progress: 19, In testing: 0, Operator-blocked: 0, Queued: 78, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -2606,7 +2606,7 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 ## [HRD-100] Constitution wave: decide doc_processor main versus master divergence (submodule pin)
 
-**Status:** Queued
+**Status:** In progress
 
 **Type:** Task
 
@@ -2614,7 +2614,7 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 **Reopens:** 0
 
-**Description:** The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 10 (2026-11-24): doc_processor gitlink 12a5fb7 equals the master tip; upstream main is 86f1a98; master is 126 commits ahead of main and main is 1 commit ahead of master (diverged); the 11.4.288(D) violation remains and is left to an operator decision.
+**Description:** The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 10 (2026-11-24): doc_processor gitlink 12a5fb7 equals the master tip; upstream main is 86f1a98; master is 126 commits ahead of main and main is 1 commit ahead of master (diverged); the 11.4.288(D) violation remains and is left to an operator decision. Progress 2026-11-24 (PR HelixDevelopment/reader#37): decision basis = 11.4.288 decision (4) and (C.7) D-5 plus the operator answer 'Merge master into main upstream' given on 2026-11-24 through the operator question batch (relayed; master stays the default branch until an owner decision, UNCONFIRMED). DocProcessor main 527e031 (master merged into main, pushed directly without prior independent review: finding F3, recorded) was found defective by the independent review of PR 37 at 4909b829 (NO-GO F1 resurrected carrier lines, F2 decision basis not cited, F3 no pre-merge review); F1 was fixed by DocProcessor PR 1 (reviewed GO, merged as 01084c9ef060549121d5304ada0adceb4c4481db) and PR 37 now re-pins gitlink and helix-deps.yaml ref to that sha in one commit. Evidence: evidence/campaign-2026-11-24/hrd100 (review verdicts, upstream ls-remote parity, SHA256SUMS). Not fixed here: DocProcessor CONSTITUTION.md still carries foreign-name text (owner decision).
 
 **Affected scope:** submodules/doc_processor, helix-deps.yaml, docs/submodule-pins-on-main-2026-11-23.md.
 
@@ -2632,12 +2632,14 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T18:57:45Z
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T21:23:08Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
 - 2026-11-24 — Updated by AI: Add PR 27 review evidence (HRD-112); evidence: none recorded
+- 2026-11-24 — Updated by AI: Record PR 37 findings F1-F3 and DocProcessor PR 1 landing; evidence: evidence/campaign-2026-11-24/hrd100/SHA256SUMS
+- 2026-11-24 — Started by AI: Work started: PR 37 re-pin to DocProcessor 01084c9; evidence: evidence/campaign-2026-11-24/hrd100
 
 ## [HRD-101] Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched
 

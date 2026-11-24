@@ -1,0 +1,90 @@
+VERDICT: NO-GO
+HEAD: 4909b829c14ffc8be08eae36653adf2974c1767d
+
+Independent review of PR #37 (HRD-100), HelixDevelopment/reader, branch task/HRD-100-doc-processor-pin-main,
+head 4909b829c14ffc8be08eae36653adf2974c1767d, base github/main dafeadc545bec22dd92f9abdf28c12db2ee9c512.
+Reviewer: independent subagent (producer != verifier, 11.4.240). Model: Opus 5.5 (claude-opus-5-5); effort not readable
+on this dispatch path (11.4.231(F.2)). Nothing was posted on the platform. Work done in fresh SSH clones under
+/home/milosvasic/.cache/claude-tmp/pr37-review-1494255/ (reader/, docproc/, m3/); the primary tree was not touched.
+
+== Verified (captured this session)
+- PR head on GitHub = 4909b829c14ffc8be08eae36653adf2974c1767d; GitHub and m3w main = dafeadc545be (base unmoved);
+  the task branch exists on GitHub only. Base is an ancestor of head.
+- PR diff is exactly 2 files: helix-deps.yaml (ref 12a5fb7 -> 527e03125d7f49923498e91c6b7784d7b3ad9c18) and the
+  submodules/doc_processor gitlink (12a5fb76381a... -> 527e03125d7f...). `git ls-tree pr37 submodules/doc_processor`
+  = 160000 commit 527e03125d7f49923498e91c6b7784d7b3ad9c18.
+- DocProcessor: ls-remote of all four upstreams (github HelixDevelopment, gitlab helixdevelopment1, github vasic-digital,
+  gitlab vasic-digital): refs/heads/main = 527e031..., refs/heads/master = 12a5fb7..., HEAD -> refs/heads/master on all
+  four. Mirror parity for the pinned commit: PRESENT on all four. The prior values ("main newly created" on the two
+  vasic-digital repos, gitlab helixdevelopment1 main 12a5fb7 -> 527e031) cannot be read back with ls-remote: UNCONFIRMED.
+- 527e031 is a merge commit, parents 86f1a98350b8 and 12a5fb76381a, both ancestors; master ancestor of main;
+  rev-list main..master = 0, master..main = 2. A fresh `git submodule update --init` of the reader clone checked out
+  527e031 from upstream (fetchable; 11.4.233(G) clear).
+- `git diff 12a5fb7 527e031`: 3 files, +1349 AGENTS.md, +1866 CLAUDE.md, +762 CONSTITUTION.md, 0 deletions, no non-.md file.
+  Conflict-marker scan (grep -rn '^<<<<<<<\|^>>>>>>>' and git grep) = none; positive control found markers in a
+  re-created conflicted file; negative control (fabricated needle) = none.
+- DocProcessor @527e031: go build ./... rc=0; go test -count=1 ./... : 10/10 packages ok (and the same 4 sampled
+  packages ok at 12a5fb7). Reader usage: only submodules/helixqa (go.mod replace digital.vasic.docprocessor =>
+  ../doc_processor, resolved to the 527e031 checkout): go build + go vet ./pkg/autonomous rc=0, go test -short
+  ./pkg/autonomous ok (22.8s). No reader core/server code references doc_processor.
+- CM-HELIX-DEPS-REF-MATCHES-GITLINK at head: PASS (10/10 MATCH, doc_processor full sha). verify_helix_deps_manifests
+  --validate-file helix-deps.yaml: PASS; submodules/doc_processor manifest PASS.
+- Trailers: both commits end with exactly `Roadmap-Item: HRD-100` immediately followed by `Co-Authored-By: ...`
+  (git interpret-trailers --parse). deliver.py check_trailers(task=HRD-100) = [], check_evidence = ([], []).
+- Own mutations: (M1) the intermediate commit 6f877ec (gitlink new, ref old) -> gate DRIFT rc=1; (M2) fake gitlink
+  527e031ffff...f0 with the full ref -> DRIFT rc=1; (M3) same fake gitlink with a SHORT ref 527e031 -> gate PASS rc=0
+  (prefix-only weakness, already registered as item (A) at docs/Issues.md:3333) while
+  `git -C submodules/doc_processor cat-file -e <fake>^{commit}` fails rc=128 (real 527e031 rc=0); (M4) a 40-hex
+  nonexistent ref -> DRIFT rc=1. check_trailers mutants: commit without trailer -> "needs exactly one Roadmap-Item
+  trailer (found 0)"; wrong id -> "does not name the task HRD-100". The full-sha ref in this PR is strictly stronger
+  than the 7-char refs of the other nine entries.
+
+== Findings
+F1 (IMPORTANT, source-defect; blocks). The DocProcessor merge 527e031 that this PR pins dropped master's side of the
+change in AGENTS.md and CLAUDE.md. Merge base is bea9e9e (files exist there; it is a CONTENT conflict, not add/add:
+`git merge-tree --write-tree 86f1a98 12a5fb7` -> "CONFLICT (content): Merge conflict in AGENTS.md/CLAUDE.md/
+CONSTITUTION.md"). diff3 of AGENTS.md: main side 1349 lines, base 651 lines, master side 1 line; CLAUDE.md: main 1867,
+base 1168, master 1. The first 651 / 1168 lines of main's side are byte-identical (cmp) to the base lines master
+deleted in 3a9d2ff ("chore(constitution): inherit Helix Constitution", carriers 2906/2731 -> 11 lines); the resolved
+file lines 110..760 (AGENTS) and 110..1277 (CLAUDE) are byte-identical to those deleted lines. So "keeping main's
+governance block" resurrected 651 + 1168 lines master removed on purpose; the true main-side addition was 698 lines per
+file. Consequences in the pinned tree: (a) foreign-project references master decoupled are back (ATMOSphere 7x in each,
+HelixCode 4x AGENTS / 24x CLAUDE, Lava 1x each; master: 0) - 11.4.28 decoupling; (b) the stale CONST-043 text "No force
+push ... may be performed without explicit, in-conversation user approval" (res AGENTS.md:114, res CLAUDE.md:114)
+contradicts 11.4.113 (never, with or without approval) - a carrier text that weakens canon; (c) the four-carrier
+lockstep master established in 5692e52 (11.4.157(A)/(B), C8) is broken: AGENTS 1458 / CLAUDE 1975 / GEMINI 109 /
+QWEN 109 lines. The commit message and PR body call it "add/add ... zero deletions against master" - true as a line
+count but it hides that master's deletion was reverted (11.4.6). Note: after the DocProcessor merge the OLD pin 12a5fb7
+is already an ancestor of main on all four upstreams, so 11.4.288(D) is satisfied without this bump; the bump's only
+content delta in the pinned tree is exactly this defective governance text. Fix: a DocProcessor follow-up commit on
+main (as its own PR per 11.4.297(F)) restoring master's carrier content (at least removing the resurrected base lines;
+whether main's 698/762-line canon backfill stays, given master's inherit-by-reference design and lockstep, is an owner
+decision), read back PRESENT on all four upstreams, then re-pin this PR to that commit.
+F2 (IMPORTANT, process). HRD-100's own Acceptance/Description require a recorded operator decision (11.4.66) on which
+DocProcessor branch is canonical, "No commit ... without the decision". No such record is cited in the PR body or
+found in docs/requests (fresh clone and primary tree, read-only) or the project memory notes: UNCONFIRMED that it
+exists. Canon 11.4.288 decision (4)/(C.7) D-5 may be the basis; the PR must cite it. Note master is still the default
+HEAD on all four upstreams (and on the vasic-digital repos main appears to have been created by this work), i.e.
+master looked like the declared trunk; master has 0 unique commits now but is neither retired nor switched (11.4.288(B)(5),
+(C.7) D-5), so divergence can recur.
+F3 (process, UNCONFIRMED scope). 11.4.297(F)(1)-(3): under pull-request delivery an own-submodule change is its own PR
+on the same branch name, landed first, read back, and named in the parent body. The DocProcessor merge was pushed
+directly to main on four upstreams, before any independent review (11.4.142, 11.4.288(E)). Irreversible without force;
+record the deviation. This review is the first independent review of 527e031 and it found F1.
+F4 (minor). Commit 6f877ec's message says it "Updates the gitlink and the helix-deps.yaml ref to the full sha" but it
+changes only the gitlink; on its own it fails CM-HELIX-DEPS-REF-MATCHES-GITLINK (M1, DRIFT rc=1), and with the
+merge-commit landing form it would sit on main's second-parent history (non-atomic, bisect hazard). Squash the pair
+into one commit on the re-pin (a new branch head, not a force-push).
+F5 (minor). PR body: the 11.4.297(F)(4) parity table is prose, not PRESENT/MIRROR-LAG/UNREACHABLE rows; "the only
+conflict was add/add" is wrong (content conflict); "no reader gate or build was run" - I ran them (PASS, above).
+F6 (minor/UNCONFIRMED scope). The conflict resolution was authored by "Claude Sonnet 5.5" (trailer). 11.4.211 pins
+Opus-xhigh for main->feature/product/flavor conflict resolution; whether a master->main merge is in scope is UNCONFIRMED;
+if it is, a recorded Opus-unavailability fact is needed.
+F7 (note). reviewRequests = [] (author-only list, report-and-merge): the "no reviewer possible" report must be posted and
+read back before merge (11.4.297(C)(2)(c), (D)(6)); self-review PENDING.
+
+== Registry (report only, not edited)
+HRD-100 is Queued with text describing main 86f1a98 diverged and "left to an operator decision". It should be updated:
+the DocProcessor merge 527e031 and parity read-back, PR #37, the decision basis (F2), and F1-F3 as findings/linked
+follow-ups (11.4.214 link, not a new duplicate); status should move to In progress with evidence; Fixed only after a
+corrected pin lands and is read back.
