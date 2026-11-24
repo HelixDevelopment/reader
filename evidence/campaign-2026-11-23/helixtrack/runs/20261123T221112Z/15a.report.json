@@ -1,0 +1,25 @@
+{
+  "aborted": true,
+  "actions": [
+    {
+      "action": "error",
+      "error": "ServerError",
+      "key": "HRD-001",
+      "message": "injected unavailable"
+    }
+  ],
+  "counts": {
+    "error": 1
+  },
+  "dry_run": false,
+  "error": {
+    "key": "HRD-001",
+    "message": "injected unavailable",
+    "type": "ServerError"
+  },
+  "has_conflicts": false,
+  "has_drift": true,
+  "mode": "push",
+  "orphans": [],
+  "proposals": []
+}
