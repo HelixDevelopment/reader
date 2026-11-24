@@ -22,6 +22,10 @@ type xLink struct {
 	HREF  string `xml:"href,attr"`
 	Type  string `xml:"type,attr"`
 	Title string `xml:"title,attr"`
+	// Indirect holds opds:indirectAcquisition children (OPDS 1.2 section 5.3).
+	Indirect []struct {
+		Type string `xml:"type,attr"`
+	} `xml:"indirectAcquisition"`
 }
 type xEntry struct {
 	Identifiers []string `xml:"identifier"`
@@ -265,18 +269,36 @@ func TestHRD070OPDSEntry12(t *testing.T) {
 			t.Errorf("%s: thumbnail %v", name, th)
 		}
 		acq := linksByRel(ent.Links, RelAcquisition)
-		wantAcq := []string{"/v1/files/f%2Flcp/content", "/v1/files/f-plain/content", "/v1/files/f-lcp-nohref/content", "/v1/files/f-other-drm/content"}
+		// Oracle (HRD-031, supersedes the pre-HRD-031 shape): OPDS 1.2 section 5.3
+		// acquires an LCP-protected publication THROUGH its License Document
+		// (acquisition link of the Readium license media type carrying an
+		// opds:indirectAcquisition child naming the EPUB it yields; Readium
+		// lcp-key-retrieval). The still-encrypted EPUB is NOT offered as a plain
+		// acquisition and there is no separate rel=related license link, so the
+		// lcp file with a license href contributes exactly ONE acquisition link
+		// and the related link count is zero. Other files keep the plain link.
+		wantAcq := []string{"/v1/licenses/f1", "/v1/files/f-plain/content", "/v1/files/f-lcp-nohref/content", "/v1/files/f-other-drm/content"}
 		if len(acq) != len(wantAcq) {
 			t.Fatalf("%s: %d acquisition links", name, len(acq))
 		}
 		for i, a := range acq {
-			if a.HREF != wantAcq[i] || a.Type != e.Files[i].MIMEType {
+			wantType := e.Files[i].MIMEType
+			if i == 0 {
+				wantType = LCPLicenseMIME
+			}
+			if a.HREF != wantAcq[i] || a.Type != wantType {
 				t.Errorf("%s: acquisition %d %+v", name, i, a)
 			}
+			if i == 0 {
+				if a.Title != "Title & Co (LCP license)" || len(a.Indirect) != 1 || a.Indirect[0].Type != "application/epub+zip" {
+					t.Errorf("%s: LCP acquisition must carry indirectAcquisition application/epub+zip: %+v", name, a)
+				}
+			} else if len(a.Indirect) != 0 {
+				t.Errorf("%s: acquisition %d must not carry indirectAcquisition: %+v", name, i, a)
+			}
 		}
-		rel := linksByRel(ent.Links, RelRelated)
-		if len(rel) != 1 || rel[0].HREF != "/v1/licenses/f1" || rel[0].Type != LCPLicenseMIME || rel[0].Title != "LCP license" {
-			t.Errorf("%s: LCP license link must exist exactly for the lcp file with a license href: %v", name, rel)
+		if rel := linksByRel(ent.Links, RelRelated); len(rel) != 0 {
+			t.Errorf("%s: no rel=related LCP license link is emitted any more (acquisition goes through the license): %v", name, rel)
 		}
 		if st := linksByRel(ent.Links, "http://vaemendis.net/opds-pse/stream"); len(st) != 1 || st[0].HREF != PageStreamHREF("f-plain") {
 			t.Errorf("%s: stream link %v", name, st)
@@ -307,10 +329,11 @@ func TestHRD070OPDSPublication20(t *testing.T) {
 			} `json:"publisher"`
 		} `json:"metadata"`
 		Links []struct {
-			HREF  string `json:"href"`
-			Rel   string `json:"rel"`
-			Type  string `json:"type"`
-			Title string `json:"title"`
+			HREF       string         `json:"href"`
+			Rel        string         `json:"rel"`
+			Type       string         `json:"type"`
+			Title      string         `json:"title"`
+			Properties map[string]any `json:"properties"`
 		} `json:"links"`
 		Images []struct {
 			HREF string `json:"href"`
@@ -335,7 +358,7 @@ func TestHRD070OPDSPublication20(t *testing.T) {
 	if len(p.Images) != 1 || p.Images[0].HREF != "/v1/covers/e1" || p.Images[0].Rel != "cover" || p.Images[0].Type != "image/jpeg" {
 		t.Errorf("cover %+v", p.Images)
 	}
-	var self, acq, rel int
+	var self, acq, rel, lic int
 	for _, l := range p.Links {
 		switch l.Rel {
 		case "self":
@@ -345,15 +368,27 @@ func TestHRD070OPDSPublication20(t *testing.T) {
 			}
 		case RelAcquisition:
 			acq++
+			// Oracle (HRD-031): OPDS 2.0 section 5.3 license acquisition with
+			// properties.indirectAcquisition naming the EPUB; the lcp file with a
+			// license href is acquired through its License Document and gets no
+			// plain EPUB link and no rel=related link.
+			if l.HREF == "/v1/licenses/f1" {
+				lic++
+				ind, _ := l.Properties["indirectAcquisition"].([]any)
+				if l.Type != LCPLicenseMIME || l.Title != "LCP license" || len(ind) != 1 {
+					t.Errorf("license acquisition link %+v", l)
+				} else if m0, _ := ind[0].(map[string]any); m0["type"] != "application/epub+zip" {
+					t.Errorf("indirectAcquisition %+v", ind)
+				}
+			} else if l.Properties != nil {
+				t.Errorf("plain acquisition must not carry properties: %+v", l)
+			}
 		case RelRelated:
 			rel++
-			if l.HREF != "/v1/licenses/f1" || l.Type != LCPLicenseMIME || l.Title != "LCP license" {
-				t.Errorf("license link %+v", l)
-			}
 		}
 	}
-	if self != 1 || acq != 4 || rel != 1 {
-		t.Errorf("links: self=%d acquisition=%d related=%d (want 1/4/1: the LCP link exists only for the lcp file that has a license href)", self, acq, rel)
+	if self != 1 || acq != 4 || rel != 0 || lic != 1 {
+		t.Errorf("links: self=%d acquisition=%d related=%d licenseAcq=%d (want 1/4/0/1: the license acquisition exists only for the lcp file that has a license href)", self, acq, rel, lic)
 	}
 }
 
