@@ -1,0 +1,97 @@
+MUTANT C06_wtm_first_token_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 121-121
+  restored: GREEN again
+MUTANT C09_wtm_key_token_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 130-130
+  restored: GREEN again
+MUTANT C11_wtm_decode_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 139-139
+  restored: GREEN again
+MUTANT C13_wtm_close_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 154-154
+  restored: GREEN again
+MUTANT C17_snd_scalar: KILLED
+grep: /home/milosvasic/.cache/claude-tmp/mutS.IWwe/C17_snd_scalar.out: binary file matches
+  edits core/pkg/lcp/canonical.go 178-178
+  restored: GREEN again
+MUTANT C19_snd_case_object: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 182-182
+  restored: GREEN again
+MUTANT C21_snd_obj_key_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 186-186
+  restored: GREEN again
+MUTANT C25_snd_case_array: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 201-201
+  restored: GREEN again
+MUTANT C29_snd_close_token_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 210-210
+  restored: GREEN again
+MUTANT C32_wc_case_bool: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 221-221
+  restored: GREEN again
+MUTANT C35_wc_case_number: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 227-227
+  restored: GREEN again
+MUTANT C37_wc_case_string: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 233-233
+  restored: GREEN again
+MUTANT C52a_wcs_quote: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: FuzzCanonical (0.01s)
+  edits core/pkg/lcp/canonical.go 294-294
+  restored: GREEN again
+MUTANT C52b_wcs_backslash: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 296-296
+  restored: GREEN again
+MUTANT C52c_wcs_backspace: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 298-298
+  restored: GREEN again
+MUTANT C52d_wcs_formfeed: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 300-300
+  restored: GREEN again
+MUTANT C52e_wcs_newline: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 302-302
+  restored: GREEN again
+MUTANT C52f_wcs_return: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 304-304
+  restored: GREEN again
+MUTANT C52g_wcs_tab: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 306-306
+  restored: GREEN again
+MUTANT C60_cn_exponent_atoi_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 354-354
+  restored: GREEN again
+MUTANT C75a_link_length_parse_err: KILLED
+--- FAIL: TestHRD070LinkLength (0.00s)
+  edits core/pkg/lcp/license.go 74-74
+  restored: GREEN again
+MUTANT H02_hasrel_match: KILLED
+--- FAIL: TestHRD070StatusVocabularyAndRefresh (0.00s)
+--- FAIL: TestHRD070LSDLinkHasRel (0.00s)
+  edits core/pkg/lcp/lsd.go 94-94
+  restored: GREEN again
+MUTANT Y04b_mem_first_write: KILLED
+--- FAIL: TestHRD070MemoryStore (0.00s)
+  edits server/internal/kosync/memory.go 47-47
+  restored: GREEN again
+MUTANT F08_Edition12_psens: SURVIVED (BAD)
+  edits server/internal/opds/detail.go 53-53
+  restored: GREEN again
+MUTANT F10_feed12_author: SURVIVED (BAD)
+  edits server/internal/opds/opds12.go 26-26
+  restored: GREEN again
+MUTANT C10_wtm_key_notstring_UNREACHABLE: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/canonical.go 134-134
+  restored: GREEN again
+MUTANT C22_snd_key_notstring_UNREACHABLE: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/canonical.go 190-190
+  restored: GREEN again

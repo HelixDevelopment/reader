@@ -308,3 +308,54 @@ func TestHRD070LSDLinkRelForms(t *testing.T) {
 		}
 	}
 }
+
+// TestHRD070CanonicalErrorText pins which failure path produced a rejection.
+// Several guards in withoutTopLevelMember and scanNoDupes are followed by a
+// second check that raises the same typed error with different text, so the
+// sentinel alone cannot tell a deleted guard from a live one. Texts are the
+// ones encoding/json produced for these exact inputs (probed, not derived).
+func TestHRD070CanonicalErrorText(t *testing.T) {
+	syn := lcp.ErrLicenseSyntax
+	cases := []struct {
+		name, in, want string
+		forSigning     bool
+	}{
+		{"canonical: empty", ``, "EOF", false},
+		{"canonical: object cut after a comma", `{"a":1,`, "unexpected end of JSON input", false},
+		{"canonical: object closed by a bracket", `{"a":1]`, "invalid character ']' after object key:value pair", false},
+		{"canonical: nested object closed by a bracket", `{"a":{"b":1]}`, "invalid character ']' after object key:value pair", false},
+		{"canonical: exponent is not a machine integer", `1e99999999999999999999`, "bad exponent in 1e99999999999999999999", false},
+		{"signing: empty", ``, "EOF", true},
+		{"signing: object cut after a comma", `{"a":1,`, "unexpected end of JSON input", true},
+		{"signing: object closed by a bracket", `{"a":1]`, "invalid character ']' after object key:value pair", true},
+		{"signing: signature then bracket", `{"signature":1]`, "invalid character ']' after object key:value pair", true},
+		{"signing: value missing", `{"signature":1,"a":}`, "invalid character '}' looking for beginning of value", true},
+	}
+	for _, c := range cases {
+		var err error
+		if c.forSigning {
+			_, err = lcp.CanonicalForSigning([]byte(c.in))
+		} else {
+			_, err = lcp.Canonical([]byte(c.in))
+		}
+		if !errors.Is(err, syn) || !strings.Contains(err.Error(), c.want) {
+			t.Errorf("%s: error %v, want ErrLicenseSyntax containing %q", c.name, err, c.want)
+		}
+	}
+}
+
+// TestHRD070CanonicalDepthLimit: scanNoDupes walks tokens recursively and has
+// no depth limit of its own, so the only guard against absurd nesting is the
+// decoder's own limit in canonicalWithMode's Decode call (encoding/json
+// rejects more than 10000 levels). Probed on this toolchain: 10000 levels
+// are accepted, 10001 are not.
+func TestHRD070CanonicalDepthLimit(t *testing.T) {
+	deep := func(n int) []byte { return []byte(strings.Repeat("[", n) + strings.Repeat("]", n)) }
+	if _, err := lcp.Canonical(deep(10000)); err != nil {
+		t.Errorf("10000 levels must be accepted, got %v", err)
+	}
+	_, err := lcp.Canonical(deep(10001))
+	if !errors.Is(err, lcp.ErrLicenseSyntax) || !strings.Contains(err.Error(), "exceeded max depth") {
+		t.Errorf("10001 levels: want ErrLicenseSyntax with \"exceeded max depth\", got %v", err)
+	}
+}

@@ -5,6 +5,7 @@ import (
 	"encoding/xml"
 	"net/url"
 	"strconv"
+	"strings"
 	"testing"
 	"time"
 
@@ -36,6 +37,7 @@ type xEntry struct {
 	Links []xLink `xml:"link"`
 }
 type xFeed struct {
+	Author  string   `xml:"author>name"`
 	Updated string   `xml:"updated"`
 	ID      string   `xml:"id"`
 	Title   string   `xml:"title"`
@@ -135,6 +137,9 @@ func TestHRD070OPDSPaging(t *testing.T) {
 		if err := xml.Unmarshal(raw, &fd); err != nil {
 			t.Fatalf("%s: %v", c.name, err)
 		}
+		if fd.Author != "Helix Reader" {
+			t.Errorf("%s: feed author %q, want %q", c.name, fd.Author, "Helix Reader")
+		}
 		check := func(kind string, ls []xLink, rel string, want map[string]string) {
 			got := linksByRel(ls, rel)
 			if want == nil {
@@ -222,6 +227,9 @@ func TestHRD070OPDSEntry12(t *testing.T) {
 		}
 		var ent xEntry
 		if name == "Edition12" {
+			if !strings.Contains(string(raw), `xmlns:pse="http://vaemendis.net/opds-pse/ns"`) {
+				t.Errorf("Edition12 with a streamable file must declare the OPDS-PSE namespace: %s", raw)
+			}
 			err = xml.Unmarshal(raw, &ent)
 		} else {
 			var fd xFeed

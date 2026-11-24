@@ -1,0 +1,18 @@
+== baseline
+OK: 200 branches in 48 covered functions, all mapped; each row has an own-line mutant with the expected outcome
+== 1 drop one rule row (canonicalNumber exponent range row) -> expect UNMAPPED
+UNMAPPED core/pkg/lcp/canonical.go:357 canonicalNumber: if e > 1<<30 || e < -(1<<30) {
+== 2 wrong disposition: mark a KILL row EQUIV -> expect outcome mismatch
+WRONG C55_cn_reference_passthrough: log says 'KILLED' want SURVIVED (core/pkg/lcp/canonical.go:336)
+== 3 stale row text -> expect STALE/UNMAPPED
+UNMAPPED core/pkg/lcp/canonical.go:357 canonicalNumber: if e > 1<<30 || e < -(1<<30) {
+STALE map row ('core/pkg/lcp/canonical.go', 'canonicalNumber', 'if e > 1<<30 {', 1)
+== 4 mutant edits a line outside the row (own-line binding) -> expect NO-OWN-LINE-MUTANT
+NO-OWN-LINE-MUTANT core/pkg/lcp/canonical.go:293-293 writeCanonicalString: no listed mutant edits a line inside this branch (edits: [('X21_wcs_switch_selector', [('core/pkg/lcp/canonical.go', 1, 1)])])
+== 5 a covered function with no rows (drop every row of Link.UnmarshalJSON)
+UNMAPPED core/pkg/lcp/license.go:67 Link.UnmarshalJSON: if err := json.Unmarshal(raw, &text); err != nil {
+UNMAPPED core/pkg/lcp/license.go:70 Link.UnmarshalJSON: } else {
+UNMAPPED core/pkg/lcp/license.go:74 Link.UnmarshalJSON: if err != nil || n < 0 {
+== 6 covered_functions regenerated from the seed run equals the committed list
+IDENTICAL
+== 7 (limit, stated honestly) `check` trusts the covered list it is given; a hand-trimmed list is caught only by regenerating it from the seed run (item 6) and diffing, which the final verification repeats

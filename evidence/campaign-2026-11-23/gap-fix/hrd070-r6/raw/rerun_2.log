@@ -1,0 +1,68 @@
+MUTANT C06_wtm_first_token_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+--- FAIL: TestHRD070CanonicalErrorMessages (0.01s)
+  edits core/pkg/lcp/canonical.go 121-121
+  restored: GREEN again
+MUTANT C09_wtm_key_token_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+--- FAIL: TestHRD070CanonicalErrorMessages (0.01s)
+  edits core/pkg/lcp/canonical.go 130-130
+  restored: GREEN again
+MUTANT C11_wtm_decode_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 139-139
+  restored: GREEN again
+MUTANT C13_wtm_close_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+  edits core/pkg/lcp/canonical.go 154-154
+  restored: GREEN again
+MUTANT C21_snd_obj_key_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+--- FAIL: TestHRD070CanonicalErrorMessages (0.01s)
+  edits core/pkg/lcp/canonical.go 186-186
+  restored: GREEN again
+MUTANT C29_snd_close_token_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+  edits core/pkg/lcp/canonical.go 210-210
+  restored: GREEN again
+MUTANT C52a_wcs_quote: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 295-295
+  restored: GREEN again
+MUTANT C52b_wcs_backslash: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 297-297
+  restored: GREEN again
+MUTANT C52c_wcs_backspace: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 299-299
+  restored: GREEN again
+MUTANT C52d_wcs_formfeed: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 301-301
+  restored: GREEN again
+MUTANT C52e_wcs_newline: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 303-303
+  restored: GREEN again
+MUTANT C52f_wcs_return: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 305-305
+  restored: GREEN again
+MUTANT C52g_wcs_tab: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 307-307
+  restored: GREEN again
+MUTANT C60_cn_exponent_atoi_err: KILLED
+--- FAIL: TestHRD070CanonicalErrorText (0.00s)
+--- FAIL: TestHRD070CanonicalErrorMessages (0.02s)
+  edits core/pkg/lcp/canonical.go 354-354
+  restored: GREEN again
+MUTANT F08_Edition12_psens: KILLED
+--- FAIL: TestHRD070OPDSEntry12 (0.00s)
+  edits server/internal/opds/detail.go 53-53
+  restored: GREEN again
+MUTANT F10_feed12_author: KILLED
+--- FAIL: TestHRD070FeedAuthor12 (0.00s)
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+  edits server/internal/opds/opds12.go 26-26
+  restored: GREEN again

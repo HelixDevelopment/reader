@@ -1,0 +1,61 @@
+HRD-070 round 6 notes (structural round; supersedes hrd070-r5/NOTES.txt and hrd070-r5/RULES.md where they differ)
+
+EXACT SCOPE (what "every rule" means here)
+- Scope is DERIVED from execution, not hand-listed: covered_functions.txt is produced by `enumerate_rules.py covered`, which runs
+  the seed run of the six fuzz targets' packages with a coverage profile and lists every production function with a covered
+  statement (48 branch-bearing functions, 200 branches). `check` fails if any branch of any such function has no rule row, if a
+  row is stale, if a row's own-line mutant has the wrong outcome, or if no mutant edits a line inside the row.
+- NOT covered (named, not hidden): other packages (e.g. catalog), functions the seed run does not execute, and the HTTP handler
+  layer server/internal/httpapi/kosync.go (body limits, ShouldBindJSON, status mapping 400/401/402/500). The handler layer is a
+  TRACKED FOLLOW-UP (review item M2), not fuzzed here. UNCONFIRMED: that its limits/status mapping behave as intended under
+  adversarial input.
+
+WHAT CHANGED IN ROUND 6
+- New oracle-first tests (hand-derived expected values) for the functions that had no rule: canonical.go (output rules, rejections,
+  CanonicalForSigning, number normalisation, depth limit, error TEXT), Link.UnmarshalJSON length, StatusValue.valid/refresh,
+  LSDLink.HasRel and rel forms, kosync Memory.PutProgress, OPDS-PSE streamLink/page href, feed-level atom:author, OPDS-PSE
+  namespace on Edition12.
+- All 20 reviewer mutants X01..X20 are adopted in mutate.sh. Result: 18 KILLED; X14 (parseTime RFC3339Nano) and X18 (hint decode error ignored) SURVIVE and are argued equivalent below / in equiv.tsv, not claimed killed (the reviewer should re-judge both). New own mutants X21..X24 cover
+  the last four rows that had no own-line mutant (switch selector in writeCanonicalString, pageURL offset, Acquisition12 and
+  Acquisition20 entry loops): all KILLED.
+- I1: a KILL row now needs a KILLED mutant whose edits lie inside that row's own span (mutation.log carries "edits <file> a-b").
+- I2: multi-line conditions and assignment/return lines holding && or || count as branches.
+- M1: E02 wording corrected. The empty-rel guard in parseRels is NOT equivalent: the same typed error (ErrStatusDocument) is
+  returned with a different message, and a message test (TestHRD070LSDLinkRelMessages) kills it (E02_parserels_empty_rel_required_message).
+- Generator self-test: enumerator_selftest.log shows UNMAPPED, WRONG outcome, STALE row, NO-OWN-LINE-MUTANT and a covered function
+  without rows each fail `check`; the covered list regenerated from the seed run is IDENTICAL to the committed one. Limit: `check`
+  trusts the covered list it is given; a hand-trimmed list is caught only by the regenerate-and-diff step.
+
+MUTATION RESULT (mutation.log, 313 mutants): 298 KILLED, 15 SURVIVED, 0 "NOT APPLIED", 0 "STILL RED", 0 "BAD".
+- Every survivor is explained in equiv.tsv (13 rows) or is a logged equivalent sharing a row with killed mutants:
+  K09_inf_EQUIV (math.IsInf redundant: +Inf fails > 1, -Inf fails < 0) and X14_lic_parsetime_nano (time.Parse with RFC3339 already
+  accepts fractional seconds).
+- Disproved/changed claims (corrections, not silence): the first full run left C13, C21, C29, C60, F10, F08, C06, C09 alive; they were
+  killed by NEW tests (error-text pinning, bracket-closed objects, exponent text, feed author, PSE namespace), not re-labelled.
+  C11 stays equivalent (sticky Decoder error re-raised by the next Token with identical text). C02 was briefly believed killable by
+  a depth test; the depth test passes with the guard disabled because Decoder.Token enforces the same 10000-level limit, so C02 is
+  equivalent on go1.26.8 (other toolchains UNCONFIRMED); the depth test is kept as a plain test.
+- Mutants whose sed did not compile (C17, C19, C22, C25, C32, C35, C37, C52a-g, C10, C75a, Y04b, F08, H02) were rewritten so they
+  compile (an `&& false` form or a quote-free replacement); a build failure is reported as NOT APPLIED, never as a kill.
+- PROVENANCE OF THE LOG: the 309-mutant full run (4 shards, raw/mutation-run1-shard*.log) ran against the tests as they were at
+  commit 12a9033; the mutants that were then rewritten or still alive were re-run against the final tests (raw/rerun_*.log), and
+  mutation.log is the merge (later run wins by name; superseded entries C11_wtm_decode_err and E02_parserels_empty_EQUIV and the
+  not-equivalent C02 variant were dropped). Tests were only ADDED after the full run, so a recorded KILL cannot have become a
+  survivor; a full re-run on the final head was NOT repeated: UNCONFIRMED for each unchanged mutant on the final tree except through
+  this argument.
+
+FUZZ (60 s per target, FUZZTIME=60s, fuzz_summary.txt): 6 targets, exit 0, 0 crasher files.
+Observations (not fixed, production untouched): CanonicalForSigning accepts trailing data after the object; a License document
+that has only a duplicated `signature` member is accepted by the signing path alone. UNCONFIRMED whether either is intended.
+
+COMMIT TRAILERS
+- Commits dfb13c7 and e79fc65 carry `Roadmap-Item: HRD-070` in a separate paragraph from Co-Authored-By, so git interpret-trailers
+  does not parse it as a trailer. They are already pushed and history may not be rewritten (no force-push); later commits carry both
+  lines in one final paragraph.
+
+STATUS: review PENDING (independent review). Nothing here is a GO. Not merged.
+
+EQUIVALENCE DIFFERENTIAL (equiv_differential/): the candidate-equivalent canonical.go mutants (C02, C10, C11, C22, C28, C47, C63, C64) were
+also compared against the unmutated code over a generated input corpus under go1.27.3 (run_go1.27.3.log: diffs=0 for each; the
+go1.22 control log is control_go1.22.log). A differential over a finite corpus supports, not proves, equivalence; the structural
+arguments are in equiv.tsv.
