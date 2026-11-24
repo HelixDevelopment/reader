@@ -1,0 +1,4 @@
+=== RUN   TestInteropReadiumLCPServer
+    interop_readium_test.go:63: foreign_root_refused: expected lcp: provider certificate is not signed by a trusted root, got <nil>
+--- FAIL: TestInteropReadiumLCPServer (1.25s)
+FAIL
