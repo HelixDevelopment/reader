@@ -255,3 +255,73 @@ func TestRcloneRevalidateUnit(t *testing.T) {
 		t.Fatalf("generic failure must be a non-404 error: %v", err)
 	}
 }
+
+func TestWebDAVRevalidateLaterEmptyLengthDoesNotOverwrite(t *testing.T) {
+	x := `<?xml version="1.0"?><D:multistatus xmlns:D="DAV:"><D:response><D:href>/b.bin</D:href>` +
+		`<D:propstat><D:prop><D:getcontentlength>42</D:getcontentlength><D:getlastmodified>Mon, 23 Nov 2026 21:47:33 GMT</D:getlastmodified><D:resourcetype/></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat>` +
+		`<D:propstat><D:prop><D:getcontentlength></D:getcontentlength></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat>` +
+		`</D:response></D:multistatus>`
+	size, _, err := revalServer(t, x).Revalidate(context.Background(), "b.bin")
+	if err != nil || size != 42 {
+		t.Fatalf("size=%d err=%v, want 42", size, err)
+	}
+}
+
+func TestWebDAVRevalidateFirstResponseWinsWithSeveral(t *testing.T) {
+	r := func(href, n string) string {
+		return `<D:response><D:href>` + href + `</D:href><D:propstat><D:prop><D:getcontentlength>` + n + `</D:getcontentlength><D:getlastmodified>Mon, 23 Nov 2026 21:47:33 GMT</D:getlastmodified><D:resourcetype/></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat></D:response>`
+	}
+	x := `<?xml version="1.0"?><D:multistatus xmlns:D="DAV:">` + r("/b.bin", "42") + r("/c.bin", "7") + `</D:multistatus>`
+	size, _, err := revalServer(t, x).Revalidate(context.Background(), "b.bin")
+	if err != nil || size != 42 {
+		t.Fatalf("size=%d err=%v, want 42 from the first response", size, err)
+	}
+}
+
+func TestWebDAVRevalidateSendsAuthAndConfiguredHeaders(t *testing.T) {
+	var user, pass, hdr string
+	var authed bool
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		user, pass, authed = r.BasicAuth()
+		hdr = r.Header.Get("X-Test-Token")
+		w.WriteHeader(207)
+		_, _ = io.WriteString(w, propOK)
+	}))
+	defer srv.Close()
+	c, err := NewWebDAV(Config{Protocol: "webdav", Endpoint: srv.URL + "/", Username: "alice", Password: "pw",
+		Headers: map[string]string{"X-Test-Token": "t1"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, _, err := c.(*WebDAV).Revalidate(context.Background(), "b.bin"); err != nil {
+		t.Fatal(err)
+	}
+	if !authed || user != "alice" || pass != "pw" {
+		t.Fatalf("PROPFIND basic auth missing: ok=%v user=%q", authed, user)
+	}
+	if hdr != "t1" {
+		t.Fatalf("configured header not sent on PROPFIND: %q", hdr)
+	}
+}
+
+// Only 207 Multi-Status is a PROPFIND answer; a plain 200 is not.
+func TestWebDAVRevalidateRejectsPlain200(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(200)
+		_, _ = io.WriteString(w, propOK)
+	}))
+	defer srv.Close()
+	c, _ := NewWebDAV(Config{Protocol: "webdav", Endpoint: srv.URL + "/"})
+	if _, _, err := c.(*WebDAV).Revalidate(context.Background(), "b.bin"); err == nil {
+		t.Fatal("HTTP 200 must not be accepted as a PROPFIND answer")
+	}
+}
+
+// Exit codes 3/4 alone map to ErrNotFound (stderr carries no marker text).
+func TestRcloneRevalidateExitCodesMapToNotFound(t *testing.T) {
+	for _, rc := range []int{3, 4} {
+		if _, _, err := scriptedRclone(t, "", "", rc).Revalidate(context.Background(), "b.bin"); !errors.Is(err, ErrNotFound) {
+			t.Fatalf("exit %d: %v, want ErrNotFound", rc, err)
+		}
+	}
+}

@@ -576,6 +576,13 @@ type openContentRevalidator interface {
 }
 
 func sourceReadFailure(c *gin.Context, err error) {
+	// Headers prepared for a success or partial response (length, range,
+	// validators, attachment name) must never ride on the error response: a
+	// stale Content-Length would truncate the JSON body for the client.
+	h := c.Writer.Header()
+	for _, k := range []string{"Content-Range", "Content-Length", "ETag", "Accept-Ranges", "Content-Disposition"} {
+		h.Del(k)
+	}
 	if errors.Is(err, sources.ErrNotFound) {
 		Error(c, http.StatusNotFound, "source file not found")
 		return
@@ -687,10 +694,6 @@ func (s *Server) content(c *gin.Context) {
 		}
 		reader, err := rc.OpenRange(c.Request.Context(), f.Path, start, length)
 		if err != nil {
-			// The success-path partial-content headers were set above; an error
-			// response must not carry them.
-			c.Writer.Header().Del("Content-Range")
-			c.Writer.Header().Del("Content-Length")
 			sourceReadFailure(c, err)
 			return
 		}
