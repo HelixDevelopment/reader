@@ -1,0 +1,3 @@
+M1-pg-upsert-stale-editions control(no-env,mutant)=exit0 live(mutant)=exit1 killer-FAIL-lines=1 live(unmutated)=exit0 => KILLED-ONLY-BY-LIVE
+M2-redis-progress-no-merge control(no-env,mutant)=exit1 live(mutant)=exit1 killer-FAIL-lines=1 live(unmutated)=exit0 => NOT-PROVEN
+M3-pg-identity-lock-removed control(no-env,mutant)=exit0 live(mutant)=exit1 killer-FAIL-lines=1 live(unmutated)=exit0 => KILLED-ONLY-BY-LIVE
