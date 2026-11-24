@@ -1,0 +1,14 @@
+=== RUN   TestJobsSlowAssertsGoldenGoodPasses
+--- PASS: TestJobsSlowAssertsGoldenGoodPasses (0.00s)
+=== RUN   TestJobsSlowAssertsDetectBadEvidence
+--- PASS: TestJobsSlowAssertsDetectBadEvidence (0.00s)
+=== RUN   TestSlowClientJobSurfaceHermetic
+--- PASS: TestSlowClientJobSurfaceHermetic (2.31s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	2.324s
+=== RUN   TestCatalogSlowAssertsGoldenGoodPasses
+--- PASS: TestCatalogSlowAssertsGoldenGoodPasses (0.00s)
+=== RUN   TestCatalogSlowAssertsDetectBadEvidence
+--- PASS: TestCatalogSlowAssertsDetectBadEvidence (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	0.012s
