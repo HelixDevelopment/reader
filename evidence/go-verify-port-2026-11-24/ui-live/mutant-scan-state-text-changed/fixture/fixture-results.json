@@ -1,0 +1,245 @@
+{
+  "checks": [
+    {
+      "id": "good-visible-text",
+      "status": "PASS",
+      "evidence": {
+        "got": "true",
+        "want": "true"
+      }
+    },
+    {
+      "id": "bad-hidden-display-none",
+      "status": "PASS",
+      "evidence": {
+        "got": "false",
+        "want": "false"
+      }
+    },
+    {
+      "id": "bad-hidden-visibility",
+      "status": "PASS",
+      "evidence": {
+        "got": "false",
+        "want": "false"
+      }
+    },
+    {
+      "id": "bad-hidden-zero-size",
+      "status": "PASS",
+      "evidence": {
+        "got": "false",
+        "want": "false"
+      }
+    },
+    {
+      "id": "bad-absent-element",
+      "status": "PASS",
+      "evidence": {
+        "got": "false",
+        "want": "false"
+      }
+    },
+    {
+      "id": "good-count-without-visible-filter",
+      "status": "PASS",
+      "evidence": {
+        "got": "2",
+        "want": "2"
+      }
+    },
+    {
+      "id": "bad-visible-filter-drops-hidden",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-text-substring-case-insensitive",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "bad-text-exact-is-case-sensitive",
+      "status": "PASS",
+      "evidence": {
+        "got": "0",
+        "want": "0"
+      }
+    },
+    {
+      "id": "good-text-deepest-element-only",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-label-aria-label",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-label-for",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-label-aria-labelledby",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "bad-label-absent",
+      "status": "PASS",
+      "evidence": {
+        "got": "0",
+        "want": "0"
+      }
+    },
+    {
+      "id": "good-role-button-visible-only",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "bad-role-button-absent",
+      "status": "PASS",
+      "evidence": {
+        "got": "0",
+        "want": "0"
+      }
+    },
+    {
+      "id": "good-scope-ancestor",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-scoped-button",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "bad-unscoped-button-matches-both",
+      "status": "PASS",
+      "evidence": {
+        "got": "2",
+        "want": "2"
+      }
+    },
+    {
+      "id": "good-click-increments",
+      "status": "PASS",
+      "evidence": {
+        "got": "1",
+        "want": "1"
+      }
+    },
+    {
+      "id": "good-fill-fires-input",
+      "status": "PASS",
+      "evidence": {
+        "got": "hello",
+        "want": "hello"
+      }
+    },
+    {
+      "id": "good-select-fires-change",
+      "status": "PASS",
+      "evidence": {
+        "got": "two",
+        "want": "two"
+      }
+    },
+    {
+      "id": "good-style",
+      "status": "PASS",
+      "evidence": {
+        "got": "rgb(255, 0, 0)",
+        "want": "rgb(255, 0, 0)"
+      }
+    },
+    {
+      "id": "good-attr",
+      "status": "PASS",
+      "evidence": {
+        "got": "y",
+        "want": "y"
+      }
+    },
+    {
+      "id": "bad-attr-missing-element-errors",
+      "status": "PASS",
+      "evidence": {
+        "error": "timeout waiting for css(#no-such-element)"
+      }
+    },
+    {
+      "id": "bad-style-missing-element-errors",
+      "status": "PASS",
+      "evidence": {
+        "error": "timeout waiting for css(#no-such-element)"
+      }
+    },
+    {
+      "id": "good-attr-missing-attribute-is-empty",
+      "status": "PASS",
+      "evidence": {
+        "got": "",
+        "want": ""
+      }
+    },
+    {
+      "id": "bad-click-disabled-button-is-refused",
+      "status": "PASS",
+      "evidence": {
+        "error": "timeout waiting for css(button) has=\"Disabled one\": element is disabled"
+      }
+    },
+    {
+      "id": "bad-click-covered-button-is-refused",
+      "status": "PASS",
+      "evidence": {
+        "error": "timeout waiting for css(#covered): another element would receive the click"
+      }
+    },
+    {
+      "id": "bad-click-hidden-button-is-refused",
+      "status": "PASS",
+      "evidence": {
+        "error": "timeout waiting for css(button.gone): element is not visible"
+      }
+    }
+  ],
+  "kind": "hv-fixture",
+  "schema_version": 1,
+  "summary": {
+    "fail": 0,
+    "pass": 30
+  }
+}

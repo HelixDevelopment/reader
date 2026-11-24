@@ -149,9 +149,10 @@ cd deploy && docker compose up --build
 
 **Verification utilities** (`scripts/`): `verify_live_server.py`,
 `verify_live_transport.py`, `verify_backup_restore.py`, `verify_go_mutation.py`
-(mutation gates), `verify_ui.py`, `verify_ui_mutation.py`, `verify_workable_items.py`,
+(mutation gates), `verify_ui.py`, `verify_workable_items.py`,
 `publish_test_results.py` (regenerates `docs/testing/results/`), `summarize_research.py`,
 `analyze_repositories.py`, `workable_items.py` (SQLite registry export/validate).
+Go ports of the mutation runner and the UI verifier live in [`tools/verify/`](tools/verify/README.md) (`gomutate`, `uiverify`; the browser one runs only in the rootless container via `qa/isolation/run_uiverify.sh`). `verify_ui_mutation.py` was listed here but is not in the tree and is not ported.
 
 **Evidence rules:** a check is `PASS` only when its command actually ran and the machine
 output satisfies the assertion; missing dependencies are `SKIP`, never a simulated
@@ -165,6 +166,7 @@ credentials or secrets.
 - [`docs/user_guide.md`](docs/user_guide.md) — what works today, prototype behavior, server quickstart
 - [`docs/developer_guide.md`](docs/developer_guide.md) — setup for dev machines (incl. CodeGraph)
 - [`docs/testing.md`](docs/testing.md) + [`docs/testing/`](docs/testing) — qualification matrix and result index
+- [`tools/verify/README.md`](tools/verify/README.md) — Go mutation runner and container-only UI verifier, with [`PARITY.md`](tools/verify/PARITY.md)
 - [`docs/faq.md`](docs/faq.md) — production readiness, accounts, formats, protocols
 - [`docs/scalability-review.md`](docs/scalability-review.md), [`docs/research/`](docs/research) — design studies
 - [`docs/workable-items.md`](docs/workable-items.md) — workable-items registry (`docs/workable_items.db` is authoritative; Issues/Fixed docs are generated)

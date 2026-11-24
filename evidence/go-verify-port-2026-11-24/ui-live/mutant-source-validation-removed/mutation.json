@@ -1,0 +1,17 @@
+{
+ "id": "source-validation-removed",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "46b8e964be026b80a050289ab849538f824206bac623dc044526184a61cf7b85",
+ "expect_failing_checks": [
+  "source-validation"
+ ],
+ "operations": [
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "Enter a descriptive source name.",
+   "new": "Required.",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "8b315374fad8f028cfe21f3f420a1b4b3253483e0e5278dfd705280076e44ecd"
+  }
+ ]
+}

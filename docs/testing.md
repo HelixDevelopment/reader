@@ -71,9 +71,19 @@ cd demos/interactive_static_demo
 npm ci --dry-run
 npm run lint
 npm run build
-# Serve the production build on 127.0.0.1:4173 before running:
-python3 scripts/verify_ui.py http://127.0.0.1:4173/   # evidence written to evidence/ui
 ```
+
+Browser checks never run on the host (HARD RULE, [`docs/test-isolation.md`](test-isolation.md)). Run the Go UI verifier inside the
+rootless container (it serves `dist/` itself; no host display, no network):
+
+```bash
+(cd tools/verify && CGO_ENABLED=0 go build -trimpath -o "$HELIX_UIVERIFY_BIN" ./cmd/uiverify)
+ISO_WORK=$HOME/.cache/claude-tmp/<dir> HELIX_UIVERIFY_BIN=... \
+  qa/isolation/run_uiverify.sh demos/interactive_static_demo/dist evidence/<fresh-dir>
+```
+
+See [`tools/verify/README.md`](../tools/verify/README.md) and `PARITY.md` there. `scripts/verify_ui.py` is kept but is a host-browser
+script and must not be run on the host.
 
 Live current-tree verification (run from the repository root; all verification
 scripts derive the repository root from their own location and build binaries

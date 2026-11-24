@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "pass": 25,
+  "fail": 0,
+  "mutants": 25,
+  "controls": 16,
+  "with_predicted_assertion": 25,
+  "original_tree_unchanged": true,
+  "results": [
+    {
+      "id": "runner-ignores-predicted-assertion",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Pass:2 Fail:1 Mutants:3",
+      "test": "TestKilledSurvivedAndWrongAssertion",
+      "exit": 1,
+      "log": "runner-ignores-predicted-assertion.log"
+    },
+    {
+      "id": "runner-ignores-build-failure-marker",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "broken-build = ",
+      "test": "TestBuildFailureIsNotARejectedMutant",
+      "exit": 1,
+      "log": "runner-ignores-build-failure-marker.log"
+    },
+    {
+      "id": "runner-accepts-absent-anchor",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "twice = ",
+      "test": "TestAnchorMustOccurExactlyOnce",
+      "exit": 1,
+      "log": "runner-accepts-absent-anchor.log"
+    },
+    {
+      "id": "runner-timeout-read-as-verdict",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "hangs = ",
+      "test": "TestNoVerdictOnTimeout",
+      "exit": 1,
+      "log": "runner-timeout-read-as-verdict.log"
+    },
+    {
+      "id": "runner-ignores-failing-control",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "control = ",
+      "test": "TestControlFailureFailsCampaign",
+      "exit": 1,
+      "log": "runner-ignores-failing-control.log"
+    },
+    {
+      "id": "runner-unknown-only-id-is-vacuous-pass",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "unknown --only id must be an error",
+      "test": "TestOnlyFiltersCatalogue",
+      "exit": 1,
+      "log": "runner-unknown-only-id-is-vacuous-pass.log"
+    },
+    {
+      "id": "runner-allows-mutant-without-expect",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "summary = ",
+      "test": "TestMutantWithoutPredictedAssertionIsRefusedUpFront",
+      "exit": 1,
+      "log": "runner-allows-mutant-without-expect.log"
+    },
+    {
+      "id": "runner-mutates-original-tree",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OriginalTreeUnchanged:false",
+      "test": "TestKilledSurvivedAndWrongAssertion",
+      "exit": 1,
+      "log": "runner-mutates-original-tree.log"
+    },
+    {
+      "id": "ui-nav-layout-selection-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "check ids = [viewport-run]",
+      "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+      "exit": 1,
+      "log": "ui-nav-layout-selection-ignored.log"
+    },
+    {
+      "id": "ui-next-delta-always-passes",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "fault \"next-noop\": check reader-next-delta did not FAIL",
+      "test": "TestEachSeededFaultFailsItsCheck",
+      "exit": 1,
+      "log": "ui-next-delta-always-passes.log"
+    },
+    {
+      "id": "ui-source-validation-always-passes",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "fault \"no-validation\": check source-validation did not FAIL",
+      "test": "TestEachSeededFaultFailsItsCheck",
+      "exit": 1,
+      "log": "ui-source-validation-always-passes.log"
+    },
+    {
+      "id": "ui-overflow-always-passes",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "fault \"overflow\": check no-horizontal-overflow did not FAIL",
+      "test": "TestEachSeededFaultFailsItsCheck",
+      "exit": 1,
+      "log": "ui-overflow-always-passes.log"
+    },
+    {
+      "id": "ui-empty-console-evidence-null",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "empty console/missing evidence must serialise as []",
+      "test": "TestReportJSONShapeMatchesPython",
+      "exit": 1,
+      "log": "ui-empty-console-evidence-null.log"
+    },
+    {
+      "id": "ui-summary-overcounts-pass",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "healthy app: summary = ",
+      "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+      "exit": 1,
+      "log": "ui-summary-overcounts-pass.log"
+    },
+    {
+      "id": "ui-viewport-error-swallowed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "tablet = ",
+      "test": "TestViewportErrorIsRecordedAndDoesNotAbortTheOthers",
+      "exit": 1,
+      "log": "ui-viewport-error-swallowed.log"
+    },
+    {
+      "id": "ui-visible-filter-dropped-from-locator-key",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "check ids = [viewport-run]",
+      "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+      "exit": 1,
+      "log": "ui-visible-filter-dropped-from-locator-key.log"
+    },
+    {
+      "id": "scratch-system-dir-guard-dropped",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want the system-directory refusal",
+      "test": "TestScratchPathRefusalReasons",
+      "exit": 1,
+      "log": "scratch-system-dir-guard-dropped.log"
+    },
+    {
+      "id": "scratch-descendant-check-dropped",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "marked directory outside",
+      "test": "TestRemoveScratchRefusesNonScratch",
+      "exit": 1,
+      "log": "scratch-descendant-check-dropped.log"
+    },
+    {
+      "id": "scratch-marker-check-dropped",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "accepted an unmarked non-empty directory",
+      "test": "TestRemoveScratchRefusesNonScratch",
+      "exit": 1,
+      "log": "scratch-marker-check-dropped.log"
+    },
+    {
+      "id": "scratch-home-ancestor-check-dropped",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want a HOME refusal",
+      "test": "TestScratchPathRefusalReasons",
+      "exit": 1,
+      "log": "scratch-home-ancestor-check-dropped.log"
+    },
+    {
+      "id": "ui-browser-launch-allowed-outside-container",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "no launch marker: err = \u003cnil\u003e",
+      "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+      "exit": 1,
+      "log": "ui-browser-launch-allowed-outside-container.log"
+    },
+    {
+      "id": "ui-isolation-env-not-required",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "no isolation env: err = \u003cnil\u003e",
+      "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+      "exit": 1,
+      "log": "ui-isolation-env-not-required.log"
+    },
+    {
+      "id": "ui-host-network-allowed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "host network: err = \u003cnil\u003e",
+      "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+      "exit": 1,
+      "log": "ui-host-network-allowed.log"
+    },
+    {
+      "id": "ui-action-budget-not-doubled",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "budget = 3s",
+      "test": "TestActionBudgetBoundsEveryBrowserCall",
+      "exit": 1,
+      "log": "ui-action-budget-not-doubled.log"
+    },
+    {
+      "id": "fixture-verdict-always-pass",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "was not caught by bad-hidden-display-none",
+      "test": "TestFixtureRejectsAnEngineStuckOnOneAnswer",
+      "exit": 1,
+      "log": "fixture-verdict-always-pass.log"
+    }
+  ]
+}
