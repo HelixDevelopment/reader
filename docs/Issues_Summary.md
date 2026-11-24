@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -93,3 +93,13 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 | HRD-109 | Task | Low | Queued | 0 | PR #22 (HRD-086) review follow-ups F1 to F4: reciprocal cross-links, exact evidence paths, scope wording |
 | HRD-110 | Bug | Low | Queued | 0 | scripts/pr/deliver.py open regenerates the whole PR body and overwrites the Test types line (and any hand-edited body text) on a re-run |
 | HRD-111 | Bug | Low | Queued | 0 | verify_workable_items.py counts a skipped reportlab mutation test as FAIL (mutation-pdf-values-unescaped): environmental SKIP reported as FAIL |
+| HRD-112 | Task | Medium | Queued | 0 | Register review follow-ups of PRs 5, 10 to 15, 17, 20, 26 to 28 and correct the minor errors of the PR 29 review (second registry follow-up) |
+| HRD-113 | Task | Low | Queued | 0 | PR #11 (HRD-050 gate) review follow-ups: ls -A failure, TMPDIR in repo, test gaps t1 to t3, newline paths, fixtures, live run |
+| HRD-114 | Task | Medium | Queued | 0 | PR #12 (HRD-070 fuzz targets) review follow-ups F1 to F5, I1, M1 to M5, N-A |
+| HRD-115 | Bug | Medium | Queued | 0 | LCP license Parse accepts case-variant member names (ID accepted as id, listed as unknown member too) |
+| HRD-116 | Task | Medium | Queued | 0 | PR #13 (HRD-031 LCP server wiring) review follow-ups I1 to I4, A6/A7, proxy doc note, N3, trailer layout, sealed evidence re-run |
+| HRD-117 | Task | Low | Queued | 0 | PR #14 (HRD-036 remote HTTP Range and revalidation) review follow-ups N2 to N6, N10 to N20 |
+| HRD-118 | Task | Low | Queued | 0 | Skips in httpapi and catalog tests carry no closed 11.4.69 reason code (26 skips) |
+| HRD-119 | Bug | Medium | Queued | 0 | HelixTrack sync: final --report is written after the lock is released, a later run marker can be overwritten |
+| HRD-120 | Task | Medium | Queued | 0 | PR #26 (HRD-087 Cronet and HTTP/3 clients) review follow-ups: verdict identity, access-log flag, ApiRequestPolicy, JVM test not executed |
+| HRD-121 | Task | Medium | Queued | 0 | Gate tool gaps found reviewing PR 27: helix-deps ref compared by 7 characters, gitlink_on_remote BLIND instead of FAIL, no pointer-on-main check (OWED-GATE-151) |

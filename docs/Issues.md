@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -2330,15 +2330,15 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Collects the open follow-ups recorded by the independent review of pull request #5: FU1, FU2, FU3, FU4, FU5 and finding F5. The exact wording of each lives in the review record. UNCONFIRMED: the review text was not re-read while allocating this item, so each follow-up must be transcribed from the review into this item before work starts.
+**Description:** Open follow-ups of the independent reviews of pull request 5 (isolation guard; MERGED), transcribed from pr5-review-7f6c7be.txt lines 71 to 76 and pr5-review-e15f0e8.txt lines 39 to 42 (all test-instrumentation or process-doc, none blocking). FU1 (test-instrumentation, important): no test kills mutant K13, so the waivers.history sha comparison (the hand-edited-hash tripwire) is unguarded; add the hand-edit case as a test with a paired mutant. FU2 (minor): malformed or padded history rows are silently ignored (should report waiver-malformed) and mutant K15 (prefix-path) survives; add a prefix-sharing path case. FU3 (minor): safe_streams call sites (K9, K18, K19, K20) and rev-parse decode (K7) have no killing test; assert each entry point stream errors equal backslashreplace. FU4 (process-doc): three commits carry Roadmap-Item outside the git trailer block (cannot be amended, 11.4.113). FU5 (process-doc): operator home path in frozen captured evidence files; consider host-path redaction in future captures. F5 (carried): tests/live/run_gated_tests.sh lines 152 and 156 echo container-influenced Go test names unescaped (FAILED-TEST and UNLISTED-SKIP); that is main file. Previous text of this item said UNCONFIRMED; now transcribed.
 
-**Affected scope:** Files named in the PR #5 review record.
+**Affected scope:** tools/isolation (assert_host_untouched.py and its guard tests), tests/live/run_gated_tests.sh, evidence of PR 5.
 
 **Reproduction / current observation:** Open the PR #5 review comments and list FU1 to FU5 and F5 with their cited lines.
 
-**Acceptance:** Each of FU1 to FU5 and F5 is fixed or explicitly closed with evidence, each in its own commit carrying this id.
+**Acceptance:** Each of FU1 to FU3 and F5 fixed with a test that fails without the fix (K13 and K15 killed) or closed with a recorded reason; FU4 and FU5 closed with a recorded reason; validate passes.
 
-**Closure criteria:** Each of FU1 to FU5 and F5 is fixed or explicitly closed with evidence, each in its own commit carrying this id.
+**Closure criteria:** Each of FU1 to FU3 and F5 fixed with a test that fails without the fix (K13 and K15 killed) or closed with a recorded reason; FU4 and FU5 closed with a recorded reason; validate passes.
 
 **Evidence:** Not yet available; no pass is claimed.
 
@@ -2348,11 +2348,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T18:57:42Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Transcribe PR 5 follow-ups from the review files (HRD-112); history kept; evidence: none recorded
 
 ## [HRD-093] PR #10 review follow-ups N1 to N7 and F-a, F-b, F-c (registry hardening)
 
@@ -2364,15 +2365,15 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Collects the open follow-ups of the independent review of pull request #10 (registry hardening): notes N1 to N7 and findings F-a, F-b and F-c. UNCONFIRMED: the individual texts must be transcribed from the review record before work starts.
+**Description:** Open follow-ups of the independent reviews of pull request 10 (registry hardening, MERGED), transcribed from pr10-review-3355491.txt lines 60 to 80, pr10-review-97d1a9a.txt lines 39 to 42 and pr10-review-226110e.txt lines 30 to 36. N1 (test-instrumentation, important): reviewer mutants C6 and C9 survive the 95-test suite though each changes real checker output (C6: 56 to 106 missing; C9: 10 items PENDING-PR to NOWHERE): the cited-dir depth floor and the underscore-prefix ownership rule have no killing test. N2 (important): mutants W2 and W3 survive: diff returning PASS on a corrupt or non-object outbox is not caught by any test. N3 (nit): stale ownership entry tools/helixtrack-sync (HRD-029) remains although the path is on main. N4 (nit): the words (upstream Core) added in docs/helixtrack-sync.md are not mentioned in the commit message or body. N5 (nit): body said main 316e950 was merged; the merge parent is 03226cc. N6 (minor): mutants C3, C8, C11, C12 survive (equivalent on today data, untested). N7 (latent, minor): presence uses git ls-files without --recurse-submodules, so a path inside a submodule would be reported missing; document or recurse. F-a: export is not byte-reproducible (PDF CreationDate and ID, meta.last_sync_timestamp in the DB), so git diff --exit-code after export is never clean; diff is the oracle; consider SOURCE_DATE_EPOCH and not bumping last_sync_timestamp on an unchanged export. F-b: export without reportlab raises a traceback instead of a clean refusal. F-c (process-doc): PR body refresh section could record the evidence-check pass and the 187/0 reportlab run. P1 (process-doc): body planned merge order omitted PR 16. P2: round-5 refresh section sits after the attribution footer and the 56/17 breakdown is stale (54 = 22/17/15). P3: evidence/workable-items/registry-hardening-pr8/final_check_references.txt is a dated snapshot showing 56. Related: HRD-111, HRD-085. N7 text of the review was read; exact wording of N4 to N6 beyond the above is UNKNOWN.
 
-**Affected scope:** scripts/workable_items.py, scripts/verify_workable_items.py, tests/test_workable_items.py, docs/workable-items.md.
+**Affected scope:** scripts/workable_items.py, scripts/verify_workable_items.py, scripts/check_registry_references.py, tests/test_workable_items.py, tests/test_check_registry_references.py, docs/workable-items.md, docs/helixtrack-sync.md.
 
 **Reproduction / current observation:** Read the PR #10 review comments and list N1 to N7, F-a, F-b, F-c.
 
-**Acceptance:** Every item fixed or closed with evidence, tests added where behavior changes, validate and diff PASS.
+**Acceptance:** N1, N2, N6 each fixed with a test and a paired mutant that is killed; N3, N7, F-a, F-b fixed or closed with a recorded reason; the process-doc items closed with a recorded reason; validate and diff PASS.
 
-**Closure criteria:** Every item fixed or closed with evidence, tests added where behavior changes, validate and diff PASS.
+**Closure criteria:** N1, N2, N6 each fixed with a test and a paired mutant that is killed; N3, N7, F-a, F-b fixed or closed with a recorded reason; the process-doc items closed with a recorded reason; validate and diff PASS.
 
 **Evidence:** Not yet available; no pass is claimed.
 
@@ -2382,11 +2383,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T18:57:42Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Transcribe PR 10 follow-ups from the review files (HRD-112); history kept; evidence: none recorded
 
 ## [HRD-094] Follow-ups of the reviews of pull requests #15 and #17
 
@@ -2398,15 +2400,15 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Collects the open follow-ups of the independent reviews of pull requests #15 and #17. UNCONFIRMED: the specific findings must be transcribed from the review records, no ids were available when this item was allocated.
+**Description:** Open follow-ups of the independent reviews of pull requests 15 (HelixTrack sync tool, MERGED) and 17 (slow-client live tests, HRD-067, MERGED). PR 15 (pr15-review-e9aab9c.txt lines 89 to 130; the source-defect M1 is its own item HRD-119): M2 (minor): --record JSONL is written with json.dumps(ensure_ascii=False), so C1, DEL, bidi, zero-width and line-separator characters land raw in evidence files (98 of 493 hostile runs); use ensure_ascii=True. M3 (minor): two shape classes escape ShapeError (409/3006 with a 5000-digit version raises ValueError; two tickets claiming one key with ids 5 and s raise TypeError in sorted) and an int ticket id passes _id() but load_state() rejects it next run. M4 (minor): with --record a lone surrogate in a response aborts every run (UnicodeEncodeError, rc=3). N1 (nit): no overall request deadline (urllib timeout is per socket operation; a drip server held a run for more than 12 s with timeout 1). N2 (nit): KEY_RE and MARKER_RE use backslash-d which matches non-ASCII digits; use 0-9. N3 (test gaps): mutants id-bool-accepted, lastresort-no-report, safe_text-zs-allowed, syncerror-report-no-safe survive. N4 to N6 carried from the previous review (pr15-review-662a1f2.txt lines 49 to 60): N4 host paths in evidence logs (139 occurrences), N5 response bodies read without a size cap (a cap of 8 MiB is mentioned in the later review, verify), N6 the tool reads the generated outbox not the DB and nothing checks the outbox is current. Earlier N1 and N2 of that file: unmapped registry statuses (Ready for testing, In testing, Reopened, Obsolete) raise; docs/helixtrack-sync.md says 68 tests and 31 mutants but the suite has 110 tests. N3: --record file written with default umask (measured 664). N7 (nit, later review): PR body says 12 files not in the top seal, tree shows 13. PR 17 (pr17-review-47c7aeb.txt lines 72 to 78 and pr17-review-4f3f1ca.txt; N8 and the stale Mirror parity section are item HRD-118): N1 (source-defect minor, commit-message overclaim): pending bound is not checked at exactly 64, the lower tolerance lets 63 pass (mutant R01 survives); count non-terminal jobs immediately after rejection. N2: shutdown_bounded runs only with no job in flight, so cancel-on-shutdown is never exercised (R12 survives). N3 (usability): one HELIX_SLOW_CLIENT_OUT shared by both live tests makes the second fail; use per-test subdirectories. N4 (robustness): the post-arm drain loop has no watchdog (semaphore leak R08 hangs until the go test timeout). N5: Redis-unreachable skip has no closed reason code. N6 (body): Evidence section lists 2026-11-23 json files that PROVENANCE.md says are not evidence for this head. N7 (scope): the job test drives the in-memory store, not HTTP slow sockets; run_all_live.sh folding and tc/netem chaos are not done; HRD-067 must not be closed on this alone. From the earlier review (pr17-review-47b7f95.txt lines 73 to 77): catalog header claims pool backpressure holds but no assert covers pool state and stallHits is never asserted; PR body names the gates but not HELIX_TEST_REDIS_ADDR; catalog read-phase timeout is mostly enforced by the test driver wrapper. Previous text of this item said UNCONFIRMED; now transcribed.
 
-**Affected scope:** Files named in the PR #15 and PR #17 review records.
+**Affected scope:** tools/helixtrack-sync/helixtrack_sync.py and its tests, docs/helixtrack-sync.md, server/internal/httpapi and server/internal/catalog slow-client tests (HRD-067), evidence/campaign-2026-11-2x/slow-client.
 
 **Reproduction / current observation:** Read the review comments of #15 and #17 and list every open follow-up.
 
-**Acceptance:** Every listed follow-up fixed or closed with evidence in its own commit carrying this id.
+**Acceptance:** Every listed follow-up fixed with a test that fails without the fix (the named surviving mutants killed) or closed with a recorded reason in its own commit carrying this id; validate passes.
 
-**Closure criteria:** Every listed follow-up fixed or closed with evidence in its own commit carrying this id.
+**Closure criteria:** Every listed follow-up fixed with a test that fails without the fix (the named surviving mutants killed) or closed with a recorded reason in its own commit carrying this id; validate passes.
 
 **Evidence:** Not yet available; no pass is claimed.
 
@@ -2416,11 +2418,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T16:39:08Z
+**Created / modified:** 2026-11-24T16:39:08Z / 2026-11-24T18:57:42Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Transcribe PR 15 and PR 17 follow-ups from the review files (HRD-112); history kept; evidence: none recorded
 
 ## [HRD-095] PR #16 review follow-ups F1 to F6
 
@@ -2432,7 +2435,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Open follow-ups of the independent reviews of PR #16 (HRD-027 and HRD-048, server load and soak tests), verdict files /home/milosvasic/.cache/claude-tmp/pr16-HRD-027-review-8e81a0f6.txt, pr16-HRD-027-review-c3d9d6cb.txt, pr16-HRD-027-review-5c73cf24.txt (all GO-with-follow-ups, no Important findings) and the earlier pr16-review-54ea2d7.txt and pr16-review-d9c49c6.txt. F1 (test-instrumentation, minor): soak detector parameters not pinned: mutants G4, G5, G8 survive, plus G9 (soakGoroutineSlop 3 to 2 survives; the slop test is relative to the constant); G10 (> to >= on the goroutine slop) is killed. F2 (test-instrumentation, minor): freshEvidenceDir, the HELIX_SOAK_ITERS cap and the rclone-probe gate are untested. F3 (usability, minor): a shared HELIX_LOAD_EVIDENCE_DIR across harnesses in one run makes the second harness t.Fatal. F4: hrd048 evidence not marked superseded (addressed in the PR body per the d9c49c6 review). F5 (observation): the server-mix soak is close to the growth and R2 gates; a longer run is owed. F6 (minor): tools mutate.sh writes /tmp/mut.$$ and has a vacuous HEAD body check. N2 (nit): the PR body Test types line lost its hermetic-versus-live qualifier (now only in the Scope section); restore it. O1 (observation): the author-only reviewer report with read-back (11.4.297(D)(6)) must be read back before merge (PR 16 has since landed or not: UNKNOWN, check gh pr view 16). F7 and F8 and N1 were body-text items addressed at 5c73cf2. Live legs (PostgreSQL, Redis, rclone, HELIX_LOAD_RUN, long soak) remain UNCONFIRMED. Related: HRD-027, HRD-045, HRD-048. Registered by HRD-104.
+**Description:** Open follow-ups of the independent reviews of PR #16 (HRD-027 and HRD-048, server load and soak tests), verdict files /home/milosvasic/.cache/claude-tmp/pr16-HRD-027-review-8e81a0f6.txt, pr16-HRD-027-review-c3d9d6cb.txt, pr16-HRD-027-review-5c73cf24.txt (all GO-with-follow-ups, no Important findings) and the earlier pr16-review-54ea2d7.txt and pr16-review-d9c49c6.txt. F1 (test-instrumentation, minor): soak detector parameters not pinned: mutants G4, G5, G8 survive, plus G9 (soakGoroutineSlop 3 to 2 survives; the slop test is relative to the constant); G10 (> to >= on the goroutine slop) is killed. F2 (test-instrumentation, minor): freshEvidenceDir, the HELIX_SOAK_ITERS cap and the rclone-probe gate are untested. F3 (usability, minor): a shared HELIX_LOAD_EVIDENCE_DIR across harnesses in one run makes the second harness t.Fatal. F4: hrd048 evidence not marked superseded (addressed in the PR body per the d9c49c6 review). F5 (observation): the server-mix soak is close to the growth and R2 gates; a longer run is owed. F6 (minor): tools mutate.sh writes /tmp/mut.$$ and has a vacuous HEAD body check. N2 (nit): the PR body Test types line lost its hermetic-versus-live qualifier (now only in the Scope section); restore it. O1 (observation): the author-only reviewer report with read-back (11.4.297(D)(6)) must be read back before merge (PR 16 is MERGED (gh pr view 16 on 2026-11-24: merge commit 49137a14f31607467e8cc0e1b543d4fe88e6b723, head 5c73cf24); the author-only reviewer report with read-back was owed before that merge and whether it was posted is UNKNOWN). F7 and F8 and N1 were body-text items addressed at 5c73cf2. Live legs (PostgreSQL, Redis, rclone, HELIX_LOAD_RUN, long soak) remain UNCONFIRMED. Related: HRD-027, HRD-045, HRD-048. Registered by HRD-104.
 
 **Affected scope:** server/internal/httpapi (soak_test.go, soak_detector_gates_test.go, load_concurrent_test.go), server/internal/sources, mutate.sh (path UNKNOWN: read the PR 16 diff), evidence/campaign-2026-11-23/gap-fix/hrd048*
 
@@ -2450,12 +2453,13 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:09Z / 2026-11-24T18:29:58Z
+**Created / modified:** 2026-11-24T16:39:09Z / 2026-11-24T18:57:41Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
 - 2026-11-24 — Updated by AI: Transcribe PR 16 review findings; registered by HRD-104; evidence: none recorded
+- 2026-11-24 — Updated by AI: Correct PR 29 review finding 3 (HRD-112): PR 16 is MERGED; evidence: none recorded
 
 ## [HRD-096] PR #18 review follow-ups N1 to N6
 
@@ -2537,15 +2541,15 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Collects notes N1, N2 and N3 of the independent review of pull request #20. UNCONFIRMED: texts to be transcribed from the review record.
+**Description:** Open follow-ups of the independent review of pull request 20 (scripts/pr/deliver.py evidence rules, HRD-083, MERGED), transcribed from pr20-review-9d36c11.txt lines 27 to 30. N1 (minor, test-instrumentation): the F4 fix (sorted(set(cited)) in pr_body) has no test; reviewer mutant M3 (drop the dedupe) survives; add a pr_body test with a path cited twice. N2 (minor, test-instrumentation): git log --topo-order in commits() has no mutant or test (disclosed); a test with two parallel branches and skewed GIT_COMMITTER_DATE would pin it. N3 (minor, process-doc, pre-existing): EVIDENCE_RE silently ignores malformed citation lines (short hash, Evidence: without a space); consider reporting malformed red, green or Evidence lines as INCONCLUSIVE rather than skipping them. Related: HRD-110, HRD-083.
 
-**Affected scope:** Files named in the PR #20 review record.
+**Affected scope:** scripts/pr/deliver.py, tests/test_pr_deliver.py, scripts/pr/mutate_deliver.py.
 
 **Reproduction / current observation:** Read the PR #20 review and list N1 to N3.
 
-**Acceptance:** Each of N1 to N3 fixed or closed with evidence.
+**Acceptance:** N1 and N2 fixed with tests (mutant M3 and a topo-order mutant killed); N3 fixed or closed with a recorded reason; unittest tests.test_pr_deliver passes.
 
-**Closure criteria:** Each of N1 to N3 fixed or closed with evidence.
+**Closure criteria:** N1 and N2 fixed with tests (mutant M3 and a topo-order mutant killed); N3 fixed or closed with a recorded reason; unittest tests.test_pr_deliver passes.
 
 **Evidence:** Not yet available; no pass is claimed.
 
@@ -2555,11 +2559,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T16:39:10Z
+**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T18:57:43Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Transcribe PR 20 follow-ups from the review file (HRD-112); history kept; evidence: none recorded
 
 ## [HRD-099] PR #21 finding F3: make the retry bound consumer data
 
@@ -2571,11 +2576,11 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Finding F3 of the review of PR #21 (HRD-084, constitution pin landing parity), file /home/milosvasic/.cache/claude-tmp/pr21-review-e722e6a.txt line 17 (minor, carried over from the constitution review): state that the retry bound is consumer DATA (11.4.35), already listed in the PR body. CORRECTION of the earlier text of this item: the review text names a statement to make (the retry bound for landing parity is consumer data), not a literal in code; UNKNOWN: whether a retry loop with a code literal exists anywhere; the loop and its location are in the constitution amendment 7bd8f37 (OWED-GATE-186 CM-LANDING-ALL-UPSTREAMS-READBACK) and must be read before work starts. Other notes of the PR 21 reviews (no action needed): F2 brief accuracy (7bd8f37 parent is 1fe6383); N1 commit e722e6a message claims 7bd8f37 on all six URLs (superseded, not rewritten); N2 the pin 74c415d is behind constitution main 7ac2926 by 3 commits, a later bump is a separate item; the 37abaeb delta review noted a stat-only check cannot detect a one-digit-off gitlink, exact sha plus ancestry checks are needed. Related: HRD-084. Registered by HRD-104.
+**Description:** Finding F3 of the review of PR #21 (HRD-084, constitution pin landing parity), file /home/milosvasic/.cache/claude-tmp/pr21-review-e722e6a.txt line 17 (minor, carried over from the constitution review): state that the retry bound is consumer DATA (11.4.35), already listed in the PR body. CORRECTION of the earlier text of this item: the review text names a statement to make (the retry bound for landing parity is consumer data), not a literal in code; UNKNOWN: whether a retry loop with a code literal exists anywhere; the loop and its location are in the constitution amendment 7bd8f37 (OWED-GATE-186 CM-LANDING-ALL-UPSTREAMS-READBACK) and must be read before work starts. Other notes of the PR 21 reviews (no action needed): F2 brief accuracy (7bd8f37 parent is 1fe6383); N1 commit e722e6a message claims 7bd8f37 on all six URLs (superseded, not rewritten); N2 the pin 74c415d is behind constitution main 7ac2926 by 3 commits, a later bump is a separate item; the 37abaeb delta review noted a stat-only check cannot detect a one-digit-off gitlink, exact sha plus ancestry checks are needed. Related: HRD-084. Registered by HRD-104. Resolved note (HRD-112): finding F1 of pr21-review-e722e6a.txt (HRD-084 absent from the main DB at that time) is resolved: HRD-084 now exists in the registry.
 
 **Affected scope:** Constitution amendment 7bd8f37 text on landing parity and the PR 21 body; code location UNKNOWN until read
 
-**Reproduction / current observation:** Locate the hard-coded retry bound named in the PR #21 review.
+**Reproduction / current observation:** Read the constitution amendment 7bd8f37 (OWED-GATE-186 CM-LANDING-ALL-UPSTREAMS-READBACK) and the PR 21 body and decide whether any retry loop with a code literal exists; the review text names a statement to make, not a literal in code (UNKNOWN whether a literal exists).
 
 **Acceptance:** The retry bound is stated as consumer DATA in the cited text, or the retry code location is found and its bound is read from configuration with a documented default and a test; HRD-099 closed with a recorded reason if no code literal exists; validate passes.
 
@@ -2589,13 +2594,14 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T18:30:03Z
+**Created / modified:** 2026-11-24T16:39:10Z / 2026-11-24T18:57:41Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
 - 2026-11-24 — Updated by AI: Correct and transcribe PR 21 review finding F3; registered by HRD-104; evidence: none recorded
 - 2026-11-24 — Updated by AI: Align scope and acceptance with the corrected description; registered by HRD-104; evidence: none recorded
+- 2026-11-24 — Updated by AI: Correct PR 29 review findings 2 and 4 (HRD-112): align reproduction field, record resolved F1 of pr21-review-e722e6a.txt; evidence: none recorded
 
 ## [HRD-100] Constitution wave: decide doc_processor main versus master divergence (submodule pin)
 
@@ -2607,7 +2613,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision.
+**Description:** The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 10 (2026-11-24): doc_processor gitlink 12a5fb7 equals the master tip; upstream main is 86f1a98; master is 126 commits ahead of main and main is 1 commit ahead of master (diverged); the 11.4.288(D) violation remains and is left to an operator decision.
 
 **Affected scope:** submodules/doc_processor, helix-deps.yaml, docs/submodule-pins-on-main-2026-11-23.md.
 
@@ -2625,11 +2631,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T18:57:45Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Add PR 27 review evidence (HRD-112); evidence: none recorded
 
 ## [HRD-101] Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched
 
@@ -2641,7 +2648,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** The llm_orchestrator submodule cannot be fetched from the gitlab-helix remote because credentials are missing or rejected, so its pin cannot be verified on main (relates to HRD-053). Credentials must be provided through the environment by variable name only and are never written to the repository. UNCONFIRMED: whether the cause is a missing deploy key, an expired token or an access grant.
+**Description:** The llm_orchestrator submodule cannot be fetched from the gitlab-helix remote because credentials are missing or rejected, so its pin cannot be verified on main (relates to HRD-053). Credentials must be provided through the environment by variable name only and are never written to the repository. UNCONFIRMED: whether the cause is a missing deploy key, an expired token or an access grant. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 9 (2026-11-24, re-measured with ls-remote): llm_orchestrator HEAD, main and master are all 8ee5795 (main parent c84c410), so that gitlink is on main now; the PR 27 body statement that it is a master tip one ahead of main is stale or wrong (UNCONFIRMED which); re-read the credential state before acting.
 
 **Affected scope:** submodules/llm_orchestrator remotes, local git configuration of the operator host.
 
@@ -2659,11 +2666,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T16:39:11Z
+**Created / modified:** 2026-11-24T16:39:11Z / 2026-11-24T18:57:45Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Add PR 27 review evidence (HRD-112); evidence: none recorded
 
 ## [HRD-102] Constitution wave: bump challenges, containers and helixqa submodule pins on main
 
@@ -2981,15 +2989,15 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Reopens:** 0
 
-**Description:** Found by the independent review of PR #9 (file /home/milosvasic/.cache/claude-tmp/pr9-HRD-051-review-0e52c228.txt): python3 scripts/verify_workable_items.py reports 186 pass and 1 fail on both the PR head and github/main; the single failing check is mutation-pdf-values-unescaped, whose detail is test skipped 'reportlab unavailable' because reportlab is not installed on the host. The mutation harness counts a skipped inner test as FAIL, so an environmental absence turns the qualification red. Expected by the conductor and the CLAUDE.md qualification note (1 pre-existing reportlab FAIL). Under 11.4.3 and 11.4.69 an absent dependency is an honest SKIP with a closed reason code, never a FAIL and never a PASS. UNKNOWN: whether the inner skip is reported by unittest as skipped in a way the harness can parse; read scripts/verify_workable_items.py and tests/test_workable_items.py before fixing. Related: HRD-105.
+**Description:** Found by the independent review of PR #9 (file /home/milosvasic/.cache/claude-tmp/pr9-HRD-051-review-0e52c228.txt): python3 scripts/verify_workable_items.py reports 186 pass and 1 fail on both the PR head and github/main; the single failing check is mutation-pdf-values-unescaped, whose detail is test skipped 'reportlab unavailable' because reportlab is not installed on the host. The mutation harness counts a skipped inner test as FAIL, so an environmental absence turns the qualification red. This is a pre-existing FAIL on main: reportlab is not installed on the host (docs/workable-items.md lines 64 to 67 only say that PDF export needs ReportLab; CLAUDE.md carries no note about an expected FAIL, per the review of PR 29, finding 1). With PYTHONPATH=/home/milosvasic/.cache/helix-docs-deps the same run gives 187 pass and 0 fail. Under 11.4.3 and 11.4.69 an absent dependency is an honest SKIP with a closed reason code, never a FAIL and never a PASS. UNKNOWN: whether the inner skip is reported by unittest as skipped in a way the harness can parse; read scripts/verify_workable_items.py and tests/test_workable_items.py before fixing. Related: HRD-105.
 
 **Affected scope:** scripts/verify_workable_items.py, tests/test_workable_items.py, evidence/workable-items/results.json
 
 **Reproduction / current observation:** python3 scripts/verify_workable_items.py on a host without reportlab: 1 fail (mutation-pdf-values-unescaped); restore evidence/workable-items/results.json afterwards with git checkout.
 
-**Acceptance:** The harness records SKIP with reason code hardware_not_present or the closest member of the closed set (UNKNOWN: confirm the set in docs/workable-items.md) when reportlab is absent, FAIL only when the mutation test runs and does not detect the mutant; results.json shows 0 fail on a host without reportlab; with reportlab installed the mutation is still killed; unit tests pass.
+**Acceptance:** The harness records SKIP with a reason code from the closed 11.4.69 set when reportlab is absent (UNKNOWN: which member fits a missing Python library; hardware_not_present is questionable because a library is not hardware; pick from the closed set later, and if no member fits that is itself a finding for the constitution), FAIL only when the mutation test runs and does not detect the mutant; results.json shows 0 fail on a host without reportlab; with reportlab installed the mutation is still killed; unit tests pass.
 
-**Closure criteria:** The harness records SKIP with reason code hardware_not_present or the closest member of the closed set (UNKNOWN: confirm the set in docs/workable-items.md) when reportlab is absent, FAIL only when the mutation test runs and does not detect the mutant; results.json shows 0 fail on a host without reportlab; with reportlab installed the mutation is still killed; unit tests pass.
+**Closure criteria:** The harness records SKIP with a reason code from the closed 11.4.69 set when reportlab is absent (UNKNOWN: which member fits a missing Python library; hardware_not_present is questionable because a library is not hardware; pick from the closed set later, and if no member fits that is itself a finding for the constitution), FAIL only when the mutation test runs and does not detect the mutant; results.json shows 0 fail on a host without reportlab; with reportlab installed the mutation is still killed; unit tests pass.
 
 **Evidence:** Not yet available; no pass is claimed.
 
@@ -2999,8 +3007,349 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testi
 
 **Attribution:** created by User; assigned to Operator
 
-**Created / modified:** 2026-11-24T18:29:21Z / 2026-11-24T18:29:21Z
+**Created / modified:** 2026-11-24T18:29:21Z / 2026-11-24T18:57:41Z
 
 **History:**
 
 - 2026-11-24 — Opened by User: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Correct PR 29 review finding 1 (HRD-112): drop nonexistent CLAUDE.md attribution and the questionable reason code; evidence: none recorded
+
+## [HRD-112] Register review follow-ups of PRs 5, 10 to 15, 17, 20, 26 to 28 and correct the minor errors of the PR 29 review (second registry follow-up)
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Second registry follow-up after PR 29 (HRD-104). (A) Corrects the minor errors the review of PR 29 found (file pr29-HRD-104-review-4ec8117d.txt): HRD-111 no longer cites a nonexistent CLAUDE.md note, HRD-099 reproduction field aligned, HRD-095 states PR 16 is MERGED, HRD-099 records the resolved F1 of pr21-review-e722e6a.txt. (B) Registers follow-ups of the independent reviews of PRs 5, 10, 11, 12, 13, 14, 15, 17 and 20 that had no registry text, per 11.4.214 (checked against existing items first; HRD-092, HRD-093, HRD-094 and HRD-098 were placeholders marked UNCONFIRMED and are updated with the transcribed text, their history is kept) and new items HRD-113 to HRD-119. (C) Registers follow-ups of the reviews of PRs 26, 27 and 28 (HRD-120, HRD-121). HRD-100 and HRD-101 already exist and are not duplicated. Registered by HRD-112. This item changes only the registry and its generated documents; no code.
+
+**Affected scope:** docs/workable_items.db and the generated docs/Issues*, docs/Fixed*, docs/tracking/helixtrack-outbox.json
+
+**Reproduction / current observation:** python3 scripts/workable_items.py validate and diff after the change; the review files named in each item are in /home/milosvasic/.cache/claude-tmp/.
+
+**Acceptance:** Every transcribed follow-up is traceable to its review file and line or marked UNKNOWN; validate and diff PASS; tests.test_workable_items and tests.test_pr_deliver pass.
+
+**Closure criteria:** Every transcribed follow-up is traceable to its review file and line or marked UNKNOWN; validate and diff PASS; tests.test_workable_items and tests.test_pr_deliver pass.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:41Z / 2026-11-24T18:57:41Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-113] PR #11 (HRD-050 gate) review follow-ups: ls -A failure, TMPDIR in repo, test gaps t1 to t3, newline paths, fixtures, live run
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Low
+
+**Reopens:** 0
+
+**Description:** Open non-blocking follow-ups of PR 11 (HRD-050 gate logic, tree-identical to PR 4 reviewed head 2da41b5) from the author self-review pr11-selfreview.txt (the independent GO file evidence/reviews/pr11-HRD-050-review-e312849.txt was in the reviewer worktree and is UNKNOWN here; wording below is from the self-review and pr11body.md lines 43 to 72): m1 an ls -A failure reads as an empty out directory; m3 TMPDIR inside the repo; t1, t2, t3 test gaps (texts UNKNOWN); F3 newline in paths mangles the report (fix not done); F4 extra fixtures and mutants OM4 and OM9 not done; n1 PR body cites a review file not in the tree; F8 a fresh live end-to-end run is owed (HRD-050 stays PROVISIONAL; the sealed live run was red: TestLiveLoadIngestConcurrentWithReads). Disclosure: review rounds exceeded the default budget and authorisation beyond one bounded round at round 6 is UNCONFIRMED as a separately recorded decision. Related: HRD-050, HRD-051.
+
+**Affected scope:** HRD-050 gate scripts and tests named in PR 11 (paths UNKNOWN: read the PR 11 diff), evidence/reviews.
+
+**Reproduction / current observation:** Read pr11body.md and the PR 11 diff; run the gate with an ls -A failure and a newline path.
+
+**Acceptance:** Each of m1, m3, t1 to t3, F3, F4, n1 fixed with a test that fails without the fix or closed with a recorded reason; F8 closed only by a fresh live run with captured evidence; validate passes.
+
+**Closure criteria:** Each of m1, m3, t1 to t3, F3, F4, n1 fixed with a test that fails without the fix or closed with a recorded reason; F8 closed only by a fresh live run with captured evidence; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:43Z / 2026-11-24T18:57:43Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-114] PR #12 (HRD-070 fuzz targets) review follow-ups F1 to F5, I1, M1 to M5, N-A
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Open follow-ups of the independent reviews of PR 12 (core/pkg/lcpfuzz test-only fuzz targets v2), from pr12-review-5aedf44.txt lines 23 to 47 and pr12-review-5aedf44-final.txt line 21 to 32. F1 (test-instrumentation, important): reviewer mutant R1 survives: in canonical.go withoutTopLevelMember the first strings.TrimLeft(..., space tab CR LF) changed to space tab only makes valid JSON with a newline before the colon fail CanonicalForSigning (probe in={"a"\n:1,"signature":{}} out="" err not valid JSON). F2: mutant R3 survives: strconv.Quote(key)+":" replaced by a hand-quoted form; no signing-path test uses keys that need escaping (same line as disclosed follow-up I1, canonical.go:152); close the class (whitespace around colon, escaped keys, control-character keys) rather than per instance. F3 (process-doc): rulemap.tsv X18 row is hand-edited after enumerate_rules.py map regenerated it (NOTES says Regenerated); disclose or teach map to take the why from equiv.tsv/oracle.tsv. F4 (process-doc): PR body reference R07 survives is wrong (R07_lsd_link_type_dropped is KILLED in hrd070-r7/mutation.log line 473); rename to F2. F5: see HRD-115 (production bug N1, filed as its own Bug). I1 (disclosed): canonical.go:152 strconv.Quote. M1 to M5: listed in the PR 12 body as not fixed; their text is UNKNOWN (not in the review files read). N-A (process-doc, minor): a PR comment by the author account still carries the earlier body text (298 killed, R07 survives); add a reply saying it is superseded. Related: HRD-070, HRD-115.
+
+**Affected scope:** core/pkg/lcpfuzz (canonical.go, tests), evidence hrd070-r5..r7, rulemap.tsv, PR 12 body and comments.
+
+**Reproduction / current observation:** Apply mutant R1 or R3 to withoutTopLevelMember and run the PR suite (go test ./pkg/lcpfuzz -run Fuzz|TestHRD070|TestSeed): green.
+
+**Acceptance:** F1 and F2 killed by new tests as a class; F3, F4, N-A closed with a recorded reason; M1 to M5 transcribed from the PR 12 body then fixed or closed; validate passes.
+
+**Closure criteria:** F1 and F2 killed by new tests as a class; F3, F4, N-A closed with a recorded reason; M1 to M5 transcribed from the PR 12 body then fixed or closed; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:43Z / 2026-11-24T18:57:43Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-115] LCP license Parse accepts case-variant member names (ID accepted as id, listed as unknown member too)
+
+**Status:** Queued
+
+**Type:** Bug
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Production bug found by the review of PR 12 (pr12-review-b1ecbb9.txt line 35, N1; carried as F5 in pr12-review-5aedf44.txt line 47): Parse accepts case-variant member names through Go case-insensitive struct matching. Probe: a document with "ID":"x" instead of "id" is ACCEPTED with id="x" AND UnknownMembers=[ID], which is self-contradictory (the same member is used and listed unknown). LCP and JSON member names are case-sensitive; required-member checks can be satisfied by wrongly cased members. It is also the root of finding B1 of that review. Not fixed in PR 12 (test-only). UNCONFIRMED whether other required members behave the same. Related: HRD-031, HRD-070, HRD-114.
+
+**Affected scope:** core lcp license Parse (path UNKNOWN: read the PR 12 and PR 13 diffs), core/pkg/lcpfuzz tests.
+
+**Reproduction / current observation:** Parse a license JSON with the member written ID instead of id and read id and UnknownMembers (the probe is in the PR 12 review b1ecbb9, zz_probe2_test.go).
+
+**Acceptance:** Parse rejects or ignores case-variant member names consistently (required member not satisfied by a wrongly cased one, never both used and unknown); a RED test fails before the fix and passes after, with the check on other required members; validate passes.
+
+**Closure criteria:** Parse rejects or ignores case-variant member names consistently (required member not satisfied by a wrongly cased one, never both used and unknown); a RED test fails before the fix and passes after, with the check on other required members; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:43Z / 2026-11-24T18:57:43Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-116] PR #13 (HRD-031 LCP server wiring) review follow-ups I1 to I4, A6/A7, proxy doc note, N3, trailer layout, sealed evidence re-run
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Follow-ups of the independent reviews of PR 13 (pr13-review-8ccba96.txt lines 102 to 115 and pr13-review-ee8e478.txt lines 83 to 94; pr13body.md lines 34 to 39). The review required them to be filed as tracked items before merge; the PR body says they were not filed in the PR. I1: redirect user:password refusal untested (mutant M2). I2: second GC lease check untested in isolation (M6, M7 equivalent alone). I3: redirect scheme check caught only by a reviewer test (M3). I4: cache-hit hash compare (mutant M11) is caught by no PR test: a corrupted cached artifact is never refetched by the PR own tests. A6 and A7: adopt the reviewer tests (reviewer tests R1, R2, R16, R17). m3 (performance): GC Collect calls repo.ReferencedLCPArtifacts once per reclaim candidate, O(N) full catalog reads per run. m4 (documentation): Proxy is nil so HTTP(S)_PROXY is ignored on purpose (SSRF hardening); the LCPFromEnv variable list does not say so. N3: 2.0 plain-link href assertion gap (mutant n12). Trailer layout defect (process-doc): Roadmap-Item and Out-of-scope lines are in a paragraph before Co-Authored-By so git interpret-trailers sees only Co-Authored-By, in commits 8ccba96 and ee8e478 (cannot be amended, 11.4.113). Sealed HRD-070 evidence (hrd070-r5..r7 mutation logs) references two test names that were not edited: re-run owed. Related: HRD-031, HRD-070, HRD-075.
+
+**Affected scope:** server/internal LCP fulfilment, GC and OPDS code and tests named in PR 13 (paths UNKNOWN: read the PR 13 diff), docs for LCPFromEnv, evidence hrd070-r5..r7.
+
+**Reproduction / current observation:** Apply mutants M2, M3, M6+M7 and M11 from the PR 13 review and run the PR tests: the PR suite is green for I1 to I4.
+
+**Acceptance:** I1 to I4 each covered by a test that kills its mutant (reviewer tests adopted); m3, m4, N3 fixed or closed with a recorded reason; sealed evidence re-run; validate passes.
+
+**Closure criteria:** I1 to I4 each covered by a test that kills its mutant (reviewer tests adopted); m3, m4, N3 fixed or closed with a recorded reason; sealed evidence re-run; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:44Z / 2026-11-24T18:57:44Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-117] PR #14 (HRD-036 remote HTTP Range and revalidation) review follow-ups N2 to N6, N10 to N20
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Low
+
+**Reopens:** 0
+
+**Description:** Open non-blocking follow-ups of PR 14 from pr14-review-4f21293.txt lines 30 to 46, pr14-review-706414e.txt lines 41 to 47, pr14-review-27a637d.txt lines 36 to 64 and pr14-review-782478d.txt lines 71 to 142 (final verdict GO-with-follow-ups). N2: Revalidate to OpenRange is not atomic (no If-Match or If-Unmodified-Since on the remote GET) so a file replaced between PROPFIND and GET can be served under the scan-time ETag; the router comment overstates the guarantee. N3 and N14 and N19 (test-instrumentation): surviving mutants O7, O10 (end clamp), O11, O12, O9b, Z3, Z5, Z6, Z15c (total != size to total > size: a shrunk origin would be accepted); no rclone Revalidate unit test. N4: rclone Revalidate maps any stderr containing not found to ErrNotFound (a missing --config file answers 404 instead of 502, confirmed live) and the traversal check HasPrefix(name, "..") rejects a legal ..x.epub. N5 (pre-existing): unknown range unit and Bytes= are answered 416 while RFC 9110 14.2 says an unknown unit must be ignored. N6 (pre-existing): no rclone concurrency cap (two rclone processes per remote request). N7 (process): Roadmap-Item trailer not parsed by git for commit 4f21293 (cannot be amended). N10: origin answers 206 with a short body gives a truncated response (unexpected EOF) once headers are sent. N11 (body accuracy). N12 and N13: full GET trusts the PROPFIND size for Content-Length; same size and mtime but changed bytes served under the old strong ETag. N15: no If-None-Match or 304 handling. N16: duplicate Content-Range header read from the first value only (wrong bytes possible); refuse unless exactly one. N17: unsolicited Content-Encoding on a 206 or 200 passed through raw under the identity ETag. N18: range unit is case-insensitive in RFC 9110 (BYTES refused with 502; conservative). N20 (body accuracy): Evidence section omits hrd036-r5 and has a missing newline. Related: HRD-036.
+
+**Affected scope:** server/internal/sources (webdav.go, rclone.go), server/internal/httpapi/router.go, their tests, PR 14 body.
+
+**Reproduction / current observation:** Apply the reviewer mutants named above (Z15c, Z5, Z6, O10) and run go test ./internal/sources ./internal/httpapi: green; for N4 run an rclone source with a missing --config file.
+
+**Acceptance:** Each of N2, N4, N5, N10, N12, N13, N16, N17, N18 fixed with a test that fails without the fix or closed with a recorded reason; the surviving mutants of N3 and N19 killed; N6, N15 decided; validate passes.
+
+**Closure criteria:** Each of N2, N4, N5, N10, N12, N13, N16, N17, N18 fixed with a test that fails without the fix or closed with a recorded reason; the surviving mutants of N3 and N19 killed; N6, N15 decided; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:44Z / 2026-11-24T18:57:44Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-118] Skips in httpapi and catalog tests carry no closed 11.4.69 reason code (26 skips)
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Low
+
+**Reopens:** 0
+
+**Description:** Follow-up N8 of the review of PR 17 (pr17-review-4f3f1ca.txt line 37): in go test ./internal/httpapi ./internal/catalog (127 PASS, 28 SKIP, 0 FAIL at head 4f3f1ca) 26 skips carry no closed reason code: 2 with HELIX_LOAD_RUN is not 1; measurement harness opted out, 23 with HELIX_TEST_POSTGRES_DSN is not configured, 1 with set HELIX_LCP_LIVE_BIN and HELIX_LCP_LIVE_EVIDENCE. Only 2 use feature_disabled_by_config. They belong to tests outside PR 17 (pre-existing). Also from the same review: the PR 17 body Mirror parity section was stale for the new head (process-doc, minor; PR is merged, nothing to fix there). The set of codes for an absent dependency is the closed 11.4.69 set (UNKNOWN which member fits a missing DSN, address or binary: read the set before choosing). Related: HRD-067, HRD-111.
+
+**Affected scope:** server/internal/httpapi and server/internal/catalog tests (skip calls).
+
+**Reproduction / current observation:** go test -p 2 -count=1 -v ./internal/httpapi ./internal/catalog and list SKIP reasons without a closed code.
+
+**Acceptance:** Every skip message starts with a code from the closed 11.4.69 set, enforced by a test that fails when a skip has no code (paired mutant); skips still never count as PASS; validate passes.
+
+**Closure criteria:** Every skip message starts with a code from the closed 11.4.69 set, enforced by a test that fails when a skip has no code (paired mutant); skips still never count as PASS; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:44Z / 2026-11-24T18:57:44Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-119] HelixTrack sync: final --report is written after the lock is released, a later run marker can be overwritten
+
+**Status:** Queued
+
+**Type:** Bug
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Source defect M1 of the review of PR 15 (pr15-review-e9aab9c.txt lines 89 to 105): the final --report is written AFTER the lock is released (main(): finally lock.release() then save_json_atomic(args.report, out), lines 1015 to 1020 of tools/helixtrack-sync/helixtrack_sync.py at that head). A run B that starts in that window acquires the lock and writes its InProgress marker, then run A overwrites the marker with its completed result. Reproduced by the reviewer (race.py): while B runs, and permanently if B is killed, the report shows the previous run as the latest. This contradicts the code comment at line 963 and the PR body claim that a stale report cannot survive, also after a kill. Narrow window; state and remote stay correct and the next run reconciles, so not data loss. Fix per the review: write the final report (and the compare report) before releasing the lock, optionally add a run id and timestamp to the report, add a test, correct the body sentence. Related: HRD-094, HRD-029.
+
+**Affected scope:** tools/helixtrack-sync/helixtrack_sync.py (main, lock handling, save_json_atomic), its tests.
+
+**Reproduction / current observation:** Reviewer race.py: in-process run A with a release hook that starts a real-CLI run B against a slow loopback server; read the report while B runs.
+
+**Acceptance:** A RED test reproduces the overwritten marker; after the fix the report is written before the lock is released and the test passes; the PR 15 body sentence corrected or noted; validate passes.
+
+**Closure criteria:** A RED test reproduces the overwritten marker; after the fix the report is written before the lock is released and the test passes; the PR 15 body sentence corrected or noted; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:44Z / 2026-11-24T18:57:44Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-120] PR #26 (HRD-087 Cronet and HTTP/3 clients) review follow-ups: verdict identity, access-log flag, ApiRequestPolicy, JVM test not executed
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Open follow-ups of the reviews of PR 26 (pr26-HRD-087-review-c186a013.txt lines 5 to 16 and pr26-HRD-087-review-3c0f920b.txt; also PR 27 and 28 reviews have no finding here). (1) Verdicts lack server and APK identity (11.4.289(D)): the verdicts do not record the sha256 of the helix-server binary or the APK; evidence/h3-cronet/README.md asserts the server in all runs is the binary built from this PR head without recorded identity: mark UNCONFIRMED or reword (review 3c0f920b new finding 2). (2) HELIX_ACCESS_LOG: config does c.AccessLog, _ = strconv.ParseBool(...), so an invalid value silently turns the evidence instrument off (HELIX_HTTP3 follows the same pattern). (3) ApiRequestPolicy.shouldHandle intercepts /v1/ on ANY https or http host, not only the configured server, and answers CORS for the app origin. (4) HEAD responses do not cancel the Cronet request. (5) Whether Cronet honours the app networkSecurityConfig cleartext rule is UNCONFIRMED. (6) ApiRequestPolicyTest.java (clients/android/android/app/src/test/java/org/helixreader/app/) is committed but not executed anywhere: the host has java but no javac and no junit jar, and Gradle and emulator are forbidden on the host by the test isolation rule; it needs a containerised run. (7) Mutation M2 on tools/isolation/h3_lab.sh survives: case $N in changed to case $n in (the upper-casing of the env denylist) because all denied test cases are upper-case; add a lower-case case or drop the upper-casing. (8) .gitignore /test anchoring no longer ignores a non-root path named test (informational; no junk newly un-ignored by any measured path). (9) PR 26 body parity section stale after the base moved (process-doc; PR merged). Related: HRD-087, HRD-088.
+
+**Affected scope:** server/internal/config, clients/android (ApiRequestPolicy.java and its JVM test), tools/isolation/h3_lab.sh, evidence/h3-cronet/README.md and verdict writer scripts (qa/h3/check_h3.py, run_android_h3.sh).
+
+**Reproduction / current observation:** Set HELIX_ACCESS_LOG to an invalid value and start the server: no error; read the verdict JSON for a server or APK sha256: absent.
+
+**Acceptance:** Verdicts carry the sha256 of the server binary and APK (or are labelled UNCONFIRMED); an invalid HELIX_ACCESS_LOG is reported at startup; shouldHandle scope and HEAD cancellation fixed or closed with a reason; ApiRequestPolicyTest executed in a rootless container with captured output; the lower-case denylist case added and its mutant killed; the cleartext rule checked on a device or kept UNCONFIRMED; validate passes.
+
+**Closure criteria:** Verdicts carry the sha256 of the server binary and APK (or are labelled UNCONFIRMED); an invalid HELIX_ACCESS_LOG is reported at startup; shouldHandle scope and HEAD cancellation fixed or closed with a reason; ApiRequestPolicyTest executed in a rootless container with captured output; the lower-case denylist case added and its mutant killed; the cleartext rule checked on a device or kept UNCONFIRMED; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:45Z / 2026-11-24T18:57:45Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-121] Gate tool gaps found reviewing PR 27: helix-deps ref compared by 7 characters, gitlink_on_remote BLIND instead of FAIL, no pointer-on-main check (OWED-GATE-151)
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Gate-tool gaps found by the review of PR 27 (pr27-HRD-102-review-70c3afd8.txt item 8, 9, 10, 11), with own mutations in a scratch clone. (A) scripts/gates/cm_helix_deps_ref_matches_gitlink compares only the 7-character ref prefix: a fabricated sha with the same 7-character prefix passes (compare full shas). (B) cm_gitlink_on_remote returns BLIND (rc=2, commit object not present) instead of FAIL when the object exists on no upstream; only a fresh-clone submodule update would fail. (C) An owned CM-SUBMODULE-POINTER-ON-MAIN check is missing (registered as deferral OWED-GATE-151 in the constitution): setting the gitlink AND the helix-deps ref both to a master-only commit (the review used containers 505a4d1) passes both gates (PASS and PUBLISHED); only merge-base --is-ancestor against upstream main (rc=1) catches the 11.4.288(D) off-main pointer; a gitlink-only change is caught by the ref match check as DRIFT. (D) PR 27 body said llm_orchestrator (8ee5795) and vision_engine (1b2b991) gitlinks are master tips one ahead of main; re-measured 2026-11-24 they are main (parents c84c410 and d52fa44), so the body sentence was stale or wrong (UNCONFIRMED which). (E) doc_processor gitlink 12a5fb7 is the master tip, main 86f1a98 is diverged (master 126 commits ahead, main 1 ahead): the violation remains and is HRD-100; llm_orchestrator credentials are HRD-101 (not duplicated here; evidence above applies to them). Related: HRD-100, HRD-101, HRD-102, HRD-103.
+
+**Affected scope:** scripts/gates/cm_helix_deps_ref_matches_gitlink.sh, scripts/gates/cm_gitlink_on_remote.sh, a new pointer-on-main gate, tests and mutants for them.
+
+**Reproduction / current observation:** In a scratch clone set a gitlink and helix-deps ref both to a master-only commit of a submodule and run the two gates: both PASS; set ref to a 7-character-prefix match of a fabricated sha: the ref check PASSES.
+
+**Acceptance:** Full-sha comparison with a RED test and a killed mutant; a missing object on every upstream is FAIL (with BLIND kept only for no checkout); a pointer-on-main gate fails the off-main mutations (gitlink and ref both on master-only) and passes a detached checkout on main; paired mutants killed; validate passes.
+
+**Closure criteria:** Full-sha comparison with a RED test and a killed mutant; a missing object on every upstream is FAIL (with BLIND kept only for no checkout); a pointer-on-main gate fails the off-main mutations (gitlink and ref both on master-only) and passes a detached checkout on main; paired mutants killed; validate passes.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** User work-item request
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T18:57:45Z / 2026-11-24T18:57:45Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
