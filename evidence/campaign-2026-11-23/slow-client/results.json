@@ -1,0 +1,19 @@
+{
+  "generated_by": "machine-assembled from test artifacts",
+  "artifacts": {
+    "catalog_slow_client_results.json": {
+      "test": "TestLiveSlowClientCatalogSurface",
+      "emitted_at": "2026-11-23T19:05:50Z",
+      "measurement_path": "host_hrd027_isolated_container",
+      "asserts_total": 14,
+      "asserts_violated": []
+    },
+    "jobs_slow_client_results.json": {
+      "test": "TestLiveSlowClientJobSurface",
+      "emitted_at": "2026-11-23T19:04:51Z",
+      "measurement_path": null,
+      "asserts_total": 13,
+      "asserts_violated": []
+    }
+  }
+}
