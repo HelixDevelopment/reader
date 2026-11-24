@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:31:25Z",
+  "generated_at": "2026-11-24T21:57:28Z",
   "records": [
     {
       "client_key": "HRD-001",
@@ -2786,14 +2786,14 @@
         "created_at": "2026-11-24T16:39:11Z",
         "created_by": "AI",
         "current_location": "Issues",
-        "description": "The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 10 (2026-11-24): doc_processor gitlink 12a5fb7 equals the master tip; upstream main is 86f1a98; master is 126 commits ahead of main and main is 1 commit ahead of master (diverged); the 11.4.288(D) violation remains and is left to an operator decision.",
+        "description": "The doc_processor submodule has diverged between main and master, so its pin cannot be placed on main. An operator decision is needed which branch is canonical, then the pin is moved. Related to HRD-053 (pins not on main), which stays the umbrella item; this item holds the single decision. No commit is made in a third-party or foreign repository without the decision. Evidence added by HRD-112 from pr27-HRD-102-review-70c3afd8.txt item 10 (2026-11-24): doc_processor gitlink 12a5fb7 equals the master tip; upstream main is 86f1a98; master is 126 commits ahead of main and main is 1 commit ahead of master (diverged); the 11.4.288(D) violation remains and is left to an operator decision. Progress 2026-11-24 (PR HelixDevelopment/reader#37): decision basis = 11.4.288 decision (4) and (C.7) D-5 plus the operator answer 'Merge master into main upstream' given on 2026-11-24 through the operator question batch (relayed; master stays the default branch until an owner decision, UNCONFIRMED). DocProcessor main 527e031 (master merged into main, pushed directly without prior independent review: finding F3, recorded) was found defective by the independent review of PR 37 at 4909b829 (NO-GO F1 resurrected carrier lines, F2 decision basis not cited, F3 no pre-merge review); F1 was fixed by DocProcessor PR 1 (reviewed GO, merged as 01084c9ef060549121d5304ada0adceb4c4481db) and PR 37 now re-pins gitlink and helix-deps.yaml ref to that sha in one commit. Evidence: evidence/campaign-2026-11-24/hrd100 (review verdicts, upstream ls-remote parity, SHA256SUMS). Not fixed here: DocProcessor CONSTITUTION.md still carries foreign-name text (owner decision).",
         "evidence_path": "",
         "forensic_anchor": "User work-item request",
-        "last_modified": "2026-11-24T18:57:45Z",
+        "last_modified": "2026-11-24T21:57:21Z",
         "reopens_count": 0,
         "reproduction": "git -C submodules/doc_processor branch -a and compare main with master and with the recorded gitlink.",
         "severity": "Medium",
-        "status": "Queued",
+        "status": "In progress",
         "title": "Constitution wave: decide doc_processor main versus master divergence (submodule pin)",
         "type": "Task"
       },
