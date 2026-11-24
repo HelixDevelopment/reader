@@ -1,6 +1,7 @@
 package kosync
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -9,6 +10,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 // inContract is the independent oracle of PutProgress's input contract
@@ -59,8 +62,13 @@ func FuzzPutProgressBody(f *testing.F) {
 		if len(body) > 16384 {
 			t.Skip("handler caps bodies at 16384")
 		}
+		// The handler binds with gin's ShouldBindJSON, which is
+		// json.NewDecoder(body).Decode (first value only; trailing data after it
+		// is NOT an error), then runs validators (Progress has no binding tags).
+		// This decode mirrors that for the default encoding/json build; the
+		// handler itself (body limits, status mapping) is NOT fuzzed here.
 		var p Progress
-		if json.Unmarshal(body, &p) != nil {
+		if json.NewDecoder(bytes.NewReader(body)).Decode(&p) != nil {
 			return
 		}
 		got, err := svc.PutProgress(context.Background(), "reader", p)
@@ -172,4 +180,155 @@ func FuzzRegisterInput(f *testing.F) {
 			t.Fatalf("out-of-contract registration not rejected: user=%q pass-len=%d err=%v", user, len(pass), err)
 		}
 	})
+}
+
+// TestHRD070Authenticate enumerates every rule of Service.Authenticate
+// (RULES.md table K): empty username, empty password, username > 255 bytes,
+// password > 72 bytes (security relevant: bcrypt only reads the first 72 bytes,
+// so without this rule any suffix after a correct 72-byte password would
+// authenticate), unknown user, wrong password, and the accepting boundaries.
+// Users are created straight in the store so the rules are exercised on
+// accounts Register itself would never create (empty or long names).
+func TestHRD070Authenticate(t *testing.T) {
+	ctx := context.Background()
+	store := NewMemory()
+	svc := NewService(store, false)
+	hash := func(pw string) string {
+		h, err := bcrypt.GenerateFromPassword([]byte(pw), bcrypt.MinCost)
+		if err != nil {
+			t.Fatal(err)
+		}
+		return string(h)
+	}
+	pw72 := strings.Repeat("p", 72)
+	long255, long256 := strings.Repeat("u", 255), strings.Repeat("u", 256)
+	for user, pw := range map[string]string{"reader": pw72, "": "secret-for-empty-user", "nopass": "", long255: "pw", long256: "pw"} {
+		if err := store.CreateUser(ctx, user, hash(pw)); err != nil {
+			t.Fatal(err)
+		}
+	}
+	cases := []struct {
+		name, user, pass string
+		ok               bool
+	}{
+		{"valid 72-byte password", "reader", pw72, true},
+		{"73-byte password (72 correct bytes + suffix)", "reader", pw72 + "X", false},
+		{"4096-byte password sharing the 72-byte prefix", "reader", pw72 + strings.Repeat("Y", 4024), false},
+		{"wrong password", "reader", "wrong", false},
+		{"unknown user", "ghost", pw72, false},
+		{"empty username (account exists)", "", "secret-for-empty-user", false},
+		{"empty password (account exists)", "nopass", "", false},
+		{"255-byte username accepted", long255, "pw", true},
+		{"256-byte username refused (account exists)", long256, "pw", false},
+	}
+	for _, c := range cases {
+		err := svc.Authenticate(ctx, c.user, c.pass)
+		if c.ok && err != nil {
+			t.Errorf("%s: rejected: %v", c.name, err)
+		}
+		if !c.ok && !errors.Is(err, ErrInvalidAuth) {
+			t.Errorf("%s: error %v, want ErrInvalidAuth", c.name, err)
+		}
+	}
+}
+
+// TestHRD070PutProgressReturnsStoredWinner: PutProgress returns the record the
+// store persisted (service.go: "return the persisted winner so a rejected stale
+// write cannot acknowledge a newer timestamp"), not the caller's input. The
+// memory store keeps the higher percentage, so a lower one is the stale write.
+func TestHRD070PutProgressReturnsStoredWinner(t *testing.T) {
+	ctx := context.Background()
+	svc := NewService(NewMemory(), false)
+	clock := int64(1000)
+	svc.now = func() time.Time { return time.Unix(clock, 0) }
+	first := Progress{Document: "doc", Progress: "/a", Percentage: 0.9, Device: "kobo", DeviceID: "d1"}
+	got, err := svc.PutProgress(ctx, "reader", first)
+	if err != nil || got.Timestamp != 1000 || got.Percentage != 0.9 || got.Device != "kobo" || got.DeviceID != "d1" || got.Progress != "/a" {
+		t.Fatalf("fresh write: %+v (%v)", got, err)
+	}
+	clock = 2000
+	stale := Progress{Document: "doc", Progress: "/b", Percentage: 0.1, Device: "phone", DeviceID: "d2", Timestamp: 5}
+	got, err = svc.PutProgress(ctx, "reader", stale)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.Percentage != 0.9 || got.Device != "kobo" || got.Progress != "/a" || got.Timestamp != 1000 {
+		t.Fatalf("stale write must return the stored winner, got %+v", got)
+	}
+	again, err := svc.GetProgress(ctx, "reader", "doc")
+	if err != nil || again != got {
+		t.Fatalf("stored record %+v (%v) != returned %+v", again, err, got)
+	}
+}
+
+// failingStore makes one store call fail so the service's error pass-through
+// branches are exercised.
+type failingStore struct {
+	*Memory
+	failVerifier, failPut bool
+}
+
+var errBoom = errors.New("store boom")
+
+func (f failingStore) UserVerifier(ctx context.Context, u string) (string, error) {
+	if f.failVerifier {
+		return "", errBoom
+	}
+	return f.Memory.UserVerifier(ctx, u)
+}
+
+func (f failingStore) PutProgress(ctx context.Context, u string, p Progress) error {
+	if f.failPut {
+		return errBoom
+	}
+	return f.Memory.PutProgress(ctx, u, p)
+}
+
+// TestHRD070StoreErrorsPropagate: a store failure other than "user not found"
+// is returned as is (never disguised as ErrInvalidAuth, never swallowed), and
+// a failed write is not reported as stored.
+func TestHRD070StoreErrorsPropagate(t *testing.T) {
+	ctx := context.Background()
+	svc := NewService(failingStore{Memory: NewMemory(), failVerifier: true}, false)
+	if err := svc.Authenticate(ctx, "reader", "password1"); !errors.Is(err, errBoom) || errors.Is(err, ErrInvalidAuth) {
+		t.Errorf("verifier failure: %v, want the store error", err)
+	}
+	svc = NewService(failingStore{Memory: NewMemory(), failPut: true}, false)
+	if _, err := svc.PutProgress(ctx, "reader", Progress{Document: "d", Progress: "p", Device: "d", Percentage: 0.5}); !errors.Is(err, errBoom) {
+		t.Errorf("write failure: %v, want the store error", err)
+	}
+	if _, err := svc.GetProgress(ctx, "reader", "never-stored"); !errors.Is(err, ErrProgressNotFound) {
+		t.Errorf("unstored document: %v, want ErrProgressNotFound", err)
+	}
+}
+
+// TestHRD070ErrorClasses pins WHICH error each rejection rule of Register and
+// GetProgress carries (the HTTP layer maps them to different statuses).
+func TestHRD070ErrorClasses(t *testing.T) {
+	ctx := context.Background()
+	off := NewService(NewMemory(), false)
+	if err := off.Register(ctx, "reader", "password1"); !errors.Is(err, ErrRegistrationDisabled) {
+		t.Errorf("registration off: %v", err)
+	}
+	on := NewService(NewMemory(), true)
+	for _, c := range []struct{ u, p string }{{"ab", "password1"}, {"has space", "password1"}, {"reader", "short"}, {"reader", strings.Repeat("p", 73)}} {
+		if err := on.Register(ctx, c.u, c.p); !errors.Is(err, ErrInvalidInput) {
+			t.Errorf("Register(%q,%d bytes): %v, want ErrInvalidInput", c.u, len(c.p), err)
+		}
+	}
+	if err := on.Register(ctx, "reader", "password1"); err != nil {
+		t.Fatalf("valid register: %v", err)
+	}
+	if err := on.Register(ctx, "reader", "password1"); err == nil {
+		t.Errorf("duplicate register accepted")
+	}
+	for _, d := range []string{"", strings.Repeat("d", 256)} {
+		if _, err := on.GetProgress(ctx, "reader", d); !errors.Is(err, ErrInvalidInput) {
+			t.Errorf("GetProgress(%d bytes): %v, want ErrInvalidInput", len(d), err)
+		}
+	}
+	bad := Progress{Progress: "p", Device: "d", Percentage: 0.5}
+	if _, err := on.PutProgress(ctx, "reader", bad); !errors.Is(err, ErrInvalidInput) {
+		t.Errorf("empty document: %v, want ErrInvalidInput", err)
+	}
 }

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"net/url"
+	"strconv"
 	"testing"
 	"time"
 	"unicode/utf8"
@@ -39,6 +40,7 @@ type atomEntry struct {
 }
 type atomFeed struct {
 	Title   string      `xml:"title"`
+	Links   []atomLink  `xml:"link"`
 	Entries []atomEntry `xml:"entry"`
 }
 type jsonLink struct {
@@ -57,9 +59,10 @@ type jsonPub struct {
 	Links    []jsonLink `json:"links"`
 }
 type jsonFeed struct {
-	Context      string    `json:"@context"`
-	Metadata     jsonMeta  `json:"metadata"`
-	Publications []jsonPub `json:"publications"`
+	Links        []jsonLink `json:"links"`
+	Context      string     `json:"@context"`
+	Metadata     jsonMeta   `json:"metadata"`
+	Publications []jsonPub  `json:"publications"`
 }
 
 func fuzzPage(title, author, desc, fileID, mime, text, id string, total, offset, limit int, hasNext bool) (catalog.Page, catalog.Query) {
@@ -103,6 +106,47 @@ func FuzzOPDSGeneration(f *testing.F) {
 				t.Fatalf("%s: invalid JSON: %q", name, raw)
 			}
 		}
+		// Paging contract (offset mode): self carries the page's own position and
+		// every query parameter, previous exists iff offset > 0 and clamps at 0,
+		// next exists iff HasNext and advances by one page. Bounded so the
+		// arithmetic cannot overflow.
+		checkPaging := func(name string, hrefs map[string]string) {
+			if offset > 1<<40 || offset < -(1<<40) || limit > 1<<40 || limit < -(1<<40) {
+				return
+			}
+			expect := func(rel string, off int) {
+				h, ok := hrefs[rel]
+				if !ok {
+					t.Fatalf("%s: no %s link", name, rel)
+				}
+				u, e := url.Parse(h)
+				if e != nil {
+					t.Fatalf("%s: %s href %q: %v", name, rel, h, e)
+				}
+				qv := u.Query()
+				if qv.Get("offset") != strconv.Itoa(off) || qv.Get("limit") != strconv.Itoa(limit) || qv.Has("after") {
+					t.Fatalf("%s: %s href %q: offset/limit/after wrong (want offset %d limit %d)", name, rel, h, off, limit)
+				}
+				if (qv.Get("q") != text) || (qv.Get("author") != author) {
+					t.Fatalf("%s: %s href %q: q/author not carried (q=%q author=%q)", name, rel, h, text, author)
+				}
+			}
+			expect("self", offset)
+			if offset > 0 {
+				prev := offset - limit
+				if prev < 0 {
+					prev = 0
+				}
+				expect("previous", prev)
+			} else if _, ok := hrefs["previous"]; ok {
+				t.Fatalf("%s: previous link with offset %d", name, offset)
+			}
+			if hasNext {
+				expect("next", offset+limit)
+			} else if _, ok := hrefs["next"]; ok {
+				t.Fatalf("%s: next link although HasNext is false", name)
+			}
+		}
 		acqHref := "/v1/files/" + url.PathEscape(fileID) + "/content"
 		// Atom contract (RULES.md table O): feed title, one entry whose title,
 		// id and acquisition link round-trip through XML escaping.
@@ -137,6 +181,15 @@ func FuzzOPDSGeneration(f *testing.F) {
 				t.Fatalf("Acquisition12 feed: title %q entries %d (%v)", fd.Title, len(fd.Entries), e)
 			}
 			checkEntry("Acquisition12", fd.Entries[0])
+			if xmlSafe(text) && xmlSafe(author) {
+				hrefs := map[string]string{}
+				for _, l := range fd.Links {
+					if l.Rel == "self" || l.Rel == "previous" || l.Rel == "next" {
+						hrefs[l.Rel] = l.HREF
+					}
+				}
+				checkPaging("Acquisition12", hrefs)
+			}
 		}
 		raw, err = Acquisition12("/opds/1.2/publications", page, q, nil)
 		check12("Acquisition12/nostream", raw, err)
@@ -198,6 +251,15 @@ func FuzzOPDSGeneration(f *testing.F) {
 				t.Fatalf("Acquisition20 feed: %+v (%v)", fd.Metadata, e)
 			}
 			checkPub("Acquisition20", fd.Publications[0])
+			if utf8.ValidString(text) && utf8.ValidString(author) {
+				hrefs := map[string]string{}
+				for _, l := range fd.Links {
+					if r, ok := l.Rel.(string); ok && (r == "self" || r == "previous" || r == "next") {
+						hrefs[r] = l.HREF
+					}
+				}
+				checkPaging("Acquisition20", hrefs)
+			}
 		}
 		raw, err = Edition20(page.Works[0], page.Works[0].Editions[0])
 		check2("Edition20", raw, err)

@@ -34,6 +34,7 @@ func lsdSeeds() [][]byte {
 	}
 	link := func(rel any, href any) []any { return []any{map[string]any{"rel": rel, "href": href}} }
 	add(func(m map[string]any) {})
+	add(richLSD) // distinctive values in every optional field
 	for _, k := range []string{"id", "status", "message", "updated", "links"} {
 		k := k
 		add(func(m map[string]any) { delete(m, k) })
@@ -87,6 +88,17 @@ func lsdSeeds() [][]byte {
 	return out
 }
 
+// richLSD fills the optional fields of links and events with distinctive
+// values so the oracle can check that each parsed value is the raw one.
+func richLSD(m map[string]any) {
+	m["message"] = "rich message"
+	m["links"] = []any{
+		map[string]any{"rel": "license", "href": "https://p/lic", "type": "application/vnd.readium.lcp.license.v1.0+json", "title": "L", "profile": "http://p/profile", "templated": true},
+		map[string]any{"rel": []any{"status", "x"}, "href": "https://p/s{?a}", "type": "application/json"},
+	}
+	m["events"] = []any{map[string]any{"type": "renew", "name": "Device One", "id": "dev-1", "timestamp": "2020-03-04T05:06:07Z"}}
+}
+
 func rawStr(m map[string]any, k string) (string, bool) { return str(m, k) }
 
 // FuzzParseStatusDocument: the LSD parser must never panic, must reject only
@@ -121,8 +133,8 @@ func FuzzParseStatusDocument(f *testing.F) {
 		if id, _ := rawStr(m, "id"); id == "" || id != s.ID {
 			t.Fatalf("id %q vs %q", id, s.ID)
 		}
-		if _, ok := rawStr(m, "message"); !ok {
-			t.Fatal("accepted without a message member")
+		if msg, ok := rawStr(m, "message"); !ok || msg != s.Message {
+			t.Fatalf("message: raw %q (present=%v) parsed %q", msg, ok, s.Message)
 		}
 		switch st, _ := rawStr(m, "status"); st {
 		case "ready", "active", "revoked", "returned", "cancelled", "expired":
@@ -166,6 +178,15 @@ func FuzzParseStatusDocument(f *testing.F) {
 			default:
 				t.Fatalf("link %d accepted with rel %v (absent or wrong type)", i, relv)
 			}
+			for name, got := range map[string]string{"type": s.Links[i].Type, "title": s.Links[i].Title, "profile": s.Links[i].Profile} {
+				if want, _ := rawStr(lm, name); want != got {
+					t.Fatalf("link %d %s: raw %q parsed %q", i, name, want, got)
+				}
+			}
+			tv, _ := ci(lm, "templated")
+			if want, _ := tv.(bool); want != s.Links[i].Templated {
+				t.Fatalf("link %d templated: raw %v parsed %v", i, tv, s.Links[i].Templated)
+			}
 			hasLicense = hasLicense || s.Links[i].HasRel("license")
 		}
 		if !hasLicense {
@@ -190,6 +211,11 @@ func FuzzParseStatusDocument(f *testing.F) {
 		}
 		for i, raw := range evs {
 			em, _ := raw.(map[string]any)
+			for name, got := range map[string]string{"name": s.Events[i].Name, "id": s.Events[i].ID} {
+				if want, _ := rawStr(em, name); want != got {
+					t.Fatalf("events[%d].%s: raw %q parsed %q", i, name, want, got)
+				}
+			}
 			if ty, has := rawStr(em, "type"); has {
 				switch ty {
 				case "register", "renew", "return", "revoke", "cancel":

@@ -62,6 +62,7 @@ func licenseSeeds() [][]byte {
 		}
 	}
 	add(func(m map[string]any) {}) // accepted
+	add(richLicense)               // every optional member carries a distinctive value
 	for _, k := range []string{"id", "provider", "issued", "encryption", "links", "signature"} {
 		k := k
 		add(func(m map[string]any) { delete(m, k) })
@@ -189,8 +190,15 @@ func FuzzParseLicense(f *testing.F) {
 			if l != nil {
 				t.Fatalf("error %v returned a non-nil license", err)
 			}
-			if !errors.Is(err, lcp.ErrLicenseSyntax) && !errors.Is(err, lcp.ErrIncomplete) {
-				t.Fatalf("error not typed ErrLicenseSyntax/ErrIncomplete: %v", err)
+			syn, inc := errors.Is(err, lcp.ErrLicenseSyntax), errors.Is(err, lcp.ErrIncomplete)
+			if syn == inc { // neither, or both
+				t.Fatalf("error must carry exactly one of ErrLicenseSyntax/ErrIncomplete: %v", err)
+			}
+			// ErrIncomplete means "a required member is absent from a well formed
+			// object": it is only reachable for a document that decodes as one.
+			var obj map[string]json.RawMessage
+			if inc && json.Unmarshal(doc, &obj) != nil {
+				t.Fatalf("ErrIncomplete for a document that is not a JSON object: %v", err)
 			}
 			return
 		}
@@ -249,6 +257,34 @@ func FuzzParseLicense(f *testing.F) {
 		for i, k := range l.Links {
 			if k.Href == "" {
 				t.Fatalf("accepted license link %d has empty href", i)
+			}
+		}
+		// Parsed VALUES equal the raw members they came from.
+		if um := obj(m, "user"); um != nil {
+			for name, got := range map[string]string{"id": l.User.ID, "email": l.User.Email, "name": l.User.Name} {
+				if want, _ := str(um, name); want != got {
+					t.Fatalf("user.%s: raw %q parsed %q", name, want, got)
+				}
+			}
+		} else if l.User.ID != "" || l.User.Email != "" || l.User.Name != "" {
+			t.Fatalf("user parsed without a user member: %+v", l.User)
+		}
+		for i, raw := range links {
+			lm, _ := raw.(map[string]any)
+			if h, _ := str(lm, "href"); h != l.Links[i].Href {
+				t.Fatalf("link %d href: raw %q parsed %q", i, h, l.Links[i].Href)
+			}
+			if ty, _ := str(lm, "type"); ty != l.Links[i].Type {
+				t.Fatalf("link %d type: raw %q parsed %q", i, ty, l.Links[i].Type)
+			}
+			if rel, _ := str(lm, "rel"); rel != l.Links[i].Rel {
+				t.Fatalf("link %d rel: raw %q parsed %q", i, rel, l.Links[i].Rel)
+			}
+		}
+		sg := obj(m, "signature")
+		for name, got := range map[string]string{"algorithm": l.Signature.Algorithm, "certificate": l.Signature.Certificate, "value": l.Signature.Value} {
+			if want, _ := str(sg, name); want != got {
+				t.Fatalf("signature.%s: raw %q parsed %q", name, want, got)
 			}
 		}
 		if l.Signature.Algorithm == "" || l.Signature.Certificate == "" || l.Signature.Value == "" {
