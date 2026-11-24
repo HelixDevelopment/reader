@@ -1,4 +1,14 @@
 HRD-076 quickstart steps 1-2 executed for real on host loopback 127.0.0.1:18091 (non-GUI process; NOT in the container; throwaway server binary built from this tree, volatile catalog, one local .txt book). Date 2026-11-24. Admin token exported in the same shell as documented; its value is not printed.
+
+Deviations from docs/quickstart.md: port 18091 instead of 8080 (so as not to collide with anything on the host); binary built to a scratch dir, not /tmp/helix-server; the source root was a scratch dir holding one file hello.txt ("Hello quickstart").
+Commands run (token generated and exported exactly as the quickstart says; value never printed):
+  export HELIX_ADMIN_TOKEN="$(head -c18 /dev/urandom | base64 | tr -dc A-Za-z0-9)"
+  HELIX_ADDRESS=127.0.0.1:18091 HELIX_OPDS_USERNAME=reader HELIX_OPDS_PASSWORD=<throwaway> <scratch>/helix-server &
+  curl -s -XPOST http://127.0.0.1:18091/v1/sources -H "Authorization: Bearer $HELIX_ADMIN_TOKEN" -d '{"id":"my-library","protocol":"local","root":"<scratch>/books"}' -w ' HTTP %{http_code}'
+  curl -s -XPOST http://127.0.0.1:18091/v1/scans -H "Authorization: Bearer $HELIX_ADMIN_TOKEN" -d '{"source_id":"my-library","prefix":""}' -w ' HTTP %{http_code}'
+  curl -s -u reader:<throwaway> http://127.0.0.1:18091/opds/1.2 -o /dev/null -w 'opds HTTP %{http_code}'
+  curl -s -u reader:<throwaway> http://127.0.0.1:18091/opds/1.2/publications | head -c 300   (deliberately cut to the first 300 bytes)
+Captured output (each line below was additionally cut at 400 characters; the last line is the 300-byte excerpt and ends mid-token by design):
 {"id":"my-library","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}} HTTP 201
 {"id":"scan-2daf338d3de5c435b6f4c8559a5857e0","source_id":"my-library","state":"queued","created_at":"2026-11-24T20:39:08.027827131Z"} HTTP 202
 opds HTTP 200

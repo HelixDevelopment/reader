@@ -100,6 +100,21 @@ class N5(unittest.TestCase):
             with open(d + "/orig", "w") as f: f.write("x")
             os.link(d + "/orig", sock + "/h.sock")
             self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "hard-linked file named h.sock must be refused")
+    def test_bridge_exemption_is_the_exact_top_level_path_not_any_file_named_h_sock(self):
+        # HRD-076 review I-5: a socket named h.sock in a SUBDIRECTORY of the bridge dir is refused, with and without the top-level h.sock
+        import socket
+        with tempfile.TemporaryDirectory(dir=CT) as d:
+            sock = d + "/sock"; os.mkdir(sock); os.mkdir(sock + "/sub")
+            inner = socket.socket(socket.AF_UNIX); inner.bind(sock + "/sub/h.sock")
+            try:
+                self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "nested h.sock alone must be refused")
+                outer = socket.socket(socket.AF_UNIX); outer.bind(sock + "/h.sock")
+                try:
+                    self.assertIsNotNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True), "nested h.sock beside the top-level one must be refused")
+                finally:
+                    outer.close()
+            finally:
+                inner.close()
     def test_bridge_exemption_applies_to_the_helixsock_destination_only(self):
         # HRD-076 review M2: a real h.sock is accepted for dst /run/helixsock only, never for another destination even with --bridge
         import socket
