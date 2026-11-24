@@ -894,3 +894,12 @@ UNCONFIRMED: a same-size flip that also restores mtime and inode of a cache file
 - Live run `evidence/campaign-2026-11-23/helixtrack/live/` (script `run_live.sh`): dry-run 0 writes; push created 35; compare 35/35 field match; pull 35 in-sync; re-push 35 noop with 0 write requests, ticket count stayed 35; second user edit of HRD-007 detected (remote_version 3 vs base 2); push reported conflict without overwriting; stale-version write rejected (409, current 3); `--overwrite-remote` restored; final pull 35 in-sync, compare 35/35; Core DB history shows hrd_sync and hrd_remote_editor actors. Secret scan of evidence clean. Manifests: `live/SHA256SUMS`, `SHA256SUMS.top`.
 - UNCONFIRMED: production HelixTrack instance, external auth/permission services, multi-user permission scoping, attachments, scale.
 - Wording and quirks: `docs/helixtrack-sync.md`.
+
+## HRD-046 LCP interop against the Readium reference provider (2026-11-24, PR #38, supersedes closed #33)
+
+`core/pkg/lcp` was run as a library consumer against the real Readium License Server, Status Server and `lcpencrypt` (readium-lcp-server@32570b69) in a
+rootless, network-less container (`qa/lcp-interop`, see its README). Sealed evidence: `evidence/lcp-interop-run1..3` (17 PASS assertions + 2 INFO records each,
+exit 0), `evidence/lcp-interop-mutant-wrong-oracle` and two reviewer mutants (each exactly one expected FAIL, exit 1), provenance in `evidence/lcp-interop-provenance`.
+Supersedes only the "interop with a real provider / LSD register and return" part of the NOT PROVEN lines above (for this one provider, as a library consumer).
+Still NOT PROVEN (UNCONFIRMED): a third-party reader opening a Helix artifact; verification against the real EDRLab/Readium root (HRD-122); renew; the server/OPDS path;
+same-second license-refresh behaviour (HRD-123). The first evidence commit (be88c4b) disclosed four ephemeral test content keys; the harness no longer writes keys and scans for them.
