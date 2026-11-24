@@ -22,6 +22,16 @@ Open the saved website version to inspect the shared visual language and interac
 
 The interface is labeled **“Interactive product prototype”**, **“No backend connected”**, and **“Sample data only.”** These disclosures are intentional. The prototype must not be treated as a persistent library.
 
+## See the clients
+
+Real screenshots and videos of the web, Linux desktop and KOReader clients are indexed in [`screenshots.md`](screenshots.md); the
+step-by-step version is the [quick start](quickstart.md) and the [first library tour](tutorials/first_library_tour.md). The library view
+as the web client really renders it against a live server:
+
+![Web client library, desktop layout](../evidence/screenshots/web/web-library-desktop-light.png)
+
+Note: the **Interactive web prototype** above is a separate sample-data site; the images here are the real `clients/web` build.
+
 ## Server quickstart
 
 ### Requirements
