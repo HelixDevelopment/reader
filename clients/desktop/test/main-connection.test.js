@@ -15,13 +15,14 @@ async function boot() {
   const handlers = {}; let appHandler; let ready
   const win = { reloads: 0, getParentWindow: () => null, isDestroyed: () => false, reload() { this.reloads++ } }
   const electron = {
+    partitions: [],
     app: { setPath() {}, commandLine: { appendSwitch() {} }, getPath: () => userData, whenReady: () => ({ then: (f) => { ready = f } }), on() {}, quit() {} },
     BrowserWindow: Object.assign(function () { return { webContents: { on() {}, setWindowOpenHandler() {} }, setMenu() {}, loadURL() {}, once() {} } }, { getAllWindows: () => [win] }),
     Menu: { buildFromTemplate: () => ({}) },
     ipcMain: { handle: (n, f) => { handlers[n] = f } },
     protocol: { registerSchemesAsPrivileged() {}, handle: (_s, f) => { appHandler = f } },
     safeStorage: { isEncryptionAvailable: () => false },
-    session: { defaultSession: { setPermissionRequestHandler() {}, setPermissionCheckHandler() {}, webRequest: { onBeforeRequest() {} } } },
+    session: { fromPartition: (n) => { electron.partitions.push(n); return { fetch: (u, i) => global.fetch(u, i) } }, defaultSession: { setPermissionRequestHandler() {}, setPermissionCheckHandler() {}, webRequest: { onBeforeRequest() {} } } },
   }
   const origLoad = Module._load
   Module._load = function (request, ...rest) { return request === 'electron' ? electron : origLoad.call(this, request, ...rest) }
@@ -35,7 +36,7 @@ async function boot() {
   const ev = { senderFrame: { url: 'app://helix/__shell/connection.html' } }
   const call = (n, v) => handlers[n](ev, v)
   const api = async () => { await appHandler(new Request('app://helix/v1/works')); return calls[calls.length - 1] }
-  return { call, api, handlers, win }
+  return { call, api, handlers, win, electron }
 }
 
 test('blank password is kept while the server origin is unchanged', async () => {
@@ -87,4 +88,9 @@ test('connection UI and preload expose a forget-password action', () => {
   assert.match(html, /id="forget"/)
   assert.match(fs.readFileSync(path.join(__dirname, '../preload.js'), 'utf8'), /helix:forget-password/)
   assert.match(fs.readFileSync(path.join(__dirname, '../renderer/connection.js'), 'utf8'), /forgetPassword/)
+})
+
+test('API forwarding uses the dedicated Chromium session (HTTP/3-capable), never the default-session filter or Node fetch directly', async () => {
+  const m = await boot()
+  assert.deepEqual(m.electron.partitions, ['helix-api'])
 })

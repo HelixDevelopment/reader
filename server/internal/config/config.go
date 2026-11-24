@@ -27,6 +27,7 @@ type Config struct {
 	ShutdownTimeout     time.Duration
 	BrotliLevel         int
 	HTTP3               bool
+	AccessLog           bool
 	CatalogPool         Pool
 	AIMemoryPool        Pool
 }
@@ -81,6 +82,7 @@ func FromEnv() (Config, error) {
 		}
 		c.BrotliLevel = n
 	}
+	c.AccessLog, _ = strconv.ParseBool(os.Getenv("HELIX_ACCESS_LOG"))
 	allowInsecure, _ := strconv.ParseBool(os.Getenv("HELIX_ALLOW_INSECURE_ADMIN"))
 	if c.AdminToken == "" && !allowInsecure && !loopback(c.Address) {
 		return c, fmt.Errorf("HELIX_ADMIN_TOKEN is required for non-loopback listeners")

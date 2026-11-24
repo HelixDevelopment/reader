@@ -10,10 +10,14 @@ const { APP_ORIGIN } = require('./lib/csp')
 const { isAllowedNavigation, isAllowedRequest, normalizeServerUrl } = require('./lib/allowlist')
 const { createHandler } = require('./lib/app-handler')
 const { createStore } = require('./lib/secrets')
+const { chromiumSwitches, apiFetchFor } = require('./lib/transport')
 
 if (process.env.HELIX_DESKTOP_USER_DATA) app.setPath('userData', process.env.HELIX_DESKTOP_USER_DATA)
 // Containers without user namespaces / suid sandbox need this; never set by default.
 if (process.env.HELIX_DESKTOP_NO_CHROMIUM_SANDBOX === '1') app.commandLine.appendSwitch('no-sandbox')
+
+// HTTP/3 (QUIC): Chromium's own network stack; opt-in private-CA settings are validated in lib/transport.js.
+for (const [name, value] of chromiumSwitches(process.env)) value === undefined ? app.commandLine.appendSwitch(name) : app.commandLine.appendSwitch(name, value)
 
 const WEB_ROOT = process.env.HELIX_DESKTOP_WEB_ROOT || path.join(__dirname, 'web')
 const SHELL_ROOT = path.join(__dirname, 'renderer')
@@ -102,7 +106,10 @@ app.on('web-contents-created', (_e, contents) => lockDown(contents))
 app.whenReady().then(() => {
   store = createStore({ dir: app.getPath('userData'), safeStorage })
   loadConnection()
-  protocol.handle('app', createHandler({ getConn: () => conn, webRoot: WEB_ROOT, shellRoot: SHELL_ROOT }))
+  // API forwarding goes through a dedicated in-memory Chromium session: Chromium network stack (h2/h3, Brotli), and
+  // not the default session whose webRequest filter only admits app:// requests.
+  const apiFetch = apiFetchFor(session.fromPartition('helix-api'))
+  protocol.handle('app', createHandler({ getConn: () => conn, webRoot: WEB_ROOT, shellRoot: SHELL_ROOT, fetchImpl: apiFetch }))
   const ses = session.defaultSession
   ses.setPermissionRequestHandler((_wc, _perm, cb) => cb(false))
   ses.setPermissionCheckHandler(() => false)
