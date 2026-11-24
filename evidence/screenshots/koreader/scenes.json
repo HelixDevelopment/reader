@@ -1,0 +1,69 @@
+{
+  "scenes": [
+    {
+      "file": "warm_A.png",
+      "scenario": "Warm-up, profile A: first launch of a fresh KOReader profile (file manager of the empty Books folder); one-time notices dismissed",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "warm_B.png",
+      "scenario": "Warm-up, profile B: same, second KOReader profile",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A01_filemanager.png",
+      "scenario": "KOReader 2026.07 file manager of profile A, Books folder empty before the first download",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A02_opds_all_publications.png",
+      "scenario": "OPDS browse: Helix catalog 'All publications' (comic, Ninety Lanterns, Tidal Ledger, The Glass Meridian) from the live helix-server /opds/1.2",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A03_book_opened_page1.png",
+      "scenario": "Profile A downloaded 'The Glass Meridian' over OPDS and opened it: first page",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A04_page4.png",
+      "scenario": "Profile A after turning to page 4 of 9 (progress pushed to the KOSync endpoint: 0.4444, see kosync_proof.json)",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B01_opds.png",
+      "scenario": "Profile B (second device) browsing the same OPDS catalog",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B02_book_opened_pulled.png",
+      "scenario": "Profile B opens the same book: KOSync pulls A's position, the reader lands on page 4 of 9",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B03_after_pull.png",
+      "scenario": "Profile B after the pull, still page 4 of 9",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B04_page6.png",
+      "scenario": "Profile B turned two pages: page 6 of 9 (progress pushed: 0.6666)",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A05_reopened_pulled.png",
+      "scenario": "Profile A re-opens the book: KOSync pulls B's position, reader lands on page 6 of 9",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B05_pse_page1.png",
+      "scenario": "OPDS-PSE page streaming: profile B opens the CBZ 'comic' streamed page by page, page 1 (fixture page: solid red; centre pixel srgb(200,30,30) read by the harness)",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B06_pse_page2.png",
+      "scenario": "OPDS-PSE: page 2 of the streamed CBZ (fixture page: solid green; centre pixel srgb(30,200,30))",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    }
+  ]
+}

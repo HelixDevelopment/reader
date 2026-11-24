@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testing: 0, Reopened: 0
+In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 81, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -57,7 +57,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 | HRD-073 | Task | Low | Queued | 0 | Challenges for mixed Postgres vs in-memory catalog: web/android evidence uses in-memory catalog only |
 | HRD-074 | Task | Low | Queued | 0 | Flaky/quarantine registry absent (§11.4.248); needle tests self-skip when needle does not fire |
 | HRD-075 | Task | Low | Queued | 0 | Workable-item statuses lag reality: HRD-031/025/026/029 still Queued/In progress while evidence entries claim delivery |
-| HRD-076 | Feature | High | Queued | 0 | Real screenshots and video of everyday use of ALL clients captured only in the isolated container runner and embedded in every doc category |
+| HRD-076 | Feature | High | In progress | 0 | Real screenshots and video of everyday use of ALL clients captured only in the isolated container runner and embedded in every doc category |
 | HRD-077 | Bug | Medium | Queued | 0 | WebDAV.List listed directories as zero-byte files |
 | HRD-078 | Task | High | Queued | 0 | Advertised-but-unwired libraries: pkg/fts, hlc, LRU cache, settings/theme/crypto are claimed tested but wired into neither server nor clients |
 | HRD-079 | Bug | Medium | Queued | 0 | llmctl install ignores its arguments so llmctl install --help performs the real install |

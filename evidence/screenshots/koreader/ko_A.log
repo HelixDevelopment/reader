@@ -1,0 +1,56 @@
+[container] ---------------------------------------------
+[container]                 launching...
+[container]   _  _____  ____                _
+[container]  | |/ / _ \|  _ \ ___  __ _  __| | ___ _ __
+[container]  | ' / | | | |_) / _ \/ _` |/ _` |/ _ \ '__|
+[container]  | . \ |_| |  _ <  __/ (_| | (_| |  __/ |
+[container]  |_|\_\___/|_| \_\___|\__,_|\__,_|\___|_|
+[container] 
+[container]  It's a scroll... It's a codex... It's KOReader!
+[container] 
+[container]  [*] Current time: 11/24/26-20:07:20
+[container] has monolibtic? no (libs/libkoreader-monolibtic.so: cannot open shared object file: No such file or directory)
+[container] lib_search_path: libs/?
+[container] lib_basic_format: lib%s.so
+[container] lib_version_format: lib%s.so.%s
+[container]  [*] Version: v2026.07
+[container] 
+[container] ffi.load: rt.so.1 (RTLD_GLOBAL)
+[container] ffi.findlib: utf8proc [3]
+[container] ffi.load: libs/libutf8proc.so.3
+[container] ffi.findlib: blitbuffer
+[container] ffi.load: libs/libblitbuffer.so
+[container] ffi.findlib: SDL3 [0]
+[container] ffi.load: libs/libSDL3.so.0
+[container] Started SDL in /opt/koreader/ using x11 video driver
+[container] ffi.findlib: lodepng
+[container] ffi.load: libs/liblodepng.so
+[container] 11/24/26-20:07:20 INFO  initializing for device Linux 
+[container] 11/24/26-20:07:20 INFO  framebuffer resolution: {
+[container]   h = 800,
+[container]   w = 600
+[container] } --[[table: 0x726621a39498]] 
+[container] ffi.findlib: wrap-mupdf
+[container] ffi.load: libs/libwrap-mupdf.so
+[container] ffi.findlib: sqlite3 [0]
+[container] ffi.load: libs/libsqlite3.so.0
+[container] ffi.findlib: archive [13]
+[container] ffi.load: libs/libarchive.so.13
+[container] ffi.findlib: freetype [6]
+[container] ffi.load: libs/libfreetype.so.6
+[container] ffi.findlib: harfbuzz [0]
+[container] ffi.load: libs/libharfbuzz.so.0
+[container] ffi.findlib: zstd [1]
+[container] ffi.load: libs/libzstd.so.1
+[container] ffi.findlib: leptonica [6]
+[container] ffi.load: libs/libleptonica.so.6
+[container] ffi.findlib: k2pdfopt [2]
+[container] ffi.load: libs/libk2pdfopt.so.2
+[container] 11/24/26-20:07:20 INFO  opening file /prof/A/Books/Elena Voss - The Glass Meridian.epub 
+[container] 11/24/26-20:07:20 INFO  Inhibiting user input 
+[container] 11/24/26-20:07:20 INFO  Looking for plugins in directory: plugins 
+[container] 11/24/26-20:07:20 INFO  Looking for plugins in directory: /prof/A/.config/koreader/plugins/ 
+[container] 11/24/26-20:07:21 INFO  Restoring user input handling 
+[container] 11/24/26-20:07:40 INFO  Preparing to quit UIManager 
+[container] 11/24/26-20:07:40 INFO  UIManager: No dialogs left to show 
+[container] 11/24/26-20:07:40 INFO  Tearing down UIManager with exit code: 0 

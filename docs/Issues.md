@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testing: 0, Reopened: 0
+In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 81, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -776,13 +776,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-24T20:50:29Z
+**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-24T21:11:29Z
 
 **History:**
 
 - 2026-11-23 — Opened by AI: new-work-item; evidence: none recorded
-- 2026-11-24 — Updated by AI: HRD-046 interop run; evidence: evidence/lcp-interop-run1
-- 2026-11-24 — Updated by AI: PR #33 review fix round: registry state follows the work (F8); evidence: evidence/lcp-interop-run1
+- 2026-11-24 — Updated by AI: PR review fix round: registry state follows the work; evidence: evidence/lcp-interop-run1
 
 ## [HRD-047] No Challenges-submodule or Security-submodule use in repo code, gates or scripts
 
@@ -1777,7 +1776,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 
 ## [HRD-076] Real screenshots and video of everyday use of ALL clients captured only in the isolated container runner and embedded in every doc category
 
-**Status:** Queued
+**Status:** In progress
 
 **Type:** Feature
 
@@ -1803,11 +1802,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-23T22:49:59Z / 2026-11-23T22:49:59Z
+**Created / modified:** 2026-11-23T22:49:59Z / 2026-11-24T20:14:42Z
 
 **History:**
 
 - 2026-11-23 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Started by AI: HRD-076: web, desktop and KOReader captured in the isolated runner; Android not re-captured (UNCONFIRMED); PR open for independent review; evidence: evidence/screenshots
 
 ## [HRD-077] WebDAV.List listed directories as zero-byte files
 
@@ -3378,18 +3378,17 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 
 **Evidence:** Not yet available; no pass is claimed.
 
-**Forensic anchor:** HRD-046
+**Forensic anchor:** User work-item request
 
 **Composes with:** None recorded
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T20:02:34Z / 2026-11-24T20:50:29Z
+**Created / modified:** 2026-11-24T21:11:29Z / 2026-11-24T21:11:29Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
-- 2026-11-24 — Updated by AI: cross-link to HRD-046 (F8); evidence: none recorded
 
 ## [HRD-123] NeedsLicenseRefresh compares whole-second Status timestamps strictly: an update inside the issuing second is not detected
 
@@ -3413,15 +3412,14 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testi
 
 **Evidence:** Not yet available; no pass is claimed.
 
-**Forensic anchor:** HRD-046
+**Forensic anchor:** User work-item request
 
 **Composes with:** None recorded
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-24T20:02:35Z / 2026-11-24T20:50:29Z
+**Created / modified:** 2026-11-24T21:11:29Z / 2026-11-24T21:11:29Z
 
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
-- 2026-11-24 — Updated by AI: spec MUST not met: Bug (F9); cross-link HRD-046; evidence: none recorded
