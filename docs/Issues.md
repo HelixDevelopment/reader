@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testing: 0, Reopened: 0
+In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 81, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -758,7 +758,7 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 **Reopens:** 0
 
-**Description:** LCP never exercised against a real provider or third-party reader. Filed 2026-11-23 from the read-only gap audit (GAP-011, Security, severity High); no work started. EVIDENCE: EVIDENCE.md lines 817,839,875 NOT PROVEN/UNCONFIRMED; lsd provider written in-repo from same spec text ROOT CAUSE (UNCONFIRMED unless stated): Self-referential test oracle (§11.4.245): producer and consumer share an author. PROPOSED FIX: Stand up Readium lcpserver (or EDRLab test provider) in a container as independent oracle; open produced artifact with Thorium/readium-lcp-client-in-container. REQUIRED TEST TYPES (11.4.169 / 11.4.27 members): Integration (11.4.169(2)); Security (11.4.169(8)); End-to-end (11.4.169(3)); Interop (End-to-end 11.4.169(3) against third-party peer). Cross-links (11.4.214, both ways): HRD-031, HRD-026. Source: docs/gap-register-2026-11-23.md#gap-011---lcp-never-exercised-against-a-real-provider-or-third-party-reader. Audit evidence: evidence/campaign-2026-11-23/gap-audit/commands.txt, evidence/campaign-2026-11-23/gap-audit/commands_part2.txt, evidence/campaign-2026-11-23/gap-audit/commands_raw.txt, evidence/campaign-2026-11-23/gap-audit/proven_checks.txt, evidence/campaign-2026-11-23/gap-audit/gates_run.txt. Owner suggestion: server.
+**Description:** LCP never exercised against a real provider or third-party reader. Filed 2026-11-23 from the read-only gap audit (GAP-011, Security, severity High). PARTIAL PROGRESS 2026-11-24 (PR #38, supersedes closed #33): core/pkg/lcp was exercised against the Readium reference License Server, Status Server and lcpencrypt (readium-lcp-server@32570b69, third-party provider, real processes in a rootless network-less container): 17 PASS assertions + 2 INFO records in 3 identical sealed runs (evidence/lcp-interop-run1..3), a wrong-oracle mutant and two reviewer mutants each FAIL as expected (sealed under evidence/lcp-interop-*mutant*). Library consumer only. STILL OPEN: no third-party READER opened a Helix artifact; the real EDRLab/Readium root is not verified (HRD-122); renew not exercised (provider config renew false); the server/OPDS path is not covered; HRD-123 found a same-second NeedsLicenseRefresh defect. ROOT CAUSE (UNCONFIRMED unless stated): Self-referential test oracle (§11.4.245): producer and consumer share an author. PROPOSED FIX: open produced artifact with Thorium/readium-lcp-client-in-container. REQUIRED TEST TYPES (11.4.169 / 11.4.27 members): Integration (11.4.169(2)); Security (11.4.169(8)); Interop against a third-party peer (a library consumer here; not full end-to-end). Cross-links (11.4.214, both ways): HRD-031, HRD-026, HRD-122, HRD-123. Source: docs/gap-register-2026-11-23.md#gap-011---lcp-never-exercised- History facts (restored by the PR #38 refresh): interop run = 3 identical sealed runs (evidence/lcp-interop-run1..3); review fix round F1-F10 on PR #33 (be88c4b NO-GO, content keys disclosed and removed); cross-links HRD-122 and HRD-123 added (F8); HRD-123 was reclassified Task to Bug because the spec MUST is not met (F9).
 
 **Affected scope:** Security gap GAP-011: LCP never exercised against a real provider or third-party reader
 
@@ -768,7 +768,7 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 **Closure criteria:** Independent reader decrypts artifact; provider LSD register/return/renew round-trip logged; RED with wrong passphrase. Evidence must be deterministic machine output (result JSON plus sha256 manifest under evidence/), with a RED baseline on the broken artifact where a defect or gate is involved (11.4.115). COMPLETION CONDITION: independent review GO (11.4.142) AND evidence class recorded at closure (11.4.226).
 
-**Evidence:** Not yet available; no pass is claimed.
+**Evidence:** evidence/lcp-interop-run1
 
 **Forensic anchor:** GAP-011 docs/gap-register-2026-11-23.md#gap-011---lcp-never-exercised-against-a-real-provider-or-third-party-reader
 
@@ -776,11 +776,14 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-23T21:22:39Z
+**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-24T21:31:12Z
 
 **History:**
 
 - 2026-11-23 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: PR review fix round: registry state follows the work; evidence: evidence/lcp-interop-run1
+- 2026-11-24 — Updated by AI: Review follow-up N4: PR wording (PR #38 supersedes closed #33); evidence path cited; evidence: evidence/lcp-interop-run1
+- 2026-11-24 — Updated by AI: Restored history facts dropped by the main-merge registry rebuild (review 7607da22 D1): interop run (3 sealed runs); PR #33 review fix round F1-F10; cross-link F8; spec MUST not met so HRD-123 is a Bug (F9); evidence: evidence/lcp-interop-run1
 
 ## [HRD-047] No Challenges-submodule or Security-submodule use in repo code, gates or scripts
 
@@ -3354,3 +3357,72 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 79, Ready for testi
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-122] Readium LCP test CA root is not distributed with the reference server: shipped EDRLab test provider cert cannot be chain-verified by Helix
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Found by HRD-046. test/cert/cert-edrlab-test.pem in readium-lcp-server@32570b6 is issued by 'EDRLab Readium LCP test CA', but no root/CA certificate exists in that repo or in readium/lcp-specs@812dd91 (evidence/lcp-interop-provenance/edrlab_test_cert_chain_gap.txt). Helix embeds no root (fail-closed ErrUntrustedRoot, correct), so interop was run with an operator-generated test root; verification against the real EDRLab/Readium root remains UNCONFIRMED. Needs the operator to obtain the published test/production root from EDRLab (or the Readium License Authority) and re-run qa/lcp-interop with it. Cross-links (11.4.214): HRD-046 (found by), HRD-123.
+
+**Affected scope:** core/pkg/lcp trust-root policy; qa/lcp-interop
+
+**Reproduction / current observation:** evidence/lcp-interop-provenance/edrlab_test_cert_chain_gap.txt
+
+**Acceptance:** Real EDRLab test root obtained from an authoritative source with recorded provenance; qa/lcp-interop run with it unlocks a license signed with the EDRLab test provider cert; evidence sealed.
+
+**Closure criteria:** Real EDRLab test root obtained from an authoritative source with recorded provenance; qa/lcp-interop run with it unlocks a license signed with the EDRLab test provider cert; evidence sealed.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** HRD-046
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T21:11:29Z / 2026-11-24T21:11:29Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-123] NeedsLicenseRefresh compares whole-second Status timestamps strictly: an update inside the issuing second is not detected
+
+**Status:** Queued
+
+**Type:** Bug
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Found by HRD-046. The Readium reference Status Server stamps updated.license with whole-second resolution. lcp.NeedsLicenseRefresh uses After; on the first interop run (issue, register and return inside one second) it returned false after a return (status.updated.license == license.issued). Runs 1-3 of the committed test wait 1.1 s so the check is deterministic. Decide whether a tie should be treated as stale after a return/renew (spec: client must download the updated license after return/renew, lsd latest.md l.326/l.383, so the interaction itself, not the timestamp, is the trigger). The original failing output was archived outside the repo by fresh_out (UNCONFIRMED as repo evidence). Reported by the PR #33 reviewer (mutant M3, described in the review text only; no M3 evidence file is committed in the repository, UNCONFIRMED as repo evidence: removing the 1.1 s wait gives needs_license_refresh_after_return FAIL, lcpserver log shows generate and update inside one second). Spec MUST not met: lcp-specs lsd latest.md l.326 (return) and l.383 (renew) say the client must download the updated License Document. Cross-links (11.4.214): HRD-046 (found by), HRD-122.
+
+**Affected scope:** core/pkg/lcp/lsd.go NeedsLicenseRefresh
+
+**Reproduction / current observation:** Issue license and Return within one second against the reference lsdserver; NeedsLicenseRefresh(status, license) == false.
+
+**Acceptance:** Decision recorded; if changed, unit test plus interop re-run; evidence sealed.
+
+**Closure criteria:** Decision recorded; if changed, unit test plus interop re-run; evidence sealed.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** HRD-046
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T21:11:29Z / 2026-11-24T21:31:02Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: Review follow-up N4: M3 claim reworded (no M3 evidence committed). Decision record: reclassified Task to Bug (F9) because a spec MUST (lcp-specs lsd latest.md l.326/l.383) is not met; evidence: evidence/lcp-interop-run1
