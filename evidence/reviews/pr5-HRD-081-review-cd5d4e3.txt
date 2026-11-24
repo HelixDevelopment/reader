@@ -1,0 +1,151 @@
+VERDICT: NO-GO
+HEAD: cd5d4e383dbde06f338349c996869ababdd2fed1
+Round: 4 of max 5 (§11.4.276). Reviewer: independent subagent (not the author, not the round-1..3 reviewers), Opus 5.5; effort not reported
+by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No container, no real podman, no GUI, no display, no tmux server touched. podman/docker/buildah =
+PATH stubs in the reviewer scratchpad. Every planting experiment ran in mktemp sandboxes under ~/.cache/claude-tmp (removed afterwards) or in
+the reviewer's own detached worktree (git status clean after every mutant). Not exercised (UNCONFIRMED): test_network_isolation,
+test_runtime_checks, test_reaper, canary_probe, every live runner (need real podman + image).
+Head check: `git ls-remote github refs/heads/task/HRD-081-isolation-runner` = cd5d4e383dbde06f338349c996869ababdd2fed1; fresh
+`git worktree add --detach ~/.cache/claude-tmp/wt-rev5c cd5d4e3` (clients/ absent). gh pr view 5: OPEN, headRefOid same, MERGEABLE.
+
+=== (1) HERMETIC SUITES (fresh worktree, stub podman first on PATH) ===
+  test_waivers          Ran 9 tests  OK
+  test_guard_matrix     OK  "matrix: 227 caught of 227 required; residual documented: 12 uncaught [...], 0 unexpectedly caught []"  (227+12 = 239, matches doc/commit)
+  test_bindcheck        Ran 18 tests OK
+  test_proxy_policy     Ran 7 tests  OK
+  test_review_round1    Ran 16 tests OK
+  test_review_round2    Ran 38 tests OK
+  test_review_round3    Ran 35 tests OK
+  guard/test_assert_host_untouched  Ran 14 tests OK
+  assert_host_untouched.sh: "NOTICE pinned waivers active: 29 (self 8, denylist 2, waive 19) ...
+                             assert_host_untouched: PASS (0 finding(s); files scanned 492, symlinks 5 (outside repo 0))"  rc=0
+
+=== ROUND-3 ITEMS RE-VERIFIED ===
+  R3-B1 (enumerated members): pre-run bindcheck rc=64 and post-run scan rc=1 (plain and --allow) for: hardlink to a sandbox ".bashrc" stand-in,
+     fifo, nested `git init` repo, x/.claude, CLAUDE.md, .git ten levels deep, .GIT, .Git, .Claude, .CLAUDE. Enumerated names FIXED.
+  R3-I1 hardlink/fifo pre-run: FIXED (above). R3-I2 proof host-only + -p validation: FIXED (M9 below caught). R3-I3: post-run caps + --ulimit
+     fsize present; 300-level tree -> "deeper than 12 levels" (0.02 s), 60000 files -> "60000 files exceed the cap of 20000" (0.24 s), override
+     SAFE_IO_MAX_FILES=99999999999999999 refused. Run-time total-bytes cap: absent, honestly documented UNCONFIRMED.
+  R3-I5: own mutants M5/M6 equivalents are now behavioural (Harness). Trailers `Roadmap-Item: HRD-081` = 1 on each of cd5d4e3 65ba89d 971d44f
+     2125945 24bc76a 0c300d0 23c03b0. Seals: every SHA256SUMS under evidence/campaign-2026-11-23/isolated (root, guard, web, koreader, desktop,
+     hardening, helixqa) `sha256sum -c --quiet` rc=0; `safe_io scan` of that committed tree rc=0; no ESC byte in any committed file there.
+
+=== BLOCKING ===
+R4-B1. Class R3-B1 ("git/agent control state in a container-written tree that the host seals/commits") is still open: the fix closes the
+    ENUMERATED names, not the class. Two members pass:
+    (a) An EMBEDDED BARE REPOSITORY needs no `.git` name: HEAD + objects/ + refs/ + config. None of these names is in the deny table, so the
+        default `safe_io scan` (the one seal_evidence.sh uses) and the pre-run bindcheck accept it; only `scan --allow` refuses it (HEAD/config
+        have no extension). Reproduction (mktemp sandbox; host repo + evidence/run1 filled as a container could):
+          safe_io.py scan evidence/run1            -> plain scan rc=0
+          safe_io.py scan evidence/run1 --allow    -> "refused config / HEAD: not an allow-listed publish type", rc=1
+          seal_evidence.sh evidence/run1           -> "sealed 3 files", seal rc=0; SHA256SUMS lists ./config ./HEAD ./shot.png
+          git add evidence; git commit             -> committed as ordinary files (git does not flag an embedded BARE repo)
+          config = [core] bare=false, worktree=., fsmonitor="touch $SB/PWNED_bare_wt; false"
+          (cd evidence/run1 && git status)         -> marker PWNED_bare_wt CREATED (also with GIT_CONFIG_GLOBAL=/dev/null); host
+                                                      safe.bareRepository is unset (git 2.53.0 default "all").
+        Preconditions honestly stated: the runner's own `--allow` scan refuses this tree and exits 1, and execution needs a git command whose cwd
+        (or -C) is that directory - a weaker chain than R3-B1's root-level `git status`. But the runner refusal is not mechanical: the tree stays
+        in evidence/, seal_evidence.sh (the documented seal seam) seals it, and RED evidence of failed runs is routinely sealed and committed. The
+        doc §8.2 claim "A planted nested git repository with core.fsmonitor ... is refused by seal_evidence.sh" is false for this member.
+    (b) Agent-instruction files outside the enumerated list pass EVEN `scan --allow` (names test, file or dir containing x.txt, at depth 2):
+          pass plain AND --allow: CLAUDE.local.md, claude.local.md, AGENT.md, CRUSH.md, CONVENTIONS.md, .crush/, .opencode/, opencode.json,
+          .kimi/, .pi/, .roo/, .continue/, .github/ (e.g. .github/copilot-instructions.md), .junie/, .amazonq/, .kiro/
+        The project's own agent list (Claude Code, Kimi, pi, opencode, Crush, Codex, Gemini, Qwen, Aider) is broader than DENY_PREFIX.
+        UNCONFIRMED: which of these each agent auto-loads from a nested directory; FACT: all reach the sealed + committed evidence tree.
+    Fix (class-wide, not another list): for container-written trees switch the NAME check to an allow-list as well (safe charset, no leading
+    dot at any component, extension in ALLOW_EXT) and refuse any directory that git would accept as a git dir (HEAD + objects + refs, or any
+    `config`/`HEAD`/`commondir`/`gitdir` file); make seal_evidence.sh refuse a directory that a runner recorded (host-only marker) as
+    container-written unless `scan --allow` passes, and test each member + a paired mutant.
+
+R4-B2. Container-controlled bytes reach the OPERATOR'S TERMINAL and the published evidence RAW (terminal-escape and log injection). Not raised
+    in rounds 1-3. HARD RULE (CLAUDE.md "Test isolation"): tests never touch the user's windows or clipboard. Paths:
+      - run_koreader_gui.sh: every `D ...` (podman exec of in-container ko_drive.sh) writes straight to the runner's stdout; `say "...$(D
+        docpercent A)"` / `$(D close)` / `$(D pixel ...)` echo container output through `tee -a "$LOG"` to the terminal AND into steps.log,
+        which is published to $OUT and sealed.
+      - run_web_live.sh / run_desktop_live.sh: run_container.sh ends with `exec podman run` attached, no redirection: container stdout/stderr
+        = runner stdout/stderr (code reading).
+      - access_proxy.py logs `self.path` raw (lines 95, 133); the koreader `sink` prints `grep syncs/progress access.log | cut -c12-110` via
+        tee to the terminal, and access.log is published as server_access.log.
+    Reproduction 1 (round-3 Harness, real run_koreader_gui.sh, stub `podman exec` printing ESC]2;OWNED-TITLE BEL ESC]52;c;cHduZWQ= BEL plus a
+      forged line): "rc 0 stdout bytes 3656 OSC52 occurrences on stdout: 37 OSC2: 37"; "steps.log (published evidence) OSC52: 6 forged lines: 6"
+      (forged text: "2026-11-24T00:00:00Z KOSYNC PROOF PASS (forged)").
+    Reproduction 2 (real access_proxy.py on a sandbox unix socket, raw request `GET /syncs/progress/ESC]52;c;cHduZWQ=BEL ESC]2;OWNED BEL`):
+      reply 502; the runner's sink pipeline output (od -c): "/ s y n c s / p r o g r e s s / 033 ] 5 2 ; c ; c H d u Z W Q = \a 033 ] 2 ; O W N E D \a".
+    Host context measured: TERM_PROGRAM=tmux, TERM=screen-256color (the operator works in tmux; tmux forwards OSC 52 to the outer terminal with
+    its default set-clipboard=external and applies OSC 2 to the pane title). UNCONFIRMED (not tested, would touch the desktop): whether the
+    operator's outer terminal accepts OSC 52 and so writes the host clipboard; the title change is near-universal.
+    Fix: no container-derived byte reaches a terminal or a host-written log unsanitised - redirect `podman run`/`podman exec` stdout+stderr
+    into host-only files, print/tee only a sanitised copy (strip C0/C1 except \n\t, or `cat -v`), log the proxy path with repr()/percent-
+    encoding, and add a test that plants ESC/OSC bytes on each path + a paired mutant.
+
+=== IMPORTANT ===
+R4-I1. Lint class rule evaded by command shapes outside the enumerated family (scripts/cN.sh|py in a temp git tree, G.scan):
+      MISSED (full escape, no finding at all): `podman --root /tmp/r run -v /:/h img`, `podman --log-level=debug run --rm img sh`,
+              `docker --context x run img` - a global option between the CLI and the subcommand defeats CONTAINER_USE and CONTAINER_CMD.
+      MISSED: crun run, incus exec, ctr run, kubectl run/exec, multipass exec, limactl shell, vagrant ssh, firejail, toolbx run,
+              systemd-nspawn -D, machinectl shell, host-spawn, flatpak-spawn --host, ch-run, podman start -a, podman container runlabel,
+              podman pod create; Python list form of the NEW family: subprocess.run(["distrobox","enter",..]), (["flatpak","run",..]),
+              (["runc","run",..]), (["podman-remote","run",..]) (RUNTIME_EXTRA requires whitespace, the list form has `", "`).
+      CAUGHT: -v=/home/me, --mount src=$HOME, "$HOME:/h", "${HOME}":/h, $OUT/../.., H=$HOME; podman run -v $H (class rule), allow_host_loopback,
+              --net=private, distrobox-host-exec xdg-open.
+    The global-flag shape is a member of the class the rule claims ("any podman run"), not an unlisted tool. Fix: tokenize the command
+    (skip global options) instead of regex adjacency; apply the list-form pattern to RUNTIME_EXTRA; add matrix entries.
+R4-I2. KOSync verdict cannot fail the run: `python3 -I kosync_proof.py ... | tee -a "$LOG" || say "KOSYNC PROOF FAILED"` has no pipefail, so
+    the status is tee's and the `||` branch is dead. Harness run (real run_koreader_gui.sh): kosync_proof exit 1 with verdict FAIL ->
+    "runner rc 0 | 'KOSYNC PROOF FAILED' in steps.log: False"; kosync_proof crashing on malformed JSON (container-shaped request bodies) ->
+    "runner rc 0 | kosync_proof.json published: False". A false-green exit code (§11.4 / §11.4.201). Fix: set -o pipefail or capture status.
+R4-I3. Unsealed planted file: seal_evidence.sh excludes `.SHA256SUMS.*` from hashing, and `.SHA256SUMS.json` passes `scan --allow` (ext json).
+    Sandbox: allow rc=0; "sealed 2 files"; `sha256sum -c` rc=0; SHA256SUMS lists 0 lines for it; after rewriting it `sha256sum -c` still rc=0.
+    A container-chosen file sits in a "sealed" dir uncovered by the seal (§11.4.268). Fix: refuse any `.SHA256SUMS*`/`SHA256SUMS*` name in scan.
+
+=== OWN MUTANTS (applied in the worktree, round1+round2+round3+bindcheck suites run, reverted; git status clean after) ===
+  M1 deny_name case-sensitive -> CAUGHT r3   M2 deny only for dirs -> CAUGHT r3      M3 TOTAL cap dropped -> CAUGHT r3
+  M4 malformed cap silently defaulted -> CAUGHT r3   M5 DEPTH cap dropped -> CAUGHT r3   M6 bindcheck hardlink check dropped -> CAUGHT r3
+  M7 bindcheck host-* rule dropped -> CAUGHT r3   M8 --ulimit fsize removed -> CAUGHT r3   M9 -p inside rw source allowed -> CAUGHT r3
+  M10 web runner scan without --allow -> CAUGHT r3   M11 bindcheck deny table not consulted -> CAUGHT r2,r3
+  M12 allow-ext .lower() dropped -> CAUGHT r3   M13 bindcheck fifo/device check dropped -> CAUGHT r3
+  13/13 killed: the shipped mechanisms are well tested; the findings above are missing members of the class, not untested code.
+
+=== ADVERSARIAL NAME MATRIX (deny / plain scan / scan --allow / bindcheck) ===
+  REFUSED everywhere: .git .GIT .Git .claude .Claude .CLAUDE CLAUDE.md. git itself refuses to add `.git /config` ("invalid path", protectNTFS),
+  so trailing-space / dot variants (`.git `, `.git.`, `git~1`, `GIT~1`, `.g‌it`, `.git\xa0`, fullwidth `.ｇit`) pass safe_io but are not
+  git-significant on Linux (minor). Pass --allow: names with ESC/OSC bytes (`ESC]52;...BEL.png`), a newline (`a\nb.png`), a leading dash
+  (`-rf.png`), `.SHA256SUMS.json`; plus R4-B1(b). Refused by --allow only: HEAD, config, conftest.py, SHA256SUMS, .mise.toml, .clinerules.
+
+=== (3) HOST ACTIONS ON CONTAINER-WRITTEN DATA (independent enumeration, tools/isolation + qa/isolation) ===
+  safe_io read/copy/first/put/scan: link-safe, fd-relative O_NOFOLLOW; OK.        seal_evidence.sh: see R4-B1(a), R4-I3, m1.
+  kosync_proof.py: json.loads of proxy-written lines with container-chosen bodies; malformed -> crash; fail-closed in the file, not in the
+     exit code (R4-I2). NaN/Infinity accepted by json but compare False (fail-closed).
+  access_proxy.py: bodies logged via json.dumps (escaped, secrets redacted); request PATH logged raw (R4-B2); UA via !r (escaped).
+  container_proof.py / reap.sh: read only `podman inspect` (host-set labels/config) - trusted; reap kills only on dead owner pid; OK.
+  start_server.sh stop: reads pid files in $ST (not the rw-bound $ST/sock); OK.  rm -rf of a previous container-written $PR: rm does not
+     follow links; OK.  fresh_out.sh: mv, never follows; tainted trees are kept forever in ~/.cache/claude-tmp/evidence-archive (m5).
+  redis_sink.txt: container-influenced keys/values written raw into evidence (log forgery, not printed) - covered by the R4-B2 fix.
+  run_helixqa_container.sh: no rw bind; container stdout redirected to files, split by host python without parsing; OK.
+  Path traversal through names: impossible (a name cannot contain '/'); `first` enforces NAME_OK; scan does not (m1).
+
+=== (6) WAIVERS / DOCS ===
+  container-outside-isolation waive rows: 16 = 12 pre-existing + run_koreader_gui.sh + run_container.sh, start_server.sh, tests/test_reaper.py
+  (each read: they start/exec/inspect/rm only their own hrdiso-* containers or the per-run redis on 127.0.0.1). Legitimate; content-pinned;
+  the waivers are rule-specific, so container-escape still applies to those files. Self rows 8, denylist 2, total waive 19 (16 + 3 spec-kit
+  obfuscated-exec) - matches the NOTICE line and the doc ("EIGHT sources", "16 container-outside-isolation rows", 239 matrix cases).
+
+=== MINOR / FOLLOW-UP ===
+m1. scan accepts any byte in names (ESC, newline, leading '-'); SHA256SUMS then carries raw ESC (od: "033 ] 5 2 ; c ;" at the start of the
+    listing). Reuse NAME_OK in scan --allow.
+m2. test_review_round3 `test_planted_control_artifacts_in_profile_never_reach_the_evidence_dir_and_scan_uses_allow_list` plants nothing; its
+    name overclaims (§11.4.6).
+m3. `.html` is publish-allow-listed: container-authored HTML opened later by the operator runs its script in the host browser. Document or
+    drop html.
+m4. scan keeps walking after the FILES cap is exceeded (time only; 60000 files = 0.24 s).
+m5. fresh_out.sh archives tainted trees indefinitely under the dedicated root; add a retention note.
+m6. Disclosed shellcheck leftover SC2046 start_server.sh:17 (harmless).
+
+=== CONCLUSION ===
+Every round-3 instance and every enumerated deny name is fixed, all hermetic suites are green, and 13/13 reviewer mutants are killed. Two
+blocking classes remain: R4-B1 the R3-B1 class through members the enumeration missed (an embedded bare repository is sealed by
+seal_evidence.sh and executes core.fsmonitor once git runs in that directory; agent files such as CLAUDE.local.md / AGENT.md / .github/ pass
+even the publish allow-list), and R4-B2 container bytes reaching the operator's terminal and the evidence raw (OSC 52 clipboard / OSC 2 title,
+forged log lines; operator in tmux). Important: lint global-flag evasion of the class rule, a dead KOSync failure branch (runner rc 0 on FAIL),
+an unsealed planted .SHA256SUMS.json. NO-GO. This is round 4 of 5: per §11.4.276(E) the next round is the last before operator escalation.

@@ -1,0 +1,502 @@
+# Test isolation policy and architecture
+
+Status: policy binding since 2026-11-23 (operator hard rule, stated twice); hardened after the independent isolation
+review (findings F1-F6, evidence `evidence/campaign-2026-11-23/isolated/hardening/`).
+
+## 1. The rule
+
+Automated tests must NEVER directly access or affect the logged-in user's desktop, display, windows, input devices,
+clipboard, browser or apps, on any host. Every autonomous GUI / E2E / emulator test runs INSIDE an isolated rootless
+container built on the Containers submodule (`submodules/containers`) and driven through HelixQA (`submodules/helixqa`,
+banks in `qa/helixqa/`). No credential of the operator (sudo password, tokens) is ever used. Other projects' containers
+(`lava-*`, `helixagent-*`, `helixcode-*`, `boba-*`, `qbittorrent`, `workshop-*`, `helixqual-*`) are never touched; ours are
+named `hrdiso-*` (tests: `hrdisorev-*`).
+
+**The container is the boundary. The guard (section 4) is a lint**: it catches honest mistakes early and has a documented
+residual; it is not what keeps the host safe.
+
+## 2. What runs where
+
+| Layer | Runs on host | Runs in the container |
+|---|---|---|
+| helix-server (Go, no GUI) | yes, loopback, a free port picked per run | no |
+| Logging proxy (`tools/isolation/access_proxy.py`) | yes, on a UNIX SOCKET `<state>/sock/h.sock` (mode 0600, dir 0700) | no |
+| redis (disposable, `hrdiso-redis-<runid>`, 128 MB, 1 h lifetime, per run) | rootless container, loopback on a free port picked per run (server only) | n/a |
+| Web client e2e (Playwright + Chrome for Testing) | no | yes (`localhost/helix-gui-test:1`) |
+| KOReader GUI (SDL on private Xvfb, xdotool, screenshots) | no | yes |
+| Electron desktop client e2e | no | yes |
+| HelixQA HTTP banks (`helixqa http`) | no (static binary built on host, executed in container) | yes |
+| HelixQA web bank browser cases (HLX-WEB-001/002) | no | yes, by `tests/helixqa_web/run_web_bank.sh` (HRD-038, separate work, container name `hrd038-web` is outside the `hrdiso-` namespace: reported, not changed) |
+| Android emulator | no | NOT covered: the wrapper was removed from this PR (section 6); no isolated Android run exists yet |
+
+The host only ever runs non-GUI processes (server, proxy, redis, `podman`). Drivers such as xdotool, Xvfb, openbox,
+ImageMagick and Chromium exist only inside the image.
+
+## 3. Architecture
+
+```
+host (logged-in desktop: never touched)
+ |  helix-server 127.0.0.1:<free port>  <- access_proxy (route allow-list)  unix:<state>/sock/h.sock   (access.log + KOSync bodies, redacted)
+ |  redis hrdiso-redis-<runid> (podman, 127.0.0.1:<free port>, server only)
+ |
+ +-- podman run --network none   (tools/isolation/run_container.sh)
+       localhost/helix-gui-test:1  (submodules/containers/images/gui-test/)
+       /run/helixsock/h.sock  <- the ONLY thing handed in (bind of <state>/sock)
+       qa/isolation/inside/launch.sh: runtime assertions, then node sockbridge.js 127.0.0.1:38191 -> h.sock, then the test
+       entrypoint: private Xvfb :99 (-nolisten tcp), optional openbox
+```
+
+**Network (finding F1).** The first design used podman's `pasta --map-host-loopback`, which exposes EVERY host loopback
+service (adb 5037, postgres 8432/55432, ollama 11434, cups 631, ssh 22, ...) and the internet to the container (RED log:
+`hardening/F1_RED.log`). Now the container runs with `--network none`: it has only `lo`. The one path to the test server is
+a unix socket bind-mounted from the host and bridged to the container's own `127.0.0.1:38191` by a 10-line in-container
+node bridge. Options evaluated: (a) `pasta -T <port>` forwards host-to-container, not the direction needed, and without
+`--map-host-loopback` pasta cannot reach host loopback at all; (b) per-port nft rules need root; (c) `--network none` +
+unix socket works rootless, is deny-by-default and also blocks all outbound internet. Chosen: (c). The permanent gate test
+`tools/isolation/tests/test_network_isolation.py` probes from inside a container every TCP port a host process listens on
+(loopback and wildcard), the host's own IPs, the pasta gateway names, `1.1.1.1:443` and a canary listener: nothing is
+reachable, and with `-b` only `127.0.0.1:38191` opens and really reaches the upstream through the proxy. Outbound
+internet is DENIED by default for every suite (none of them needs it; the browsers/KOReader are bind-mounted). The Android
+emulator container (section 6) is a separate recipe with its own published adb port and no host-loopback map.
+
+**Proxy route policy (N1).** The unix socket is not a free pass to the host server: `access_proxy.py` is default-DENY with a
+per-policy method+path allow-list. Allowed (GET/HEAD): `/healthz`, `/readyz`, `/opds/...`, `/opds-pse/stream/<id>/<n>`,
+`/v1/works[/<id>]`, `/v1/editions/<id>`, `/v1/files/<id>/content|license`, `/v1/covers/<id>`, `/v1/formats`, `/v1/protocols`,
+`/syncs/progress/<doc>`, `/users/auth`; plus `PUT /syncs/progress` and `POST /users/create` (KOSync). Everything else - in
+particular `POST /v1/sources`, `/v1/scans`, any `/v1/admin/...`, local-root or webdav source registration - is answered
+`403 {"error":"isolation proxy: route not allowed"}` and never reaches the server (logged `DENIED`). Path tricks (encoded
+slashes, backslashes, NULs, `//`, dot segments) are denied; chunked bodies get 411, bad/negative `Content-Length` 400, more than
+8 MiB 413, handler exceptions 502 (logged, never fatal, nothing leaked). Policy `helixqa` additionally allows `GET /v1/scans`
+and `POST /v1/sources` ONLY with the empty JSON body `{}` (that is what the bank's negative cases send); the bank's hard-coded
+literal bearer is rewritten by the proxy to the real admin token on those two routes only. The admin token is RANDOM per run, is
+passed to the proxy through its environment, and never enters a container; setup (registering the fixture source, scanning)
+is done host-side by `start_server.sh` before any container starts. There is no fixed admin literal in `tools/isolation` or
+`qa/isolation` any more except the bank's own fixture string used as the proxy's mapping KEY. Tests:
+`tests/test_proxy_policy.py` (unit, real proxy on unix sockets) and `tests/test_network_isolation.py` (from inside a container,
+through the bridge: `POST /v1/sources` with a webdav endpoint pointing at a host canary, `POST /v1/scans`, a local-root source are
+refused, the canary records 0 hits, no source exists afterwards - also against the REAL server when `HELIX_SERVER_BIN` is set).
+RED: `hardening/N1_RED.log`.
+
+**No host display/session.** No X11/Wayland socket, `/dev/input`, D-Bus or `XDG_RUNTIME_DIR` is mounted; `DISPLAY` is never
+passed (the entrypoint pins the container-private `:99`). `run_container.sh` refuses such env/mounts (exit 64) and the
+in-container `launch.sh` asserts at RUNTIME that none exists (exit 65): no WAYLAND/XAUTHORITY/DBUS/XDG_RUNTIME_DIR/
+SSH_AUTH_SOCK variables, no foreign X socket, no `/dev/input|uinput|dri`, nothing in `/run/user`, no display/dbus mount in
+`mountinfo`, only the `lo` interface. Tested by `tests/test_runtime_checks.py` (it deliberately bypasses the wrapper to
+prove the runtime check alone).
+
+**Bind allow-list (F3, N5).** `tools/isolation/bindcheck.py` (called for every `-r/-w` and for the `-b` bridge): the source's
+resolved real path (symlinks followed) must lie inside the repo `clients/`, `qa/`, `tools/isolation/`,
+`submodules/containers/images/`, the Playwright cache `~/.cache/ms-playwright`, `/usr/lib/koreader` (all read-only) or under
+`ISO_WORK` (read-write only for its sub-directories) or `evidence/` sub-directories (read-write, never the root itself).
+Always refused: `$HOME`, `/`, `/tmp`, `/dev/shm`, `/var/tmp`, system dirs, any ancestor of `$HOME`, anything inside - or an ancestor
+of - `~/.ssh .config .gnupg .aws .kube .docker .mozilla .local .password-store .claude*` and similar, sources containing `:` `,`
+or control characters (mount-option injection). Destinations must be absolute and canonical (`normpath`-equal: no `..`, `//`,
+`.`, trailing `/`, charset `[A-Za-z0-9_./-]`), below `/work /opt/ /out /prof /fx /pw /ms-playwright`, and may never be, lie
+inside or cover `/opt/isoinside` or `/run/helixsock` (the latter only for the `-b` bridge itself); `run_container.sh` also
+refuses duplicate destinations. `ISO_WORK` must be absolute, canonical, symlink-free, strictly inside
+`~/.cache/claude-tmp` or `~/.cache/helix-iso`, and clear of the sensitive dirs. A read-write bind under `evidence/` is only
+accepted for the run's OWN FRESH directory: nothing below it may be a `SHA256SUMS` seal or older than 6 h, so a sealed or stale
+sibling is never writable; `tools/isolation/fresh_out.sh <dir>` (called by every runner) moves an existing output dir into
+`~/.cache/claude-tmp/evidence-archive/` (never deletes) and recreates it empty. `bindcheck.py` prints the RESOLVED path and the
+wrapper hands exactly that to podman (`-v "$real:$dst"`), so a symlink swapped after the check cannot redirect the mount.
+Tests: `tests/test_bindcheck.py` (RED `hardening/N5_RED.log`, GREEN `hardening/N5_GREEN.log`).
+
+**Lifetime (F5, N4).** Every container gets `--timeout` (default 1800 s; `-t`), an owner label (`org.helix.owner-pid`, or
+`org.helix.owner-file` for redis), a lease label `org.helix.lease-ts`, and `tools/isolation/reap.sh`, which every start runs,
+removes stale `hrdiso-*` / `hrdisorev-*` containers whose owner is gone (nothing else, ever). STARTUP GRACE: a container
+younger than `REAP_GRACE` seconds (default 120; lease label, else creation time) is never reaped, and `start_server.sh` writes
+its owner file (naming the live script) BEFORE it creates redis, so a parallel start can no longer have its brand-new redis
+killed. Redis and the server are per run: container `hrdiso-redis-<runid>`, free loopback ports bound-checked per run,
+recorded in `<state>/run.env` and `<state>/redis.name`; there is no shared fixed `hrdiso-redis`, so parallel suites never
+`flushall` each other. The server and proxy run under `timeout 3600`, redis under `--timeout 3600`. Tests:
+`tests/test_reaper.py` (kill -9 orphan reaped after the window and capped; live run not reaped; the startup RACE: owner file
+missing inside the window is kept, then reaped; expired lease reaped; live owner kept; unique per-run ids and owner-file-first order).
+RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
+
+**Resources.** memory = swap cap, `--cpus`, `--pids-limit 512`, `--oom-score-adj 500`, `--cap-drop ALL`,
+`no-new-privileges`, `--userns=keep-id` (`submodules/containers/docs/RESOURCE_LIMITS.md`). One test container at a time.
+`-p FILE` records the container's isolation facts (`podman inspect` subset; env VALUES never) next to the evidence
+(`container_proof.json`).
+
+## 4. Guard and gate (F2) - a lint
+
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 268-case evader matrix, pinned-waiver tests, bind tests, proxy
+  route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
+  startup-race tests; needs rootless podman and the image).
+* Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
+  shebang as code and WITHOUT one as data (data-safe rule subset: never silently skipped); any file with a shebang or the exec bit;
+  Dockerfile/Containerfile/Makefile, `.claude/{agents,commands,skills}`, `prompts/`, `.git/hooks`. Directories named `build out
+  dist .cache .gradle evidence venv target __pycache__` are no longer blind spots: their script-like files (script extension,
+  shebang or exec bit) get the FULL rule set. Third-party `node_modules` trees: only script-like files, and only the HARD
+  subset (input injection, clipboard, uinput path, portal/dbus, GUI-automation libs, container escapes); the count is printed
+  (`third-party script files ...`). Binaries (NUL bytes) are skipped (residual). Symlinks are followed (inside the repo) or flagged
+  (outside) and counted; `submodules/` is scanned host-side in report mode only (`--submodules`, report:
+  `hardening/submodule_host_entrypoints_report.txt`; submodules are not edited).
+* Rules (see `assert_host_untouched.py`): input injection and window/clipboard/screenshot tools, desktop launchers,
+  uinput/evdev, scrcpy, `adb ... input`, GUI-automation libraries, session-bus/portal calls, x11grab/pipewire capture, ANY use of
+  the display/session environment names (DISPLAY except the container-private `:99`, WAYLAND_DISPLAY, XAUTHORITY,
+  XDG_RUNTIME_DIR, DBUS_*), X11/Wayland sockets, headed browsers, electron/chrome/chromium/firefox launches, windowed
+  `emulator -avd` and `qemu` without `-display none|-nographic`, host-service probes (`localhost:5037` adb server), environment
+  reconnaissance (`env | grep wayl`), and container escapes on continuation-joined lines matched on BOTH the raw and the
+  quote-stripped view (`--net="host"`, `-v "/":/h`): ANY `--network/--net` other than `none` (so the old pasta
+  `--map-host-loopback` mode is caught), `--map-host-loopback`, `allow_host_loopback`, `--privileged`, `--cap-add`, `--device`
+  other than `/dev/kvm`, `--security-opt` other than `no-new-privileges` (`label=disable`, `seccomp=unconfined`), `--pid/--ipc/
+  --userns/--uts host`, `--volumes-from`, `--mount` (except tmpfs/volume), `-v` with an absolute, `~`, `$HOME` or `..` source (`$PWD/..`),
+  `podman kube play`/`play kube`, `docker compose up`, remote `-H`; references to inside-scripts from host files
+  (`sh qa/isolation/inside/*`, globs, `cd qa/isolation/inside && ./x.sh`); and obfuscation: `base64 -d` (also into a variable),
+  `source <(curl ...)`, `sh <<< "$X"`, `sh -c "$X"`, `curl | sh`, `eval "$X"`, `${X}tool` / `$(cmd)tool` command concatenation, glob and
+  charclass command names that expand to a known tool (`xdoto?l`, `x[d]otool`, in shell files), `"a"+"b"`, `x''y`, `x"d"otool`, `x\y`.
+* Allowlist, ONLY for code that runs inside a container image: the marker `isolation: runs-inside-container` in the first
+  15 lines of a file under `qa/isolation/inside/` or `submodules/containers/images/` (ignored anywhere else). Such files
+  must not be executable and may not be referenced by file name from host-side files (only the directory mount is allowed).
+* Exemptions are PINNED (N3) in `tools/isolation/guard/waivers.txt`, one line `kind|path|sha256|rule|justification|expires`, exact
+  paths only (no globs), expiry at most 366 days out: `self` (the lint's own TEN sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
+  `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`,
+  `tests/test_review_round1.py`, `tests/test_review_round2.py`, `tests/test_review_round3.py`; not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
+  thing in order to refuse it is honoured ONLY in a pinned file under `tools/isolation/`; an unpinned marker is itself a finding
+  `denylist-marker-unpinned` and exempts nothing), `waive` (findings of one rule in one pinned file: the spec-kit `eval` scripts,
+  three third-party `xdg-open` shims). A changed pinned file (`waiver-pin-mismatch`), a deleted waiver (the file is scanned
+  again and fails), an expired, orphaned, malformed or hand-edited entry (`waiver-expired|orphan|malformed|unrecorded`) FAILS the
+  gate. Pins are created and updated only with `tools/isolation/guard/pin_waivers.py add|repin|remove`, which appends
+  `utc|action|path|old|new|reason` to `waivers.history` and prints `RE-PINNED ... old -> new`; a pin whose hash has no history
+  record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
+  (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
+* Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
+  `mutants_codec.py`): 279 cases = 268 REQUIRED, 11 documented residuals (round 5 added 14 shapes - quoted global-option values with spaces, Python list / JS array forms, docker compose / docker-compose / podman-compose - and one former residual, a command substitution in the command word, is now caught; round 4 added 22 global-option / wider-runtime-family shapes and 4 Python list forms; earlier: 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
+  extensions, container escapes, inside-script references, obfuscation, recon) and 12 documented RESIDUAL cases. HONEST
+  CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
+  80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
+  reviewer's list, class by class, so equality with the reviewer's set is UNCONFIRMED. REAL REMAINING (uncaught) classes: command
+  names computed at run time (chr/hex/base64 held in data), command lines read from environment, files or config at run time,
+  tools not in the rule list, code executed by third-party imports/binaries/`node_modules` (HARD subset only) and NUL-containing
+  files, glob names in non-shell files, and anything a future tool does that no rule names. RED:
+  `hardening/N2_RED.log` (`n2_red_baseline.py`, a RECONSTRUCTION of the round-1 behaviour, evaded 61 of the 94 new cases and none of the 83 earlier ones; the earlier F2 RED
+  is `hardening/F2_RED_old_ruleset_vs_matrix.log`); GREEN: `hardening/N2_GREEN.log`.
+* `run_isolated.sh -- <cmd>`: `env -i` allow-list (PATH HOME LANG LC_ALL TZ `HELIX_*` `QA_*` `HQA_*`), never forwards
+  session variables, re-asserts the final environment (exit 65), refuses `--require-display` and host-GUI commands (64).
+* `clients/desktop/package.json` `start` does not launch Electron on the host; it prints the instruction and exits 64.
+
+## 5. How to run each suite
+
+**Clean-clone prerequisites that are NOT in this repository state (stated plainly).** On a fresh clone of `main` with this
+change merged, the runners cannot work until all of these land (each in its own PR): (1) `submodules/containers/images/gui-test`
+does not exist in the containers submodule pin `22b49707`; it is untracked in the operator's checkout, so the image
+`localhost/helix-gui-test:1` cannot be built from a clean clone and `launch.sh`'s assumptions about the image (Xvfb `:99`, empty
+`/run/user`) cannot be reviewed from this repository; (2) `clients/` (web, desktop, android), (3) `qa/helixqa/` (banks, fixtures)
+and (4) `evidence/clients/` are untracked in this PR; (5) `submodules/containers/docs/RESOURCE_LIMITS.md`, cited in section 3,
+is not verified to exist in the pin. Behaviour without them is fail-closed, never a fallback to the host: a missing image makes
+`run_container.sh` exit **66**; a missing `qa/helixqa` makes `run_helixqa_container.sh` stop with a non-zero status (the review observed 70 with a stub; the script itself sets no code, `python3` exits 2 for a missing file: exact code UNCONFIRMED); a refused
+bind, name or env exits 64. The runner is therefore not usable end to end from a clean clone yet.
+
+Waiver ownership: the three `waive` rows for `clients/{android,desktop,web}/node_modules/.../xdg-open` (third-party npm shims)
+are NOT in this PR (an orphan waiver is fatal by design, and `clients/` is absent here). They belong to the PR that adds
+`clients/` and must be added there with `pin_waivers.py add waive ...`.
+
+Prerequisites (once): `podman build -t localhost/helix-gui-test:1 submodules/containers/images/gui-test`; a helix-server
+binary (`HELIX_SERVER_BIN`); `export ISO_WORK=$HOME/.cache/claude-tmp/<dedicated-dir>` (state, fixtures, profiles; must lie strictly inside `~/.cache/claude-tmp` or `~/.cache/helix-iso`); Playwright
+browsers in `~/.cache/ms-playwright`.
+
+* Web (67 checks): `python3 -I qa/isolation/make_gui_fixtures.py web $ISO_WORK/fx-web`;
+  `tools/isolation/start_server.sh start $HELIX_SERVER_BIN $ISO_WORK/st $ISO_WORK/fx-web`;
+  `qa/isolation/run_web_live.sh $ISO_WORK/st <out>`; `tools/isolation/start_server.sh stop $ISO_WORK/st`.
+* KOReader GUI: `qa/isolation/run_koreader_gui.sh <out>` (starts and stops its own server; also writes
+  `kosync_bodies.jsonl` and the machine verdict `kosync_proof.json`).
+* Desktop: `qa/isolation/run_desktop_live.sh $ISO_WORK/st <out>` (server as for web).
+* HelixQA HTTP banks: `qa/isolation/run_helixqa_container.sh <out>` (`HELIXQA_BIN` = `CGO_ENABLED=0 go build ./cmd/helixqa`).
+* HelixQA web bank: `tests/helixqa_web/run_web_bank.sh` (HRD-038, not run or modified here).
+* Android: no runner in this PR (section 6).
+* Evidence manifest: `tools/isolation/seal_evidence.sh <dir>` (atomic `SHA256SUMS`).
+
+## 6. Android (canonical recipe)
+
+Verified by another agent (`evidence/clients/android/run-20261123T211340Z/`): AVD `default` (API 34, google_apis, x86_64)
+from `ghcr.io/vasic-digital/lava-android-emulator:api34-x86_64`, own rootless container, `--device /dev/kvm
+--userns=keep-id`, `-no-window -no-audio`, no host display, `adb connect` to the mapped loopback port, a logging proxy for
+server access. A script for that recipe was REMOVED from this PR (review round 1, finding I4): it ran outside the `--network none`
+boundary (published adb port, host adb server), without `--timeout` and without the lease labels the reaper needs, so it could
+not honestly be called isolated. Android emulator runs are therefore NOT covered by the guarantees of this document until a
+wrapper with explicit, reviewed network allowance, `--timeout` and `org.helix.*` labels lands (tracked under HRD-022 / HRD-040).
+The guard treats `emulator ... -no-window` as the allowed pattern.
+
+## 7. HelixQA and the Vision oracle
+
+`helixqa http` runs in the container (`run_helixqa_container.sh`: 34 cases, 32 PASS, 0 FAIL, 2 SKIP - the web cases,
+because `helixqa http` never executes `playwright:` steps; they are executed by `tests/helixqa_web/run_web_bank.sh`).
+The Vision model is not validated: any screenshot-based judgement is UNVERIFIED and no claim rests on it. Oracles used
+here: DOM/accessibility assertions, HTTP bodies, server-side sink records (access log, KOSync request/response bodies,
+redis), pixel probes of KOReader's rendered pages.
+
+## 8. Known limits
+
+* TOCTOU (review M2): `bindcheck.py` hands podman the RESOLVED path, which closes a swap of the leaf, but a parent component
+  could still be replaced by a symlink between the check and podman's mount if a concurrent host-side writer exists. Not
+  closed; mitigated only by `ISO_WORK` being a dedicated directory no other process should write.
+
+### 8.1 Container-writable state the host later acts on or follows (review round 2)
+
+Model: after a container has had a rw bind of a directory, everything in it is attacker-controlled (names, symlinks, hard links,
+fifos, git pointer files, `.claude*` hooks). Rules, each with a test and a paired mutant in `tools/isolation/tests/test_review_round2.py`:
+
+* Host-side access is symlink-safe: `tools/isolation/safe_io.py` (`put`, `copy`, `scan`, `first`) opens every component below the
+  trusted base with `O_NOFOLLOW`, refuses non-regular and hard-linked files, and creates outputs with `unlink` + `O_EXCL|O_NOFOLLOW`.
+  `container_proof.py` writes through it; `seal_evidence.sh` scans first and refuses (exit 3) a directory holding a link or special
+  file; `qa/isolation/run_koreader_gui.sh` stops its container before any host read, builds every host log/derived file in a
+  host-only directory (`$ISO_WORK/host-ko`, never bound) and publishes them with `safe_io put`. Enumerated host accesses to rw-bound
+  paths: `run_koreader_gui.sh` (profiles `$PR`, out `$OUT`), `run_web_live.sh` / `run_desktop_live.sh` (only the `-p` proof, now via
+  `safe_io`), `container_proof.py`, `seal_evidence.sh`, `fresh_out.sh` (moves a directory, never follows). `run_helixqa_container.sh`
+  binds only read-only paths, so its `$OUT` is host-only. The socket directory bound with `-b` (`$ST/sock`) is read by the host only
+  through the unix socket itself. RULE (round 3, pinned by `test_review_round3.SocketRule`): after a container start the host is
+  never a client of `h.sock` - the directory is container-writable, so the container can replace the socket by its own listener;
+  the only host use is the pre-start `curl` that creates the throwaway KOSync user, before `run_container.sh` runs.
+* `bindcheck.py` refuses an `ISO_WORK`, and any rw source, that is or lies inside a git checkout/worktree (a `.git` directory or
+  pointer file in the directory or an ancestor below the dedicated root), contains `.git`, `.claude*`, `.specify`, `.husky`,
+  `.githooks`, or holds any symlink. Read-only binds are not affected.
+* `run_container.sh`: `-m` 64m..16g (unit required, no leading zero), `-c` 0.10..8 (at most two decimals), `-t` 1..14400 s;
+  `ICEAUTHORITY` joins the refused environment names.
+* Lint class rule `container-outside-isolation`: any `podman|docker|nerdctl` `run|create|exec|cp` (round 3: and `podman-remote`, `buildah run`,
+  `runc`, `lxc`, `apptainer`, `singularity`, `distrobox`, `toolbox`, `flatpak run`, `systemd-run`, `bwrap`, `nsenter`, `unshare`, `chroot`) is a
+  finding unless a content-pinned `waive` row names the file (12 pre-existing service-container scripts and
+  `run_koreader_gui.sh` = 13 rows in round 2; round 3 removed the blanket `tools/isolation/` exemption, so `run_container.sh`,
+  `start_server.sh` and `tests/test_reaper.py` carry their own rows: 16 `container-outside-isolation` rows now). This replaces the endless per-flag list as the primary control for odd flags.
+* Not run in this session: the container-gated tests (network isolation, runtime checks, reaper against real podman, canary probe) and
+  every live run; the hermetic suites use a PATH `podman` stub.
+
+* Chromium's own sandbox is OFF for the Electron run: with it on, Electron fails to launch in the unprivileged rootless
+  container (`hardening/desktop_sandbox_attempt.log`; `--cap-add SYS_ADMIN` is not acceptable). Evidence therefore says
+  "DOM/CSP/navigation behaviour verified with the Chromium sandbox disabled", never "sandboxed".
+* The KOReader GUI is driven by coordinates calibrated against KOReader 2026.07-1 at 600x800; a first launch of a fresh
+  profile needs a warm-up (the runner does it); KOReader is closed by SIGTERM and still pushes progress.
+* The lint has residual classes (section 4); only the container is the boundary.
+* Disk: the image is about 0.9 GB; browsers and KOReader are bind-mounted.
+
+### 8.2 Post-run trust of container-written trees (review round 3)
+
+Class: after the container ran, the host must treat every entry of every rw-bound tree as hostile BEFORE it seals, hashes, copies, commits or
+executes anything. Rules, each with a test and a paired mutant in `tools/isolation/tests/test_review_round3.py`:
+
+* ONE deny table (`safe_io.DENY_EXACT` / `DENY_PREFIX` / `deny_name`, case-insensitive) names the git / agent / tool control artifacts:
+  `.git` (dir or file), `.gitattributes`, `.gitmodules`, `.gitignore`, `.claude*`, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.mcp.json`,
+  `.envrc`, `.direnv`, `.vscode`, `.idea`, `.cursor*`, `.husky`, `.githooks`, `.specify`, `hooks`, `.hooks` and a few credential-config names. The pre-run
+  `bindcheck.py` imports it (no copy) and the post-run `safe_io.py scan` uses it, so the two cannot drift. `scan` also refuses symlinks, fifos,
+  devices, sockets and hard-linked files at any depth and never descends into a denied directory. A planted nested git repository with
+  `core.fsmonitor` plus `.claude/settings.json` is refused by `seal_evidence.sh` (exit 3) with no SHA256SUMS written and no host `git`/`claude`
+  executed (the test puts logging stubs first on PATH).
+* Publish allow-list (corrected in round 4, see 8.3): the runners finish with `safe_io.py scan "$OUT" --allow` and `seal_evidence.sh` runs the same allow-list
+  scan; the round-3 wording "`seal_evidence.sh` keeps the default scan" no longer holds. UNCONFIRMED: the allow-list was not exercised by a live
+  web/desktop run (no container was started); a real run that writes another file type is refused, which is the intended fail-closed outcome.
+* Pre-run rw sources are refused when they hold hard-linked files, fifos, devices or sockets as well as symlinks and denied names; the enclosing-checkout
+  check now climbs to `/` (the dedicated roots and everything above them included); another runner's host-only directory (`$ISO_WORK/host-*`) is never
+  bound in any mode; the tree walk's `SCAN_LIMIT` is checked per entry and is itself tested (M9).
+* Proofs and verdicts live in a host-only directory: `run_container.sh -p FILE` refuses a FILE that is relative, not canonical, in a missing / linked
+  directory or inside any rw-bound source; the runners pass `$ISO_WORK/host-ko/` or `$ST/host-proof/` and publish with `safe_io put` AFTER the container
+  stopped. EXISTING committed proofs under `evidence/campaign-2026-11-23/isolated/{web,koreader,desktop}/container_proof.json` were written by the OLD flow
+  (the proof inside the container-writable directory); they are frozen evidence and are NOT regenerated here. Anything produced by the new flow carries the
+  host-only path in its `-p` argument. `run_helixqa_container.sh` binds no rw path, so its proof in `$OUT` is host-only already.
+* Volume caps: `safe_io.py scan` refuses more than 20000 files, 4 GiB in total, one file above 2 GiB or more than 12 directory levels
+  (`SAFE_IO_MAX_FILES|TOTAL|FILE|DEPTH` override; a malformed value is a refusal), and `run_container.sh` passes `--ulimit fsize=2147483648` so a
+  single container-written file cannot exceed 2 GiB while the container runs. UNCONFIRMED / not closed: there is no run-time cap on the TOTAL bytes a
+  container writes to a bind-mounted directory (rootless podman offers no portable quota for bind mounts; `--storage-opt size` applies to the image
+  layer, not to binds); the total is bounded only by the post-run refusal and by the 512 MiB `/tmp` tmpfs.
+* Lint: the runtime family is extended (see section 8.1), the blanket `tools/isolation/` exemption of the class rule is gone, and the escape flags
+  `--rootfs`, `--env-host`, `--pod`, a relative `-v .:`, `--userns=host` and `unconfined` security options are escapes in every file, `tools/isolation/`
+  included; matrix entries for each were added.
+* Behavioural (not hash-pin) coverage of ordering and fatality: the harness runs the real runner scripts in a repo-shaped temp tree with podman /
+  curl / server / `run_container.sh` stubs and ONE event log: the container is stopped before the first host `safe_io` read (M5); a failing final scan
+  makes the runner exit 1 (M6); `safe_io` read size cap holds even when `fstat` under-reports (M4).
+
+### 8.3 Allow-list instead of name list, sanitized container bytes (review round 4)
+
+Class R4-B1 "container-planted control artifacts" was still open in round 3 because it was closed by naming members. It is inverted: the post-run scan of
+a container-written tree (`safe_io.py scan DIR --allow`, used by `seal_evidence.sh` and by every runner) accepts only what is positively known to be safe.
+Tests and paired mutants: `tools/isolation/tests/test_review_round4.py`.
+
+* A file must have a name matching `[A-Za-z0-9_][A-Za-z0-9._-]{0,127}` (no leading dot or dash, no escape byte, newline, space, `;`), an extension in
+  `png jpg jpeg json jsonl log txt csv mp4 webm gif webp`, link count 1 and be a regular file. A directory must match `[A-Za-z0-9_][A-Za-z0-9_-]*`
+  (no dots at all), so every dot-directory (`.git`, `.github`, `.opencode`, `.kimi`, ...) is refused wholesale. `md` and `html` are NOT publishable:
+  a container-authored `.md` can be an agent instruction file and a container-authored `.html` runs its script when the operator opens it in the host
+  browser; no runner publishes either (the runners' output is png / log / json / jsonl / txt / mp4). Names that look like checksum manifests
+  (`SHA256SUMS*`, `.SHA256SUMS*`, any case) are refused anywhere, so nothing can sit in a "sealed" directory outside the seal; the only host-written
+  manifest is the top-level `SHA256SUMS` that `seal_evidence.sh` itself replaces atomically (`--host-seal`).
+* A directory whose entry names make git accept it as a git directory (`HEAD` or `config` together with `objects` or `refs`, or `gitdir` / `commondir` /
+  `worktrees` with those) is refused by every scan and by the pre-run bindcheck: an embedded BARE repository needs no `.git` name and would run its
+  `core.fsmonitor` once any host git command ran inside it. The deny table (8.2) gained the non-dot agent names the review listed (`CLAUDE.local.md`,
+  `AGENT.md`, `CRUSH.md`, `CONVENTIONS.md`, `copilot-instructions.md`, `opencode.json`, ...) and the dot prefixes `.github .opencode .crush .kimi .pi .roo
+  .continue .junie .amazonq .kiro`; this list is a second line of defence only, the allow-list is the control. RESIDUAL (honest): a publishable-extension
+  file with a tool-config name that is on no list (a `.json` that some agent auto-loads from a nested directory) passes; which agents auto-load which
+  nested files is UNCONFIRMED, and the real mitigation is that the host never runs an agent, git or build tool inside an evidence directory.
+* `seal_evidence.sh DIR` refuses (exit 3, no temp file, no SHA256SUMS) anything else. `seal_evidence.sh --host-authored DIR` is the explicit opt-in for a
+  directory only the host ever wrote (docs, scripts, reports: the kinds-and-deny-table scan); no runner uses it and it must never be used on a directory
+  a container could write. Evidence directories committed earlier that hold scripts or reports were sealed before this rule; they are frozen and are not
+  re-sealed with the allow-list mode.
+* Tainted trees are kept, not deleted: `fresh_out.sh` moves a previous output directory to `~/.cache/claude-tmp/evidence-archive` (dedicated root) and
+  nothing prunes it. Retention policy: the operator removes an archive entry only after inspection, by hand, never with a tool that follows links; a
+  tainted tree is never opened with an editor, agent or git client. The archive is outside the repository and is never committed.
+* Container bytes never reach the operator's terminal or a host-written log raw. `tools/isolation/sanitize.py` is the one filter: it removes OSC / DCS /
+  APC / PM / SOS / CSI / other ESC sequences (also unterminated ones), every C0 control except newline and tab (so CR, BEL, BS, ESC, NUL), DEL, the C1
+  range, and bidirectional / line-separator controls, and prefixes EVERY line with `[container] `, so a forged `KOSYNC PROOF PASS` line is visibly
+  container-origin. It is applied on: the attached `podman run` of `run_container.sh` (stdout and stderr merged through the filter; podman's exit status
+  is preserved through `PIPESTATUS`; detached mode prints only the host-generated container id and keeps `exec`), every `podman exec` of
+  `run_koreader_gui.sh` (function `D`), the proxy-log sink (`[proxy-log] ` prefix), the redis dump `redis_sink.txt`, the published `ko_A.log` / `ko_B.log`
+  (copied through `safe_io` to the host-only directory first) and the kosync proof's printed text. `access_proxy.py` writes the request method, path
+  and User-Agent percent-escaped (`esc`), so a request line cannot carry a sequence or forge a log line; `access.log` and `kosync_bodies.jsonl` are
+  therefore already clean. UNCONFIRMED: whether the operator's outer terminal accepts OSC 52 (it was not tested because it would touch the desktop);
+  the filter removes the bytes either way. The text a container prints is still only evidence of what it printed, not of what happened.
+* `run_koreader_gui.sh` runs with `pipefail`; the KOSync proof's exit status is captured, a non-zero status prints `KOSYNC PROOF FAILED` into steps.log
+  and makes the runner exit 1 after publishing (a crashing proof script too). Previously the status was `tee`'s and the failure branch was dead.
+* Lint (round 4): global runtime options between the CLI and the subcommand (`podman --root X run`, `docker --context c run`, `docker -H h run`,
+  `podman --remote exec`) are normalised away before the class and escape rules; `crun`, `incus`, `ctr`, `kubectl`, `firejail`, `toolbx`,
+  `systemd-nspawn`, `machinectl`, `flatpak-spawn`, `multipass`, `limactl`, `vagrant`, `host-spawn`, `ch-run`, `podman start -a`, `container runlabel`,
+  `pod create` and the Python / JS list form of the whole family are findings; 26 matrix entries were added. Waiver counts after this round:
+  16 container-outside-isolation rows (unchanged, `run_container.sh` repinned), 9 `self` sources (round 3 had 8; the new one is `test_review_round4.py`).
+
+### 8.4 Raw-capture mode for consumers of container output (review round 5)
+
+Class R5-B1 "a consumer that PARSES what run_container.sh printed". Round 4 made the attached output of `run_container.sh` a sanitized, merged, `[container] `-prefixed,
+4000-character-capped TERMINAL stream; that is right for a person and wrong for a parser (a HelixQA runner exited 0 with nothing published, the network gate could never pass).
+
+* `run_container.sh -o RAWDIR`: stdout and stderr go UNMERGED, byte for byte, uncapped, to `RAWDIR/stdout.raw` and `RAWDIR/stderr.raw` (mode 0600). RAWDIR is host-only: absolute,
+  canonical, a real non-link directory, owned by you, mode 0700, not inside a container-writable source (a `-w` source that lies inside RAWDIR is accepted: RAWDIR itself is never writable by the container, so the nesting is harmless, round 6 m7), not combinable with `-d`. The wrapper writes nothing of the container raw to the terminal (round 6 corrects the round-5 wording: the RAW BYTES are in the files, and a consumer that prints them itself, e.g. as an assertion message, is the R6-B1 defect, section 8.5): a
+  sanitized copy (`[container] ` / `[container:stderr] ` prefixes) goes to stderr, stdout stays empty, the exit status is the container's. The raw files are not deleted by the wrapper.
+  There is no size cap on the raw files (the container lifetime `-t` and its memory cap bound them; a total-bytes cap is UNCONFIRMED/not implemented).
+* A consumer reads the raw files but re-validates (`json.loads`) and sanitizes (`sanitize.py`) anything it prints or publishes. Python: `tools/isolation/rawrun.py run_raw(wrapper_args, cmd)`.
+* Consumer table (grep of the whole tree for `run_container.sh`; each parsing consumer has a behavioural test and a paired mutant in `tests/test_review_round5.py`):
+
+| consumer | parses output? | handling |
+|---|---|---|
+| `qa/isolation/run_helixqa_container.sh` | yes (text + JSON split) | `-o` + `qa/isolation/helixqa_publish.py`; fails closed: any split / JSON failure exits 1, publishes nothing, keeps `hq-raw/`, prints no success line; exit record is `helixqa_http.exit.txt` (the old `.exit` name is not allow-listed) |
+| `tools/isolation/tests/canary_probe.py` (used by `test_network_isolation.py`) | yes (JSON line) | `run_raw` |
+| `tools/isolation/tests/test_network_isolation.py` (3 call sites) | yes (`GOT:`, `ADMIN:`) | `run_raw` |
+| `tools/isolation/tests/test_runtime_checks.py` (wrapper case) | yes (env names) | `run_raw` |
+| `qa/isolation/run_web_live.sh`, `run_desktop_live.sh` | no | terminal copy only; evidence comes from a `-w` dir through `scan --allow` |
+| `qa/isolation/run_koreader_gui.sh` | no (detached) | `podman exec` output through `sanitize.py` (round 4) |
+| `tools/isolation/tests/test_reaper.py` | no | stdout to DEVNULL |
+| `test_bindcheck.py`, `test_review_round*.py` | the wrapper itself | skipped by name in the gate |
+
+* Gate `tools/isolation/check_raw_consumers.py` (run by `assert_host_untouched.sh`): round 5 described it as catching any capture of run_container.sh output without `-o`. That claim was WRONG: the
+  round-6 review ran 27 evasion shapes and 20 evaded it (a variable holding the wrapper, `<(...)`, a function wrapper, `exec >file`, `&>`, `| grep -o`, `-o` inside the container command, `shell=True`,
+  `os.popen`, `.bash` files, other directories, ...). It is a text scan and stays only as DEFENCE IN DEPTH; the structural control is the wrapper's own refusal (section 8.5, R6-I1).
+* Minors: bidi / line-separator controls are stripped (mutant S4 now killed); a lone ESC never survives and may consume the one byte that follows it (a two-byte escape sequence is removed whole,
+  which is the safe direction); the 4000-character line cap applies to the terminal copy only, raw files are uncapped.
+* Lint (R5-I1): the lint now builds a token view (quoted strings are one word, list / array separators become spaces) before global-option normalisation, so `podman --root "/tmp/a b" run`,
+  `["podman","--root","/x","run"]`, `spawnSync("podman",["--root","/x","run"])` and `docker compose run`, `docker-compose up`, `podman-compose up`, `podman compose up` are findings.
+* Residual (UNCONFIRMED, honest): see section 8.5; this paragraph's earlier "only exotic captures are missed" was superseded there. No live run (container-gated tests) was performed.
+
+### 8.5 Raw bytes stay in bytes; attached mode needs a terminal (review round 6)
+
+Round 6 (one more bounded round by operator decision) found two things in round 5's work.
+
+**R6-B1, the terminal-bytes class regressed.** Round 5 gave `rawrun.Raw` the raw container text in `.stdout` / `.stderr`, and `test_network_isolation.py` passed `r.stderr` as an assertion
+message, so a hostile container could put escape sequences on the operator's terminal through a failing test. Fixed as a class, not at the four call sites:
+
+* `Raw.raw_stdout` / `Raw.raw_stderr` are BYTES, documented UNSAFE TO PRINT. Every str-ish surface is sanitized only: `.stdout`, `.stderr`, `.wrapper_stderr`, `str()`, `repr()`, `format()`.
+  A parser uses `Raw.json_after(prefix)` (strict JSON, NaN/Infinity refused, any string holding a control / bidi / ESC character refused, `None` when absent) or `Raw.has_token(x)`; they return
+  data or a bool, never container text. `run_raw` captures bytes (no `text=True`), so no decoded container text travels in an exception either.
+* A bare `podman run|exec` whose output a test must read goes through `rawrun.run_direct`, which returns a `Raw`.
+* Sweep of every reader of container output (tests, qa/isolation, tools), with the fix and the paired mutant (`tests/test_review_round6.py`):
+
+| reader | what reached an assertion message / print | fix |
+|---|---|---|
+| `tests/test_network_isolation.py` | `r.stderr` (x3), `r.stdout` split by hand, `assertIn(..., access.log text)` | sanitized `.stderr`, `json_after` / `has_token`, `assertTrue(... in text, "fixed message")` |
+| `tests/canary_probe.py` | hand-split `r.stdout` | `json_after("{", keep_prefix=True)` |
+| `tests/test_runtime_checks.py` | `subprocess.run(text=True)` of bare `podman run`, `r.stderr` as message (x3) | `run_direct` / `run_raw` |
+| `tests/test_reaper.py` | none (reads only podman's own listings); had stdout to DEVNULL, which attached mode now refuses | uses `-o` with a private dir |
+| `qa/isolation/run_helixqa_container.sh` | none: raw files go to `helixqa_publish.py` only | unchanged (m5 below) |
+| `qa/isolation/run_web_live.sh`, `run_desktop_live.sh` | the terminal copy only, but attached mode now refuses a non-terminal stdout | `-o "$HW/raw"` (host-only dir) |
+| `qa/isolation/run_koreader_gui.sh` | `-d`; every `podman exec` output is piped through `sanitize.py` | unchanged |
+| `scripts/needle_*.sh` | `podman exec` into the project's own service containers; not part of this PR's tree of container-run code | NOT changed, UNCONFIRMED whether their output is trusted |
+
+* Gate additions (`check_raw_consumers.py`): any use of `raw_stdout` / `raw_stderr` outside `rawrun.py` (marker `raw-consumer-exempt: <reason>` for a deliberate parser) and any hand-captured
+  `podman run|exec|logs|cp|attach` output (`run -d`, which prints only the id, is exempt) are findings.
+* Test: no str attribute of `Raw` can hold ESC / C0 / C1 / bidi when the container emits all of them (the surface list is enumerated with `dir()`); a failing real consumer
+  (`test_runtime_checks` under a hostile podman stub) prints no control character; each of the checks has a mutant that puts raw text back and fails.
+
+**R6-I1, attached mode refuses a non-terminal stdout.** `run_container.sh` without `-o` and without `-d` now exits **67** (before `podman image exists`, after every validation, so the
+64/65 refusals keep their meaning) with "attached mode needs a terminal on stdout" when `[ -t 1 ]` is false. Any way of capturing the sanitized terminal stream (a redirect, `&>`, a pipe, a
+substitution, `<(...)`, `exec >file`, a variable holding the wrapper, a function wrapper, `shell=True`, `os.popen`) therefore fails at the wrapper instead of depending on a text scan.
+Exit codes of the wrapper: 64 usage / validation, 65 isolation violation, 66 image missing (the container never started), 67 attached mode without a terminal. Tests drive the reviewer's shapes
+FOR REAL against the wrapper (refused, `podman` never asked) and through the gate (flagged), and a wrapper without the refusal lets every shape capture (mutant). Tests that run the wrapper
+attached use a pseudo-terminal (`run_rc(tty=True)`).
+
+* The gate was corrected: it parses the options of each `run_container.sh` call like `getopts`, up to the first `--` (a `-o` inside the container command no longer counts), flags every attached
+  call without `-o` / `-d` whether or not it visibly captures, flags a variable or array that stores the wrapper, and covers `.bash` files. It is defence in depth and does NOT claim to catch every
+  capture: a command assembled at run time, a script in another language, or a file outside qa/ tools/ scripts/ tests/ is not seen; the wrapper's refusal is what stops those.
+* Minors: the publisher refuses NaN / Infinity and a result nested too deeply (exit 3, nothing published, the runner exits 1); the real `-o` path is tested end to end into the publisher with a stub
+  podman (parent-symlink RAWDIR refused with exit 64, JSON re-serialised never copied); when the container never starts (wrapper exit 64..67, no raw files) the runner exits 1 with the wrapper's status in
+  its message and publishes nothing (m5); a `-w` source inside RAWDIR is accepted and harmless (m7).
+* Residual (UNCONFIRMED, honest): a consumer that runs the wrapper with a real pseudo-terminal and parses the screen is not stopped (it gets the sanitized stream; this is the terminal's own
+  use); the sweep covers this PR's tree, not scripts elsewhere in the repository that read container output (for example `scripts/needle_*.sh`); no live run (container-gated tests) was performed.
+
+### 8.6 File names are container bytes too; honest gate coverage (review round 8)
+
+**B1, container-derived file names and paths in host messages.** A container can plant a file name carrying OSC 52, CSI 2J, OSC 0, C1 or bidi controls, or a newline that forges a second message
+line. Before round 8, `safe_io.py scan` (deny-table and lstat-error messages came before the charset check) and `bindcheck.py` (`hostile_tree_error` / `tree_error`, for example a name planted in
+the bridge directory by the web run and met by the desktop run) printed such names raw. Every message these tools print now passes through `sanitize.escape_text`, which replaces each control /
+C1 / bidi / zero-width / newline character by a visible `\xNN` / `\uNNNN` escape (nothing is removed, so two different names stay different on screen): `safe_io` (scan and every `Refused`),
+`bindcheck` (the whole refusal line) and `container_proof`. Tests plant seven hostile names (OSC 52, CSI + OSC 0, C1, bidi, newline, Arabic letter mark + zero-width + BOM, OSC 0 with ST) through
+`safe_io scan`, `safe_io copy` and `bindcheck --bridge` and assert that stderr holds no control character and no forged line; mutants that print the name raw are killed. Round-8 sweep (CORRECTED in round 9: it missed `guard/assert_host_untouched.py`, `guard/pin_waivers.py`, `check_raw_consumers.py` and `helixqa_publish.py`, which printed
+tree-derived strings raw; see 8.8). `reap.sh` prints container names that already matched `hrdiso-*` and are podman-validated; the runners' own `echo` lines print host paths. A message-site lint was added to `check_raw_consumers.py`: in `tools/isolation/*.py` and `qa/isolation/*.py`, a `print()` that interpolates a value which
+is not an `escape_text(...)` call (or `len` / `int`) is a finding (marker `raw-consumer-exempt: <reason>`); a mutant that disables it is killed.
+
+**I1, what the gate really covers.** The round-6 text "flags any hand-captured podman run|exec|logs|cp|attach output" overstated it. The reviewer's 25 consumer shapes: the gate caught 1 and the older
+lint 4; 20 were missed by both. Round 8 widens the Python rule (the runtime may be a path such as `/usr/bin/podman`, global options and `container` are skipped, `logs` / `attach` are findings even with
+inherited stdout) and adds a shell rule for `podman|docker ... logs|attach`. Still NOT caught (text scan, honest list): a runtime assembled in a variable (`PM=podman; $PM logs x`), `shlex.split(...)`
+commands, `asyncio.create_subprocess_exec` with positional string arguments, `os.system` strings, reading `$RAW/stdout.raw` or a kept `rawdir` and printing it, `getattr(r, "raw_" + "stdout")`,
+`script -qc`, a command in another language. Those never reach a terminal through this PR's tree today (enumerated); the structural controls are the wrapper's exit 67 for the attached stream, the
+`Raw` surfaces for parsers, and the independent reviews. The gate is defence in depth, not a proof.
+
+**B2, KOReader runner.** A mid-line comment added in round 2 had turned the rest of the "A re-open" line into a comment: five steps (the A05 screenshot, the docsettings check, the close, the sleep and
+the sink) silently did not run. The comment moved to its own line; a hermetic test executes the real line with stub `D`/`say`/`sink` and asserts the step list, a second test scans every `qa/isolation/*.sh` for
+the shape `; # note; more code`, and a mutant that restores the comment fails.
+
+**Documented limits and follow-ups (UNCONFIRMED where noted):** m1, a caller-controlled `BASH_ENV` can define a `[` function and defeat the exit-67 test (and replace `python3`); the wrapper does not
+clear `BASH_ENV` (low risk: the caller already controls its environment; follow-up: re-exec with `env -i`-style hygiene). m2, pty capture of attached mode is not refused (the stream is sanitized). m6,
+`helixqa_http.txt` and `kosync_proof.out` are written with an empty prefix; the text is control-free but container-chosen, so it could forge a host-looking line (follow-up: prefix them).
+m3 is fixed (sanitize strips U+061C, zero-width U+200B-U+200D, U+2060 and BOM). The PR body wrongly said the container-never-starts status was 66: the runner exits 1 and names the wrapper status
+(64..67) in its message.
+
+### 8.7 Merging `main`: the gated-test runners (review round 8, B3)
+
+`github/main` (PRs #6, #11, #12) added `tests/live/run_gated_tests.sh`, `mutation_check.sh` and `test_run_gated_tests.sh`. The lint went red on them (11 + 3 `container-outside-isolation`, 2 `container-escape`,
+4 `obfuscated-exec`). Analysis: these scripts start their OWN named service containers (postgres, redis, a go-test runner) for non-GUI server tests, publish ports on 127.0.0.1 only, mount no host path, use no
+`--privileged`, and never touch a display or input device; the `--network container:<own postgres>` flag joins the runner to that service's network namespace, not the host's. Routing them through
+`run_container.sh` is not feasible (it is `--network none`, the tests need the database network). Resolution, narrowly scoped: four pinned `waive` entries (file x rule, content hash, one-year expiry,
+recorded in `waivers.history`), the same mechanism already used for the older campaign scripts. Any edit to a waived file voids its waiver, any other file with a container call stays red, and
+`test_review_round8.py::GatedRunnerWaiver` proves both (an edited waived file, a new unwaived file, and a copy without the waivers all fail the gate).
+
+### 8.8 Round 9 (the N1 round): the guard and the gate print tree-derived strings too
+
+Round numbering (the PR body uses the same): rounds 1-5 = reviews of the first heads; round 6 = review of 4da95d1; round 7 = review of 809b239; round 8 = review of 1e84f07, which is this round
+("round 9" in file names counts the fix round that answers it: `test_review_round9.py`). Rounds beyond the section 11.4.276 budget were each taken on an operator-recorded exception.
+
+**N1 (B1 class, still open after round 8).** `guard/assert_host_untouched.py` printed scanned relative names, matched content lines and symlink targets raw; `check_raw_consumers.py` printed raw repo paths
+(and skipped itself); `guard/pin_waivers.py` and `helixqa_publish.py` printed values unescaped. All now go through `sanitize.escape_text` (numbers through `int()`). The message-site lint in
+`check_raw_consumers.py` now covers `guard/*.py`, `qa/isolation/*.py`, `tools/isolation/*.py` and itself (not `tests/`), and recognises print, `stdout/stderr.write` and logging calls with f-string, `+`,
+`%` and `.format` compositions. Tests plant ESC OSC 52, CSI, C1, bidi, newline and NUL in names, contents and symlink targets, with paired mutants (raw rel, raw text, raw gate path, lint disabled
+(reviewer mutant C10), scope narrowed, BinOp ignored). I1: direct tests for every C1 (0x80-0x9f) and bidi (U+202A-E) character kill reviewer survivors C5/C6; the deny-table, nested symlink and fifo names are covered.
+I3: `bindcheck` now refuses every control character in a bind source (the docstring was right only for some). 
+
+**What the lint does NOT cover (I2, honest list).** A bare name or call argument is not judged (`print(x)`), a message built into a variable first and printed later, aliased sinks (`w = print`),
+and shell `echo` lines (swept by hand: they print host paths or numbers; `tests/live/*` are main's files and are only documented here). It is a text lint, defence in depth.
+
+**tests/live facts (O1), recorded in the four waivers.** The Go suite and helix-server run on the host; `podman cp` copies a container-chosen tree to the host and `mutation_check.sh`'s default OUT is a
+tracked evidence path; the skip gate echoes container-influenced test names unescaped (`FAILED-TEST:` and `UNLISTED-SKIP:` lines); images are pinned by tag, not digest. Follow-ups, not fixed here.
+
+**Merge note (I4).** `github/main` 60123d4 (PR #13, HRD-031 LCP server wiring) was merged before round 9; it touches no isolation file. In 8.7 above, read "PRs #6, #11, #12" as "PRs #6, #11, #12 and #13".
+
+### 8.9 Round 10 (N2 round): invalid-UTF-8 names
+
+Round 10 answers the review of e1e93bf (an operator-authorised exception to the section 11.4.276 budget, like rounds 5, 6, 8 and 9).
+
+**N2.** A Linux file name is any byte string without NUL or `/`. Python holds an invalid-UTF-8 name as lone surrogates (`b"\x9b"` becomes U+DC9B). `escape_text` did not escape them, `git_files()` decoded strictly
+and silently fell back to `os.walk`, and the print in `guard/assert_host_untouched.py` wrote the raw byte under `LC_ALL=C` / `C.UTF-8` (8-bit C1 CSI/OSC/ST bytes are acted on by 8-bit terminals) and died with
+`UnicodeEncodeError` under a UTF-8 locale. Round 9 hid it because its planted bodies carried a NUL (skipped as binary). Fixed by class: (1) `escape_text` shows every surrogate (a surrogateescape byte as `\xNN`, any
+other as `\uNNNN`); (2) git file lists are decoded with `surrogateescape`, and a failing git listing in a directory that has a `.git` is reported on stderr before the walk fallback; (3) `sanitize.safe_streams()`
+(stdout/stderr `errors="backslashreplace"`) is called first in every tool's entry point (guard, pin_waivers, safe_io, bindcheck, check_raw_consumers, helixqa_publish, container_proof), so no print can raise or emit a
+raw byte whatever the locale. Tests (`test_review_round10.py`) plant NUL-free bodies and invalid names as file, directory, symlink name and symlink target (including the reviewer's
+`inv\x9b[2J\x9d52;c;cHduZWQ=\x9c.sh`), in a git and a non-git tree, under `LC_ALL` C, POSIX, C.UTF-8, en_US.UTF-8 and en_GB.utf8, and assert ASCII-clean stdout/stderr, no traceback and the escaped name; paired mutants
+(strict git decode, raw name, surrogates unescaped, strict stream errors) are killed. NUL cannot occur in a Linux name; the earlier statement that names with NUL were planted was wrong (NUL is tested only on `escape_text`).
+Sink re-sweep: shell `echo`/`printf` lines in `tools/isolation/*.sh` and `qa/isolation/*.sh` print host-chosen values, host-validated arguments, numbers or podman names that matched `hrdiso-*`; none prints a
+container-chosen name unescaped (`tests/live/*` is main's, see 8.8).
+
+**F1.** The lint's conditional-expression branch is covered by a bad/good test and its mutant. **F2.** `waivers.history` is replayed: the LATEST row for a path must be an `add`/`repin` of the pinned hash;
+a history that ends in `remove`, or loses only its latest add row, now fails (`waiver-unrecorded`). Follow-ups, not fixed: `tests/live/run_gated_tests.sh` echoes container-influenced test names (main's file).

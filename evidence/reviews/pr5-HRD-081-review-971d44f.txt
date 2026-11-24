@@ -1,0 +1,139 @@
+VERDICT: NO-GO
+HEAD: 971d44fad4af351de707ea41c6a868e611679661
+Round: 3 of max 5 (§11.4.276). Reviewer: independent subagent (not the author, not the round-1/round-2 reviewers), Opus 5.5;
+effort not reported by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No container, no real podman, no GUI, no display touched. podman = PATH stub in the
+reviewer scratchpad. Not exercised (UNCONFIRMED): test_network_isolation, test_runtime_checks, test_reaper, canary_probe, every live
+runner (need real podman + image). Every planting experiment ran in mktemp sandboxes or a throw-away evidence/zz-rev3-probe dir of the
+reviewer's own detached worktree (removed after).
+Head check: `git ls-remote github refs/heads/task/HRD-081-isolation-runner` = 971d44fad4af351de707ea41c6a868e611679661; fresh
+`git worktree add --detach .../wt-rev5b 971d44f` (clients/ absent). gh pr view 5: OPEN, headRefOid = same.
+
+=== (1) HERMETIC SUITES (fresh worktree, stub podman) ===
+  test_waivers          Ran 9 tests  OK
+  test_guard_matrix     OK  "matrix: 201 caught of 201 required; residual documented: 12 uncaught [...], 0 unexpectedly caught []"
+  test_bindcheck        Ran 18 tests OK
+  test_proxy_policy     Ran 7 tests  OK
+  test_review_round1    Ran 16 tests OK
+  test_review_round2    Ran 38 tests OK
+  guard/test_assert_host_untouched  Ran 14 tests OK
+  assert_host_untouched.sh: "NOTICE pinned waivers active: 25 (self 7, denylist 2, waive 16) ...
+                             assert_host_untouched: PASS (0 finding(s); files scanned 492, symlinks 5 (outside repo 0))"
+  shellcheck -S warning tools/isolation/*.sh qa/isolation/*.sh: only SC2046 start_server.sh:17 (disclosed, harmless).
+
+=== ROUND-2 ITEMS RE-VERIFIED ===
+  R2-B1 (instances): run_koreader_gui.sh now stops the container (line 43) before host reads, builds logs in host-only $HW, publishes
+     with safe_io put, copies ko.log via safe_io copy, scans $OUT (line 51). container_proof.py uses safe_io.put. seal_evidence.sh scans
+     first. Planted symlink / hardlink / fifo cases are covered by test_review_round2. -> listed instances FIXED.
+  R2-B2 (instances): ISO_WORK=~/.cache/claude-tmp/wt-isolation, rw <that>/tools/isolation | qa/isolation | .git -> rc=64 x3. FIXED.
+  R2-I1: -t 0, -m 0, -c 0, -m 99999999999g -> rc=64 each. FIXED.
+  R2-I3: test_review_round2 now asserts the hardening flag set, launch DISPLAY check and reaper grace with mutants. FIXED.
+  m1/m2/m4 FIXED (doc counts 201+12; Android row "NOT covered"; PR body contains "no reviewer possible").
+  Sealed evidence: every SHA256SUMS under evidence/campaign-2026-11-23/isolated (root, desktop, guard, hardening, helixqa, koreader,
+     web) `sha256sum -c --quiet` rc=0; root SHA256SUMS sha256 ba6e0c3c...79e8; safe_io scan of that tree rc=0, no .git*/.claude*/CLAUDE.md
+     entries. Trailers `Roadmap-Item: HRD-081` on 23c03b0, 0c300d0, 24bc76a, 2125945, 971d44f.
+
+=== BLOCKING ===
+R3-B1. The class "container-writable state the host later acts on" is still open for the rw EVIDENCE directory, which the host then
+    COMMITS: the hostile-entry check (.git / .claude* / hook dirs) runs only BEFORE the container writes (bindcheck), never after.
+    bindcheck.py's own doc says these entries are "host-executed or host-followed the moment a host tool (git, claude, ...) runs inside the
+    tree after the container wrote to it" - yet nothing checks the tree after the container wrote to it. safe_io scan and seal_evidence.sh
+    check only links / special files / hard links. Wrong seam (§11.4.120).
+    Reproduction (reviewer worktree, what code in the container can do to /out; no container needed):
+      fresh_out.sh evidence/zz-rev3-probe; bindcheck rw $PWD/evidence/zz-rev3-probe /out              -> rc=0
+      plant in it: a git repo (`git init`, one commit, `git config core.fsmonitor ...`), .claude/settings.json, CLAUDE.md, .gitignore '*'
+      safe_io.py scan evidence/zz-rev3-probe                                                         -> scan_rc=0
+      seal_evidence.sh evidence/zz-rev3-probe -> "sealed 30 files", seal_rc=0; 26 of them are .git/ internals, plus
+          ./CLAUDE.md, ./.claude/settings.json, ./.gitignore in SHA256SUMS
+    Consequence demonstrated in a mktemp sandbox (host repo + evidence/run1 = nested repo with core.fsmonitor "touch $T/PWNED_...; false"):
+      `git status` while untracked        -> no marker (not executed)
+      `git add evidence/run1` -> "warning: adding embedded git repository: evidence/run1"; then plain `git status` in the HOST repo
+                                          -> marker file PWNED_after_add CREATED: the host git ran the container-chosen command.
+      i.e. container -> host code execution once the evidence is committed (the normal flow of this project: evidence/ is committed and
+      sealed). Even without exec: the evidence files under a nested .git are not committed (gitlink) while SHA256SUMS lists them, and a
+      planted .gitignore '*' hides evidence from the commit - sealed != committed. A planted CLAUDE.md is auto-loaded into the context of any
+      agent that reads files in that directory (prompt injection into an agent that has Bash).
+    Fix (class-wide): after the container stops and before seal/commit, refuse (like safe_io scan) any entry in a rw-bound tree whose name is
+    a git/agent/tool control file at ANY depth: `.git`, `.gitignore`, `.gitattributes`, `.gitmodules`, `.claude*`, `CLAUDE.md`, `AGENTS.md`,
+    `GEMINI.md`, `.mcp.json`, `.envrc`, `.direnv`, `.vscode`, `.idea`, `.cursor`, `.specify`, `.husky`, `.githooks` (better: an allow-list of
+    evidence file names/extensions per runner). Put it into safe_io scan (so seal_evidence and the koreader end-scan inherit it), add a test
+    that plants each name, and a paired mutant.
+
+=== IMPORTANT ===
+R3-I1. Pre-run hostile scan omits HARD LINKS (and the name list is too short). Fake HOME in a mktemp sandbox
+    (HOME=<sandbox>, ISO_WORK=<sandbox>/.cache/helix-iso/w1):
+      `ln $HOME/.bashrc $ISO_WORK/s1/hl`; bindcheck rw $ISO_WORK/s1 /work/a          -> rc=0
+    A rw bind then gives the container WRITE access to the inode of a host file (no following needed; worse than a symlink). Requires a
+    host-created hard link (cp -al, rsync --link-dest, pnpm-style stores), so not blocking, but safe_io's own model lists hard links and
+    bindcheck does not. Also accepted pre-run (rc=0 each): rw src containing CLAUDE.md, AGENTS.md, GEMINI.md, .mcp.json, .envrc, .direnv,
+    .gitattributes, .gitmodules, .vscode, .idea, .cursor; a fifo. Fix: refuse st_nlink>1 regular files and the R3-B1 name set.
+R3-I2. The isolation PROOF is stored in the directory the subject controls. run_koreader_gui.sh / run_web_live.sh / run_desktop_live.sh
+    pass `-p "$OUT/container_proof.json"` while `-w "$OUT:/out"`; container_proof.py writes it (safely) once, after which the container can
+    overwrite it with any content (network_mode "none", cap_drop ALL, ...). The committed evidence/campaign-2026-11-23/isolated/{web,
+    koreader,desktop}/container_proof.json were produced that way. §11.4.240/§11.4.249: write the proof into a host-only dir (koreader
+    already has $HW) and publish after the container stops.
+R3-I3. Unbounded host disk use through rw binds (/out, /prof, /run/helixsock): nothing caps bytes written; a runaway or hostile run fills
+    the operator's home filesystem (§12.9). Memory/pids are capped, disk is not. Fix: per-run quota (a sized loop/tmpfs volume, or a
+    free-space watchdog that kills the container) and document it.
+R3-I4. Lint class rule still enumerates the CLI names. Sandbox lint run (files under scripts/ with a shebang):
+      MISSED: podman-remote run --rm img; buildah run ctr -- sh; runc run x; lxc exec c -- bash; apptainer exec --bind /home img x;
+              distrobox enter dev -- ./run_gui_tests.sh; toolbox run make e2e; flatpak run org.chromium.Chromium --app=http://localhost
+              (distrobox/toolbox share $HOME, DISPLAY and the Wayland/X sockets by default; flatpak run opens a GUI app on the HOST
+              desktop - the exact HARD RULE target)
+      MISSED (file under tools/isolation/, blanket exemption `rel.startswith("tools/isolation/")`): podman run --rootfs /,
+              podman run --env-host, podman run -v .:/h, podman run --pod hostpod
+      CAUGHT: "pod""man" run, /usr/bin/podman run, P=podman; "$P" run, env podman run, x=$(which podman); $x run, podman --remote run,
+              podman machine ssh, docker compose up, systemd-nspawn ... --bind=/tmp/.X11-unix, bwrap ... xdg-open
+    The doc lists "tools not in the rule list" as residual, so flatpak/distrobox/toolbox are disclosed-by-class; but podman-remote/buildah
+    are container CLIs the class rule claims to cover, and the tools/isolation/ exemption lets new code there use any flag. Fix: add the
+    runtime family (podman-remote buildah runc crun lxc apptainer singularity distrobox toolbox flatpak systemd-nspawn bwrap) and drop the
+    blanket directory exemption in favour of per-file pins.
+R3-I5. Hermetic tests do not cover two of the round-2 orderings; own mutants (applied in the fresh worktree, round1+round2+bindcheck suites
+    run, reverted; git status clean after):
+      M1 safe_io read nlink check dropped         -> CAUGHT (test_review_round2)
+      M2 safe_io put O_EXCL -> O_TRUNC             -> CAUGHT
+      M3 safe_io scan hard-link check dropped      -> CAUGHT
+      M4 safe_io read loop size cap dropped        -> SURVIVED (only matters if the file grows after fstat, i.e. container still alive)
+      M5 koreader: `podman rm -f $N` (line 43) -> `true` (host reads/copies while the container runs) -> SURVIVED
+      M6 koreader: final `$SIO scan "$OUT" || {...}` made non-fatal -> SURVIVED
+      M7 bindcheck hostile scan ignores files      -> CAUGHT
+      M8 bindcheck checkout_ancestor dropped       -> CAUGHT
+      M9 bindcheck SCAN_LIMIT removed              -> SURVIVED (minor)
+      M10 container_proof plain open()             -> CAUGHT
+    M5/M6 are only caught by the waiver hash pin of run_koreader_gui.sh (any edit), which a deliberate repin silences - the same pattern
+    as round-2 R2-I3. Add behavioural tests (stub podman logging order: rm before first safe_io call; scan failure -> non-zero exit).
+
+=== (5) THE -b SOCKET DIRECTORY, JUDGED CONCRETELY ===
+  Can a container replace the socket? YES. Same uid under --userns=keep-id and rw bind of $ST/sock; hermetic demo (two host processes
+  standing in for proxy and container): host-proxy binds h.sock; the "container" unlinks it and binds its own; a client connecting to the
+  path then gets "from container-impostor". Earlier connections keep talking to the real proxy (already-accepted sockets).
+  What does the host do with answers? grep over tools/ and qa/ (non-test): the only host client of h.sock is run_koreader_gui.sh line 17
+  (`curl --unix-socket ... /users/create`), which runs BEFORE the container starts (line 22) on a freshly created $ST. No host code reads
+  from the socket after a container had the directory, so today the host consumes no container-forged answer. Residual (minor): web and
+  desktop runners reuse a caller-supplied $ST, so overlapping runs sharing one $ST let one container impersonate the server to another
+  (evidence integrity), and a container can unlink h.sock (DoS for later runs). Not blocking; keep the doc's "host must never be a client
+  of h.sock after a container start" as an explicit rule and test it (lint: --unix-socket on a bound sock path after run_container).
+
+=== (6) WAIVERS / DOCS / TRAILERS ===
+  container-outside-isolation waivers: 13 rows (8 evidence/campaign-2026-11-20 scripts incl. run_multiprocess.sh.pre-copyfix, 3
+  scripts/needle_*.sh, server/internal/catalog/catalog_phase_test.go, run_koreader_gui.sh). Each was read: all talk to the script's own
+  named non-GUI service container (podman exec/cp/inspect/build, psql/redis-cli) or its own hrdiso-ko container; none launches a GUI or
+  mounts host paths. Legitimately necessary (pre-existing, content-pinned). The test .go hit is a string in a test message.
+MINOR
+m1. Count drift: commit message and doc §8.1 say 14 pinned files ("13 pre-existing ... and run_koreader_gui.sh"); waivers.txt has 13
+    container-outside-isolation rows (12 pre-existing + koreader). Doc §4 says `self` covers "FIVE sources"; waivers.txt has 7 self rows.
+m2. checkout_ancestor stops before testing the dedicated root and above: with HOME=<sandbox>, a git repo AT ~/.cache/helix-iso or at
+    ~/.cache, ISO_WORK below it and an rw sub -> rc=0 both. (Real roots measured: neither ~/.cache/claude-tmp/.git nor ~/.cache/helix-iso
+    exists, so not live today.)
+m3. bindcheck accepts an rw bind of another runner's HOST-ONLY directory ($ISO_WORK/host-ko -> rc=0); host-only is a convention only.
+m4. container_proof.py -p path is unvalidated (safe_io.put unlinks whatever exists there); the caller is trusted, but restrict -p to the
+    run's evidence dir.
+m5. run_koreader_gui.sh line 45 `for k in $(podman exec ... --scan ...)` is unquoted (glob/word split on server-derived keys); output only.
+m6. Disclosed shellcheck leftover SC2046 start_server.sh:17 (harmless).
+
+=== CONCLUSION ===
+The round-2 instances are fixed and all hermetic suites are green on a clean tree. One blocking class remains: the evidence directory is
+rw-bound, then sealed and committed by the host, and no post-run check refuses git/agent control entries in it - demonstrated end to end
+(planted nested repo + core.fsmonitor passes scan and seal; after `git add`, a plain host `git status` executes the planted command).
+Important: hard links not refused pre-run, isolation proof stored in the container-writable dir, no disk cap, lint runtime-family gaps,
+two orderings guarded only by the hash pin. NO-GO.

@@ -1,0 +1,199 @@
+== evader matrix (tools/isolation/guard/mutants.b64): each case written to a throw-away tree, the lint must flag it
+CAUGHT (required) py_environ_set                               display-env
+CAUGHT (required) py_environ_setdefault                        display-env
+CAUGHT (required) py_env_dict                                  display-env
+CAUGHT (required) py_env_copy_var                              display-env
+CAUGHT (required) sh_export_var                                display-env
+CAUGHT (required) sh_inline_var                                display-env
+CAUGHT (required) sh_env_cmd                                   display-env
+CAUGHT (required) js_process_env                               display-env
+CAUGHT (required) js_env_obj                                   display-env
+CAUGHT (required) dockerfile_env_space                         display-env
+CAUGHT (required) dockerfile_env_eq                            display-env
+CAUGHT (required) podman_pass_display                          display-env
+CAUGHT (required) xauthority                                   display-env
+CAUGHT (required) wayland_env                                  display-env,x11-socket
+CAUGHT (required) xdg_runtime                                  display-env,x11-socket
+CAUGHT (required) dbus_addr                                    display-env,x11-socket
+CAUGHT (required) dbus_send_portal                             portal-or-dbus
+CAUGHT (required) busctl_call                                  portal-or-dbus
+CAUGHT (required) gdbus_shell                                  portal-or-dbus
+CAUGHT (required) py_dbus_bus                                  portal-or-dbus
+CAUGHT (required) portal_name_string                           portal-or-dbus
+CAUGHT (required) swaymsg                                      desktop-launch
+CAUGHT (required) xdotool                                      xdotool-family
+CAUGHT (required) ydotool                                      xdotool-family
+CAUGHT (required) wtype                                        xdotool-family
+CAUGHT (required) xte                                          xdotool-family
+CAUGHT (required) xvkbd                                        xdotool-family
+CAUGHT (required) wmctrl                                       xdotool-family
+CAUGHT (required) xinput                                       xdotool-family
+CAUGHT (required) xclip                                        clipboard
+CAUGHT (required) xsel                                         clipboard
+CAUGHT (required) wl_copy                                      clipboard
+CAUGHT (required) xdg_open                                     desktop-launch
+CAUGHT (required) notify_send                                  desktop-launch
+CAUGHT (required) scrot                                        screenshot
+CAUGHT (required) maim                                         screenshot
+CAUGHT (required) grim                                         screenshot
+CAUGHT (required) import_root                                  screenshot
+CAUGHT (required) gnome_screenshot                             screenshot
+CAUGHT (required) ffmpeg_x11grab                               screen-capture-device
+CAUGHT (required) scrcpy                                       scrcpy
+CAUGHT (required) adb_shell_input                              adb-input
+CAUGHT (required) uinput_dev                                   uinput,uinput-word
+CAUGHT (required) pyautogui                                    gui-automation-lib
+CAUGHT (required) pynput                                       gui-automation-lib
+CAUGHT (required) imagegrab                                    gui-automation-lib
+CAUGHT (required) robotjs                                      gui-automation-lib
+CAUGHT (required) nutjs                                        gui-automation-lib
+CAUGHT (required) py_headless_false                            headed-browser
+CAUGHT (required) js_headless_false                            headed-browser
+CAUGHT (required) json_headless_false                          headed-browser
+CAUGHT (required) yaml_headless_false                          headed-browser
+CAUGHT (required) pytest_headed                                headed-browser
+CAUGHT (required) emulator_windowed                            emulator-without--no-window
+CAUGHT (required) spawn_electron                               electron-launch
+CAUGHT (required) npx_electron                                 electron-launch
+CAUGHT (required) pkgjson_electron                             electron-launch
+CAUGHT (required) sh_chrome                                    browser-launch
+CAUGHT (required) sh_chromium                                  browser-launch
+CAUGHT (required) sh_firefox                                   browser-launch
+CAUGHT (required) py_subprocess_chromium                       browser-launch
+CAUGHT (required) py_webbrowser                                desktop-launch
+CAUGHT (required) x11_socket_mount                             container-escape,x11-socket
+CAUGHT (required) net_host                                     container-escape
+CAUGHT (required) net_host_space                               container-escape
+CAUGHT (required) privileged                                   container-escape
+CAUGHT (required) mount_home                                   container-escape
+CAUGHT (required) mount_tilde                                  container-escape
+CAUGHT (required) multiline_continuation                       container-escape
+CAUGHT (required) cap_add                                      container-escape
+CAUGHT (required) device_input                                 container-escape
+CAUGHT (required) mount_run_user                               container-escape,x11-socket
+CAUGHT (required) base64_pipe_sh                               obfuscated-exec
+CAUGHT (required) eval_var                                     obfuscated-exec
+CAUGHT (required) quote_splice                                 xdotool-family
+CAUGHT (required) py_concat                                    xdotool-family
+CAUGHT (required) var_concat                                   dynamic-command
+CAUGHT (required) curl_pipe_sh                                 obfuscated-exec
+CAUGHT (required) b64decode_exec                               obfuscated-exec
+CAUGHT (required) noext_shell                                  xdotool-family
+CAUGHT (required) noext_python                                 display-env
+CAUGHT (required) agent_prompt                                 xdotool-family
+CAUGHT (required) skill_prompt                                 display-env
+RESIDUAL (documented, not caught) RESIDUAL_chr_built_name
+RESIDUAL (documented, not caught) RESIDUAL_hex_decoded_name
+RESIDUAL (documented, not caught) RESIDUAL_command_from_file
+RESIDUAL (documented, not caught) RESIDUAL_config_driven
+RESIDUAL (documented, not caught) RESIDUAL_unlisted_tool
+CAUGHT (required) hidden_in_build_sh                           xdotool-family
+CAUGHT (required) hidden_in_out_sh                             xdotool-family
+CAUGHT (required) hidden_in_dist_sh                            xdotool-family
+CAUGHT (required) hidden_in_cache_sh                           xdotool-family
+CAUGHT (required) hidden_in_node_modules_sh                    xdotool-family
+CAUGHT (required) hidden_in_evidence_sh                        xdotool-family
+CAUGHT (required) hidden_in_gradle_sh                          xdotool-family
+CAUGHT (required) hidden_in_venv_sh                            xdotool-family
+CAUGHT (required) hidden_in_target_sh                          xdotool-family
+CAUGHT (required) hidden_in_build_py                           xdotool-family
+CAUGHT (required) hidden_in_dist_js                            xdotool-family
+CAUGHT (required) hidden_in_evidence_sh                        clipboard
+CAUGHT (required) hidden_shebang_noext_in_out                  xdotool-family
+CAUGHT (required) hidden_git_hook                              xdotool-family
+CAUGHT (required) ext_gradle                                   xdotool-family
+CAUGHT (required) ext_kts                                      xdotool-family
+CAUGHT (required) ext_txt                                      xdotool-family
+CAUGHT (required) ext_html                                     xdotool-family
+CAUGHT (required) noext_no_shebang                             xdotool-family
+CAUGHT (required) noext_json_like                              xdotool-family
+CAUGHT (required) exec_bit_odd_ext                             xdotool-family
+CAUGHT (required) esc_mount_bind_src                           container-escape
+CAUGHT (required) esc_mount_bind_src2                          container-escape
+CAUGHT (required) esc_net_quoted                               container-escape
+CAUGHT (required) esc_net_quoted_single                        container-escape
+CAUGHT (required) esc_net_space_quoted                         container-escape
+CAUGHT (required) esc_vol_root_quoted                          container-escape
+CAUGHT (required) esc_vol_root_single                          container-escape
+CAUGHT (required) esc_vol_var_lib                              container-escape
+CAUGHT (required) esc_vol_etc                                  container-escape
+CAUGHT (required) esc_vol_dotdot                               container-escape
+CAUGHT (required) esc_vol_dotdot_lit                           container-escape
+CAUGHT (required) esc_vol_home_var                             container-escape
+CAUGHT (required) esc_vol_tilde                                container-escape
+CAUGHT (required) esc_secopt_label                             container-escape
+CAUGHT (required) esc_secopt_seccomp                           container-escape
+CAUGHT (required) esc_secopt_label_eq                          container-escape
+CAUGHT (required) esc_device_fuse                              container-escape
+CAUGHT (required) esc_device_eq                                container-escape
+CAUGHT (required) esc_kube_play                                container-escape
+CAUGHT (required) esc_play_kube                                container-escape
+CAUGHT (required) esc_slirp_host_loopback                      container-escape
+CAUGHT (required) esc_pasta_host_loopback                      container-escape
+CAUGHT (required) esc_pasta_plain                              container-escape
+CAUGHT (required) esc_net_bridge                               container-escape
+CAUGHT (required) esc_net_container_ns                         container-escape
+CAUGHT (required) esc_privileged                               container-escape
+CAUGHT (required) esc_cap_add                                  container-escape
+CAUGHT (required) esc_pid_host                                 container-escape
+CAUGHT (required) esc_ipc_host                                 container-escape
+CAUGHT (required) esc_userns_host                              container-escape
+CAUGHT (required) esc_volumes_from                             container-escape
+CAUGHT (required) esc_remote_host                              container-escape
+CAUGHT (required) esc_compose_up                               container-escape
+CAUGHT (required) esc_cont_line_net                            container-escape
+CAUGHT (required) esc_nerdctl_net                              container-escape
+CAUGHT (required) esc_yaml_net                                 container-escape
+CAUGHT (required) ref_sh_inside_glob                           inside-script-referenced-from-host
+CAUGHT (required) ref_sh_inside_named                          inside-script-referenced-from-host
+CAUGHT (required) ref_inside_question                          inside-script-referenced-from-host
+CAUGHT (required) ref_cd_inside                                inside-script-referenced-from-host
+CAUGHT (required) ref_cd_inside_quoted                         inside-script-referenced-from-host
+CAUGHT (required) ref_bash_inside_var                          inside-script-referenced-from-host
+CAUGHT (required) ref_python_inside                            inside-script-referenced-from-host
+CAUGHT (required) obf_quote_split                              xdotool-family
+CAUGHT (required) obf_quote_split2                             xdotool-family
+CAUGHT (required) obf_dollar_brace                             dynamic-command-sh
+CAUGHT (required) obf_dollar_brace_mid                         dynamic-command-sh
+CAUGHT (required) obf_glob_q                                   glob-command
+CAUGHT (required) obf_glob_star                                glob-command
+CAUGHT (required) obf_glob_class                               glob-command
+CAUGHT (required) obf_glob_class2                              glob-command
+CAUGHT (required) obf_b64_var                                  obfuscated-exec
+CAUGHT (required) obf_b64_pipe_sh                              obfuscated-exec
+CAUGHT (required) obf_source_curl                              obfuscated-exec
+CAUGHT (required) obf_dot_curl                                 obfuscated-exec
+CAUGHT (required) obf_here_string                              obfuscated-exec
+CAUGHT (required) obf_sh_c_var                                 obfuscated-exec
+CAUGHT (required) obf_curl_pipe_sh                             obfuscated-exec
+CAUGHT (required) obf_eval_var                                 obfuscated-exec
+CAUGHT (required) obf_cmdsub_name                              dynamic-command-sh
+CAUGHT (required) obf_py_b64                                   obfuscated-exec
+CAUGHT (required) obf_js_atob                                  obfuscated-exec
+CAUGHT (required) recon_docker_pwd                             container-escape
+CAUGHT (required) recon_adb_server                             host-service-probe
+CAUGHT (required) recon_adb_server_ip                          host-service-probe
+CAUGHT (required) recon_qemu_gtk                               qemu-windowed
+CAUGHT (required) recon_qemu_plain                             qemu-windowed
+CAUGHT (required) recon_env_grep                               env-recon
+CAUGHT (required) recon_printenv_grep                          env-recon
+CAUGHT (required) recon_env_dbus                               env-recon
+CAUGHT (required) env_display_py                               display-env
+CAUGHT (required) env_wayland_sh                               display-env,x11-socket
+CAUGHT (required) clip_pipe                                    clipboard
+RESIDUAL (documented, not caught) RESIDUAL_chr_built_name2
+RESIDUAL (documented, not caught) RESIDUAL_env_driven_cmd
+RESIDUAL (documented, not caught) RESIDUAL_node_modules_data
+RESIDUAL (documented, not caught) RESIDUAL_python_import_side_effect
+RESIDUAL (documented, not caught) RESIDUAL_binary_payload
+
+matrix summary: 177 caught of 177 required; 10 documented RESIDUAL cases; missed required: []
+HONEST SCOPE: 'caught' = the static lint flags the pattern. It is NOT a safety proof. The container (tools/isolation/run_container.sh:
+--network none, route-allow-listed unix socket, bind allow-list, runtime assertions) is the boundary.
+REAL REMAINING (uncaught) classes: command names computed at run time (chr/hex/base64 held in data); command lines taken from the
+environment, files or config at run time; tools absent from the rule list; third-party code (node_modules gets only the HARD subset);
+binaries / NUL-containing files; glob-built command names in non-shell files; effects of merely imported code.
+Round-2 reviewer set (80 isorev2_* mutants) was NOT available to this session: the cases here were re-created class by class (UNCONFIRMED equality).
+NOTICE pinned waivers active: 13 (self 5, denylist 2, waive 6); third-party script files given the HARD subset only: 6716
+assert_host_untouched: PASS (0 finding(s); files scanned 702, symlinks 59 (outside repo 0))
+exit=0
