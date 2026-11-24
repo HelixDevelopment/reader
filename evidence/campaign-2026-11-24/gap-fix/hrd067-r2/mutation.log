@@ -1,0 +1,17 @@
+P1_drop_pending_bound: KILLED
+--- FAIL: TestSlowClientJobSurfaceHermetic (2.30s)
+    slow_client_live_test.go:679: slow-client assert a_one_slow_one_fast_documented_backpressure_holds violated: queue_full fired at 256 non-terminal jobs, want 64 (+-1);
+    slow_client_live_test.go:679: slow-client assert b_three_slow_plus_fast_documented_backpressure_holds violated: queue_full fired at 256 non-terminal jobs, want 64 (+-3);
+P2_drop_scan_semaphore: KILLED
+--- FAIL: TestSlowClientJobSurfaceHermetic (1.70s)
+    slow_client_live_test.go:679: slow-client assert b_three_slow_plus_fast_documented_backpressure_holds violated: max_running=3 exceeds documented 2;slowest slow scan took 602 ms, want >= 900 (semaphore not serializing);
+FAIL
+P3_scan_ignores_deadline: KILLED
+--- FAIL: TestSlowClientJobSurfaceHermetic (4.31s)
+    slow_client_live_test.go:679: slow-client assert slow_scan_with_deadline_timeout_honored violated: elapsed_ms=2501 exceeds budget_ms=500 by slack;
+FAIL
+P6_pending_bound_200: KILLED
+--- FAIL: TestSlowClientJobSurfaceHermetic (2.31s)
+    slow_client_live_test.go:679: slow-client assert a_one_slow_one_fast_documented_backpressure_holds violated: queue_full fired at 200 non-terminal jobs, want 64 (+-1);
+    slow_client_live_test.go:679: slow-client assert b_three_slow_plus_fast_documented_backpressure_holds violated: queue_full fired at 200 non-terminal jobs, want 64 (+-3);
+restored: yes
