@@ -1,0 +1,20 @@
+test_clean_mutation_free_tree (test_guard_matrix.Matrix.test_clean_mutation_free_tree) ... ok
+test_container_only_command_inside_dir_with_marker_is_allowed (test_guard_matrix.Matrix.test_container_only_command_inside_dir_with_marker_is_allowed) ... ok
+test_every_mutant_caught_except_documented_residual (test_guard_matrix.Matrix.test_every_mutant_caught_except_documented_residual) ... ok
+test_git_ignored_and_untracked_files_are_scanned (test_guard_matrix.Matrix.test_git_ignored_and_untracked_files_are_scanned) ... ok
+test_inside_file_must_not_be_executable (test_guard_matrix.Matrix.test_inside_file_must_not_be_executable) ... ok
+test_inside_script_referenced_from_host_is_flagged (test_guard_matrix.Matrix.test_inside_script_referenced_from_host_is_flagged) ... ok
+test_marker_outside_inside_dirs_is_ignored (test_guard_matrix.Matrix.test_marker_outside_inside_dirs_is_ignored) ... ok
+test_matrix_size (test_guard_matrix.Matrix.test_matrix_size) ... ok
+test_submodule_report_mode_never_fails (test_guard_matrix.Matrix.test_submodule_report_mode_never_fails) ... ok
+test_symlink_inside_repo_is_followed (test_guard_matrix.Matrix.test_symlink_inside_repo_is_followed) ... ok
+test_symlink_to_outside_is_flagged_and_counted (test_guard_matrix.Matrix.test_symlink_to_outside_is_flagged_and_counted) ... ok
+test_unpinned_glob_waiver_is_rejected (test_guard_matrix.Matrix.test_unpinned_glob_waiver_is_rejected) ... ok
+test_waiver_is_explicit_and_pinned (test_guard_matrix.Matrix.test_waiver_is_explicit_and_pinned) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.926s
+
+OK
+
+matrix: 177 caught of 177 required; residual documented: 10 uncaught ['RESIDUAL_chr_built_name', 'RESIDUAL_hex_decoded_name', 'RESIDUAL_command_from_file', 'RESIDUAL_config_driven', 'RESIDUAL_unlisted_tool', 'RESIDUAL_chr_built_name2', 'RESIDUAL_env_driven_cmd', 'RESIDUAL_node_modules_data', 'RESIDUAL_python_import_side_effect', 'RESIDUAL_binary_payload'], 0 unexpectedly caught []
