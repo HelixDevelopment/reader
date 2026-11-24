@@ -1,0 +1,22 @@
+## M1: blank LED-021 evidence_path in ledger -> build --check must FAIL
+FAIL LED-021 evidence_path '2d299c16f3fe2c973e48526eb5b7e6c59a759955cdf5db55ddaa08c7e6e83179' missing or empty
+FAIL LED-021 ledger sha 'python3 scripts/verify_ui.py http://127.0.0.1:4173/' != real 'MISSING' (stale or tampered)
+FAIL manifest /home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies
+ledger/manifest INCONSISTENT
+exit=1
+## M2: move LED-021 evidence file away -> machine_evidence gate must FAIL
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: FAIL gate_id='LED-021' evidence='/home/milosvasic/Projects/helix_reader/evidence/ui/final-run.log' reason=EVIDENCE_MISSING
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: FAIL — 1 sub-check(s) failed across 28 declared row(s) (§11.4.262)
+exit=1
+## M3: tamper evidence byte -> gate must FAIL (hash mismatch); restored after
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: FAIL — 1 sub-check(s) failed across 28 declared row(s) (§11.4.262)
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: FAIL gate_id='LED-021' evidence='/home/milosvasic/Projects/helix_reader/evidence/ui/final-run.log' reason=EVIDENCE_HASH_MISMATCH declared=2d299c16f3fe2c973e48526eb5b
+exit=1
+## M4: ad-hoc bluff type -> typed gate must FAIL
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: FAIL capability='Rendering of any format in the Go core' bluff_type='made-up-type' reason=TYPE_OUTSIDE_CLOSED_VOCABULARY
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: FAIL — 1/36 ledger row(s) carry no closed-vocabulary bluff type; the closed set is: green-but-broken coverage-theater rubber-stamp-verified stubbed-core doc-vs-code-drift config-present-but-unwired byte-identical-fork(§11.4.266(B))
+exit=1
+## RESTORED
+ledger/manifest consistent: rows=36 with_evidence=28
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: PASS — all 28 declared row(s) have a legal layer, existing non-empty evidence, and a matching sha256 (§11.4.262)
+evidence-restored-identical

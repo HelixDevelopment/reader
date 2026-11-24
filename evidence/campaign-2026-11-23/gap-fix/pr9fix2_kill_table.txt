@@ -1,0 +1,17 @@
+== kill table shards (k3, partial at commit time) ==
+KILLED   M03 VERIFIED/PARTIAL/BLOCKED need an evidence file  [manifest suite: 3 failing case(s); first: FAIL VERIFIED with evidence none fails (M03) (rc=0): ledger/manifest consistent: rows=2 with_evi
+KILLED   N02 control-byte refusal in PROVENANCE only  [manifest suite: 1 failing case(s); first: FAIL control byte in PROVENANCE.tsv refused (rc=1): FAIL SNAPSHOT_AUTHENTICITY 's.txt': captured_at/]
+KILLED   B01 NUL byte member of the control-byte class  [manifest suite: 1 failing case(s); first: FAIL NUL byte in a ledger cell refused (B01) (rc=0): ledger/manifest consistent: rows=2 with_evidenc]
+KILLED   N08 literal pathspecs (glob char in evidence path)  [manifest suite: 1 failing case(s); first: FAIL untracked evidence named with a glob char refused (H12) (rc=0): ledger/manifest consistent:
+== RED baseline (pre-fix c56b39a script vs new manifest suite) ==
+BASELINE pre-fix script vs new manifest suite: rc=1 == 74 passed, 6 failed
+  FAIL header with an extra empty 13th column refused (N4) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL untracked evidence named with a glob char refused (H12) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL evidence under --assume-unchanged refused (H13/H14) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL evidence under --skip-worktree refused (H13/H14) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL id with a zero-width space refused (N3) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL lowercase id refused (N3) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+finished
+== CONTROLS (unmutated) ==
+CONTROL  unmutated manifest suite: rc=0 == 80 passed, 0 failed
+CONTROL  unmutated runner suite: rc=0 == 18 passed, 0 failed

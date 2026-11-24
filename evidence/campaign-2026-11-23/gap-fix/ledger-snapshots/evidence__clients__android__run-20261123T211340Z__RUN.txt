@@ -1,0 +1,5 @@
+HRD-022 Android run 20261123T211340Z. Emulator: AVD 'default' (Android 14 / API 34 google_apis x86_64) inside rootless podman container (image ghcr.io/vasic-digital/lava-android-emulator:api34-x86_64 = Containers-submodule section 6.X image, container name hrd022-emu, --device /dev/kvm --userns=keep-id, no host display, -no-window -no-audio), adb connect 127.0.0.1:5590.
+Server: fresh go build of server/cmd/helix-server, in-memory catalog, 127.0.0.1:28592, OPDS Basic creds (throwaway, not recorded). A logging pass-through proxy on 127.0.0.1:28591 recorded requests (server has no access log); adb reverse tcp:28591 tcp:28591.
+Library: Alice's Adventures in Wonderland.epub, epub3.epub (title 'zip'), field-notes.txt, orbital-gardens.txt.
+Steps: install APK, launch, (Settings form filled through WebView DevTools Runtime.evaluate because on-screen Gboard made adb input unreliable), library loads 4 works, tap field-notes via adb input tap, Read TXT, rotate to landscape (user_rotation=1).
+The first 401 in the access log is the app's startup request using the persisted username with the session-only password empty; the 200s follow after credentials were entered.

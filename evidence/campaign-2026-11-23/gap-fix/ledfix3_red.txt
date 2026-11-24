@@ -1,0 +1,53 @@
+PASS baseline good tree accepted
+PASS rows==0 fails VACUOUS
+PASS with_evidence==0 fails VACUOUS
+PASS empty manifest vs evidence rows fails VACUOUS
+PASS blank id reported by name
+PASS blank capability reported by name
+PASS blank bluff_type reported by name
+PASS blank severity reported by name
+PASS blank claim_status reported by name
+PASS blank layer reported by name
+PASS blank source reported by name
+PASS blank evidence_path reported by name
+PASS blank evidence_sha256 reported by name
+PASS blank producer reported by name
+PASS blank last_verified reported by name
+PASS blank notes reported by name
+PASS short row fails COLUMN_COUNT
+PASS untracked evidence outside snapshots fails VOLATILE_EVIDENCE
+PASS modified-tracked evidence fails VOLATILE_EVIDENCE
+PASS snapshot without provenance fails
+PASS snapshot with matching provenance accepted
+PASS tampered snapshot rejected
+FAIL path traversal rejected (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL absolute evidence path rejected (rc=1): FAIL LED-001 evidence_path '/etc/hostname' missing or empty|FAIL LED-001 ledger sha 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' != real 'MISSING' (stale or tampered)|FAIL VACUOUS no ledger row carries evidence (with_evidence=0)|
+FAIL forged nonexistent source + 2099 date fails (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL future captured_at fails (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL captured after snapshotted fails (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL gone without reason fails (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+PASS gone with reason accepted
+FAIL no stale warning (rc=1): FAIL LED-001 source 'README.md:2' is not an existing file:line
+FAIL LED-001 ledger sha 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' != real '9c45da1b799a603c167323bd7ed4f52034ec28ea5e04373045a9c11f1ddc5446' (stale or tampered)
+FAIL LED-002 source 'README.md:3' is not an existing file:line
+FAIL manifest /home/milosvasic/.cache/claude-tmp/ledfix_DEYTEr/stale/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies
+ledger/manifest INCONSISTENT
+FAIL staged modification fails (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL non-git root fails closed for non-snapshot evidence (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL symlink evidence rejected (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL duplicate id rejected (rc=0): ledger/manifest consistent: rows=3 with_evidence=1|
+FAIL CRLF reported explicitly (rc=1): FAIL COLUMN_COUNT header is 'id capability bluff_type severity claim_status layer source evidence_path evidence_sha256 producer last_verified notes', expected 'id capability bluff_type severity claim_status layer source evidence_path evidence_sha256 producer last_verified notes'|ledger/manifest INCONSISTENT|
+== 23 passed, 12 failed
+PASS good tree exits 0
+PASS 4 per-gate PASS verdict lines
+PASS gofmt drift fails run
+PASS evidence tamper fails run
+PASS ad-hoc bluff type fails run
+PASS bad layer in manifest fails run
+PASS installer writes executable pre-commit into given dir
+PASS repo .git/hooks untouched
+PASS installer refuses to overwrite foreign/existing hook
+PASS installer without --hooks-dir only prints (dry run)
+== 10 passed, 0 failed
+FAIL missing value rc=1: /home/milosvasic/Projects/helix_reader/scripts/gates/install_hooks.sh: line 10: $2: unbound variable
+== 11 passed, 1 failed
