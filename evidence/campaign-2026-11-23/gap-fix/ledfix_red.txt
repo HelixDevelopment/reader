@@ -1,0 +1,24 @@
+PASS baseline good tree accepted
+FAIL rows==0 accepted (rc=0): ledger/manifest consistent: rows=0 with_evidence=0
+FAIL with_evidence==0 accepted (rc=0): ledger/manifest consistent: rows=1 with_evidence=0
+FAIL empty manifest accepted (rc=1): FAIL manifest /home/milosvasic/.cache/claude-tmp/ledfix_f7QzpM/emptyman/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies
+ledger/manifest INCONSISTENT
+FAIL blank id not reported by name (rc=1): FAIL cap one bad claim_status 'SOURCE'|FAIL cap one source 'evidence/a.log' is not an existing file:line|FAIL cap one evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|
+FAIL blank capability not reported by name (rc=1): FAIL LED-001 bad claim_status 'SOURCE'|FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|
+FAIL blank bluff_type not reported by name (rc=1): FAIL LED-001 bad claim_status 'SOURCE'|FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|
+FAIL blank severity not reported by name (rc=1): FAIL LED-001 bad claim_status 'SOURCE'|FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|
+FAIL blank claim_status not reported by name (rc=1): FAIL LED-001 bad claim_status 'SOURCE'|FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|
+FAIL blank layer not reported by name (rc=1): FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|FAIL LED-001 ledger sha 'cmd a' != real 'MISSING' (stale or tampered)|
+FAIL blank source not reported by name (rc=1): FAIL LED-001 source 'evidence/a.log' is not an existing file:line|FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|FAIL LED-001 ledger sha 'cmd a' != real 'MISSING' (stale or tampered)|
+FAIL blank evidence_path not reported by name (rc=1): FAIL LED-001 evidence_path 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' missing or empty|FAIL LED-001 ledger sha 'cmd a' != real 'MISSING' (stale or tampered)|FAIL manifest /home/milosvasic/.cache/claude-tmp/ledfix_f7QzpM/blank7/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies|
+FAIL blank evidence_sha256 not reported by name (rc=1): FAIL LED-001 ledger sha 'cmd a' != real 'd64426f0e62dc67e5e98838422c84dd5ea35fc4432e2e1e2a3473ad87b627cfb' (stale or tampered)|FAIL manifest /home/milosvasic/.cache/claude-tmp/ledfix_f7QzpM/blank8/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies|ledger/manifest INCONSISTENT|
+FAIL blank producer not reported by name (rc=1): FAIL manifest /home/milosvasic/.cache/claude-tmp/ledfix_f7QzpM/blank9/docs/evidence/gate_evidence_manifest.tsv differs from what the ledger implies|ledger/manifest INCONSISTENT|
+FAIL blank last_verified not reported by name (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL blank notes not reported by name (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+FAIL short row accepted (rc=1)
+FAIL volatile accepted (rc=0): ledger/manifest consistent: rows=2 with_evidence=1
+FAIL modified accepted (rc=0): ledger/manifest consistent: rows=2 with_evidence=1
+FAIL snapshot w/o provenance accepted (rc=0): ledger/manifest consistent: rows=2 with_evidence=1
+PASS snapshot with matching provenance accepted
+PASS tampered snapshot rejected
+== 3 passed, 19 failed

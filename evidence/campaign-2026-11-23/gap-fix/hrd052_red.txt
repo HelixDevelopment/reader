@@ -1,0 +1,7 @@
+## RED: gate at its default root (= submodules/constitution, the hub's own manifest)
+❌ DRIFT  llmctl: ref 3877467 (3877467) != gitlink 391d8177650b (submodules/llmctl)
+❌ DRIFT  containers: ref 1d8274c (1d8274c) != gitlink 5ea870a58370 (submodules/containers)
+❌ DRIFT  claude_toolkit: ref 25c4803 (25c4803) != gitlink 718cd256ea19 (submodules/claude_toolkit)
+❌ DRIFT  llama.cpp: ref 1537a0a (1537a0a) != gitlink 2bc46baa9207 (submodules/llmctl/submodules/llama.cpp)
+❌ CM-HELIX-DEPS-REF-MATCHES-GITLINK: FAIL — helix-deps.yaml disagrees with the index (27 deps)
+exit=1

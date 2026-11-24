@@ -1,0 +1,29 @@
+== FINAL kill table: 26 mutants, 26 KILLED, 0 SURVIVED (4 parallel --only shards + N06/N07 re-run after their mutation strings were updated for literal pathspecs) ==
+KILLED   M03 VERIFIED/PARTIAL/BLOCKED need an evidence file  [manifest suite: 3 failing case(s); first: FAIL VERIFIED with evidence none fails (M03) (rc=0): ledger/manifest consistent: rows=2 with_evi
+KILLED   M04 ledger sha != real sha compare  [manifest suite: 1 failing case(s); first: FAIL ledger sha != real sha fails (M04) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   M05 manifest differs from ledger-implied (cmp)  [manifest suite: 2 failing case(s); first: FAIL manifest with an extra row fails (M05) (rc=0): ledger/manifest consistent: rows=2 with_evidence
+KILLED   M08 PROVENANCE sha-mismatch check  [manifest suite: 1 failing case(s); first: FAIL PROVENANCE sha != snapshot sha fails (M08) (rc=0): WARN STALE_SNAPSHOT 's.txt': source README.m]
+KILLED   M10 source file:line existence check  [manifest suite: 4 failing case(s); first: FAIL source file missing fails (M10) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   M11 claim_status closed set  [manifest suite: 2 failing case(s); first: FAIL claim_status outside the closed set fails (M11) (rc=0): ledger/manifest consistent: rows=2 with]
+KILLED   N01 control-byte refusal in ledger + PROVENANCE (B1)  [manifest suite: 10 failing case(s); first: FAIL 0x1F in a cell refused (C18 false-green) (rc=1): FAIL LED-002 bad claim_status 'low'|FAI
+KILLED   N02 control-byte refusal in PROVENANCE only  [manifest suite: 1 failing case(s); first: FAIL control byte in PROVENANCE.tsv refused (rc=1): FAIL SNAPSHOT_AUTHENTICITY 's.txt': captured_at/]
+KILLED   N03 source path escape (C14)  [manifest suite: 1 failing case(s); first: FAIL source '..' component fails SOURCE_ESCAPE even when the target does not exist (rc=1): FAIL LED-]
+KILLED   N03b source realpath-outside-root check (symlinked dir)  [manifest suite: 1 failing case(s); first: FAIL source through a symlinked dir resolving outside the root fails SOURCE_ESCAPE (rc=0): 
+KILLED   N04 source line 0 (C15)  [manifest suite: 1 failing case(s); first: FAIL source line 0 fails (C15) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   N05 last_verified date validation (C24)  [manifest suite: 4 failing case(s); first: FAIL last_verified 'yesterday' fails BAD_DATE (C24) (rc=1): ledger/manifest INCONSISTENT|]
+KILLED   B01 NUL byte member of the control-byte class  [manifest suite: 1 failing case(s); first: FAIL NUL byte in a ledger cell refused (B01) (rc=0): ledger/manifest consistent: rows=2 with_evidenc]
+KILLED   B02 symlinked PARENT directory not detected (leaf -L only)  [manifest suite: 1 failing case(s); first: FAIL evidence under a symlinked parent dir refused (B02) (rc=1): FAIL LED-001 VOLATILE_E
+KILLED   B03 PROVENANCE plain-file-name rule  [manifest suite: 2 failing case(s); first: FAIL PROVENANCE name with '/' refused (B03) (rc=1): FAIL SNAPSHOT_AUTHENTICITY 'sub/s.txt': snapshot]
+KILLED   B04 evidence file must be NON-EMPTY (-s)  [manifest suite: 1 failing case(s); first: FAIL empty tracked evidence file refused (B04) (rc=1): FAIL manifest /home/milosvasic/.cache/claude-]
+KILLED   B05 byte-exact header check  [manifest suite: 2 failing case(s); first: FAIL renamed header column refused (B05) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|]
+KILLED   B10 snapshot file itself must be git-tracked  [manifest suite: 1 failing case(s); first: FAIL untracked snapshot file with tracked PROVENANCE refused (B10) (rc=0): ledger/manifest consisten]
+KILLED   N08 literal pathspecs (glob char in evidence path)  [manifest suite: 1 failing case(s); first: FAIL untracked evidence named with a glob char refused (H12) (rc=0): ledger/manifest consistent:
+KILLED   N09 assume-unchanged / skip-worktree evidence  [manifest suite: 2 failing case(s); first: FAIL evidence under --assume-unchanged refused (H13/H14) (rc=0): ledger/manifest consistent: rows=2 ]
+KILLED   N10 id grammar [A-Z]+-[0-9]+  [manifest suite: 2 failing case(s); first: FAIL id with a zero-width space refused (N3) (rc=0): ledger/manifest consistent: rows=2 with_evidenc]
+KILLED   R03 gate 6 not applied to the --constitution override  [runner suite: 1 failing case(s); first: FAIL gate 6 override rc=1: GATE gofmt_clean PASS|GATE build_evidence_manifest_check PASS|GATE c
+KILLED   M14 gate 5 cm_pr_delivery_anchor_wired wiring replaced by true  [runner suite: 1 failing case(s); first: FAIL gate 5 wiring rc=1: GATE gofmt_clean PASS|GATE build_evidence_manifest_check PASS
+KILLED   M15 gate 1 gofmt_clean wiring replaced by true  [runner suite: 1 failing case(s); first: FAIL gofmt mutation rc=0]
+-- N06/N07 re-run (first shard run: ERROR 'mutation does not apply', stale string; fixed in table) --
+KILLED   N06 snapshot must be git-tracked (C16)  [manifest suite: 2 failing case(s); first: FAIL untracked fabricated snapshot fails (C16) (rc=0): ledger/manifest consistent: rows=2 with_evide]
+KILLED   N07 snapshot must be unmodified  [manifest suite: 1 failing case(s); first: FAIL modified PROVENANCE.tsv fails (I2) (rc=1): FAIL SNAPSHOT_AUTHENTICITY '# edit': snapshot file m]
+SUMMARY  2 killed of 2 mutants defined and run (table defines 26)

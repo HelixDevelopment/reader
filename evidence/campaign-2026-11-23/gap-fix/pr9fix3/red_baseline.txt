@@ -1,0 +1,8 @@
+BASELINE pre-fix script vs new manifest suite: rc=1 == 74 passed, 6 failed
+  FAIL header with an extra empty 13th column refused (N4) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL untracked evidence named with a glob char refused (H12) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL evidence under --assume-unchanged refused (H13/H14) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL evidence under --skip-worktree refused (H13/H14) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL id with a zero-width space refused (N3) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+  FAIL lowercase id refused (N3) (rc=0): ledger/manifest consistent: rows=2 with_evidence=1|
+finished
