@@ -1,0 +1,16 @@
+{
+  "name": "helix-reader-android",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Capacitor WebView shell wrapping clients/web (HRD-022). Build the web bundle first: npm --prefix ../web run build.",
+  "scripts": {
+    "sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/core": "8.6.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2"
+  }
+}
