@@ -201,7 +201,7 @@ def is_anc(ctx, a, b):
 
 
 def commits(ctx, base_tip, head):
-    out = git(ctx, "log", "--format=%H%x00%B%x1e", "%s..%s" % (base_tip, head))
+    out = git(ctx, "log", "--topo-order", "--format=%H%x00%B%x1e", "%s..%s" % (base_tip, head))
     res = []
     for rec in out.split("\x1e"):
         rec = rec.strip("\n")
@@ -238,21 +238,33 @@ def check_trailers(ctx, base_tip, head):
 
 
 def check_evidence(ctx, base_tip, head):
-    """11.4.297(E): every cited evidence path is repository-relative, under evidence_dir, and has the cited sha256 in the head tree."""
+    """11.4.297(E): every cited evidence path is repository-relative and under evidence_dir for EVERY citation; the cited sha256 must
+    match the head tree for the LATEST citation (newest commit first in log order) of each path. An earlier citation of the same
+    path in another commit is SUPERSEDED (a later commit legitimately regenerated the file): it must still match the path's content in
+    ITS OWN citing commit's tree (absent there = refused), and is reported as a NOTE."""
     problems, cited = [], []
     evdir = ctx.cfg["evidence_dir"].strip("/") + "/"
-    for h, body in commits(ctx, base_tip, head):
+    latest = {}      # path -> commit that holds the latest citation (the one checked against the head tree)
+    superseded = {}  # path -> [short hashes of earlier citing commits]
+    for h, body in commits(ctx, base_tip, head):  # git log order: newest first
         for path, sha in EVIDENCE_RE.findall(body):
             cited.append(path)
             if path.startswith("/") or ".." in path.split("/") or not path.startswith(evdir):
                 problems.append("%s: evidence %r is absolute/outside/not under %s (INCONCLUSIVE, never PASS)" % (h[:12], path, evdir))
                 continue
-            p = subprocess.run(["git", "-C", ctx.repo, "show", "%s:%s" % (head, path)], capture_output=True)
+            is_latest = latest.setdefault(path, h) == h  # MUT:supersede
+            if not is_latest and h[:12] not in superseded.setdefault(path, []):
+                superseded[path].append(h[:12])
+            # latest citation: head tree; earlier (superseded) citation: the path's content in ITS OWN citing commit
+            tree = head if is_latest else h  # MUT:owntree
+            p = subprocess.run(["git", "-C", ctx.repo, "show", "%s:%s" % (tree, path)], capture_output=True)
             if p.returncode != 0:
-                problems.append("%s: evidence %s absent from head tree %s" % (h[:12], path, head[:12]))
+                problems.append("%s: evidence %s absent from %s tree %s" % (h[:12], path, "head" if is_latest else "its own commit", tree[:12]))
                 continue
             if hashlib.sha256(p.stdout).hexdigest() != sha.lower():  # MUT:evhash
                 problems.append("%s: evidence %s sha256 differs from the cited %s" % (h[:12], path, sha[:12]))
+    for path, hs in superseded.items():
+        say("NOTE: evidence %s: earlier citation(s) superseded by the latest in commit %s (each verified against its own commit tree): %s" % (path, latest[path][:12], ", ".join(hs)))
     return problems, cited
 
 
@@ -370,8 +382,8 @@ def cmd_start(ctx, a):
 
 def pr_body(ctx, a, base_tip, head, cited, rows):
     lines = ["## Task", "", "Roadmap item: %s" % ctx.task, "Delivery decision: %s (config/delivery.conf)" % ctx.cfg["decision_id"], "",
-             "## Evidence (repository-relative, sha256 verified in the head tree)", ""]
-    lines += ["- `%s`" % p for p in cited] or ["- none cited by the commits"]
+             "## Evidence (repository-relative; latest citation of each path verified in the head tree, earlier citations in their own commit tree)", ""]
+    lines += ["- `%s`" % p for p in sorted(set(cited))] or ["- none cited by the commits"]
     lines += ["", "## Test types run", "", a.test_types or "NOT STATED", "",
               "## Review record", "",
               "Independent source-correctness GO: PENDING (recorded by `deliver.py review-record` as a comment naming the head sha).",
