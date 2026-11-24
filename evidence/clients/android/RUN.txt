@@ -1,0 +1,6 @@
+Android debug APK build (HRD-022). Global PATH javac stays absent; project JDK Temurin 21.0.13.1 at ~/tools/jdk-21 (sha256 matched Adoptium published value, see jdk_sha256.txt).
+1. clients/tools/fetch_jdk.sh   (download + verify + extract to ~/tools/jdk-21)
+2. (clients/web) npm run build
+3. (clients/android) npm install; npx cap sync android   [capacitor.config.json: webDir ../web/dist, CapacitorHttp enabled]
+4. (clients/android/android) source ../.env.sh; ./gradlew assembleDebug --no-daemon   -> BUILD SUCCESSFUL (gradle_assembleDebug.log)
+Not done: install/launch on emulator. adb devices listed no device; emulator launch / adb install are blocked classes of the section 11.4.109 PreToolUse guard and section 11.4.76 requires routing through the Containers submodule; the "# guardrails:allow" marker was deliberately not used. Needs an operator-approved Containers-submodule emulator path.

@@ -1,0 +1,29 @@
+✔ navigation: only the app origin (4.732721ms)
+✔ requests: app assets, blob and data only; devtools only when enabled (0.311034ms)
+✔ server url normalisation (0.730347ms)
+✔ serves index with CSP, refuses traversal and other hosts (59.2557ms)
+✔ API: forwarded to the configured base with injected creds, cookies stripped; 503 when unconfigured (5.152555ms)
+✔ CSP is strict (1.926351ms)
+✔ blank password is kept while the server origin is unchanged (66.054053ms)
+✔ blank password is NOT carried over to a different server origin (6.085725ms)
+✔ an explicitly typed password is used for the new origin (1.623437ms)
+✔ forget-password clears the stored password, reloads, and is shell-only (5.607539ms)
+✔ connection UI and preload expose a forget-password action (0.680447ms)
+✔ API paths (1.8644ms)
+✔ buildTarget forwards path+query to the configured base only (1.689729ms)
+✔ buildTarget refuses everything else (0.536225ms)
+✔ request headers: no cookie, injected creds only when none sent (42.2785ms)
+✔ response headers: strip cookies, www-authenticate, upstream CORS, hop-by-hop (0.91116ms)
+✔ request headers: host, method override and forwarding headers are never forwarded (0.598956ms)
+✔ password stored encrypted, never plain text (2.750389ms)
+✔ no encryption => password not persisted (memory only) (1.720269ms)
+✔ static resolves inside root and refuses traversal (2.618018ms)
+✔ mime (0.414365ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 268.090384

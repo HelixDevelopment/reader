@@ -1,0 +1,6 @@
+Capture note for unit_GREEN_23tests.log (kept separate so the cited log hash does not change).
+command : cd clients/desktop && node --test test/
+node    : v26.8.1
+sources : clients/desktop is byte-identical to commit 81a6a315b443dcf50119bc121c6f372c4df179e0 (git diff 81a6a31 HEAD -- clients/desktop is empty)
+result  : tests 23, pass 23, fail 0 (see the log)
+Not recorded: capture wall-clock time.

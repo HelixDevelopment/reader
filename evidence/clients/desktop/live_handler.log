@@ -1,0 +1,17 @@
+PASS server-direct-has-works {"titles":["hq-novel","hq-notes","hq-mixed","hq-comic"]}
+PASS server-sends-no-cors-headers (why the proxy exists) {"access-control-allow-origin":null}
+PASS proxy-with-stored-creds-returns-real-titles {"status":200,"titles":["hq-novel","hq-notes","hq-mixed","hq-comic"]}
+PASS proxy-work-detail {"status":200}
+PASS proxy-healthz {"status":200}
+PASS wrong-password-gives-401-and-no-www-authenticate-prompt {"status":401,"wwwAuth":null}
+PASS no-creds-gives-401 {"status":401}
+PASS renderer-supplied-authorization-is-forwarded {"status":200}
+PASS static-index-from-web-dist-with-csp {"status":200,"csp":"default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; worker-src 'none'"}
+PASS static-js-bundle-served {"asset":"assets/index-C40zDHeF.js","status":200}
+PASS traversal-refused /..%2f..%2f..%2fetc%2fpasswd {"status":400}
+PASS traversal-refused /%2e%2e/%2e%2e/etc/passwd {"status":404}
+PASS traversal-refused /v1/%2e%2e/admin {"status":404}
+PASS proxy-refuses-POST {"status":405}
+PASS unreachable-server-gives-502 {"status":502}
+
+15/15 PASS
