@@ -4,8 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"math"
+	"strings"
 	"testing"
+	"time"
 )
 
 // FuzzPutProgressBody (HRD-070): arbitrary bytes decoded exactly as the
@@ -18,8 +21,18 @@ func FuzzPutProgressBody(f *testing.F) {
 	f.Add([]byte(`{"document":"","progress":"x","percentage":2,"device":"d"}`))
 	f.Add([]byte(`{"document":"d","progress":"p","percentage":1e999,"device":"d"}`))
 	f.Add([]byte(`{"document":"d","progress":"p","percentage":-0,"device":"d","timestamp":-9223372036854775808}`))
+	f.Add([]byte(`{"document":"neg-pct","progress":"p","percentage":-0.5,"device":"d"}`))
+	// Boundary seeds: exactly 255 bytes is accepted, exactly 256 is rejected.
+	for _, n := range []int{255, 256} {
+		long := strings.Repeat("x", n)
+		f.Add([]byte(fmt.Sprintf(`{"document":%q,"progress":"p","percentage":0.5,"device":"d"}`, long)))
+		f.Add([]byte(fmt.Sprintf(`{"document":"d","progress":%q,"percentage":0.5,"device":"d"}`, long)))
+		f.Add([]byte(fmt.Sprintf(`{"document":"d","progress":"p","percentage":0.5,"device":%q}`, long)))
+		f.Add([]byte(fmt.Sprintf(`{"document":"d","progress":"p","percentage":0.5,"device":"d","device_id":%q}`, long)))
+	}
 	f.Add([]byte(`[]`))
 	f.Add([]byte(``))
+	start := time.Now().Unix()            // every stored timestamp must be server-set at or after this
 	svc := NewService(NewMemory(), false) // built once: NewService hashes a bcrypt dummy
 	f.Fuzz(func(t *testing.T, body []byte) {
 		if len(body) > 16384 {
@@ -40,6 +53,11 @@ func FuzzPutProgressBody(f *testing.F) {
 			len(got.Progress) > 255 || len(got.Device) > 255 || len(got.DeviceID) > 255 ||
 			math.IsNaN(got.Percentage) || got.Percentage < 0 || got.Percentage > 1 {
 			t.Fatalf("persisted out-of-contract record: in=%+v out=%+v", p, got)
+		}
+		// The timestamp is server-set: a caller-supplied value never survives. A
+		// stale write returns the stored winner, itself server-stamped after start.
+		if got.Timestamp < start || got.Timestamp > time.Now().Unix()+1 {
+			t.Fatalf("timestamp %d not server-set (caller sent %d, start=%d)", got.Timestamp, p.Timestamp, start)
 		}
 		again, err := svc.GetProgress(context.Background(), "reader", p.Document)
 		if err != nil || again != got {

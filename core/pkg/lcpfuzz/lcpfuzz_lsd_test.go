@@ -84,7 +84,11 @@ func lsdSeeds() [][]byte {
 	}
 	out = append(out,
 		[]byte(`{"id":"x","status":"bogus","message":"m","updated":{"license":"2020-01-01T00:00:00Z","status":"2020-01-01T00:00:00Z"},"links":[{"rel":"license","href":"h"}]}`),
-		[]byte(`{"id":"x","status":"active","message":"m","updated":{"license":"2020-01-01T00:00:00Z","status":"2020-01-01T00:00:00Z"},"links":[{"rel":"status","href":"h"}]}`))
+		[]byte(`{"id":"x","status":"active","message":"m","updated":{"license":"2020-01-01T00:00:00Z","status":"2020-01-01T00:00:00Z"},"links":[{"rel":"status","href":"h"}]}`),
+		// Boundary seeds: empty href, malformed updated.license / updated.status.
+		[]byte(`{"id":"x","status":"active","message":"m","updated":{"license":"2020-01-01T00:00:00Z","status":"2020-01-01T00:00:00Z"},"links":[{"rel":"license","href":""}]}`),
+		[]byte(`{"id":"x","status":"active","message":"m","updated":{"license":"not-a-date","status":"2020-01-01T00:00:00Z"},"links":[{"rel":"license","href":"h"}]}`),
+		[]byte(`{"id":"x","status":"active","message":"m","updated":{"license":"2020-01-01T00:00:00Z","status":"not-a-date"},"links":[{"rel":"license","href":"h"}]}`))
 	return out
 }
 

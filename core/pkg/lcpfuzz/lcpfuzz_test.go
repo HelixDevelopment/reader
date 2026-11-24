@@ -58,6 +58,20 @@ func seed(f *testing.F) {
 			}
 		}
 	}
+	// Boundary seeds: present-but-malformed date members must be rejected.
+	if b, err := os.ReadFile("../lcp/testdata/spec-5.4.1-signed-license.json"); err == nil {
+		for _, k := range []string{"issued", "updated"} {
+			var base map[string]json.RawMessage
+			if json.Unmarshal(b, &base) == nil {
+				base["id"] = json.RawMessage(`"urn:uuid:fuzz-seed"`)
+				base["provider"] = json.RawMessage(`"https://provider.example"`)
+				base[k] = json.RawMessage(`"not-a-date"`)
+				if nb, err := json.Marshal(base); err == nil {
+					f.Add(nb)
+				}
+			}
+		}
+	}
 	for _, s := range []string{``, `{}`, `null`, `[]`, `{"id":"x","provider":"p","issued":"2020-01-01T00:00:00Z"}`, `{"status":"active","id":"a","message":"m","updated":{},"links":[]}`, `{"a":{"b":[1,2,3]},"c":"\u0000"}`, "\xff\xfe"} {
 		f.Add([]byte(s))
 	}
