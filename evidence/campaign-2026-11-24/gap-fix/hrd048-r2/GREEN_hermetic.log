@@ -1,0 +1,16 @@
+--- PASS: TestSoakGateRSquaredRejectsNoisyGrowth (0.00s)
+--- PASS: TestSoakGateWarmupDiscard (0.00s)
+--- PASS: TestSoakGateGrowthLimitRejectsSmallAbsoluteGrowth (0.00s)
+--- PASS: TestSoakGateSlopeLimitRejectsShallowLinearGrowth (0.00s)
+--- PASS: TestSoakGatePositiveControlLinearLeakIsFlagged (0.00s)
+--- PASS: TestSoakGateGoroutineSlop (0.00s)
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (2.46s)
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (2.49s)
+    soak_test.go:294: SOAK iterations=6000 samples=20 slope=22.63 B/iter steady_growth=73584 B goroutine_delta=0 heap_first=1338792 heap_last=1447960
+--- PASS: TestSoakServerRequestMixDoesNotLeak (2.31s)
+    soak_test.go:444: REMOTE SOAK webdav iterations=3000 slope=9.19 B/iter r2=0.55 goroutine_delta=0 lingering_rclone_workers=0
+    soak_test.go:444: REMOTE SOAK rclone iterations=300 slope=-0.28 B/iter r2=0.00 goroutine_delta=0 lingering_rclone_workers=0
+--- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses (80.33s)
+--- PASS: TestSoakDetectorCatchesStaircaseLeaks (8.08s)
+--- PASS: TestSoakDetectorNoFalsePositiveOnBurstyShapes (25.10s)
+ok  	github.com/helixreader/helix/server/internal/httpapi	120.789s

@@ -1,0 +1,19 @@
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+# github.com/helixreader/helix/server/internal/catalog [github.com/helixreader/helix/server/internal/catalog.test]
+internal/catalog/slow_client_live_test.go:522:79: invalid operation: float64(slowClientDeadline) + slowDeadlineSlack.Milliseconds() (mismatched types float64 and int64)
+internal/catalog/slow_client_live_test.go:533:21: invalid operation: r.LatencyMS >= fastClientBudget.Milliseconds() (mismatched types float64 and int64)
+ok  	github.com/helixreader/helix/server/cmd/helix-pse-check	0.028s
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.005s
+FAIL	github.com/helixreader/helix/server/internal/catalog [build failed]
+ok  	github.com/helixreader/helix/server/internal/config	0.006s
+ok  	github.com/helixreader/helix/server/internal/covers	0.012s
+ok  	github.com/helixreader/helix/server/internal/httpapi	4.447s
+ok  	github.com/helixreader/helix/server/internal/identify	0.024s
+ok  	github.com/helixreader/helix/server/internal/ingest	0.018s
+ok  	github.com/helixreader/helix/server/internal/kosync	0.452s
+ok  	github.com/helixreader/helix/server/internal/opds	0.009s
+ok  	github.com/helixreader/helix/server/internal/sources	0.253s
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.008s
+FAIL
+go test ./... exit: 1

@@ -1,0 +1,62 @@
+{
+  "generated_by": "machine-assembled from test artifacts",
+  "host_load_note": "uptime load average ~17 on 16 cores during runs (shared host)",
+  "runs": [
+    {
+      "file": "atm027_ingest_concurrent_with_reads_atm027overlap20261123T190510Z.json",
+      "run_tag": "atm027overlap20261123T190510Z",
+      "measurement_path": "host_hrd027_isolated_container",
+      "merge_ops_per_sec": 175.6723943779565,
+      "write_throughput_floor_met": false,
+      "zero_read_errors": true,
+      "zero_ingest_errors": true,
+      "repo_browse_p95_ms": 12.735,
+      "text_search_p99_ms": 31.854,
+      "browse_short_pages": 830,
+      "browse_max_shortfall": 2,
+      "browse_requests": 6290
+    },
+    {
+      "file": "atm027_ingest_concurrent_with_reads_atm027overlap20261123T190524Z.json",
+      "run_tag": "atm027overlap20261123T190524Z",
+      "measurement_path": "host_hrd027_isolated_container",
+      "merge_ops_per_sec": 152.0962366825412,
+      "write_throughput_floor_met": false,
+      "zero_read_errors": true,
+      "zero_ingest_errors": true,
+      "repo_browse_p95_ms": 14.782,
+      "text_search_p99_ms": 25.209,
+      "browse_short_pages": 645,
+      "browse_max_shortfall": 3,
+      "browse_requests": 5424
+    },
+    {
+      "file": "atm027_ingest_concurrent_with_reads_atm027overlap20261123T190558Z.json",
+      "run_tag": "atm027overlap20261123T190558Z",
+      "measurement_path": "host_hrd027_merge_only_control",
+      "merge_ops_per_sec": 266.06565964484724,
+      "write_throughput_floor_met": false,
+      "zero_read_errors": true,
+      "zero_ingest_errors": true,
+      "repo_browse_p95_ms": 0,
+      "text_search_p99_ms": 0,
+      "browse_short_pages": 0,
+      "browse_max_shortfall": 0,
+      "browse_requests": 0
+    },
+    {
+      "file": "atm027_ingest_concurrent_with_reads_atm027overlap20261123T190613Z.json",
+      "run_tag": "atm027overlap20261123T190613Z",
+      "measurement_path": "host_hrd027_merge_only_control",
+      "merge_ops_per_sec": 251.054840197715,
+      "write_throughput_floor_met": false,
+      "zero_read_errors": true,
+      "zero_ingest_errors": true,
+      "repo_browse_p95_ms": 0,
+      "text_search_p99_ms": 0,
+      "browse_short_pages": 0,
+      "browse_max_shortfall": 0,
+      "browse_requests": 0
+    }
+  ]
+}
