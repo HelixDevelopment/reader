@@ -117,6 +117,10 @@ class I1RunnerEnv(unittest.TestCase):
         self.assertTrue(self.mutant_accepts("case $b in *=*) ;; *)", "case $b in *) ;; *)", ["-e", "FOO"]))
         self.assertTrue(self.mutant_accepts("case $IMG in -*|", "case $IMG in ZZZ|", ["-i", "-x"]))
         self.assertTrue(self.mutant_accepts("DISPLAY*|*_DISPLAY|", "", ["-e", "DISPLAY=:0"]))
+        # M3 numeric/value checks: each mutant (check disabled) accepts the value the real script refuses
+        self.assertTrue(self.mutant_accepts("case $MEM in *[!0-9kKmMgG]*|'')", "case $MEM in ZZZ)", ["-m", "--x"]))
+        self.assertTrue(self.mutant_accepts("case $CPUS in *[!0-9.]*|'')", "case $CPUS in ZZZ)", ["-c", "x"]))
+        self.assertTrue(self.mutant_accepts("case $LIFE in *[!0-9]*|'')", "case $LIFE in ZZZ)", ["-t", "1;2"]))
 
 class M4Reaper(unittest.TestCase):
     def reaped(self, script, pid):
@@ -160,6 +164,16 @@ class I3LintEscapes(unittest.TestCase):
             self.assertIn(old, src, k)
             t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, "", 1))
             try: self.assertEqual(self.scan(load(p, "g_m_" + k.replace("-", "_")), "tools/a.sh", self.CASES[k]), [], k)
+            finally: shutil.rmtree(t, ignore_errors=True)
+        for k, old, new, body in (
+                ("publish-0000", r"(?:0\.0\.0\.0:|", r"(?:ZZ:|", "podman run --rm -p 0.0.0.0:6000:6000 img sh\n"),
+                ("publish-bare", r"|\d+:\d+(?:/\w+)?(?:\s|$))", "|ZZ)", "podman run --rm -p 6000:6000 img sh\n"),
+                ("volume-create", r"(?:--opt\b|\s-o\b)", r"(?:--zzz\b)", "podman volume create --opt device=/h --opt o=bind v\n")):
+            self.assertEqual(src.count(old), 1, k)
+            t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, new, 1))
+            try:
+                self.assertTrue(self.scan(load(ISO / "guard/assert_host_untouched.py", "g_ok_" + k.replace("-", "_")), "tools/a.sh", body), k)   # unmutated catches it
+                self.assertEqual(self.scan(load(p, "g_m2_" + k.replace("-", "_")), "tools/a.sh", body), [], k)                                    # mutant misses it
             finally: shutil.rmtree(t, ignore_errors=True)
         for k, old in (("var-command", "CONTAINER_CMD = re.compile(r\"\\b(?:podman|docker|nerdctl|buildah)\\s+(?:container\\s+)?(?:run|create|exec)\\b|\\$\\{?\\w+\\}?\\s+(?:container\\s+)?(?:run|create|exec)\\b\")"),):
             self.assertIn(old, src)
