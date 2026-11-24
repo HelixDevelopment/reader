@@ -1,4 +1,4 @@
-{"status": "FAIL", "missing": 61, "by_class": {"NOWHERE": 22, "OWNED-BY-UNDELIVERED-WORK": 22, "OWNED-BY-PENDING-PR": 17}, "checked_evidence": 152, "docs_scanned": 14}
+{"status": "FAIL", "missing": 56, "by_class": {"NOWHERE": 22, "OWNED-BY-UNDELIVERED-WORK": 17, "OWNED-BY-PENDING-PR": 17}, "checked_evidence": 152, "docs_scanned": 14}
 MISSING NOWHERE registry-evidence items:HRD-004 docs/sources.md
 MISSING NOWHERE registry-evidence items:HRD-008 docs/deployment.md
 MISSING NOWHERE registry-evidence items:HRD-021 submodules/qa/helix-deps.yaml
@@ -33,10 +33,12 @@ MISSING NOWHERE doc-link docs/Issues.md scripts/run_all_live.sh
 MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/Issues.md scripts/run_android_matrix.sh
 MISSING NOWHERE doc-link docs/Issues.md server/clients
 MISSING NOWHERE doc-link docs/Issues.md server/core
+MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/Issues.md tests/helixqa_web
 MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/Issues.md tools/firebase
 MISSING OWNED-BY-PENDING-PR doc-link docs/Issues.md tools/isolation
 MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/Issues_Summary.md clients/
 MISSING NOWHERE doc-link docs/Issues_Summary.md server/core
+MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/Issues_Summary.md tests/helixqa_web
 MISSING OWNED-BY-PENDING-PR doc-link docs/constitution-update-plan-2026-11-23.md scripts/gates/run_local_gates.sh
 MISSING NOWHERE doc-link docs/constitution-update-plan-2026-11-23.md scripts/hooks
 MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/gap-register-2026-11-23.md clients/
@@ -50,14 +52,6 @@ MISSING OWNED-BY-PENDING-PR doc-link docs/gap-register-2026-11-23.md docs/eviden
 MISSING NOWHERE doc-link docs/gap-register-2026-11-23.md scripts/run_all_live.sh
 MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/gap-register-2026-11-23.md scripts/run_android_matrix.sh
 MISSING NOWHERE doc-link docs/gap-register-2026-11-23.md server/core
-MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/helixtrack-sync.md evidence/campaign-2026-11-23/helixtrack/run_mutants.py
-MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/helixtrack-sync.md tools/helixtrack-sync
-MISSING OWNED-BY-UNDELIVERED-WORK doc-link docs/helixtrack-sync.md tools/helixtrack-sync/helixtrack_sync.py
-MISSING OWNED-BY-UNDELIVERED-WORK doc-relative-link docs/helixtrack-sync.md evidence/campaign-2026-11-23/helixtrack/SHA256SUMS.top
-MISSING OWNED-BY-UNDELIVERED-WORK doc-relative-link docs/helixtrack-sync.md evidence/campaign-2026-11-23/helixtrack/run_live.sh
-MISSING OWNED-BY-UNDELIVERED-WORK doc-relative-link docs/helixtrack-sync.md evidence/campaign-2026-11-23/helixtrack/runs/
-MISSING OWNED-BY-UNDELIVERED-WORK doc-relative-link docs/helixtrack-sync.md evidence/campaign-2026-11-23/helixtrack/runs/20261123T212401Z/
 MISSING NOWHERE doc-link docs/upstream-issues/claude_toolkit-challenges-gitlink.md scripts/resolve_deps.sh
 MISSING NOWHERE doc-link docs/upstream-issues/claude_toolkit-challenges-gitlink.md scripts/tests/test_gitmodules_no_ownorg.sh
 MISSING NOWHERE doc-link docs/workable-items.md server/core
-rc=1
