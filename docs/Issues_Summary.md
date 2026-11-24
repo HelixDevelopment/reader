@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 62, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 70, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -85,3 +85,11 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 62, Ready for testi
 | HRD-101 | Task | Medium | Queued | 0 | Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched |
 | HRD-102 | Task | Medium | Queued | 0 | Constitution wave: bump challenges, containers and helixqa submodule pins on main |
 | HRD-103 | Task | Low | Queued | 0 | Constitution wave: declare superspec as a third_party dependency in helix-deps.yaml |
+| HRD-104 | Task | Medium | Queued | 0 | Register review follow-ups of PRs 9, 16, 18, 19, 21, 22, 23, 24 and 25 as tracked items |
+| HRD-105 | Task | Low | Queued | 0 | PR #9 (HRD-051) review follow-ups F1 to F5: untested hidden-flag and future-timestamp branches, untested helpers, stale body, host paths |
+| HRD-106 | Task | Low | Queued | 0 | PR #25 (HRD-091) review follow-ups: reviewer assignment read-back, fixed symlink ignore list, broad *.bak rule, SHA256SUMS shallow wording |
+| HRD-107 | Task | Low | Queued | 0 | PR #24 (HRD-090) review follow-ups F1 to F4: scratchPath isolating tests, test touching real HOME, make_hv_mutant_bins.sh path check, reviewer request |
+| HRD-108 | Task | Low | Queued | 0 | PR #23 (HRD-089) review follow-ups F-1 to F-3: Redis INFO without run_id, restored Redis identity, PR body note |
+| HRD-109 | Task | Low | Queued | 0 | PR #22 (HRD-086) review follow-ups F1 to F4: reciprocal cross-links, exact evidence paths, scope wording |
+| HRD-110 | Bug | Low | Queued | 0 | scripts/pr/deliver.py open regenerates the whole PR body and overwrites the Test types line (and any hand-edited body text) on a re-run |
+| HRD-111 | Bug | Low | Queued | 0 | verify_workable_items.py counts a skipped reportlab mutation test as FAIL (mutation-pdf-values-unescaped): environmental SKIP reported as FAIL |
