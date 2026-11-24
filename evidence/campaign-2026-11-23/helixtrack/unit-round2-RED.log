@@ -1,0 +1,429 @@
+test_expired_jwt_triggers_single_relogin (test_helixtrack_sync.ErrorMappingTests.test_expired_jwt_triggers_single_relogin) ... ok
+test_http_errors_map_to_typed_exceptions (test_helixtrack_sync.ErrorMappingTests.test_http_errors_map_to_typed_exceptions) ... ok
+test_login_failure_is_auth_error (test_helixtrack_sync.ErrorMappingTests.test_login_failure_is_auth_error) ... ok
+test_probe_version_does_not_mutate (test_helixtrack_sync.ErrorMappingTests.test_probe_version_does_not_mutate) ... ok
+test_transport_failure_maps (test_helixtrack_sync.ErrorMappingTests.test_transport_failure_maps) ... ok
+test_version_conflict_carries_current_version (test_helixtrack_sync.ErrorMappingTests.test_version_conflict_carries_current_version) ... ok
+test_compare_registry_to_remote_field_by_field (test_helixtrack_sync.FieldCompareTests.test_compare_registry_to_remote_field_by_field) ... ok
+test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed (test_helixtrack_sync.FieldCoverageTests.test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed) ... /home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py:907: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/Projects/helix_reader/docs/tracking/helixtrack-outbox.json' mode='r' encoding='UTF-8'>
+  for r in json.load(open(path))["records"]:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ERROR
+test_unpushed_fields_do_not_change_the_remote_hash (test_helixtrack_sync.FieldCoverageTests.test_unpushed_fields_do_not_change_the_remote_hash) ... ok
+test_clean_push_pull_compare_exit_zero (test_helixtrack_sync.MainTests.test_clean_push_pull_compare_exit_zero) ... ok
+test_dry_run_never_writes_state_or_remote (test_helixtrack_sync.MainTests.test_dry_run_never_writes_state_or_remote) ... /home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py:851: ResourceWarning: unclosed file <_io.BufferedReader name='/home/milosvasic/.cache/claude-tmp/tmp80hq114w/state.json'>
+  before = open(self.state, "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py:854: ResourceWarning: unclosed file <_io.BufferedReader name='/home/milosvasic/.cache/claude-tmp/tmp80hq114w/state.json'>
+  self.assertEqual(open(self.state, "rb").read(), before)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_env_file_0644_refused_exit_3_and_0600_accepted (test_helixtrack_sync.MainTests.test_env_file_0644_refused_exit_3_and_0600_accepted) ... FAIL
+test_login_failure_exit_3_without_leaking_password (test_helixtrack_sync.MainTests.test_login_failure_exit_3_without_leaking_password) ... ok
+test_mid_batch_503_exit_3_partial_state_and_report_then_resume (test_helixtrack_sync.MainTests.test_mid_batch_503_exit_3_partial_state_and_report_then_resume) ... ERROR
+test_plain_http_and_uppercase_http_refused_before_any_request (test_helixtrack_sync.MainTests.test_plain_http_and_uppercase_http_refused_before_any_request) ... FAIL
+test_pull_drift_exits_2_and_compare_mismatch_exits_2 (test_helixtrack_sync.MainTests.test_pull_drift_exits_2_and_compare_mismatch_exits_2) ... ok
+test_pull_no_probe_flag (test_helixtrack_sync.MainTests.test_pull_no_probe_flag) ... ERROR
+test_push_conflict_exits_2 (test_helixtrack_sync.MainTests.test_push_conflict_exits_2) ... ok
+test_state_is_written_atomically_with_no_temp_leftovers (test_helixtrack_sync.MainTests.test_state_is_written_atomically_with_no_temp_leftovers) ... FAIL
+test_description_carries_owned_fields_marker_history (test_helixtrack_sync.MappingTests.test_description_carries_owned_fields_marker_history) ... ok
+test_every_registry_status_maps_to_core_vocabulary (test_helixtrack_sync.MappingTests.test_every_registry_status_maps_to_core_vocabulary) ... ok
+test_hash_deterministic_and_sensitive (test_helixtrack_sync.MappingTests.test_hash_deterministic_and_sensitive) ... ok
+test_type_and_title_key (test_helixtrack_sync.MappingTests.test_type_and_title_key) ... ok
+test_forged_title_next_to_known_ticket_is_reported_duplicate (test_helixtrack_sync.MatchingTests.test_forged_title_next_to_known_ticket_is_reported_duplicate) ... ok
+test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create (test_helixtrack_sync.MatchingTests.test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create) ... FAIL
+test_marker_line_matches_when_state_lost_and_title_lost_key (test_helixtrack_sync.MatchingTests.test_marker_line_matches_when_state_lost_and_title_lost_key) ... FAIL
+test_orphans_include_marker_only_and_title_only_claims (test_helixtrack_sync.MatchingTests.test_orphans_include_marker_only_and_title_only_claims) ... FAIL
+test_default_pull_documents_that_it_issues_probe_modifies (test_helixtrack_sync.ProbeSafetyTests.test_default_pull_documents_that_it_issues_probe_modifies) ... ERROR
+test_probe_sends_current_fields_and_never_a_marker_title (test_helixtrack_sync.ProbeSafetyTests.test_probe_sends_current_fields_and_never_a_marker_title) ... FAIL
+test_pull_no_probe_issues_no_modify_requests (test_helixtrack_sync.ProbeSafetyTests.test_pull_no_probe_issues_no_modify_requests) ... ERROR
+test_server_that_ignores_version_is_not_corrupted_and_is_detected (test_helixtrack_sync.ProbeSafetyTests.test_server_that_ignores_version_is_not_corrupted_and_is_detected) ... FAIL
+test_clean_pull_is_all_in_sync (test_helixtrack_sync.PullTests.test_clean_pull_is_all_in_sync) ... ok
+test_missing_remote_and_deleted_ticket (test_helixtrack_sync.PullTests.test_missing_remote_and_deleted_ticket) ... FAIL
+test_pull_never_mutates_remote (test_helixtrack_sync.PullTests.test_pull_never_mutates_remote) ... ok
+test_pull_status_proposal_maps_to_registry_vocabulary (test_helixtrack_sync.PullTests.test_pull_status_proposal_maps_to_registry_vocabulary) ... ok
+test_registry_ahead_and_both_changed_are_distinguished (test_helixtrack_sync.PullTests.test_registry_ahead_and_both_changed_are_distinguished) ... ok
+test_remote_edit_detected_with_fields_and_version (test_helixtrack_sync.PullTests.test_remote_edit_detected_with_fields_and_version) ... ok
+test_concurrent_content_edit_during_modify_becomes_conflict (test_helixtrack_sync.PushTests.test_concurrent_content_edit_during_modify_becomes_conflict) ... ok
+test_concurrent_writer_between_probe_and_modify_retries_once (test_helixtrack_sync.PushTests.test_concurrent_writer_between_probe_and_modify_retries_once) ... ok
+test_dry_run_performs_no_writes (test_helixtrack_sync.PushTests.test_dry_run_performs_no_writes) ... ok
+test_duplicate_remote_keys_and_orphans_reported (test_helixtrack_sync.PushTests.test_duplicate_remote_keys_and_orphans_reported) ... ok
+test_first_push_creates_each_item_once_with_status (test_helixtrack_sync.PushTests.test_first_push_creates_each_item_once_with_status) ... ok
+test_lost_state_rematches_by_title_key_without_duplicates (test_helixtrack_sync.PushTests.test_lost_state_rematches_by_title_key_without_duplicates) ... ok
+test_overwrite_remote_flag_resolves_conflict_to_registry (test_helixtrack_sync.PushTests.test_overwrite_remote_flag_resolves_conflict_to_registry) ... ok
+test_readback_mismatch_is_detected (test_helixtrack_sync.PushTests.test_readback_mismatch_is_detected) ... ok
+test_registry_change_updates_with_version_from_probe (test_helixtrack_sync.PushTests.test_registry_change_updates_with_version_from_probe) ... ok
+test_remote_edit_is_never_silently_overwritten (test_helixtrack_sync.PushTests.test_remote_edit_is_never_silently_overwritten) ... ok
+test_repush_is_idempotent_no_writes_no_duplicates (test_helixtrack_sync.PushTests.test_repush_is_idempotent_no_writes_no_duplicates) ... ok
+test_type_change_is_reported_unpushable_not_silently_dropped (test_helixtrack_sync.PushTests.test_type_change_is_reported_unpushable_not_silently_dropped) ... ok
+test_recorded_traffic_never_contains_secrets (test_helixtrack_sync.RedactionTests.test_recorded_traffic_never_contains_secrets) ... ok
+test_redact_handles_nested_and_headers (test_helixtrack_sync.RedactionTests.test_redact_handles_nested_and_headers) ... ok
+test_3xx_from_any_transport_is_refused (test_helixtrack_sync.RedirectTests.test_3xx_from_any_transport_is_refused) ... ERROR
+test_real_transport_never_follows_redirects_or_forwards_authorization (test_helixtrack_sync.RedirectTests.test_real_transport_never_follows_redirects_or_forwards_authorization) ... ERROR
+/usr/lib/python3.14/unittest/case.py:704: ResourceWarning: unclosed <socket.socket fd=4, family=2, type=1, proto=0, laddr=('127.0.0.1', 34153)>
+  function, args, kwargs = self._cleanups.pop()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.14/unittest/case.py:673: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 43901)>
+  self.doCleanups()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_dry_run_reports_without_recreating (test_helixtrack_sync.RemoteDeletedTests.test_dry_run_reports_without_recreating) ... FAIL
+test_never_synced_missing_item_is_still_a_plain_create (test_helixtrack_sync.RemoteDeletedTests.test_never_synced_missing_item_is_still_a_plain_create) ... ok
+test_overwrite_remote_recreates_explicitly (test_helixtrack_sync.RemoteDeletedTests.test_overwrite_remote_recreates_explicitly) ... FAIL
+test_pull_reports_remote_deleted (test_helixtrack_sync.RemoteDeletedTests.test_pull_reports_remote_deleted) ... FAIL
+test_push_reports_remote_deleted_and_does_not_recreate (test_helixtrack_sync.RemoteDeletedTests.test_push_reports_remote_deleted_and_does_not_recreate) ... FAIL
+test_checkpoint_runs_after_every_item_and_never_in_dry_run (test_helixtrack_sync.ResumeTests.test_checkpoint_runs_after_every_item_and_never_in_dry_run) ... ERROR
+test_failed_status_modify_after_create_does_not_become_false_conflict (test_helixtrack_sync.ResumeTests.test_failed_status_modify_after_create_does_not_become_false_conflict) ... ERROR
+test_interrupted_create_with_lost_state_reconciles (test_helixtrack_sync.ResumeTests.test_interrupted_create_with_lost_state_reconciles) ... ERROR
+test_mid_batch_503_is_reported_checkpointed_and_resumable (test_helixtrack_sync.ResumeTests.test_mid_batch_503_is_reported_checkpointed_and_resumable) ... ERROR
+test_pull_error_is_reported_not_raised (test_helixtrack_sync.ResumeTests.test_pull_error_is_reported_not_raised) ... ERROR
+test_allows_https_and_loopback_http_any_case (test_helixtrack_sync.UrlGuardTests.test_allows_https_and_loopback_http_any_case) ... ERROR
+test_refuses_everything_but_https_or_loopback_http (test_helixtrack_sync.UrlGuardTests.test_refuses_everything_but_https_or_loopback_http) ... ERROR
+test_transport_constructor_enforces_guard_too (test_helixtrack_sync.UrlGuardTests.test_transport_constructor_enforces_guard_too) ... FAIL
+
+======================================================================
+ERROR: test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed (test_helixtrack_sync.FieldCoverageTests.test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 909, in test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed
+    self.assertEqual(keys - hs.PUSHED_PAYLOAD_FIELDS - hs.UNPUSHED_PAYLOAD_FIELDS, set())
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'PUSHED_PAYLOAD_FIELDS'
+
+======================================================================
+ERROR: test_mid_batch_503_exit_3_partial_state_and_report_then_resume (test_helixtrack_sync.MainTests.test_mid_batch_503_exit_3_partial_state_and_report_then_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 872, in test_mid_batch_503_exit_3_partial_state_and_report_then_resume
+    st = json.load(open(self.state))
+                   ~~~~^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/milosvasic/.cache/claude-tmp/tmpjumjrri5/state.json'
+
+======================================================================
+ERROR: test_pull_no_probe_flag (test_helixtrack_sync.MainTests.test_pull_no_probe_flag)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 885, in test_pull_no_probe_flag
+    self.assertEqual(self.run_main("pull", "--no-probe")[0], 2)
+                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 804, in run_main
+    code = hs.main(argv, environ={} if environ is None else environ, transport=self.fake.transport)
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 536, in main
+    args = ap.parse_args(argv)
+  File "/usr/lib/python3.14/argparse.py", line 2020, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.14/argparse.py", line 2797, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/argparse.py", line 2784, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_default_pull_documents_that_it_issues_probe_modifies (test_helixtrack_sync.ProbeSafetyTests.test_default_pull_documents_that_it_issues_probe_modifies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 610, in test_default_pull_documents_that_it_issues_probe_modifies
+    self.assertEqual(hs.PULL_ISSUES_PROBE_MODIFY, True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'PULL_ISSUES_PROBE_MODIFY'
+
+======================================================================
+ERROR: test_pull_no_probe_issues_no_modify_requests (test_helixtrack_sync.ProbeSafetyTests.test_pull_no_probe_issues_no_modify_requests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 596, in test_pull_no_probe_issues_no_modify_requests
+    r = hs.pull(c, PID, recs, st, probe=False)
+TypeError: pull() got an unexpected keyword argument 'probe'
+
+======================================================================
+ERROR: test_3xx_from_any_transport_is_refused (test_helixtrack_sync.RedirectTests.test_3xx_from_any_transport_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 550, in test_3xx_from_any_transport_is_refused
+    with self.assertRaises(hs.RedirectRefused, msg=str(code)):
+                           ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'RedirectRefused'
+
+======================================================================
+ERROR: test_real_transport_never_follows_redirects_or_forwards_authorization (test_helixtrack_sync.RedirectTests.test_real_transport_never_follows_redirects_or_forwards_authorization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 561, in test_real_transport_never_follows_redirects_or_forwards_authorization
+    with self.assertRaises(hs.RedirectRefused, msg=str(code)):
+                           ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'RedirectRefused'
+
+======================================================================
+ERROR: test_checkpoint_runs_after_every_item_and_never_in_dry_run (test_helixtrack_sync.ResumeTests.test_checkpoint_runs_after_every_item_and_never_in_dry_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 762, in test_checkpoint_runs_after_every_item_and_never_in_dry_run
+    hs.push(c, PID, recs, {}, checkpoint=lambda s: saves.append(1))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: push() got an unexpected keyword argument 'checkpoint'
+
+======================================================================
+ERROR: test_failed_status_modify_after_create_does_not_become_false_conflict (test_helixtrack_sync.ResumeTests.test_failed_status_modify_after_create_does_not_become_false_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 738, in test_failed_status_modify_after_create_does_not_become_false_conflict
+    r = hs.push(c, PID, recs, st)
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 385, in push
+    version = client.modify_ticket(tid, client.probe_version(tid), status=desired["status"])
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 246, in modify_ticket
+    return self._do({"action": "modify", "object": "ticket", "data": data})["ticket"]["version"]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 212, in _do
+    raise ServerError(msg, status, code)
+helixtrack_sync.ServerError: unavailable
+
+======================================================================
+ERROR: test_interrupted_create_with_lost_state_reconciles (test_helixtrack_sync.ResumeTests.test_interrupted_create_with_lost_state_reconciles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 753, in test_interrupted_create_with_lost_state_reconciles
+    hs.push(c, PID, recs, {})
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 385, in push
+    version = client.modify_ticket(tid, client.probe_version(tid), status=desired["status"])
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 246, in modify_ticket
+    return self._do({"action": "modify", "object": "ticket", "data": data})["ticket"]["version"]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 212, in _do
+    raise ServerError(msg, status, code)
+helixtrack_sync.ServerError: x
+
+======================================================================
+ERROR: test_mid_batch_503_is_reported_checkpointed_and_resumable (test_helixtrack_sync.ResumeTests.test_mid_batch_503_is_reported_checkpointed_and_resumable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 714, in test_mid_batch_503_is_reported_checkpointed_and_resumable
+    r = hs.push(c, PID, recs, st, checkpoint=lambda s: saves.append(copy.deepcopy(s)))
+TypeError: push() got an unexpected keyword argument 'checkpoint'
+
+======================================================================
+ERROR: test_pull_error_is_reported_not_raised (test_helixtrack_sync.ResumeTests.test_pull_error_is_reported_not_raised)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 775, in test_pull_error_is_reported_not_raised
+    self.assertTrue(r.aborted or r.error or "error" in actions(r).values() or True)
+                    ^^^^^^^^^
+AttributeError: 'Report' object has no attribute 'aborted'
+
+======================================================================
+ERROR: test_allows_https_and_loopback_http_any_case (test_helixtrack_sync.UrlGuardTests.test_allows_https_and_loopback_http_any_case)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 506, in test_allows_https_and_loopback_http_any_case
+    hs.check_base_url(ok)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'check_base_url'
+
+======================================================================
+ERROR: test_refuses_everything_but_https_or_loopback_http (test_helixtrack_sync.UrlGuardTests.test_refuses_everything_but_https_or_loopback_http)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 501, in test_refuses_everything_but_https_or_loopback_http
+    hs.check_base_url(bad)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'helixtrack_sync' has no attribute 'check_base_url'
+
+======================================================================
+FAIL: test_env_file_0644_refused_exit_3_and_0600_accepted (test_helixtrack_sync.MainTests.test_env_file_0644_refused_exit_3_and_0600_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 832, in test_env_file_0644_refused_exit_3_and_0600_accepted
+    self.assertEqual(self.fake.calls, [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [('authenticate', None)] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+('authenticate', None)
+
+- [('authenticate', None)]
++ []
+
+======================================================================
+FAIL: test_plain_http_and_uppercase_http_refused_before_any_request (test_helixtrack_sync.MainTests.test_plain_http_and_uppercase_http_refused_before_any_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 840, in test_plain_http_and_uppercase_http_refused_before_any_request
+    self.assertEqual(code, 3, base)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 3 : HTTP://10.1.2.3:8080
+
+======================================================================
+FAIL: test_state_is_written_atomically_with_no_temp_leftovers (test_helixtrack_sync.MainTests.test_state_is_written_atomically_with_no_temp_leftovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 859, in test_state_is_written_atomically_with_no_temp_leftovers
+    self.assertEqual(oct(os.stat(self.state).st_mode & 0o777), "0o600")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '0o664' != '0o600'
+- 0o664
++ 0o600
+
+
+======================================================================
+FAIL: test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create (test_helixtrack_sync.MatchingTests.test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 622, in test_known_ticket_id_whose_title_lost_its_key_is_conflict_not_create
+    self.assertEqual(actions(r)["HRD-002"], "conflict")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'create' != 'conflict'
+- create
++ conflict
+
+
+======================================================================
+FAIL: test_marker_line_matches_when_state_lost_and_title_lost_key (test_helixtrack_sync.MatchingTests.test_marker_line_matches_when_state_lost_and_title_lost_key)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 635, in test_marker_line_matches_when_state_lost_and_title_lost_key
+    self.assertEqual(actions(r)["HRD-001"], "conflict")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'create' != 'conflict'
+- create
++ conflict
+
+
+======================================================================
+FAIL: test_orphans_include_marker_only_and_title_only_claims (test_helixtrack_sync.MatchingTests.test_orphans_include_marker_only_and_title_only_claims)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 659, in test_orphans_include_marker_only_and_title_only_claims
+    self.assertEqual(r.orphans, ["HRD-098", "HRD-099"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['HRD-099'] != ['HRD-098', 'HRD-099']
+
+First differing element 0:
+'HRD-099'
+'HRD-098'
+
+Second list contains 1 additional elements.
+First extra element 1:
+'HRD-099'
+
+- ['HRD-099']
++ ['HRD-098', 'HRD-099']
+
+======================================================================
+FAIL: test_probe_sends_current_fields_and_never_a_marker_title (test_helixtrack_sync.ProbeSafetyTests.test_probe_sends_current_fields_and_never_a_marker_title)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 576, in test_probe_sends_current_fields_and_never_a_marker_title
+    self.assertEqual(probe_req["data"]["title"], before["title"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'probe' != '[HRD-001] Title 1'
+- probe
++ [HRD-001] Title 1
+
+
+======================================================================
+FAIL: test_server_that_ignores_version_is_not_corrupted_and_is_detected (test_helixtrack_sync.ProbeSafetyTests.test_server_that_ignores_version_is_not_corrupted_and_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 588, in test_server_that_ignores_version_is_not_corrupted_and_is_detected
+    self.assertEqual((t["title"], t["description"], t["status"]), (title, desc, status))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('probe', 'Desc 1.\n\nSeverity: High\nRegis[166 chars]pen') != ('[HRD-001] Title 1', 'Desc 1.\n\nSeverity:[178 chars]pen')
+
+First differing element 0:
+'probe'
+'[HRD-001] Title 1'
+
+- ('probe',
++ ('[HRD-001] Title 1',
+   'Desc 1.\n'
+   '\n'
+   'Severity: High\n'
+   'Registry status: Queued\n'
+   'Reopens: 0\n'
+   'Affected scope: scope\n'
+   'Reproduction: repro\n'
+   'Acceptance: accept\n'
+   'Evidence: evidence/x.log\n'
+   '\n'
+   '---\n'
+   'helix-reader-sync/v1 hrd=HRD-001',
+   'open')
+
+======================================================================
+FAIL: test_missing_remote_and_deleted_ticket (test_helixtrack_sync.PullTests.test_missing_remote_and_deleted_ticket)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 375, in test_missing_remote_and_deleted_ticket
+    self.assertEqual(actions(r)["HRD-001"], "remote-deleted")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'missing-remote' != 'remote-deleted'
+- missing-remote
++ remote-deleted
+
+
+======================================================================
+FAIL: test_dry_run_reports_without_recreating (test_helixtrack_sync.RemoteDeletedTests.test_dry_run_reports_without_recreating)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 694, in test_dry_run_reports_without_recreating
+    self.assertEqual(actions(r)["HRD-002"], "recreate")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'create' != 'recreate'
+- create
++ recreate
+? ++
+
+
+======================================================================
+FAIL: test_overwrite_remote_recreates_explicitly (test_helixtrack_sync.RemoteDeletedTests.test_overwrite_remote_recreates_explicitly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 685, in test_overwrite_remote_recreates_explicitly
+    self.assertEqual(actions(r)["HRD-002"], "recreate")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'create' != 'recreate'
+- create
++ recreate
+? ++
+
+
+======================================================================
+FAIL: test_pull_reports_remote_deleted (test_helixtrack_sync.RemoteDeletedTests.test_pull_reports_remote_deleted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 680, in test_pull_reports_remote_deleted
+    self.assertEqual(actions(r)["HRD-002"], "remote-deleted")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'missing-remote' != 'remote-deleted'
+- missing-remote
++ remote-deleted
+
+
+======================================================================
+FAIL: test_push_reports_remote_deleted_and_does_not_recreate (test_helixtrack_sync.RemoteDeletedTests.test_push_reports_remote_deleted_and_does_not_recreate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 673, in test_push_reports_remote_deleted_and_does_not_recreate
+    self.assertEqual(actions(r)["HRD-002"], "remote-deleted")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'create' != 'remote-deleted'
+- create
++ remote-deleted
+
+
+======================================================================
+FAIL: test_transport_constructor_enforces_guard_too (test_helixtrack_sync.UrlGuardTests.test_transport_constructor_enforces_guard_too)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 509, in test_transport_constructor_enforces_guard_too
+    with self.assertRaises(hs.SyncError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: SyncError not raised
+
+----------------------------------------------------------------------
+Ran 66 tests in 1.050s
+
+FAILED (failures=14, errors=14)

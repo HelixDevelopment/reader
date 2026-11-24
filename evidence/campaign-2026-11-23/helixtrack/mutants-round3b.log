@@ -1,0 +1,82 @@
+KILLED   F1 url guard case-sensitive startswith (original bug) -> 3 tests failed; first: test_plain_urls_still_accepted
+KILLED   F1b url guard allows any http -> 4 tests failed; first: test_is_loopback_rejects_lookalike_hostnames
+KILLED   F1c transport constructor skips guard -> 2 tests failed; first: test_userinfo_backslash_and_friends_refused
+KILLED   F2a opener follows redirects -> 1 tests failed; first: test_real_transport_never_follows_redirects_or_forwards_authorization
+KILLED   F2b client does not treat 3xx as error -> 2 tests failed; first: test_3xx_from_any_transport_is_refused
+KILLED   F3 probe sends marker title -> 2 tests failed; first: test_probe_sends_current_fields_and_never_a_marker_title
+KILLED   F3b accepted probe not detected -> 1 tests failed; first: test_server_that_ignores_version_is_not_corrupted_and_is_detected
+KILLED   F3c pull ignores --no-probe -> 2 tests failed; first: test_pull_no_probe_flag
+KILLED   F4a state ticket_id ignored when matching -> 6 tests failed; first: test_known_ticket_missing_from_list_but_readable_is_not_remote_deleted
+KILLED   F4b duplicate claimants ignored -> 1 tests failed; first: test_forged_title_next_to_known_ticket_is_reported_duplicate
+KILLED   F4c marker line ignored -> 2 tests failed; first: test_marker_line_matches_when_state_lost_and_title_lost_key
+KILLED   F5a remote-deleted silently re-created -> 5 tests failed; first: test_missing_remote_and_deleted_ticket
+KILLED   F5b overwrite does not recreate -> 2 tests failed; first: test_dry_run_reports_without_recreating
+KILLED   F5c remote-deleted not a conflict -> 2 tests failed; first: test_every_conflict_kind_drives_exit_code_2
+KILLED   F6a no per-item checkpoint -> 1 tests failed; first: test_state_checkpointed_between_create_and_status_modify_even_on_hard_crash
+KILLED   F6b create baseline recorded only after status modify -> 4 tests failed; first: test_create_with_ignored_status_keeps_as_created_baseline_then_resumes_as_update
+KILLED   F6c item errors propagate instead of partial report -> 7 tests failed; first: test_create_with_ignored_status_keeps_as_created_baseline_then_resumes_as_update
+KILLED   F6d lost-state interrupted create not reconciled -> 1 tests failed; first: test_interrupted_create_with_lost_state_reconciles
+KILLED   F6e state save not atomic -> 4 tests failed; first: test_compare_report_is_written_atomically
+KILLED   F7a dry-run checkpoints state -> 2 tests failed; first: test_dry_run_never_writes_state_or_remote
+KILLED   F7b dry-run final state write -> 1 tests failed; first: test_dry_run_never_writes_state_or_remote
+KILLED   F7c env-file mode check removed -> 5 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   F7d pull drift exits 0 -> 2 tests failed; first: test_pull_drift_exits_2_and_compare_mismatch_exits_2
+KILLED   F7e push conflict exits 0 -> 3 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   F7f aborted run exits 0 -> 2 tests failed; first: test_main_exit_3_with_partial_report_when_transport_raises_midway
+KILLED   F7g compare mismatch exits 0 -> 2 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   F8 unpushed field list drifts -> 1 tests failed; first: test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed
+KILLED   R1 remote edits overwritten -> 6 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   R2 readback verification skipped -> 3 tests failed; first: test_create_with_silently_dropped_status_write_keeps_as_created_baseline
+KILLED   R3 redaction disabled -> 3 tests failed; first: test_redact_handles_lists_at_any_depth
+KILLED   R4 existing tickets ignored (duplicates) -> 7 tests failed; first: test_forged_title_next_to_known_ticket_is_reported_duplicate
+KILLED   G1a HTTPException escapes _raw -> 2 tests failed; first: test_http_client_and_value_errors_become_transport_error
+KILLED   G1b ValueError (HTML 200 body) escapes _raw -> 3 tests failed; first: test_http_client_and_value_errors_become_transport_error
+KILLED   G2a outbox structure not validated -> 1 tests failed; first: test_corrupt_outbox_exit_3_before_login
+KILLED   G2b outbox record not-object accepted -> 1 tests failed; first: test_corrupt_outbox_exit_3_before_login
+KILLED   G2c outbox payload not required -> 1 tests failed; first: test_corrupt_outbox_exit_3_before_login
+KILLED   G2d outbox duplicate keys accepted -> 1 tests failed; first: test_corrupt_outbox_exit_3_before_login
+KILLED   G2e state root type unchecked -> 1 tests failed; first: test_corrupt_state_files_exit_3_before_login
+KILLED   G2f state items type unchecked -> 1 tests failed; first: test_corrupt_state_files_exit_3_before_login
+KILLED   G2g null/str state item accepted -> 1 tests failed; first: test_corrupt_state_files_exit_3_before_login
+KILLED   G2h state ticket_id unchecked -> 1 tests failed; first: test_corrupt_state_files_exit_3_before_login
+KILLED   G2i corrupt json not wrapped -> 2 tests failed; first: test_corrupt_outbox_exit_3_before_login
+KILLED   G2j history sqlite error not wrapped -> 2 tests failed; first: test_unreadable_history_db_exit_3_before_login
+KILLED   G2k state loaded after login -> 1 tests failed; first: test_corrupt_state_files_exit_3_before_login
+KILLED   G3a flock not taken -> 2 tests failed; first: test_two_concurrent_processes_second_is_refused
+KILLED   G3b lock blocks instead of failing -> 2 tests failed; first: test_two_concurrent_processes_second_is_refused
+KILLED   G3c lock never released -> 13 tests failed; first: test_unpushable_type_change_exits_2_via_main
+KILLED   G3d lock failure clobbers running report -> 2 tests failed; first: test_held_lock_refuses_second_instance_exit_3_without_requests_or_report_clobber
+KILLED   G3e lock taken after state load -> 5 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   G4a url userinfo allowed -> 2 tests failed; first: test_refusal_message_never_echoes_userinfo
+KILLED   G4b url backslash allowed -> 1 tests failed; first: test_userinfo_backslash_and_friends_refused
+KILLED   G4c url fragment/query allowed -> 1 tests failed; first: test_userinfo_backslash_and_friends_refused
+KILLED   G4d url whitespace/non-ascii allowed -> 1 tests failed; first: test_userinfo_backslash_and_friends_refused
+KILLED   G4e url bad port allowed -> 1 tests failed; first: test_userinfo_backslash_and_friends_refused
+KILLED   G5a env mode ignores group bits -> 2 tests failed; first: test_env_file_any_group_or_other_bit_refused
+KILLED   G5b env mode ignores other bits -> 2 tests failed; first: test_env_file_any_group_or_other_bit_refused
+KILLED   G5c env mode ignores 0o001/0o004 only -> 2 tests failed; first: test_env_file_any_group_or_other_bit_refused
+KILLED   G5d loopback by endswith('localhost') -> 1 tests failed; first: test_is_loopback_rejects_lookalike_hostnames
+KILLED   G5e history db opened read-write -> 2 tests failed; first: test_history_db_opened_read_only_and_left_untouched
+KILLED   G5f history db opened without immutable -> 1 tests failed; first: test_history_db_opened_read_only_and_left_untouched
+KILLED   G5g no read-confirm of absent known ticket -> 1 tests failed; first: test_known_ticket_missing_from_list_but_readable_is_not_remote_deleted
+KILLED   G5h title key not anchored -> 1 tests failed; first: test_key_must_be_anchored_at_title_start
+KILLED   G5i HTTP 200 with any errorCode accepted -> 1 tests failed; first: test_http_200_with_non_ok_error_code_and_unknown_4xx_fail
+KILLED   G5j unknown 4xx silently accepted -> 1 tests failed; first: test_http_200_with_non_ok_error_code_and_unknown_4xx_fail
+KILLED   G5k re-login recursion unbounded -> 1 tests failed; first: test_persistent_401_relogin_is_bounded
+KILLED   G5l retry cap raised -> 1 tests failed; first: test_version_retry_is_capped_at_one
+KILLED   G5m unpushable not a conflict for exit code -> 2 tests failed; first: test_every_conflict_kind_drives_exit_code_2
+KILLED   G5n duplicate not a conflict for exit code -> 2 tests failed; first: test_every_conflict_kind_drives_exit_code_2
+KILLED   G5o redact ignores lists -> 1 tests failed; first: test_redact_handles_lists_at_any_depth
+KILLED   G5p compare report not atomic -> 2 tests failed; first: test_compare_report_is_written_atomically
+KILLED   G6a update baseline advanced before read-back verify -> 1 tests failed; first: test_update_with_dropped_write_leaves_baseline_so_next_run_is_update_not_conflict
+KILLED   G6b create baseline advanced before read-back verify -> 1 tests failed; first: test_create_with_silently_dropped_status_write_keeps_as_created_baseline
+KILLED   G6c history db opened with create-capable mode -> 1 tests failed; first: test_missing_history_db_is_refused_and_not_created
+KILLED   G6d env file regular-file check dropped -> 1 tests failed; first: test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging
+KILLED   G6e env file opened blocking (FIFO hangs) -> 1 tests failed; first: test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging
+KILLED   G6f env file open error not wrapped -> 1 tests failed; first: test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging
+KILLED   G6g env file decode error not wrapped -> 1 tests failed; first: test_env_file_non_utf8_is_syncerror_and_environment_untouched
+KILLED   G6h env file mode check after environ is populated -> 5 tests failed; first: test_lock_is_released_after_every_exit_path
+KILLED   G6i atomic save files are group/other readable -> 3 tests failed; first: test_abort_report_is_0600_and_written_atomically
+KILLED   G6j lock file group/other accessible -> 1 tests failed; first: test_state_report_compare_report_and_lock_are_0600_even_under_umask_0
+KILLED   G6k abort report not atomic/0600 -> 1 tests failed; first: test_abort_report_is_0600_and_written_atomically
+mutants=81 survivors_or_inapplicable=0
