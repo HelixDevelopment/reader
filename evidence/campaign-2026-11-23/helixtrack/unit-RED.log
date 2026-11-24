@@ -1,0 +1,22 @@
+test_helixtrack_sync (unittest.loader._FailedTest.test_helixtrack_sync) ... ERROR
+
+======================================================================
+ERROR: test_helixtrack_sync (unittest.loader._FailedTest.test_helixtrack_sync)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_helixtrack_sync
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 20, in <module>
+    import helixtrack_sync as hs  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'helixtrack_sync'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
