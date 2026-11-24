@@ -26,4 +26,5 @@ Generated from the authoritative SQLite registry.
 | HRD-028 | Task | Critical | Completed (→ Fixed.md) | 0 | Operate the SQLite workable-items single source of truth and synchronized exports |
 | HRD-030 | Task | High | Completed (→ Fixed.md) | 0 | Publish all current test results and limitations under docs/testing/results |
 | HRD-032 | Feature | Critical | Implemented (→ Fixed.md) | 0 | Complete rendering, conversion, and content-AI fulfillment for every required format |
+| HRD-034 | Task | Medium | Completed (→ Fixed.md) | 0 | Verify container distribution against a hosted registry and docker-compose CLI runtime parity |
 | HRD-035 | Bug | High | Fixed (→ Fixed.md) | 0 | Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown |

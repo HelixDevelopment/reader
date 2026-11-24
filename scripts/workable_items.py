@@ -14,10 +14,12 @@ import hashlib
 import html
 import json
 import os
+import posixpath
 from pathlib import Path
 import re
 import shutil
 import sqlite3
+import stat
 import sys
 import tempfile
 
@@ -35,6 +37,19 @@ TERMINAL = set(CLOSED.values()) | {"Obsolete (→ Fixed.md)"}
 STATUSES = ACTIVE | TERMINAL
 TYPES = {"Bug", "Feature", "Task"}
 SEVERITIES = {"Critical", "High", "Medium", "Low"}
+# Legal non-closing status transitions (constitution 11.4.15 status machine). Closing,
+# reopening and operator-blocking keep their own commands because each carries its own
+# mandatory records (11.4.33 vocabulary, 11.4.55 reopen details, 11.4.21 block audit).
+# Nothing here may target or leave a terminal status.
+TRANSITIONS = {
+    "Queued": {"In progress"},
+    "Reopened": {"In progress"},
+    "In progress": {"Queued"},
+}
+TRANSITION_EVENTS = {"In progress": "Started", "Queued": "Paused"}
+# Evidence references on a status transition are resolved against this root, so a
+# pointer to an artifact that does not exist is refused instead of recorded.
+EVIDENCE_ROOT = ROOT
 REOPEN_REASONS = {
     "test-failed", "manual-testing-detected", "captured-evidence-contradicts",
     "end-user-report", "cycle-re-discovered", "design-reconsidered",
@@ -147,16 +162,33 @@ def utcnow() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def busy_ms() -> int:
+    """Lock-wait budget; HELIX_WORKABLE_ITEMS_BUSY_MS shortens it (tests, impatient operators)."""
+    try:
+        return max(0, int(os.environ.get("HELIX_WORKABLE_ITEMS_BUSY_MS", "30000")))
+    except ValueError:
+        return 30000
+
+
 def connect(path: Path) -> sqlite3.Connection:
     path.parent.mkdir(parents=True, exist_ok=True)
-    db = sqlite3.connect(path, timeout=30, isolation_level=None)
+    db = sqlite3.connect(path, timeout=busy_ms() / 1000, isolation_level=None)
     db.row_factory = sqlite3.Row
     db.execute("PRAGMA foreign_keys=ON")
-    db.execute("PRAGMA busy_timeout=30000")
+    db.execute(f"PRAGMA busy_timeout={busy_ms()}")
     db.execute("PRAGMA journal_mode=WAL")
     db.execute("PRAGMA synchronous=FULL")
     db.executescript(SCHEMA)
     db.execute("INSERT OR IGNORE INTO meta(key,value) VALUES('schema_version',?)", (SCHEMA_VERSION,))
+    return db
+
+
+def connect_readonly(path: Path) -> sqlite3.Connection:
+    """Connection for the read-only commands (validate, diff): no DDL, no WAL pragma, no
+    inserts, so it works on a read-only database file and never changes it."""
+    db = sqlite3.connect(f"file:{path}?mode=ro", uri=True, timeout=busy_ms() / 1000, isolation_level=None)
+    db.row_factory = sqlite3.Row
+    db.execute("PRAGMA foreign_keys=ON")
     return db
 
 
@@ -189,6 +221,20 @@ def integrity(db: sqlite3.Connection) -> str:
         "reopens": [dict(r) for r in db.execute("SELECT * FROM reopen_details ORDER BY atm_id")],
         "obsolete": [dict(r) for r in db.execute("SELECT * FROM obsolete_details ORDER BY atm_id")],
     }
+    # firebase_metadata and sync_outbox are part of the registry's state, so they are
+    # covered too. They are keyed in only when non-empty, which keeps the hash of every
+    # registry that does not use them identical to the pre-existing value (no migration).
+    extra = {
+        "firebase": [dict(r) for r in db.execute("SELECT * FROM firebase_metadata ORDER BY atm_id")],
+        "sync_outbox": [dict(r) for r in db.execute("SELECT * FROM sync_outbox ORDER BY atm_id,revision")],
+    }
+    payload.update({key: rows for key, rows in extra.items() if rows})
+    # The rehash log and the per-item baseline are part of the audited state once present
+    # (absent on a registry that never used them, which keeps its existing hash).
+    for key in ("rehash_log", "item_hashes", "import_log"):
+        row = db.execute("SELECT value FROM meta WHERE key=?", (key,)).fetchone()
+        if row:
+            payload[key] = row[0]
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
     return hashlib.sha256(encoded).hexdigest()
 
@@ -197,22 +243,136 @@ def checkpoint(db: sqlite3.Connection) -> None:
     db.execute("PRAGMA wal_checkpoint(TRUNCATE)")
 
 
+def item_snapshot_hashes(db: sqlite3.Connection) -> dict[str, str]:
+    """Canonical per-item digest over the item row and every table row keyed by it, so a
+    later `rehash` can name exactly which items changed since the last tool write."""
+    out = {}
+    for item in items(db):
+        atm = item["atm_id"]
+        parts = {"item": canonical_item(item)}
+        for table, order in (("item_history", "sequence"), ("reopen_details", "atm_id"), ("operator_block_details", "atm_id"),
+                             ("obsolete_details", "atm_id"), ("firebase_metadata", "atm_id"), ("sync_outbox", "revision")):
+            parts[table] = [dict(r) for r in db.execute(f"SELECT * FROM {table} WHERE atm_id=? ORDER BY {order}", (atm,))]
+        out[atm] = hashlib.sha256(json.dumps(parts, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return out
+
+
+def changed_items(db: sqlite3.Connection) -> list[str] | None:
+    """Item ids whose content differs from the last tool-written baseline (None when no
+    baseline has been recorded yet, e.g. a registry that predates item_hashes)."""
+    row = db.execute("SELECT value FROM meta WHERE key='item_hashes'").fetchone()
+    if row is None:
+        return None
+    try:
+        known = json.loads(row[0])
+    except ValueError:
+        return None
+    current = item_snapshot_hashes(db)
+    return sorted(atm for atm in set(known) | set(current) if known.get(atm) != current.get(atm))
+
+
 def update_meta(db: sqlite3.Connection, direction: str) -> None:
     now = utcnow()
+    db.execute("INSERT INTO meta(key,value) VALUES('item_hashes',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(item_snapshot_hashes(db), sort_keys=True),))
     db.execute("INSERT INTO meta(key,value) VALUES('last_sync_direction',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (direction,))
     db.execute("INSERT INTO meta(key,value) VALUES('last_sync_timestamp',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (now,))
     db.execute("INSERT INTO meta(key,value) VALUES('integrity_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (integrity(db),))
 
 
-def validate(db: sqlite3.Connection) -> list[str]:
+class RegistryTampered(ValueError):
+    """The stored integrity hash does not match the registry content."""
+
+
+def schema_problem(db: sqlite3.Connection) -> str | None:
+    """Triggers and views can rewrite data after the fact without touching the hash."""
+    objects = db.execute("SELECT type,name FROM sqlite_master WHERE type IN ('trigger','view') ORDER BY name").fetchall()
+    if objects:
+        return "unexpected schema objects: " + ", ".join(f"{r[0]} {r[1]}" for r in objects)
+    return None
+
+
+def hash_problem(db: sqlite3.Connection) -> str | None:
+    """Every legitimate writer refreshes meta.integrity_hash inside its own transaction
+    (update_meta), so a stored hash that differs from the recomputed one means the
+    registry was edited behind the tool's back (raw SQL, byte flip, history edit)."""
+    schema = schema_problem(db)
+    if schema:
+        return schema
+    stored = db.execute("SELECT value FROM meta WHERE key='integrity_hash'").fetchone()
+    if stored is None:
+        if db.execute("SELECT 1 FROM items LIMIT 1").fetchone():
+            return "integrity hash missing: registry has items but meta.integrity_hash is absent"
+        return None
+    if stored[0] != integrity(db):
+        return "integrity hash mismatch: registry content differs from the hash recorded by the last tool write"
+    return None
+
+
+def require_untampered(db: sqlite3.Connection) -> None:
+    """Writers call this BEFORE writing: refreshing the hash over tampered content would
+    launder the tampering into a valid-looking registry. `rehash` is the one deliberate,
+    recorded way to accept an out-of-band edit."""
+    problem = hash_problem(db)
+    if problem:
+        raise RegistryTampered(f"registry tampered; run validate ({problem}); after review use rehash --actor --reason")
+
+
+TEXT_COLUMNS = ("title", "description", "affected_scope", "reproduction", "acceptance", "closure_criteria",
+                "forensic_anchor", "evidence_path", "created_by", "assigned_to")
+
+
+def validate(db: sqlite3.Connection, check_hash: bool = True) -> list[str]:
+    """Validate inside ONE read transaction so the stored hash and the recomputed
+    content come from the same snapshot even while another process writes."""
+    own = not db.in_transaction
+    if own:
+        db.execute("BEGIN")
+    try:
+        return _validate(db, check_hash)
+    finally:
+        if own:
+            db.execute("COMMIT")
+
+
+def _validate(db: sqlite3.Connection, check_hash: bool) -> list[str]:
     errors: list[str] = []
     seen = set()
+    problem = hash_problem(db) if check_hash else schema_problem(db)
+    if problem:
+        errors.append(problem)
+    for row in db.execute("SELECT * FROM item_history"):
+        for column in ("event_type", "actor", "on_date", "reason", "evidence_path"):
+            if CONTROL_RE.search(row[column] or ""):
+                errors.append(f'{row["atm_id"]}: history #{row["sequence"]} {column} contains control characters')
+        if any(BOUNDARY_RE.search(row[column] or "") for column in ("reason", "evidence_path")):
+            errors.append(f'{row["atm_id"]}: history #{row["sequence"]} carries the field boundary token')
+    log = db.execute("SELECT value FROM meta WHERE key='rehash_log'").fetchone()
+    if log:
+        previous = ""
+        for number, line in enumerate(log[0].split("\n"), 1):
+            try:
+                entry = json.loads(line)
+            except ValueError:
+                errors.append(f"rehash_log entry {number} is not valid JSON")
+                break
+            if entry.get("prev_entry") != previous:
+                errors.append(f"rehash_log chain broken at entry {number}")
+                break
+            previous = hashlib.sha256(line.encode()).hexdigest()
     for item in items(db):
         atm = item["atm_id"]
         match = ID_RE.match(atm)
         if not match or int(match.group(1)) < 1 or atm in seen:
             errors.append(f"{atm}: invalid or duplicate {PROJECT_KEY} identifier")
         seen.add(atm)
+        for column in TEXT_COLUMNS:
+            if CONTROL_RE.search(item[column] or ""):
+                errors.append(f"{atm}: {column} contains control characters")
+        for column in ("created_by", "assigned_to"):
+            if ASSIGN_RE.search(item[column] or ""):
+                errors.append(f"{atm}: {column} carries the attribution boundary label")
+        if not item["title"].strip():
+            errors.append(f"{atm}: missing title")
         if item["type"] not in TYPES:
             errors.append(f"{atm}: invalid type")
         if item["status"] not in STATUSES:
@@ -245,24 +405,83 @@ def validate(db: sqlite3.Connection) -> list[str]:
             errors.append(f"{atm}: reopen count does not match history")
     allocated = sorted(int(ID_RE.match(i["atm_id"]).group(1)) for i in items(db) if ID_RE.match(i["atm_id"]))
     if allocated and allocated != list(range(1, max(allocated) + 1)):
-        errors.append(f"{PROJECT_KEY} allocation contains gaps")
-    if db.execute("PRAGMA foreign_key_check").fetchall():
-        errors.append("SQLite foreign key check failed")
+        missing = sorted(set(range(1, max(allocated) + 1)) - set(allocated))
+        errors.append(f"{PROJECT_KEY} allocation contains gaps: missing " + ", ".join(item_id(n) for n in missing[:20]))
+    violations = db.execute("PRAGMA foreign_key_check").fetchall()
+    if violations:
+        affected = set()
+        for table, rowid, parent, _fk in violations:
+            row = db.execute(f"SELECT atm_id FROM {table} WHERE rowid=?", (rowid,)).fetchone()
+            affected.add(f"{table}:{row[0] if row else rowid}")
+        errors.append("SQLite foreign key check failed: " + ", ".join(sorted(affected)[:20]))
+    for row in db.execute("SELECT * FROM operator_block_details"):
+        for column in ("what", "why_exhausted_alternatives", "unblock_condition", "who"):
+            if BLOCK_LABEL_RE.search(row[column] or ""):
+                errors.append(f'{row["atm_id"]}: operator-block {column} carries a field boundary label')
     return errors
 
 
+# Characters that could end a Markdown line or otherwise let a recorded value forge
+# structure when the exports are re-imported: C0/C1 controls (tab excepted), DEL,
+# the Unicode line/paragraph separators, and invisible/bidi-override characters
+# (soft hyphen, zero-width, LRM/RLM, embeddings and overrides, word joiner, isolates, BOM)
+# that can make a recorded line read differently from what it is.
+CONTROL_RE = re.compile("[\x00-\x08\x0a-\x1f\x7f-\x9f\u00ad\u034f\u061c\u115f\u180e\u200b-\u200f\u2028-\u202e\u2060-\u2064\u2066-\u2069\u2800\u3164\ufeff\ufff9-\ufffb\U000e0000-\U000e007f]")
+
+
+# The history line is `... by ACTOR: REASON; evidence: EVIDENCE` and the reopen detail is
+# `...; Reason: R; Evidence: E`, both split on this token when re-imported, so a value
+# carrying it would shift the field boundary.
+BOUNDARY_RE = re.compile(r";\s*evidence\s*:", re.IGNORECASE)
+BOUNDARY_FIELDS = {"actor", "reason", "evidence"}
+# Same idea for the attribution line (`created by X; assigned to Y`) and the operator-block
+# line (`WHAT: .. WHY: Attempted: .. UNBLOCK CONDITION: .. WHO: ..`).
+ASSIGN_RE = re.compile(r";\s*assigned\s+to\b", re.IGNORECASE)
+BLOCK_LABEL_RE = re.compile(r"\s(?:WHY|UNBLOCK CONDITION|WHO):\s")
+FIELD_TOKENS = {"actor": BOUNDARY_RE, "reason": BOUNDARY_RE, "evidence": BOUNDARY_RE,
+                "created_by": ASSIGN_RE, "assigned_to": ASSIGN_RE,
+                "what": BLOCK_LABEL_RE, "why": BLOCK_LABEL_RE, "unblock": BLOCK_LABEL_RE, "who": BLOCK_LABEL_RE}
+
+
+def refuse_control_chars(**fields: str | None) -> None:
+    """Refuse values that carry line breaks, other control characters, or (for the
+    actor/reason/evidence fields) the history field-boundary token."""
+    for name, value in fields.items():
+        if value and CONTROL_RE.search(value):
+            raise ValueError(f"{name} must not contain line breaks or control characters")
+        token = FIELD_TOKENS.get(name)
+        if value and token and token.search(value):
+            raise ValueError(f"{name} must not contain a field-boundary label ({token.pattern})")
+
+
+def md_inline(text: str) -> str:
+    """Neutralise Markdown image/link/raw-HTML openers in recorded text. Text without
+    those sequences is returned unchanged, so existing exports stay byte-identical;
+    `md_unescape` (applied by parse_markdown) reverses it for a lossless round trip."""
+    return re.sub(r"<(?=[A-Za-z/!?])", r"\\<", text.replace("![", "!\\[").replace("](", "]\\("))
+
+
+def md_unescape(text: str) -> str:
+    return text.replace("\\<", "<").replace("]\\(", "](").replace("!\\[", "![")
+
+
 def md_escape(text: str) -> str:
-    return text.replace("|", "\\|").replace("\n", " ")
+    # Backslash first, otherwise `a\|b` would turn into `a\\|b` and the pipe would escape.
+    return md_inline(text.replace("\\", "\\\\")).replace("|", "\\|").replace("\n", " ")
 
 
-def history_lines(db: sqlite3.Connection, atm_id: str) -> list[str]:
+def history_lines(db: sqlite3.Connection, atm_id: str, md: bool = False) -> list[str]:
     """Audit trail for one item, formatted identically wherever it is rendered.
 
     Markdown, HTML and PDF are all generated from this, so an event recorded in the
     registry cannot appear in one derived document and silently vanish from another.
     """
+    # Defence in depth: values reach item_history only through writers that refuse
+    # control characters, but a row planted by raw SQL must still not be able to start
+    # a new line (and with it a forged event or item) in the exported documents.
+    flat = (lambda value: md_inline(CONTROL_RE.sub(" ", value or ""))) if md else (lambda value: CONTROL_RE.sub(" ", value or ""))
     return [
-        f'- {event["on_date"]} — {event["event_type"]} by {event["actor"]}: {event["reason"]}; evidence: {event["evidence_path"] or "none recorded"}'
+        f'- {event["on_date"]} — {event["event_type"]} by {flat(event["actor"])}: {flat(event["reason"])}; evidence: {flat(event["evidence_path"]) or "none recorded"}'
         for event in db.execute("SELECT * FROM item_history WHERE atm_id=? ORDER BY sequence", (atm_id,))
     ]
 
@@ -302,10 +521,13 @@ def long_form_fields(item: dict, db: sqlite3.Connection) -> list[tuple[str, str]
 
 
 def render_item(item: dict, db: sqlite3.Connection) -> str:
-    lines = [f'## [{item["atm_id"]}] {item["title"]}', ""]
+    # Same defence as history_lines: stored text can only reach a Markdown line through
+    # here, so a value that somehow holds a line break cannot start a heading or event.
+    flat = lambda value: md_inline(CONTROL_RE.sub(" ", value))
+    lines = [f'## [{item["atm_id"]}] {flat(item["title"])}', ""]
     for label, value in long_form_fields(item, db):
-        lines += [f"**{label}:** {value}", ""]
-    events = history_lines(db, item["atm_id"])
+        lines += [f"**{label}:** {flat(value)}", ""]
+    events = history_lines(db, item["atm_id"], md=True)
     if events:
         lines += ["**History:**", ""] + events + [""]
     return "\n".join(lines)
@@ -412,6 +634,7 @@ def pdf_documents(db: sqlite3.Connection, output_dir: Path) -> list[Path]:
 
 
 def export(db: sqlite3.Connection, output_dir: Path = DOCS, include_pdf: bool = True) -> list[Path]:
+    require_untampered(db)
     output_dir.mkdir(parents=True, exist_ok=True)
     written = []
     for documents in (markdown_documents(db), html_documents(db)):
@@ -421,13 +644,25 @@ def export(db: sqlite3.Connection, output_dir: Path = DOCS, include_pdf: bool = 
             written.append(path)
     if include_pdf:
         written.extend(pdf_documents(db, output_dir))
-    update_meta(db, "db-to-docs")
+    db.execute("BEGIN IMMEDIATE")
+    try:
+        require_untampered(db)
+        update_meta(db, "db-to-docs")
+        db.execute("COMMIT")
+    except Exception:
+        db.execute("ROLLBACK")
+        raise
     checkpoint(db)
     return written
 
 
+HISTORY_LINE_RE = re.compile(r"(?m)^- (\d{4}-\d{2}-\d{2}) — (Opened|Updated|Started|Paused|Unblocked|Reopened|Fixed|Implemented|Completed|Obsolete) by (AI|User): (.*); evidence: (.*)$")
+REOPEN_DETAIL_RE = re.compile(r"By: (AI|User); On: (\d{4}-\d{2}-\d{2}); Reason: (.*); Evidence: (.*)$")
+BLOCK_DETAIL_RE = re.compile(r"WHAT: (.*) WHY: (Attempted: .*) UNBLOCK CONDITION: (.*) WHO: (.*)$")
+
+
 def parse_markdown(path: Path, location: str) -> list[dict]:
-    text = path.read_text(encoding="utf-8")
+    text = md_unescape(path.read_text(encoding="utf-8"))
     sections = re.split(rf"(?m)^## \[({PROJECT_KEY}-[0-9]{{3,}})\] ", text)[1:]
     parsed = []
     for index in range(0, len(sections), 2):
@@ -455,7 +690,11 @@ def parse_markdown(path: Path, location: str) -> list[dict]:
         if evidence == "Not yet available; no pass is claimed.":
             evidence = ""
         history = []
-        for line in re.findall(r"(?m)^- (\d{4}-\d{2}-\d{2}) — (Opened|Updated|Reopened|Fixed|Implemented|Completed|Obsolete) by (AI|User): (.*); evidence: (.*)$", body):
+        history_section = body.partition("\n**History:**\n")[2]
+        for candidate_line in re.findall(r"(?m)^- \d{4}-\d{2}-\d{2} — .*$", history_section):
+            if not HISTORY_LINE_RE.match(candidate_line):
+                raise ValueError(f"{atm}: unrecognised history line: {candidate_line[:100]!r}")
+        for line in HISTORY_LINE_RE.findall(history_section):
             history.append({"on_date": line[0], "event_type": line[1], "actor": line[2], "reason": line[3], "evidence_path": "" if line[4] == "none recorded" else line[4]})
         parsed.append({
             "atm_id": atm, "type": field("Type"), "status": status,
@@ -472,30 +711,94 @@ def parse_markdown(path: Path, location: str) -> list[dict]:
     return parsed
 
 
-def import_markdown(db: sqlite3.Connection, docs_dir: Path) -> int:
+def incoming_items(docs_dir: Path) -> list[dict]:
     incoming = parse_markdown(docs_dir / "Issues.md", "Issues") + parse_markdown(docs_dir / "Fixed.md", "Fixed")
     if not incoming:
         raise ValueError("no workable-item sections found")
+    seen = set()
+    for item in incoming:
+        if item["atm_id"] in seen:
+            raise ValueError(f'{item["atm_id"]}: duplicate section in the Markdown')
+        seen.add(item["atm_id"])
+        if item["_reopened_details"] and not REOPEN_DETAIL_RE.match(item["_reopened_details"]):
+            raise ValueError(f'{item["atm_id"]}: malformed Reopened-Details')
+        if item["_operator_block_details"] and not BLOCK_DETAIL_RE.match(item["_operator_block_details"]):
+            raise ValueError(f'{item["atm_id"]}: malformed Operator-Block-Details')
+    return incoming
+
+
+def plan_import(db: sqlite3.Connection, docs_dir: Path) -> list[str]:
+    """Row-level list of what importing would CHANGE on items that already exist
+    (`ATM: column 'old' -> 'new'`), including the reopen and operator-block detail
+    tables. New items are additions, not changes."""
+    changes = []
+    for item in incoming_items(docs_dir):
+        atm = item["atm_id"]
+        row = db.execute("SELECT * FROM items WHERE atm_id=?", (atm,)).fetchone()
+        if not row:
+            continue
+        for column in ITEM_COLUMNS:
+            if column != "atm_id" and row[column] != item[column]:
+                changes.append(f'{atm}: {column} {str(row[column])[:60]!r} -> {str(item[column])[:60]!r}')
+        for table, raw, pattern, columns in (
+                ("reopen_details", item["_reopened_details"], REOPEN_DETAIL_RE, ("actor", "on_date", "reason", "evidence_path")),
+                ("operator_block_details", item["_operator_block_details"], BLOCK_DETAIL_RE, ("what", "why_exhausted_alternatives", "unblock_condition", "who"))):
+            if not raw:
+                continue
+            new = pattern.match(raw).groups()
+            old = db.execute(f"SELECT {','.join(columns)} FROM {table} WHERE atm_id=?", (atm,)).fetchone()
+            old = tuple(old) if old else None
+            for column, was, now in zip(columns, old or (None,) * len(columns), new):
+                if was != now:
+                    changes.append(f'{atm}: {table}.{column} {str(was)[:60]!r} -> {str(now)[:60]!r}')
+    return changes
+
+
+def import_markdown(db: sqlite3.Connection, docs_dir: Path, allow_overwrite: bool = False,
+                    actor: str | None = None, reason: str | None = None) -> int:
+    """Rebuild registry rows from the generated Markdown (disaster recovery).
+
+    The Markdown is untrusted input: the import transaction is validated before it
+    commits (control characters, closure rules, ...), evidence on terminal items, reopen
+    details and the history of new items must stay inside the repository, and existing
+    items (and their reopen/operator-block details) are never silently rewritten:
+    changing them needs `allow_overwrite` plus an actor and reason, which are recorded
+    with the row-level changes in meta.import_log (covered by the integrity hash)."""
+    incoming = incoming_items(docs_dir)
+    refuse_control_chars(actor=actor, reason=reason)
+    for item in incoming:
+        if item["status"] in TERMINAL and item["evidence_path"].strip():
+            repo_evidence(item["evidence_path"], must_exist=False)
+        if item["_reopened_details"]:
+            repo_evidence(REOPEN_DETAIL_RE.match(item["_reopened_details"]).group(4), must_exist=False)
     db.execute("BEGIN IMMEDIATE")
     try:
+        base = write_baseline(db)
+        changes = plan_import(db, docs_dir)
+        if changes and not allow_overwrite:
+            raise ValueError("import-md would change existing items (use --allow-overwrite --actor --reason after reviewing): " + "; ".join(changes[:10]))
+        if changes:
+            if actor not in ("AI", "User") or not (reason or "").strip():
+                raise ValueError("import-md --allow-overwrite requires --actor (AI|User) and a non-empty --reason")
+            entry = json.dumps({"on": utcnow(), "actor": actor, "reason": reason, "changes": changes}, sort_keys=True)
+            log = db.execute("SELECT value FROM meta WHERE key='import_log'").fetchone()
+            db.execute("INSERT INTO meta(key,value) VALUES('import_log',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", ((log[0] + "\n" if log else "") + entry,))
         for item in incoming:
             columns = ITEM_COLUMNS
             db.execute(f"INSERT INTO items({','.join(columns)}) VALUES({','.join('?' for _ in columns)}) ON CONFLICT(atm_id) DO UPDATE SET " + ",".join(f"{c}=excluded.{c}" for c in columns if c != "atm_id"), [item[c] for c in columns])
             if not db.execute("SELECT 1 FROM item_history WHERE atm_id=? LIMIT 1", (item["atm_id"],)).fetchone():
                 for event in item["_history"]:
+                    if event["evidence_path"]:
+                        repo_evidence(event["evidence_path"], must_exist=False)
                     db.execute("INSERT INTO item_history(atm_id,event_type,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?,?)", (item["atm_id"], event["event_type"], event["actor"], event["on_date"], event["reason"], event["evidence_path"]))
             if item["_reopened_details"]:
-                match = re.match(r"By: (AI|User); On: (\d{4}-\d{2}-\d{2}); Reason: (.*); Evidence: (.*)$", item["_reopened_details"])
-                if not match:
-                    raise ValueError(f'{item["atm_id"]}: malformed Reopened-Details')
+                match = REOPEN_DETAIL_RE.match(item["_reopened_details"])
                 db.execute("INSERT INTO reopen_details(atm_id,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?) ON CONFLICT(atm_id) DO UPDATE SET actor=excluded.actor,on_date=excluded.on_date,reason=excluded.reason,evidence_path=excluded.evidence_path", (item["atm_id"], *match.groups()))
             if item["_operator_block_details"]:
-                match = re.match(r"WHAT: (.*) WHY: (Attempted: .*) UNBLOCK CONDITION: (.*) WHO: (.*)$", item["_operator_block_details"])
-                if not match:
-                    raise ValueError(f'{item["atm_id"]}: malformed Operator-Block-Details')
+                match = BLOCK_DETAIL_RE.match(item["_operator_block_details"])
                 db.execute("INSERT INTO operator_block_details(atm_id,what,why_exhausted_alternatives,unblock_condition,who) VALUES(?,?,?,?,?) ON CONFLICT(atm_id) DO UPDATE SET what=excluded.what,why_exhausted_alternatives=excluded.why_exhausted_alternatives,unblock_condition=excluded.unblock_condition,who=excluded.who", (item["atm_id"], *match.groups()))
         update_meta(db, "md-to-db")
-        db.execute("COMMIT")
+        commit_write(db, base)
     except Exception:
         db.execute("ROLLBACK")
         raise
@@ -517,6 +820,7 @@ def diff(db: sqlite3.Connection, docs_dir: Path = DOCS) -> list[str]:
 
 
 def helixtrack_outbox(db: sqlite3.Connection, path: Path) -> None:
+    require_untampered(db)
     records = []
     for item in items(db):
         payload = canonical_item(item)
@@ -530,9 +834,29 @@ def helixtrack_outbox(db: sqlite3.Connection, path: Path) -> None:
     path.write_text(json.dumps(envelope, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def write_baseline(db: sqlite3.Connection) -> set[str]:
+    """First step inside every writer's transaction: refuse tampered content, then record
+    the registry's pre-existing validation errors so only NEW ones can fail the commit."""
+    require_untampered(db)
+    return set(_validate(db, False))
+
+
+def commit_write(db: sqlite3.Connection, baseline: set[str]) -> None:
+    """Last step of every writer: the registry as it would be committed must not carry any
+    validation error that was not already present; otherwise the caller rolls back."""
+    introduced = [e for e in _validate(db, False) if e not in baseline]
+    if introduced:
+        raise ValueError("refused; the change would leave the registry invalid: " + "; ".join(introduced[:5]))
+    db.execute("COMMIT")
+
+
 def add_item(db: sqlite3.Connection, args: argparse.Namespace) -> str:
+    refuse_control_chars(title=args.title, description=args.description, scope=args.scope,
+                         reproduction=args.reproduction, acceptance=args.acceptance, anchor=args.anchor,
+                         created_by=args.created_by, assigned_to=args.assigned_to)
     db.execute("BEGIN IMMEDIATE")
     try:
+        base = write_baseline(db)
         maximum = db.execute("SELECT COALESCE(MAX(CAST(substr(atm_id,?) AS INTEGER)),0) FROM items", (len(PROJECT_KEY) + 2,)).fetchone()[0]
         atm = item_id(maximum + 1)
         now = utcnow()
@@ -548,7 +872,7 @@ def add_item(db: sqlite3.Connection, args: argparse.Namespace) -> str:
         db.execute(f"INSERT INTO items({','.join(ITEM_COLUMNS)}) VALUES({','.join('?' for _ in ITEM_COLUMNS)})", [item[c] for c in ITEM_COLUMNS])
         db.execute("INSERT INTO item_history(atm_id,event_type,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?,?)", (atm, "Opened", args.created_by if args.created_by in {"AI", "User"} else "User", now[:10], "new-work-item", ""))
         update_meta(db, "add")
-        db.execute("COMMIT")
+        commit_write(db, base)
         return atm
     except Exception:
         db.execute("ROLLBACK")
@@ -556,6 +880,7 @@ def add_item(db: sqlite3.Connection, args: argparse.Namespace) -> str:
 
 
 def history(db: sqlite3.Connection, atm: str, event: str, actor: str, reason: str, evidence: str = "") -> None:
+    refuse_control_chars(actor=actor, reason=reason, evidence=evidence)
     db.execute("INSERT INTO item_history(atm_id,event_type,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?,?)", (atm, event, actor, utcnow()[:10], reason, evidence))
 
 
@@ -567,53 +892,231 @@ def require_item(db: sqlite3.Connection, atm: str) -> dict:
 
 
 def close_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
-    item = require_item(db, args.atm_id)
-    expected = CLOSED[item["type"]]
-    aliases = {"fixed": "Bug", "implemented": "Feature", "completed": "Task"}
-    if args.status and aliases[args.status] != item["type"]:
-        raise ValueError(f'{item["atm_id"]}: {item["type"]} requires {expected}')
+    refuse_control_chars(actor=args.actor, reason=args.reason, evidence=args.evidence)
     if not args.evidence.strip():
         raise ValueError("closure requires captured evidence")
+    evidence = repo_evidence(args.evidence)
     db.execute("BEGIN IMMEDIATE")
     try:
-        db.execute("UPDATE items SET status=?,current_location='Fixed',evidence_path=?,last_modified=? WHERE atm_id=?", (expected, args.evidence, utcnow(), args.atm_id))
-        history(db, args.atm_id, expected.split(" ")[0], args.actor, args.reason, args.evidence)
+        base = write_baseline(db)
+        item = require_item(db, args.atm_id)
+        if item["status"] in TERMINAL:
+            raise ValueError(f'{args.atm_id}: already closed ({item["status"]}); reopen it first')
+        expected = CLOSED[item["type"]]
+        aliases = {"fixed": "Bug", "implemented": "Feature", "completed": "Task"}
+        if args.status and aliases[args.status] != item["type"]:
+            raise ValueError(f'{item["atm_id"]}: {item["type"]} requires {expected}')
+        db.execute("UPDATE items SET status=?,current_location='Fixed',evidence_path=?,last_modified=? WHERE atm_id=?", (expected, evidence, utcnow(), args.atm_id))
+        # A closed item is no longer blocked; the block itself stays on record in its history event.
+        db.execute("DELETE FROM operator_block_details WHERE atm_id=?", (args.atm_id,))
+        history(db, args.atm_id, expected.split(" ")[0], args.actor, args.reason, evidence)
         update_meta(db, "close")
-        db.execute("COMMIT")
+        commit_write(db, base)
     except Exception:
         db.execute("ROLLBACK")
         raise
 
 
 def reopen_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
-    require_item(db, args.atm_id)
+    refuse_control_chars(actor=args.actor, reason=args.reason, evidence=args.evidence)
     if not args.evidence.strip():
         raise ValueError("reopen requires positive evidence")
+    evidence = repo_evidence(args.evidence)
     db.execute("BEGIN IMMEDIATE")
     try:
+        base = write_baseline(db)
+        item = require_item(db, args.atm_id)
+        if item["status"] not in TERMINAL:
+            raise ValueError(f'{args.atm_id}: only a closed item can be reopened (status is {item["status"]})')
         db.execute("UPDATE items SET status='Reopened',current_location='Issues',reopens_count=reopens_count+1,last_modified=? WHERE atm_id=?", (utcnow(), args.atm_id))
-        db.execute("INSERT INTO reopen_details(atm_id,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?) ON CONFLICT(atm_id) DO UPDATE SET actor=excluded.actor,on_date=excluded.on_date,reason=excluded.reason,evidence_path=excluded.evidence_path", (args.atm_id, args.actor, utcnow()[:10], args.reason, args.evidence))
-        history(db, args.atm_id, "Reopened", args.actor, args.reason, args.evidence)
+        db.execute("INSERT INTO reopen_details(atm_id,actor,on_date,reason,evidence_path) VALUES(?,?,?,?,?) ON CONFLICT(atm_id) DO UPDATE SET actor=excluded.actor,on_date=excluded.on_date,reason=excluded.reason,evidence_path=excluded.evidence_path", (args.atm_id, args.actor, utcnow()[:10], args.reason, evidence))
+        history(db, args.atm_id, "Reopened", args.actor, args.reason, evidence)
         update_meta(db, "reopen")
-        db.execute("COMMIT")
+        commit_write(db, base)
     except Exception:
         db.execute("ROLLBACK")
         raise
 
 
 def block_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
-    require_item(db, args.atm_id)
+    refuse_control_chars(what=args.what, why=args.why, unblock=args.unblock, who=args.who)
     if not args.why.startswith("Attempted:"):
         raise ValueError("operator-block exhaustion audit must start with 'Attempted:'")
     db.execute("BEGIN IMMEDIATE")
     try:
+        base = write_baseline(db)
+        item = require_item(db, args.atm_id)
+        if item["status"] in TERMINAL:
+            raise ValueError(f'{args.atm_id}: a closed item cannot be operator-blocked; reopen it first')
         db.execute("UPDATE items SET status='Operator-blocked',current_location='Issues',last_modified=? WHERE atm_id=?", (utcnow(), args.atm_id))
         db.execute("INSERT INTO operator_block_details(atm_id,what,why_exhausted_alternatives,unblock_condition,who) VALUES(?,?,?,?,?) ON CONFLICT(atm_id) DO UPDATE SET what=excluded.what,why_exhausted_alternatives=excluded.why_exhausted_alternatives,unblock_condition=excluded.unblock_condition,who=excluded.who", (args.atm_id, args.what, args.why, args.unblock, args.who))
         history(db, args.atm_id, "Updated", "AI", "operator-blocked-after-exhaustion", "")
         update_meta(db, "operator-block")
-        db.execute("COMMIT")
+        commit_write(db, base)
     except Exception:
         db.execute("ROLLBACK")
+        raise
+
+
+def normalise_evidence(part: str) -> str | None:
+    """Return the normalised POSIX evidence reference, or None when it is not acceptable.
+
+    Acceptable: a relative path that, with `..` and symlinks resolved, names a regular
+    file or a directory strictly inside `evidence/` under EVIDENCE_ROOT. A directory is
+    legitimate (an evidence bundle, e.g. a campaign folder). Refused: absolute paths,
+    `.`/`..`, bare directories outside evidence/ such as `scripts` or `docs/..`, the
+    evidence root itself, symlink escapes, and FIFOs/sockets/devices.
+    """
+    if not part or Path(part).is_absolute():
+        return None
+    clean = posixpath.normpath(part)
+    if clean in (".", "..") or clean.startswith("../"):
+        return None
+    root = EVIDENCE_ROOT.resolve()
+    allowed = root / "evidence"
+    try:
+        target = (root / clean).resolve()
+        mode = target.stat().st_mode
+    except (OSError, RuntimeError):
+        return None
+    if target == allowed or not target.is_relative_to(allowed):
+        return None
+    if not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)):
+        return None
+    return clean
+
+
+def repo_evidence(value: str, must_exist: bool = True) -> str:
+    """Tier-2 evidence (closure, reopen, update): `;`-separated references that must be
+    relative and, with `..` and symlinks resolved, stay inside the repository root;
+    when `must_exist`, each must be an existing regular file or directory.
+    Tier 1 (start/pause) is stricter: see normalise_evidence (inside evidence/ only).
+    Returns the normalised `; `-joined references ('' for an empty value)."""
+    parts = [part.strip() for part in (value or "").split(";") if part.strip()]
+    root = EVIDENCE_ROOT.resolve()
+    clean_parts = []
+    for part in parts:
+        clean = posixpath.normpath(part) if part and not Path(part).is_absolute() else None
+        ok = clean is not None and clean not in (".", "..") and not clean.startswith("../")
+        if ok:
+            try:
+                target = (root / clean).resolve()
+                ok = target.is_relative_to(root) and target != root
+                if ok and must_exist:
+                    mode = target.stat().st_mode
+                    ok = stat.S_ISREG(mode) or stat.S_ISDIR(mode)
+            except (OSError, RuntimeError):
+                ok = False
+        if not ok:
+            raise ValueError(f"evidence must be a relative path inside the repository{' that exists' if must_exist else ''}: {part!r}")
+        clean_parts.append(clean)
+    return "; ".join(clean_parts)
+
+
+def transition_item(db: sqlite3.Connection, args: argparse.Namespace) -> tuple[str, str]:
+    """Move an item between non-terminal statuses; returns (previous, new)."""
+    target = args.target
+    refuse_control_chars(actor=args.actor, reason=args.reason, evidence=args.evidence)
+    if not (args.reason or "").strip():
+        raise ValueError("status transition requires a reason")
+    evidence = [part.strip() for part in (args.evidence or "").split(";") if part.strip()]
+    if not evidence:
+        raise ValueError("status transition requires an evidence/reference path")
+    normalised = [normalise_evidence(part) for part in evidence]
+    bad = [part for part, clean in zip(evidence, normalised) if clean is None]
+    if bad:
+        raise ValueError(f"evidence must be an existing file or directory under evidence/ (relative, no escapes): {', '.join(bad)}")
+    evidence = normalised
+    db.execute("BEGIN IMMEDIATE")
+    try:
+        base = write_baseline(db)
+        item = require_item(db, args.atm_id)
+        current = item["status"]
+        if target not in TRANSITIONS.get(current, set()):
+            raise ValueError(f'{args.atm_id}: illegal transition {current} -> {target}; '
+                             "closing, reopening and operator-blocking use their own commands")
+        db.execute("UPDATE items SET status=?,current_location='Issues',last_modified=? WHERE atm_id=?", (target, utcnow(), args.atm_id))
+        history(db, args.atm_id, TRANSITION_EVENTS[target], args.actor, args.reason, "; ".join(evidence))
+        update_meta(db, "start" if target == "In progress" else "pause")
+        commit_write(db, base)
+        return current, target
+    except Exception:
+        db.execute("ROLLBACK")
+        raise
+
+
+def unblock_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
+    """Operator-blocked -> Queued, recorded (actor, reason, evidence under evidence/).
+    Without it the only way out of a block would be closing the item."""
+    refuse_control_chars(actor=args.actor, reason=args.reason, evidence=args.evidence)
+    if not (args.reason or "").strip():
+        raise ValueError("unblock requires a reason")
+    parts = [part.strip() for part in (args.evidence or "").split(";") if part.strip()]
+    if not parts:
+        raise ValueError("unblock requires an evidence/reference path")
+    clean = [normalise_evidence(part) for part in parts]
+    if any(c is None for c in clean):
+        raise ValueError("evidence must be an existing file or directory under evidence/ (relative, no escapes)")
+    db.execute("BEGIN IMMEDIATE")
+    try:
+        base = write_baseline(db)
+        item = require_item(db, args.atm_id)
+        if item["status"] != "Operator-blocked":
+            raise ValueError(f'{args.atm_id}: unblock applies to Operator-blocked items (status is {item["status"]})')
+        db.execute("UPDATE items SET status='Queued',current_location='Issues',last_modified=? WHERE atm_id=?", (utcnow(), args.atm_id))
+        db.execute("DELETE FROM operator_block_details WHERE atm_id=?", (args.atm_id,))
+        history(db, args.atm_id, "Unblocked", args.actor, args.reason, "; ".join(clean))
+        update_meta(db, "unblock")
+        commit_write(db, base)
+    except Exception:
+        db.execute("ROLLBACK")
+        raise
+
+
+def rehash(db: sqlite3.Connection, args: argparse.Namespace) -> dict:
+    """Deliberately accept the current content as the new integrity baseline.
+
+    This is the one sanctioned way past `registry tampered`, and it is NOT a security
+    boundary: anyone who can write the database file can also run this command. It is
+    an audit trail (the git history of the tracked database is the real control).
+    Requirements: a reason; `--confirm` equal to the candidate hash printed by
+    `--dry-run`; real change since the baseline; nothing else wrong with the registry.
+    The log (meta.rehash_log, append-only, hash-chained, covered by the integrity hash)
+    names the items that changed against the last tool-written baseline."""
+    refuse_control_chars(actor=args.actor, reason=args.reason)
+    if not (args.reason or "").strip():
+        raise ValueError("rehash requires a reason")
+    db.execute("BEGIN IMMEDIATE")
+    try:
+        schema = schema_problem(db)
+        if schema:
+            raise ValueError("rehash refused; " + schema)
+        problems = validate(db, check_hash=False)
+        if problems:
+            raise ValueError("rehash refused; registry has other problems: " + "; ".join(problems[:5]))
+        row = db.execute("SELECT value FROM meta WHERE key='integrity_hash'").fetchone()
+        previous = row[0] if row else ""
+        candidate = integrity(db)
+        if previous == candidate:
+            raise ValueError("rehash refused; the stored hash already matches the content (nothing to accept)")
+        changed = changed_items(db)
+        if getattr(args, "dry_run", False):
+            db.execute("ROLLBACK")
+            return {"status": "DRY-RUN", "previous": previous, "candidate": candidate, "changed": changed}
+        if not getattr(args, "confirm", None) or args.confirm != candidate:
+            raise ValueError(f"rehash refused; --confirm must equal the candidate hash {candidate} (review it with --dry-run)")
+        log = db.execute("SELECT value FROM meta WHERE key='rehash_log'").fetchone()
+        last = log[0].split("\n")[-1] if log else None
+        entry = json.dumps({"on": utcnow(), "actor": args.actor, "reason": args.reason, "previous": previous, "candidate": candidate,
+                            "changed": changed, "prev_entry": hashlib.sha256(last.encode()).hexdigest() if last else ""}, sort_keys=True)
+        db.execute("INSERT INTO meta(key,value) VALUES('rehash_log',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", ((log[0] + "\n" if log else "") + entry,))
+        update_meta(db, "rehash")
+        new = db.execute("SELECT value FROM meta WHERE key='integrity_hash'").fetchone()[0]
+        db.execute("COMMIT")
+        return {"status": "PASS", "previous": previous, "candidate": candidate, "new": new, "changed": changed}
+    except Exception:
+        if db.in_transaction:
+            db.execute("ROLLBACK")
         raise
 
 
@@ -628,13 +1131,17 @@ def update_item(db: sqlite3.Connection, args: argparse.Namespace) -> None:
                 changes["closure_criteria"] = value
     if not changes:
         raise ValueError("update requires at least one field")
+    refuse_control_chars(actor=args.actor, reason=args.reason, evidence=args.evidence)
+    refuse_control_chars(**{key: value for key, value in changes.items() if isinstance(value, str)})
+    evidence = repo_evidence(args.evidence) if (args.evidence or "").strip() else ""
     changes["last_modified"] = utcnow()
     db.execute("BEGIN IMMEDIATE")
     try:
+        base = write_baseline(db)
         db.execute("UPDATE items SET " + ",".join(f"{key}=?" for key in changes) + " WHERE atm_id=?", [*changes.values(), args.atm_id])
-        history(db, args.atm_id, "Updated", args.actor, args.reason, args.evidence)
+        history(db, args.atm_id, "Updated", args.actor, args.reason, evidence)
         update_meta(db, "update")
-        db.execute("COMMIT")
+        commit_write(db, base)
     except Exception:
         db.execute("ROLLBACK")
         raise
@@ -651,6 +1158,9 @@ def main() -> int:
     export_parser.add_argument("--no-pdf", action="store_true")
     import_parser = sub.add_parser("import-md")
     import_parser.add_argument("--input", type=Path, default=DOCS)
+    import_parser.add_argument("--actor", choices=("AI", "User"), help="Required with --allow-overwrite.")
+    import_parser.add_argument("--reason", help="Required with --allow-overwrite.")
+    import_parser.add_argument("--allow-overwrite", action="store_true", help="Permit changing items that already exist (review the printed row-level changes first).")
     outbox_parser = sub.add_parser("helixtrack-outbox")
     outbox_parser.add_argument("--output", type=Path, default=DOCS / "tracking" / "helixtrack-outbox.json")
     add_parser = sub.add_parser("add")
@@ -689,9 +1199,26 @@ def main() -> int:
     update_parser.add_argument("--actor", choices=("AI", "User"), default="AI")
     update_parser.add_argument("--reason", default="registry-detail-update")
     update_parser.add_argument("--evidence", default="", help="Artifact path recorded on the history event for this update")
+    unblock_parser = sub.add_parser("unblock", help="Operator-blocked -> Queued (recorded)")
+    unblock_parser.add_argument("atm_id")
+    unblock_parser.add_argument("--actor", choices=("AI", "User"), required=True)
+    unblock_parser.add_argument("--reason", required=True)
+    unblock_parser.add_argument("--evidence", required=True, help="Existing file/directory under evidence/, ';'-separated")
+    rehash_parser = sub.add_parser("rehash", help="Accept reviewed out-of-band edits as the new integrity baseline (recorded).")
+    rehash_parser.add_argument("--actor", choices=("AI", "User"), required=True)
+    rehash_parser.add_argument("--reason", required=True)
+    rehash_parser.add_argument("--dry-run", action="store_true", help="Print the candidate hash and the items changed since the last tool write; write nothing.")
+    rehash_parser.add_argument("--confirm", default=None, help="The candidate hash printed by --dry-run (required to write).")
+    for name, helptext in (("start", "Queued/Reopened -> In progress"), ("pause", "In progress -> Queued")):
+        transition_parser = sub.add_parser(name, help=helptext)
+        transition_parser.add_argument("atm_id")
+        transition_parser.add_argument("--actor", choices=("AI", "User"), required=True)
+        transition_parser.add_argument("--reason", required=True)
+        transition_parser.add_argument("--evidence", required=True, help="Existing file/directory under evidence/ (repo-relative), ';'-separated")
     args = parser.parse_args()
-    db = connect(args.db)
+    db = None
     try:
+        db = connect_readonly(args.db) if args.command in ("validate", "diff") else connect(args.db)
         if args.command == "validate":
             problems = validate(db)
             if problems:
@@ -706,8 +1233,9 @@ def main() -> int:
             paths = export(db, args.output, not args.no_pdf)
             print(json.dumps({"status": "PASS", "written": [str(p) for p in paths]}, sort_keys=True))
         elif args.command == "import-md":
-            count = import_markdown(db, args.input)
-            print(json.dumps({"status": "PASS", "imported": count}, sort_keys=True))
+            changes = plan_import(db, args.input) if args.allow_overwrite else []
+            count = import_markdown(db, args.input, allow_overwrite=args.allow_overwrite, actor=args.actor, reason=args.reason)
+            print(json.dumps({"status": "PASS", "imported": count, "overwritten": changes}, sort_keys=True))
         elif args.command == "helixtrack-outbox":
             helixtrack_outbox(db, args.output)
             print(json.dumps({"status": "PASS", "remote_sync": "NOT RUN", "output": str(args.output)}, sort_keys=True))
@@ -722,14 +1250,36 @@ def main() -> int:
         elif args.command == "operator-block":
             block_item(db, args)
             print(json.dumps({"status": "PASS", "atm_id": args.atm_id, "lifecycle": "Operator-blocked"}, sort_keys=True))
+        elif args.command in ("start", "pause"):
+            args.target = "In progress" if args.command == "start" else "Queued"
+            previous, new = transition_item(db, args)
+            print(json.dumps({"status": "PASS", "atm_id": args.atm_id, "from": previous, "lifecycle": new}, sort_keys=True))
+        elif args.command == "unblock":
+            unblock_item(db, args)
+            print(json.dumps({"status": "PASS", "atm_id": args.atm_id, "lifecycle": "Queued"}, sort_keys=True))
+        elif args.command == "rehash":
+            print(json.dumps(rehash(db, args), sort_keys=True))
         elif args.command == "update":
             update_item(db, args)
             print(json.dumps({"status": "PASS", "atm_id": args.atm_id, "lifecycle": "Updated"}, sort_keys=True))
         return 0
+    except sqlite3.OperationalError as error:
+        text = str(error).lower()
+        if "locked" in text:
+            print(f"error: {error}; another process holds the registry write lock, retry later", file=sys.stderr)
+            return 2
+        if "readonly" in text or "read-only" in text or "unable to open" in text:
+            print(f"error: registry database cannot be opened for this command: {error}", file=sys.stderr)
+            return 2
+        raise
+    except ValueError as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
     finally:
-        with contextlib.suppress(Exception):
-            checkpoint(db)
-        db.close()
+        if db is not None:
+            with contextlib.suppress(Exception):
+                checkpoint(db)
+            db.close()
 
 
 if __name__ == "__main__":
