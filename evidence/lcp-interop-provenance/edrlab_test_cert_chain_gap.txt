@@ -1,0 +1,11 @@
+# shipped test provider cert (test/cert/cert-edrlab-test.pem @32570b6)
+subject=C=FR, L=Paris, O=EDRLab, OU=LCP Tests, CN=Test provider certificate, emailAddress=laurent.lemeur@edrlab.org
+issuer=C=FR, L=Paris, O=EDRLab, OU=LCP Tests, CN=EDRLab Readium LCP test CA
+notBefore=Mar 23 15:03:54 2026 GMT
+notAfter=Mar 20 15:03:54 2036 GMT
+# PEM certificate blocks anywhere in readium-lcp-server@32570b6 (root CA would be one):
+sign/cert/sample_ecdsa.crt
+sign/cert/sample_rsa.crt
+test/cert/cert-edrlab-test.pem
+# lcp-specs@812dd91 cert-like files:
+0
