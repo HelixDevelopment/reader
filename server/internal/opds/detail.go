@@ -32,11 +32,15 @@ func entry12(w catalog.Work, e catalog.Edition, streams map[string]PageStream) E
 	}
 	entry.Links = append(entry.Links, Link12{Rel: "alternate", HREF: "/opds/1.2/editions/" + url.PathEscape(e.ID), Type: MIME12Entry, Title: "Complete catalog entry"})
 	for _, file := range e.Files {
-		entry.Links = append(entry.Links, Link12{Rel: RelAcquisition, HREF: "/v1/files/" + url.PathEscape(file.ID) + "/content", Type: file.MIMEType, Title: fmt.Sprintf("%s (%s)", e.Title, file.Format)})
 		if file.DRMScheme == "lcp" && file.LicenseHREF != "" {
-			// The acquisition above is the fulfilled, still-encrypted EPUB; the
-			// License Document is offered beside it so a reader can unlock it.
-			entry.Links = append(entry.Links, Link12{Rel: RelRelated, HREF: file.LicenseHREF, Type: LCPLicenseMIME, Title: "LCP license"})
+			// OPDS 1.2 §5.3 + readium lcp-key-retrieval: a protected publication is
+			// acquired through its License Document, which yields the EPUB
+			// (indirectAcquisition). The still-encrypted EPUB is deliberately not
+			// listed as a plain epub acquisition; /v1/files/{id}/content still
+			// serves it for direct download.
+			entry.Links = append(entry.Links, Link12{Rel: RelAcquisition, HREF: file.LicenseHREF, Type: LCPLicenseMIME, Title: fmt.Sprintf("%s (LCP license)", e.Title), IndirectAcquisition: []Indirect12{{Type: "application/epub+zip"}}})
+		} else {
+			entry.Links = append(entry.Links, Link12{Rel: RelAcquisition, HREF: "/v1/files/" + url.PathEscape(file.ID) + "/content", Type: file.MIMEType, Title: fmt.Sprintf("%s (%s)", e.Title, file.Format)})
 		}
 		if link, ok := streamLink(file.ID, streams[file.ID]); ok {
 			entry.Links = append(entry.Links, link)
@@ -69,9 +73,12 @@ func publication20(w catalog.Work, e catalog.Edition) Publication2 {
 		p.Images = []Link2{{HREF: e.CoverHREF, Type: "image/jpeg", Rel: "cover"}}
 	}
 	for _, file := range e.Files {
-		p.Links = append(p.Links, Link2{HREF: "/v1/files/" + url.PathEscape(file.ID) + "/content", Rel: RelAcquisition, Type: file.MIMEType, Title: file.Format})
 		if file.DRMScheme == "lcp" && file.LicenseHREF != "" {
-			p.Links = append(p.Links, Link2{HREF: file.LicenseHREF, Rel: RelRelated, Type: LCPLicenseMIME, Title: "LCP license"})
+			// OPDS 2.0 §5.3: license acquisition with properties.indirectAcquisition;
+			// see entry12 for why the plain EPUB link is not listed.
+			p.Links = append(p.Links, Link2{HREF: file.LicenseHREF, Rel: RelAcquisition, Type: LCPLicenseMIME, Title: "LCP license", Properties: map[string]any{"indirectAcquisition": []map[string]string{{"type": "application/epub+zip"}}}})
+		} else {
+			p.Links = append(p.Links, Link2{HREF: "/v1/files/" + url.PathEscape(file.ID) + "/content", Rel: RelAcquisition, Type: file.MIMEType, Title: file.Format})
 		}
 	}
 	return p
