@@ -1,0 +1,31 @@
+✔ navigation: only the app origin (2.043107ms)
+✔ requests: app assets, blob and data only; devtools only when enabled (0.406061ms)
+✔ server url normalisation (0.787213ms)
+✔ serves index with CSP, refuses traversal and other hosts (58.948874ms)
+✔ API: forwarded to the configured base with injected creds, cookies stripped; 503 when unconfigured (6.173793ms)
+✔ CSP is strict (1.770306ms)
+✔ blank password is kept while the server origin is unchanged (55.975253ms)
+✔ blank password is NOT carried over to a different server origin (8.25575ms)
+✔ an explicitly typed password is used for the new origin (3.965044ms)
+✔ forget-password clears the stored password, reloads, and is shell-only (2.615069ms)
+✔ connection UI and preload expose a forget-password action (0.861563ms)
+✔ API paths (1.573006ms)
+✔ buildTarget forwards path+query to the configured base only (1.334005ms)
+✔ buildTarget refuses everything else (0.453122ms)
+✔ request headers: no cookie, injected creds only when none sent (41.17578ms)
+✔ response headers: strip cookies, www-authenticate, upstream CORS, hop-by-hop (0.757003ms)
+✔ request headers: host, method override and forwarding headers are never forwarded (0.371171ms)
+✔ sandbox state is PASS only when observed ON; OFF is a WARN, or a FAIL when it was expected (2.298558ms)
+✔ live.mjs never lets an OFF sandbox count as PASS (0.692552ms)
+✔ password stored encrypted, never plain text (3.01212ms)
+✔ no encryption => password not persisted (memory only) (1.972178ms)
+✔ static resolves inside root and refuses traversal (1.213944ms)
+✔ mime (0.575272ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 206.857572

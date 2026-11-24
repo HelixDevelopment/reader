@@ -1,6 +1,6 @@
 {
   "item": "HRD-022",
-  "host": "Linux x86_64 (Ubuntu); global PATH has no javac, project JDK (Temurin 21.0.13.1) at ~/tools/jdk-21 via clients/android/.env.sh; no Apple/Windows toolchains",
+  "host": "Linux x86_64 (Ubuntu); global PATH has no javac, project JDK (Temurin 21.0.13.1) in the per-user tool directory (clients/tools/fetch_jdk.sh; the per-user .env.sh is not tracked); no Apple/Windows toolchains",
   "policy": "Section 11.4.81: every promised platform is listed with an honest status. BLOCKED entries carry the exact reason and a reproducer whose real output is captured in evidence/clients/blocked_reproducers.json by clients/tools/capture_blocked.py.",
   "platforms": [
     {
@@ -19,11 +19,11 @@
     {
       "id": "linux",
       "name": "Linux desktop",
-      "status": "VERIFIED",
+      "status": "BUILT",
       "technology": "Electron 45.4.1 shell around clients/web (clients/desktop): app:// scheme, strict CSP, contextIsolation, main-process API proxy, safeStorage credentials (Chromium renderer sandbox: configured in code, NOT observed ON in the container run)",
-      "notes": "Electron 45.4.1 shell around clients/web; the unpacked app was run for real inside the isolated rootless container (network none, private Xvfb, no host display/session; qa/isolation/run_desktop_live.sh): clients/desktop/e2e/live.mjs 10 PASS + 1 WARN (chromium-sandbox-state, recorded NOT verified) + 0 FAIL via Playwright _electron against a live helix-server: real titles in the DOM, app:// origin, no Node globals in the renderer, CSP blocks an external fetch, cross-origin navigation refused, no cookies, no unexpected console errors, password absent from userData JSON; screenshots recorded; container facts in container_proof.json. CHROMIUM SANDBOX WAS OFF in this run (Electron does not launch in the unprivileged container with it on: hardening/desktop_sandbox_attempt.log), so the sandbox is NOT verified. Two e2e-script defects found and fixed in the container run (blocked-navigation stall ordering; deliberate CSP-probe console errors counted as failures); the app needed no change. Not verified: safeStorage keystore (no keyring in the container), installed .deb via dpkg, signing, AppImage, Chromium sandbox. Policy modules: 15 unit tests, 11/12 mutants killed (1 equivalent). Vision oracle not used (UNVERIFIED); oracle is the DOM/accessibility tree.",
+      "notes": "Electron 45.4.1 shell around clients/web; the unpacked app was run for real inside the isolated rootless container (network none, private Xvfb, no host display/session; qa/isolation/run_desktop_live.sh): clients/desktop/e2e/live.mjs 10 PASS + 1 WARN (chromium-sandbox-state, recorded NOT verified) + 0 FAIL via Playwright _electron against a live helix-server: real titles in the DOM, app:// origin, no Node globals in the renderer, CSP blocks an external fetch, cross-origin navigation refused, no cookies, no unexpected console errors, password absent from userData JSON; screenshots recorded; container facts in container_proof.json. CHROMIUM SANDBOX WAS OFF in this run (Electron does not launch in the unprivileged container with it on: hardening/desktop_sandbox_attempt.log), so the sandbox is NOT verified. Two e2e-script defects found and fixed in the container run (blocked-navigation stall ordering; deliberate CSP-probe console errors counted as failures); the app needed no change. Not verified: safeStorage keystore (no keyring in the container), installed .deb via dpkg, signing, AppImage, Chromium sandbox. Policy modules: 23 unit tests (unit_GREEN_23tests.log) (clients/desktop/test), 11/12 mutants killed (1 equivalent); main.js wiring (sandbox, contextIsolation, IPC sender check) has no unit test (tracked follow-up). Status is BUILT, not VERIFIED, until the container-run evidence (PR #5, listed in pending_evidence) is on main. Vision oracle not used (UNVERIFIED); oracle is the DOM/accessibility tree.",
       "evidence": [
-        "evidence/clients/desktop/unit_GREEN.log",
+        "evidence/clients/desktop/unit_GREEN_23tests.log",
         "evidence/clients/desktop/unit_RED_modules_absent.log",
         "evidence/clients/desktop/mutation_check.log",
         "evidence/clients/desktop/live_handler.log",
@@ -145,5 +145,18 @@
       "technology": "Web UI with a high-contrast no-animation profile",
       "notes": "spec/03_plan.md names an e-ink simulator profile; nothing exists yet."
     }
-  ]
+  ],
+  "pending_evidence": {
+    "note": "Paths cited by a platform row that ship in another open PR; allowed only on non-VERIFIED rows.",
+    "paths": {
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__RUN.txt": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__results.json": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__container_proof.json": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/isolated/desktop/01_library.png": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/02_detail.png": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/server_access.log": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/SHA256SUMS": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/hardening/desktop_sandbox_attempt.log": "PR #5"
+    }
+  }
 }

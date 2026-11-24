@@ -5,7 +5,7 @@ HRD-022 Linux desktop (Electron 45.4.1, Chromium 156.0.8078.100). Generated 2026
 SCOPE: NO GUI WINDOW WAS EVER OPENED. Operator directive forbids windows on the host display; the isolated
 podman/Xvfb runner is being built by another agent. Therefore everything below is non-GUI.
 Proven:
- 1. unit tests (node:test) 15/15 GREEN: unit_GREEN.log; RED (lib modules absent): unit_RED_modules_absent.log
+ 1. unit tests (node:test) 23/23 GREEN at PR head: unit_GREEN_23tests.log (unit_GREEN.log is the earlier 21-test capture); RED (lib modules absent): unit_RED_modules_absent.log
  2. mutation check on allowlist/proxy/static/csp/secrets: 11 KILLED, 1 EQUIVALENT (documented): mutation_check.log
  3. live handler check against a real helix-server (go build, in-memory catalog, 0600 env file, fixtures from
     qa/helixqa/fixtures/make_fixtures.py, 127.0.0.1:28191, server stopped afterwards): 15/15 PASS: live_handler.log/.json
