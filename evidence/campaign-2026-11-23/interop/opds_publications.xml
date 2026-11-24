@@ -1,0 +1,49 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:pse="http://vaemendis.net/opds-pse/ns">
+  <id>/opds/1.2/publications?limit=20&amp;offset=0</id>
+  <title>Helix Publications</title>
+  <updated>2026-11-23T19:22:50Z</updated>
+  <author>
+    <name>Helix Reader</name>
+  </author>
+  <link rel="self" href="/opds/1.2/publications?limit=20&amp;offset=0" type="application/atom+xml;profile=opds-catalog;kind=acquisition"></link>
+  <link rel="start" href="/opds/1.2" type="application/atom+xml;profile=opds-catalog;kind=navigation"></link>
+  <link rel="search" href="/opds/1.2/opensearch.xml" type="application/opensearchdescription+xml"></link>
+  <entry>
+    <title>live-server-pse</title>
+    <id>urn:helix:edition:edition-b5d57c580880f3c60c7d4567</id>
+    <updated>2026-11-23T19:22:50Z</updated>
+    <link rel="alternate" href="/opds/1.2/editions/edition-b5d57c580880f3c60c7d4567" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+    <link rel="http://opds-spec.org/acquisition" href="/v1/files/file-fed9946eaf3cd485c88021d0/content" type="application/vnd.comicbook+zip" title="live-server-pse (cbz)"></link>
+    <link rel="http://vaemendis.net/opds-pse/stream" href="/opds-pse/stream/file-fed9946eaf3cd485c88021d0/{pageNumber}" type="image/png" xmlns:ns="http://vaemendis.net/opds-pse/ns" ns:count="3"></link>
+  </entry>
+  <entry>
+    <title>live-server-plain</title>
+    <id>urn:helix:edition:edition-a64ddd0cd18b1f8a44ca2abc</id>
+    <updated>2026-11-23T19:22:50Z</updated>
+    <link rel="alternate" href="/opds/1.2/editions/edition-a64ddd0cd18b1f8a44ca2abc" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+    <link rel="http://opds-spec.org/acquisition" href="/v1/files/file-a991c7fda2a6667253560ea3/content" type="text/plain" title="live-server-plain (txt)"></link>
+  </entry>
+  <entry>
+    <title>live-server-mixed</title>
+    <id>urn:helix:edition:edition-3f2784471cd9e84ad3adeb56</id>
+    <updated>2026-11-23T19:22:50Z</updated>
+    <link rel="alternate" href="/opds/1.2/editions/edition-3f2784471cd9e84ad3adeb56" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+    <link rel="http://opds-spec.org/acquisition" href="/v1/files/file-c0d1818a30ad6ea29d123da7/content" type="application/vnd.comicbook+zip" title="live-server-mixed (cbz)"></link>
+  </entry>
+  <entry>
+    <title>live-server-forge</title>
+    <id>urn:helix:edition:edition-99a811fe2197dfb9ca8d3635</id>
+    <updated>2026-11-23T19:22:50Z</updated>
+    <link rel="alternate" href="/opds/1.2/editions/edition-99a811fe2197dfb9ca8d3635" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+    <link rel="http://opds-spec.org/acquisition" href="/v1/files/file-d02da9841b4a08e13ef454cd/content" type="application/vnd.comicbook+zip" title="live-server-forge (cbz)"></link>
+  </entry>
+  <entry>
+    <title>live-server-cbr-stub</title>
+    <id>urn:helix:edition:edition-4579f17342047f1b24945e53</id>
+    <updated>2026-11-23T19:22:50Z</updated>
+    <link rel="alternate" href="/opds/1.2/editions/edition-4579f17342047f1b24945e53" type="application/atom+xml;type=entry;profile=opds-catalog" title="Complete catalog entry"></link>
+    <link rel="http://opds-spec.org/acquisition" href="/v1/files/file-6cadd04df02bd2d722b905a6/content" type="application/vnd.comicbook-rar" title="live-server-cbr-stub (cbr)"></link>
+  </entry>
+  <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">5</totalResults>
+  <itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">20</itemsPerPage>
+</feed>
