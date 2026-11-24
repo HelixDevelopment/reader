@@ -1,0 +1,121 @@
+VERDICT: NO-GO
+HEAD: 24bc76a5075ca4c084f6d726c31d61aa5f22e480
+Round: 2 of max 5 (§11.4.276). Reviewer: independent subagent (not the author, not the round-1 reviewer), Opus 5.5; effort not
+reported by the dispatch path (UNCONFIRMED). 2026-11-24.
+Scope: static reading + hermetic runs only. No container, no podman, no GUI, no display touched. podman was a PATH stub in the
+reviewer scratchpad. Not exercised: test_network_isolation, test_runtime_checks, test_reaper, canary_probe (need real podman).
+Head check: `git ls-remote github` refs/heads/task/HRD-081-isolation-runner = 24bc76a5...; worktree HEAD = same, clean.
+Fresh check: `git worktree add --detach` of the head in the reviewer scratchpad; `clients/` absent there.
+
+=== ROUND-1 ITEMS, RE-VERIFIED ===
+B1 fixed: `python3 -I tools/isolation/guard/assert_host_untouched.py .` in the fresh worktree (no clients/):
+    "assert_host_untouched: PASS (0 finding(s); files scanned 491, symlinks 5 (outside repo 0))" rc=0
+    test_waivers 9 OK; tools/isolation/assert_host_untouched.sh rc=0.
+B2 fixed for the reported instance: ISO_WORK=<this repo> bindcheck rw <repo>/tools/isolation -> rc=64. Class NOT closed: R2-B2.
+I1 fixed: -eDISPLAY=:0, -e display=:0, -e WAYLAND_SOCKET=3, -e XDG_RUNTIME_DIR=/run/user/1000, -e DBUS_STARTER_ADDRESS=...,
+    bare `-e DISPLAY`, ' DISPLAY=:0', 'DISPLAY =:0' -> rc=64; --env=DISPLAY=:0 -> rc=2 (getopts refuses long options).
+I2 fixed: docs/test-isolation.md lines 181-196 list the absent clean-clone prerequisites. I4 fixed: run_android_emulator.sh not in
+    the tree (git ls-files count 0); section 6 says Android is NOT covered. M1/M3(image)/M4 fixed. I3: listed instances fixed,
+    class not closed (R2-I2).
+Tests in the fresh worktree: test_waivers 9 OK; test_guard_matrix OK "189 caught of 189 required; residual documented: 12";
+    test_bindcheck 18 OK; test_proxy_policy 7 OK; test_review_round1 16 OK; guard/test_assert_host_untouched 14 OK.
+shellcheck -S warning over the 15 PR shell files: rc=1, only the two disclosed leftovers (SC1010 run_koreader_gui.sh:46,
+    SC2046 start_server.sh:17), both harmless.
+Evidence: evidence/campaign-2026-11-23/isolated `sha256sum -c --quiet SHA256SUMS` rc=0; SHA256SUMS sha256 ba6e0c3c...79e8 matches
+    the commit trailer; evidence/reviews/pr5-HRD-081-review.txt sha256 1a1e4815...fb69 matches the 0c300d0 trailer.
+Secrets: grep for Bearer/ADMIN=/OPDS_PASS= values, private keys, ghp_ tokens over evidence/, tools/, qa/, the doc -> no hits.
+Trailers: `Roadmap-Item: HRD-081` on 23c03b0, 0c300d0, 24bc76a.
+
+=== BLOCKING ===
+R2-B1. Host scripts write through, and read through, container-controlled entries of read-write binds (symlink planting).
+    Class: the content of an rw bind is attacker-controlled once the container ran, but host-side code later opens paths in it
+    with symlink-following calls. Instances in qa/isolation/run_koreader_gui.sh (OUT is bound `-w "$OUT:/out"`, PR is bound
+    `-w "$PR:/prof"`, the container runs until cleanup):
+      line 25/44/46 `say` -> `tee -a "$OUT/steps.log"`         (append through a planted symlink; text includes `$(D close)`,
+                                                               i.e. container output, newlines allowed)
+      line 41 `cp "$ST/access.log" "$OUT/server_access.log"`   (overwrite through a planted symlink)
+      line 42 `> "$OUT/redis_sink.txt"`, line 44 kosync_proof.py writes "$OUT/kosync_proof.json"
+      line 45 `cp "$PR/$P/ko.log" "$OUT/ko_$P.log"`            (read side: a planted ko.log -> ~/.ssh/... copies a host file into
+                                                               the evidence tree that later gets committed)
+    Also container_proof.py writes "$OUT/container_proof.json.tmp" with open() (race, same class) in every runner, and the -b socket
+    directory is rw for the container.
+    Reproduction (hermetic, no container; the planted links stand in for what code inside the container can do to /out; target is a
+    scratch file, never a real home file), host lines copied verbatim from run_koreader_gui.sh:
+      ln -s <scratch>/victim_bashrc $OUT/steps.log; ln -s <scratch>/victim_bashrc $OUT/server_access.log
+      say "A close: $(printf 'ok\ntouch /tmp/PWNED_by_container   # injected line')"
+      -> victim_bashrc: "ORIGINAL$ / 2026-11-24T01:14:46Z A close: ok$ / touch /tmp/PWNED_by_container   # injected line$"
+      cp access.log $OUT/server_access.log -> victim_bashrc now "log line" (overwritten)
+      ln -s victim prof/A/ko.log; cp prof/A/ko.log out/ko_A.log -> out/ko_A.log is a regular file with the victim's content
+    With the target ~/.bashrc this is container -> host code execution, i.e. a full breach of "the container is the boundary" and
+    of the operator's HARD RULE (host code could then drive the desktop). Same class as round-1 B2 (container-writable state that
+    the host later acts on). No test covers it; bindcheck's freshness check runs only BEFORE the run.
+    Fix (class-wide): after the container stops, host code must treat every rw-bound tree as untrusted: write host outputs only to
+    a directory the container never had (e.g. a sibling of OUT, then move), or open with O_NOFOLLOW / refuse when the path is a
+    symlink (`[ -L ]` checks race; prefer writing to a host-only dir), and copy out of PR/OUT only regular files (`find -type f`,
+    `cp --no-dereference`/`-P`), refusing symlinks and hard links to foreign inodes. Add a lint/test: plant symlinks in a stub
+    OUT/PR and assert the runner's post-processing touches no path outside them (paired mutant: restore the plain cp/tee).
+
+R2-B2. B2 class not closed: ISO_WORK may be ANY other checkout under ~/.cache/claude-tmp, including another worktree of this
+    very repository (agent worktrees live there), and then its host-executed code is writable by the container.
+    iso_error only compares with the repo the running bindcheck.py belongs to. Measured from the fresh worktree:
+      ISO_WORK=~/.cache/claude-tmp/wt-isolation bindcheck rw <that>/tools/isolation /work/t -> rc=0
+      ISO_WORK=~/.cache/claude-tmp/wt-isolation bindcheck rw <that>/qa/isolation   /work/t -> rc=0
+      ISO_WORK=~/.cache/claude-tmp/wt-isolation bindcheck rw <that>/.git           /work/t -> rc=0
+        (a worktree's .git is a FILE `gitdir: ...`; rewritten, it can point git at a container-made gitdir with
+         core.hooksPath/core.fsmonitor -> code runs when any host tool runs git there)
+      ISO_WORK=<dir> bindcheck rw <dir>/.claude /work/t -> rc=0  (touches_sensitive only knows $HOME/.claude*; a project
+         .claude/settings.json defines hooks the host agent executes)
+    From the main checkout (~/Projects/helix_reader) the same holds for every agent worktree and scratch tree under
+    ~/.cache/claude-tmp. Fix (class-wide): ISO_WORK must be a directory the runner itself created and marked (e.g. only under
+    ~/.cache/helix-iso, created by a tool that writes a marker file, refused if it or any ancestor/descendant holds .git,
+    .claude*, .specify, or executable files), or drop ~/.cache/claude-tmp from DEDICATED; refuse rw sources that contain/are a
+    .git entry or .claude* at any depth. Paired mutant + a test with a sibling-repo fixture.
+
+=== IMPORTANT ===
+R2-I1. -m/-c/-t checks are charset-only; values that remove the cap are accepted, and the PR body claims "refuses ... invalid
+    image, -m, -c, -t". Stub runs (rc=0, podman argv recorded):
+      -t 0   -> `--timeout 0`   (podman: 0 = no lifetime limit; the "orphaned container dies by itself" guarantee is gone)
+      -m 0   -> `--memory 0 --memory-swap 0`  (meaning in podman UNCONFIRMED; in docker 0 = unlimited); -m k, -m 99999999999g accepted
+      -c 0, -c ., -c 1.2.3 accepted (`--cpus 0`: UNCONFIRMED, docker treats 0 as no limit)
+    Fix: numeric ranges (e.g. -t 1..7200, -m 64m..host-derived cap per §12.6, -c 0.1..nproc) + paired mutants; correct the PR body.
+R2-I2. Lint I3 class still enumerated instance by instance. New inputs (scan of tools/a.sh with a shebang):
+      MISSED: podman run --env-host (whole host env, i.e. DISPLAY/DBUS/XAUTHORITY - the I1 class at the lint layer)
+      MISSED: podman run --rootfs / (host root as the container rootfs)
+      MISSED: podman run -v .:/h ; podman run -v "$PWD":/h ; podman run --pod hostnetpod
+      MISSED: --device-cgroup-rule='c 13:* rmw' ; --sysctl kernel.shm_rmid_forced=1 ; podman cp hrdiso-x:/out/a.sh "$HOME/.bashrc"
+      CAUGHT: --network ns:/proc/1/ns/net, --mount type=bind,src=., --mount ...destination=/h,source=/home, -v /home/u:/h:z,rbind,
+              --security-opt label=disable, --security-opt=seccomp=unconfined, podman exec --privileged, -v ..:/h,
+              --mount src=~, `command podman run --privileged`, `sudo -E podman run --net=host`, `systemd-run --user podman run
+              --network host`, --userns=host, --pid host
+    The boundary is run_container.sh (fixed argv), so these only matter for code that bypasses it - which is exactly what the lint
+    is for. Fix (class closure): any podman/docker/nerdctl run|create|exec|cp outside tools/isolation/ (and the redis line in
+    start_server.sh) is a finding unless pinned-waived; keep the flag deny-list as a second layer.
+R2-I3. Hermetic tests do not assert the runner's hardening flags behaviourally. New mutants (applied in the fresh worktree, all
+    committed hermetic suites + the repo scan run, then reverted):
+      M-A run_container.sh: delete `--cap-drop ALL --security-opt no-new-privileges` -> caught ONLY by the hash pin
+          (SCAN: waiver-pin-mismatch, denylist-marker-unpinned, display-env; test_waivers). A deliberate pin_waivers.py repin
+          would make it pass: no test asserts --cap-drop ALL / no-new-privileges / --memory-swap / --pids-limit in the argv.
+      M-B launch.sh: DISPLAY != :99 check replaced by ':' -> SURVIVES the hermetic suites. test_runtime_checks (--full) says the
+          image entrypoint pins DISPLAY=:99, so this check is likely never exercised even with podman (UNCONFIRMED, not run).
+      M-C reap.sh: startup-grace line replaced by ':' -> SURVIVES hermetic suites (test_review_round1 uses REAP_GRACE=1 and lease
+          1); covered by test_reaper under --full (not run here).
+      M-D access_proxy.py: drop the `%2f` refusal -> CAUGHT by test_proxy_policy.
+      M-E bindcheck.py: rw evidence freshness check disabled -> CAUGHT by test_bindcheck.
+      M-F bindcheck.py: drop `real == home or inside(home, real)` -> SURVIVES; equivalent mutant (the allow-list already excludes
+          $HOME and its ancestors), recorded, not a gap.
+    Fix: extend test_review_round1's argv assertion (golden-good) to the full hardening flag set; add a hermetic grace test.
+
+=== MINOR ===
+m1. docs/test-isolation.md says "187 cases = 177 REQUIRED ... 10 documented RESIDUAL"; measured 189 required + 12 residual.
+m2. Doc table row "Android emulator | no | yes, own container, headless, /dev/kvm" contradicts section 6 ("NOT covered by the
+    guarantees of this document"); mark the row as not covered.
+m3. Env denylist misses ICEAUTHORITY and other session names (defence in depth only; no host socket is mountable).
+m4. PR body: author-only reviewer list (config/delivery.conf pr_reviewers, policy report-and-merge) - the "no reviewer possible"
+    note §11.4.297(D)(6) needs is not in the body yet (merge-time item; requested_reviewers API 404, 0 reviews).
+m5. Disclosed shellcheck leftovers SC1010/SC2046 (harmless).
+
+=== CONCLUSION ===
+Round-1 instances are fixed and the gate is green on a clean tree. Two blocking classes remain, both "container-written state the
+host later acts on": symlink planting in rw binds (R2-B1, demonstrated write-through and read-through with the runner's own host
+lines) and ISO_WORK covering another checkout's host-executed code (R2-B2, measured rc=0). Plus uncapped -t/-m/-c values that the
+PR body says are refused (R2-I1). NO-GO.
