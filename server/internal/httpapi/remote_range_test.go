@@ -50,16 +50,16 @@ func TestRemoteSourcesHonourRange(t *testing.T) {
 	if err := os.WriteFile(cfgPath, []byte("[wfdav]\ntype = local\nnolink = true\n"), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	addr := freeTCPAddr(t)
+	addr := remoteTestFreeAddr(t)
 	serve := exec.Command("rclone", "--config", cfgPath, "serve", "webdav", "wfdav:", "--addr", addr, "--dir-cache-time", "1ms")
 	serve.Dir = root
-	logs := &serveLogBuffer{}
+	logs := &remoteTestLogBuffer{}
 	serve.Stdout, serve.Stderr = logs, logs
 	if err := serve.Start(); err != nil {
 		t.Fatal(err)
 	}
 	defer func() { _ = serve.Process.Kill(); _ = serve.Wait() }()
-	waitForWebDAVPath(t, "http://"+addr, "books/r.bin", digest, logs)
+	remoteTestWaitWebDAV(t, "http://"+addr, "books/r.bin", digest, logs)
 
 	webdav, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: "http://" + addr + "/"})
 	if err != nil {
@@ -192,5 +192,45 @@ func TestWebDAVWithoutContentLengthNeverServesEmpty(t *testing.T) {
 	case st == 200 && bytes.Equal(b, payload) && h.Get("Content-Range") == "":
 	default:
 		t.Fatalf("range GET: status %d, %d bytes, Content-Range %q", st, len(b), h.Get("Content-Range"))
+	}
+}
+
+// An origin that ignores Range at a non-zero offset makes OpenRange fail. The
+// resulting 502 must not carry the 206-style Content-Range / Content-Length
+// headers that were prepared for the success path.
+func TestOpenRangeFailureDoesNotLeakPartialHeaders(t *testing.T) {
+	payload := bytes.Repeat([]byte("0123456789"), 100)
+	mod := time.Date(2026, 11, 23, 21, 47, 33, 0, time.UTC)
+	origin := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "PROPFIND" {
+			w.WriteHeader(207)
+			fmt.Fprintf(w, `<?xml version="1.0"?><D:multistatus xmlns:D="DAV:"><D:response><D:href>/b.bin</D:href><D:propstat><D:prop><D:getcontentlength>1000</D:getcontentlength><D:getlastmodified>%s</D:getlastmodified><D:resourcetype/></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat></D:response></D:multistatus>`, mod.Format(http.TimeFormat))
+			return
+		}
+		_, _ = w.Write(payload) // ignores Range: always 200 with the whole body
+	}))
+	defer origin.Close()
+	conn, err := sources.NewWebDAV(sources.Config{Protocol: "webdav", Endpoint: origin.URL + "/"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	repo := catalog.NewMemory()
+	now := time.Now().UTC()
+	if err := repo.UpsertWork(context.Background(), catalog.Work{ID: "w", CanonicalTitle: "w", CreatedAt: now, UpdatedAt: now,
+		Editions: []catalog.Edition{{ID: "e", Title: "w", State: catalog.Identified, UpdatedAt: now,
+			Files: []catalog.File{{ID: "f", SourceID: "src", Path: "b.bin", Format: "bin", MIMEType: "application/octet-stream", Size: 1000, SHA256: fmt.Sprintf("%x", sha256.Sum256(payload)), ModifiedAt: mod}}}}}); err != nil {
+		t.Fatal(err)
+	}
+	srv := New(config.Config{Address: "127.0.0.1:0", BrotliLevel: 4}, repo, sources.DefaultRegistry(), &ingest.Service{Repository: repo})
+	srv.connectors["src"] = conn
+	ts := httptest.NewServer(srv.Router())
+	defer ts.Close()
+	client := &http.Client{Transport: &http.Transport{DisableCompression: true}}
+	st, h, _ := doContent(t, client, http.MethodGet, ts.URL+"/v1/files/f/content", map[string]string{"Range": "bytes=10-19"})
+	if st != http.StatusBadGateway {
+		t.Fatalf("status %d, want 502", st)
+	}
+	if h.Get("Content-Range") != "" || h.Get("Content-Length") == "10" {
+		t.Fatalf("error response leaks partial-content headers: Content-Range=%q Content-Length=%q", h.Get("Content-Range"), h.Get("Content-Length"))
 	}
 }

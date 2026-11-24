@@ -6,6 +6,9 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
+	"path/filepath"
+	"strconv"
 	"strings"
 	"testing"
 )
@@ -189,5 +192,66 @@ func TestWebDAVListSkipsCollectionWithLength(t *testing.T) {
 	es, err := revalServer(t, body).List(context.Background(), "")
 	if err != nil || len(es) != 0 {
 		t.Fatalf("%+v %v", es, err)
+	}
+}
+
+// A non-2xx propstat (properties the resource lacks) must not contribute: its
+// length, mtime and collection flag are not facts about the resource.
+func TestWebDAVRevalidateIgnoresNon2xxPropstat(t *testing.T) {
+	x := `<?xml version="1.0"?><D:multistatus xmlns:D="DAV:"><D:response><D:href>/b.bin</D:href>` +
+		`<D:propstat><D:prop><D:getcontentlength>99</D:getcontentlength><D:getlastmodified>Tue, 01 Dec 2026 00:00:00 GMT</D:getlastmodified></D:prop><D:status>HTTP/1.1 404 Not Found</D:status></D:propstat>` +
+		`<D:propstat><D:prop><D:getcontentlength>42</D:getcontentlength><D:getlastmodified>Mon, 23 Nov 2026 21:47:33 GMT</D:getlastmodified><D:resourcetype/></D:prop><D:status>HTTP/1.1 200 OK</D:status></D:propstat>` +
+		`</D:response></D:multistatus>`
+	size, mod, err := revalServer(t, x).Revalidate(context.Background(), "b.bin")
+	if err != nil || size != 42 || mod.UTC().Format(http.TimeFormat) != "Mon, 23 Nov 2026 21:47:33 GMT" {
+		t.Fatalf("size=%d mod=%v err=%v, want 42 / 23 Nov", size, mod, err)
+	}
+}
+
+// scriptedRclone writes an executable stand-in for the rclone binary that prints
+// stdout and exits with rc (stderr text on failure).
+func scriptedRclone(t *testing.T, stdout, stderr string, rc int) *Rclone {
+	t.Helper()
+	dir := t.TempDir()
+	script := "#!/bin/sh\nprintf '%s' '" + stdout + "'\nprintf '%s' '" + stderr + "' >&2\nexit " + strconv.Itoa(rc) + "\n"
+	bin := filepath.Join(dir, "rclone")
+	if err := os.WriteFile(bin, []byte(script), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	c, err := NewRclone(Config{Protocol: "sftp", Endpoint: "r:root", RclonePath: bin})
+	if err != nil {
+		t.Fatal(err)
+	}
+	return c.(*Rclone)
+}
+
+func TestRcloneRevalidateUnit(t *testing.T) {
+	ctx := context.Background()
+	ok := `{"Path":"b.bin","Size":42,"ModTime":"2026-11-23T21:47:33.123456789Z","IsDir":false}`
+	size, mod, err := scriptedRclone(t, ok, "", 0).Revalidate(ctx, "b.bin")
+	if err != nil || size != 42 || mod.Nanosecond() != 123456789 {
+		t.Fatalf("ok: %d %v %v", size, mod, err)
+	}
+	if _, _, err := scriptedRclone(t, `{"Size":0,"IsDir":true,"ModTime":"2026-11-23T21:47:33Z"}`, "", 0).Revalidate(ctx, "d"); err == nil {
+		t.Fatal("directory must not revalidate as a file")
+	}
+	if _, _, err := scriptedRclone(t, ok, "", 0).Revalidate(ctx, "../x"); !errors.Is(err, ErrTraversal) {
+		t.Fatalf("leading traversal: %v", err)
+	}
+	if _, _, err := scriptedRclone(t, ok, "", 0).Revalidate(ctx, "a/../x"); !errors.Is(err, ErrTraversal) {
+		t.Fatalf("embedded traversal: %v", err)
+	}
+	// Unparsable ModTime or negative size: unknown metadata (-1, nil), not an error.
+	for _, bad := range []string{`{"Size":42,"ModTime":"garbage","IsDir":false}`, `{"Size":-1,"ModTime":"2026-11-23T21:47:33Z","IsDir":false}`} {
+		size, _, err := scriptedRclone(t, bad, "", 0).Revalidate(ctx, "b.bin")
+		if err != nil || size != -1 {
+			t.Fatalf("unknown metadata %s: size=%d err=%v, want -1,nil", bad, size, err)
+		}
+	}
+	if _, _, err := scriptedRclone(t, "", "directory not found", 3).Revalidate(ctx, "b.bin"); !errors.Is(err, ErrNotFound) {
+		t.Fatalf("exit 3: %v", err)
+	}
+	if _, _, err := scriptedRclone(t, "", "boom", 1).Revalidate(ctx, "b.bin"); err == nil || errors.Is(err, ErrNotFound) {
+		t.Fatalf("generic failure must be a non-404 error: %v", err)
 	}
 }

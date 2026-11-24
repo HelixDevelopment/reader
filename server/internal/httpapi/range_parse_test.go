@@ -13,6 +13,9 @@ func TestSingleRangeRFC9110(t *testing.T) {
 		ok         bool
 	}{
 		{"bytes=0-99", 0, 100, true},
+		{"bytes=0-999", 0, 1000, true},
+		{"bytes=0-1000", 0, 1000, true},
+		{"bytes=999-1000", 999, 1, true},
 		{"bytes=0-99999999999999999999", 0, 1000, true},
 		{"bytes=5-99999999999999999999", 5, 995, true},
 		{"bytes=0-9223372036854775807", 0, 1000, true},

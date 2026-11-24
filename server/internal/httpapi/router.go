@@ -687,6 +687,10 @@ func (s *Server) content(c *gin.Context) {
 		}
 		reader, err := rc.OpenRange(c.Request.Context(), f.Path, start, length)
 		if err != nil {
+			// The success-path partial-content headers were set above; an error
+			// response must not carry them.
+			c.Writer.Header().Del("Content-Range")
+			c.Writer.Header().Del("Content-Length")
 			sourceReadFailure(c, err)
 			return
 		}
