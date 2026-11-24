@@ -1,0 +1,30 @@
+HRD-039 follow-up: Jev bootstrap plan (dry, no wiring) + Vision known-answer run attempt, 2026-11-24
+Branch base: github/main f9d14dc (merged with dafeadc afterwards).
+Run provenance (F31-3): the bootstrap ran from the primary tree's constitution checkout /home/milosvasic/Projects/helix_reader/submodules/constitution, reading manifest refs llmctl=3877467 and claude_toolkit=25c4803 (as-checked-out, installer not run). Constitution commit that was checked out AT RUN TIME: UNCONFIRMED (read-only later: 6d93ccd1, llmctl 391d817, claude_toolkit 718cd25); these differ from the PR base pin 74c415d and its manifest refs, so the plan reflects an older constitution checkout. Host: 16 CPUs, ~31 GiB RAM, other agents active.
+
+TASK A  Jev bootstrap, plan only
+ Command (env: JEV_HOME=scratch, JEV_HOSTED_PROBE=0, JEV_WIRING=off, no --yes/--allow-clone/--install-tools/--default-on):
+   bootstrap.sh --non-interactive --report-json jev_bootstrap_report.json   -> exit 0
+ Result (jev_bootstrap_plan.stderr.txt): detected, NOT wired (opt-out JEV_WIRING=off). Stage 2 used the constitution's own
+ llmctl/claude_toolkit submodule checkouts, installer=not-run. Stage 3: 2 hosted endpoints (jev-openrouter, jev-typesafe)
+ reachable=null usable=false (hosted probe disabled on purpose, so reachability is UNCONFIRMED). Stage 4: wiring not applied,
+ consent not given; jev-setup --check printed "would install gate copy, env file, bin links" and listed existing per-alias
+ hooks/mcp entries as OK. Advisory gates: cm_jev_detection FAIL (reachable=null), cm_jev_wiring FAIL (scratch home has no agent
+ homes), cm_jev_token_reduction BLIND (no BEFORE/AFTER pair). No agent config or settings.json was modified (all state under the
+ scratch JEV_HOME). UNCONFIRMED: whether the hosted endpoints answer; no token saving is claimed.
+
+TASK B  Vision, capacity + placement
+ llmctl capacity --json vision (capacity_vision_pre.json, pre2): verdict fits, threads 6, MemAvailable 18.9 GiB (attempt 1, 19372 MB) and 17.0 GiB (attempt 2, 17371 MB),
+ pressure.ok true; memory PSI before start: attempt 1 full avg10 0.00 / some 0.00; attempt 2 full avg10 0.03 / some 0.15 (avg60 1.21 / 1.31) (psi_mem_pre*.txt). No model was running before; nothing was evicted; llmctl enable never called.
+ Attempt 1 and attempt 2 (llmctl vision validate --profile vision --keep, LLMCTL_VALIDATE_STRICT=1):
+   both exit 2 UNDETERMINED: llmctl's own gate refused to send probes ("memory pressure is too high", PSI full avg10 5.96 > 2, then
+   3.06 > 2); nothing recorded, probes NOT sent. I stopped vision myself after each attempt (stop_vision*.txt, status "no llmctl
+   services running"; memory PSI was NOT back below 1 afterwards: psi_mem_post.txt full avg10 4.47 / some 4.87, psi_mem_post2.txt full avg10 2.05 / some 2.86 (avg300 1.00); no later reading was captured). I did not retry a third time.
+ `llmctl require-validated vision` exits 0, but it reads a PRE-EXISTING record "fresh passing validation from 2026-11-23T22:09:59Z"
+ (the HRD-039 run of 2026-11-23). It is NOT a result of this session's runs and is not claimed as one.
+ Blocker: memory PSI rose above llmctl's 2% full threshold while the model was loading/starting (cause UNCONFIRMED: other agents'
+ workloads and/or the model load itself). A fresh validation therefore needs a quieter host window.
+ The daily llmctl-revalidate.timer was left untouched (next trigger 2026-11-25 00:43 CET, captured read-only in timer_status.txt).
+
+Capture note (F31-5): stop_vision2.txt lacks the exit line of stop_vision.txt and status_after_stop2.txt lacks the WARN/reserve lines; the captures of the two attempts are not identical (cause UNCONFIRMED). Not load-bearing.
+Revision: corrected after independent review of head 02c0ff7c (F31-1..F31-5).

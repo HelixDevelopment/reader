@@ -213,7 +213,7 @@ class B2BindRules(Scratch):
         self.assertIsNone(self.chk(self.w, s2, b=self.mut("if stat.S_ISLNK(st.st_mode):", "if False:", also=("if not (stat.S_ISDIR(st.st_mode) or stat.S_ISREG(st.st_mode)):", "if False:"))))
         s3 = os.path.join(self.w, "a", "b"); os.makedirs(s3); os.makedirs(os.path.join(self.w, "a", ".git"))
         self.assertIsNone(self.chk(self.w, s3, b=self.mut("c = None if inside(real, ev) else checkout_ancestor(real)", "c = None")))
-        self.assertIsNone(self.chk(self.w, s, b=self.mut("h = hostile_tree_error(real) if os.path.isdir(real) else None", "h = None")))
+        self.assertIsNone(self.chk(self.w, s, b=self.mut('h = hostile_tree_error(real, os.path.join(real, "h.sock") if bridge and dst == "/run/helixsock" else None) if os.path.isdir(real) else None', "h = None")))
 
 class I1Ranges(unittest.TestCase):
     def rc(self, args, script=None):

@@ -1,0 +1,153 @@
+{
+  "client": "web",
+  "browser": "Chromium 149.0.7827.55 (headless, Playwright 1.65.1)",
+  "scenes": [
+    {
+      "file": "web-library-phone-light.png",
+      "scenario": "Library grid, phone layout, light theme (colour scheme follows the OS setting)",
+      "viewport": "390x844",
+      "color_scheme": "light",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-library-tablet-light.png",
+      "scenario": "Library grid, tablet layout, light theme (colour scheme follows the OS setting)",
+      "viewport": "820x1100",
+      "color_scheme": "light",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-library-desktop-light.png",
+      "scenario": "Library grid, desktop layout, light theme (colour scheme follows the OS setting)",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-library-phone-dark.png",
+      "scenario": "Library grid, phone layout, dark theme (colour scheme follows the OS setting)",
+      "viewport": "390x844",
+      "color_scheme": "dark",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-library-tablet-dark.png",
+      "scenario": "Library grid, tablet layout, dark theme (colour scheme follows the OS setting)",
+      "viewport": "820x1100",
+      "color_scheme": "dark",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-library-desktop-dark.png",
+      "scenario": "Library grid, desktop layout, dark theme (colour scheme follows the OS setting)",
+      "viewport": "1366x900",
+      "color_scheme": "dark",
+      "note": "first page of 24 works of 27"
+    },
+    {
+      "file": "web-error-401-before-sign-in.png",
+      "scenario": "First start before credentials: the client says the server rejected them instead of showing a blank page",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "alert text: The server rejected the credentials (HTTP 401). Check the username and password "
+    },
+    {
+      "file": "web-settings.png",
+      "scenario": "Connection settings: server address, username, session-only password",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "password field is not shown or stored in localStorage"
+    },
+    {
+      "file": "web-library-paging.png",
+      "scenario": "Library paging: 24 works per page, Next enabled",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "pager at the bottom of page 1"
+    },
+    {
+      "file": "web-library-page-2.png",
+      "scenario": "Library page 2: the remaining works",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "second page after Next"
+    },
+    {
+      "file": "web-search-server-side.png",
+      "scenario": "Server-side search: typing \"Glass\" narrows 27 works to 1",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "query Glass"
+    },
+    {
+      "file": "web-search-empty-state.png",
+      "scenario": "Search with no match shows an explicit empty state",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "query zzz-no-such-book"
+    },
+    {
+      "file": "web-work-detail.png",
+      "scenario": "Work detail: title, formats and the Read action for a plain-text work",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "field-notes"
+    },
+    {
+      "file": "web-reader-txt.png",
+      "scenario": "Built-in text reader at the default size",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "default font size"
+    },
+    {
+      "file": "web-reader-large-text.png",
+      "scenario": "Reader text size raised with A+ four times",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "computed font-size 26px"
+    },
+    {
+      "file": "web-detail-epub-metadata.png",
+      "scenario": "EPUB work: author and title come from the file metadata; original is downloadable",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "The Glass Meridian / Elena Voss"
+    },
+    {
+      "file": "web-epub-honest-limitation.png",
+      "scenario": "EPUB in the web client: honest \"does not render EPUB\" notice with a Download original link (the web reader supports TXT only)",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "limitation, not a bug in the capture"
+    },
+    {
+      "file": "web-theme-toggle-1.png",
+      "scenario": "Theme switch in the header: \"Theme: system\" -> \"Theme: light\" after one click",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "label before: Theme: system, after: Theme: light"
+    },
+    {
+      "file": "web-theme-toggle-2.png",
+      "scenario": "Theme switch, second click: \"Theme: dark\"",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "label: Theme: dark"
+    },
+    {
+      "file": "web-error-unreachable-retry.png",
+      "scenario": "Unreachable server: error with a Retry button",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "server address http://127.0.0.1:9 (nothing listens there)"
+    },
+    {
+      "file": "web-walkthrough-desktop.webm",
+      "scenario": "Recorded walkthrough of the desktop-size session above (Playwright recordVideo, no host capture)",
+      "viewport": "1366x900",
+      "color_scheme": "light",
+      "note": "video"
+    }
+  ]
+}

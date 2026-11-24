@@ -55,3 +55,27 @@ Not yet. These are identified product gaps, not hidden completed features. The c
 ## Where are architecture, API, testing, and research details documented?
 
 Start with `docs/developer_guide.md`, `docs/architecture.md`, `docs/api.md`, and `docs/testing.md`. Revision-pinned upstream evidence is under `research/`. Evidence under `evidence/` records only checks that actually ran; missing or failed checks must not be interpreted as passes.
+
+## Is there a visual tour of what the clients actually look like?
+
+Yes. [`docs/screenshots.md`](screenshots.md) indexes real screenshots and short videos of the web client, the Linux desktop client and
+KOReader, captured only inside the isolated rootless container runner, each with a capture manifest (client, version, scenario,
+resolution, sha256, producing command). Per-client manuals: [web](manuals/web_client_manual.md), [desktop](manuals/desktop_client_manual.md),
+[KOReader](manuals/koreader_manual.md), [Android](manuals/android_client_manual.md).
+
+## Why do the web and desktop clients say they cannot render an EPUB?
+
+Because they cannot: the web client reads plain text and offers the original file for download for formats it does not render
+([screenshot](../evidence/screenshots/web/web-epub-honest-limitation.png)). Read EPUBs in KOReader over OPDS
+([tutorial](tutorials/koreader_opds_and_sync.md)).
+
+## Are the screenshots mock-ups?
+
+No. Each one is a capture of the real client against a real `helix-server` with a generated fixture library; the runner, the scenario script
+and the manifest are in the repository. Anything not captured is labelled UNCONFIRMED in [`screenshots.md`](screenshots.md).
+
+## Does the Android client have screenshots?
+
+Four, but they are the earlier HRD-022 run, not a new capture; their provenance and the missing emulator driver are stated in the
+[Android manual](manuals/android_client_manual.md).
+

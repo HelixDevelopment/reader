@@ -1,0 +1,14 @@
+.........F.........
+======================================================================
+FAIL: test_bridge_dir_may_hold_its_one_real_unix_socket_only (tools.isolation.tests.test_bindcheck.N5.test_bridge_dir_may_hold_its_one_real_unix_socket_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/.cache/claude-tmp/hrd076/tools/isolation/tests/test_bindcheck.py", line 86, in test_bridge_dir_may_hold_its_one_real_unix_socket_only
+    self.assertIsNone(self.chk("rw", sock, "/run/helixsock", {"ISO_WORK": d}, bridge=True))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'rw source refused: /home/milosvasic/.cache/claude-tmp/tmpdbpb92ce/sock/h.sock is a fifo/device/socket: a host read would block or act on it' is not None
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.518s
+
+FAILED (failures=1)
