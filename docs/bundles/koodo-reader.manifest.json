@@ -1,0 +1,10 @@
+{
+  "kind": "git-bundle",
+  "path": "evidence/campaign-2026-11-23/research/bundles/koodo-reader-fe1abf4b8960.bundle",
+  "size": 13719837,
+  "sha256": "c33946cf0d6cb8e7b500a5e8ea3775b86fa698d074336d26cb5d3d9b874ebfdb",
+  "bundle_head": "fe1abf4b8960f4e48a2a948659c3bb816a6e2606",
+  "upstream": "https://github.com/koodo-reader/koodo-reader",
+  "reproduce": "UNCONFIRMED as refetchable: the pinned revision fe1abf4b8960 is no longer reachable upstream (history rewritten on dev, see research/reports/koodo-reader.md), so the bundle cannot be regenerated from upstream. It is the only copy of that revision: keep it out of git (backup/archive), restore it to the path above, then verify with `sha256sum <path>` and `git bundle verify <path>`. A newer revision can be re-bundled with `git clone https://github.com/koodo-reader/koodo-reader && git bundle create <name>.bundle --all`, but would have a different hash and head.",
+  "frozen_evidence_note": "evidence/campaign-2026-11-23/research/bundles/SHA256SUMS remains tracked/untouched by this change."
+}
