@@ -6,6 +6,8 @@ be a regular file; every png/webm/jpg in <dir> must be listed (nothing unlisted 
 resolution read from the PNG header). Exit 1 on any mismatch."""
 import argparse, hashlib, json, os, struct, sys, datetime
 from pathlib import Path
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, "..", "..", "tools", "isolation"))
+from sanitize import escape_text
 
 def png_size(p):
     with open(p, "rb") as f:
@@ -46,6 +48,6 @@ def main():
            "isolation": "rootless podman, --network none, private Xvfb/headless browser inside the container, only the unix-socket bridge to the host test server; see docs/test-isolation.md",
            "note": o.note, "items": items}
     (d / "capture_manifest.json").write_text(json.dumps(doc, indent=2) + "\n")
-    print(f"{o.client}: {len(items)} items")
+    print(escape_text(f"{escape_text(o.client)}: {len(items)} items"))
     return 0
 sys.exit(main())

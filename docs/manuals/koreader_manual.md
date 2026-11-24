@@ -21,7 +21,7 @@ Choosing a work downloads it into KOReader's Books folder (the file manager befo
 
 ## Reading-position sync (KOSync)
 
-Point **Progress sync** at `http://<server>/kosync`. Two KOReader profiles (two "devices") were used. Profile A turned to page 4 of 9 and
+Set the **Progress sync** custom server to `http://<server>` (the server root, no path: KOSync is served at `/users/create`, `/users/auth`, `/syncs/progress`). Two KOReader profiles (two "devices") were used. Profile A turned to page 4 of 9 and
 pushed `0.4444`; profile B opened the same book and was moved to page 4:
 
 ![Profile A on page 4](../../evidence/screenshots/koreader/A04_page4.png)
@@ -32,7 +32,7 @@ B then turned to page 6 (push `0.6666`) and A, on re-opening, was moved to page 
 ![Profile B on page 6](../../evidence/screenshots/koreader/B04_page6.png)
 ![Profile A re-opened and pulled to page 6](../../evidence/screenshots/koreader/A05_reopened_pulled.png)
 
-The machine verdict of the sync (pushes, pulls, percentages, redis sink content) is
+The machine verdict of the sync (pushes, pulls, percentages; the Redis-side read-back in `redis_sink.txt` errored and is UNCONFIRMED) is
 [`kosync_proof.json`](../../evidence/screenshots/koreader/kosync_proof.json): `verdict: PASS`. The screenshots show it; the JSON proves it.
 
 ## Comics streamed page by page (OPDS-PSE)

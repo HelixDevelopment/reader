@@ -7,11 +7,11 @@ from the isolated container runner; see [`screenshots.md`](screenshots.md) for h
 
    ```bash
    cd server && go build -o /tmp/helix-server ./cmd/helix-server
-   HELIX_ADDRESS=127.0.0.1:8080 HELIX_ADMIN_TOKEN="$(head -c18 /dev/urandom | base64 | tr -dc A-Za-z0-9)" \
-   HELIX_OPDS_USERNAME=reader HELIX_OPDS_PASSWORD=choose-a-password /tmp/helix-server
+   export HELIX_ADMIN_TOKEN="$(head -c18 /dev/urandom | base64 | tr -dc A-Za-z0-9)"   # exported: step 2 reuses it in this shell
+   HELIX_ADDRESS=127.0.0.1:8080 HELIX_OPDS_USERNAME=reader HELIX_OPDS_PASSWORD=choose-a-password /tmp/helix-server &
    ```
 
-   Use your own admin token and password; never commit them. Details and every variable: [`user_guide.md`](user_guide.md#server-quickstart).
+   Run step 2 in the same shell (the token is exported there). Use your own admin token and password; never commit them. Details and every variable: [`user_guide.md`](user_guide.md#server-quickstart).
 
 2. **Register a folder of books and scan it** (management API, admin bearer token):
 
@@ -42,3 +42,7 @@ from the isolated container runner; see [`screenshots.md`](screenshots.md) for h
 
 - A guided tour of the web and desktop clients: [`tutorials/first_library_tour.md`](tutorials/first_library_tour.md).
 - Questions: [`faq.md`](faq.md).
+
+Steps 1 and 2 were executed for real against a locally built server (source registered 201, scan accepted 202, OPDS root 200); the
+transcript is [`evidence/screenshots/tooling/quickstart_run.txt`](../evidence/screenshots/tooling/quickstart_run.txt). That run was on host loopback
+(a non-GUI process), not inside the container. Steps 3 and later were not re-executed from this page.

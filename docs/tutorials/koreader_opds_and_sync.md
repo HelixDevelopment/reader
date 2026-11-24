@@ -3,7 +3,7 @@
 Goal: read a book from your Helix Reader library in KOReader and continue on a second device at the same page. Every screenshot is a real
 capture (see [`../manuals/koreader_manual.md`](../manuals/koreader_manual.md) for provenance and the UNCONFIRMED list).
 
-1. **Make sure the server runs** and you have a user (see [`../quickstart.md`](../quickstart.md)). OPDS lives at `/opds/1.2`, KOSync at `/kosync`.
+1. **Make sure the server runs** and you have a user (see [`../quickstart.md`](../quickstart.md)). OPDS lives at `/opds/1.2`, KOSync at the server root (custom server `http://<server>`, no path).
 2. **Add the catalog.** In KOReader: search icon > OPDS catalog > add `http://<server>/opds/1.2`, with your server username and password.
 3. **Open "All publications"** and pick a work to download:
 
@@ -11,7 +11,7 @@ capture (see [`../manuals/koreader_manual.md`](../manuals/koreader_manual.md) fo
 4. **Open the book.** It starts on page 1:
 
    ![Page 1](../../evidence/screenshots/koreader/A03_book_opened_page1.png)
-5. **Enable Progress sync** (tools menu > Progress sync) with `http://<server>/kosync` and the same credentials. Turn some pages; KOReader pushes
+5. **Enable Progress sync** (tools menu > Progress sync) with the custom server `http://<server>` (no path) and the same credentials. Turn some pages; KOReader pushes
    the position (here page 4 of 9, `0.4444`):
 
    ![Page 4](../../evidence/screenshots/koreader/A04_page4.png)

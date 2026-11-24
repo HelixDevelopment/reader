@@ -1,0 +1,6 @@
+HRD-076 quickstart steps 1-2 executed for real on host loopback 127.0.0.1:18091 (non-GUI process; NOT in the container; throwaway server binary built from this tree, volatile catalog, one local .txt book). Date 2026-11-24. Admin token exported in the same shell as documented; its value is not printed.
+{"id":"my-library","protocol":"local","capabilities":{"recursive_list":true,"range_read":true,"watch":false,"native":true}} HTTP 201
+{"id":"scan-2daf338d3de5c435b6f4c8559a5857e0","source_id":"my-library","state":"queued","created_at":"2026-11-24T20:39:08.027827131Z"} HTTP 202
+opds HTTP 200
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:pse="http://vaemendis.net/opds-pse/ns">
+  <id>/opds/1.2/publi
