@@ -424,6 +424,7 @@ func TestWebDAVMismatchedPartialContentIsRefused(t *testing.T) {
 		{"no Content-Range", "bytes=10-19", "", 10, 502, "", ""},
 		{"garbage Content-Range", "bytes=10-19", "bytes ten-nineteen/1000", 10, 502, "", ""},
 		{"wrong end", "bytes=10-19", "bytes 10-29/1000", 10, 502, "", ""},
+		{"wrong start, right end", "bytes=10-19", "bytes 5-19/1000", 5, 502, "", ""},
 	}
 	for _, c := range cases {
 		c := c
