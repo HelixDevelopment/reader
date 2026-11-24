@@ -1,0 +1,23 @@
+ready
+PASS  HLX-WEB-001 Library view lists the fixture titles from the live server
+      PASS open client :: navigated to http://127.0.0.1:4173/ (attempts=1)
+      PASS 401 state shown :: waited for role=alert (attempts=1)
+      PASS open settings :: clicked role=button[name='Settings'] (attempts=1)
+      PASS enter username :: filled input[autocomplete=username] with 9 chars (attempts=1)
+      PASS enter password :: filled input[type=password] with 11 chars (attempts=1)
+      PASS save :: clicked role=button[name='Save'] (attempts=1)
+      PASS library heading :: waited for role=heading[name='Library'] (attempts=1)
+      PASS comic card :: waited for role=button[name='Open hq-comic'] (attempts=1)
+      PASS comic visible :: visible: role=button[name='Open hq-comic'] (attempts=1)
+      PASS novel visible :: visible: role=button[name='Open hq-novel'] (attempts=1)
+      PASS mixed visible :: visible: role=button[name='Open hq-mixed'] (attempts=1)
+      PASS notes visible :: visible: role=button[name='Open hq-notes'] (attempts=1)
+PASS  HLX-WEB-002 Search narrows the library to the matching title
+      PASS open client :: navigated to http://127.0.0.1:4173/ (attempts=1)
+      PASS comic card :: waited for role=button[name='Open hq-comic'] (attempts=1)
+      PASS type query :: filled input[type=search] with 8 chars (attempts=1)
+      PASS other titles gone :: not visible: role=button[name='Open hq-novel'] (attempts=1)
+      PASS match remains :: visible: role=button[name='Open hq-comic'] (attempts=1)
+
+web bank summary: 17 PASS, 0 FAIL, 0 SKIP steps
+exit=0

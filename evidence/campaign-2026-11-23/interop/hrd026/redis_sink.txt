@@ -1,0 +1,18 @@
+# redis sink (keys only; values for progress record, credentials hash redacted)
+helix:scan:job:scan-44762daa9c15b7d71b4a048996a12344
+helix:scan:job:scan-c6796763fe4eb82248f7d3c64cedf15a
+helix:v1:kosync:user:a284ODQ1MTM5Zg
+helix:scan:job:scan-4e26733870dcf0023c81dfbd0f54d36b
+helix:scan:job:scan-bff6fec7700a165fd1836a6e2697cf3f
+helix:scan:index
+helix:scan:job:scan-fcc8b510c4b5f38766668df0265485b4
+helix:v1:kosync:progress:a284ODQ1MTM5Zg:YWYwMGIxNzE2YThlYTIwYmM3ZjExMDhjODM1OGM0YTM
+helix:scan:job:scan-f2e2c0cbe8cb0f4e61931baec3ba83af
+helix:scan:job:scan-dc56e6f428fde0520be65edb5183554a
+KEY helix:v1:kosync:progress:a284ODQ1MTM5Zg:YWYwMGIxNzE2YThlYTIwYmM3ZjExMDhjODM1OGM0YTM
+string
+WRONGTYPE Operation against a key holding the wrong kind of value
+
+GET progress record:
+{"document":"af00b1716a8ea20bc7f1108c8358c4a3","progress":"/body/DocFragment[3]/body/p[12]/text().5","percentage":0.4217,"device":"Helix Interop Probe","device_id":"dev-hrd026","timestamp":1795468192}
+

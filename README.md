@@ -178,6 +178,13 @@ credentials or secrets.
 [`porting_ledger.md`](research/porting_ledger.md). Keyword evidence is not support proof;
 each analysis is marked `manual_review_status` accordingly.
 
+## Container distribution scope
+
+Container distribution qualification covers podman and a local, unauthenticated registry only
+(evidence: `evidence/campaign-2026-11-20/containers/distribution.log` and `results.json`). A signed or
+authenticated hosted registry and docker-compose CLI runtime parity are **not** qualified: the compose
+file has only been executed by podman-compose. See [`deploy/README.md`](deploy/README.md) and item HRD-034.
+
 ## License and governance
 
 Project process law is the [project constitution](spec/00_constitution.md), which

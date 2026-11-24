@@ -1,0 +1,6 @@
+## RED-2: _skip stripped, http runner
+SKIP  HLX-WEB-001    Library view lists the fixture titles from the live server (no http: steps)
+SKIP  HLX-WEB-002    Search narrows the library to the matching title (no http: steps)
+
+HTTP bank summary: 2 cases — 0 PASS, 0 FAIL, 2 SKIP  (base-url http://127.0.0.1:9)
+exit=0

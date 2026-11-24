@@ -1,0 +1,39 @@
+--- a/bin/llmctl
++++ b/bin/llmctl
+@@ -299,7 +299,14 @@
+         exit 2
+       fi
+       engine_build "$@" ;;
+-    install)  sched_load_backend; svc_install ;;
++    install)
++      # no argument is accepted: -h/--help prints usage; anything else is a usage error. Neither touches the host.
++      case "${1:-}" in
++        "") ;;
++        -h|--help) echo "usage: llmctl install   (writes the systemd user units / launchd agents, enables the revalidation timer and the unit validation gate; honours LLMCTL_DRY_RUN=1)"; exit 0 ;;
++        *) echo "usage: llmctl install   (unknown argument '$1'; nothing was installed)" >&2; exit 2 ;;
++      esac
++      sched_load_backend; svc_install ;;
+     enable)
+       [[ "$#" -eq 1 ]] || die "usage: llmctl enable <profile>"
+       # Moved into lib/scheduler.sh's _enable_impl, dispatched under the
+--- /dev/null
++++ b/tests/test_install_args.sh
+@@ -0,0 +1,18 @@
++#!/usr/bin/env bash
++# test_install_args.sh - `llmctl install` must not run the real install for -h/--help/unknown arguments.
++set -euo pipefail
++source "$(dirname "${BASH_SOURCE[0]}")/helpers.sh"
++test_setup_env
++export LLMCTL_FAKE_HW="${LLMCTL_ROOT}/tests/fixtures/hw-baseline.json"
++LLMCTL="${LLMCTL_ROOT}/bin/llmctl"
++for a in --help -h; do
++  o="$("${LLMCTL}" install "$a" 2>&1)" && rc=0 || rc=$?
++  assert_eq 0 "${rc}" "install ${a}: exit 0"
++  assert_contains "${o}" "usage: llmctl install" "install ${a}: prints usage"
++  assert_eq "" "$(ls -A "${LLMCTL_UNIT_DIR}" 2>/dev/null)" "install ${a}: no unit file written (no side effects)"
++done
++o="$("${LLMCTL}" install --bogus 2>&1)" && rc=0 || rc=$?
++assert_eq 2 "${rc}" "install --bogus: exit 2"
++assert_contains "${o}" "nothing was installed" "install --bogus: says nothing was installed"
++assert_eq "" "$(ls -A "${LLMCTL_UNIT_DIR}" 2>/dev/null)" "install --bogus: no unit file written"
++test_finish

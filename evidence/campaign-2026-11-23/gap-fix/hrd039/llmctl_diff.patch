@@ -1,0 +1,76 @@
+diff --git a/docs/scripts/service_linux.md b/docs/scripts/service_linux.md
+index 2233b4b..252ad37 100644
+--- a/docs/scripts/service_linux.md
++++ b/docs/scripts/service_linux.md
+@@ -245,10 +245,12 @@ LLMCTL_DRY_RUN=1 llmctl enable fast
+   state/log/services dirs so hooks and CLI agree. Instance keys such as
+   `decide-tiny.2` flow through `%i` unchanged.
+ * **Hardening (FR-083)** - only directives verified to take effect in the user
+-  manager: `NoNewPrivileges`, `ProtectSystem=full` everywhere; plus `UMask=0077`,
++  manager: `NoNewPrivileges` everywhere and `ProtectSystem=full` on every unit EXCEPT the engine units
++  (`llmctl-llama@`/`onnx@`/`colibri@`: HRD-039 - under it `/dev/shm` appears owned by uid 65534 and the reserve admission gate
++  `_rsv_admit_dir_ok` fails closed; see `tests/test_unit_devshm_gate.sh`); plus `UMask=0077`,
+   `RestrictAddressFamilies`, `RestrictSUIDSGID`, `LockPersonality`,
+   `RestrictRealtime`, `SystemCallArchitectures=native` on decision components.
+-  `PrivateTmp`, `ProtectHome`, `ProtectControlGroups`, `ProtectProc`,
++  `ProtectHome`, `ProtectControlGroups`, `ProtectProc`,
+   `PrivateDevices`, `ProtectClock`, `CapabilityBoundingSet` are **not** honoured
+   by the user manager on the reference host and are deliberately not written
+   (`tests/test_unit_hardening.sh` re-proves both lists live).
+diff --git a/lib/service_linux.sh b/lib/service_linux.sh
+index 77453a2..16e38a5 100644
+--- a/lib/service_linux.sh
++++ b/lib/service_linux.sh
+@@ -132,14 +132,25 @@ _svc_ensure_tenant_slice_dropin() {
+ #               group (RestrictAddressFamilies, RestrictSUIDSGID,
+ #               LockPersonality, RestrictRealtime, SystemCallArchitectures)
+ #   NOT honoured by the user manager here (so deliberately NOT written, a
+-#   claim that is not true would be worse than no claim): PrivateTmp,
+-#   ProtectHome, ProtectControlGroups, ProtectProc, PrivateDevices,
++#   claim that is not true would be worse than no claim): ProtectHome, ProtectControlGroups, ProtectProc, PrivateDevices,
+ #   ProtectClock, CapabilityBoundingSet.
+ # "basic" is applied to chat engines (their GPU/CUDA stacks are unrestricted
+ # beyond the two always-safe directives); "strict" to decision components,
+ # which only need TCP/unix sockets and the file system.
++#
++# HRD-039 (operator decision 2026-11-23, option c): the ENGINE unit template (llmctl-llama@/onnx@/colibri@, which run
++# the ExecStartPre `gate` hook) passes "no-protectsystem". Under ProtectSystem=full the unit's mount namespace shows
++# /dev/shm owned by uid 65534 (nobody) instead of root, so lib/reserve.sh `_rsv_admit_dir_ok` (sticky dir must be owned
++# by root or the caller) fails closed and the engine can never start. Lost protection: /usr, /boot and /etc are no
++# longer remounted read-only for the engine process - acceptable because the engine already runs as the unprivileged
++# operator uid with NoNewPrivileges=yes (it cannot write /usr, /boot or /etc anyway) and this manager does not
++# enforce the other filesystem-sandbox directives either (see above). Other units keep ProtectSystem=full.
++# WARNING (probed 2026-11-23): PrivateTmp=yes ALSO yields /dev/shm owner 65534 under this manager - it is NOT merely
++# "not honoured"; adding PrivateTmp (or any mount-namespace directive) to an engine unit would re-break the gate.
++# tests/test_unit_devshm_gate.sh guards the engine template against both.
+ _svc_hardening() {
+-  printf 'NoNewPrivileges=yes\nProtectSystem=full\n'
++  printf 'NoNewPrivileges=yes\n'
++  [[ "${2:-}" == "no-protectsystem" ]] || printf 'ProtectSystem=full\n'
+   if [[ "${1:-basic}" == "strict" ]]; then
+     printf 'UMask=0077\nRestrictAddressFamilies=AF_UNIX AF_INET AF_INET6\n'
+     printf 'RestrictSUIDSGID=yes\nLockPersonality=yes\nRestrictRealtime=yes\n'
+@@ -454,7 +465,7 @@ RestartPreventExitStatus=SIGKILL SIGTERM 98
+ MemoryHigh=${memhigh}M
+ MemoryMax=${memmax}M
+ $(_svc_resource_directives)
+-$(_svc_hardening "${level}")
++$(_svc_hardening "${level}" no-protectsystem)
+ StandardOutput=append:$(_svc_pct "${LLMCTL_LOG_DIR}")/%i.log
+ StandardError=append:$(_svc_pct "${LLMCTL_LOG_DIR}")/%i.log
+ 
+diff --git a/tests/test_services.sh b/tests/test_services.sh
+index 8eda3ce..22c6cb1 100644
+--- a/tests/test_services.sh
++++ b/tests/test_services.sh
+@@ -49,7 +49,9 @@ sect_of() { awk -v key="$2" 'BEGIN{s=""} /^\[/{s=$0} index($0,key"=")==1{print s
+ assert_eq "[Unit]" "$(sect_of "${UNIT}" StartLimitIntervalSec)" "llama unit: StartLimitIntervalSec is in [Unit]"
+ assert_eq "[Unit]" "$(sect_of "${UNIT}" StartLimitBurst)" "llama unit: StartLimitBurst is in [Unit]"
+ assert_file_contains "${UNIT}" "NoNewPrivileges=yes" "llama unit: verified-effective hardening (NoNewPrivileges)"
+-assert_file_contains "${UNIT}" "ProtectSystem=full" "llama unit: verified-effective hardening (ProtectSystem=full)"
++# HRD-039: the engine units deliberately carry NO ProtectSystem=full (it makes /dev/shm appear owned by uid 65534 and
++# lib/reserve.sh _rsv_admit_dir_ok then refuses every start); tests/test_unit_devshm_gate.sh proves the gate live.
++if grep -q '^ProtectSystem=' "${UNIT}"; then printf '  FAIL: llama unit carries ProtectSystem= (HRD-039)\n' >&2; TEST_FAILS=$((TEST_FAILS+1)); else echo "  ok: llama unit: no ProtectSystem= (HRD-039)"; fi
+ assert_file_contains "${UNIT}" "append:${LLMCTL_LOG_DIR}/%i.log" "llama unit: log location"
+ 
+ # --- crash-loop guard (live run 2026-10-08, decide-kev-9b) ----------------------------------------------------

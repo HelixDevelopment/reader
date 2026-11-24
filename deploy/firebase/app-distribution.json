@@ -1,0 +1,9 @@
+{
+  "comment": "App Distribution is CLI-driven (firebase appdistribution:distribute); it has no firebase.json section. This file is the repo's own plan input read by tools/firebase/validate_distribution.py. Nothing here is a credential.",
+  "app_id": "1:000000000000:android:REPLACE_ME",
+  "artifact": "clients/android/android/app/build/outputs/apk/debug/app-debug.apk",
+  "release_notes_file": "deploy/firebase/release-notes.md",
+  "groups_file": "deploy/firebase/groups.txt",
+  "credentials": { "env": "GOOGLE_APPLICATION_CREDENTIALS" },
+  "hosting_public": "clients/web/dist"
+}

@@ -1,0 +1,10 @@
+## real preflight on this host (no emulator launched)
+run_android_matrix: REFUSED, 6 precondition(s) missing:
+  - TEST_CLASS unset (no instrumented test of the app exists yet)
+  - ANDROID_SDK_ROOT unset or not a directory
+  - emulator image for API 24 not present (expected ...android-emulator:api24-<arch>)
+  - emulator image for API 28 not present (expected ...android-emulator:api28-<arch>)
+  - emulator image for API 30 not present (expected ...android-emulator:api30-<arch>)
+  - emulator image for API 36 not present (expected ...android-emulator:api36-<arch>)
+exit=78
+ls: cannot access 'evidence/campaign-2026-11-23/gap-fix/hrd040/_preflight_probe': No such file or directory

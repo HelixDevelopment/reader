@@ -1,0 +1,5 @@
+Warning: The unit file, source configuration file or drop-ins of llmctl-llama@vision.service changed on disk. Run 'systemctl --user daemon-reload' to reload units.
+WARN: llmctl-llama@vision.service is still starting after 20s (pressure gate waiting or model loading); not holding the scheduler lock for it
+ERROR: started 'vision' but it never answered http://127.0.0.1:34659/v1/models within 60s (see: llmctl logs vision)
+Warning: The unit file, source configuration file or drop-ins of llmctl-llama@vision.service changed on disk. Run 'systemctl --user daemon-reload' to reload units.
+ERROR: could not start 'vision' (see above: insufficient RAM/VRAM or a start failure) - cannot validate: could not determine

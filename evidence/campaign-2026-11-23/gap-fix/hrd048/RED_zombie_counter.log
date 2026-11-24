@@ -1,0 +1,5 @@
+--- FAIL: TestRcloneWorkersCounterSeesZombiesAndLiveHelpers (1.57s)
+    soak_test.go:592: zombie rclone child not counted: base 0, now 0
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	1.583s
+FAIL

@@ -397,7 +397,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Establish repeatable deterministic core and server qualification. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+**Description:** Establish repeatable deterministic core and server qualification. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-049 (GAP-014); HRD-065 (GAP-030); HRD-071 (GAP-036). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** Unit, integration, race, vet, repeat, and coverage campaigns.
 
@@ -415,12 +415,13 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-10-28T17:35:51Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-23T21:22:44Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core; evidence/server; docs/testing/results
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/core; evidence/server; docs/testing/results
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
 
 ## [HRD-013] Fuzz all exposed format and byte-range parsers
 
@@ -432,7 +433,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Fuzz all exposed format and byte-range parsers. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+**Description:** Fuzz all exposed format and byte-range parsers. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-070 (GAP-035). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** Formats, CBZ, EPUB, FB2, MOBI, TXT, and single-range parsing.
 
@@ -450,12 +451,13 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-10-28T17:35:51Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-23T21:22:45Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/core/final-go-fuzz-formats.log; evidence/core/final-go-fuzz-cbz.log; evidence/core/final-go-fuzz-epub.log; evidence/core/final-go-fuzz-fb2.log; evidence/core/final-go-fuzz-mobi.log; evidence/core/final-go-fuzz-txt.log; evidence/server/final-go-fuzz-single-range.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/core/final-go-fuzz-formats.log; evidence/core/final-go-fuzz-cbz.log; evidence/core/final-go-fuzz-epub.log; evidence/core/final-go-fuzz-fb2.log; evidence/core/final-go-fuzz-mobi.log; evidence/core/final-go-fuzz-txt.log; evidence/server/final-go-fuzz-single-range.log
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
 
 ## [HRD-014] Prove regression tests reject targeted restoration of fixed defects
 
@@ -467,7 +469,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Prove regression tests reject targeted restoration of fixed defects. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+**Description:** Prove regression tests reject targeted restoration of fixed defects. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-060 (GAP-025); HRD-074 (GAP-039). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** Go mutation campaign across core identity, ingest, sources, and HTTP behavior.
 
@@ -485,12 +487,13 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-10-28T17:35:51Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-23T21:22:45Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/go-mutation/results.json; evidence/go-mutation/final-verifier.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/go-mutation/results.json; evidence/go-mutation/final-verifier.log
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
 
 ## [HRD-015] Exercise real PostgreSQL, pgvector, and Redis integrations
 
@@ -502,7 +505,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Exercise real PostgreSQL, pgvector, and Redis integrations. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+**Description:** Exercise real PostgreSQL, pgvector, and Redis integrations. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-050 (GAP-015); HRD-057 (GAP-022); HRD-065 (GAP-030). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** Durable catalog, vector memory, KOSync, and internal progress services.
 
@@ -520,12 +523,13 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-10-28T17:35:51Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-23T21:22:45Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: evidence/server/final-go-live-services.log
 - 2026-10-28 — Completed by AI: evidence-backed-baseline-closure; evidence: evidence/server/final-go-live-services.log
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
 
 ## [HRD-016] Verify backup and restore recovery against the current tree
 
@@ -680,7 +684,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Operate the authoritative SQLite registry with complete lifecycle commands, evidence-linked history, deterministic document exports, drift detection, disaster recovery, and an explicitly offline HelixTrack outbox.
+**Description:** Operate the authoritative SQLite registry with complete lifecycle commands, evidence-linked history, deterministic document exports, drift detection, disaster recovery, and an explicitly offline HelixTrack outbox. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-058 (GAP-023); HRD-075 (GAP-040). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** Workable-item database, lifecycle history, exports, validation, and drift gates.
 
@@ -698,13 +702,15 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-10-28T17:43:09Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-24T10:36:02Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/workable_items.db; scripts/workable_items.py; evidence/workable-items
 - 2026-10-28 — Updated by AI: tracker-qualification-completed; evidence: none recorded
 - 2026-10-28 — Completed by AI: real-sqlite-and-mutation-qualification-passed; evidence: evidence/workable-items/results.json; evidence/workable-items/final-verifier.log; evidence/workable-items/pdf-qa
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
+- 2026-11-24 — Updated by AI: Further registry hardening is tracked under HRD-085, not by reopening this closed item; evidence: docs/workable-items.md
 
 ## [HRD-030] Publish all current test results and limitations under docs/testing/results
 
@@ -752,7 +758,7 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Reopens:** 0
 
-**Description:** Complete rendering, conversion, and content-AI fulfillment for every required format. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope.
+**Description:** Complete rendering, conversion, and content-AI fulfillment for every required format. This registry entry records the implemented or remaining work without expanding evidence beyond its actual scope. UPDATE 2026-11-23 (gap register, docs/gap-register-2026-11-23.md): linked gap items: HRD-044 (GAP-008). See docs/gap-register-item-map-2026-11-23.md.
 
 **Affected scope:** All formats in Additional_Formats_We_MUST_Support.jpg and their fulfillment stages.
 
@@ -770,12 +776,51 @@ Generated from `docs/workable_items.db`; do not edit directly.
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-20T18:52:25Z
+**Created / modified:** 2026-10-28T17:35:51Z / 2026-11-23T21:22:46Z
 
 **History:**
 
 - 2026-10-28 — Opened by AI: retrospective-evidence-baseline; evidence: docs/formats.md; Additional_Formats_We_MUST_Support.jpg
 - 2026-11-20 — Implemented by AI: matrix cells each backed by a passing test or an explicit NOT IMPLEMENTED; guard tests pin the matrix against the code; evidence: docs/formats.md; evidence/campaign-2026-11-20/formats/; core/formats/formats_test.go(TestMatrixNeverOutrunsTheCode,TestSameFormatRepackIsHonest)
+- 2026-11-23 — Updated by AI: gap-register cross-link (covered by / linked to gap items); evidence: docs/gap-register-item-map-2026-11-23.md
+
+## [HRD-034] Verify container distribution against a hosted registry and docker-compose CLI runtime parity
+
+**Status:** Completed (→ Fixed.md)
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** HRD-024 closed its acceptance under podman, but two distribution- and tooling-level claims remain unexecuted and are kept separate so neither is implied by that closure. First, the push/pull round trip used a local registry:2 container with TLS verification disabled and no authentication; signing, attestation, and a real registry with credentials, retention and pull-through behavior are unverified. Second, deploy/docker-compose.yml has only ever been executed by podman-compose on this host; docker-compose naming conventions (project-service-N), single-service recreation on change, and secret-handling behavior are asserted from file semantics only. Acceptance requires either a Docker-engine host for a real docker-compose run or an explicit documentation statement that docker-compose is unsupported, plus a push/pull against a registry that requires authentication, with signature verification demonstrated end to end. UPDATE 2026-11-23: OPERATOR DECISION 2026-11-23: accept the podman-only scope limit. Container distribution is qualified on podman with a local unauthenticated registry:2 (TLS verification disabled) ONLY. Two claims remain UNVERIFIED and are explicitly OUT OF SCOPE by operator decision: (1) docker-compose CLI parity (docker binary absent from this host; deploy/docker-compose.yml has only been run by podman-compose) and (2) signed/authenticated hosted-registry distribution (signing, attestation, credentials, retention, pull-through). This is a scope-limited closure recorded as Completed because the registry vocabulary has no dedicated scope-limited status (Won't-fix under 11.4.112 is reserved for PROVEN structural impossibility, which does not apply); it is NOT a verification of either claim. Any future docker-compose or hosted-registry support claim requires a new tracked item. Follow-up not done here: no README/deploy/README statement of the limit exists yet.
+
+**Affected scope:** Container distribution qualification: podman and a local unauthenticated registry only; docker-compose and hosted authenticated registry are UNVERIFIED (stated in README.md 'Container distribution scope' and deploy/README.md).
+
+**Reproduction / current observation:** evidence/campaign-2026-11-20/containers/distribution.log records digest_match=yes and config_id_matches_build=yes against 127.0.0.1:15000 with --tls-verify=false, and results.json records docker_compose_cli_parity as NOT RUN because the docker binary is absent from this host.
+
+**Acceptance:** Closure scope per operator decision 2026-11-23: container distribution qualification covers podman and a local unauthenticated registry only, evidenced by evidence/campaign-2026-11-20/containers/distribution.log and results.json. docker-compose CLI parity and signed/authenticated hosted-registry distribution are UNVERIFIED and out of scope; closure does not claim them.
+
+**Closure criteria:** Closure scope per operator decision 2026-11-23: container distribution qualification covers podman and a local unauthenticated registry only, evidenced by evidence/campaign-2026-11-20/containers/distribution.log and results.json. docker-compose CLI parity and signed/authenticated hosted-registry distribution are UNVERIFIED and out of scope; closure does not claim them.
+
+**Evidence:** evidence/campaign-2026-11-20/containers/results.json
+
+**Forensic anchor:** Second-pass HRD-024 distribution run on 2026-11-20
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-20T19:34:10Z / 2026-11-24T10:36:02Z
+
+**History:**
+
+- 2026-11-20 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-20 — Updated by AI: operator-blocked-after-exhaustion; evidence: none recorded
+- 2026-11-23 — Updated by AI: operator-accepts-podman-only-scope-limit-claims-unverified; evidence: evidence/campaign-2026-11-20/containers/distribution.log
+- 2026-11-23 — Completed by User: Operator decision 2026-11-23: accept podman-only scope limit; docker-compose parity and hosted signed/authenticated registry remain UNVERIFIED and out of scope (scope-limited closure, not verification); evidence: evidence/campaign-2026-11-20/containers/results.json
+- 2026-11-24 — Updated by AI: Record the local-registry-only scope and the untested docker-compose in tracked docs, as the original acceptance allowed; evidence: README.md; deploy/README.md
 
 ## [HRD-035] Derived HTML and PDF documents omitted history and lifecycle details carried by Markdown
 

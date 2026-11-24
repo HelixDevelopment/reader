@@ -1,0 +1,69 @@
+PASS server-has-works {"expected":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS phone-light:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS phone-light:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS phone-light:no-horizontal-overflow {"sw":375,"cw":375}
+PASS phone-light:no-overlap []
+PASS phone-light:touch-targets>=40px {"smaller":0}
+PASS phone-light:theme-applied "rgb(250, 248, 244)"
+PASS phone-light:search-filters-server-side "The Glass Meridian"
+PASS phone-light:empty-state "No works match shown"
+PASS phone-light:detail-author "author from EPUB metadata"
+PASS phone-light:epub-download-is-real-zip {"suggested":"The Glass Meridian.epub","bytes":1237}
+PASS phone-light:txt-reader-renders-live-content {"paragraphs":3}
+PASS phone-light:text-size-delta {"before":"18px","after":"20px"}
+PASS phone-light:unreachable-error-state "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+PASS phone-light:retry-button "visible"
+PASS phone-light:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)","Failed to load resource: net::ERR_UNSAFE_PORT"]
+PASS tablet-light:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS tablet-light:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS tablet-light:no-horizontal-overflow {"sw":768,"cw":768}
+PASS tablet-light:no-overlap []
+PASS tablet-light:touch-targets>=40px {"smaller":0}
+PASS tablet-light:theme-applied "rgb(250, 248, 244)"
+PASS tablet-light:search-filters-server-side "The Glass Meridian"
+PASS tablet-light:empty-state "No works match shown"
+PASS tablet-light:detail-author "author from EPUB metadata"
+PASS tablet-light:epub-download-is-real-zip {"suggested":"The Glass Meridian.epub","bytes":1237}
+PASS tablet-light:txt-reader-renders-live-content {"paragraphs":3}
+PASS tablet-light:text-size-delta {"before":"18px","after":"20px"}
+PASS tablet-light:unreachable-error-state "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+PASS tablet-light:retry-button "visible"
+PASS tablet-light:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)","Failed to load resource: net::ERR_UNSAFE_PORT"]
+PASS desktop-light:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS desktop-light:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS desktop-light:no-horizontal-overflow {"sw":1280,"cw":1280}
+PASS desktop-light:no-overlap []
+PASS desktop-light:touch-targets>=40px {"smaller":0}
+PASS desktop-light:theme-applied "rgb(250, 248, 244)"
+PASS desktop-light:search-filters-server-side "The Glass Meridian"
+PASS desktop-light:empty-state "No works match shown"
+PASS desktop-light:detail-author "author from EPUB metadata"
+PASS desktop-light:epub-download-is-real-zip {"suggested":"The Glass Meridian.epub","bytes":1237}
+PASS desktop-light:txt-reader-renders-live-content {"paragraphs":3}
+PASS desktop-light:text-size-delta {"before":"18px","after":"20px"}
+PASS desktop-light:unreachable-error-state "Cannot reach the server at http://127.0.0.1:9\n\nRetry"
+PASS desktop-light:retry-button "visible"
+PASS desktop-light:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)","Failed to load resource: net::ERR_UNSAFE_PORT"]
+PASS phone-dark:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS phone-dark:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS phone-dark:no-horizontal-overflow {"sw":375,"cw":375}
+PASS phone-dark:no-overlap []
+PASS phone-dark:touch-targets>=40px {"smaller":0}
+PASS phone-dark:theme-applied "rgb(20, 19, 15)"
+PASS phone-dark:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)"]
+PASS tablet-dark:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS tablet-dark:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS tablet-dark:no-horizontal-overflow {"sw":768,"cw":768}
+PASS tablet-dark:no-overlap []
+PASS tablet-dark:touch-targets>=40px {"smaller":0}
+PASS tablet-dark:theme-applied "rgb(20, 19, 15)"
+PASS tablet-dark:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)"]
+PASS desktop-dark:401-error-state "The server rejected the credentials (HTTP 401). Check the username and password in Settings.\n\nRetry"
+PASS desktop-dark:real-titles-in-dom {"shown":["orbital-gardens","The Glass Meridian","field-notes"]}
+PASS desktop-dark:no-horizontal-overflow {"sw":1280,"cw":1280}
+PASS desktop-dark:no-overlap []
+PASS desktop-dark:touch-targets>=40px {"smaller":0}
+PASS desktop-dark:theme-applied "rgb(20, 19, 15)"
+PASS desktop-dark:no-unexpected-console-errors ["Failed to load resource: the server responded with a status of 401 (Unauthorized)"]
+
+67/67 checks passed
