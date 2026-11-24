@@ -1,4 +1,4 @@
-# Allow-list for tests/live/run_gated_tests.sh. Format: TestName|reason|HRD-NNN registry item
-# A test listed here may SKIP in the live run without failing the gate. Every entry needs a reason
-# and a registry item; anything else that skips (and never passes in any phase) fails the gate.
-FuzzRegisterInput/seed#0|intentional input filter inside the fuzz body (t.Skip for bcrypt-cost valid inputs, covered by unit tests); parent fuzz target passes|HRD-050
+# Allow-list for tests/live/run_gated_tests.sh. Format: Package|Test|reason|HRD-NNN registry item
+# A package|test listed here may SKIP in the live run without failing the gate. Needs a non-blank reason and an
+# item that is exactly HRD-<digits>; anything else that skips (and never passes in the same package) fails the gate.
+github.com/helixreader/helix/server/internal/kosync|FuzzRegisterInput/seed#0|intentional input filter inside the fuzz body (t.Skip for bcrypt-cost valid inputs, covered by unit tests); parent fuzz target passes|HRD-050

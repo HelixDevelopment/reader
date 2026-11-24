@@ -7,9 +7,10 @@
 # Same rootless-podman isolation as run_gated_tests.sh (hrdlive-<pid>-*, 127.0.0.1, caps).
 # Usage: tests/live/mutation_check.sh [OUTDIR]
 set -uo pipefail
-ROOT=$(cd "$(dirname "$0")/../.." && pwd); cd "$ROOT"
+ROOT=$(cd "$(dirname "$0")/../.." && pwd); cd "$ROOT" || exit 2
 OUT=${1:-evidence/campaign-2026-11-23/gap-fix/hrd050/mutation}; mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd)
 PFX="hrdlive-mut-$$"; CTRS=(); TMPD=$(mktemp -d)
+# shellcheck disable=SC2154  # c is the loop variable inside the trap string
 trap 'for c in "${CTRS[@]:-}"; do [ -n "$c" ] && podman rm -f -t 2 "$c" >/dev/null 2>&1; done; rm -rf "$TMPD"' EXIT INT TERM
 free_port() { python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'; }
 PGPORT=$(free_port); RPORT=$(free_port); PGPW=$(head -c 12 /dev/urandom | base64 | tr -dc 'A-Za-z0-9')

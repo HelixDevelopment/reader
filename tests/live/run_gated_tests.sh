@@ -26,45 +26,74 @@
 # Exit: 0 green; 1 test failure; 3 skip-gate violation; 2 setup error.
 set -uo pipefail
 export LC_ALL=C
-ROOT=$(cd "$(dirname "$0")/../.." && pwd); cd "$ROOT"
+ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
 OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
 NOENV=0; CHECKS=()
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$2; shift;; --allow) ALLOW=$2; shift;; --check) CHECKS+=("$2"); shift;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
-mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd)
+mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd) || exit 2
 
-names_of() { grep -hE "^\s*--- $1: " "$2" 2>/dev/null | sed -E "s/^\s*--- $1: ([^ ]+).*/\1/" | sort -u; }
+HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# Identity of a test is package<TAB>name (a bare name can be masked by a same-named test in another package).
+# log_records LOG... : TSV records (see parse_gotest.awk). Returns 2 if a log is missing/unreadable/empty
+# or holds no `--- PASS/SKIP/FAIL` line (blind instrument: a zero from it would say nothing).
+LOGBAD=""
+log_records() {
+  local l
+  for l in "$@"; do
+    if [ ! -f "$l" ] || [ ! -r "$l" ] || [ ! -s "$l" ]; then echo "LOG-UNUSABLE: $l (missing, unreadable or empty)" >&2; LOGBAD=1; continue; fi
+    if ! grep -qE '^[[:space:]]*--- (PASS|SKIP|FAIL): ' "$l"; then echo "LOG-UNUSABLE: $l (no '--- PASS/SKIP/FAIL' line: not a go test -v log)" >&2; LOGBAD=1; continue; fi
+    awk -f "$HERE/parse_gotest.awk" "$l"
+  done
+}
 
-# skip_gate LOG... : exit 0 iff every net-skipped test is allow-listed with reason+item
+# skip_gate LOG... : 2 = unusable log; 3 = violation; 0 = green.
+# Violations: net-skipped test (skips somewhere in its package, passes nowhere) not allow-listed; any FAIL test;
+# build failure / failed package / panic / timeout / package with no results; malformed allow-list.
 skip_gate() {
-  local bad=0 n r i
-  cat /dev/null > "$OUT/.pass.txt"; cat /dev/null > "$OUT/.skip.txt"
-  for l in "$@"; do names_of PASS "$l" >> "$OUT/.pass.txt"; names_of SKIP "$l" >> "$OUT/.skip.txt"; done
-  sort -u "$OUT/.pass.txt" -o "$OUT/.pass.txt"; sort -u "$OUT/.skip.txt" -o "$OUT/.skip.txt"
+  local bad=0 pk n r i kind rec
+  : > "$OUT/.rec.tsv"; LOGBAD=""
+  for l in "$@"; do log_records "$l" >> "$OUT/.rec.tsv"; done
+  [ -n "$LOGBAD" ] && return 2
+  awk -F'\t' '$1=="PASS"{print $2"|"$3}' "$OUT/.rec.tsv" | sort -u > "$OUT/.pass.txt"
+  awk -F'\t' '$1=="SKIP"{print $2"|"$3}' "$OUT/.rec.tsv" | sort -u > "$OUT/.skip.txt"
   comm -23 "$OUT/.skip.txt" "$OUT/.pass.txt" > "$OUT/.netskip.txt"
-  echo "skip census: $(wc -l < "$OUT/.skip.txt") distinct tests skipped somewhere, $(wc -l < "$OUT/.netskip.txt") never passed"
-  while IFS='|' read -r n r i; do
-    [ -z "${n// }" ] && continue; case $n in \#*) continue;; esac
-    if [ -z "${r// }" ] || ! printf '%s' "$i" | grep -qE '^ *HRD-[0-9]+'; then
-      echo "ALLOWLIST-MALFORMED: '$n' needs a reason and an HRD-NNN registry item"; bad=1; fi
+  echo "skip census: $(wc -l < "$OUT/.skip.txt") distinct package|tests skipped somewhere, $(wc -l < "$OUT/.netskip.txt") never passed"
+  : > "$OUT/.used.txt"
+  while IFS='|' read -r pk n r i; do
+    [ -z "${pk//[[:space:]]/}" ] && continue; case $pk in \#*) continue;; esac
+    if [ -z "${n//[[:space:]]/}" ] || ! [[ $r =~ [^[:space:]] ]] || ! [[ $i =~ ^[[:space:]]*HRD-[0-9]+[[:space:]]*$ ]]; then
+      echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason, item exactly HRD-<digits>)"; bad=1
+    else echo "$pk|$n" >> "$OUT/.used.txt"; fi
   done < "$ALLOW"
-  while read -r n; do
-    [ -z "$n" ] && continue
-    if ! grep -vE '^\s*#' "$ALLOW" | cut -d'|' -f1 | grep -qxF "$n"; then
-      echo "UNLISTED-SKIP: $n"; bad=1; fi
+  while read -r rec; do
+    [ -z "$rec" ] && continue
+    if ! grep -qxF "$rec" "$OUT/.used.txt"; then echo "UNLISTED-SKIP: $rec"; bad=1; fi
   done < "$OUT/.netskip.txt"
+  while IFS=$'\t' read -r kind pk n; do
+    case $kind in
+      FAIL) echo "FAILED-TEST: $pk|$n"; bad=1;;
+      BUILDFAIL) echo "BUILD-FAILED: $pk"; bad=1;;
+      PKGFAIL) echo "PACKAGE-FAILED: $pk"; bad=1;;
+      NORESULTS) echo "NO-RESULTS: $pk (package FAIL with no test results)"; bad=1;;
+      PANIC) echo "PANIC: $pk $n"; bad=1;;
+      TIMEOUT) echo "TIMEOUT: $pk"; bad=1;;
+    esac
+  done < <(sort -u "$OUT/.rec.tsv" | grep -vP '^(PASS|SKIP|SEEN)\t')
+  while read -r rec; do [ -n "$rec" ] && ! grep -qxF "$rec" "$OUT/.skip.txt" && echo "UNUSED-ALLOW (warning): $rec never skipped in these logs"; done < <(sort -u "$OUT/.used.txt")
   return $bad
 }
 
-if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?; rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt
+if [ ${#CHECKS[@]} -gt 0 ]; then skip_gate "${CHECKS[@]}"; G=$?; rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
+  [ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s), no verdict possible"; exit 2; }
   [ $G -eq 0 ] && { echo "GATE GREEN"; exit 0; } || { echo "SKIP-GATE FAILED"; exit 3; }; fi
 
 PFX="hrdlive-$$"; CTRS=(); TMPD=$(mktemp -d)
 cleanup() { for ((i=${#CTRS[@]}-1;i>=0;i--)); do podman rm -f -t 2 "${CTRS[$i]}" >/dev/null 2>&1; done; rm -rf "$TMPD"; true; }
 trap cleanup EXIT INT TERM
 free_port() { python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'; }
-hdr() { echo "# HRD-050 $1  $(date -u +%FT%TZ)  head=$(git rev-parse --short HEAD)  mode=$([ $NOENV = 1 ] && echo no-env || echo live)"; echo "# cmd: $0 $ORIG"; echo "# go: $(go version)"; }
+hdr() { echo "# HRD-050 $1  $(date -u +%FT%TZ)  head=$(git rev-parse --short HEAD)  dirty_files=$(git status --porcelain | wc -l)  dirty_diff_sha=$( (git diff HEAD; git ls-files -o --exclude-standard | sort) | sha256sum | cut -c1-16)  mode=$([ $NOENV = 1 ] && echo no-env || echo live)"; echo "# cmd: $0 $ORIG"; echo "# go: $(go version)"; }
 ORIG="$*"
 EVBEFORE="$TMPD/ev_before.txt"; git status --porcelain --untracked-files=all evidence > "$EVBEFORE"
 
@@ -111,7 +140,6 @@ if [ $NOENV = 0 ]; then
   HOSTRE='TestLiveLoadRemoteSource|TestLiveLoadRemoteSourceRclone|TestLiveLoadRemoteSourceWebDAV|TestLiveThrottleRemoteSourceHTTP|TestLiveSlowClientCatalogSurface|TestLiveSlowClientJobSurface'
   INRE=$(tr '|' '\n' <<<"$REGEX" | grep -vxE "$HOSTRE" | grep -v '/' | paste -sd'|')
   HRE=$(tr '|' '\n' <<<"$REGEX" | grep -xE "$HOSTRE" | paste -sd'|')
-  SUBRE=$(tr '|' '\n' <<<"$REGEX" | grep '/' | cut -d/ -f1 | sort -u | paste -sd'|')
   echo "=== B2h host-side (measurement_path=host_forwarded): $HRE ===" >> "$LB"
   if [ -n "$HRE" ]; then
     ( cd server && HELIX_MEASUREMENT_PATH=host_forwarded go test ./... -count=1 -v -p 1 -timeout 60m -run "^($HRE)\$" ) >> "$LB" 2>&1 || RC=1
@@ -124,6 +152,7 @@ if [ $NOENV = 0 ]; then
     podman exec "$PFX-run" mkdir -p "/work/server/internal/$pk" "/work/evidence" >/dev/null
     podman cp "$TMPD/$pk.test" "$PFX-run:/work/server/internal/$pk/$pk.test" >> "$LB" 2>&1
     [ -d "server/internal/$pk/testdata" ] && podman cp "server/internal/$pk/testdata" "$PFX-run:/work/server/internal/$pk/testdata" >> "$LB" 2>&1
+    echo "# PKG ./internal/$pk (in-container)" >> "$LB"
     podman exec -w "/work/server/internal/$pk" \
       -e HELIX_TEST_POSTGRES_DSN="postgres://postgres:$PGPW@127.0.0.1:5432/helix_test?sslmode=disable" \
       -e HELIX_TEST_REDIS_ADDR=127.0.0.1:6379 -e HELIX_LOAD_RUN=1 -e HELIX_MEASUREMENT_PATH=in_container_clean \
@@ -134,6 +163,7 @@ if [ $NOENV = 0 ]; then
   podman cp "$PFX-run:/work/evidence" "$OUT/in_container_evidence" >/dev/null 2>&1
   echo "=== B3 multi-process merges (4 workers + verify) ===" >> "$LB"
   ( cd server && go test -c -o "$TMPD/catalog.test" ./internal/catalog ) >> "$LB" 2>&1 || RC=1
+  echo "# PKG ./internal/catalog (multiprocess workers)" >> "$LB"
   RUNTAG="hrd050$$"; WP=()
   for i in 0 1 2 3; do
     ( cd server/internal/catalog && HELIX_MP_ROLE=worker HELIX_MP_INDEX=$i HELIX_MP_PROCESSES=4 HELIX_MP_OPS=60 HELIX_MP_RUN=$RUNTAG \
@@ -156,7 +186,7 @@ fi
 # evidence side effects written by tests into the tracked evidence tree
 mkdir -p "$OUT/side_effects"
 git status --porcelain --untracked-files=all evidence | grep -vxFf "$EVBEFORE" | while read -r st path; do
-  case "$path" in "${OUT#$ROOT/}"/*) continue;; esac
+  case "$path" in "${OUT#"$ROOT"/}"/*) continue;; esac
   [ -f "$path" ] || continue
   mkdir -p "$OUT/side_effects/$(dirname "$path")"; cp "$path" "$OUT/side_effects/$path"
   if [ "$st" = "??" ]; then rm -f "$path"; else git checkout -- "$path"; fi
@@ -166,8 +196,9 @@ done
 grep -hE '^\s*--- FAIL' "${LOGS[@]}" | sed 's/ (.*//' | sort -u > "$OUT/failures_$SUF.txt"
 skip_gate "${LOGS[@]}"; G=$?
 cp "$OUT/.netskip.txt" "$OUT/netskips_$SUF.txt"; cp "$OUT/.skip.txt" "$OUT/skips_anywhere_$SUF.txt"
-rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt
+rm -f "$OUT"/.pass.txt "$OUT"/.skip.txt "$OUT"/.netskip.txt "$OUT"/.rec.tsv "$OUT"/.used.txt
 tools/isolation/seal_evidence.sh "$OUT" >/dev/null
-[ $G -ne 0 ] && { echo "SKIP-GATE FAILED"; exit 3; }
+[ $G -eq 2 ] && { echo "GATE-BLIND: unusable log(s)"; exit 2; }
+[ $G -ne 0 ] && { [ $RC -ne 0 ] && echo "ALSO: go test returned failures (see $OUT/failures_$SUF.txt)"; echo "SKIP-GATE FAILED"; exit 3; }
 [ $RC -ne 0 ] && { echo "TEST FAILURES (see $OUT/failures_$SUF.txt)"; exit 1; }
 echo "GATE GREEN"; exit 0
