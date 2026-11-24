@@ -1,0 +1,7 @@
+MUTANT C02_canon_decode_err_depth_beyond_decoder_limit: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 73-73
+  restored: GREEN again
+MUTANT E02_parserels_empty_rel_required_message: KILLED
+--- FAIL: TestHRD070LSDLinkRelMessages (0.00s)
+  edits core/pkg/lcp/lsd.go 276-276
+  restored: GREEN again

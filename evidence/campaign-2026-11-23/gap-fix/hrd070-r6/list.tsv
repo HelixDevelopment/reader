@@ -1,0 +1,188 @@
+core/pkg/lcp/canonical.go	canonicalWithMode	1	if err := noDuplicateMembers(doc); err != nil {	67-69
+core/pkg/lcp/canonical.go	canonicalWithMode	1	if err := dec.Decode(&v); err != nil {	73-75
+core/pkg/lcp/canonical.go	canonicalWithMode	1	if err := writeCanonical(&b, v, mode); err != nil {	77-79
+core/pkg/lcp/canonical.go	CanonicalForSigningMode	1	if err != nil {	98-100
+core/pkg/lcp/canonical.go	CanonicalForSigningMode	1	if !found {	101-103
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if err != nil {	121-123
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if d, ok := tok.(json.Delim); !ok || d != '{' {	124-126
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	for dec.More() {	128-153
+core/pkg/lcp/canonical.go	withoutTopLevelMember	2	if err != nil {	130-132
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if !ok {	134-136
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if err := dec.Decode(&raw); err != nil {	139-141
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if key == name {	143-146
+core/pkg/lcp/canonical.go	withoutTopLevelMember	1	if _, err := dec.Token(); err != nil {	154-156
+core/pkg/lcp/canonical.go	noDuplicateMembers	1	if err := scanNoDupes(dec); err != nil {	163-165
+core/pkg/lcp/canonical.go	noDuplicateMembers	1	if _, err := dec.Token(); !errors.Is(err, io.EOF) {	166-168
+core/pkg/lcp/canonical.go	scanNoDupes	1	if err != nil {	174-176
+core/pkg/lcp/canonical.go	scanNoDupes	1	if !ok {	178-180
+core/pkg/lcp/canonical.go	scanNoDupes	1	switch d {	181-181
+core/pkg/lcp/canonical.go	scanNoDupes	1	case '{':	182-200
+core/pkg/lcp/canonical.go	scanNoDupes	1	for dec.More() {	184-200
+core/pkg/lcp/canonical.go	scanNoDupes	2	if err != nil {	186-188
+core/pkg/lcp/canonical.go	scanNoDupes	2	if !ok {	190-192
+core/pkg/lcp/canonical.go	scanNoDupes	1	if seen[key] {	193-195
+core/pkg/lcp/canonical.go	scanNoDupes	1	if err := scanNoDupes(dec); err != nil {	197-199
+core/pkg/lcp/canonical.go	scanNoDupes	1	case '[':	201-206
+core/pkg/lcp/canonical.go	scanNoDupes	2	for dec.More() {	202-206
+core/pkg/lcp/canonical.go	scanNoDupes	2	if err := scanNoDupes(dec); err != nil {	203-205
+core/pkg/lcp/canonical.go	scanNoDupes	1	default:	207-209
+core/pkg/lcp/canonical.go	scanNoDupes	1	if _, err := dec.Token(); err != nil {	210-212
+core/pkg/lcp/canonical.go	writeCanonical	1	switch t := v.(type) {	217-217
+core/pkg/lcp/canonical.go	writeCanonical	1	case nil:	218-219
+core/pkg/lcp/canonical.go	writeCanonical	1	case bool:	220-225
+core/pkg/lcp/canonical.go	writeCanonical	1	if t {	221-222
+core/pkg/lcp/canonical.go	writeCanonical	1	} else {	223-225
+core/pkg/lcp/canonical.go	writeCanonical	1	case json.Number:	226-231
+core/pkg/lcp/canonical.go	writeCanonical	1	if err != nil {	228-230
+core/pkg/lcp/canonical.go	writeCanonical	1	case string:	232-233
+core/pkg/lcp/canonical.go	writeCanonical	1	case []any:	234-244
+core/pkg/lcp/canonical.go	writeCanonical	1	for i, e := range t {	236-243
+core/pkg/lcp/canonical.go	writeCanonical	1	if i > 0 {	237-239
+core/pkg/lcp/canonical.go	writeCanonical	1	if err := writeCanonical(b, e, mode); err != nil {	240-242
+core/pkg/lcp/canonical.go	writeCanonical	1	case map[string]any:	245-262
+core/pkg/lcp/canonical.go	writeCanonical	1	for k := range t {	247-249
+core/pkg/lcp/canonical.go	writeCanonical	1	for i, k := range keys {	252-261
+core/pkg/lcp/canonical.go	writeCanonical	2	if i > 0 {	253-255
+core/pkg/lcp/canonical.go	writeCanonical	1	if err := writeCanonical(b, t[k], mode); err != nil {	258-260
+core/pkg/lcp/canonical.go	writeCanonical	1	default:	263-265
+core/pkg/lcp/canonical.go	writeCanonicalString	1	if mode == CanonicalReference {	276-278
+core/pkg/lcp/canonical.go	writeCanonicalString	1	for i := 0; i < len(s); {	280-316
+core/pkg/lcp/canonical.go	writeCanonicalString	1	if c >= utf8.RuneSelf {	282-292
+core/pkg/lcp/canonical.go	writeCanonicalString	1	if mode == CanonicalReference && (r == 0x2028 || r == 0x2029) {	284-288
+core/pkg/lcp/canonical.go	writeCanonicalString	1	switch c {	293-293
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '"':	294-295
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\\':	296-297
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\b':	298-299
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\f':	300-301
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\n':	302-303
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\r':	304-305
+core/pkg/lcp/canonical.go	writeCanonicalString	1	case '\t':	306-307
+core/pkg/lcp/canonical.go	writeCanonicalString	1	default:	308-314
+core/pkg/lcp/canonical.go	writeCanonicalString	1	if c < 0x20 {	309-310
+core/pkg/lcp/canonical.go	writeCanonicalString	1	} else {	311-313
+core/pkg/lcp/canonical.go	canonicalNumber	1	if mode == CanonicalReference {	336-338
+core/pkg/lcp/canonical.go	canonicalNumber	1	if !strings.ContainsAny(s, ".eE") {	339-344
+core/pkg/lcp/canonical.go	canonicalNumber	1	if s == "-0" {	340-342
+core/pkg/lcp/canonical.go	canonicalNumber	1	if strings.HasPrefix(rest, "-") {	348-350
+core/pkg/lcp/canonical.go	canonicalNumber	1	if i := strings.IndexAny(rest, "eE"); i >= 0 {	352-361
+core/pkg/lcp/canonical.go	canonicalNumber	1	if err != nil {	354-356
+core/pkg/lcp/canonical.go	canonicalNumber	1	if e > 1<<30 || e < -(1<<30) {	357-359
+core/pkg/lcp/canonical.go	canonicalNumber	1	if i := strings.IndexByte(rest, '.'); i >= 0 {	363-365
+core/pkg/lcp/canonical.go	canonicalNumber	1	if digits == "" {	373-375
+core/pkg/lcp/canonical.go	canonicalNumber	2	if digits == "" {	377-379
+core/pkg/lcp/canonical.go	canonicalNumber	1	if len(digits) > 1 {	382-384
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	if err := json.Unmarshal(b, &aux); err != nil {	57-59
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	if len(raw) == 0 || string(raw) == "null" {	62-64
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	if raw[0] == '"' {	66-69
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	if err := json.Unmarshal(raw, &text); err != nil {	67-69
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	} else {	70-72
+core/pkg/lcp/license.go	Link.UnmarshalJSON	1	if err != nil || n < 0 {	74-76
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(doc, &w); err != nil {	182-184
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(doc, &generic); err != nil {	186-188
+core/pkg/lcp/license.go	Parse	1	if w.ID == "" {	189-191
+core/pkg/lcp/license.go	Parse	1	if w.Provider == "" {	192-194
+core/pkg/lcp/license.go	Parse	1	if w.Issued == "" {	198-200
+core/pkg/lcp/license.go	Parse	1	if err != nil {	202-204
+core/pkg/lcp/license.go	Parse	1	if w.Updated != "" {	206-210
+core/pkg/lcp/license.go	Parse	1	if updated, err = parseTime(w.Updated, "updated"); err != nil {	207-209
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.Profile == "" {	211-213
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.ContentKey.EncryptedValue == "" || w.Encryption.ContentKey.Algorithm == "" {	214-216
+core/pkg/lcp/license.go	Parse	1	if w.Encryption.UserKey.Algorithm == "" || w.Encryption.UserKey.KeyCheck == "" {	222-224
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(generic["encryption"], &hint); err != nil {	230-232
+core/pkg/lcp/license.go	Parse	1	if hint.UserKey.TextHint == nil {	233-235
+core/pkg/lcp/license.go	Parse	1	if len(w.Links) == 0 {	236-238
+core/pkg/lcp/license.go	Parse	1	for i, l := range w.Links {	239-243
+core/pkg/lcp/license.go	Parse	1	if l.Href == "" {	240-242
+core/pkg/lcp/license.go	Parse	1	if w.Signature.Algorithm == "" || w.Signature.Certificate == "" || w.Signature.Value == "" {	244-246
+core/pkg/lcp/license.go	Parse	1	if len(w.Rights) > 0 {	254-258
+core/pkg/lcp/license.go	Parse	1	if err := json.Unmarshal(w.Rights, &lic.Rights); err != nil {	255-257
+core/pkg/lcp/license.go	Parse	1	for k := range generic {	259-263
+core/pkg/lcp/license.go	Parse	1	if !knownMembers[k] {	260-262
+core/pkg/lcp/license.go	parseTime	1	if err != nil {	272-274
+core/pkg/lcp/lsd.go	StatusValue.valid	1	switch s {	73-73
+core/pkg/lcp/lsd.go	StatusValue.valid	1	case StatusReady, StatusActive, StatusRevoked, StatusReturned, StatusCancelled, StatusExpired:	74-76
+core/pkg/lcp/lsd.go	LSDLink.HasRel	1	for _, r := range l.Rels {	93-97
+core/pkg/lcp/lsd.go	LSDLink.HasRel	1	if r == rel {	94-96
+core/pkg/lcp/lsd.go	parseStatusTime	1	if err != nil {	181-183
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if err := dec.Decode(&w); err != nil {	198-200
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if _, err := dec.Token(); !errors.Is(err, io.EOF) {	201-203
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.ID == nil || *w.ID == "" {	204-206
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Status == nil {	207-209
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Message == nil {	210-212
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Updated == nil || w.Updated.License == nil || w.Updated.Status == nil {	213-215
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.Links == nil {	216-218
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !d.Status.valid() {	220-222
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if d.UpdatedLicense, err = parseStatusTime(*w.Updated.License, "updated.license"); err != nil {	224-226
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if d.UpdatedStatus, err = parseStatusTime(*w.Updated.Status, "updated.status"); err != nil {	227-229
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	for i, wl := range *w.Links {	231-242
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if wl.Href == nil || *wl.Href == "" {	232-234
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if err != nil {	236-238
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	hasLicense = hasLicense || l.HasRel("license")	240-240
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !hasLicense {	243-245
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if w.PotentialRights != nil && w.PotentialRights.End != nil {	246-252
+core/pkg/lcp/lsd.go	ParseStatusDocument	2	if err != nil {	248-250
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	for i, we := range w.Events {	255-271
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if we.Type != nil {	257-262
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if !statusEventTypes[*we.Type] {	258-260
+core/pkg/lcp/lsd.go	ParseStatusDocument	1	if we.Timestamp != nil {	263-269
+core/pkg/lcp/lsd.go	ParseStatusDocument	3	if err != nil {	265-267
+core/pkg/lcp/lsd.go	parseRels	1	if len(raw) == 0 {	276-278
+core/pkg/lcp/lsd.go	parseRels	1	if json.Unmarshal(raw, &one) == nil {	280-285
+core/pkg/lcp/lsd.go	parseRels	1	if one == "" {	281-283
+core/pkg/lcp/lsd.go	parseRels	1	if json.Unmarshal(raw, &many) != nil {	287-289
+core/pkg/lcp/lsd.go	NeedsLicenseRefresh	1	if status == nil {	299-301
+core/pkg/lcp/lsd.go	NeedsLicenseRefresh	1	if local == nil {	302-304
+core/pkg/lcp/lsd.go	NeedsLicenseRefresh	1	if have.IsZero() {	306-308
+server/internal/kosync/memory.go	Memory.CreateUser	1	if _, ok := m.users[username]; ok {	23-25
+server/internal/kosync/memory.go	Memory.UserVerifier	1	if !ok {	34-36
+server/internal/kosync/memory.go	Memory.PutProgress	1	if m.progress[username] == nil {	43-45
+server/internal/kosync/memory.go	Memory.PutProgress	1	if !ok || progress.Percentage >= existing.Percentage {	47-49
+server/internal/kosync/memory.go	Memory.GetProgress	1	if !ok {	57-59
+server/internal/kosync/service.go	Service.Register	1	if !s.registration {	39-41
+server/internal/kosync/service.go	Service.Register	1	if !validUsername.MatchString(username) || len(password) < 8 || len(password) > 72 {	42-44
+server/internal/kosync/service.go	Service.Register	1	if err != nil {	46-48
+server/internal/kosync/service.go	Service.Authenticate	1	if username == "" || password == "" || len(username) > 255 || len(password) > 72 {	53-55
+server/internal/kosync/service.go	Service.Authenticate	1	if errors.Is(err, ErrUserNotFound) {	57-60
+server/internal/kosync/service.go	Service.Authenticate	1	if err != nil {	61-63
+server/internal/kosync/service.go	Service.Authenticate	1	if bcrypt.CompareHashAndPassword([]byte(verifier), []byte(password)) != nil {	64-66
+server/internal/kosync/service.go	Service.PutProgress	1	if progress.Document == "" || progress.Progress == "" || progress.Device == "" || len(progress.Document) > 255 || len(progress.Progress) > 255 || len(progress.Device) > 255 || len(progress.DeviceID) > 255 || math.IsNaN(progress.Percentage) || math.IsInf(progress.Percentage, 0) || progress.Percentage < 0 || progress.Percentage > 1 {	71-75
+server/internal/kosync/service.go	Service.PutProgress	1	if err := s.store.PutProgress(ctx, username, progress); err != nil {	77-79
+server/internal/kosync/service.go	Service.GetProgress	1	if document == "" || len(document) > 255 {	86-88
+server/internal/opds/detail.go	entry12	1	for _, a := range e.Authors {	18-20
+server/internal/opds/detail.go	entry12	1	for _, id := range e.Identifiers {	21-23
+server/internal/opds/detail.go	entry12	1	if e.Description != "" {	24-26
+server/internal/opds/detail.go	entry12	1	for _, s := range w.Subjects {	27-29
+server/internal/opds/detail.go	entry12	1	if e.CoverHREF != "" {	30-32
+server/internal/opds/detail.go	entry12	1	for _, file := range e.Files {	34-44
+server/internal/opds/detail.go	entry12	1	if file.DRMScheme == "lcp" && file.LicenseHREF != "" {	36-40
+server/internal/opds/detail.go	entry12	1	if link, ok := streamLink(file.ID, streams[file.ID]); ok {	41-43
+server/internal/opds/detail.go	publication20	1	if e.Language != "" {	59-61
+server/internal/opds/detail.go	publication20	1	for _, a := range e.Authors {	62-64
+server/internal/opds/detail.go	publication20	1	if e.Publisher != "" {	65-67
+server/internal/opds/detail.go	publication20	1	if e.CoverHREF != "" {	68-70
+server/internal/opds/detail.go	publication20	1	for _, file := range e.Files {	71-76
+server/internal/opds/detail.go	publication20	1	if file.DRMScheme == "lcp" && file.LicenseHREF != "" {	73-75
+server/internal/opds/opds12.go	stamp	1	if t.IsZero() {	14-16
+server/internal/opds/opds12.go	Navigation12	1	for _, n := range nav {	39-41
+server/internal/opds/opds12.go	OpenSearch12	1	if base == "" {	46-48
+server/internal/opds/opds12.go	selfPos	1	if q.After != nil {	76-78
+server/internal/opds/opds12.go	nextPos	1	if !page.HasNext {	88-90
+server/internal/opds/opds12.go	nextPos	1	if q.After != nil {	91-97
+server/internal/opds/opds12.go	nextPos	1	if cursor == nil {	93-95
+server/internal/opds/opds12.go	pageURL	1	if q.Text != "" {	103-105
+server/internal/opds/opds12.go	pageURL	1	if q.Author != "" {	106-108
+server/internal/opds/opds12.go	pageURL	1	if q.State != "" {	109-111
+server/internal/opds/opds12.go	pageURL	1	if pos.after != nil {	112-113
+server/internal/opds/opds12.go	pageURL	1	} else {	114-116
+server/internal/opds/opds12.go	Acquisition12	1	if len(page.Works) > 0 {	123-125
+server/internal/opds/opds12.go	Acquisition12	1	if q.After == nil && q.Offset > 0 {	132-138
+server/internal/opds/opds12.go	Acquisition12	1	if prev < 0 {	134-136
+server/internal/opds/opds12.go	Acquisition12	1	if next := nextPos(q, page); next != nil {	139-141
+server/internal/opds/opds12.go	Acquisition12	1	for _, w := range page.Works {	142-146
+server/internal/opds/opds12.go	Acquisition12	1	for _, e := range w.Editions {	143-145
+server/internal/opds/opds20.go	Acquisition20	1	if q.After == nil && q.Offset > 0 {	16-22
+server/internal/opds/opds20.go	Acquisition20	1	if prev < 0 {	18-20
+server/internal/opds/opds20.go	Acquisition20	1	if next := nextPos(q, page); next != nil {	23-25
+server/internal/opds/opds20.go	Acquisition20	1	for _, w := range page.Works {	26-30
+server/internal/opds/opds20.go	Acquisition20	1	for _, e := range w.Editions {	27-29
+server/internal/opds/pse.go	streamLink	1	if ps.Count < 1 || !pse.IsImageType(ps.Type) {	32-34

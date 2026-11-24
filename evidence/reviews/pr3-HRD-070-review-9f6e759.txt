@@ -1,0 +1,101 @@
+VERDICT: NO-GO
+HEAD: 9f6e759263d83cae31b76a607c5acb35e4eb65f2
+Reviewer: independent (producer!=verifier), round 4, 2026-11-24. Model: Opus 5.5; effort not settable/readable on this dispatch path (UNCONFIRMED).
+Head confirmed: git ls-remote github refs/heads/task/HRD-070-fuzz-targets -> 9f6e759263d83cae31b76a607c5acb35e4eb65f2 (gh pr view 3: headRefOid same, OPEN).
+Method: detached worktree /home/milosvasic/.cache/claude-tmp/wt-rev3; all mutants applied to a scratch copy (never the PR tree); reviewer mutant script and logs kept in the reviewer scratchpad (rmut.sh / rmut.log / fuzz30.log), not committed.
+
+== (1) vet / gofmt / tests (PASS) ==
+go vet ./pkg/lcpfuzz ./pkg/lcp ; go vet ./internal/kosync ./internal/opds : no output
+gofmt -l core/pkg/lcpfuzz core/pkg/lcp server/internal/kosync server/internal/opds : no output
+ok  github.com/helixreader/helix/core/pkg/lcpfuzz      0.032s
+ok  github.com/helixreader/helix/core/pkg/lcp          16.746s
+ok  github.com/helixreader/helix/server/internal/kosync 0.888s
+ok  github.com/helixreader/helix/server/internal/opds   0.010s
+
+== (4) fuzz, 30 s each, -parallel 4, on a scratch copy (PASS, 0 crashers) ==
+[FuzzParseLicense] fuzz: elapsed: 31s, execs: 1087485 (0/sec), new interesting: 1 (total: 628)
+[FuzzParseLicense] PASS
+[FuzzParseLicense] ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	31.100s
+[FuzzParseStatusDocument] fuzz: elapsed: 31s, execs: 1318268 (0/sec), new interesting: 3 (total: 737)
+[FuzzParseStatusDocument] PASS
+[FuzzParseStatusDocument] ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	31.045s
+[FuzzCanonical] fuzz: elapsed: 31s, execs: 434498 (0/sec), new interesting: 0 (total: 709)
+[FuzzCanonical] PASS
+[FuzzCanonical] ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	31.089s
+[FuzzPutProgressBody] fuzz: elapsed: 30s, execs: 727769 (0/sec), new interesting: 1 (total: 652)
+[FuzzPutProgressBody] PASS
+[FuzzPutProgressBody] ok  	github.com/helixreader/helix/server/internal/kosync	30.253s
+[FuzzRegisterInput] fuzz: elapsed: 30s, execs: 800761 (0/sec), new interesting: 0 (total: 61)
+[FuzzRegisterInput] PASS
+[FuzzRegisterInput] ok  	github.com/helixreader/helix/server/internal/kosync	30.177s
+[FuzzOPDSGeneration] fuzz: elapsed: 31s, execs: 19914 (0/sec), new interesting: 1 (total: 477)
+[FuzzOPDSGeneration] PASS
+[FuzzOPDSGeneration] ok  	github.com/helixreader/helix/server/internal/opds	31.053s
+No new testdata/fuzz files were produced (only the pre-existing tracked core/pkg/parse/fb2/testdata/fuzz, which is on main and not part of this PR).
+
+== (5)/(6) evidence, trailers, corpus, build tags ==
+sha256sum -c SHA256SUMS: hrd070 rc=0 (11/11), hrd070-r2 rc=0 (12/12), hrd070-r3 rc=0 (11/11), hrd070-r4 rc=0 (13/13).
+git diff --name-only e9c89d3...HEAD | grep -E "testdata|corpus" -> nothing (rc=1): no corpus/crasher committed (NOTES item 4 true).
+Build tags: no //go:build line in any of the fuzz files; the only mention is the comment "No build tag is needed" -> consistent.
+Trailers (git interpret-trailers --parse):
+  dfb13c7: Co-Authored-By only    e79fc65: Co-Authored-By only
+  b8aa215: Roadmap-Item: HRD-070 + Co-Authored-By    9f6e759: Roadmap-Item: HRD-070 + Co-Authored-By
+Fuzz 300 s claim (fuzz_results.json / logs: 6 targets, exit 0, crasher_files 0): consistent with sealed logs; not re-run for 300 s by me (UNCONFIRMED beyond my own 30 s runs).
+Author's 88 KILLED / 2 SURVIVED counts: reproduced from mutation.log (grep count 88 KILLED, 2 "expected"); I did not re-run their mutate.sh (UNCONFIRMED by re-execution).
+
+== BLOCKING ==
+
+B1. L03_issued_empty_EQUIV is NOT an equivalent mutant; RULES.md "no observable behaviour change" is false.
+Production (core/pkg/lcp/license.go:195-200) states "Absent and malformed are different complaints": absent issued -> ErrIncomplete, malformed -> ErrLicenseSyntax. Removing the check changes the returned sentinel. The package's own unit test detects it; the fuzz oracle does not because it accepts either sentinel (lcpfuzz_test.go:192).
+  MUT R01_L03_equiv_claim: SURVIVED seed run
+     cross-check ./pkg/lcp: FAIL -> behaviour observable
+      --- FAIL: TestParseRejectsIncompleteLicenses/issued
+          license_test.go:69: Parse without issued error = lcp: license document is not valid JSON: issued is not an RFC 3339 date-time: ..., want ErrIncomplete
+The class behind it (which sentinel each rejection carries: ErrIncomplete for absent members vs ErrLicenseSyntax for malformed values) is not in RULES.md and not asserted by any HRD-070 oracle:
+  MUT R02_id_errclass (id -> ErrLicenseSyntax): SURVIVED seed run; cross-check ./pkg/lcp: FAIL (TestParseRejectsIncompleteLicenses/id)
+  MUT R03_updated_errclass (parseTime -> ErrIncomplete): SURVIVED seed run
+Same class of defect as round 3's false NOTES claim: an evidence document asserts a property that is not true.
+
+B2. RULES.md is not an enumeration of every enforced rule; whole rule classes are missing (independent enumeration from production source):
+ (a) kosync Service.Authenticate (service.go:52-54): username=="" , password=="", len(username)>255, len(password)>72 - four rules, zero rows, zero oracle. Security-relevant: with the >72 check relaxed, a password of 72 bytes plus ANY suffix authenticates (bcrypt only uses 72 bytes; x/crypto v0.48.0 Compare does not reject it). Reviewer probe on the mutated scratch copy:
+      zz_rev_test.go:7: 73+byte password auth err=<nil>
+   MUT R11_auth_pass_len: SURVIVED seed run
+   MUT R12_auth_user_empty: SURVIVED seed run
+   MUT R13_auth_user_len: SURVIVED seed run
+ (b) value propagation of parsed fields (LSD links type/templated, events name; License user): no rows, no oracle.
+   MUT R06_lsd_templated_dropped: SURVIVED seed run  (observable: existing ./pkg/lcp tests FAIL: TestParseStatusDocumentFullExample, TestLSDLiveLoopbackLifecycle)
+   MUT R07_lsd_link_type_dropped: SURVIVED seed run
+   MUT R08_lsd_event_name_dropped: SURVIVED seed run
+   MUT R10_lic_user_dropped: SURVIVED seed run
+ (c) PutProgress returns the persisted winner (service.go:83, documented in its comment): no row.
+   MUT R14_put_returns_input: SURVIVED seed run
+ (d) OPDS link generation (pagination self/next/previous + query params, previous clamp to 0, LCP related link, authors, alternate, cover, Navigation20): the O table covers titles/ids/acquisition/context/OpenSearch only.
+   MUT R16_opds_next_offset: SURVIVED seed run (observable: existing ./internal/opds test FAIL TestNextLinkFollowsHasNextNotTheTotal)
+   MUT R17_opds_prev_clamp: SURVIVED seed run
+   MUT R18_opds_pageurl_author: SURVIVED seed run
+   MUT R19_opds20_lcp_link: SURVIVED seed run (also passes the existing opds unit tests: no test anywhere pins the OPDS 2.0 LCP license link)
+   MUT R20_opds12_authors: SURVIVED seed run
+   MUT R21_nav20_self: SURVIVED seed run (Navigation20 is never called by FuzzOPDSGeneration)
+   MUT R22_opds12_alternate: SURVIVED seed run
+   MUT R23_opds20_cover: SURVIVED seed run
+ Killed by the PR seeds (credit): R04_lsd_event_revoke, R05_lsd_status_returned, R09_lic_links_dropped, R15_user_regex_anchor.
+ Totals of reviewer mutants: 23 applied, 4 killed, 19 survived (3 of them shown observable by existing unit tests, 1 shown observable by a probe).
+ Either RULES.md must narrow its claim to the listed rules (and drop "every enforced rule"), or the classes above need rows + oracles + seeds. As written the round-4 deliverable's central claim is false.
+
+== IMPORTANT ==
+
+I1. dfb13c7 and e79fc65 carry "Roadmap-Item: HRD-070" in a paragraph separated from the trailer block, so git does not parse it as a trailer (output above). Cannot be fixed without history rewrite (forbidden); record it in the PR or have the merge commit carry the trailer.
+I2. PR body is stale: "Evidence: none cited by the commits", "Test types run: NOT STATED", "Head at open: dfb13c7". It cites none of the sealed evidence directories now in the head tree.
+I3. The HTTP handler layer (server/internal/httpapi/kosync.go: MaxBytesReader 4096/1024/16384, status mapping 400/401/402/500, gin ShouldBindJSON) is not exercised; FuzzPutProgressBody decodes with encoding/json and calls the service. Equivalence of ShouldBindJSON and json.Unmarshal for these inputs: UNCONFIRMED.
+
+== MINOR ==
+
+M1. RULES.md row O04 gives location opds12.go, but its mutant edits detail.go (entry12).
+M2. O06/O07 mutants use line-number sed (63s, 147s): fragile against any edit above those lines.
+M3. Production oddity (out of scope, note only): opds12.go OpenSearch12 has a no-op "if base == \"\" { base = \"\" }".
+
+== VERIFIED AS CLAIMED ==
+- K09_inf_EQUIV: genuinely equivalent. In service.go:73 +Inf is rejected by "> 1" and -Inf by "< 0"; NaN needs its own check (comparisons false) and keeps it (K08 killed). No observable difference.
+- Case-insensitive member lookup oracle change (NOTES 3): present (ci / hasCaseDup in lcpfuzz_test.go).
+- NOTES 2 correction about the round-3 false claim: present and accurate (L05/L06 rows killed per log).
+- Boundary seeds run in the plain seed run: confirmed (my mutants R04/R05/R15 were killed by go test without -fuzz).
