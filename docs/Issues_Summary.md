@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 62, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -67,3 +67,21 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 44, Ready for testi
 | HRD-083 | Task | High | Queued | 0 | Adopt the PR-driven workflow: branch, PR, independent review agents, merge to main, never force-push, multi-upstream mirror |
 | HRD-084 | Task | High | Queued | 0 | Update the constitution submodule to the latest pin with recursive incorporation and post-update hooks |
 | HRD-085 | Task | Medium | In progress | 0 | Registry hardening and gap-register import landing (PR #8) |
+| HRD-086 | Task | Medium | Queued | 0 | Allocate registry identifiers HRD-086 to HRD-103 for work streams landed or reviewed on 2026-11-24 |
+| HRD-087 | Feature | High | Queued | 0 | Cronet and HTTP/3 clients: desktop Chromium-session h3, Android Cronet forced QUIC, server access log middleware and qa/h3 verifier |
+| HRD-088 | Task | High | Queued | 0 | Android HTTP/3 lab: prove QUIC certificate verification (error -356) with a writable-system or known-root lab |
+| HRD-089 | Feature | High | Queued | 0 | Go live verifiers: server, transport and backup-restore checks as Go commands in server/internal/liveverify |
+| HRD-090 | Feature | High | Queued | 0 | Go mutation and UI verifiers: tools/verify gomutate and uiverify ported from Python |
+| HRD-091 | Task | Medium | Queued | 0 | Packaging: ignore local-only paths and reference the Koodo-reader bundle by hash manifest |
+| HRD-092 | Task | Medium | Queued | 0 | PR #5 review follow-ups FU1 to FU5 and F5 |
+| HRD-093 | Task | Medium | Queued | 0 | PR #10 review follow-ups N1 to N7 and F-a, F-b, F-c (registry hardening) |
+| HRD-094 | Task | Medium | Queued | 0 | Follow-ups of the reviews of pull requests #15 and #17 |
+| HRD-095 | Task | Medium | Queued | 0 | PR #16 review follow-ups F1 to F6 |
+| HRD-096 | Task | Medium | Queued | 0 | PR #18 review follow-ups N1 to N6 |
+| HRD-097 | Task | Medium | Queued | 0 | PR #19 review follow-ups m1 to m7 |
+| HRD-098 | Task | Medium | Queued | 0 | PR #20 review follow-ups N1 to N3 |
+| HRD-099 | Task | Medium | Queued | 0 | PR #21 finding F3: make the retry bound consumer data |
+| HRD-100 | Task | Medium | Queued | 0 | Constitution wave: decide doc_processor main versus master divergence (submodule pin) |
+| HRD-101 | Task | Medium | Queued | 0 | Constitution wave: fix llm_orchestrator gitlab-helix credentials so its pin can be fetched |
+| HRD-102 | Task | Medium | Queued | 0 | Constitution wave: bump challenges, containers and helixqa submodule pins on main |
+| HRD-103 | Task | Low | Queued | 0 | Constitution wave: declare superspec as a third_party dependency in helix-deps.yaml |
