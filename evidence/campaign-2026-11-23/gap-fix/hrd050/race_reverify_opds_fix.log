@@ -1,0 +1,13 @@
+# race re-verification of the hrd027OpdsRequest fix, 2026-11-24T00:31:47Z, head=e9c89d3
+# cmd: HELIX_LOAD_RUN=1 go test ./internal/httpapi -race -count=1 -v -run ^TestLiveLoadIngestConcurrentWithReads$
+=== RUN   TestLiveLoadIngestConcurrentWithReads
+    load_concurrent_test.go:633: LOADJSON {"assertions":{"browse_max_shortfall":3,"browse_short_pages":547,"merge_ops_per_sec":155.07912285059527,"repo_browse_knee_ms":27.7,"repo_browse_p95_ms":26.637,"repo_browse_p95_within_knee":true,"text_search_knee_s":12,"text_search_p99_ms":36.561,"text_search
+    load_concurrent_test.go:635: HRD027: MergeWork throughput 155.08 ops/s below the lock-scope floor 271.94 ops/s
+    load_concurrent_test.go:638: HRD027 run hrd027overlap20261124T003149Z: 1 assertion(s) failed; see the LOADJSON line and the evidence artifact for the full payload
+    load_concurrent_test.go:650: HRD027 evidence artifact: ../../../evidence/campaign-2026-11-20/load/hrd027_ingest_concurrent_with_reads_hrd027overlap20261124T003149Z.json
+    load_concurrent_test.go:653: HRD027 run_tag=hrd027overlap20261124T003149Z read(browse=2480 opds=4689 text=1164) errors(read=0 ingest=0) rows_written={Works:3 Editions:3 Files:5 Identifiers:3 MetadataEvidence:0} rows_read=81470 merge=1863 ops (155.08 ops/s) reconcile=2148 ops (178.80 ops/s) wall=
+    load_concurrent_test.go:413: HRD027 cleanup removed 203 works
+--- FAIL: TestLiveLoadIngestConcurrentWithReads (12.71s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	12.751s
+FAIL

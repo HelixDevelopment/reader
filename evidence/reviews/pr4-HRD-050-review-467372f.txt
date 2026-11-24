@@ -1,0 +1,96 @@
+VERDICT: NO-GO
+HEAD: 467372f3dbc32a804dbce418d4211e7ad222926b
+Reviewer: independent reviewer (not the author, not the reviewer of 79eb80f), 2026-11-24. Worktree
+/home/milosvasic/.cache/claude-tmp/wt-hrd050, clean, HEAD == github refs/heads/task/HRD-050-live-gated-tests
+(git ls-remote github). No live PG/Redis suite and no containers were run (host load).
+
+== What was run (output captured in this session)
+- bash tests/live/test_run_gated_tests.sh -> "cases passed=21 failed=0", RC=0
+- bash tests/live/mutation_gate_check.sh -> M1..M11 all KILLED, RC=0
+- shellcheck -S warning tests/live/*.sh -> no output, rc 0
+- sealed dir evidence/campaign-2026-11-23/gap-fix/hrd050: sha256sum -c SHA256SUMS all OK; 46 entries ==
+  the 46 files present (set-equal).
+- diff scan for credentials (postgres://user:pass@, POSTGRES_PASSWORD=<value>, key/secret/token=<value>): no hit.
+- Both commits carry "Roadmap-Item: HRD-050".
+- 16 new adversarial --check inputs on scratch copies (results below).
+
+The F1-F5 / F8 fixes hold on the fixtures and my adversarial inputs in --check mode, except as noted.
+The NO-GO is for a regression in the live path introduced by the fix commit (B1) and a package-identity
+mismatch that the new package-keyed gate creates across phases (B2).
+
+== BLOCKING
+B1. names_of() was deleted in 467372f but is still called in live phase B2 (run_gated_tests.sh:137).
+    Defined in 79eb80f line 37; at 467372f `grep -rn names_of tests/` finds only the call at line 137.
+    Reproduced by running line 137 alone against the sealed run_A_race_live.log:
+      bash: line 1: names_of: command not found   (x2)
+      REGEX=[]
+    Control: with the 79eb80f names_of definition the same line yields
+      REGEX=[TestCatalogIdentityLockScopeThroughput|TestLiveLoadConcurrencyLadder|...].
+    set -u does not stop on "command not found", so phase B2 silently runs no previously-skipped test
+    (in-container binaries get -test.run '^()$', host set HRE empty). The live runner can no longer do the
+    core HRD-050 job (execute every gated test). It fails closed (those tests stay net-skipped -> exit 3),
+    so not a false green, but the shipped runner is broken. Not caught by any of the 21 cases or 11 mutants,
+    nor by shellcheck (it does not flag undefined functions): the live path has no test.
+B2. Cross-phase package identity mismatch. Phase A records use the full import path from the `ok <pkg>`
+    line (e.g. github.com/helixreader/helix/server/internal/catalog); B2c/B3 binaries are labelled by the
+    `# PKG ./internal/catalog (...)` marker, i.e. package "./internal/catalog". A test skipped in A and
+    passing in B2c is therefore never matched. Adversarial A7 (phaseA.log skip + phaseB.log `# PKG` pass):
+      UNLISTED-SKIP: github.com/helixreader/helix/server/internal/catalog|TestL   rc=3
+    Fail-closed (false red), but even with B1 fixed the live gate cannot go green for any in-container test.
+    Fix: write the full import path in the marker (e.g. `go list ./internal/$pk`), and add a fixture case.
+
+== IMPORTANT
+I1. Truncated log false green in --check mode (A5): a log ending mid-package with no `ok|FAIL <pkg>`
+    terminator (e.g. SIGKILL/OOM of the test binary) -> "GATE GREEN" rc=0. In live mode the go test RC
+    catches this (exit 1), but --check is documented as "0 only when none apply". Buffered records left at
+    END with no terminator (and no `# PKG` marker context) should be NO-RESULTS/INCOMPLETE.
+I2. docs/live-gated-tests.md says phase B "runs every test that skipped in phase A" and that the `# PKG`
+    marker gives the package identity; at this head both are false (B1, B2). Docs must match behaviour.
+I3. Hidden dependency on grep -P (run_gated_tests.sh: `grep -vP '^(PASS|SKIP|SEEN)\t'`). Where grep lacks
+    PCRE the process substitution is empty and every FAIL/BUILDFAIL/PANIC/TIMEOUT record is ignored -> false
+    green. Use awk -F'\t' '$1!="PASS"&&$1!="SKIP"&&$1!="SEEN"' instead. (Host grep has -P; the fail-open is
+    UNCONFIRMED on any other host.)
+I4. Missing --allow file is not a setup error: prints "No such file or directory" and continues (A12, rc=3
+    here only because a skip existed). With zero net skips a missing allow-list would be GATE GREEN; it should
+    exit 2.
+
+== MINOR (fail-closed or low-likelihood)
+m1. Test-controlled stdout can forge records: an unindented `--- PASS: TestX` printed by a test masks a real
+    skip of TestX in the same package (A6 -> GATE GREEN). Low likelihood; note as a known limit.
+m2. Allow-list parsing false reds: indented comment line (A4a -> ALLOWLIST-MALFORMED), trailing space on the
+    package (A4d -> unlisted), last line without newline silently dropped (A4e -> unlisted), reason containing
+    '|' (A9 -> MALFORMED). All fail closed; document or trim.
+m3. Relative --check/--allow/--out paths resolve against the repo root (script cd's to ROOT), not the
+    caller's cwd: my first relative-path run gave LOG-UNUSABLE for existing files. Fails closed; document or
+    resolve before cd.
+m4. DATA_RACE count is reported in summary but not a gate condition (go test -race normally also fails the
+    test, so UNCONFIRMED whether this can matter).
+m5. hrd050-PROVENANCE.md does not state that the sealed gate outputs (skips_live/netskips_live) were produced
+    by the pre-fix bare-name gate; the PR body covers it ("--check on them is now stricter").
+
+== Adversarial results (scratch fixtures, absolute paths)
+A1 CRLF unlisted skip                       rc=3 UNLISTED-SKIP          correct
+A2 indented subtest skip, parent allowed    rc=3 UNLISTED-SKIP TestX/sub correct (strict)
+A3 `?  [no test files]` + `[setup failed]`  rc=3 BUILD-FAILED           correct
+A4a indented comment in allow-list          rc=3 MALFORMED              false red (m2)
+A4b duplicate entries + regex metachars     rc=0 GREEN                  correct
+A4c '.' in name is not a wildcard           rc=3 UNLISTED               correct
+A4d trailing space in package               rc=3 UNLISTED               false red (m2)
+A4e last allow line without newline         rc=3 UNLISTED               false red (m2)
+A5 truncated log, no terminator             rc=0 GREEN                  FALSE GREEN (I1)
+A6 stdout-forged PASS masks skip            rc=0 GREEN                  false green (m1)
+A7 skip in A, pass under `# PKG ./internal` rc=3 UNLISTED               false red (B2)
+A8 golden good with (cached) + no test files rc=0 GREEN                 correct
+A9 reason containing '|'                    rc=3 MALFORMED              false red (m2)
+A11 subtest FAIL                            rc=3 FAILED-TEST + PACKAGE-FAILED correct
+A12 missing allow file                      rc=3 (error text)           should be rc=2 (I4)
+
+== PR body
+Honest: states the full live run exits 3 on the TestLiveLoadIngestConcurrentWithReads throughput floor
+(30.35 vs 271.94 ops/s, UNCONFIRMED env vs regression), that the sealed logs come from a dirty tree and
+predate the `# PKG` markers, and that a fresh live run is owed. It does not mention B1/B2 (not known to the
+author); once fixed, the owed fresh live run is the only real proof of the live path.
+
+== Required before GO
+Fix B1 and B2; add hermetic cases covering the phase-B REGEX derivation (e.g. factor it into a function
+tested on a fixture log) and the cross-phase package identity; address I1-I4; update docs. Then re-review.

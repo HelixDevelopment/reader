@@ -1,0 +1,11 @@
+--- /home/milosvasic/Projects/helix_reader/server/internal/syncstore/redis.go	2026-10-27 19:48:54.000000000 +0100
++++ /home/milosvasic/.cache/claude-tmp/tmp.XLiqD3UHm3/M2-redis-progress-no-merge/server/internal/syncstore/redis.go	2026-11-24 00:37:13.057216223 +0100
+@@ -80,7 +80,7 @@
+ 				if err != nil {
+ 					return err
+ 				}
+-				resolved, err = coreSync.ResolveProgress(existing, incoming)
++				resolved, err = incoming, error(nil); _ = existing
+ 				if err != nil {
+ 					return err
+ 				}

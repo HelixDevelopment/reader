@@ -1,0 +1,6 @@
+=== RUN   TestLiveRedisProgressConflictAndReconnect
+    redis_live_test.go:42: live conflict resolution failed: {BookID:live-book DeviceID:b Pos:{Chapter:1 Block:0 Offset:0} Clock:0x339d7f632310} <nil>
+--- FAIL: TestLiveRedisProgressConflictAndReconnect (0.00s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/syncstore	0.009s
+FAIL

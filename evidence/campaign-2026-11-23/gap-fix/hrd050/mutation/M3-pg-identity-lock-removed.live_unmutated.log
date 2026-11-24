@@ -1,0 +1,6 @@
+=== RUN   TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+    lock_scope_test.go:259: MODE production: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+    lock_scope_test.go:259: MODE legacy-global: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+--- PASS: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.36s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	0.366s

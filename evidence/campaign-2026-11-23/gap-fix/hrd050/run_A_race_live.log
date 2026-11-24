@@ -1,0 +1,2204 @@
+# HRD-050 phase A (race, whole suite)  2026-11-24T00:20:08Z  head=e9c89d3  mode=live
+# cmd: tests/live/run_gated_tests.sh 
+# go: go version go1.26.8 linux/amd64
+# env: PG=127.0.0.1:55165 (pgvector) redis=127.0.0.1:60327 (credentials not logged)
+=== A module server: go test ./... -race -count=1 -v -p 1 ===
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+=== RUN   TestVerifyPageAcceptsAHonestPage
+--- PASS: TestVerifyPageAcceptsAHonestPage (0.00s)
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/payload_is_not_the_image
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/wrong_type
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/short_body
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/no_etag
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/rangeable
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/uncached
+=== RUN   TestVerifyPageRejectsEveryBrokenDelivery/shared_cache
+--- PASS: TestVerifyPageRejectsEveryBrokenDelivery (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/payload_is_not_the_image (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/wrong_type (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/short_body (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/no_etag (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/rangeable (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/uncached (0.00s)
+    --- PASS: TestVerifyPageRejectsEveryBrokenDelivery/shared_cache (0.00s)
+=== RUN   TestVerifyPageRejectsRepeatedETag
+--- PASS: TestVerifyPageRejectsRepeatedETag (0.00s)
+=== RUN   TestMatchesType
+--- PASS: TestMatchesType (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/cmd/helix-pse-check	1.018s
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+=== RUN   TestPoolSettingsValidation
+=== RUN   TestPoolSettingsValidation/defaults_are_valid
+=== RUN   TestPoolSettingsValidation/zero_idle_is_valid
+=== RUN   TestPoolSettingsValidation/zero_max_open
+=== RUN   TestPoolSettingsValidation/negative_max_open
+=== RUN   TestPoolSettingsValidation/idle_above_open
+=== RUN   TestPoolSettingsValidation/negative_idle
+=== RUN   TestPoolSettingsValidation/zero_lifetime
+=== RUN   TestPoolSettingsValidation/negative_lifetime
+--- PASS: TestPoolSettingsValidation (0.00s)
+    --- PASS: TestPoolSettingsValidation/defaults_are_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_idle_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_above_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_idle (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_lifetime (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_lifetime (0.00s)
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/idle_above_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_max_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_dimensions
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/dimensions_above_the_ceiling
+--- PASS: TestNewPostgresRejectsPoolBeforeDialing (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/idle_above_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_max_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_dimensions (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/dimensions_above_the_ceiling (0.00s)
+=== RUN   TestWithPoolAppliesLimits
+--- PASS: TestWithPoolAppliesLimits (0.07s)
+=== RUN   TestLivePostgresVectorMemory
+--- PASS: TestLivePostgresVectorMemory (0.06s)
+=== RUN   TestPrepareDeterministicIdentityAndHash
+--- PASS: TestPrepareDeterministicIdentityAndHash (0.00s)
+=== RUN   TestPrepareRejectsInvalidMetadata
+--- PASS: TestPrepareRejectsInvalidMetadata (0.00s)
+=== RUN   TestPrepareRecomputesContentHashWithContent
+--- PASS: TestPrepareRecomputesContentHashWithContent (0.00s)
+=== RUN   TestVectorValidation
+--- PASS: TestVectorValidation (0.00s)
+=== RUN   TestLiveLoadVectorSearch
+    vector_load_test.go:244: HELIX_TEST_POSTGRES_DSN and HELIX_LOAD_RUN=1 are both required for the vector load benchmark
+--- SKIP: TestLiveLoadVectorSearch (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/aimemory	1.151s
+=== RUN   TestLiveScaleBatchPhases
+    catalog_phase_test.go:50: scale fixture not seeded (0 works); run TestLiveScaleCatalog first
+--- SKIP: TestLiveScaleBatchPhases (0.03s)
+=== RUN   TestLiveScaleCatalog
+    catalog_scale_test.go:118: PLANNER pre_vacuum  Limit (cost=3418.66..3420.37 rows=20 width=24) (actual time=59.073..59.078 rows=20 loops=1)
+    catalog_scale_test.go:119: PLANNER post_vacuum Limit (cost=2274.01..2275.15 rows=20 width=24) (actual time=5.223..5.226 rows=20 loops=1)
+    catalog_scale_test.go:128: SCALE seed_elapsed_ms=24320 works=50000 vacuum=done
+    catalog_scale_test.go:362: VARIANT in_200_params        client_median_ms=    6.69 client_first_ms=    7.25 client_min_ms=    6.35 client_max_ms=    7.73 server_exec_ms=  3.11 transport=clean
+    catalog_scale_test.go:362: VARIANT any_array_param      client_median_ms=    6.78 client_first_ms=    6.56 client_min_ms=    6.35 client_max_ms=    9.46 server_exec_ms=  2.91 transport=clean
+    catalog_scale_test.go:362: VARIANT in_20_params         client_median_ms=    1.02 client_first_ms=    1.22 client_min_ms=    0.88 client_max_ms=    1.25 server_exec_ms=  0.32 transport=clean
+    catalog_scale_test.go:362: VARIANT probe_gen_200_rows   client_median_ms=    4.11 client_first_ms=    4.57 client_min_ms=    3.48 client_max_ms=    6.62 server_exec_ms=  0.24 transport=clean
+    catalog_scale_test.go:362: VARIANT probe_in_200_no_rows client_median_ms=    1.91 client_first_ms=    4.24 client_min_ms=    1.75 client_max_ms=    4.24 server_exec_ms=  3.16 transport=clean
+    catalog_scale_test.go:362: VARIANT loader_getWorks_100  client_median_ms=    4.63 client_first_ms=    4.84 client_min_ms=    3.15 client_max_ms=    5.25 server_exec_ms=  1.20 transport=clean
+    catalog_scale_test.go:380: SCALE {"fixture_works":50000,"measurement_path":"clean","measurement_path_note":"degraded means re-run inside the database container: build the test binary with \"go test -c -o /tmp/helix-catalog.test ./internal/catalog\", podman cp it into the database container, and run it there with HELIX_TEST_POSTGRES_DSN pointing at 127.0.0.1:5432","measurements":[{"name":"search_browse_offset_0_limit_20","limit":20,"iterations":7,"median_ms":25.683,"min_ms":20.721,"max_ms":35.858,"rows":20},{"name":"search_browse_offset_1000_limit_20","limit":20,"iterations":7,"median_ms":22.272,"min_ms":20.499,"max_ms":24.608,"rows":20},{"name":"search_browse_offset_10000_limit_20","limit":20,"iterations":7,"median_ms":25.101,"min_ms":17.4,"max_ms":29.224,"rows":20},{"name":"search_browse_offset_40000_limit_20","limit":20,"iterations":7,"median_ms":25.914,"min_ms":22.739,"max_ms":29.344,"rows":20},{"name":"search_browse_offset_49000_limit_20","limit":20,"iterations":7,"median_ms":27.896,"min_ms":25.515,"max_ms":30.575,"rows":20},{"name":"search_keyset_after_offset_40000_limit_20","limit":20,"iterations":7,"median_ms":23.505,"min_ms":23.326,"max_ms":29.277,"rows":20},{"name":"part_count_star_only","limit":1,"iterations":7,"median_ms":8.918,"min_ms":8.668,"max_ms":9.223,"rows":50000},{"name":"part_ids_at_offset_40000","limit":20,"iterations":7,"median_ms":8.769,"min_ms":8.608,"max_ms":28.294,"rows":20},{"name":"part_ids_at_keyset","limit":20,"iterations":7,"median_ms":6.553,"min_ms":5.99,"max_ms":6.666,"rows":20},{"name":"part_ids_unfiltered_offset_40000","limit":20,"iterations":7,"median_ms":3.611,"min_ms":3.465,"max_ms":4,"rows":20},{"name":"part_ids_unfiltered_keyset","limit":20,"iterations":7,"median_ms":4.148,"min_ms":3.992,"max_ms":4.88,"rows":20},{"name":"search_state_identified_limit_20","limit":20,"iterations":7,"median_ms":96.728,"min_ms":86.623,"max_ms":292.434,"rows":0},{"name":"search_text_prefix_like_limit_20","limit":20,"iterations":7,"median_ms":1076.111,"min_ms":1037.874,"max_ms":1106.257,"rows":20},{"name":"page_load_per_work_100","limit":100,"iterations":5,"median_ms":257.685,"min_ms":235.103,"max_ms":287.391,"rows":200},{"name":"page_load_batched_100","limit":100,"iterations":5,"median_ms":294.244,"min_ms":284.562,"max_ms":322.823,"rows":200}],"plans":{"batched_editions_in_100":"Sort  (cost=1002.86..1003.36 rows=200 width=131) (actual time=2.849..2.869 rows=200 loops=1)\n  Sort Key: work_id, id\n  Sort Method: quicksort  Memory: 56kB\n  Buffers: shared hit=306\n  -\u003e  Bitmap Heap Scan on editions  (cost=403.55..995.22 rows=200 width=131) (actual time=1.114..1.197 rows=200 loops=1)\n        Recheck Cond: (work_id = ANY ('{scale-work-50000,scale-work-49999,scale-work-49998,scale-work-49997,scale-work-49996,scale-work-49995,scale-work-49994,scale-work-49993,scale-work-49992,scale-work-49991,scale-work-49990,scale-work-49989,scale-work-49988,scale-work-49987,scale-work-49986,scale-work-49985,scale-work-49984,scale-work-49983,scale-work-49982,scale-work-49981,scale-work-49980,scale-work-49979,scale-work-49978,scale-work-49977,scale-work-49976,scale-work-49975,scale-work-49974,scale-work-49973,scale-work-49972,scale-work-49971,scale-work-49970,scale-work-49969,scale-work-49968,scale-work-49967,scale-work-49966,scale-work-49965,scale-work-49964,scale-work-49963,scale-work-49962,scale-work-49961,scale-work-49960,scale-work-49959,scale-work-49958,scale-work-49957,scale-work-49956,scale-work-49955,scale-work-49954,scale-work-49953,scale-work-49952,scale-work-49951,scale-work-49950,scale-work-49949,scale-work-49948,scale-work-49947,scale-work-49946,scale-work-49945,scale-work-49944,scale-work-49943,scale-work-49942,scale-work-49941,scale-work-49940,scale-work-49939,scale-work-49938,scale-work-49937,scale-work-49936,scale-work-49935,scale-work-49934,scale-work-49933,scale-work-49932,scale-work-49931,scale-work-49930,scale-work-49929,scale-work-49928,scale-work-49927,scale-work-49926,scale-work-49925,scale-work-49924,scale-work-49923,scale-work-49922,scale-work-49921,scale-work-49920,scale-work-49919,scale-work-49918,scale-work-49917,scale-work-49916,scale-work-49915,scale-work-49914,scale-work-49913,scale-work-49912,scale-work-49911,scale-work-49910,scale-work-49909,scale-work-49908,scale-work-49907,scale-work-49906,scale-work-49905,scale-work-49904,scale-work-49903,scale-work-49902,scale-work-49901}'::text[]))\n        Heap Blocks: exact=6\n        Buffers: shared hit=306\n        -\u003e  Bitmap Index Scan on editions_work_id  (cost=0.00..403.25 rows=200 width=0) (actual time=1.107..1.107 rows=200 loops=1)\n              Index Cond: (work_id = ANY ('{scale-work-50000,scale-work-49999,scale-work-49998,scale-work-49997,scale-work-49996,scale-work-49995,scale-work-49994,scale-work-49993,scale-work-49992,scale-work-49991,scale-work-49990,scale-work-49989,scale-work-49988,scale-work-49987,scale-work-49986,scale-work-49985,scale-work-49984,scale-work-49983,scale-work-49982,scale-work-49981,scale-work-49980,scale-work-49979,scale-work-49978,scale-work-49977,scale-work-49976,scale-work-49975,scale-work-49974,scale-work-49973,scale-work-49972,scale-work-49971,scale-work-49970,scale-work-49969,scale-work-49968,scale-work-49967,scale-work-49966,scale-work-49965,scale-work-49964,scale-work-49963,scale-work-49962,scale-work-49961,scale-work-49960,scale-work-49959,scale-work-49958,scale-work-49957,scale-work-49956,scale-work-49955,scale-work-49954,scale-work-49953,scale-work-49952,scale-work-49951,scale-work-49950,scale-work-49949,scale-work-49948,scale-work-49947,scale-work-49946,scale-work-49945,scale-work-49944,scale-work-49943,scale-work-49942,scale-work-49941,scale-work-49940,scale-work-49939,scale-work-49938,scale-work-49937,scale-work-49936,scale-work-49935,scale-work-49934,scale-work-49933,scale-work-49932,scale-work-49931,scale-work-49930,scale-work-49929,scale-work-49928,scale-work-49927,scale-work-49926,scale-work-49925,scale-work-49924,scale-work-49923,scale-work-49922,scale-work-49921,scale-work-49920,scale-work-49919,scale-work-49918,scale-work-49917,scale-work-49916,scale-work-49915,scale-work-49914,scale-work-49913,scale-work-49912,scale-work-49911,scale-work-49910,scale-work-49909,scale-work-49908,scale-work-49907,scale-work-49906,scale-work-49905,scale-work-49904,scale-work-49903,scale-work-49902,scale-work-49901}'::text[]))\n              Buffers: shared hit=300\nPlanning Time: 0.169 ms\nExecution Time: 3.598 ms","batched_files_in_200":"Sort  (cost=2071.06..2072.04 rows=394 width=184) (actual time=3.247..3.267 rows=400 loops=1)\n  Sort Key: edition_id, id\n  Sort Method: quicksort  Memory: 106kB\n  Buffers: shared hit=504 read=107\n  -\u003e  Bitmap Heap Scan on files  (cost=827.60..2054.07 rows=394 width=184) (actual time=2.002..2.096 rows=400 loops=1)\n        Recheck Cond: (edition_id = ANY ('{scale-edition-1-1,scale-edition-1-2,scale-edition-2-1,scale-edition-2-2,scale-edition-3-1,scale-edition-3-2,scale-edition-4-1,scale-edition-4-2,scale-edition-5-1,scale-edition-5-2,scale-edition-6-1,scale-edition-6-2,scale-edition-7-1,scale-edition-7-2,scale-edition-8-1,scale-edition-8-2,scale-edition-9-1,scale-edition-9-2,scale-edition-10-1,scale-edition-10-2,scale-edition-11-1,scale-edition-11-2,scale-edition-12-1,scale-edition-12-2,scale-edition-13-1,scale-edition-13-2,scale-edition-14-1,scale-edition-14-2,scale-edition-15-1,scale-edition-15-2,scale-edition-16-1,scale-edition-16-2,scale-edition-17-1,scale-edition-17-2,scale-edition-18-1,scale-edition-18-2,scale-edition-19-1,scale-edition-19-2,scale-edition-20-1,scale-edition-20-2,scale-edition-21-1,scale-edition-21-2,scale-edition-22-1,scale-edition-22-2,scale-edition-23-1,scale-edition-23-2,scale-edition-24-1,scale-edition-24-2,scale-edition-25-1,scale-edition-25-2,scale-edition-26-1,scale-edition-26-2,scale-edition-27-1,scale-edition-27-2,scale-edition-28-1,scale-edition-28-2,scale-edition-29-1,scale-edition-29-2,scale-edition-30-1,scale-edition-30-2,scale-edition-31-1,scale-edition-31-2,scale-edition-32-1,scale-edition-32-2,scale-edition-33-1,scale-edition-33-2,scale-edition-34-1,scale-edition-34-2,scale-edition-35-1,scale-edition-35-2,scale-edition-36-1,scale-edition-36-2,scale-edition-37-1,scale-edition-37-2,scale-edition-38-1,scale-edition-38-2,scale-edition-39-1,scale-edition-39-2,scale-edition-40-1,scale-edition-40-2,scale-edition-41-1,scale-edition-41-2,scale-edition-42-1,scale-edition-42-2,scale-edition-43-1,scale-edition-43-2,scale-edition-44-1,scale-edition-44-2,scale-edition-45-1,scale-edition-45-2,scale-edition-46-1,scale-edition-46-2,scale-edition-47-1,scale-edition-47-2,scale-edition-48-1,scale-edition-48-2,scale-edition-49-1,scale-edition-49-2,scale-edition-50-1,scale-edition-50-2,scale-edition-51-1,scale-edition-51-2,scale-edition-52-1,scale-edition-52-2,scale-edition-53-1,scale-edition-53-2,scale-edition-54-1,scale-edition-54-2,scale-edition-55-1,scale-edition-55-2,scale-edition-56-1,scale-edition-56-2,scale-edition-57-1,scale-edition-57-2,scale-edition-58-1,scale-edition-58-2,scale-edition-59-1,scale-edition-59-2,scale-edition-60-1,scale-edition-60-2,scale-edition-61-1,scale-edition-61-2,scale-edition-62-1,scale-edition-62-2,scale-edition-63-1,scale-edition-63-2,scale-edition-64-1,scale-edition-64-2,scale-edition-65-1,scale-edition-65-2,scale-edition-66-1,scale-edition-66-2,scale-edition-67-1,scale-edition-67-2,scale-edition-68-1,scale-edition-68-2,scale-edition-69-1,scale-edition-69-2,scale-edition-70-1,scale-edition-70-2,scale-edition-71-1,scale-edition-71-2,scale-edition-72-1,scale-edition-72-2,scale-edition-73-1,scale-edition-73-2,scale-edition-74-1,scale-edition-74-2,scale-edition-75-1,scale-edition-75-2,scale-edition-76-1,scale-edition-76-2,scale-edition-77-1,scale-edition-77-2,scale-edition-78-1,scale-edition-78-2,scale-edition-79-1,scale-edition-79-2,scale-edition-80-1,scale-edition-80-2,scale-edition-81-1,scale-edition-81-2,scale-edition-82-1,scale-edition-82-2,scale-edition-83-1,scale-edition-83-2,scale-edition-84-1,scale-edition-84-2,scale-edition-85-1,scale-edition-85-2,scale-edition-86-1,scale-edition-86-2,scale-edition-87-1,scale-edition-87-2,scale-edition-88-1,scale-edition-88-2,scale-edition-89-1,scale-edition-89-2,scale-edition-90-1,scale-edition-90-2,scale-edition-91-1,scale-edition-91-2,scale-edition-92-1,scale-edition-92-2,scale-edition-93-1,scale-edition-93-2,scale-edition-94-1,scale-edition-94-2,scale-edition-95-1,scale-edition-95-2,scale-edition-96-1,scale-edition-96-2,scale-edition-97-1,scale-edition-97-2,scale-edition-98-1,scale-edition-98-2,scale-edition-99-1,scale-edition-99-2,scale-edition-100-1,scale-edition-100-2}'::text[]))\n        Heap Blocks: exact=11\n        Buffers: shared hit=504 read=107\n        -\u003e  Bitmap Index Scan on files_edition_id  (cost=0.00..827.00 rows=394 width=0) (actual time=1.993..1.994 rows=400 loops=1)\n              Index Cond: (edition_id = ANY ('{scale-edition-1-1,scale-edition-1-2,scale-edition-2-1,scale-edition-2-2,scale-edition-3-1,scale-edition-3-2,scale-edition-4-1,scale-edition-4-2,scale-edition-5-1,scale-edition-5-2,scale-edition-6-1,scale-edition-6-2,scale-edition-7-1,scale-edition-7-2,scale-edition-8-1,scale-edition-8-2,scale-edition-9-1,scale-edition-9-2,scale-edition-10-1,scale-edition-10-2,scale-edition-11-1,scale-edition-11-2,scale-edition-12-1,scale-edition-12-2,scale-edition-13-1,scale-edition-13-2,scale-edition-14-1,scale-edition-14-2,scale-edition-15-1,scale-edition-15-2,scale-edition-16-1,scale-edition-16-2,scale-edition-17-1,scale-edition-17-2,scale-edition-18-1,scale-edition-18-2,scale-edition-19-1,scale-edition-19-2,scale-edition-20-1,scale-edition-20-2,scale-edition-21-1,scale-edition-21-2,scale-edition-22-1,scale-edition-22-2,scale-edition-23-1,scale-edition-23-2,scale-edition-24-1,scale-edition-24-2,scale-edition-25-1,scale-edition-25-2,scale-edition-26-1,scale-edition-26-2,scale-edition-27-1,scale-edition-27-2,scale-edition-28-1,scale-edition-28-2,scale-edition-29-1,scale-edition-29-2,scale-edition-30-1,scale-edition-30-2,scale-edition-31-1,scale-edition-31-2,scale-edition-32-1,scale-edition-32-2,scale-edition-33-1,scale-edition-33-2,scale-edition-34-1,scale-edition-34-2,scale-edition-35-1,scale-edition-35-2,scale-edition-36-1,scale-edition-36-2,scale-edition-37-1,scale-edition-37-2,scale-edition-38-1,scale-edition-38-2,scale-edition-39-1,scale-edition-39-2,scale-edition-40-1,scale-edition-40-2,scale-edition-41-1,scale-edition-41-2,scale-edition-42-1,scale-edition-42-2,scale-edition-43-1,scale-edition-43-2,scale-edition-44-1,scale-edition-44-2,scale-edition-45-1,scale-edition-45-2,scale-edition-46-1,scale-edition-46-2,scale-edition-47-1,scale-edition-47-2,scale-edition-48-1,scale-edition-48-2,scale-edition-49-1,scale-edition-49-2,scale-edition-50-1,scale-edition-50-2,scale-edition-51-1,scale-edition-51-2,scale-edition-52-1,scale-edition-52-2,scale-edition-53-1,scale-edition-53-2,scale-edition-54-1,scale-edition-54-2,scale-edition-55-1,scale-edition-55-2,scale-edition-56-1,scale-edition-56-2,scale-edition-57-1,scale-edition-57-2,scale-edition-58-1,scale-edition-58-2,scale-edition-59-1,scale-edition-59-2,scale-edition-60-1,scale-edition-60-2,scale-edition-61-1,scale-edition-61-2,scale-edition-62-1,scale-edition-62-2,scale-edition-63-1,scale-edition-63-2,scale-edition-64-1,scale-edition-64-2,scale-edition-65-1,scale-edition-65-2,scale-edition-66-1,scale-edition-66-2,scale-edition-67-1,scale-edition-67-2,scale-edition-68-1,scale-edition-68-2,scale-edition-69-1,scale-edition-69-2,scale-edition-70-1,scale-edition-70-2,scale-edition-71-1,scale-edition-71-2,scale-edition-72-1,scale-edition-72-2,scale-edition-73-1,scale-edition-73-2,scale-edition-74-1,scale-edition-74-2,scale-edition-75-1,scale-edition-75-2,scale-edition-76-1,scale-edition-76-2,scale-edition-77-1,scale-edition-77-2,scale-edition-78-1,scale-edition-78-2,scale-edition-79-1,scale-edition-79-2,scale-edition-80-1,scale-edition-80-2,scale-edition-81-1,scale-edition-81-2,scale-edition-82-1,scale-edition-82-2,scale-edition-83-1,scale-edition-83-2,scale-edition-84-1,scale-edition-84-2,scale-edition-85-1,scale-edition-85-2,scale-edition-86-1,scale-edition-86-2,scale-edition-87-1,scale-edition-87-2,scale-edition-88-1,scale-edition-88-2,scale-edition-89-1,scale-edition-89-2,scale-edition-90-1,scale-edition-90-2,scale-edition-91-1,scale-edition-91-2,scale-edition-92-1,scale-edition-92-2,scale-edition-93-1,scale-edition-93-2,scale-edition-94-1,scale-edition-94-2,scale-edition-95-1,scale-edition-95-2,scale-edition-96-1,scale-edition-96-2,scale-edition-97-1,scale-edition-97-2,scale-edition-98-1,scale-edition-98-2,scale-edition-99-1,scale-edition-99-2,scale-edition-100-1,scale-edition-100-2}'::text[]))\n              Buffers: shared hit=493 read=107\nPlanning Time: 0.157 ms\nExecution Time: 3.972 ms","batched_identifiers_in_200":"Sort  (cost=1348.06..1348.56 rows=200 width=56) (actual time=14.867..14.877 rows=200 loops=1)\n  Sort Key: edition_id, scheme, value, source\n  Sort Method: quicksort  Memory: 40kB\n  Buffers: shared hit=454 read=150\n  -\u003e  Bitmap Heap Scan on identifiers  (cost=825.55..1340.41 rows=200 width=56) (actual time=14.188..14.207 rows=200 loops=1)\n        Recheck Cond: (edition_id = ANY ('{scale-edition-1-1,scale-edition-1-2,scale-edition-2-1,scale-edition-2-2,scale-edition-3-1,scale-edition-3-2,scale-edition-4-1,scale-edition-4-2,scale-edition-5-1,scale-edition-5-2,scale-edition-6-1,scale-edition-6-2,scale-edition-7-1,scale-edition-7-2,scale-edition-8-1,scale-edition-8-2,scale-edition-9-1,scale-edition-9-2,scale-edition-10-1,scale-edition-10-2,scale-edition-11-1,scale-edition-11-2,scale-edition-12-1,scale-edition-12-2,scale-edition-13-1,scale-edition-13-2,scale-edition-14-1,scale-edition-14-2,scale-edition-15-1,scale-edition-15-2,scale-edition-16-1,scale-edition-16-2,scale-edition-17-1,scale-edition-17-2,scale-edition-18-1,scale-edition-18-2,scale-edition-19-1,scale-edition-19-2,scale-edition-20-1,scale-edition-20-2,scale-edition-21-1,scale-edition-21-2,scale-edition-22-1,scale-edition-22-2,scale-edition-23-1,scale-edition-23-2,scale-edition-24-1,scale-edition-24-2,scale-edition-25-1,scale-edition-25-2,scale-edition-26-1,scale-edition-26-2,scale-edition-27-1,scale-edition-27-2,scale-edition-28-1,scale-edition-28-2,scale-edition-29-1,scale-edition-29-2,scale-edition-30-1,scale-edition-30-2,scale-edition-31-1,scale-edition-31-2,scale-edition-32-1,scale-edition-32-2,scale-edition-33-1,scale-edition-33-2,scale-edition-34-1,scale-edition-34-2,scale-edition-35-1,scale-edition-35-2,scale-edition-36-1,scale-edition-36-2,scale-edition-37-1,scale-edition-37-2,scale-edition-38-1,scale-edition-38-2,scale-edition-39-1,scale-edition-39-2,scale-edition-40-1,scale-edition-40-2,scale-edition-41-1,scale-edition-41-2,scale-edition-42-1,scale-edition-42-2,scale-edition-43-1,scale-edition-43-2,scale-edition-44-1,scale-edition-44-2,scale-edition-45-1,scale-edition-45-2,scale-edition-46-1,scale-edition-46-2,scale-edition-47-1,scale-edition-47-2,scale-edition-48-1,scale-edition-48-2,scale-edition-49-1,scale-edition-49-2,scale-edition-50-1,scale-edition-50-2,scale-edition-51-1,scale-edition-51-2,scale-edition-52-1,scale-edition-52-2,scale-edition-53-1,scale-edition-53-2,scale-edition-54-1,scale-edition-54-2,scale-edition-55-1,scale-edition-55-2,scale-edition-56-1,scale-edition-56-2,scale-edition-57-1,scale-edition-57-2,scale-edition-58-1,scale-edition-58-2,scale-edition-59-1,scale-edition-59-2,scale-edition-60-1,scale-edition-60-2,scale-edition-61-1,scale-edition-61-2,scale-edition-62-1,scale-edition-62-2,scale-edition-63-1,scale-edition-63-2,scale-edition-64-1,scale-edition-64-2,scale-edition-65-1,scale-edition-65-2,scale-edition-66-1,scale-edition-66-2,scale-edition-67-1,scale-edition-67-2,scale-edition-68-1,scale-edition-68-2,scale-edition-69-1,scale-edition-69-2,scale-edition-70-1,scale-edition-70-2,scale-edition-71-1,scale-edition-71-2,scale-edition-72-1,scale-edition-72-2,scale-edition-73-1,scale-edition-73-2,scale-edition-74-1,scale-edition-74-2,scale-edition-75-1,scale-edition-75-2,scale-edition-76-1,scale-edition-76-2,scale-edition-77-1,scale-edition-77-2,scale-edition-78-1,scale-edition-78-2,scale-edition-79-1,scale-edition-79-2,scale-edition-80-1,scale-edition-80-2,scale-edition-81-1,scale-edition-81-2,scale-edition-82-1,scale-edition-82-2,scale-edition-83-1,scale-edition-83-2,scale-edition-84-1,scale-edition-84-2,scale-edition-85-1,scale-edition-85-2,scale-edition-86-1,scale-edition-86-2,scale-edition-87-1,scale-edition-87-2,scale-edition-88-1,scale-edition-88-2,scale-edition-89-1,scale-edition-89-2,scale-edition-90-1,scale-edition-90-2,scale-edition-91-1,scale-edition-91-2,scale-edition-92-1,scale-edition-92-2,scale-edition-93-1,scale-edition-93-2,scale-edition-94-1,scale-edition-94-2,scale-edition-95-1,scale-edition-95-2,scale-edition-96-1,scale-edition-96-2,scale-edition-97-1,scale-edition-97-2,scale-edition-98-1,scale-edition-98-2,scale-edition-99-1,scale-edition-99-2,scale-edition-100-1,scale-edition-100-2}'::text[]))\n        Heap Blocks: exact=4\n        Buffers: shared hit=454 read=150\n        -\u003e  Bitmap Index Scan on identifiers_pkey  (cost=0.00..825.00 rows=200 width=0) (actual time=14.179..14.179 rows=200 loops=1)\n              Index Cond: (edition_id = ANY ('{scale-edition-1-1,scale-edition-1-2,scale-edition-2-1,scale-edition-2-2,scale-edition-3-1,scale-edition-3-2,scale-edition-4-1,scale-edition-4-2,scale-edition-5-1,scale-edition-5-2,scale-edition-6-1,scale-edition-6-2,scale-edition-7-1,scale-edition-7-2,scale-edition-8-1,scale-edition-8-2,scale-edition-9-1,scale-edition-9-2,scale-edition-10-1,scale-edition-10-2,scale-edition-11-1,scale-edition-11-2,scale-edition-12-1,scale-edition-12-2,scale-edition-13-1,scale-edition-13-2,scale-edition-14-1,scale-edition-14-2,scale-edition-15-1,scale-edition-15-2,scale-edition-16-1,scale-edition-16-2,scale-edition-17-1,scale-edition-17-2,scale-edition-18-1,scale-edition-18-2,scale-edition-19-1,scale-edition-19-2,scale-edition-20-1,scale-edition-20-2,scale-edition-21-1,scale-edition-21-2,scale-edition-22-1,scale-edition-22-2,scale-edition-23-1,scale-edition-23-2,scale-edition-24-1,scale-edition-24-2,scale-edition-25-1,scale-edition-25-2,scale-edition-26-1,scale-edition-26-2,scale-edition-27-1,scale-edition-27-2,scale-edition-28-1,scale-edition-28-2,scale-edition-29-1,scale-edition-29-2,scale-edition-30-1,scale-edition-30-2,scale-edition-31-1,scale-edition-31-2,scale-edition-32-1,scale-edition-32-2,scale-edition-33-1,scale-edition-33-2,scale-edition-34-1,scale-edition-34-2,scale-edition-35-1,scale-edition-35-2,scale-edition-36-1,scale-edition-36-2,scale-edition-37-1,scale-edition-37-2,scale-edition-38-1,scale-edition-38-2,scale-edition-39-1,scale-edition-39-2,scale-edition-40-1,scale-edition-40-2,scale-edition-41-1,scale-edition-41-2,scale-edition-42-1,scale-edition-42-2,scale-edition-43-1,scale-edition-43-2,scale-edition-44-1,scale-edition-44-2,scale-edition-45-1,scale-edition-45-2,scale-edition-46-1,scale-edition-46-2,scale-edition-47-1,scale-edition-47-2,scale-edition-48-1,scale-edition-48-2,scale-edition-49-1,scale-edition-49-2,scale-edition-50-1,scale-edition-50-2,scale-edition-51-1,scale-edition-51-2,scale-edition-52-1,scale-edition-52-2,scale-edition-53-1,scale-edition-53-2,scale-edition-54-1,scale-edition-54-2,scale-edition-55-1,scale-edition-55-2,scale-edition-56-1,scale-edition-56-2,scale-edition-57-1,scale-edition-57-2,scale-edition-58-1,scale-edition-58-2,scale-edition-59-1,scale-edition-59-2,scale-edition-60-1,scale-edition-60-2,scale-edition-61-1,scale-edition-61-2,scale-edition-62-1,scale-edition-62-2,scale-edition-63-1,scale-edition-63-2,scale-edition-64-1,scale-edition-64-2,scale-edition-65-1,scale-edition-65-2,scale-edition-66-1,scale-edition-66-2,scale-edition-67-1,scale-edition-67-2,scale-edition-68-1,scale-edition-68-2,scale-edition-69-1,scale-edition-69-2,scale-edition-70-1,scale-edition-70-2,scale-edition-71-1,scale-edition-71-2,scale-edition-72-1,scale-edition-72-2,scale-edition-73-1,scale-edition-73-2,scale-edition-74-1,scale-edition-74-2,scale-edition-75-1,scale-edition-75-2,scale-edition-76-1,scale-edition-76-2,scale-edition-77-1,scale-edition-77-2,scale-edition-78-1,scale-edition-78-2,scale-edition-79-1,scale-edition-79-2,scale-edition-80-1,scale-edition-80-2,scale-edition-81-1,scale-edition-81-2,scale-edition-82-1,scale-edition-82-2,scale-edition-83-1,scale-edition-83-2,scale-edition-84-1,scale-edition-84-2,scale-edition-85-1,scale-edition-85-2,scale-edition-86-1,scale-edition-86-2,scale-edition-87-1,scale-edition-87-2,scale-edition-88-1,scale-edition-88-2,scale-edition-89-1,scale-edition-89-2,scale-edition-90-1,scale-edition-90-2,scale-edition-91-1,scale-edition-91-2,scale-edition-92-1,scale-edition-92-2,scale-edition-93-1,scale-edition-93-2,scale-edition-94-1,scale-edition-94-2,scale-edition-95-1,scale-edition-95-2,scale-edition-96-1,scale-edition-96-2,scale-edition-97-1,scale-edition-97-2,scale-edition-98-1,scale-edition-98-2,scale-edition-99-1,scale-edition-99-2,scale-edition-100-1,scale-edition-100-2}'::text[]))\n              Buffers: shared hit=450 read=150\nPlanning Time: 0.339 ms\nExecution Time: 16.211 ms","count_all":"Aggregate  (cost=1243.00..1243.01 rows=1 width=8) (actual time=10.136..10.137 rows=1 loops=1)\n  Buffers: shared hit=618\n  -\u003e  Seq Scan on works w  (cost=0.00..1118.00 rows=50000 width=0) (actual time=0.008..5.780 rows=50000 loops=1)\n        Buffers: shared hit=618\nPlanning Time: 0.069 ms\nExecution Time: 10.163 ms","editions_by_work":"Index Scan using editions_work_id on editions  (cost=0.90..12.80 rows=2 width=21) (actual time=0.040..0.043 rows=2 loops=1)\n  Index Cond: (work_id = $1)\n  Buffers: shared hit=9\n  InitPlan 2 (returns $1)\n    -\u003e  Result  (cost=0.47..0.48 rows=1 width=32) (actual time=0.017..0.017 rows=1 loops=1)\n          Buffers: shared hit=4\n          InitPlan 1 (returns $0)\n            -\u003e  Limit  (cost=0.41..0.47 rows=1 width=16) (actual time=0.014..0.015 rows=1 loops=1)\n                  Buffers: shared hit=4\n                  -\u003e  Index Only Scan using works_pkey on works  (cost=0.41..2628.41 rows=49995 width=16) (actual time=0.014..0.014 rows=1 loops=1)\n                        Index Cond: (id IS NOT NULL)\n                        Filter: (id ~~ 'scale-work-%'::text)\n                        Heap Fetches: 0\n                        Buffers: shared hit=4\nPlanning:\n  Buffers: shared hit=3\nPlanning Time: 0.208 ms\nExecution Time: 0.067 ms","page_offset_40000_post_vacuum":"Limit  (cost=2274.01..2275.15 rows=20 width=24) (actual time=5.223..5.226 rows=20 loops=1)\n  Buffers: shared hit=433\n  -\u003e  Index Only Scan using works_updated_id on works w  (cost=0.41..2842.41 rows=50000 width=24) (actual time=0.006..4.121 rows=40020 loops=1)\n        Heap Fetches: 0\n        Buffers: shared hit=433\nPlanning:\n  Buffers: shared hit=12\nPlanning Time: 0.060 ms\nExecution Time: 5.237 ms","page_offset_40000_pre_vacuum":"Limit  (cost=3418.66..3420.37 rows=20 width=24) (actual time=59.073..59.078 rows=20 loops=1)\n  Buffers: shared read=927 written=220\n  -\u003e  Index Only Scan using works_updated_id on works w  (cost=0.41..4273.23 rows=50000 width=24) (actual time=0.148..57.727 rows=40020 loops=1)\n        Heap Fetches: 40020\n        Buffers: shared read=927 written=220\nPlanning:\n  Buffers: shared hit=33 read=3\nPlanning Time: 0.135 ms\nExecution Time: 59.091 ms","single_editions_by_work":"Sort  (cost=12.34..12.34 rows=2 width=115) (actual time=0.037..0.038 rows=2 loops=1)\n  Sort Key: id\n  Sort Method: quicksort  Memory: 25kB\n  Buffers: shared hit=5\n  -\u003e  Index Scan using editions_work_id on editions  (cost=0.42..12.33 rows=2 width=115) (actual time=0.025..0.028 rows=2 loops=1)\n        Index Cond: (work_id = 'scale-work-50000'::text)\n        Buffers: shared hit=5\nPlanning Time: 0.085 ms\nExecution Time: 0.056 ms"},"probe_client_ms":{"any_array_param":{"median_ms":6.776,"first_ms":6.564,"min_ms":6.347,"max_ms":9.455},"in_200_params":{"median_ms":6.69,"first_ms":7.253,"min_ms":6.349,"max_ms":7.731},"in_20_params":{"median_ms":1.025,"first_ms":1.216,"min_ms":0.875,"max_ms":1.25},"loader_getWorks_100":{"median_ms":4.635,"first_ms":4.84,"min_ms":3.149,"max_ms":5.255},"probe_gen_200_rows":{"median_ms":4.11,"first_ms":4.566,"min_ms":3.476,"max_ms":6.615},"probe_in_200_no_rows":{"median_ms":1.907,"first_ms":4.237,"min_ms":1.749,"max_ms":4.237}},"probe_server_ms":{"any_array_param":2.906,"in_200_params":3.114,"in_20_params":0.315,"loader_getWorks_100":1.196,"probe_gen_200_rows":0.244,"probe_in_200_no_rows":3.162},"seed_elapsed_ms":24320}
+--- PASS: TestLiveScaleCatalog (42.65s)
+=== RUN   TestCursorRoundTripsExactly
+--- PASS: TestCursorRoundTripsExactly (0.00s)
+=== RUN   TestCursorRejectsMalformedInput
+--- PASS: TestCursorRejectsMalformedInput (0.00s)
+=== RUN   TestMemoryCursorWalkEqualsOffsetWalk
+--- PASS: TestMemoryCursorWalkEqualsOffsetWalk (0.00s)
+=== RUN   TestMemoryHasNextAndEmptyPages
+--- PASS: TestMemoryHasNextAndEmptyPages (0.00s)
+=== RUN   TestLivePostgresCursorWalkMatchesOffset
+--- PASS: TestLivePostgresCursorWalkMatchesOffset (3.58s)
+=== RUN   TestMemoryReferencedLCPArtifacts
+--- PASS: TestMemoryReferencedLCPArtifacts (0.00s)
+=== RUN   TestLivePostgresReferencedLCPArtifacts
+--- PASS: TestLivePostgresReferencedLCPArtifacts (0.08s)
+=== RUN   TestLiveLoadConcurrencyLadder
+    load_test.go:511: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadConcurrencyLadder (0.00s)
+=== RUN   TestLiveLoadWriteContention
+    load_test.go:700: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadWriteContention (0.00s)
+=== RUN   TestCatalogMergePreservesEveryWriterUnderIdentityLocks
+    lock_scope_test.go:259: MODE production: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+    lock_scope_test.go:259: MODE legacy-global: 8 concurrent same-work merges, 0 errors, all 8 editions retained
+--- PASS: TestCatalogMergePreservesEveryWriterUnderIdentityLocks (0.40s)
+=== RUN   TestCatalogMergeNeedleUnlockedLosesWriters
+    lock_scope_test.go:309: NEEDLE round 1 unlocked: 0 writer errors, 1 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 2 unlocked: 0 writer errors, 6 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 3 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 4 unlocked: 0 writer errors, 6 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 5 unlocked: 0 writer errors, 4 of 8 editions lost
+    lock_scope_test.go:309: NEEDLE round 6 unlocked: 0 writer errors, 7 of 8 editions lost
+    lock_scope_test.go:314: NEEDLE confirmed: 6 of 6 unlocked rounds lost writers (worst round: 7 of 8)
+--- PASS: TestCatalogMergeNeedleUnlockedLosesWriters (0.71s)
+=== RUN   TestCatalogFileClaimByDistinctWorksKeepsOneRow
+    lock_scope_test.go:359: MODE production: 0 errors, 1 file row(s), 1 work(s) owning it
+    lock_scope_test.go:359: MODE legacy-global: 0 errors, 1 file row(s), 1 work(s) owning it
+--- PASS: TestCatalogFileClaimByDistinctWorksKeepsOneRow (0.30s)
+=== RUN   TestCatalogFileClaimNeedleUnlockedDuplicatesRow
+    lock_scope_test.go:386: NEEDLE round 1 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 2 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 3 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 4 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 5 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:386: NEEDLE round 6 unlocked claim: 6 errors, 1 rows, 1 owning works
+    lock_scope_test.go:391: NEEDLE confirmed: 6 of 6 unlocked rounds violated the one-row-per-(source,path) invariant
+--- PASS: TestCatalogFileClaimNeedleUnlockedDuplicatesRow (0.32s)
+=== RUN   TestCatalogReconcileExcludesSameSourceMerge
+    lock_scope_test.go:463: MODE production: reconcile + same-source merge interleaved cleanly; 4 rows kept, 0 orphans
+    lock_scope_test.go:463: MODE legacy-global: reconcile + same-source merge interleaved cleanly; 4 rows kept, 0 orphans
+--- PASS: TestCatalogReconcileExcludesSameSourceMerge (0.48s)
+=== RUN   TestIdentityLockKeysCoverEverySharedRow
+--- PASS: TestIdentityLockKeysCoverEverySharedRow (0.00s)
+=== RUN   TestTransientConcurrencyClassification
+--- PASS: TestTransientConcurrencyClassification (0.00s)
+=== RUN   TestCatalogIdentityLockScopeThroughput
+    lock_scope_test.go:577: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestCatalogIdentityLockScopeThroughput (0.00s)
+=== RUN   TestCatalogEditionOwnershipIsDecidedOnce
+    lock_scope_test.go:724: MODE production: 8 contested edition claims each decided once, with the ownership error for the loser
+    lock_scope_test.go:724: MODE legacy-global: 8 contested edition claims each decided once, with the ownership error for the loser
+--- PASS: TestCatalogEditionOwnershipIsDecidedOnce (0.20s)
+=== RUN   TestCatalogMultiProcessMerges
+    lock_scope_test.go:748: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestCatalogMultiProcessMerges (0.00s)
+=== RUN   TestMemorySearchDeterministicAndDeepCopy
+--- PASS: TestMemorySearchDeterministicAndDeepCopy (0.00s)
+=== RUN   TestMemoryRepeatMergeIsIdempotent
+--- PASS: TestMemoryRepeatMergeIsIdempotent (0.00s)
+=== RUN   TestFindEditionAndFindFileReturnDeepClones
+--- PASS: TestFindEditionAndFindFileReturnDeepClones (0.00s)
+=== RUN   TestMemoryRejectsInvalidIdentificationState
+--- PASS: TestMemoryRejectsInvalidIdentificationState (0.00s)
+=== RUN   TestMemoryValidationAndDelete
+--- PASS: TestMemoryValidationAndDelete (0.00s)
+=== RUN   TestMemoryRejectsIncompleteFileIdentityLikePostgres
+--- PASS: TestMemoryRejectsIncompleteFileIdentityLikePostgres (0.00s)
+=== RUN   TestMergeWorkDedupsEvidenceAndIsIdempotent
+--- PASS: TestMergeWorkDedupsEvidenceAndIsIdempotent (0.00s)
+=== RUN   TestMergeWorkDoesNotAliasCallerSlices
+--- PASS: TestMergeWorkDoesNotAliasCallerSlices (0.00s)
+=== RUN   TestMergeWorkUnionsEditionsFilesIdentifiers
+--- PASS: TestMergeWorkUnionsEditionsFilesIdentifiers (0.00s)
+=== RUN   TestMergeWorkReplacesChangedFileAtSameSourcePath
+--- PASS: TestMergeWorkReplacesChangedFileAtSameSourcePath (0.00s)
+=== RUN   TestLivePostgresBatchLoadMatchesRowByRow
+--- PASS: TestLivePostgresBatchLoadMatchesRowByRow (0.36s)
+=== RUN   TestMigrateFromEmptySchema
+--- PASS: TestMigrateFromEmptySchema (0.08s)
+=== RUN   TestMigrationFilesDoNotRecordOwnVersion
+--- PASS: TestMigrationFilesDoNotRecordOwnVersion (0.00s)
+=== RUN   TestPoolSettingsValidation
+=== RUN   TestPoolSettingsValidation/defaults_are_valid
+=== RUN   TestPoolSettingsValidation/zero_idle_is_valid
+=== RUN   TestPoolSettingsValidation/idle_equal_to_open_is_valid
+=== RUN   TestPoolSettingsValidation/zero_max_open
+=== RUN   TestPoolSettingsValidation/negative_max_open
+=== RUN   TestPoolSettingsValidation/idle_above_open
+=== RUN   TestPoolSettingsValidation/negative_idle
+=== RUN   TestPoolSettingsValidation/zero_lifetime
+=== RUN   TestPoolSettingsValidation/negative_lifetime
+--- PASS: TestPoolSettingsValidation (0.00s)
+    --- PASS: TestPoolSettingsValidation/defaults_are_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_idle_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_equal_to_open_is_valid (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_max_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/idle_above_open (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_idle (0.00s)
+    --- PASS: TestPoolSettingsValidation/zero_lifetime (0.00s)
+    --- PASS: TestPoolSettingsValidation/negative_lifetime (0.00s)
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/idle_above_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_max_open
+=== RUN   TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime
+--- PASS: TestNewPostgresRejectsPoolBeforeDialing (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/idle_above_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_max_open (0.00s)
+    --- PASS: TestNewPostgresRejectsPoolBeforeDialing/zero_lifetime (0.00s)
+=== RUN   TestWithPoolAppliesLimits
+--- PASS: TestWithPoolAppliesLimits (0.04s)
+=== RUN   TestLivePostgresHRDUpsertDuplicateSourcePathCurrentIDWins
+--- PASS: TestLivePostgresHRDUpsertDuplicateSourcePathCurrentIDWins (0.07s)
+=== RUN   TestLivePostgresHRDUpsertDuplicateEditionIDFailsLoud
+--- PASS: TestLivePostgresHRDUpsertDuplicateEditionIDFailsLoud (0.04s)
+=== RUN   TestLivePostgresHRDUpsertBeyondBindParameterLimit
+--- PASS: TestLivePostgresHRDUpsertBeyondBindParameterLimit (5.32s)
+=== RUN   TestHRDCurrentFileIDGoldenVector
+--- PASS: TestHRDCurrentFileIDGoldenVector (0.00s)
+=== RUN   TestRejectDuplicateEditionIDsUnit
+--- PASS: TestRejectDuplicateEditionIDsUnit (0.00s)
+=== RUN   TestLivePostgresHRDClaimFilesAcrossChunkBoundary
+--- PASS: TestLivePostgresHRDClaimFilesAcrossChunkBoundary (1.40s)
+=== RUN   TestLivePostgresCatalogRoundTrip
+--- PASS: TestLivePostgresCatalogRoundTrip (0.33s)
+=== RUN   TestLivePostgresUpsertReplacesEditionSet
+--- PASS: TestLivePostgresUpsertReplacesEditionSet (0.06s)
+=== RUN   TestLiveReconcileSourceKeepsListedFileAndEdition
+--- PASS: TestLiveReconcileSourceKeepsListedFileAndEdition (0.06s)
+=== RUN   TestLiveSlowClientCatalogSurface
+    slow_client_live_test.go:594: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveSlowClientCatalogSurface (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/catalog	57.537s
+=== RUN   TestLoopbackClassification
+--- PASS: TestLoopbackClassification (0.00s)
+=== RUN   TestEnvironmentValidation
+=== RUN   TestEnvironmentValidation/non-loopback_requires_admin_token
+=== RUN   TestEnvironmentValidation/TLS_certificate_without_key
+=== RUN   TestEnvironmentValidation/OPDS_user_without_password
+=== RUN   TestEnvironmentValidation/invalid_HTTP3
+=== RUN   TestEnvironmentValidation/invalid_Brotli
+=== RUN   TestEnvironmentValidation/invalid_dimensions
+=== RUN   TestEnvironmentValidation/AI_memory_requires_PostgreSQL
+--- PASS: TestEnvironmentValidation (0.00s)
+    --- PASS: TestEnvironmentValidation/non-loopback_requires_admin_token (0.00s)
+    --- PASS: TestEnvironmentValidation/TLS_certificate_without_key (0.00s)
+    --- PASS: TestEnvironmentValidation/OPDS_user_without_password (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_HTTP3 (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_Brotli (0.00s)
+    --- PASS: TestEnvironmentValidation/invalid_dimensions (0.00s)
+    --- PASS: TestEnvironmentValidation/AI_memory_requires_PostgreSQL (0.00s)
+=== RUN   TestPoolConfiguration
+=== RUN   TestPoolConfiguration/defaults_match_the_historical_hardcoded_limits
+=== RUN   TestPoolConfiguration/catalog_override
+=== RUN   TestPoolConfiguration/idle_above_open_rejected
+=== RUN   TestPoolConfiguration/zero_max_open_rejected
+=== RUN   TestPoolConfiguration/negative_idle_rejected
+=== RUN   TestPoolConfiguration/zero_lifetime_rejected
+=== RUN   TestPoolConfiguration/non-integer_max_open_rejected
+=== RUN   TestPoolConfiguration/non-integer_lifetime_rejected
+--- PASS: TestPoolConfiguration (0.00s)
+    --- PASS: TestPoolConfiguration/defaults_match_the_historical_hardcoded_limits (0.00s)
+    --- PASS: TestPoolConfiguration/catalog_override (0.00s)
+    --- PASS: TestPoolConfiguration/idle_above_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/zero_max_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/negative_idle_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/zero_lifetime_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/non-integer_max_open_rejected (0.00s)
+    --- PASS: TestPoolConfiguration/non-integer_lifetime_rejected (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/config	1.025s
+=== RUN   TestCacheValidatesAndReusesImage
+--- PASS: TestCacheValidatesAndReusesImage (0.01s)
+=== RUN   TestCacheRejectsNonImage
+--- PASS: TestCacheRejectsNonImage (0.00s)
+=== RUN   TestPublicIPRejectsLocalAndPrivate
+--- PASS: TestPublicIPRejectsLocalAndPrivate (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/covers	1.040s
+=== RUN   TestContentRevalidatesSizeAfterGrowthAndShrink
+--- PASS: TestContentRevalidatesSizeAfterGrowthAndShrink (0.00s)
+=== RUN   TestContentIfRangeHonorsETag
+--- PASS: TestContentIfRangeHonorsETag (0.00s)
+=== RUN   TestContentStaleETagCannotSpliceChangedEqualSizeFile
+--- PASS: TestContentStaleETagCannotSpliceChangedEqualSizeFile (0.00s)
+=== RUN   TestContentMultiRangeFallsBackToFull200
+--- PASS: TestContentMultiRangeFallsBackToFull200 (0.00s)
+=== RUN   TestContentUnknownSizeSafeFallback
+--- PASS: TestContentUnknownSizeSafeFallback (0.00s)
+=== RUN   TestContentAndCoverHEAD
+--- PASS: TestContentAndCoverHEAD (0.01s)
+=== RUN   TestContentStaysIdentityUnderAcceptEncoding
+--- PASS: TestContentStaysIdentityUnderAcceptEncoding (0.00s)
+=== RUN   TestContentDeletedLocalFileReturns404
+--- PASS: TestContentDeletedLocalFileReturns404 (0.00s)
+=== RUN   TestContentGETValidatesAndReadsSameOpenedHandle
+--- PASS: TestContentGETValidatesAndReadsSameOpenedHandle (0.00s)
+=== RUN   TestWorksCursorWalkOverHTTP
+--- PASS: TestWorksCursorWalkOverHTTP (0.01s)
+=== RUN   TestWorksRejectsMalformedCursor
+--- PASS: TestWorksRejectsMalformedCursor (0.00s)
+=== RUN   TestOPDSFeedLinksAreFollowable
+--- PASS: TestOPDSFeedLinksAreFollowable (0.02s)
+=== RUN   TestJournalSurvivesStoreReconstruction
+--- PASS: TestJournalSurvivesStoreReconstruction (0.00s)
+=== RUN   TestRestoreMarksInFlightScansInterrupted
+--- PASS: TestRestoreMarksInFlightScansInterrupted (0.00s)
+=== RUN   TestRestoreSkipsUnreadableAndStaleRecords
+--- PASS: TestRestoreSkipsUnreadableAndStaleRecords (0.00s)
+=== RUN   TestRestorePreservesLiveRecords
+--- PASS: TestRestorePreservesLiveRecords (0.00s)
+=== RUN   TestJournalFailureDoesNotFailScans
+redis: 2026/11/24 01:21:17 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:17 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:18 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:18 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+2026/11/24 01:21:18 WARN scan journal write failed job=scan-8b821794bad8d64168d36e285581c11f state=running error="dial tcp 127.0.0.1:35613: connect: connection refused"
+redis: 2026/11/24 01:21:18 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:19 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:19 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+redis: 2026/11/24 01:21:20 pool.go:770: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:35613: connect: connection refused
+2026/11/24 01:21:20 WARN scan journal write failed job=scan-8b821794bad8d64168d36e285581c11f state=succeeded error="dial tcp 127.0.0.1:35613: connect: connection refused"
+--- PASS: TestJournalFailureDoesNotFailScans (3.39s)
+=== RUN   TestJournalIndexIsBounded
+--- PASS: TestJournalIndexIsBounded (0.22s)
+=== RUN   TestJournalRejectsRecordWithoutIdentity
+--- PASS: TestJournalRejectsRecordWithoutIdentity (0.00s)
+=== RUN   TestJobStoreBoundsConcurrencyAndCancelsQueuedWork
+--- PASS: TestJobStoreBoundsConcurrencyAndCancelsQueuedWork (0.03s)
+=== RUN   TestJobStoreRecoversPanicAndReportsFailure
+--- PASS: TestJobStoreRecoversPanicAndReportsFailure (0.00s)
+=== RUN   TestJobStoreSanitizesScanFailureCredentials
+--- PASS: TestJobStoreSanitizesScanFailureCredentials (0.00s)
+=== RUN   TestJobStoreQueueCapAndShutdownDrain
+--- PASS: TestJobStoreQueueCapAndShutdownDrain (0.00s)
+=== RUN   TestJobStoreRetentionAndSnapshotIsolation
+--- PASS: TestJobStoreRetentionAndSnapshotIsolation (0.00s)
+=== RUN   TestJobStoreShutdownTimeout
+--- PASS: TestJobStoreShutdownTimeout (0.02s)
+=== RUN   TestLCPContentRejectsSameSizeTamper
+--- PASS: TestLCPContentRejectsSameSizeTamper (0.22s)
+=== RUN   TestLCPContentTamperDetectedOnFirstRequest
+--- PASS: TestLCPContentTamperDetectedOnFirstRequest (0.21s)
+=== RUN   TestLCPLicenseIsTheEmbeddedLicenseNotTheLiveSource
+--- PASS: TestLCPLicenseIsTheEmbeddedLicenseNotTheLiveSource (0.64s)
+=== RUN   TestLCPLicenseDoesNotNeedTheSource
+--- PASS: TestLCPLicenseDoesNotNeedTheSource (0.30s)
+=== RUN   TestLCPLiveServerQualification
+    lcp_live_test.go:34: set HELIX_LCP_LIVE_BIN and HELIX_LCP_LIVE_EVIDENCE to run the live qualification
+--- SKIP: TestLCPLiveServerQualification (0.00s)
+=== RUN   TestLCPFulfilledContentIsServedByteExactAndRanged
+--- PASS: TestLCPFulfilledContentIsServedByteExactAndRanged (0.18s)
+=== RUN   TestLCPLicenseRouteServesTheLicenseOnly
+--- PASS: TestLCPLicenseRouteServesTheLicenseOnly (0.61s)
+=== RUN   TestLCPLicenseRouteRefusesNonLCPFiles
+--- PASS: TestLCPLicenseRouteRefusesNonLCPFiles (0.00s)
+=== RUN   TestLCPRoutesRequireOPDSCredentialsWhenConfigured
+--- PASS: TestLCPRoutesRequireOPDSCredentialsWhenConfigured (0.21s)
+=== RUN   TestLCPOPDSFeedsAdvertiseFulfilledEPUBAndLicense
+--- PASS: TestLCPOPDSFeedsAdvertiseFulfilledEPUBAndLicense (0.43s)
+=== RUN   TestLCPContentFailsClosedWhenCacheUnavailable
+--- PASS: TestLCPContentFailsClosedWhenCacheUnavailable (0.10s)
+=== RUN   TestLCPDisabledByDefaultFromEnv
+--- PASS: TestLCPDisabledByDefaultFromEnv (0.00s)
+=== RUN   TestLiveLoadIngestConcurrentWithReads
+    load_concurrent_test.go:364: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadIngestConcurrentWithReads (0.00s)
+=== RUN   TestLiveLoadContentDelivery
+    load_delivery_test.go:275: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadContentDelivery (0.00s)
+=== RUN   TestLiveLoadKOSync
+    load_delivery_test.go:764: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadKOSync (0.00s)
+=== RUN   TestLiveLoadJobQueueMultiInstance
+    load_jobs_multiinstance_test.go:597: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadJobQueueMultiInstance (0.00s)
+=== RUN   TestLiveLoadJobQueueDurability
+    load_jobs_test.go:122: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadJobQueueDurability (0.00s)
+=== RUN   TestLiveLoadRemoteSourceRclone
+    load_remote_rclone_test.go:74: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSourceRclone (0.00s)
+=== RUN   TestLiveLoadRemoteSource
+    load_remote_test.go:154: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSource (0.00s)
+=== RUN   TestLiveThrottleRemoteSourceHTTP
+    load_remote_throttle_test.go:121: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveThrottleRemoteSourceHTTP (0.00s)
+=== RUN   TestLiveLoadRemoteSourceWebDAV
+    load_remote_webdav_test.go:76: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadRemoteSourceWebDAV (0.00s)
+=== RUN   TestLiveLoadHTTPLadder
+    load_test.go:462: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveLoadHTTPLadder (0.00s)
+=== RUN   TestPageStreamFeedAndServe
+--- PASS: TestPageStreamFeedAndServe (0.01s)
+=== RUN   TestPageStreamRefusesArchivesWithoutOneHonestType
+--- PASS: TestPageStreamRefusesArchivesWithoutOneHonestType (0.01s)
+=== RUN   TestPageStreamRefusesProtectedAndUnknownFormats
+--- PASS: TestPageStreamRefusesProtectedAndUnknownFormats (0.01s)
+=== RUN   TestPageStreamRefusesFileChangedAfterScan
+--- PASS: TestPageStreamRefusesFileChangedAfterScan (0.00s)
+=== RUN   TestPageStreamRequiresFeedCredentials
+--- PASS: TestPageStreamRequiresFeedCredentials (0.00s)
+=== RUN   TestSingleRangeRFC9110
+--- PASS: TestSingleRangeRFC9110 (0.00s)
+=== RUN   TestRemoteSourcesHonourRange
+=== RUN   TestRemoteSourcesHonourRange/webdav
+=== RUN   TestRemoteSourcesHonourRange/rclone
+--- PASS: TestRemoteSourcesHonourRange (0.48s)
+    --- PASS: TestRemoteSourcesHonourRange/webdav (0.04s)
+    --- PASS: TestRemoteSourcesHonourRange/rclone (0.32s)
+=== RUN   TestWebDAVWithoutContentLengthNeverServesEmpty
+--- PASS: TestWebDAVWithoutContentLengthNeverServesEmpty (0.02s)
+=== RUN   TestContentRangeAndTraversalSafeDisposition
+--- PASS: TestContentRangeAndTraversalSafeDisposition (0.00s)
+=== RUN   TestCompressionBrotliGzipAndIdentityRefusal
+--- PASS: TestCompressionBrotliGzipAndIdentityRefusal (0.02s)
+=== RUN   TestCompressionNetworkContentLength
+--- PASS: TestCompressionNetworkContentLength (0.01s)
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/br
+=== RUN   TestCompressionIdentityFallbackPreservesKeepAlive/gzip
+--- PASS: TestCompressionIdentityFallbackPreservesKeepAlive (0.01s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/br (0.00s)
+    --- PASS: TestCompressionIdentityFallbackPreservesKeepAlive/gzip (0.00s)
+=== RUN   TestAdminAuthenticationAndOPDS
+--- PASS: TestAdminAuthenticationAndOPDS (0.00s)
+=== RUN   TestSourceRegistrationAndScanJob
+--- PASS: TestSourceRegistrationAndScanJob (0.01s)
+=== RUN   TestSourceDeletionWaitsForScanAndScanAdmission
+--- PASS: TestSourceDeletionWaitsForScanAndScanAdmission (0.00s)
+=== RUN   TestSingleRangeForms
+--- PASS: TestSingleRangeForms (0.00s)
+=== RUN   TestKOReaderSyncProtocol
+--- PASS: TestKOReaderSyncProtocol (9.89s)
+=== RUN   TestKOReaderSyncRejectsInvalidAndOversizeProgress
+--- PASS: TestKOReaderSyncRejectsInvalidAndOversizeProgress (4.98s)
+=== RUN   TestScanRequestBodyLimit
+--- PASS: TestScanRequestBodyLimit (0.00s)
+=== RUN   TestStableSourceIDReattachesCatalogAfterRestart
+--- PASS: TestStableSourceIDReattachesCatalogAfterRestart (0.00s)
+=== RUN   TestLiveSlowClientJobSurface
+    slow_client_live_test.go:558: HELIX_LOAD_RUN is not 1; measurement harness opted out
+--- SKIP: TestLiveSlowClientJobSurface (0.00s)
+=== RUN   TestSoakDetectorCatchesLeaksAtTheClaimedFloor
+--- PASS: TestSoakDetectorCatchesLeaksAtTheClaimedFloor (1.16s)
+=== RUN   TestSoakDetectorNoFalsePositiveOnCleanWorkload
+--- PASS: TestSoakDetectorNoFalsePositiveOnCleanWorkload (1.38s)
+=== RUN   TestSoakServerRequestMixDoesNotLeak
+    soak_test.go:257: SOAK iterations=6000 samples=20 slope=9.47 B/iter steady_growth=35768 B goroutine_delta=0 heap_first=1964640 heap_last=2018600
+--- PASS: TestSoakServerRequestMixDoesNotLeak (4.06s)
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/webdav
+    soak_test.go:407: REMOTE SOAK webdav iterations=3000 slope=16.28 B/iter r2=0.87 goroutine_delta=0 lingering_rclone_workers=0
+=== RUN   TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/rclone
+    soak_test.go:407: REMOTE SOAK rclone iterations=300 slope=56.98 B/iter r2=0.85 goroutine_delta=0 lingering_rclone_workers=0
+--- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses (60.40s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/webdav (42.20s)
+    --- PASS: TestSoakRemoteSourcesDoNotLeakGoroutinesHeapOrProcesses/rclone (18.20s)
+=== RUN   TestRcloneConcurrentRangePeakProcesses
+    soak_test.go:477: RCLONE CONCURRENCY requests=50 peak_rclone_helper_processes=12 lingering=0
+--- PASS: TestRcloneConcurrentRangePeakProcesses (1.21s)
+=== RUN   TestSoakDetectorCatchesStaircaseLeaks
+--- PASS: TestSoakDetectorCatchesStaircaseLeaks (5.29s)
+=== RUN   TestSoakDetectorNoFalsePositiveOnBurstyShapes
+--- PASS: TestSoakDetectorNoFalsePositiveOnBurstyShapes (17.90s)
+=== RUN   TestRcloneWorkersCounterSeesZombiesAndLiveHelpers
+--- PASS: TestRcloneWorkersCounterSeesZombiesAndLiveHelpers (1.79s)
+=== RUN   FuzzSingleRange
+=== RUN   FuzzSingleRange/seed#0
+=== RUN   FuzzSingleRange/seed#1
+=== RUN   FuzzSingleRange/seed#2
+=== RUN   FuzzSingleRange/seed#3
+=== RUN   FuzzSingleRange/seed#4
+=== RUN   FuzzSingleRange/seed#5
+--- PASS: FuzzSingleRange (0.00s)
+    --- PASS: FuzzSingleRange/seed#0 (0.00s)
+    --- PASS: FuzzSingleRange/seed#1 (0.00s)
+    --- PASS: FuzzSingleRange/seed#2 (0.00s)
+    --- PASS: FuzzSingleRange/seed#3 (0.00s)
+    --- PASS: FuzzSingleRange/seed#4 (0.00s)
+    --- PASS: FuzzSingleRange/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/httpapi	116.316s
+=== RUN   TestRequireSecureEndpoint
+=== RUN   TestRequireSecureEndpoint/https_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_loopback_IP_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_localhost_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_with_credentials
+=== RUN   TestRequireSecureEndpoint/http_remote_without_credentials
+=== RUN   TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local
+--- PASS: TestRequireSecureEndpoint (0.00s)
+    --- PASS: TestRequireSecureEndpoint/https_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_loopback_IP_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_localhost_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_IPv6_loopback_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_with_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/http_remote_without_credentials (0.00s)
+    --- PASS: TestRequireSecureEndpoint/cleartext_hostname_that_merely_looks_local (0.00s)
+=== RUN   TestSanitizeError
+--- PASS: TestSanitizeError (0.00s)
+=== RUN   TestGoogleBooksErrorDoesNotLeakAPIKey
+--- PASS: TestGoogleBooksErrorDoesNotLeakAPIKey (0.00s)
+=== RUN   TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo
+--- PASS: TestOpenLibraryErrorDoesNotLeakQueryOrUserinfo (0.00s)
+=== RUN   TestGoogleBooksCrossOriginRedirectDoesNotLeakKey
+--- PASS: TestGoogleBooksCrossOriginRedirectDoesNotLeakKey (0.00s)
+=== RUN   TestLLMRejectsCleartextEndpointWithCredentials
+--- PASS: TestLLMRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestLLMLoopbackCleartextAllowed
+--- PASS: TestLLMLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevRejectsCleartextEndpointWithCredentials
+--- PASS: TestJevRejectsCleartextEndpointWithCredentials (0.00s)
+=== RUN   TestJevLoopbackCleartextAllowed
+--- PASS: TestJevLoopbackCleartextAllowed (0.00s)
+=== RUN   TestJevErrorDoesNotLeakUserinfo
+--- PASS: TestJevErrorDoesNotLeakUserinfo (0.00s)
+=== RUN   TestPipelineStoredErrorsAreSanitized
+--- PASS: TestPipelineStoredErrorsAreSanitized (0.00s)
+=== RUN   TestValidEmbeddedISBNAccepted
+--- PASS: TestValidEmbeddedISBNAccepted (0.00s)
+=== RUN   TestLLMCandidateCannotAutoAccept
+--- PASS: TestLLMCandidateCannotAutoAccept (0.00s)
+=== RUN   TestDecisionModelCanOnlyDowngrade
+--- PASS: TestDecisionModelCanOnlyDowngrade (0.00s)
+=== RUN   TestInvalidISBNRejected
+--- PASS: TestInvalidISBNRejected (0.00s)
+=== RUN   TestOpenLibraryClientAndNoKeyLeak
+--- PASS: TestOpenLibraryClientAndNoKeyLeak (0.00s)
+=== RUN   TestOpenAICompatibleContract
+--- PASS: TestOpenAICompatibleContract (0.00s)
+=== RUN   TestModelResponseBodiesAreBounded
+=== RUN   TestModelResponseBodiesAreBounded/llm
+=== RUN   TestModelResponseBodiesAreBounded/jev
+--- PASS: TestModelResponseBodiesAreBounded (0.07s)
+    --- PASS: TestModelResponseBodiesAreBounded/llm (0.05s)
+    --- PASS: TestModelResponseBodiesAreBounded/jev (0.03s)
+=== RUN   TestLLMRedirectDoesNotLeakProviderKey
+--- PASS: TestLLMRedirectDoesNotLeakProviderKey (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/identify	1.120s
+=== RUN   TestFileIDGoldenVectors
+--- PASS: TestFileIDGoldenVectors (0.00s)
+=== RUN   TestFileIdentityIsCaseSensitive
+--- PASS: TestFileIdentityIsCaseSensitive (0.00s)
+=== RUN   TestScanDifferentBytesWithSameISBNShareWorkAndEdition
+--- PASS: TestScanDifferentBytesWithSameISBNShareWorkAndEdition (0.00s)
+=== RUN   TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork
+--- PASS: TestMemoryRescanRehomesChangedFileAndRemovesEmptyWork (0.00s)
+=== RUN   TestMemoryFullScanReconcilesDeletedSourceFiles
+--- PASS: TestMemoryFullScanReconcilesDeletedSourceFiles (0.00s)
+=== RUN   TestLivePostgresFullScanReconcilesDeletedSourceFiles
+--- PASS: TestLivePostgresFullScanReconcilesDeletedSourceFiles (0.05s)
+=== RUN   TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork
+--- PASS: TestLivePostgresRescanRehomesChangedFileAndRemovesEmptyWork (0.04s)
+=== RUN   TestMemoryRescanRehomesLegacyCaseFoldedFileID
+--- PASS: TestMemoryRescanRehomesLegacyCaseFoldedFileID (0.00s)
+=== RUN   TestLivePostgresRescanRehomesLegacyCaseFoldedFileID
+--- PASS: TestLivePostgresRescanRehomesLegacyCaseFoldedFileID (0.04s)
+=== RUN   TestLivePostgresDifferentBytesWithSameISBNShareEdition
+--- PASS: TestLivePostgresDifferentBytesWithSameISBNShareEdition (0.05s)
+=== RUN   TestISBNIdentityCanonicalizesSchemePairAndOrder
+--- PASS: TestISBNIdentityCanonicalizesSchemePairAndOrder (0.00s)
+=== RUN   TestEPUBISBNHyphenationDoesNotForkIdentity
+--- PASS: TestEPUBISBNHyphenationDoesNotForkIdentity (0.02s)
+=== RUN   TestHost4xxDocumentDefinedDoesNotLockHost
+--- PASS: TestHost4xxDocumentDefinedDoesNotLockHost (1.31s)
+=== RUN   TestOperatorCancelRecordsNoFailure
+--- PASS: TestOperatorCancelRecordsNoFailure (1.16s)
+=== RUN   TestFailedFetchChargesOnlyBytesRead
+    lcp_adv_test.go:99: scan1 files=1 warnings=[z.lcpl: LCP license signature not verified server-side; readers verify and unlock]
+    lcp_adv_test.go:104: scan2 files=1
+--- PASS: TestFailedFetchChargesOnlyBytesRead (2.78s)
+=== RUN   TestConcurrentScansDownloadOnce
+    lcp_adv_test.go:143: origin hits=1 distinct artifacts=1 entries=[bff0e71b852e0f0c78f8f415ccc1a46a25ed9dad37446d0a22af14aae062a73d.epub license-f177ac1949d802aa9bf69a57408723bde1c665ca3e7096dd8be686fe5193450d.idx]
+--- PASS: TestConcurrentScansDownloadOnce (0.38s)
+=== RUN   TestCacheHitVsCrossProcessGCStress
+    lcp_adv_test.go:183: fulfil returned success but artifact gone: 0/300
+--- PASS: TestCacheHitVsCrossProcessGCStress (0.67s)
+=== RUN   TestCacheHitTouchesBeforeHashing
+--- PASS: TestCacheHitTouchesBeforeHashing (0.18s)
+=== RUN   TestCacheHitRefusedWhenArtifactVanishesAfterHash
+--- PASS: TestCacheHitRefusedWhenArtifactVanishesAfterHash (0.26s)
+=== RUN   TestHostBackoffIgnoresDocumentDefinedFailures
+    lcp_attack_test.go:51: hits=4 files=1 skipped=[a0.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a1.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs a2.lcpl: LCP fulfillment: lcp: publication does not match the license's publication link: SHA-256 differs]
+--- PASS: TestHostBackoffIgnoresDocumentDefinedFailures (1.31s)
+=== RUN   TestScanByteBudgetSurvivesHugeStatedLength
+    lcp_attack_test.go:86: hits=1 files=1
+--- PASS: TestScanByteBudgetSurvivesHugeStatedLength (1.14s)
+=== RUN   TestCrossProcessGCSparesCacheHitBeforeMerge
+--- PASS: TestCrossProcessGCSparesCacheHitBeforeMerge (0.30s)
+=== RUN   TestAdmitCannotOverflow
+--- PASS: TestAdmitCannotOverflow (0.00s)
+=== RUN   TestGCSkipsLeasedArtifactUntilScanCloses
+--- PASS: TestGCSkipsLeasedArtifactUntilScanCloses (0.45s)
+=== RUN   TestGCOverCapWarnsAndKeepsReferenced
+--- PASS: TestGCOverCapWarnsAndKeepsReferenced (0.34s)
+=== RUN   TestScanBudgetLimitsDistinctFetches
+--- PASS: TestScanBudgetLimitsDistinctFetches (1.86s)
+=== RUN   TestScanBudgetLimitsTotalBytes
+--- PASS: TestScanBudgetLimitsTotalBytes (0.85s)
+=== RUN   TestHostBackoffAcrossDistinctLicenses
+--- PASS: TestHostBackoffAcrossDistinctLicenses (3.52s)
+=== RUN   TestFailureMapEvictsOldestOnly
+--- PASS: TestFailureMapEvictsOldestOnly (0.02s)
+=== RUN   TestGCEpochGuardsLeaseCycleDuringReRead
+--- PASS: TestGCEpochGuardsLeaseCycleDuringReRead (0.39s)
+=== RUN   TestFollowerOfSilentLeaderNeverGetsEmptyNil
+--- PASS: TestFollowerOfSilentLeaderNeverGetsEmptyNil (0.56s)
+=== RUN   TestBackoffLeaderNeverYieldsEmptyNilUnderConcurrency
+--- PASS: TestBackoffLeaderNeverYieldsEmptyNilUnderConcurrency (0.62s)
+=== RUN   TestEmptyResultNeverReachesCatalog
+--- PASS: TestEmptyResultNeverReachesCatalog (0.71s)
+=== RUN   TestLeaderPanicDoesNotStrandFollowers
+--- PASS: TestLeaderPanicDoesNotStrandFollowers (0.47s)
+=== RUN   TestFollowerDoesNotInheritLeaderCancel
+--- PASS: TestFollowerDoesNotInheritLeaderCancel (2.23s)
+=== RUN   TestFollowerDoesNotInheritLeaderBudgetRefusal
+--- PASS: TestFollowerDoesNotInheritLeaderBudgetRefusal (0.46s)
+=== RUN   TestNewLeaderRechecksCacheBeforeDownloading
+--- PASS: TestNewLeaderRechecksCacheBeforeDownloading (0.17s)
+=== RUN   TestRedirectLoopDoesNotLockHost
+--- PASS: TestRedirectLoopDoesNotLockHost (0.99s)
+=== RUN   TestHost429CountsAgainstHost
+--- PASS: TestHost429CountsAgainstHost (1.79s)
+=== RUN   TestGCSparesBackdatedMtimeWithFreshCtime
+--- PASS: TestGCSparesBackdatedMtimeWithFreshCtime (0.38s)
+=== RUN   TestLCPLTemplatedHrefNeverEchoed
+--- PASS: TestLCPLTemplatedHrefNeverEchoed (0.22s)
+=== RUN   TestLCPFulfillUnverifiableRefusedBeforeDownload
+--- PASS: TestLCPFulfillUnverifiableRefusedBeforeDownload (0.30s)
+=== RUN   TestLCPFulfillContentLengthMismatchAbortsEarly
+--- PASS: TestLCPFulfillContentLengthMismatchAbortsEarly (0.37s)
+=== RUN   TestLCPFulfillBacksOffAfterFailure
+--- PASS: TestLCPFulfillBacksOffAfterFailure (0.15s)
+=== RUN   TestLCPDialsValidatedIPNotHostname
+--- PASS: TestLCPDialsValidatedIPNotHostname (0.14s)
+=== RUN   TestLCPResolverReturningPrivateIsBlocked
+--- PASS: TestLCPResolverReturningPrivateIsBlocked (0.19s)
+=== RUN   TestRestrictedIPReviewForms
+--- PASS: TestRestrictedIPReviewForms (0.00s)
+=== RUN   TestLCPCacheGCAfterSourceFileDeleted
+--- PASS: TestLCPCacheGCAfterSourceFileDeleted (0.46s)
+=== RUN   TestLCPCacheGCOnLicenseChangeKeepsReferenced
+--- PASS: TestLCPCacheGCOnLicenseChangeKeepsReferenced (0.62s)
+=== RUN   TestLCPCacheGCRespectsGraceAndCap
+--- PASS: TestLCPCacheGCRespectsGraceAndCap (0.42s)
+=== RUN   TestGCKeepsReferencedArtifactWhenWorkMovesDuringRead
+--- PASS: TestGCKeepsReferencedArtifactWhenWorkMovesDuringRead (0.14s)
+=== RUN   TestGCReverifiesUnreferencedBeforeUnlink
+--- PASS: TestGCReverifiesUnreferencedBeforeUnlink (0.13s)
+=== RUN   TestGCCapNeverEvictsInsideGraceWindow
+--- PASS: TestGCCapNeverEvictsInsideGraceWindow (0.28s)
+=== RUN   TestOpenVerifiedDetectsSameSizeRewriteWithRestoredMtime
+--- PASS: TestOpenVerifiedDetectsSameSizeRewriteWithRestoredMtime (0.25s)
+=== RUN   TestLCPFulfillCapsBodyAtStatedLength
+--- PASS: TestLCPFulfillCapsBodyAtStatedLength (0.20s)
+=== RUN   TestLCPLScanFulfillsStoresAndStaysIdempotent
+--- PASS: TestLCPLScanFulfillsStoresAndStaysIdempotent (0.31s)
+=== RUN   TestLCPLWithoutFulfillerIsStillSkipped
+--- PASS: TestLCPLWithoutFulfillerIsStillSkipped (0.00s)
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/hash_mismatch
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/length_mismatch
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unreachable_host
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/private_address_blocked_by_default_and_never_contacted
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/redirect_to_a_private_address_is_blocked
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_body
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_chunked_body_without_Content-Length
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/wrong_type_is_explicitly_unsupported_and_not_fetched
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/templated_href
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_file:///etc/passwd
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_ftp://example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_http://user:pw@example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_//example.org/p.epub
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/slow_provider_times_out
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/http_error_status
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unverifiable_link_fails_closed_unless_opted_in
+=== RUN   TestLCPLFailurePathsRefuseAndLeaveNoArtifact/not_a_license
+--- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact (5.78s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/hash_mismatch (0.20s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/length_mismatch (0.23s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unreachable_host (0.14s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/private_address_blocked_by_default_and_never_contacted (0.26s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/redirect_to_a_private_address_is_blocked (0.15s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_body (0.23s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/oversized_chunked_body_without_Content-Length (0.38s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/wrong_type_is_explicitly_unsupported_and_not_fetched (0.07s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/templated_href (0.51s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_file:///etc/passwd (0.23s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_ftp://example.org/p.epub (0.13s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_http://user:pw@example.org/p.epub (0.19s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/bad_href_//example.org/p.epub (0.30s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/slow_provider_times_out (2.26s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/http_error_status (0.18s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/unverifiable_link_fails_closed_unless_opted_in (0.32s)
+    --- PASS: TestLCPLFailurePathsRefuseAndLeaveNoArtifact/not_a_license (0.00s)
+=== RUN   TestLCPLScanReportsFailureWithoutLeakingURLs
+--- PASS: TestLCPLScanReportsFailureWithoutLeakingURLs (0.38s)
+=== RUN   TestLCPArtifactPathRejectsNonHashes
+--- PASS: TestLCPArtifactPathRejectsNonHashes (0.00s)
+=== RUN   TestRestrictedIP
+--- PASS: TestRestrictedIP (0.00s)
+=== RUN   TestScanTextIndexesInPlaceAndReportsUnknown
+--- PASS: TestScanTextIndexesInPlaceAndReportsUnknown (0.00s)
+=== RUN   TestScanSameContentAtDistinctPathsSharesOneWork
+--- PASS: TestScanSameContentAtDistinctPathsSharesOneWork (0.00s)
+=== RUN   TestRescanKeepsStableWorkEditionFileIdentity
+--- PASS: TestRescanKeepsStableWorkEditionFileIdentity (0.00s)
+=== RUN   TestPrefixScanNeverPrunesOutsideListingScope
+--- PASS: TestPrefixScanNeverPrunesOutsideListingScope (0.00s)
+=== RUN   TestFullScanRetainsListedFileWhenIngestFails
+--- PASS: TestFullScanRetainsListedFileWhenIngestFails (0.00s)
+=== RUN   TestScanReportCountsWorksTouchedByThisScan
+--- PASS: TestScanReportCountsWorksTouchedByThisScan (0.00s)
+=== RUN   TestIdentityIDsStableAgainstMetadataImprovement
+--- PASS: TestIdentityIDsStableAgainstMetadataImprovement (0.00s)
+=== RUN   TestSanitizeErrorStripsURLCredentials
+--- PASS: TestSanitizeErrorStripsURLCredentials (0.00s)
+=== RUN   TestScanSanitizesConnectorErrorsInReport
+--- PASS: TestScanSanitizesConnectorErrorsInReport (0.00s)
+=== RUN   TestSanitizeLocationStripsOnlyAbsoluteURLCredentials
+--- PASS: TestSanitizeLocationStripsOnlyAbsoluteURLCredentials (0.00s)
+=== RUN   TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs
+--- PASS: TestSanitizationFailsClosedForMalformedAndOpaqueHTTPURLs (0.00s)
+=== RUN   TestScanSanitizesURLEntryLocationsInReport
+--- PASS: TestScanSanitizesURLEntryLocationsInReport (0.00s)
+=== RUN   TestScanSourceListErrorPreservesSemantics
+--- PASS: TestScanSourceListErrorPreservesSemantics (0.00s)
+=== RUN   TestReadBoundedRejectsOverflow
+--- PASS: TestReadBoundedRejectsOverflow (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/ingest	36.901s
+?   	github.com/helixreader/helix/server/internal/ingest/lcpfixture	[no test files]
+=== RUN   TestLiveRedisKOSyncRoundTrip
+--- PASS: TestLiveRedisKOSyncRoundTrip (0.01s)
+=== RUN   TestRedisPutProgressRetriesWatchConflict
+--- PASS: TestRedisPutProgressRetriesWatchConflict (0.01s)
+=== RUN   TestRedisStoreRoundTripAndIsolation
+--- PASS: TestRedisStoreRoundTripAndIsolation (0.00s)
+=== RUN   TestAccountValidationAuthenticationAndProgress
+--- PASS: TestAccountValidationAuthenticationAndProgress (4.94s)
+=== RUN   TestStaleProgressCannotRewindReader
+--- PASS: TestStaleProgressCannotRewindReader (0.80s)
+=== RUN   TestRegistrationAndProgressRejection
+--- PASS: TestRegistrationAndProgressRejection (0.84s)
+=== RUN   FuzzPutProgressBody
+=== RUN   FuzzPutProgressBody/seed#0
+=== RUN   FuzzPutProgressBody/seed#1
+=== RUN   FuzzPutProgressBody/seed#2
+=== RUN   FuzzPutProgressBody/seed#3
+=== RUN   FuzzPutProgressBody/seed#4
+=== RUN   FuzzPutProgressBody/seed#5
+=== RUN   FuzzPutProgressBody/seed#6
+--- PASS: FuzzPutProgressBody (0.81s)
+    --- PASS: FuzzPutProgressBody/seed#0 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#1 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#2 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#3 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#4 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#5 (0.00s)
+    --- PASS: FuzzPutProgressBody/seed#6 (0.00s)
+=== RUN   FuzzRegisterInput
+=== RUN   FuzzRegisterInput/seed#0
+    fuzz_test.go:73: valid inputs cost a bcrypt hash; covered by unit tests
+=== RUN   FuzzRegisterInput/seed#1
+=== RUN   FuzzRegisterInput/seed#2
+=== RUN   FuzzRegisterInput/seed#3
+=== RUN   FuzzRegisterInput/seed#4
+=== RUN   FuzzRegisterInput/seed#5
+--- PASS: FuzzRegisterInput (0.80s)
+    --- SKIP: FuzzRegisterInput/seed#0 (0.00s)
+    --- PASS: FuzzRegisterInput/seed#1 (0.00s)
+    --- PASS: FuzzRegisterInput/seed#2 (0.00s)
+    --- PASS: FuzzRegisterInput/seed#3 (0.00s)
+    --- PASS: FuzzRegisterInput/seed#4 (0.00s)
+    --- PASS: FuzzRegisterInput/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	9.229s
+=== RUN   TestAcquisition12CursorLinksRoundTrip
+--- PASS: TestAcquisition12CursorLinksRoundTrip (0.00s)
+=== RUN   TestAcquisition20CursorLinksRoundTrip
+--- PASS: TestAcquisition20CursorLinksRoundTrip (0.00s)
+=== RUN   TestNextLinkFollowsHasNextNotTheTotal
+--- PASS: TestNextLinkFollowsHasNextNotTheTotal (0.01s)
+=== RUN   TestLCPEntry12LicenseAcquisitionWithIndirect
+--- PASS: TestLCPEntry12LicenseAcquisitionWithIndirect (0.00s)
+=== RUN   TestLCPPublication20LicenseAcquisitionWithIndirect
+--- PASS: TestLCPPublication20LicenseAcquisitionWithIndirect (0.00s)
+=== RUN   TestDumpLCPFeeds
+    lcp_test.go:107: HELIX_OPDS_DUMP not set
+--- SKIP: TestDumpLCPFeeds (0.00s)
+=== RUN   TestOPDS12WellFormedMultiEditionAndPaging
+--- PASS: TestOPDS12WellFormedMultiEditionAndPaging (0.00s)
+=== RUN   TestOPDS20WellFormedAndTyped
+--- PASS: TestOPDS20WellFormedAndTyped (0.00s)
+=== RUN   TestStandaloneEditionDocuments
+--- PASS: TestStandaloneEditionDocuments (0.00s)
+=== RUN   TestOpenSearchTemplateEscaped
+--- PASS: TestOpenSearchTemplateEscaped (0.00s)
+=== RUN   TestStreamLinkRoundTripsThroughTheParser
+--- PASS: TestStreamLinkRoundTripsThroughTheParser (0.00s)
+=== RUN   TestFeedDeclaresThePSENamespace
+--- PASS: TestFeedDeclaresThePSENamespace (0.00s)
+=== RUN   TestIllegalStreamsAreNeverAdvertised
+=== RUN   TestIllegalStreamsAreNeverAdvertised/no_pages
+=== RUN   TestIllegalStreamsAreNeverAdvertised/negative_pages
+=== RUN   TestIllegalStreamsAreNeverAdvertised/not_an_image_type
+=== RUN   TestIllegalStreamsAreNeverAdvertised/empty_type
+=== RUN   TestIllegalStreamsAreNeverAdvertised/no_stream_resolved
+--- PASS: TestIllegalStreamsAreNeverAdvertised (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/no_pages (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/negative_pages (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/not_an_image_type (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/empty_type (0.00s)
+    --- PASS: TestIllegalStreamsAreNeverAdvertised/no_stream_resolved (0.00s)
+=== RUN   TestOnlyResolvedFilesGetLinks
+--- PASS: TestOnlyResolvedFilesGetLinks (0.00s)
+=== RUN   TestEditionEntryStandaloneCarriesNamespaceAndLink
+--- PASS: TestEditionEntryStandaloneCarriesNamespaceAndLink (0.00s)
+=== RUN   TestOPDS20InventsNoPageStream
+--- PASS: TestOPDS20InventsNoPageStream (0.00s)
+=== RUN   TestPageStreamHREFShape
+--- PASS: TestPageStreamHREFShape (0.00s)
+=== RUN   FuzzOPDSGeneration
+=== RUN   FuzzOPDSGeneration/seed#0
+=== RUN   FuzzOPDSGeneration/seed#1
+=== RUN   FuzzOPDSGeneration/seed#2
+--- PASS: FuzzOPDSGeneration (0.01s)
+    --- PASS: FuzzOPDSGeneration/seed#0 (0.00s)
+    --- PASS: FuzzOPDSGeneration/seed#1 (0.00s)
+    --- PASS: FuzzOPDSGeneration/seed#2 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/opds	1.056s
+=== RUN   TestValidateAcquisitionIP
+=== RUN   TestValidateAcquisitionIP/loopback_v4
+=== RUN   TestValidateAcquisitionIP/loopback_v6
+=== RUN   TestValidateAcquisitionIP/private_10/8
+=== RUN   TestValidateAcquisitionIP/private_192.168
+=== RUN   TestValidateAcquisitionIP/private_172.16
+=== RUN   TestValidateAcquisitionIP/private_v6_ula
+=== RUN   TestValidateAcquisitionIP/cgnat
+=== RUN   TestValidateAcquisitionIP/link-local_metadata
+=== RUN   TestValidateAcquisitionIP/link-local_v6
+=== RUN   TestValidateAcquisitionIP/unspecified_v4
+=== RUN   TestValidateAcquisitionIP/unspecified_v6
+=== RUN   TestValidateAcquisitionIP/multicast_v4
+=== RUN   TestValidateAcquisitionIP/multicast_v6
+=== RUN   TestValidateAcquisitionIP/broadcast
+=== RUN   TestValidateAcquisitionIP/public_v4
+=== RUN   TestValidateAcquisitionIP/public_v6
+--- PASS: TestValidateAcquisitionIP (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/loopback_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_10/8 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_192.168 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_172.16 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/private_v6_ula (0.00s)
+    --- PASS: TestValidateAcquisitionIP/cgnat (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_metadata (0.00s)
+    --- PASS: TestValidateAcquisitionIP/link-local_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/unspecified_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/multicast_v6 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/broadcast (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v4 (0.00s)
+    --- PASS: TestValidateAcquisitionIP/public_v6 (0.00s)
+=== RUN   TestSameOriginAddress
+--- PASS: TestSameOriginAddress (0.00s)
+=== RUN   TestHTTPRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestHTTPRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestHTTPAllowsSameOriginRedirect
+--- PASS: TestHTTPAllowsSameOriginRedirect (0.00s)
+=== RUN   TestHTTPBodyStreamingHasNoWholeTransferDeadline
+--- PASS: TestHTTPBodyStreamingHasNoWholeTransferDeadline (0.05s)
+=== RUN   TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders
+--- PASS: TestOPDSPrivateNetworkOptInAllowsCrossOriginAcquisitionWithoutHeaders (0.00s)
+=== RUN   TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault
+--- PASS: TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault (0.00s)
+=== RUN   TestOPDSSameOriginLoopbackAllowedWithoutFlag
+--- PASS: TestOPDSSameOriginLoopbackAllowedWithoutFlag (0.00s)
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false
+=== RUN   TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true
+--- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=false (0.00s)
+    --- PASS: TestOPDSRejectsLinkLocalMetadataAcquisition/allow_private_network=true (0.00s)
+=== RUN   TestOPDSRejectsRedirectToCrossOriginLoopback
+--- PASS: TestOPDSRejectsRedirectToCrossOriginLoopback (0.00s)
+=== RUN   TestOPDSRejectsOversizedFeed
+--- PASS: TestOPDSRejectsOversizedFeed (0.93s)
+=== RUN   TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot
+--- PASS: TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot (0.04s)
+=== RUN   TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths
+--- PASS: TestOPDSKeepsSignedAcquisitionSecretsOutOfCatalogPaths (0.00s)
+=== RUN   TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities
+--- PASS: TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities (0.00s)
+=== RUN   TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval
+--- PASS: TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval (0.01s)
+=== RUN   TestRcloneOpenBoundsStderr
+--- PASS: TestRcloneOpenBoundsStderr (0.01s)
+=== RUN   TestRcloneOpenRangeBoundsStderr
+--- PASS: TestRcloneOpenRangeBoundsStderr (0.01s)
+=== RUN   TestWebDAVRevalidate
+--- PASS: TestWebDAVRevalidate (0.00s)
+=== RUN   TestWebDAVOpenRangeBoundsIgnoringServer
+--- PASS: TestWebDAVOpenRangeBoundsIgnoringServer (0.00s)
+=== RUN   TestWebDAVListSkipsCollectionsWithSecondPropstat
+--- PASS: TestWebDAVListSkipsCollectionsWithSecondPropstat (0.00s)
+=== RUN   TestWebDAVRevalidateAbsentLengthIsUnknownNotZero
+--- PASS: TestWebDAVRevalidateAbsentLengthIsUnknownNotZero (0.00s)
+=== RUN   TestWebDAVRevalidateMixedPropstatOrder
+--- PASS: TestWebDAVRevalidateMixedPropstatOrder (0.00s)
+=== RUN   TestWebDAVListStrictContentLength
+--- PASS: TestWebDAVListStrictContentLength (0.01s)
+=== RUN   TestWebDAVListSkipsCollectionWithLength
+--- PASS: TestWebDAVListSkipsCollectionWithLength (0.00s)
+=== RUN   TestLocalListOpenAndTraversal
+--- PASS: TestLocalListOpenAndTraversal (0.00s)
+=== RUN   TestDefaultRegistryCoverage
+--- PASS: TestDefaultRegistryCoverage (0.00s)
+=== RUN   TestWebDAVList
+--- PASS: TestWebDAVList (0.00s)
+=== RUN   TestWebDAVListAppliesConfiguredHeaders
+--- PASS: TestWebDAVListAppliesConfiguredHeaders (0.00s)
+=== RUN   TestWebDAVRejectsCrossOriginRedirectBeforeRequest
+--- PASS: TestWebDAVRejectsCrossOriginRedirectBeforeRequest (0.00s)
+=== RUN   TestWebDAVRejectsOversizedResponse
+--- PASS: TestWebDAVRejectsOversizedResponse (0.26s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/sources	2.484s
+=== RUN   TestLiveRedisProgressConflictAndReconnect
+--- PASS: TestLiveRedisProgressConflictAndReconnect (0.01s)
+=== RUN   TestRedisProgressConflictResolutionAndPersistence
+--- PASS: TestRedisProgressConflictResolutionAndPersistence (0.00s)
+=== RUN   TestProgressValidation
+--- PASS: TestProgressValidation (0.00s)
+PASS
+ok  	github.com/helixreader/helix/server/internal/syncstore	1.029s
+=== A module core: go test ./... -race -count=1 -v -p 1 ===
+=== RUN   TestLRUEviction
+--- PASS: TestLRUEviction (0.00s)
+=== RUN   TestProtectedNeverEvicted
+--- PASS: TestProtectedNeverEvicted (0.00s)
+=== RUN   TestProtectionSurvivesRoutineTouch
+--- PASS: TestProtectionSurvivesRoutineTouch (0.00s)
+=== RUN   TestOversizedRejected
+--- PASS: TestOversizedRejected (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/cache	1.017s
+=== RUN   TestSameFormatRepackIsHonest
+--- PASS: TestSameFormatRepackIsHonest (0.00s)
+=== RUN   TestDocumentedMatrix
+--- PASS: TestDocumentedMatrix (0.00s)
+=== RUN   TestMatrixNeverOutrunsTheCode
+--- PASS: TestMatrixNeverOutrunsTheCode (0.00s)
+=== RUN   TestTargetsNeverBlocked
+--- PASS: TestTargetsNeverBlocked (0.00s)
+=== RUN   TestMandatedThoriumAndLCPExtensions
+--- PASS: TestMandatedThoriumAndLCPExtensions (0.00s)
+=== RUN   TestDetectCompoundBeforeGeneric
+--- PASS: TestDetectCompoundBeforeGeneric (0.00s)
+=== RUN   TestProtectedFormatsDoNotClaimConversion
+--- PASS: TestProtectedFormatsDoNotClaimConversion (0.00s)
+=== RUN   TestRegistrySnapshotIsSortedAndIndependent
+--- PASS: TestRegistrySnapshotIsSortedAndIndependent (0.00s)
+=== RUN   TestNoDescriptorClaimsUnimplementedRenderOrDRM
+--- PASS: TestNoDescriptorClaimsUnimplementedRenderOrDRM (0.00s)
+=== RUN   TestEveryDescriptorHasDetectionAndMIME
+--- PASS: TestEveryDescriptorHasDetectionAndMIME (0.00s)
+=== RUN   TestNoDescriptorClaimsUnimplementedAI
+--- PASS: TestNoDescriptorClaimsUnimplementedAI (0.00s)
+=== RUN   FuzzDetect
+=== RUN   FuzzDetect/seed#0
+=== RUN   FuzzDetect/seed#1
+=== RUN   FuzzDetect/seed#2
+=== RUN   FuzzDetect/seed#3
+=== RUN   FuzzDetect/seed#4
+=== RUN   FuzzDetect/seed#5
+--- PASS: FuzzDetect (0.00s)
+    --- PASS: FuzzDetect/seed#0 (0.00s)
+    --- PASS: FuzzDetect/seed#1 (0.00s)
+    --- PASS: FuzzDetect/seed#2 (0.00s)
+    --- PASS: FuzzDetect/seed#3 (0.00s)
+    --- PASS: FuzzDetect/seed#4 (0.00s)
+    --- PASS: FuzzDetect/seed#5 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/formats	1.023s
+=== RUN   TestWordCount
+--- PASS: TestWordCount (0.00s)
+=== RUN   TestModelRoundTripShape
+--- PASS: TestModelRoundTripShape (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hdm	1.016s
+=== RUN   TestMonotonicWithFrozenClock
+--- PASS: TestMonotonicWithFrozenClock (0.00s)
+=== RUN   TestClockSkewBackward
+--- PASS: TestClockSkewBackward (0.00s)
+=== RUN   TestUpdateMerge
+--- PASS: TestUpdateMerge (0.00s)
+=== RUN   TestParseRoundTrip
+--- PASS: TestParseRoundTrip (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/hlc	1.015s
+=== RUN   TestValidISBN13
+--- PASS: TestValidISBN13 (0.00s)
+=== RUN   TestInvalidISBN13
+--- PASS: TestInvalidISBN13 (0.00s)
+=== RUN   TestValidISBN10
+--- PASS: TestValidISBN10 (0.00s)
+=== RUN   TestCanonicalISBN
+--- PASS: TestCanonicalISBN (0.00s)
+=== RUN   TestExtractFromPage
+--- PASS: TestExtractFromPage (0.00s)
+=== RUN   TestExtractAdjacentSpaceSeparatedISBNs
+--- PASS: TestExtractAdjacentSpaceSeparatedISBNs (0.00s)
+=== RUN   TestExtractEmpty
+--- PASS: TestExtractEmpty (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/isbn	1.017s
+=== RUN   TestTXT
+--- PASS: TestTXT (0.00s)
+=== RUN   TestTXTWrapDeterministic
+--- PASS: TestTXTWrapDeterministic (0.00s)
+=== RUN   TestXHTMLEscaping
+--- PASS: TestXHTMLEscaping (0.00s)
+=== RUN   TestFB2RoundTrip
+--- PASS: TestFB2RoundTrip (0.00s)
+=== RUN   TestUnsupported
+--- PASS: TestUnsupported (0.00s)
+=== RUN   TestInvalidDoc
+--- PASS: TestInvalidDoc (0.00s)
+=== RUN   TestExportEPUBStructure
+--- PASS: TestExportEPUBStructure (0.01s)
+=== RUN   TestExportEPUBRoundTripExact
+--- PASS: TestExportEPUBRoundTripExact (0.00s)
+=== RUN   TestExportEPUBDeterministicBytes
+--- PASS: TestExportEPUBDeterministicBytes (0.01s)
+=== RUN   TestExportEPUBWithImagesRoundTripsResources
+--- PASS: TestExportEPUBWithImagesRoundTripsResources (0.01s)
+=== RUN   TestExportEPUBFailClosed
+=== RUN   TestExportEPUBFailClosed/code_block
+=== RUN   TestExportEPUBFailClosed/table_block
+=== RUN   TestExportEPUBFailClosed/list_block
+=== RUN   TestExportEPUBFailClosed/footnote_ref
+=== RUN   TestExportEPUBFailClosed/heading_level_9
+=== RUN   TestExportEPUBFailClosed/unnormalised_text
+=== RUN   TestExportEPUBFailClosed/trailing_space
+=== RUN   TestExportEPUBFailClosed/control_char
+=== RUN   TestExportEPUBFailClosed/empty_paragraph
+=== RUN   TestExportEPUBFailClosed/non-image_payload
+=== RUN   TestExportEPUBFailClosed/webp_payload
+=== RUN   TestExportEPUBFailClosed/path_separator_in_ref
+--- PASS: TestExportEPUBFailClosed (0.00s)
+    --- PASS: TestExportEPUBFailClosed/code_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/table_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/list_block (0.00s)
+    --- PASS: TestExportEPUBFailClosed/footnote_ref (0.00s)
+    --- PASS: TestExportEPUBFailClosed/heading_level_9 (0.00s)
+    --- PASS: TestExportEPUBFailClosed/unnormalised_text (0.00s)
+    --- PASS: TestExportEPUBFailClosed/trailing_space (0.00s)
+    --- PASS: TestExportEPUBFailClosed/control_char (0.00s)
+    --- PASS: TestExportEPUBFailClosed/empty_paragraph (0.00s)
+    --- PASS: TestExportEPUBFailClosed/non-image_payload (0.00s)
+    --- PASS: TestExportEPUBFailClosed/webp_payload (0.00s)
+    --- PASS: TestExportEPUBFailClosed/path_separator_in_ref (0.00s)
+=== RUN   TestExportEPUBTitleInjection
+--- PASS: TestExportEPUBTitleInjection (0.01s)
+=== RUN   TestExportCBZFailClosed
+--- PASS: TestExportCBZFailClosed (0.00s)
+=== RUN   TestTxtToEPUBFullChain
+--- PASS: TestTxtToEPUBFullChain (0.01s)
+=== RUN   TestMobiToEPUBThenPaginate
+--- PASS: TestMobiToEPUBThenPaginate (0.01s)
+=== RUN   TestEPUBToCBZRepack
+--- PASS: TestEPUBToCBZRepack (0.00s)
+=== RUN   TestFB2BinariesToEPUBImages
+--- PASS: TestFB2BinariesToEPUBImages (0.01s)
+=== RUN   TestTxtPaginateExact
+--- PASS: TestTxtPaginateExact (0.00s)
+=== RUN   FuzzExportEPUB
+=== RUN   FuzzExportEPUB/seed#0
+=== RUN   FuzzExportEPUB/seed#1
+=== RUN   FuzzExportEPUB/seed#2
+--- PASS: FuzzExportEPUB (0.01s)
+    --- PASS: FuzzExportEPUB/seed#0 (0.00s)
+    --- PASS: FuzzExportEPUB/seed#1 (0.00s)
+    --- PASS: FuzzExportEPUB/seed#2 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/convert	1.092s
+=== RUN   TestRoundTrip
+--- PASS: TestRoundTrip (0.04s)
+=== RUN   TestWrongPassphrase
+--- PASS: TestWrongPassphrase (0.03s)
+=== RUN   TestTamperDetected
+--- PASS: TestTamperDetected (0.03s)
+=== RUN   TestNonDeterministicCiphertext
+--- PASS: TestNonDeterministicCiphertext (0.03s)
+=== RUN   TestBadEnvelope
+--- PASS: TestBadEnvelope (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/crypto	1.151s
+=== RUN   TestSearchRanking
+--- PASS: TestSearchRanking (0.00s)
+=== RUN   TestSearchDeterministicTies
+--- PASS: TestSearchDeterministicTies (0.00s)
+=== RUN   TestCaseAndPunctuation
+--- PASS: TestCaseAndPunctuation (0.00s)
+=== RUN   TestEmptyAndLimits
+--- PASS: TestEmptyAndLimits (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/fts	1.017s
+=== RUN   TestValidateOK
+--- PASS: TestValidateOK (0.00s)
+=== RUN   TestValidateNoChapters
+--- PASS: TestValidateNoChapters (0.00s)
+=== RUN   TestValidateDuplicateChapterID
+--- PASS: TestValidateDuplicateChapterID (0.00s)
+=== RUN   TestValidateMissingImageRef
+--- PASS: TestValidateMissingImageRef (0.00s)
+=== RUN   TestWordCount
+--- PASS: TestWordCount (0.00s)
+=== RUN   TestFingerprintStableAndSensitive
+--- PASS: TestFingerprintStableAndSensitive (0.00s)
+=== RUN   TestFingerprintCaseAndWhitespaceInsensitive
+--- PASS: TestFingerprintCaseAndWhitespaceInsensitive (0.00s)
+=== RUN   TestFlatTOC
+--- PASS: TestFlatTOC (0.00s)
+=== RUN   TestValidateRejectsNilChapter
+--- PASS: TestValidateRejectsNilChapter (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/hdm	1.019s
+=== RUN   TestISBN13Valid
+--- PASS: TestISBN13Valid (0.00s)
+=== RUN   TestISBN10Valid
+--- PASS: TestISBN10Valid (0.00s)
+=== RUN   TestISBN10to13RoundTrip
+--- PASS: TestISBN10to13RoundTrip (0.00s)
+=== RUN   TestISBN13to10Rejects979
+--- PASS: TestISBN13to10Rejects979 (0.00s)
+=== RUN   TestIsASIN
+--- PASS: TestIsASIN (0.00s)
+=== RUN   TestRankCandidatesDeterministic
+--- PASS: TestRankCandidatesDeterministic (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/identify	1.026s
+=== RUN   TestCanonicalSpecExample
+--- PASS: TestCanonicalSpecExample (0.00s)
+=== RUN   TestCanonicalSpecDigestVector
+--- PASS: TestCanonicalSpecDigestVector (0.00s)
+=== RUN   TestSpecExampleIsNotAConformantLicense
+--- PASS: TestSpecExampleIsNotAConformantLicense (0.00s)
+=== RUN   TestSpecExampleSignatureIsUnverifiable
+--- PASS: TestSpecExampleSignatureIsUnverifiable (0.01s)
+=== RUN   TestCanonicalIsDeterministicAcrossMapOrder
+--- PASS: TestCanonicalIsDeterministicAcrossMapOrder (0.04s)
+=== RUN   TestCanonicalMatchesReferenceProducer
+--- PASS: TestCanonicalMatchesReferenceProducer (0.00s)
+=== RUN   TestCanonicalSpecModeEscaping
+--- PASS: TestCanonicalSpecModeEscaping (0.00s)
+=== RUN   TestCanonicalSortingAndArrayOrder
+--- PASS: TestCanonicalSortingAndArrayOrder (0.00s)
+=== RUN   TestCanonicalNumbers
+--- PASS: TestCanonicalNumbers (0.00s)
+=== RUN   TestCanonicalFloatDivergenceFromReference
+--- PASS: TestCanonicalFloatDivergenceFromReference (0.00s)
+=== RUN   TestCanonicalForSigningRemovesOnlyTopLevelSignature
+--- PASS: TestCanonicalForSigningRemovesOnlyTopLevelSignature (0.00s)
+=== RUN   TestCanonicalRejectsDuplicateMembers
+--- PASS: TestCanonicalRejectsDuplicateMembers (0.00s)
+=== RUN   TestCanonicalRejectsMalformedInput
+--- PASS: TestCanonicalRejectsMalformedInput (0.00s)
+=== RUN   TestContainerRefusesEncryptedExcludedResources
+=== RUN   TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read
+=== RUN   TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found
+=== RUN   TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable
+=== RUN   TestContainerRefusesEncryptedExcludedResources/the_package_document_is_an_EPUB_rootfile
+--- PASS: TestContainerRefusesEncryptedExcludedResources (1.16s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/mimetype_is_how_the_container_type_is_read (0.38s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/container.xml_is_how_the_rootfile_is_found (0.34s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/the_license_itself_must_stay_readable (0.21s)
+    --- PASS: TestContainerRefusesEncryptedExcludedResources/the_package_document_is_an_EPUB_rootfile (0.22s)
+=== RUN   TestContainerRejectsMalformedEncryptionXML
+=== RUN   TestContainerRejectsMalformedEncryptionXML/truncated_document
+=== RUN   TestContainerRejectsMalformedEncryptionXML/wrong_root_element
+=== RUN   TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer
+=== RUN   TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target
+=== RUN   TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number
+=== RUN   TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number
+--- PASS: TestContainerRejectsMalformedEncryptionXML (2.00s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/truncated_document (0.47s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/wrong_root_element (0.22s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/key_uri_is_not_the_LCP_content_key_pointer (0.36s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/cipher_reference_without_a_target (0.42s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/compression_method_is_not_a_number (0.38s)
+    --- PASS: TestContainerRejectsMalformedEncryptionXML/original_length_is_not_a_number (0.14s)
+=== RUN   TestContainerKeepsCipherReferencesInsideTheContainer
+--- PASS: TestContainerKeepsCipherReferencesInsideTheContainer (0.24s)
+=== RUN   TestContainerHonoursDeclaredOriginalLength
+--- PASS: TestContainerHonoursDeclaredOriginalLength (0.30s)
+=== RUN   TestContainerRejectsAlgorithmDisagreement
+--- PASS: TestContainerRejectsAlgorithmDisagreement (0.32s)
+=== RUN   TestContainerRefusesATamperedLicenseEndToEnd
+--- PASS: TestContainerRefusesATamperedLicenseEndToEnd (0.31s)
+=== RUN   TestContainerFirstLicenseEntryWins
+--- PASS: TestContainerFirstLicenseEntryWins (0.80s)
+=== RUN   TestContainerUnlocksAndReadsEveryResource
+--- PASS: TestContainerUnlocksAndReadsEveryResource (0.16s)
+=== RUN   TestContainerCiphertextBudgetCoversEncryptionOverhead
+--- PASS: TestContainerCiphertextBudgetCoversEncryptionOverhead (0.34s)
+=== RUN   TestContainerUnprotectedPublicationIsNotAnError
+--- PASS: TestContainerUnprotectedPublicationIsNotAnError (0.00s)
+=== RUN   TestContainerDetectsByEachMeans
+--- PASS: TestContainerDetectsByEachMeans (0.49s)
+=== RUN   TestContainerWrongPassphraseLeavesResourcesLocked
+--- PASS: TestContainerWrongPassphraseLeavesResourcesLocked (0.28s)
+=== RUN   TestFulfillOverLiveHTTP
+--- PASS: TestFulfillOverLiveHTTP (0.26s)
+=== RUN   TestFulfillAcceptsHexAndBase64Hash
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/lowercase_hex_(spec_Example_3,_reference_server)
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/uppercase_hex
+=== RUN   TestFulfillAcceptsHexAndBase64Hash/std_base64_(spec_table_and_schema)
+--- PASS: TestFulfillAcceptsHexAndBase64Hash (0.77s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/lowercase_hex_(spec_Example_3,_reference_server) (0.24s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/uppercase_hex (0.37s)
+    --- PASS: TestFulfillAcceptsHexAndBase64Hash/std_base64_(spec_table_and_schema) (0.16s)
+=== RUN   TestFulfillRejectsBadHashEncodings
+=== RUN   TestFulfillRejectsBadHashEncodings/url_base64
+=== RUN   TestFulfillRejectsBadHashEncodings/empty-ish
+=== RUN   TestFulfillRejectsBadHashEncodings/base64_of_16_bytes
+=== RUN   TestFulfillRejectsBadHashEncodings/base64_of_other_digest
+=== RUN   TestFulfillRejectsBadHashEncodings/short_hex
+--- PASS: TestFulfillRejectsBadHashEncodings (1.56s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/url_base64 (0.22s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/empty-ish (0.28s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/base64_of_16_bytes (0.22s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/base64_of_other_digest (0.50s)
+    --- PASS: TestFulfillRejectsBadHashEncodings/short_hex (0.34s)
+=== RUN   TestFulfillToleratesStringLength
+--- PASS: TestFulfillToleratesStringLength (0.21s)
+=== RUN   TestParseRejectsBadLengths
+=== RUN   TestParseRejectsBadLengths/float
+=== RUN   TestParseRejectsBadLengths/empty_string
+=== RUN   TestParseRejectsBadLengths/bool
+=== RUN   TestParseRejectsBadLengths/object
+=== RUN   TestParseRejectsBadLengths/negative_number
+=== RUN   TestParseRejectsBadLengths/negative_string
+=== RUN   TestParseRejectsBadLengths/non-numeric
+--- PASS: TestParseRejectsBadLengths (1.97s)
+    --- PASS: TestParseRejectsBadLengths/float (0.18s)
+    --- PASS: TestParseRejectsBadLengths/empty_string (0.44s)
+    --- PASS: TestParseRejectsBadLengths/bool (0.36s)
+    --- PASS: TestParseRejectsBadLengths/object (0.25s)
+    --- PASS: TestParseRejectsBadLengths/negative_number (0.34s)
+    --- PASS: TestParseRejectsBadLengths/negative_string (0.19s)
+    --- PASS: TestParseRejectsBadLengths/non-numeric (0.20s)
+=== RUN   TestFulfillRefusesNonEPUBTypes
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/pdf+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/audiobook+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/divina+lcp
+=== RUN   TestFulfillRefusesNonEPUBTypes/application/pdf
+=== RUN   TestFulfillRefusesNonEPUBTypes/parameters_and_case
+=== RUN   TestFulfillRefusesNonEPUBTypes/type_absent
+--- PASS: TestFulfillRefusesNonEPUBTypes (1.67s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/pdf+lcp (0.28s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/audiobook+lcp (0.29s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/divina+lcp (0.42s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/application/pdf (0.19s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/parameters_and_case (0.30s)
+    --- PASS: TestFulfillRefusesNonEPUBTypes/type_absent (0.19s)
+=== RUN   TestFulfillAllowUnverified
+--- PASS: TestFulfillAllowUnverified (1.67s)
+=== RUN   TestFulfillToMatchesFulfill
+--- PASS: TestFulfillToMatchesFulfill (0.23s)
+=== RUN   TestFulfillToDetectsSourceChangingBetweenPasses
+--- PASS: TestFulfillToDetectsSourceChangingBetweenPasses (0.49s)
+=== RUN   TestFulfillToSourceShorterThanDeclared
+--- PASS: TestFulfillToSourceShorterThanDeclared (0.25s)
+=== RUN   TestFulfillRefusesTemplatedHref
+--- PASS: TestFulfillRefusesTemplatedHref (0.18s)
+=== RUN   TestFulfillTemplatedErrorDoesNotEchoHref
+--- PASS: TestFulfillTemplatedErrorDoesNotEchoHref (0.47s)
+=== RUN   TestUnreadableErrorNeverPrintsNil
+--- PASS: TestUnreadableErrorNeverPrintsNil (0.00s)
+=== RUN   TestFulfillEmbedsLicenseAndUnlocks
+--- PASS: TestFulfillEmbedsLicenseAndUnlocks (0.18s)
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/tampered_bytes
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/wrong_length
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/wrong_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/non-hex_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_hash
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_length
+=== RUN   TestFulfillRefusesWhatItCannotVouchFor/no_publication_link
+--- PASS: TestFulfillRefusesWhatItCannotVouchFor (2.04s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/tampered_bytes (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/wrong_length (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/wrong_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/non-hex_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_hash (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_length (0.00s)
+    --- PASS: TestFulfillRefusesWhatItCannotVouchFor/no_publication_link (0.00s)
+=== RUN   TestFulfillRefusesNonPublications
+--- PASS: TestFulfillRefusesNonPublications (0.36s)
+=== RUN   TestFulfillNeverRewritesALicensedContainer
+--- PASS: TestFulfillNeverRewritesALicensedContainer (0.73s)
+=== RUN   TestUserKeyIsRawSHA256OfPassphrase
+--- PASS: TestUserKeyIsRawSHA256OfPassphrase (0.00s)
+=== RUN   TestKeyCheckRoundTripAndWrongPassphrase
+--- PASS: TestKeyCheckRoundTripAndWrongPassphrase (0.00s)
+=== RUN   TestKeyCheckDetectsTamperedLicenseID
+--- PASS: TestKeyCheckDetectsTamperedLicenseID (0.00s)
+=== RUN   TestContentKeyRoundTrip
+--- PASS: TestContentKeyRoundTrip (0.00s)
+=== RUN   TestContentKeyRejectsWrongLength
+--- PASS: TestContentKeyRejectsWrongLength (0.00s)
+=== RUN   TestDecryptCBCRejectsMalformedCiphertext
+--- PASS: TestDecryptCBCRejectsMalformedCiphertext (0.00s)
+=== RUN   TestDecryptCBCAcceptsReferencePaddingScheme
+--- PASS: TestDecryptCBCAcceptsReferencePaddingScheme (0.00s)
+=== RUN   TestEncryptDecryptRoundTripEveryLength
+--- PASS: TestEncryptDecryptRoundTripEveryLength (0.00s)
+=== RUN   TestDecryptUserFields
+--- PASS: TestDecryptUserFields (0.00s)
+=== RUN   TestDecryptUserIgnoresUnknownEncryptedMembers
+--- PASS: TestDecryptUserIgnoresUnknownEncryptedMembers (0.00s)
+=== RUN   TestSealKeysRejectsUndecodableBase64
+--- PASS: TestSealKeysRejectsUndecodableBase64 (0.00s)
+=== RUN   TestParseRejectsNonJSONLicense
+--- PASS: TestParseRejectsNonJSONLicense (0.00s)
+=== RUN   TestLicenseRoundTripsThroughJSONKeepsRawBytes
+--- PASS: TestLicenseRoundTripsThroughJSONKeepsRawBytes (0.00s)
+=== RUN   TestParseRejectsIncompleteLicenses
+=== RUN   TestParseRejectsIncompleteLicenses/id
+=== RUN   TestParseRejectsIncompleteLicenses/provider
+=== RUN   TestParseRejectsIncompleteLicenses/issued
+=== RUN   TestParseRejectsIncompleteLicenses/links
+=== RUN   TestParseRejectsIncompleteLicenses/signature
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/profile
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/content_key/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/content_key/encrypted_value
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/key_check
+=== RUN   TestParseRejectsIncompleteLicenses/encryption/user_key/text_hint
+=== RUN   TestParseRejectsIncompleteLicenses/signature/algorithm
+=== RUN   TestParseRejectsIncompleteLicenses/signature/certificate
+=== RUN   TestParseRejectsIncompleteLicenses/signature/value
+--- PASS: TestParseRejectsIncompleteLicenses (0.01s)
+    --- PASS: TestParseRejectsIncompleteLicenses/id (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/provider (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/issued (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/links (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/profile (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/content_key/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/content_key/encrypted_value (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/key_check (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/encryption/user_key/text_hint (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/algorithm (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/certificate (0.00s)
+    --- PASS: TestParseRejectsIncompleteLicenses/signature/value (0.00s)
+=== RUN   TestParseAcceptsAnEmptyTextHint
+--- PASS: TestParseAcceptsAnEmptyTextHint (0.00s)
+=== RUN   TestParseRejectsEmptyLinkHref
+--- PASS: TestParseRejectsEmptyLinkHref (0.00s)
+=== RUN   TestParseRejectsMalformedDates
+--- PASS: TestParseRejectsMalformedDates (0.01s)
+=== RUN   TestParseDefaultsUpdatedToIssued
+--- PASS: TestParseDefaultsUpdatedToIssued (0.00s)
+=== RUN   TestParseRightsAbsentIsNotZero
+--- PASS: TestParseRightsAbsentIsNotZero (0.00s)
+=== RUN   TestParseRightsRejectsWrongType
+--- PASS: TestParseRightsRejectsWrongType (0.00s)
+=== RUN   TestParseAcceptsAndReportsUnknownMembers
+--- PASS: TestParseAcceptsAndReportsUnknownMembers (0.03s)
+=== RUN   TestLinkLookupAcceptsRelAndRels
+--- PASS: TestLinkLookupAcceptsRelAndRels (0.00s)
+=== RUN   TestCheckProfileMatrix
+=== RUN   TestCheckProfileMatrix/profile
+=== RUN   TestCheckProfileMatrix/content_key
+=== RUN   TestCheckProfileMatrix/user_key
+=== RUN   TestCheckProfileMatrix/signature
+--- PASS: TestCheckProfileMatrix (0.00s)
+    --- PASS: TestCheckProfileMatrix/profile (0.00s)
+    --- PASS: TestCheckProfileMatrix/content_key (0.00s)
+    --- PASS: TestCheckProfileMatrix/user_key (0.00s)
+    --- PASS: TestCheckProfileMatrix/signature (0.00s)
+=== RUN   TestCheckPassphraseRefusesUnsupportedProfile
+--- PASS: TestCheckPassphraseRefusesUnsupportedProfile (0.00s)
+=== RUN   TestParseRejectsNonObjectTopLevel
+--- PASS: TestParseRejectsNonObjectTopLevel (0.00s)
+=== RUN   TestParseStatusDocumentEveryStatus
+=== RUN   TestParseStatusDocumentEveryStatus/ready
+=== RUN   TestParseStatusDocumentEveryStatus/active
+=== RUN   TestParseStatusDocumentEveryStatus/revoked
+=== RUN   TestParseStatusDocumentEveryStatus/returned
+=== RUN   TestParseStatusDocumentEveryStatus/cancelled
+=== RUN   TestParseStatusDocumentEveryStatus/expired
+--- PASS: TestParseStatusDocumentEveryStatus (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/ready (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/active (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/revoked (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/returned (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/cancelled (0.00s)
+    --- PASS: TestParseStatusDocumentEveryStatus/expired (0.00s)
+=== RUN   TestParseStatusDocumentRejects
+=== RUN   TestParseStatusDocumentRejects/uppercase_status
+=== RUN   TestParseStatusDocumentRejects/bad_updated.license
+=== RUN   TestParseStatusDocumentRejects/missing_status
+=== RUN   TestParseStatusDocumentRejects/unknown_status
+=== RUN   TestParseStatusDocumentRejects/empty_status
+=== RUN   TestParseStatusDocumentRejects/bad_potential_end
+=== RUN   TestParseStatusDocumentRejects/no_license_link
+=== RUN   TestParseStatusDocumentRejects/link_rel_wrong_type
+=== RUN   TestParseStatusDocumentRejects/id_wrong_json_type
+=== RUN   TestParseStatusDocumentRejects/missing_id
+=== RUN   TestParseStatusDocumentRejects/missing_updated
+=== RUN   TestParseStatusDocumentRejects/missing_updated.license
+=== RUN   TestParseStatusDocumentRejects/missing_updated.status
+=== RUN   TestParseStatusDocumentRejects/license_link_no_href
+=== RUN   TestParseStatusDocumentRejects/link_without_rel
+=== RUN   TestParseStatusDocumentRejects/event_bad_type
+=== RUN   TestParseStatusDocumentRejects/event_bad_timestamp
+=== RUN   TestParseStatusDocumentRejects/missing_message
+=== RUN   TestParseStatusDocumentRejects/missing_links
+=== RUN   TestParseStatusDocumentRejects/not_json
+=== RUN   TestParseStatusDocumentRejects/array
+=== RUN   TestParseStatusDocumentRejects/empty
+=== RUN   TestParseStatusDocumentRejects/trailing
+--- PASS: TestParseStatusDocumentRejects (0.01s)
+    --- PASS: TestParseStatusDocumentRejects/uppercase_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/bad_updated.license (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/unknown_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/empty_status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/bad_potential_end (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/no_license_link (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/link_rel_wrong_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/id_wrong_json_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_id (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated.license (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_updated.status (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/license_link_no_href (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/link_without_rel (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/event_bad_type (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/event_bad_timestamp (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_message (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/missing_links (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/not_json (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/array (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/empty (0.00s)
+    --- PASS: TestParseStatusDocumentRejects/trailing (0.00s)
+=== RUN   TestParseStatusDocumentFullExample
+--- PASS: TestParseStatusDocumentFullExample (0.00s)
+=== RUN   TestExpandLinkTemplate
+=== RUN   TestExpandLinkTemplate/register_id+name
+=== RUN   TestExpandLinkTemplate/renew_with_end
+=== RUN   TestExpandLinkTemplate/renew_without_end_drops_it
+=== RUN   TestExpandLinkTemplate/nothing_defined
+=== RUN   TestExpandLinkTemplate/reserved_chars_encoded
+=== RUN   TestExpandLinkTemplate/unicode_utf8
+=== RUN   TestExpandLinkTemplate/existing_query_uses_&-continuation
+=== RUN   TestExpandLinkTemplate/no_expression
+=== RUN   TestExpandLinkTemplate/unsupported_operator
+=== RUN   TestExpandLinkTemplate/unterminated
+=== RUN   TestExpandLinkTemplate/unknown_variable
+--- PASS: TestExpandLinkTemplate (0.00s)
+    --- PASS: TestExpandLinkTemplate/register_id+name (0.00s)
+    --- PASS: TestExpandLinkTemplate/renew_with_end (0.00s)
+    --- PASS: TestExpandLinkTemplate/renew_without_end_drops_it (0.00s)
+    --- PASS: TestExpandLinkTemplate/nothing_defined (0.00s)
+    --- PASS: TestExpandLinkTemplate/reserved_chars_encoded (0.00s)
+    --- PASS: TestExpandLinkTemplate/unicode_utf8 (0.00s)
+    --- PASS: TestExpandLinkTemplate/existing_query_uses_&-continuation (0.00s)
+    --- PASS: TestExpandLinkTemplate/no_expression (0.00s)
+    --- PASS: TestExpandLinkTemplate/unsupported_operator (0.00s)
+    --- PASS: TestExpandLinkTemplate/unterminated (0.00s)
+    --- PASS: TestExpandLinkTemplate/unknown_variable (0.00s)
+=== RUN   TestNeedsLicenseRefresh
+=== RUN   TestNeedsLicenseRefresh/status_newer
+=== RUN   TestNeedsLicenseRefresh/equal
+=== RUN   TestNeedsLicenseRefresh/status_older
+=== RUN   TestNeedsLicenseRefresh/different_zone_same_instant
+=== RUN   TestNeedsLicenseRefresh/local_has_no_updated,_uses_issued
+--- PASS: TestNeedsLicenseRefresh (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/status_newer (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/equal (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/status_older (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/different_zone_same_instant (0.00s)
+    --- PASS: TestNeedsLicenseRefresh/local_has_no_updated,_uses_issued (0.00s)
+=== RUN   TestSelectLicenseLinkByProfile
+=== RUN   TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_1
+=== RUN   TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_2
+=== RUN   TestSelectLicenseLinkByProfile/unsupported_ignored
+=== RUN   TestSelectLicenseLinkByProfile/nothing_supported_=>_none
+=== RUN   TestSelectLicenseLinkByProfile/sole_link_without_profile_accepted
+=== RUN   TestSelectLicenseLinkByProfile/profile-less_ignored_when_others_exist
+--- PASS: TestSelectLicenseLinkByProfile (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_1 (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/highest_supported_wins,_order_irrelevant_2 (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/unsupported_ignored (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/nothing_supported_=>_none (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/sole_link_without_profile_accepted (0.00s)
+    --- PASS: TestSelectLicenseLinkByProfile/profile-less_ignored_when_others_exist (0.00s)
+=== RUN   TestLSDProblemDocuments
+=== RUN   TestLSDProblemDocuments/registration_400
+=== RUN   TestLSDProblemDocuments/return_already_403
+=== RUN   TestLSDProblemDocuments/renew_date_403_plain_json_ctype
+=== RUN   TestLSDProblemDocuments/server_503
+=== RUN   TestLSDProblemDocuments/html_error_page
+=== RUN   TestLSDProblemDocuments/problem_body_that_is_not_an_object
+=== RUN   TestLSDProblemDocuments/empty_body
+--- PASS: TestLSDProblemDocuments (0.01s)
+    --- PASS: TestLSDProblemDocuments/registration_400 (0.00s)
+    --- PASS: TestLSDProblemDocuments/return_already_403 (0.00s)
+    --- PASS: TestLSDProblemDocuments/renew_date_403_plain_json_ctype (0.00s)
+    --- PASS: TestLSDProblemDocuments/server_503 (0.00s)
+    --- PASS: TestLSDProblemDocuments/html_error_page (0.00s)
+    --- PASS: TestLSDProblemDocuments/problem_body_that_is_not_an_object (0.00s)
+    --- PASS: TestLSDProblemDocuments/empty_body (0.00s)
+=== RUN   TestLSDRefusesSuccessThatIsNotAStatusDocument
+--- PASS: TestLSDRefusesSuccessThatIsNotAStatusDocument (0.00s)
+=== RUN   TestLSDTransportErrorsCarryNoQueryString
+--- PASS: TestLSDTransportErrorsCarryNoQueryString (0.00s)
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/register:_no_link
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/return:_no_link
+=== RUN   TestLSDClientRefusesWhatItCannotDoWithoutNetwork/renew:_no_link
+--- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/register:_no_link (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/return:_no_link (0.00s)
+    --- PASS: TestLSDClientRefusesWhatItCannotDoWithoutNetwork/renew:_no_link (0.00s)
+=== RUN   TestLSDRequestShape
+--- PASS: TestLSDRequestShape (0.00s)
+=== RUN   TestLSDStateTransitionChecks
+=== RUN   TestLSDStateTransitionChecks/register_ready->active
+=== RUN   TestLSDStateTransitionChecks/register_still_ready_is_a_contradiction
+=== RUN   TestLSDStateTransitionChecks/register_may_report_revoked
+=== RUN   TestLSDStateTransitionChecks/return_->_returned
+=== RUN   TestLSDStateTransitionChecks/return_->_cancelled
+=== RUN   TestLSDStateTransitionChecks/return_left_active_is_a_contradiction
+=== RUN   TestLSDStateTransitionChecks/return_->_expired_is_a_contradiction
+--- PASS: TestLSDStateTransitionChecks (0.01s)
+    --- PASS: TestLSDStateTransitionChecks/register_ready->active (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/register_still_ready_is_a_contradiction (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/register_may_report_revoked (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_returned (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_cancelled (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_left_active_is_a_contradiction (0.00s)
+    --- PASS: TestLSDStateTransitionChecks/return_->_expired_is_a_contradiction (0.00s)
+=== RUN   TestLSDRefusesAnotherLicensesDocument
+--- PASS: TestLSDRefusesAnotherLicensesDocument (0.00s)
+=== RUN   TestLSDOversizedBodyRefused
+--- PASS: TestLSDOversizedBodyRefused (0.15s)
+=== RUN   TestLSDLiveLoopbackLifecycle
+--- PASS: TestLSDLiveLoopbackLifecycle (0.01s)
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/provider_that_does_not_activate_is_caught
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/provider_answering_for_another_license_is_caught
+=== RUN   TestLSDLiveRegisterRefusalsAndFaults/return_before_activation_cancels
+--- PASS: TestLSDLiveRegisterRefusalsAndFaults (0.01s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/provider_that_does_not_activate_is_caught (0.00s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/provider_answering_for_another_license_is_caught (0.00s)
+    --- PASS: TestLSDLiveRegisterRefusalsAndFaults/return_before_activation_cancels (0.00s)
+=== RUN   TestLSDInteractiveRenewalURLMustBeAbsoluteHTTP
+--- PASS: TestLSDInteractiveRenewalURLMustBeAbsoluteHTTP (0.00s)
+=== RUN   TestParseStatusDocumentSparseEvents
+--- PASS: TestParseStatusDocumentSparseEvents (0.00s)
+=== RUN   TestParseStatusDocumentEmptyRelArray
+--- PASS: TestParseStatusDocumentEmptyRelArray (0.00s)
+=== RUN   TestLSDStateChangingRequestsNeverFollowRedirects
+--- PASS: TestLSDStateChangingRequestsNeverFollowRedirects (0.01s)
+=== RUN   TestLSDUntemplatedHrefWithTemplateExpressionIsRefused
+--- PASS: TestLSDUntemplatedHrefWithTemplateExpressionIsRefused (0.00s)
+=== RUN   TestIssueProtectUnlockRoundTrip
+--- PASS: TestIssueProtectUnlockRoundTrip (0.30s)
+=== RUN   TestProtectDeclaresCompressionAndStoresCiphertext
+--- PASS: TestProtectDeclaresCompressionAndStoresCiphertext (0.28s)
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_container_that_already_carries_a_license
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_zip_that_is_not_a_publication
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_publication_with_nothing_left_to_seal
+=== RUN   TestProtectRefusesContainersItCannotHonestlyReturn/a_key_of_the_wrong_size
+--- PASS: TestProtectRefusesContainersItCannotHonestlyReturn (0.46s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_container_that_already_carries_a_license (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_zip_that_is_not_a_publication (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_publication_with_nothing_left_to_seal (0.00s)
+    --- PASS: TestProtectRefusesContainersItCannotHonestlyReturn/a_key_of_the_wrong_size (0.00s)
+=== RUN   TestIssueRefusesIncompleteRequests
+=== RUN   TestIssueRefusesIncompleteRequests/no_provider
+=== RUN   TestIssueRefusesIncompleteRequests/no_links
+=== RUN   TestIssueRefusesIncompleteRequests/a_link_without_an_href
+--- PASS: TestIssueRefusesIncompleteRequests (0.29s)
+    --- PASS: TestIssueRefusesIncompleteRequests/no_provider (0.00s)
+    --- PASS: TestIssueRefusesIncompleteRequests/no_links (0.00s)
+    --- PASS: TestIssueRefusesIncompleteRequests/a_link_without_an_href (0.00s)
+=== RUN   TestIssueAcceptsAnyPassphrase
+=== RUN   TestIssueAcceptsAnyPassphrase/len=0
+=== RUN   TestIssueAcceptsAnyPassphrase/len=34
+=== RUN   TestIssueAcceptsAnyPassphrase/len=1024
+--- PASS: TestIssueAcceptsAnyPassphrase (0.83s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=0 (0.21s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=34 (0.16s)
+    --- PASS: TestIssueAcceptsAnyPassphrase/len=1024 (0.46s)
+=== RUN   TestIssueSealsOnlyRequestedUserFields
+--- PASS: TestIssueSealsOnlyRequestedUserFields (0.27s)
+=== RUN   TestVerifyAcceptsARealChain
+--- PASS: TestVerifyAcceptsARealChain (0.22s)
+=== RUN   TestVerifyRejectsOneChangedByte
+--- PASS: TestVerifyRejectsOneChangedByte (0.20s)
+=== RUN   TestVerifyRejectsForeignChain
+--- PASS: TestVerifyRejectsForeignChain (0.48s)
+=== RUN   TestSignRefusesKeyCertificateMismatch
+--- PASS: TestSignRefusesKeyCertificateMismatch (0.71s)
+=== RUN   TestSignExcisesAPlaceholderSignature
+--- PASS: TestSignExcisesAPlaceholderSignature (0.34s)
+=== RUN   TestVerifyRejectsNonProfileSignatureAlgorithm
+--- PASS: TestVerifyRejectsNonProfileSignatureAlgorithm (0.22s)
+=== RUN   TestVerifyWithoutRootsConfigured
+--- PASS: TestVerifyWithoutRootsConfigured (0.23s)
+=== RUN   TestRevokedProviderCertificateIsRefused
+--- PASS: TestRevokedProviderCertificateIsRefused (0.28s)
+=== RUN   TestCertificateValidityWindows
+=== RUN   TestCertificateValidityWindows/expires_before_issue
+=== RUN   TestCertificateValidityWindows/begins_after_issue
+=== RUN   TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update
+=== RUN   TestCertificateValidityWindows/valid_across_issue_and_last_update
+--- PASS: TestCertificateValidityWindows (0.90s)
+    --- PASS: TestCertificateValidityWindows/expires_before_issue (0.28s)
+    --- PASS: TestCertificateValidityWindows/begins_after_issue (0.22s)
+    --- PASS: TestCertificateValidityWindows/valid_at_issue,_expired_by_the_last_update (0.26s)
+    --- PASS: TestCertificateValidityWindows/valid_across_issue_and_last_update (0.14s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/lcp	26.791s
+=== RUN   TestSeedLicenseIsAccepted
+--- PASS: TestSeedLicenseIsAccepted (0.00s)
+=== RUN   FuzzParseStatusDocument
+=== RUN   FuzzParseStatusDocument/seed#0
+=== RUN   FuzzParseStatusDocument/seed#1
+=== RUN   FuzzParseStatusDocument/seed#2
+=== RUN   FuzzParseStatusDocument/seed#3
+=== RUN   FuzzParseStatusDocument/seed#4
+=== RUN   FuzzParseStatusDocument/seed#5
+=== RUN   FuzzParseStatusDocument/seed#6
+=== RUN   FuzzParseStatusDocument/seed#7
+=== RUN   FuzzParseStatusDocument/seed#8
+=== RUN   FuzzParseStatusDocument/seed#9
+=== RUN   FuzzParseStatusDocument/seed#10
+=== RUN   FuzzParseStatusDocument/seed#11
+=== RUN   FuzzParseStatusDocument/seed#12
+=== RUN   FuzzParseStatusDocument/seed#13
+=== RUN   FuzzParseStatusDocument/seed#14
+=== RUN   FuzzParseStatusDocument/seed#15
+=== RUN   FuzzParseStatusDocument/seed#16
+=== RUN   FuzzParseStatusDocument/seed#17
+=== RUN   FuzzParseStatusDocument/seed#18
+=== RUN   FuzzParseStatusDocument/seed#19
+=== RUN   FuzzParseStatusDocument/seed#20
+=== RUN   FuzzParseStatusDocument/seed#21
+=== RUN   FuzzParseStatusDocument/seed#22
+=== RUN   FuzzParseStatusDocument/seed#23
+=== RUN   FuzzParseStatusDocument/seed#24
+=== RUN   FuzzParseStatusDocument/seed#25
+=== RUN   FuzzParseStatusDocument/seed#26
+=== RUN   FuzzParseStatusDocument/seed#27
+=== RUN   FuzzParseStatusDocument/seed#28
+=== RUN   FuzzParseStatusDocument/seed#29
+=== RUN   FuzzParseStatusDocument/seed#30
+=== RUN   FuzzParseStatusDocument/seed#31
+--- PASS: FuzzParseStatusDocument (0.01s)
+    --- PASS: FuzzParseStatusDocument/seed#0 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#1 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#2 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#3 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#4 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#5 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#6 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#7 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#8 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#9 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#10 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#11 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#12 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#13 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#14 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#15 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#16 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#17 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#18 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#19 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#20 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#21 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#22 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#23 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#24 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#25 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#26 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#27 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#28 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#29 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#30 (0.00s)
+    --- PASS: FuzzParseStatusDocument/seed#31 (0.00s)
+=== RUN   FuzzParseLicense
+=== RUN   FuzzParseLicense/seed#0
+=== RUN   FuzzParseLicense/seed#1
+=== RUN   FuzzParseLicense/seed#2
+=== RUN   FuzzParseLicense/seed#3
+=== RUN   FuzzParseLicense/seed#4
+=== RUN   FuzzParseLicense/seed#5
+=== RUN   FuzzParseLicense/seed#6
+=== RUN   FuzzParseLicense/seed#7
+=== RUN   FuzzParseLicense/seed#8
+=== RUN   FuzzParseLicense/seed#9
+=== RUN   FuzzParseLicense/seed#10
+=== RUN   FuzzParseLicense/seed#11
+=== RUN   FuzzParseLicense/seed#12
+=== RUN   FuzzParseLicense/seed#13
+=== RUN   FuzzParseLicense/seed#14
+=== RUN   FuzzParseLicense/seed#15
+=== RUN   FuzzParseLicense/seed#16
+=== RUN   FuzzParseLicense/seed#17
+=== RUN   FuzzParseLicense/seed#18
+=== RUN   FuzzParseLicense/seed#19
+=== RUN   FuzzParseLicense/seed#20
+=== RUN   FuzzParseLicense/seed#21
+=== RUN   FuzzParseLicense/seed#22
+=== RUN   FuzzParseLicense/seed#23
+=== RUN   FuzzParseLicense/seed#24
+=== RUN   FuzzParseLicense/seed#25
+=== RUN   FuzzParseLicense/seed#26
+=== RUN   FuzzParseLicense/seed#27
+=== RUN   FuzzParseLicense/seed#28
+=== RUN   FuzzParseLicense/seed#29
+=== RUN   FuzzParseLicense/seed#30
+=== RUN   FuzzParseLicense/seed#31
+--- PASS: FuzzParseLicense (0.02s)
+    --- PASS: FuzzParseLicense/seed#0 (0.00s)
+    --- PASS: FuzzParseLicense/seed#1 (0.00s)
+    --- PASS: FuzzParseLicense/seed#2 (0.00s)
+    --- PASS: FuzzParseLicense/seed#3 (0.00s)
+    --- PASS: FuzzParseLicense/seed#4 (0.00s)
+    --- PASS: FuzzParseLicense/seed#5 (0.00s)
+    --- PASS: FuzzParseLicense/seed#6 (0.00s)
+    --- PASS: FuzzParseLicense/seed#7 (0.00s)
+    --- PASS: FuzzParseLicense/seed#8 (0.00s)
+    --- PASS: FuzzParseLicense/seed#9 (0.00s)
+    --- PASS: FuzzParseLicense/seed#10 (0.00s)
+    --- PASS: FuzzParseLicense/seed#11 (0.00s)
+    --- PASS: FuzzParseLicense/seed#12 (0.00s)
+    --- PASS: FuzzParseLicense/seed#13 (0.00s)
+    --- PASS: FuzzParseLicense/seed#14 (0.00s)
+    --- PASS: FuzzParseLicense/seed#15 (0.00s)
+    --- PASS: FuzzParseLicense/seed#16 (0.00s)
+    --- PASS: FuzzParseLicense/seed#17 (0.00s)
+    --- PASS: FuzzParseLicense/seed#18 (0.00s)
+    --- PASS: FuzzParseLicense/seed#19 (0.00s)
+    --- PASS: FuzzParseLicense/seed#20 (0.00s)
+    --- PASS: FuzzParseLicense/seed#21 (0.00s)
+    --- PASS: FuzzParseLicense/seed#22 (0.00s)
+    --- PASS: FuzzParseLicense/seed#23 (0.00s)
+    --- PASS: FuzzParseLicense/seed#24 (0.00s)
+    --- PASS: FuzzParseLicense/seed#25 (0.00s)
+    --- PASS: FuzzParseLicense/seed#26 (0.00s)
+    --- PASS: FuzzParseLicense/seed#27 (0.00s)
+    --- PASS: FuzzParseLicense/seed#28 (0.00s)
+    --- PASS: FuzzParseLicense/seed#29 (0.00s)
+    --- PASS: FuzzParseLicense/seed#30 (0.00s)
+    --- PASS: FuzzParseLicense/seed#31 (0.00s)
+=== RUN   FuzzCanonical
+=== RUN   FuzzCanonical/seed#0
+=== RUN   FuzzCanonical/seed#1
+=== RUN   FuzzCanonical/seed#2
+=== RUN   FuzzCanonical/seed#3
+=== RUN   FuzzCanonical/seed#4
+=== RUN   FuzzCanonical/seed#5
+=== RUN   FuzzCanonical/seed#6
+=== RUN   FuzzCanonical/seed#7
+=== RUN   FuzzCanonical/seed#8
+=== RUN   FuzzCanonical/seed#9
+=== RUN   FuzzCanonical/seed#10
+=== RUN   FuzzCanonical/seed#11
+=== RUN   FuzzCanonical/seed#12
+=== RUN   FuzzCanonical/seed#13
+=== RUN   FuzzCanonical/seed#14
+=== RUN   FuzzCanonical/seed#15
+=== RUN   FuzzCanonical/seed#16
+=== RUN   FuzzCanonical/seed#17
+=== RUN   FuzzCanonical/seed#18
+=== RUN   FuzzCanonical/seed#19
+=== RUN   FuzzCanonical/seed#20
+=== RUN   FuzzCanonical/seed#21
+=== RUN   FuzzCanonical/seed#22
+=== RUN   FuzzCanonical/seed#23
+=== RUN   FuzzCanonical/seed#24
+=== RUN   FuzzCanonical/seed#25
+=== RUN   FuzzCanonical/seed#26
+=== RUN   FuzzCanonical/seed#27
+=== RUN   FuzzCanonical/seed#28
+=== RUN   FuzzCanonical/seed#29
+=== RUN   FuzzCanonical/seed#30
+=== RUN   FuzzCanonical/seed#31
+--- PASS: FuzzCanonical (0.06s)
+    --- PASS: FuzzCanonical/seed#0 (0.00s)
+    --- PASS: FuzzCanonical/seed#1 (0.00s)
+    --- PASS: FuzzCanonical/seed#2 (0.00s)
+    --- PASS: FuzzCanonical/seed#3 (0.00s)
+    --- PASS: FuzzCanonical/seed#4 (0.00s)
+    --- PASS: FuzzCanonical/seed#5 (0.00s)
+    --- PASS: FuzzCanonical/seed#6 (0.00s)
+    --- PASS: FuzzCanonical/seed#7 (0.00s)
+    --- PASS: FuzzCanonical/seed#8 (0.00s)
+    --- PASS: FuzzCanonical/seed#9 (0.00s)
+    --- PASS: FuzzCanonical/seed#10 (0.00s)
+    --- PASS: FuzzCanonical/seed#11 (0.00s)
+    --- PASS: FuzzCanonical/seed#12 (0.00s)
+    --- PASS: FuzzCanonical/seed#13 (0.00s)
+    --- PASS: FuzzCanonical/seed#14 (0.00s)
+    --- PASS: FuzzCanonical/seed#15 (0.00s)
+    --- PASS: FuzzCanonical/seed#16 (0.00s)
+    --- PASS: FuzzCanonical/seed#17 (0.00s)
+    --- PASS: FuzzCanonical/seed#18 (0.00s)
+    --- PASS: FuzzCanonical/seed#19 (0.00s)
+    --- PASS: FuzzCanonical/seed#20 (0.00s)
+    --- PASS: FuzzCanonical/seed#21 (0.00s)
+    --- PASS: FuzzCanonical/seed#22 (0.00s)
+    --- PASS: FuzzCanonical/seed#23 (0.00s)
+    --- PASS: FuzzCanonical/seed#24 (0.00s)
+    --- PASS: FuzzCanonical/seed#25 (0.00s)
+    --- PASS: FuzzCanonical/seed#26 (0.00s)
+    --- PASS: FuzzCanonical/seed#27 (0.00s)
+    --- PASS: FuzzCanonical/seed#28 (0.00s)
+    --- PASS: FuzzCanonical/seed#29 (0.00s)
+    --- PASS: FuzzCanonical/seed#30 (0.00s)
+    --- PASS: FuzzCanonical/seed#31 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	1.106s
+=== RUN   TestCBZPageOrder
+--- PASS: TestCBZPageOrder (0.01s)
+=== RUN   TestCBZNoImages
+--- PASS: TestCBZNoImages (0.00s)
+=== RUN   TestCBZRejectsOversizedImage
+--- PASS: TestCBZRejectsOversizedImage (1.55s)
+=== RUN   TestCBZRejectsExcessPages
+--- PASS: TestCBZRejectsExcessPages (7.27s)
+=== RUN   TestPagePayloadsFollowEnumeratedOrder
+--- PASS: TestPagePayloadsFollowEnumeratedOrder (0.00s)
+=== RUN   TestPageIndexOutOfRange
+--- PASS: TestPageIndexOutOfRange (0.00s)
+=== RUN   TestPageInflationIsBounded
+--- PASS: TestPageInflationIsBounded (1.64s)
+=== RUN   TestStreamMediaTypeReadsOnlySignatures
+--- PASS: TestStreamMediaTypeReadsOnlySignatures (2.36s)
+=== RUN   TestStreamMediaTypeCases
+=== RUN   TestStreamMediaTypeCases/png
+=== RUN   TestStreamMediaTypeCases/jpeg
+=== RUN   TestStreamMediaTypeCases/gif
+=== RUN   TestStreamMediaTypeCases/mixed_types_have_no_single_honest_type
+=== RUN   TestStreamMediaTypeCases/extension_is_not_proof
+=== RUN   TestStreamMediaTypeCases/webp_is_not_streamable
+=== RUN   TestStreamMediaTypeCases/payload_shorter_than_any_signature
+=== RUN   TestStreamMediaTypeCases/empty_payload
+--- PASS: TestStreamMediaTypeCases (0.01s)
+    --- PASS: TestStreamMediaTypeCases/png (0.00s)
+    --- PASS: TestStreamMediaTypeCases/jpeg (0.00s)
+    --- PASS: TestStreamMediaTypeCases/gif (0.00s)
+    --- PASS: TestStreamMediaTypeCases/mixed_types_have_no_single_honest_type (0.00s)
+    --- PASS: TestStreamMediaTypeCases/extension_is_not_proof (0.00s)
+    --- PASS: TestStreamMediaTypeCases/webp_is_not_streamable (0.00s)
+    --- PASS: TestStreamMediaTypeCases/payload_shorter_than_any_signature (0.00s)
+    --- PASS: TestStreamMediaTypeCases/empty_payload (0.00s)
+=== RUN   TestSniffMediaType
+--- PASS: TestSniffMediaType (0.00s)
+=== RUN   TestPagesEnumeration
+--- PASS: TestPagesEnumeration (0.00s)
+=== RUN   TestPagesIDsAgreeWithParse
+--- PASS: TestPagesIDsAgreeWithParse (0.00s)
+=== RUN   TestPagesFailsClosed
+--- PASS: TestPagesFailsClosed (7.38s)
+=== RUN   TestPagesDoesNotInflate
+--- PASS: TestPagesDoesNotInflate (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+=== RUN   FuzzPages
+=== RUN   FuzzPages/seed#0
+=== RUN   FuzzPages/seed#1
+--- PASS: FuzzPages (0.00s)
+    --- PASS: FuzzPages/seed#0 (0.00s)
+    --- PASS: FuzzPages/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/cbz	21.304s
+=== RUN   TestParseEPUB
+--- PASS: TestParseEPUB (0.01s)
+=== RUN   TestXHTMLRetainsListTableAndDivContent
+--- PASS: TestXHTMLRetainsListTableAndDivContent (0.00s)
+=== RUN   TestParsePercentEncodedManifestHrefs
+--- PASS: TestParsePercentEncodedManifestHrefs (0.00s)
+=== RUN   TestParseCorruptZip
+--- PASS: TestParseCorruptZip (0.00s)
+=== RUN   TestParseMissingRootfile
+--- PASS: TestParseMissingRootfile (0.00s)
+=== RUN   TestParseRejectsOversizedRequiredEntries
+=== RUN   TestParseRejectsOversizedRequiredEntries/META-INF/container.xml
+=== RUN   TestParseRejectsOversizedRequiredEntries/OEBPS/ch1.xhtml
+--- PASS: TestParseRejectsOversizedRequiredEntries (1.53s)
+    --- PASS: TestParseRejectsOversizedRequiredEntries/META-INF/container.xml (0.75s)
+    --- PASS: TestParseRejectsOversizedRequiredEntries/OEBPS/ch1.xhtml (0.77s)
+=== RUN   TestSpineEnumeration
+--- PASS: TestSpineEnumeration (0.00s)
+=== RUN   TestSpineDetectsRepeatsAndMissingManifestItems
+--- PASS: TestSpineDetectsRepeatsAndMissingManifestItems (0.00s)
+=== RUN   TestSpineFailsClosed
+=== RUN   TestSpineFailsClosed/not_a_zip
+=== RUN   TestSpineFailsClosed/missing_container
+=== RUN   TestSpineFailsClosed/oversized_container
+=== RUN   TestSpineFailsClosed/malformed_container_xml
+=== RUN   TestSpineFailsClosed/no_rootfile
+=== RUN   TestSpineFailsClosed/missing_opf
+=== RUN   TestSpineFailsClosed/empty_spine
+=== RUN   TestSpineFailsClosed/absolute_href
+=== RUN   TestSpineFailsClosed/root-path_href
+--- PASS: TestSpineFailsClosed (0.73s)
+    --- PASS: TestSpineFailsClosed/not_a_zip (0.00s)
+    --- PASS: TestSpineFailsClosed/missing_container (0.00s)
+    --- PASS: TestSpineFailsClosed/oversized_container (0.32s)
+    --- PASS: TestSpineFailsClosed/malformed_container_xml (0.00s)
+    --- PASS: TestSpineFailsClosed/no_rootfile (0.00s)
+    --- PASS: TestSpineFailsClosed/missing_opf (0.00s)
+    --- PASS: TestSpineFailsClosed/empty_spine (0.00s)
+    --- PASS: TestSpineFailsClosed/absolute_href (0.00s)
+    --- PASS: TestSpineFailsClosed/root-path_href (0.00s)
+=== RUN   TestSpineCompressedBombIsBounded
+--- PASS: TestSpineCompressedBombIsBounded (0.72s)
+=== RUN   TestSpineRejectsExcessSpineItems
+--- PASS: TestSpineRejectsExcessSpineItems (0.19s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+=== RUN   FuzzSpine
+=== RUN   FuzzSpine/seed#0
+=== RUN   FuzzSpine/seed#1
+--- PASS: FuzzSpine (0.00s)
+    --- PASS: FuzzSpine/seed#0 (0.00s)
+    --- PASS: FuzzSpine/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/epub	4.247s
+=== RUN   TestFB2BinariesBecomeResources
+--- PASS: TestFB2BinariesBecomeResources (0.00s)
+=== RUN   TestFB2DanglingImageHrefSkipped
+--- PASS: TestFB2DanglingImageHrefSkipped (0.00s)
+=== RUN   TestFB2BinariesFailClosed
+=== RUN   TestFB2BinariesFailClosed/malformed_base64
+=== RUN   TestFB2BinariesFailClosed/empty_id
+=== RUN   TestFB2BinariesFailClosed/duplicate_id
+--- PASS: TestFB2BinariesFailClosed (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/malformed_base64 (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/empty_id (0.00s)
+    --- PASS: TestFB2BinariesFailClosed/duplicate_id (0.00s)
+=== RUN   TestFB2RejectsOversizedBinary
+--- PASS: TestFB2RejectsOversizedBinary (23.90s)
+=== RUN   TestFB2BinaryAggregateBoundIsArithmeticallySound
+--- PASS: TestFB2BinaryAggregateBoundIsArithmeticallySound (0.00s)
+=== RUN   TestFB2UnclosedNestedSectionsNoPanic
+--- PASS: TestFB2UnclosedNestedSectionsNoPanic (0.00s)
+=== RUN   TestParseFB2
+--- PASS: TestParseFB2 (0.00s)
+=== RUN   TestParseGarbage
+--- PASS: TestParseGarbage (0.00s)
+=== RUN   TestEmptyBody
+--- PASS: TestEmptyBody (0.00s)
+=== RUN   TestFB2RejectsExcessiveNesting
+--- PASS: TestFB2RejectsExcessiveNesting (0.00s)
+=== RUN   TestFB2RejectsOversizedInput
+--- PASS: TestFB2RejectsOversizedInput (0.97s)
+=== RUN   TestFB2RejectsInvalidISBNMetadata
+--- PASS: TestFB2RejectsInvalidISBNMetadata (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+=== RUN   FuzzParse/seed#2
+=== RUN   FuzzParse/4a3dc8cee8c1c385
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+    --- PASS: FuzzParse/seed#2 (0.00s)
+    --- PASS: FuzzParse/4a3dc8cee8c1c385 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/fb2	26.082s
+=== RUN   TestParseMOBINoCompression
+--- PASS: TestParseMOBINoCompression (0.00s)
+=== RUN   TestParseMOBIPalmDOCCompression
+--- PASS: TestParseMOBIPalmDOCCompression (0.00s)
+=== RUN   TestBadRecordCount
+--- PASS: TestBadRecordCount (0.00s)
+=== RUN   TestTruncated
+--- PASS: TestTruncated (0.00s)
+=== RUN   TestPalmDOCTokenClasses
+=== RUN   TestPalmDOCTokenClasses/literals_and_byte_pair
+=== RUN   TestPalmDOCTokenClasses/back_reference
+=== RUN   TestPalmDOCTokenClasses/overlapping_back_reference
+--- PASS: TestPalmDOCTokenClasses (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/literals_and_byte_pair (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/back_reference (0.00s)
+    --- PASS: TestPalmDOCTokenClasses/overlapping_back_reference (0.00s)
+=== RUN   TestPalmDOCRejectsMalformedAndOverflow
+--- PASS: TestPalmDOCRejectsMalformedAndOverflow (0.00s)
+=== RUN   TestMOBIRejectsAggregateTextOverflow
+--- PASS: TestMOBIRejectsAggregateTextOverflow (1.49s)
+=== RUN   TestPalmDOCPagination
+--- PASS: TestPalmDOCPagination (0.00s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/mobi	2.639s
+=== RUN   TestReadAllBounds
+--- PASS: TestReadAllBounds (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/parseutil	1.018s
+=== RUN   TestChaptersAndHeadings
+--- PASS: TestChaptersAndHeadings (0.00s)
+=== RUN   TestAllCapsHeading
+--- PASS: TestAllCapsHeading (0.00s)
+=== RUN   TestNoHeadingsSingleChapter
+--- PASS: TestNoHeadingsSingleChapter (0.00s)
+=== RUN   TestEmpty
+--- PASS: TestEmpty (0.00s)
+=== RUN   TestLongUnwrappedLineWithinInputBudget
+--- PASS: TestLongUnwrappedLineWithinInputBudget (0.09s)
+=== RUN   TestTXTRejectsOversizedInput
+--- PASS: TestTXTRejectsOversizedInput (1.04s)
+=== RUN   FuzzParse
+=== RUN   FuzzParse/seed#0
+=== RUN   FuzzParse/seed#1
+--- PASS: FuzzParse (0.00s)
+    --- PASS: FuzzParse/seed#0 (0.00s)
+    --- PASS: FuzzParse/seed#1 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/parse/txt	2.276s
+=== RUN   TestParseAcquisitionLinks
+--- PASS: TestParseAcquisitionLinks (0.00s)
+=== RUN   TestParseAcceptsBothAtomDateForms
+--- PASS: TestParseAcceptsBothAtomDateForms (0.00s)
+=== RUN   TestParseAcquisitionLinkErrors
+=== RUN   TestParseAcquisitionLinkErrors/no_pse_link
+=== RUN   TestParseAcquisitionLinkErrors/bad_type_rejected_per_MUST_image_types
+=== RUN   TestParseAcquisitionLinkErrors/missing_pageNumber_template
+=== RUN   TestParseAcquisitionLinkErrors/count_zero_invalid
+=== RUN   TestParseAcquisitionLinkErrors/count_missing
+=== RUN   TestParseAcquisitionLinkErrors/lastRead_zero_violates_numbering_starts_at_1
+=== RUN   TestParseAcquisitionLinkErrors/lastReadDate_must_conform_to_the_Atom_date_construct
+=== RUN   TestParseAcquisitionLinkErrors/malformed_xml
+--- PASS: TestParseAcquisitionLinkErrors (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/no_pse_link (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/bad_type_rejected_per_MUST_image_types (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/missing_pageNumber_template (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/count_zero_invalid (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/count_missing (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/lastRead_zero_violates_numbering_starts_at_1 (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/lastReadDate_must_conform_to_the_Atom_date_construct (0.00s)
+    --- PASS: TestParseAcquisitionLinkErrors/malformed_xml (0.00s)
+=== RUN   TestPageURL
+=== RUN   TestPageURL/first_page
+=== RUN   TestPageURL/last_page_N-1_ok
+=== RUN   TestPageURL/page_N_rejected
+=== RUN   TestPageURL/negative_page_rejected
+=== RUN   TestPageURL/both_templates
+=== RUN   TestPageURL/maxWidth_required_when_template_present
+--- PASS: TestPageURL (0.00s)
+    --- PASS: TestPageURL/first_page (0.00s)
+    --- PASS: TestPageURL/last_page_N-1_ok (0.00s)
+    --- PASS: TestPageURL/page_N_rejected (0.00s)
+    --- PASS: TestPageURL/negative_page_rejected (0.00s)
+    --- PASS: TestPageURL/both_templates (0.00s)
+    --- PASS: TestPageURL/maxWidth_required_when_template_present (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/pse	1.020s
+=== RUN   TestScopePrecedence
+--- PASS: TestScopePrecedence (0.00s)
+=== RUN   TestClearOverrideFallsBack
+--- PASS: TestClearOverrideFallsBack (0.00s)
+=== RUN   TestSetCreatesStores
+--- PASS: TestSetCreatesStores (0.00s)
+=== RUN   TestInvalidScopeHasDeliberateFailure
+--- PASS: TestInvalidScopeHasDeliberateFailure (0.00s)
+=== RUN   TestKeysSortedUnion
+--- PASS: TestKeysSortedUnion (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/settings	1.016s
+=== RUN   TestRegistryUnknownProtocol
+--- PASS: TestRegistryUnknownProtocol (0.00s)
+=== RUN   TestManagerAddListBind
+--- PASS: TestManagerAddListBind (0.00s)
+=== RUN   TestManagerCloseAllDeterministic
+--- PASS: TestManagerCloseAllDeterministic (0.00s)
+=== RUN   TestCloseAllCollectsErrors
+--- PASS: TestCloseAllCollectsErrors (0.00s)
+=== RUN   TestProtocolOf
+--- PASS: TestProtocolOf (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/source	1.017s
+=== RUN   TestCRUDAndPersistence
+--- PASS: TestCRUDAndPersistence (0.02s)
+=== RUN   TestKeysSorted
+--- PASS: TestKeysSorted (0.02s)
+=== RUN   TestRejectsBucketTraversal
+--- PASS: TestRejectsBucketTraversal (0.00s)
+=== RUN   TestCorruptBucketIsNeverSilentlyOverwritten
+--- PASS: TestCorruptBucketIsNeverSilentlyOverwritten (0.00s)
+=== RUN   TestAtomicWriteNoTmpLeft
+--- PASS: TestAtomicWriteNoTmpLeft (0.01s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/store	1.067s
+=== RUN   TestPaginateExactPacking
+--- PASS: TestPaginateExactPacking (0.00s)
+=== RUN   TestPaginateSpansChapters
+--- PASS: TestPaginateSpansChapters (0.00s)
+=== RUN   TestPaginateOversizedBlockGetsOwnPage
+--- PASS: TestPaginateOversizedBlockGetsOwnPage (0.00s)
+=== RUN   TestPaginateImageBlocksAnchorWithoutChars
+--- PASS: TestPaginateImageBlocksAnchorWithoutChars (0.00s)
+=== RUN   TestPaginateUsesFlatTOCOrderIncludingChildren
+--- PASS: TestPaginateUsesFlatTOCOrderIncludingChildren (0.00s)
+=== RUN   TestPaginateFailClosed
+=== RUN   TestPaginateFailClosed/zero_budget
+=== RUN   TestPaginateFailClosed/negative_budget
+=== RUN   TestPaginateFailClosed/no_chapters
+=== RUN   TestPaginateFailClosed/chapter_without_blocks
+=== RUN   TestPaginateFailClosed/duplicate_ids
+--- PASS: TestPaginateFailClosed (0.00s)
+    --- PASS: TestPaginateFailClosed/zero_budget (0.00s)
+    --- PASS: TestPaginateFailClosed/negative_budget (0.00s)
+    --- PASS: TestPaginateFailClosed/no_chapters (0.00s)
+    --- PASS: TestPaginateFailClosed/chapter_without_blocks (0.00s)
+    --- PASS: TestPaginateFailClosed/duplicate_ids (0.00s)
+=== RUN   TestPageOfBoundariesAndOrdering
+--- PASS: TestPageOfBoundariesAndOrdering (0.00s)
+=== RUN   TestClockCompareDominance
+--- PASS: TestClockCompareDominance (0.00s)
+=== RUN   TestClockConcurrent
+--- PASS: TestClockConcurrent (0.00s)
+=== RUN   TestMergeIdempotentCommutative
+--- PASS: TestMergeIdempotentCommutative (0.00s)
+=== RUN   TestResolveDominant
+--- PASS: TestResolveDominant (0.00s)
+=== RUN   TestResolveConcurrentFurthestWins
+--- PASS: TestResolveConcurrentFurthestWins (0.00s)
+=== RUN   TestResolveConcurrentTieDeterministic
+--- PASS: TestResolveConcurrentTieDeterministic (0.00s)
+=== RUN   TestResolveEqualClocksFurthestAndCommutative
+--- PASS: TestResolveEqualClocksFurthestAndCommutative (0.00s)
+=== RUN   TestResolveDifferentBooks
+--- PASS: TestResolveDifferentBooks (0.00s)
+=== RUN   FuzzPaginate
+=== RUN   FuzzPaginate/seed#0
+=== RUN   FuzzPaginate/seed#1
+=== RUN   FuzzPaginate/seed#2
+--- PASS: FuzzPaginate (0.00s)
+    --- PASS: FuzzPaginate/seed#0 (0.00s)
+    --- PASS: FuzzPaginate/seed#1 (0.00s)
+    --- PASS: FuzzPaginate/seed#2 (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/sync	1.019s
+=== RUN   TestParseValid
+--- PASS: TestParseValid (0.00s)
+=== RUN   TestParseBadVersion
+--- PASS: TestParseBadVersion (0.00s)
+=== RUN   TestParseBadColor
+--- PASS: TestParseBadColor (0.00s)
+=== RUN   TestContrastMath
+--- PASS: TestContrastMath (0.00s)
+=== RUN   TestContrastWhiteOnBlackIs21
+--- PASS: TestContrastWhiteOnBlackIs21 (0.00s)
+=== RUN   TestValidateRejectsLowTextContrast
+--- PASS: TestValidateRejectsLowTextContrast (0.00s)
+=== RUN   TestLineHeightBounds
+--- PASS: TestLineHeightBounds (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/theme	1.017s
+=== RUN   TestAllProtocolsStreamOrRange
+--- PASS: TestAllProtocolsStreamOrRange (0.00s)
+=== RUN   TestInsecureProtocolsFlagged
+--- PASS: TestInsecureProtocolsFlagged (0.00s)
+=== RUN   TestSyncCapableBackends
+--- PASS: TestSyncCapableBackends (0.00s)
+PASS
+ok  	github.com/helixreader/helix/core/sources	1.016s
