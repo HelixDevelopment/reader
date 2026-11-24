@@ -238,14 +238,22 @@ def check_trailers(ctx, base_tip, head):
 
 
 def check_evidence(ctx, base_tip, head):
-    """11.4.297(E): every cited evidence path is repository-relative, under evidence_dir, and has the cited sha256 in the head tree."""
+    """11.4.297(E): every cited evidence path is repository-relative and under evidence_dir for EVERY citation; the cited sha256 must
+    match the head tree for the LATEST citation (newest commit first in log order) of each path. An earlier citation of the same
+    path in another commit is SUPERSEDED (a later commit legitimately regenerated the file): reported as a NOTE, not a problem."""
     problems, cited = [], []
     evdir = ctx.cfg["evidence_dir"].strip("/") + "/"
-    for h, body in commits(ctx, base_tip, head):
+    latest = {}      # path -> commit that holds the latest citation (the one checked against the head tree)
+    superseded = {}  # path -> [short hashes of earlier citing commits]
+    for h, body in commits(ctx, base_tip, head):  # git log order: newest first
         for path, sha in EVIDENCE_RE.findall(body):
             cited.append(path)
             if path.startswith("/") or ".." in path.split("/") or not path.startswith(evdir):
                 problems.append("%s: evidence %r is absolute/outside/not under %s (INCONCLUSIVE, never PASS)" % (h[:12], path, evdir))
+                continue
+            if latest.setdefault(path, h) != h:  # MUT:supersede
+                if h[:12] not in superseded.setdefault(path, []):
+                    superseded[path].append(h[:12])
                 continue
             p = subprocess.run(["git", "-C", ctx.repo, "show", "%s:%s" % (head, path)], capture_output=True)
             if p.returncode != 0:
@@ -253,6 +261,8 @@ def check_evidence(ctx, base_tip, head):
                 continue
             if hashlib.sha256(p.stdout).hexdigest() != sha.lower():  # MUT:evhash
                 problems.append("%s: evidence %s sha256 differs from the cited %s" % (h[:12], path, sha[:12]))
+    for path, hs in superseded.items():
+        say("NOTE: evidence %s: earlier citation(s) superseded by the latest in commit %s: %s" % (path, latest[path][:12], ", ".join(hs)))
     return problems, cited
 
 

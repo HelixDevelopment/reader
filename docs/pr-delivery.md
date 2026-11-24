@@ -44,6 +44,16 @@ $D retire $T                     # deletes the branch only if it is an ancestor 
 
 Add `--dry-run` before the subcommand (`deliver.py --dry-run open ...`) to print every mutating git/gh command without running it.
 
+## Evidence citations: the latest citation of a path decides (clause E)
+
+Every `Evidence:` / `red` / `green` citation in every commit of the PR range must be repository-relative and under `evidence/`
+(absolute, `..` or outside-dir paths are INCONCLUSIVE and refused, even when a later commit cites the same path again). The cited
+sha256 must equal the hash of the path in the head tree only for the LATEST citation of that path (newest commit first in `git log`
+order). Earlier citations of the same path are SUPERSEDED, because a later commit legitimately regenerated the file; they are printed
+as `NOTE: evidence <path>: earlier citation(s) superseded ...` and are not problems. A path cited once, an absent path, or a hash
+mismatch on the latest citation is refused exactly as before. Limit: a superseded citation is no longer checked against anything, so
+its hash is not proof of the old content; history is never rewritten (section 11.4.113) to fix it.
+
 ## How the independent GO is produced and verified
 
 1. The reviewer is a separately spawned agent that is not the author (its label must differ from the author label). It is given the
