@@ -1,0 +1,13 @@
+ new Debian package, version 2.0.
+ size 93259108 bytes: control archive=428 bytes.
+     325 bytes,    10 lines      control
+ Package: helix-reader
+ Version: 0.1.0
+ Section: utils
+ Priority: optional
+ Architecture: amd64
+ Installed-Size: 280520
+ Depends: libgtk-3-0, libnss3, libxss1, libasound2t64 | libasound2, libgbm1
+ Maintainer: Helix Reader <noreply@invalid>
+ Description: Helix Reader desktop client
+  Electron shell around the Helix Reader web client.

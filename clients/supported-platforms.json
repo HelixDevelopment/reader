@@ -1,0 +1,162 @@
+{
+  "item": "HRD-022",
+  "host": "Linux x86_64 (Ubuntu); global PATH has no javac, project JDK (Temurin 21.0.13.1) in the per-user tool directory (clients/tools/fetch_jdk.sh; the per-user .env.sh is not tracked); no Apple/Windows toolchains",
+  "policy": "Section 11.4.81: every promised platform is listed with an honest status. BLOCKED entries carry the exact reason and a reproducer whose real output is captured in evidence/clients/blocked_reproducers.json by clients/tools/capture_blocked.py.",
+  "platforms": [
+    {
+      "id": "web",
+      "name": "Web (browser, responsive)",
+      "status": "VERIFIED",
+      "technology": "React 19 + Vite 7 + TypeScript 5.9 (clients/web)",
+      "notes": "Reads the real server API (/v1/works, /v1/works/:id, /v1/covers/:id, /v1/files/:id/content) with optional Basic auth. Verified live against a real helix-server (in-memory catalog) at phone/tablet/desktop in light and dark: 67/67 DOM checks. Reader renders plain text only; EPUB/PDF are offered as the original download because the server extracts no text. No PostgreSQL-backed run, no cross-browser run (Chromium only), no screen-reader run.",
+      "evidence": [
+        "evidence/clients/web/results.json",
+        "evidence/clients/web/live_run.log",
+        "evidence/clients/web/vitest_GREEN.log",
+        "evidence/clients/web/MANIFEST.sha256"
+      ]
+    },
+    {
+      "id": "linux",
+      "name": "Linux desktop",
+      "status": "BUILT",
+      "technology": "Electron 45.4.1 shell around clients/web (clients/desktop): app:// scheme, strict CSP, contextIsolation, main-process API proxy, safeStorage credentials (Chromium renderer sandbox: configured in code, NOT observed ON in the container run)",
+      "notes": "Electron 45.4.1 shell around clients/web; the unpacked app was run for real inside the isolated rootless container (network none, private Xvfb, no host display/session; qa/isolation/run_desktop_live.sh): clients/desktop/e2e/live.mjs 10 PASS + 1 WARN (chromium-sandbox-state, recorded NOT verified) + 0 FAIL via Playwright _electron against a live helix-server: real titles in the DOM, app:// origin, no Node globals in the renderer, CSP blocks an external fetch, cross-origin navigation refused, no cookies, no unexpected console errors, password absent from userData JSON; screenshots recorded; container facts in container_proof.json. CHROMIUM SANDBOX WAS OFF in this run (Electron does not launch in the unprivileged container with it on: hardening/desktop_sandbox_attempt.log), so the sandbox is NOT verified. Two e2e-script defects found and fixed in the container run (blocked-navigation stall ordering; deliberate CSP-probe console errors counted as failures); the app needed no change. Not verified: safeStorage keystore (no keyring in the container), installed .deb via dpkg, signing, AppImage, Chromium sandbox. Policy modules: 23 unit tests (unit_GREEN_23tests.log) (clients/desktop/test), 11/12 mutants killed (1 equivalent); main.js wiring (sandbox, contextIsolation, IPC sender check) has no unit test (tracked follow-up). Status is BUILT, not VERIFIED, until the container-run evidence (PR #5, listed in pending_evidence) is on main. Vision oracle not used (UNVERIFIED); oracle is the DOM/accessibility tree.",
+      "evidence": [
+        "evidence/clients/desktop/unit_GREEN_23tests.log",
+        "evidence/clients/desktop/unit_RED_modules_absent.log",
+        "evidence/clients/desktop/mutation_check.log",
+        "evidence/clients/desktop/live_handler.log",
+        "evidence/clients/desktop/live_handler.json",
+        "evidence/clients/desktop/artifacts.sha256",
+        "evidence/clients/desktop/deb_info.txt",
+        "evidence/clients/desktop/deb_contents.txt",
+        "evidence/clients/desktop/packaged_binary_node_mode.txt",
+        "evidence/clients/desktop/MANIFEST.sha256",
+        "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__RUN.txt",
+        "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__results.json",
+        "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__container_proof.json",
+        "evidence/campaign-2026-11-23/isolated/desktop/01_library.png",
+        "evidence/campaign-2026-11-23/isolated/desktop/02_detail.png",
+        "evidence/campaign-2026-11-23/isolated/desktop/server_access.log",
+        "evidence/campaign-2026-11-23/isolated/desktop/SHA256SUMS",
+        "evidence/campaign-2026-11-23/isolated/hardening/desktop_sandbox_attempt.log"
+      ]
+    },
+    {
+      "id": "windows",
+      "name": "Windows desktop",
+      "status": "BLOCKED",
+      "technology": "Electron shell around clients/web",
+      "notes": "Needs a Windows host for installer build and device evidence.",
+      "reason": "Host is Linux; no Windows machine, VM, or wine is available, so an installer cannot be built or exercised on a real Windows device.",
+      "reproducer": {
+        "command": "bash -c 'case \"$(uname -s)\" in MINGW*|MSYS*|CYGWIN*) exit 0;; esac; echo \"host is $(uname -s), not Windows\"; wine --version; exit 1'",
+        "expect_output_contains": "host is Linux, not Windows"
+      }
+    },
+    {
+      "id": "macos",
+      "name": "macOS desktop",
+      "status": "BLOCKED",
+      "technology": "Electron shell around clients/web",
+      "notes": "Needs macOS for signing, notarization and device evidence.",
+      "reason": "No macOS host and no Xcode toolchain; code signing, notarization and on-device checks are impossible from Linux.",
+      "reproducer": {
+        "command": "xcodebuild -version",
+        "expect_output_contains": "command not found"
+      }
+    },
+    {
+      "id": "android",
+      "name": "Android phone and tablet",
+      "status": "VERIFIED",
+      "technology": "Capacitor 8.6.2 WebView shell around clients/web (clients/android), AGP 8.13.0, Gradle 8.14.3, compileSdk 36",
+      "notes": "Debug APK org.helixreader.app (binary kept out of git per 11.4.30 and gitignored; its sha256 is recorded in helix-reader-debug.apk.sha256 and the aapt2 badging is committed; sha256 8c1dc018...943a, 4.2 MB, minSdk 24, targetSdk 36; Capacitor WebView shell, CapacitorHttp, cleartext only in debug for localhost/127.0.0.1/10.0.2.2) installed and run on an Android 14 (API 34, x86_64, google_apis) EMULATOR inside a rootless podman container (Containers-submodule section 6.X image, KVM passthrough, headless), against a freshly built helix-server with an in-memory catalog and OPDS Basic auth. Evidence: library renders the 4 real works from the live server (uiautomator dump + 1080x1920 screenshot), detail page and TXT reader render live file content, landscape 1920x1080 reader, 59 s screenrecord, logcat with 0 FATAL/ANR, request log proving the WebView issued the calls with Basic auth. Limits: emulator only, no physical phone/tablet, no tablet-size or iOS run; EPUB/PDF open as download only (server extracts no text); Settings form filled via WebView DevTools Runtime.evaluate because Gboard made adb input text unreliable (all other navigation by adb input tap); in-memory catalog, no PostgreSQL run; the server has no access log so requests were recorded by a pass-through proxy; debug build only, release/signing not done. android-tv remains BLOCKED and is not claimed.",
+      "evidence": [
+        "evidence/clients/android/helix-reader-debug.apk.sha256",
+        "evidence/clients/android/aapt2_badging.txt",
+        "evidence/clients/android/MANIFEST.sha256",
+        "evidence/clients/android/run-20261123T211340Z/RUN.txt",
+        "evidence/clients/android/run-20261123T211340Z/MANIFEST.sha256",
+        "evidence/clients/android/run-20261123T211340Z/01_library_portrait.png",
+        "evidence/clients/android/run-20261123T211340Z/01_library_portrait_uidump.xml",
+        "evidence/clients/android/run-20261123T211340Z/02_detail_portrait.png",
+        "evidence/clients/android/run-20261123T211340Z/03_reader_txt_portrait.png",
+        "evidence/clients/android/run-20261123T211340Z/03_reader_txt_portrait_uidump.xml",
+        "evidence/clients/android/run-20261123T211340Z/04_reader_txt_landscape.png",
+        "evidence/clients/android/run-20261123T211340Z/run_screenrecord.mp4",
+        "evidence/clients/android/run-20261123T211340Z/logcat_full.txt",
+        "evidence/clients/android/run-20261123T211340Z/server_proxy_access.log"
+      ]
+    },
+    {
+      "id": "ios",
+      "name": "iOS and iPadOS",
+      "status": "BLOCKED",
+      "technology": "Capacitor WebView shell around clients/web",
+      "notes": "Requires Xcode on macOS and Apple signing.",
+      "reason": "No macOS host and no Xcode; iOS builds and simulators exist only on macOS.",
+      "reproducer": {
+        "command": "xcrun --version",
+        "expect_output_contains": "command not found"
+      }
+    },
+    {
+      "id": "android-tv",
+      "name": "Android TV (leanback, D-pad)",
+      "status": "BLOCKED",
+      "technology": "Capacitor shell with a leanback activity",
+      "notes": "Shares the Android shell (clients/android, now buildable with the project JDK); no leanback activity or D-pad focus work exists, no AVD exists for the android-34 android-tv x86 system image that is present, and no device is attached.",
+      "reason": "No Android TV device or AVD is available (an android-tv system image is installed but no AVD uses it) and the leanback/D-pad layer is unwritten, so TV behaviour cannot be exercised on a real or emulated TV device.",
+      "reproducer": {
+        "command": "bash -c 'n=$(~/Android/Sdk/platform-tools/adb devices | grep -cw device); echo \"attached android devices: $n\"; ls ~/.android/avd | grep -ci tv; test \"$n\" -gt 0'",
+        "expect_output_contains": "attached android devices: 0"
+      }
+    },
+    {
+      "id": "harmonyos",
+      "name": "HarmonyOS",
+      "status": "BLOCKED",
+      "technology": "N-API shell (spec/00_constitution.md)",
+      "notes": "Named in spec/03_plan.md milestone M6.",
+      "reason": "HarmonyOS SDK command-line tools (hdc, ohpm) are not installed and no emulator is present.",
+      "reproducer": {
+        "command": "hdc version",
+        "expect_output_contains": "command not found"
+      }
+    },
+    {
+      "id": "aurora-os",
+      "name": "Aurora OS",
+      "status": "BLOCKED",
+      "technology": "Qt C++ shell (spec/00_constitution.md)",
+      "notes": "Named in spec/03_plan.md milestone M6.",
+      "reason": "The Aurora SDK (sfdk) is not installed on this host.",
+      "reproducer": {
+        "command": "sfdk --version",
+        "expect_output_contains": "command not found"
+      }
+    },
+    {
+      "id": "e-ink",
+      "name": "E-ink reader profile",
+      "status": "NOT_STARTED",
+      "technology": "Web UI with a high-contrast no-animation profile",
+      "notes": "spec/03_plan.md names an e-ink simulator profile; nothing exists yet."
+    }
+  ],
+  "pending_evidence": {
+    "note": "Paths cited by a platform row that ship in another open PR; allowed only on non-VERIFIED rows.",
+    "paths": {
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__RUN.txt": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__results.json": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/gap-fix/ledger-snapshots/evidence__campaign-2026-11-23__isolated__desktop__container_proof.json": "PR #9 (depends on this PR)",
+      "evidence/campaign-2026-11-23/isolated/desktop/01_library.png": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/02_detail.png": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/server_access.log": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/desktop/SHA256SUMS": "PR #5",
+      "evidence/campaign-2026-11-23/isolated/hardening/desktop_sandbox_attempt.log": "PR #5"
+    }
+  }
+}

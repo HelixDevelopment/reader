@@ -1,0 +1,15 @@
+AssertionError: 'evidence/clients/android/helix-reader-debug.apk.sha256' not found in ['evidence/clients/android/helix-reader-debug.apk', 'evidence/clients/android/aapt2_badging.txt', 'evidence/clients/android/MANIFEST.sha256', 'evidence/clients/android/run-20261123T211340Z/RUN.txt', 'evidence/clients/android/run-20261123T211340Z/MANIFEST.sha256', 'evidence/clients/android/run-20261123T211340Z/01_library_portrait.png', 'evidence/clients/android/run-20261123T211340Z/01_library_portrait_uidump.xml', 'evidence/clients/android/run-20261123T211340Z/02_detail_portrait.png', 'evidence/clients/android/run-20261123T211340Z/03_reader_txt_portrait.png', 'evidence/clients/android/run-20261123T211340Z/03_reader_txt_portrait_uidump.xml', 'evidence/clients/android/run-20261123T211340Z/04_reader_txt_landscape.png', 'evidence/clients/android/run-20261123T211340Z/run_screenrecord.mp4', 'evidence/clients/android/run-20261123T211340Z/logcat_full.txt', 'evidence/clients/android/run-20261123T211340Z/server_proxy_access.log']
+
+======================================================================
+FAIL: test_evidence_paths_are_not_gitignored (tests.test_supported_platforms.SupportedPlatformsTest.test_evidence_paths_are_not_gitignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tests/test_supported_platforms.py", line 77, in test_evidence_paths_are_not_gitignored
+    self.assertNotEqual(r.returncode, 0, f"{p['id']}: evidence {rel} is gitignored")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : android: evidence evidence/clients/android/helix-reader-debug.apk is gitignored
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.166s
+
+FAILED (failures=2)

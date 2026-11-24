@@ -1,0 +1,126 @@
+{
+  "gui": false,
+  "note": "handler-level live check; no Electron window",
+  "checks": [
+    {
+      "id": "server-direct-has-works",
+      "status": "PASS",
+      "evidence": {
+        "titles": [
+          "hq-novel",
+          "hq-notes",
+          "hq-mixed",
+          "hq-comic"
+        ]
+      }
+    },
+    {
+      "id": "server-sends-no-cors-headers (why the proxy exists)",
+      "status": "PASS",
+      "evidence": {
+        "access-control-allow-origin": null
+      }
+    },
+    {
+      "id": "proxy-with-stored-creds-returns-real-titles",
+      "status": "PASS",
+      "evidence": {
+        "status": 200,
+        "titles": [
+          "hq-novel",
+          "hq-notes",
+          "hq-mixed",
+          "hq-comic"
+        ]
+      }
+    },
+    {
+      "id": "proxy-work-detail",
+      "status": "PASS",
+      "evidence": {
+        "status": 200
+      }
+    },
+    {
+      "id": "proxy-healthz",
+      "status": "PASS",
+      "evidence": {
+        "status": 200
+      }
+    },
+    {
+      "id": "wrong-password-gives-401-and-no-www-authenticate-prompt",
+      "status": "PASS",
+      "evidence": {
+        "status": 401,
+        "wwwAuth": null
+      }
+    },
+    {
+      "id": "no-creds-gives-401",
+      "status": "PASS",
+      "evidence": {
+        "status": 401
+      }
+    },
+    {
+      "id": "renderer-supplied-authorization-is-forwarded",
+      "status": "PASS",
+      "evidence": {
+        "status": 200
+      }
+    },
+    {
+      "id": "static-index-from-web-dist-with-csp",
+      "status": "PASS",
+      "evidence": {
+        "status": 200,
+        "csp": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; worker-src 'none'"
+      }
+    },
+    {
+      "id": "static-js-bundle-served",
+      "status": "PASS",
+      "evidence": {
+        "asset": "assets/index-C40zDHeF.js",
+        "status": 200
+      }
+    },
+    {
+      "id": "traversal-refused /..%2f..%2f..%2fetc%2fpasswd",
+      "status": "PASS",
+      "evidence": {
+        "status": 400
+      }
+    },
+    {
+      "id": "traversal-refused /%2e%2e/%2e%2e/etc/passwd",
+      "status": "PASS",
+      "evidence": {
+        "status": 404
+      }
+    },
+    {
+      "id": "traversal-refused /v1/%2e%2e/admin",
+      "status": "PASS",
+      "evidence": {
+        "status": 404
+      }
+    },
+    {
+      "id": "proxy-refuses-POST",
+      "status": "PASS",
+      "evidence": {
+        "status": 405
+      }
+    },
+    {
+      "id": "unreachable-server-gives-502",
+      "status": "PASS",
+      "evidence": {
+        "status": 502
+      }
+    }
+  ],
+  "failed": 0
+}

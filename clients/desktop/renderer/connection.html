@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Helix Reader connection</title>
+<link rel="stylesheet" href="connection.css"></head>
+<body><main>
+<h1>Connection</h1>
+<form id="f">
+<label>Helix server address<input id="url" placeholder="http://192.168.1.10:8080" autocomplete="off"></label>
+<label>Username (optional)<input id="user" autocomplete="username"></label>
+<label>Password<input id="pw" type="password" autocomplete="current-password" placeholder="leave blank to keep"></label>
+<p id="note" class="muted"></p><p id="msg" role="status"></p>
+<div class="row"><button type="submit">Save</button><button type="button" id="forget">Forget saved password</button><button type="button" id="close">Close</button></div>
+</form></main><script src="connection.js"></script></body></html>
