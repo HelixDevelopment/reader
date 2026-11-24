@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T20:29:49Z",
+  "generated_at": "2026-11-24T18:57:59Z",
   "records": [
     {
       "client_key": "HRD-001",
@@ -3384,34 +3384,6 @@
         "status": "Queued",
         "title": "Gate tool gaps found reviewing PR 27: helix-deps ref compared by 7 characters, gitlink_on_remote BLIND instead of FAIL, no pointer-on-main check (OWED-GATE-151)",
         "type": "Task"
-      },
-      "reason": "Exact HelixTrack API mapping and credentials have not been verified; this file is an offline outbox, not a remote push receipt.",
-      "remote_status": "NOT RUN",
-      "revision": 1
-    },
-    {
-      "client_key": "HRD-122",
-      "operation": "upsert",
-      "payload": {
-        "acceptance": "Instrumented smoke passes on all matrix rows (evidence/android-matrix/run-final/summary.txt)",
-        "affected_scope": "clients/android/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
-        "assigned_to": "Operator",
-        "atm_id": "HRD-122",
-        "closure_criteria": "Instrumented smoke passes on all matrix rows (evidence/android-matrix/run-final/summary.txt)",
-        "composes_with": [],
-        "created_at": "2026-11-24T20:29:30Z",
-        "created_by": "AI",
-        "current_location": "Issues",
-        "description": "clients/android ExampleInstrumentedTest (Capacitor scaffold) asserted package com.getcapacitor.app; the app id is org.helixreader.app, so the instrumented test fails on every API level. Never executed before HRD-040. ROOT CAUSE: scaffold assertion never updated when the app id was set to org.helixreader.app.",
-        "evidence_path": "",
-        "forensic_anchor": "User work-item request",
-        "last_modified": "2026-11-24T20:29:38Z",
-        "reopens_count": 0,
-        "reproduction": "tools/android_matrix/run_matrix.sh emulators --rows api34-phone with the unfixed test: ComparisonFailure expected com.getcapacitor.app but was org.helixreader.app (evidence/android-matrix/run-red/api34-phone/instrument.txt)",
-        "severity": "Low",
-        "status": "In progress",
-        "title": "ExampleInstrumentedTest asserts scaffold package com.getcapacitor.app, fails on every device",
-        "type": "Bug"
       },
       "reason": "Exact HelixTrack API mapping and credentials have not been verified; this file is an offline outbox, not a remote push receipt.",
       "remote_status": "NOT RUN",

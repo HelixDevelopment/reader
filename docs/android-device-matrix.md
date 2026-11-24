@@ -73,7 +73,8 @@ shell starts and lays out on each API/size, NOT library behaviour (covered by th
 
 Finding (fixed here, RED in `run-red/api34-phone/instrument.txt`): `ExampleInstrumentedTest` (Capacitor scaffold) asserted package
 `com.getcapacitor.app` while the app id is `org.helixreader.app`, so it failed on every device; it had never been run. The assertion now names the
-real id.
+real id. Registry: NOT yet registered. PR 33 allocates HRD-122 and HRD-123 and the registry requires gap-free ids, so this finding is to be
+registered as HRD-124 (Bug, Low) after PR 33 lands (UNCONFIRMED until then); the fix itself is in this PR.
 
 Not run / UNCONFIRMED: orientation changes, foldables, API 24..29/31..33/35, ARM images, Android TV, `CronetLiveTest` (needs the h3 lab), the
 Containers `emulator-matrix` / `vm-matrix` / `distributed-test` binaries, behaviour on physical devices, flakiness (one run only), and the

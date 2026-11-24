@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -3353,38 +3353,3 @@ In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 **History:**
 
 - 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
-
-## [HRD-122] ExampleInstrumentedTest asserts scaffold package com.getcapacitor.app, fails on every device
-
-**Status:** In progress
-
-**Type:** Bug
-
-**Severity:** Low
-
-**Reopens:** 0
-
-**Description:** clients/android ExampleInstrumentedTest (Capacitor scaffold) asserted package com.getcapacitor.app; the app id is org.helixreader.app, so the instrumented test fails on every API level. Never executed before HRD-040. ROOT CAUSE: scaffold assertion never updated when the app id was set to org.helixreader.app.
-
-**Affected scope:** clients/android/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java
-
-**Reproduction / current observation:** tools/android_matrix/run_matrix.sh emulators --rows api34-phone with the unfixed test: ComparisonFailure expected com.getcapacitor.app but was org.helixreader.app (evidence/android-matrix/run-red/api34-phone/instrument.txt)
-
-**Acceptance:** Instrumented smoke passes on all matrix rows (evidence/android-matrix/run-final/summary.txt)
-
-**Closure criteria:** Instrumented smoke passes on all matrix rows (evidence/android-matrix/run-final/summary.txt)
-
-**Evidence:** Not yet available; no pass is claimed.
-
-**Forensic anchor:** User work-item request
-
-**Composes with:** None recorded
-
-**Attribution:** created by AI; assigned to Operator
-
-**Created / modified:** 2026-11-24T20:29:30Z / 2026-11-24T20:29:38Z
-
-**History:**
-
-- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
-- 2026-11-24 — Started by AI: HRD-040 Android device matrix PR: matrix, runner and live run recorded; fix/PR pending independent GO; evidence: evidence/android-matrix/run-final
