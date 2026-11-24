@@ -1,0 +1,25 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/747 completed
+fuzz: elapsed: 1s, gathering baseline coverage: 747/747 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 45266 (15088/sec), new interesting: 0 (total: 747)
+fuzz: elapsed: 6s, execs: 122771 (25821/sec), new interesting: 0 (total: 747)
+fuzz: elapsed: 9s, execs: 207945 (28403/sec), new interesting: 0 (total: 747)
+fuzz: elapsed: 12s, execs: 320276 (37440/sec), new interesting: 0 (total: 747)
+fuzz: elapsed: 15s, execs: 439178 (39638/sec), new interesting: 0 (total: 747)
+fuzz: elapsed: 18s, execs: 635124 (65302/sec), new interesting: 1 (total: 748)
+fuzz: elapsed: 21s, execs: 841540 (68820/sec), new interesting: 2 (total: 749)
+fuzz: elapsed: 24s, execs: 977310 (45252/sec), new interesting: 2 (total: 749)
+fuzz: elapsed: 27s, execs: 1110411 (44375/sec), new interesting: 2 (total: 749)
+fuzz: elapsed: 30s, execs: 1248982 (46185/sec), new interesting: 4 (total: 751)
+fuzz: elapsed: 33s, execs: 1372480 (41167/sec), new interesting: 4 (total: 751)
+fuzz: elapsed: 36s, execs: 1419106 (15543/sec), new interesting: 4 (total: 751)
+fuzz: elapsed: 39s, execs: 1606157 (62348/sec), new interesting: 5 (total: 752)
+fuzz: elapsed: 42s, execs: 1751647 (48501/sec), new interesting: 5 (total: 752)
+fuzz: elapsed: 45s, execs: 1871638 (39985/sec), new interesting: 5 (total: 752)
+fuzz: elapsed: 48s, execs: 2001604 (43325/sec), new interesting: 5 (total: 752)
+fuzz: elapsed: 51s, execs: 2087682 (28698/sec), new interesting: 6 (total: 753)
+fuzz: elapsed: 54s, execs: 2155185 (22498/sec), new interesting: 6 (total: 753)
+fuzz: elapsed: 57s, execs: 2378909 (74568/sec), new interesting: 6 (total: 753)
+fuzz: elapsed: 1m0s, execs: 2471403 (30833/sec), new interesting: 6 (total: 753)
+fuzz: elapsed: 1m1s, execs: 2471403 (0/sec), new interesting: 6 (total: 753)
+PASS
+ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	61.138s

@@ -1,0 +1,141 @@
+VERDICT: NO-GO
+HEAD: b61c2e63abce1522d759216246a6ea6351517476
+Reviewer: independent (producer!=verifier), review round 5 (last of the R_max=5 budget), 2026-11-24. Model: Opus 5.5; effort not settable/readable on this dispatch path (UNCONFIRMED).
+Head confirmed: git ls-remote github refs/heads/task/HRD-070-fuzz-targets -> b61c2e63abce1522d759216246a6ea6351517476; gh pr view 3: headRefOid same, OPEN.
+Method: detached worktree /home/milosvasic/.cache/claude-tmp/wt-rev3b (removed at end); every mutant applied to a scratch copy, never the PR tree. Reviewer harness (/home/milosvasic/.cache/claude-tmp/claude-1000/-home-milosvasic-Projects-helix-reader/4783d69d-a063-560b-d52a-4fcb6adc6609/scratchpad/rv/rmut.sh) reports a compile/vet error as COMPILE-ERROR, never as a kill. Reviewer scripts/logs kept in the reviewer scratchpad (rmut.sh, set1-3.sh, xchk.sh, rmut1-3.log, xchk.log, fuzz30.log), not committed.
+Round-budget note (§11.4.276(E)(3)): this is round 5 without GO -> the item STOPS under the current approach and needs a recorded operator decision (re-scope / structural new item / waiver). The blocking finding below is cheap to close (see remedy), but the decision is the operator's.
+
+== (1) vet / gofmt / tests: PASS ==
+go vet ./pkg/lcp ./pkg/lcpfuzz ; go vet ./internal/kosync ./internal/opds : no output
+gofmt -l core/pkg/lcp core/pkg/lcpfuzz server/internal/kosync server/internal/opds : no output
+ok  	github.com/helixreader/helix/core/pkg/lcp	17.009s
+ok  	github.com/helixreader/helix/core/pkg/lcpfuzz	0.040s
+ok  	github.com/helixreader/helix/server/internal/kosync	1.435s
+ok  	github.com/helixreader/helix/server/internal/opds	0.019s
+
+== (2) generator ==
+python3 enumerate_rules.py . mutation.log rulemap.tsv <out>  -> "OK: 95 branches, all mapped and outcomes match the mutation log" rc=0; output byte-identical to the committed RULES.md (cmp).
+Own self-test: drop the GetProgress row -> "UNMAPPED server/internal/kosync/service.go:86 GetProgress ..." rc=1; point a KILL row at a surviving mutant -> "WRONG E03_opensearch_base_EQUIV ..." rc=1. The three checks it claims work.
+Class gaps found by independent enumeration (same PAT regex, functions the targets actually execute):
+  canonical.go (whole file; FuzzCanonical's function under test + CanonicalForSigning/AsReference it calls): 74 branch lines, 0 enumerated
+  license.go Link.UnmarshalJSON (run by Parse when it decodes links): 6 branch lines, 0 enumerated
+  lsd.go StatusValue.valid (run by ParseStatusDocument): 2 lines, 0 enumerated (only its call site is a row)
+  opds/pse.go streamLink (run by entry12): 1 line, 0 enumerated
+  FUNCS in enumerate_rules.py is a hand-written list; it is not derived from what the fuzz targets call. Also line-granular: only the first line of a multi-line condition is a "branch", and a boolean on an assignment line (lsd.go:240 hasLicense = hasLicense || ...) is never a branch.
+
+== (3) the 5 survivors ==
+K09_inf_EQUIV: equivalent (re-run: SURVIVED). +Inf fails "> 1", -Inf fails "< 0". Confirmed.
+E01_generic_decode_EQUIV: equivalent for every input I tried; struct decode succeeds and map decode fails never coincides:
+  "null"/" null "/"{}"/{"links":null} struct=<nil> map=<nil>; "x"/[]/1 both fail; {"id":1} struct fails first. Confirmed.
+E02_parserels_empty_EQUIV: same sentinel (ErrStatusDocument), but the MESSAGE changes, so "equivalent" is true only at the class level:
+  original: lcp: invalid License Status Document: links[0].rel: required
+  mutant:   lcp: invalid License Status Document: links[0].rel: must be a string or an array of strings
+  (minor, see M1)
+E03_opensearch_base_EQUIV: "base = \"\"" inside "if base == \"\"" is a no-op. Confirmed.
+E04_register_hash_err_UNREACHABLE: Register caps the password at 72 bytes, so ErrPasswordTooLong cannot occur; remaining failure is crypto/rand, not reachable by input. Accepted.
+
+== (4) reviewer mutants (20 new, none in the author's list), plain seed run (Fuzz|TestHRD070|TestSeed / KRE / OR, as in mutate.sh) ==
+RMUT X01_canon_reverse_sort: SURVIVED
+RMUT X02_canon_dup_allowed: SURVIVED
+RMUT X03_canon_trailing_ok: SURVIVED
+RMUT X04_canon_bool_true_false: SURVIVED
+RMUT X05_canon_spec_lowerhex: SURVIVED
+RMUT X06_link_length_negative: SURVIVED
+RMUT X07_link_length_null_rejected: SURVIVED
+RMUT X08_lsd_haslicense_last_only: KILLED by test: --- FAIL: TestHRD070LSDRejectionClasses (0.00s)
+RMUT X09_lsd_ready_dropped: KILLED by test: --- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+RMUT X10_auth_user_len_256: KILLED by test: --- FAIL: TestHRD070Authenticate (0.12s)
+RMUT X11_pse_count_zero_ok: SURVIVED
+RMUT X12_lsd_rels_array_dropped: SURVIVED
+RMUT X13_lsd_prend_ignored_value: KILLED by test: --- FAIL: FuzzParseStatusDocument (0.01s)
+RMUT X14_lic_parsetime_nano: SURVIVED
+RMUT X15_get_doc_len_256: KILLED by test: --- FAIL: TestHRD070GetProgressBoundary (0.05s)
+RMUT X16_lsd_event_ts_dropped: KILLED by test: --- FAIL: FuzzParseStatusDocument (0.01s)
+RMUT X17_lic_unknown_known_member: KILLED by test: --- FAIL: TestHRD070LicenseValuesPropagate (0.00s)
+RMUT X18_hint_decode_err_ignored: SURVIVED
+RMUT X19_lsd_pr_end_nil_only: KILLED by test: --- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+RMUT X20_put_pct_neg_inclusive: KILLED by test: --- FAIL: FuzzPutProgressBody (0.06s)
+Survivors cross-checked against the PRE-EXISTING package unit tests (observable behaviour, not equivalent):
+RMUT X01_canon_reverse_sort: KILLED by test: --- FAIL: TestCanonicalSpecExample (0.00s)
+RMUT X02_canon_dup_allowed: KILLED by test: --- FAIL: TestCanonicalRejectsDuplicateMembers (0.00s)
+RMUT X03_canon_trailing_ok: KILLED by test: --- FAIL: TestCanonicalRejectsMalformedInput (0.00s)
+RMUT X04_canon_bool_true_false: KILLED by test: --- FAIL: TestCanonicalSortingAndArrayOrder (0.00s)
+RMUT X05_canon_spec_lowerhex: KILLED by test: --- FAIL: TestCanonicalSpecModeEscaping (0.00s)
+RMUT X06_link_length_negative: KILLED by test: --- FAIL: TestParseRejectsBadLengths (1.32s)
+RMUT X07_link_length_null_rejected: SURVIVED
+RMUT X11_pse_count_zero_ok: KILLED by test: --- FAIL: TestIllegalStreamsAreNeverAdvertised (0.00s)
+RMUT X12_lsd_rels_array_dropped: KILLED by test: --- FAIL: TestParseStatusDocumentFullExample (0.00s)
+X14 (RFC3339 -> RFC3339Nano in parseTime): treated as equivalent (Go's RFC3339 parse already accepts fractional seconds); not counted.
+X18 (ignore the hint-decode error, license.go:230): equivalent - the typed decode of UserKeyInfo.TextHint (string) rejects every input the *string hint decode would reject. Counted as evidence for I1, not B1.
+Totals: 20 applied, 0 compile errors, 9 killed, 11 survived; of the survivors 9 are observable (X01-X06, X11, X12 by existing unit tests; X07 by reasoning: a license whose link has "length": null is rejected), 2 equivalent (X14, X18).
+
+== (5) re-run of the author's mutants (30, incl. the ones most likely to be compile errors: A04, O06, O07, K12, S14b, L15, M08, R20, M20) ==
+RMUT L12_link_href: KILLED by test: --- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+RMUT L15_unknown_sorted: KILLED by test: --- FAIL: FuzzParseLicense (0.01s)
+RMUT L00_syntax: KILLED by test: --- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+RMUT L03_issued_empty: KILLED by test: --- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+RMUT S01_trailing: KILLED by test: --- FAIL: FuzzParseStatusDocument (0.01s)
+RMUT S12_rel_error: KILLED by test: --- FAIL: FuzzParseStatusDocument (0.01s)
+RMUT S14b_pr_end_assigned: KILLED by test: --- FAIL: FuzzParseStatusDocument (0.01s)
+RMUT K09_inf_EQUIV: SURVIVED
+RMUT K11c_pct_one_rejected: KILLED by test: --- FAIL: FuzzPutProgressBody (0.06s)
+RMUT K12_timestamp: KILLED by test: --- FAIL: TestHRD070PutProgressReturnsStoredWinner (0.06s)
+RMUT O06_opensearch_xml: KILLED by test: --- FAIL: FuzzOPDSGeneration (0.00s)
+RMUT O07_acq12_xml: KILLED by test: --- FAIL: TestHRD070OPDSPaging (0.00s)
+RMUT O10b_pub_title_tag: KILLED by test: --- FAIL: TestHRD070OPDSPublication20 (0.00s)
+RMUT R01_L03_issued_errclass: KILLED by test: --- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+RMUT R03_updated_errclass: KILLED by test: --- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+RMUT R14_put_returns_input: KILLED by test: --- FAIL: TestHRD070PutProgressReturnsStoredWinner (0.06s)
+RMUT R16_opds_next_offset: KILLED by test: --- FAIL: TestHRD070OPDSPaging (0.00s)
+RMUT R20_opds12_authors: KILLED by test: --- FAIL: TestHRD070OPDSEntry12 (0.00s)
+RMUT V07_lic_issued_dropped: KILLED by test: --- FAIL: TestHRD070LicenseValuesPropagate (0.00s)
+RMUT A04_auth_wrong_password_ok: KILLED by test: --- FAIL: TestHRD070Authenticate (0.12s)
+RMUT A05_auth_unknown_user_ok: KILLED by test: --- FAIL: TestHRD070Authenticate (0.13s)
+RMUT N09_categories12: KILLED by test: --- FAIL: TestHRD070OPDSEntry12 (0.00s)
+RMUT M08_nav12_loop: KILLED by test: --- FAIL: TestHRD070OPDSNavigation (0.00s)
+RMUT M20_identifiers12: KILLED by test: --- FAIL: TestHRD070OPDSEntry12 (0.00s)
+RMUT M21_stream_link: KILLED by test: --- FAIL: TestHRD070OPDSEntry12 (0.00s)
+RMUT A06_auth_store_error: KILLED by test: --- FAIL: TestHRD070StoreErrorsPropagate (0.11s)
+RMUT A08_put_validation_all: KILLED by test: --- FAIL: TestHRD070PutProgressUnreachableByJSON (0.06s)
+RMUT E01_generic_decode_EQUIV: SURVIVED
+RMUT E02_parserels_empty_EQUIV: SURVIVED
+RMUT E04_register_hash_err_UNREACHABLE: SURVIVED
+Every KILLED row is a test failure (named --- FAIL), none is a compile error. The 4 expected survivors survive. Matches mutation.log.
+
+== (6) fuzz, evidence, trailers, PR body ==
+30 s per target, -parallel 4, scratch copy: all PASS, 0 crashers.
+[FuzzParseLicense] fuzz: elapsed: 31s, execs: 890542 (0/sec), new interesting: 1 (total: 640)
+[FuzzParseStatusDocument] fuzz: elapsed: 31s, execs: 1137984 (0/sec), new interesting: 3 (total: 747)
+[FuzzCanonical] fuzz: elapsed: 31s, execs: 422923 (0/sec), new interesting: 0 (total: 710)
+[FuzzPutProgressBody] fuzz: elapsed: 31s, execs: 294962 (0/sec), new interesting: 5 (total: 661)
+[FuzzRegisterInput] fuzz: elapsed: 30s, execs: 670583 (0/sec), new interesting: 0 (total: 61)
+[FuzzOPDSGeneration] fuzz: elapsed: 30s, execs: 51252 (0/sec), new interesting: 11 (total: 522)
+sha256sum -c SHA256SUMS: hrd070, hrd070-r2, hrd070-r3, hrd070-r4 OK; hrd070-r5 all OK (16 entries).
+PR body sha256 of mutation.log / RULES.md / fuzz_summary.txt match the head tree (14d258a6..., e5f36ddb..., 4fe3837b...). mutation.log: 178 MUTANT lines, 173 KILLED, 5 "SURVIVED (equivalent...)" = PR body.
+Trailers (git interpret-trailers --parse): dfb13c7, e79fc65: Co-Authored-By only (disclosed in PR body and NOTES); b8aa215, 9f6e759, b61c2e6: Roadmap-Item: HRD-070 + Co-Authored-By.
+PR body "native fuzz runs of 6 targets for 60 s each": consistent with fuzz_summary.txt; I re-ran 30 s only (60 s UNCONFIRMED by me).
+
+== BLOCKING ==
+
+B1. The "mechanical" rule table omits whole functions the fuzz targets test; the completeness claim is false again (same class as round-4 B2).
+NOTES.txt: "RULES.md is now GENERATED ... (every if/else/case/for/switch/default line in the functions under test)"; PR body: "mechanical rule enumeration over the production source (95 branch lines)".
+FuzzCanonical's function under test is lcp.Canonical; canonical.go has 74 branch lines and none is enumerated (FUNCS in enumerate_rules.py has no canonical.go entry). Its rejection rules (duplicate members -> ErrAmbiguousLicense, trailing data, malformed input) and its output rules (key order, true/false, escape hex case) have no row and no HRD-070 oracle: FuzzCanonical asserts only idempotence. Reviewer mutants X01 (reverse key order), X02 (duplicates accepted), X03 (trailing data accepted), X04 (true written as false), X05 (spec mode lower-case hex) all SURVIVE every HRD-070 test and are each KILLED by an existing ./pkg/lcp unit test (TestCanonicalSpecExample, TestCanonicalRejectsDuplicateMembers, TestCanonicalRejectsMalformedInput, TestCanonicalSortingAndArrayOrder, TestCanonicalSpecModeEscaping) - observable, not equivalent.
+Same for callees of the targets: Link.UnmarshalJSON (reached by FuzzParseLicense through Parse): X06 negative link length accepted -> SURVIVES HRD-070, killed by TestParseRejectsBadLengths; X07 "length": null now rejected -> SURVIVES everything. pse.go streamLink (reached by FuzzOPDSGeneration): X11 count 0 advertised -> SURVIVES HRD-070, killed by TestIllegalStreamsAreNeverAdvertised. lsd.go parseRels array branch: X12 array rels dropped -> SURVIVES HRD-070, killed by TestParseStatusDocumentFullExample.
+Remedy (either, author's choice): (a) derive FUNCS from what the targets execute (e.g. go test -coverprofile of the seed run, every function with a covered statement in the four packages) and add rows/oracles/seeds for canonical.go, Link.UnmarshalJSON, StatusValue.valid, streamLink; or (b) state the exact scope in NOTES, RULES.md header and PR body ("functions listed in FUNCS; canonical.go, Link.UnmarshalJSON, ... are NOT enumerated and FuzzCanonical checks idempotence only") and file the gap as a tracked item.
+
+== IMPORTANT ==
+
+I1. The generator does not bind a KILL row to a mutant of that branch: it only checks that the listed mutants were killed somewhere. Example: license.go:230 "if err := json.Unmarshal(generic[\"encryption\"], &hint); err != nil {" is recorded KILL:L00_syntax, but L00 edits line 187; the branch's own mutant X18 SURVIVES (it is in fact equivalent/unreachable, so the row should be EQUIV/UNREACHABLE with its own surviving mutant). Loop rows ("for k := range generic" -> L15 edits sort.Strings) are similar approximations. Suggest: require each KILL mutant's sed address to hit the row's own line (or record the row as covered-by-neighbour explicitly).
+I2. Line granularity: continuation lines of a multi-line condition (PutProgress service.go:72-73) and booleans on assignment lines (lsd.go:240) are not enumerated; they happen to be killed by K*/X08 here, but the generator would not report a new unmapped clause there.
+
+== MINOR (follow-up list, test-instrumentation / process-doc) ==
+
+M1. E02 is equivalent at sentinel level only; the error message changes (pasted above). Say "same typed error, different message" in the row.
+M2. Handler layer (httpapi/kosync.go) not fuzzed and gin-binder equivalence UNCONFIRMED: honestly disclosed; needs its own tracked item (none cited).
+M3. dfb13c7 / e79fc65 Roadmap-Item not parsed as trailer: disclosed; cannot be fixed without rewrite.
+
+== VERIFIED AS CLAIMED ==
+- Typed error of every rejection rule in the FUNCS scope is asserted (L03, R01, R02, R03 killed by TestHRD070LicenseRejectionClasses; my X17 killed by TestHRD070LicenseValuesPropagate).
+- All re-run author mutants: kills are real test failures; no compile error counted as a kill.
+- Generator self-test behaviour reproduced.
+- 5 survivors: 4 equivalent/unreachable as stated, E02 equivalent at class level only (M1).

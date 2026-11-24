@@ -1,0 +1,11 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/617 completed
+fuzz: elapsed: 2s, gathering baseline coverage: 617/617 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 15933 (5311/sec), new interesting: 0 (total: 617)
+fuzz: elapsed: 6s, execs: 96942 (27002/sec), new interesting: 0 (total: 617)
+fuzz: elapsed: 9s, execs: 177509 (26856/sec), new interesting: 1 (total: 618)
+fuzz: elapsed: 12s, execs: 256458 (26315/sec), new interesting: 2 (total: 619)
+fuzz: elapsed: 15s, execs: 328942 (24164/sec), new interesting: 2 (total: 619)
+fuzz: elapsed: 18s, execs: 401686 (24246/sec), new interesting: 2 (total: 619)
+fuzz: elapsed: 20s, execs: 449505 (21902/sec), new interesting: 2 (total: 619)
+PASS
+ok  	github.com/helixreader/helix/server/internal/kosync	20.295s

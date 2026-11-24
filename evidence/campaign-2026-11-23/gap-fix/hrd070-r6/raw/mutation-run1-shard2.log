@@ -1,0 +1,344 @@
+MUTANT L02_provider: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.01s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 192-192
+  restored: GREEN again
+MUTANT L07_profile: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 211-211
+  restored: GREEN again
+MUTANT L09b_uk_keycheck: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.01s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 222-222
+  restored: GREEN again
+MUTANT L13a_sig_algorithm: KILLED
+--- FAIL: TestHRD070LicenseRejectionClasses (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 244-244
+  restored: GREEN again
+MUTANT L15_unknown_sorted: KILLED
+--- FAIL: FuzzParseLicense (0.01s)
+    --- FAIL: FuzzParseLicense/seed#47 (0.00s)
+  edits core/pkg/lcp/license.go 266-266
+  restored: GREEN again
+MUTANT S01_trailing: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#98 (0.00s)
+  edits core/pkg/lcp/lsd.go 201-201
+  restored: GREEN again
+MUTANT S06_updated_required: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#53 (0.00s)
+  edits core/pkg/lcp/lsd.go 213-213
+  restored: GREEN again
+MUTANT S09_updated_license: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#74 (0.00s)
+  edits core/pkg/lcp/lsd.go 224-224
+  restored: GREEN again
+MUTANT S12b_rel_empty: KILLED
+--- FAIL: TestHRD070LSDLinkRelForms (0.00s)
+--- FAIL: FuzzParseStatusDocument (0.01s)
+  edits core/pkg/lcp/lsd.go 281-281
+  restored: GREEN again
+MUTANT S14b_pr_end_assigned: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#88 (0.00s)
+  edits core/pkg/lcp/lsd.go 251-251
+  restored: GREEN again
+MUTANT S02_decode: KILLED
+--- FAIL: TestHRD070LSDRejectionClasses (0.00s)
+  edits core/pkg/lcp/lsd.go 198-198
+  restored: GREEN again
+MUTANT K04_doc_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#19 (0.00s)
+  edits server/internal/kosync/service.go 72-72
+  restored: GREEN again
+MUTANT K06_device_len: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#21 (0.00s)
+  edits server/internal/kosync/service.go 72-72
+  restored: GREEN again
+MUTANT K08_nan: KILLED
+--- FAIL: TestHRD070PutProgressUnreachableByJSON (0.06s)
+    fuzz_test.go:109: NaN percentage not rejected: <nil>
+  edits server/internal/kosync/service.go 73-73
+  restored: GREEN again
+MUTANT K11_pct_upper_dropped: KILLED
+--- FAIL: FuzzPutProgressBody (0.06s)
+    --- FAIL: FuzzPutProgressBody/seed#1 (0.00s)
+  edits server/internal/kosync/service.go 73-73
+  restored: GREEN again
+MUTANT K13_reg_switch: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.13s)
+    fuzz_test.go:131: registration off: <nil>
+  edits server/internal/kosync/service.go 39-39
+  restored: GREEN again
+MUTANT K14d_user_max_down: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.23s)
+    fuzz_test.go:146: Register(32-byte user, 72-byte pass): err=kosync: invalid input want ok=true
+  edits server/internal/kosync/service.go 18-18
+  restored: GREEN again
+MUTANT K16_pass_max: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.36s)
+    fuzz_test.go:146: Register(3-byte user, 73-byte pass): err=hash verifier: bcrypt: password length exceeds 72 bytes want ok=false
+  edits server/internal/kosync/service.go 42-42
+  restored: GREEN again
+MUTANT K17c_get_doc_len_off: KILLED
+--- FAIL: TestHRD070GetProgressBoundary (0.06s)
+    fuzz_test.go:120: document length 255: invalid=true want false (kosync: invalid input)
+  edits server/internal/kosync/service.go 86-86
+  restored: GREEN again
+MUTANT O04_acq_href12: KILLED
+--- FAIL: TestHRD070OPDSEntry12 (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/detail.go 35-35
+  restored: GREEN again
+MUTANT O08_feed_title20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  edits server/internal/opds/opds20.go 15-15
+  restored: GREEN again
+MUTANT O11_identifier20: KILLED
+--- FAIL: TestHRD070OPDSPublication20 (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/detail.go 58-58
+  restored: GREEN again
+MUTANT O15_feed_context20: KILLED
+--- FAIL: FuzzOPDSGeneration (0.00s)
+    --- FAIL: FuzzOPDSGeneration/seed#0 (0.00s)
+  edits server/internal/opds/opds20.go 15-15
+  restored: GREEN again
+MUTANT R04_lsd_event_revoke: KILLED
+--- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+  edits core/pkg/lcp/lsd.go 187-187
+  restored: GREEN again
+MUTANT R08_lsd_event_name_dropped: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#58 (0.00s)
+  edits core/pkg/lcp/lsd.go 256-256
+  restored: GREEN again
+MUTANT R12_auth_user_empty: KILLED
+--- FAIL: TestHRD070Authenticate (0.14s)
+    fuzz_test.go:230: empty username (account exists): error <nil>, want ErrInvalidAuth
+  edits server/internal/kosync/service.go 53-53
+  restored: GREEN again
+MUTANT R16_opds_next_offset: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/opds12.go 98-98
+  restored: GREEN again
+MUTANT R20_opds12_authors: KILLED
+--- FAIL: TestHRD070OPDSEntry12 (0.00s)
+  edits server/internal/opds/detail.go 19-19
+  restored: GREEN again
+MUTANT V01_lsd_message_dropped: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#57 (0.00s)
+  edits core/pkg/lcp/lsd.go 219-219
+  restored: GREEN again
+MUTANT V05_lic_signature_dropped: KILLED
+--- FAIL: TestHRD070LicenseValuesPropagate (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 250-250
+  restored: GREEN again
+MUTANT V09_lic_raw_dropped: KILLED
+--- FAIL: TestHRD070LicenseValuesPropagate (0.00s)
+  edits core/pkg/lcp/license.go 249-249
+  restored: GREEN again
+MUTANT A04_auth_wrong_password_ok: KILLED
+--- FAIL: TestHRD070Authenticate (0.16s)
+    fuzz_test.go:230: wrong password: error <nil>, want ErrInvalidAuth
+  edits server/internal/kosync/service.go 64-64
+  restored: GREEN again
+MUTANT N03_lcp12_requires_href: KILLED
+--- FAIL: TestHRD070OPDSEntry12 (0.00s)
+--- FAIL: TestHRD070OPDSPublication20 (0.00s)
+  edits server/internal/opds/detail.go 36-36,73-73
+  restored: GREEN again
+MUTANT N07_publisher20: KILLED
+--- FAIL: TestHRD070OPDSPublication20 (0.00s)
+  edits server/internal/opds/detail.go 66-66
+  restored: GREEN again
+MUTANT N11_language20: KILLED
+--- FAIL: TestHRD070OPDSPublication20 (0.00s)
+  edits server/internal/opds/detail.go 60-60
+  restored: GREEN again
+MUTANT M04_potential_rights: KILLED
+--- FAIL: FuzzParseStatusDocument (0.01s)
+    --- FAIL: FuzzParseStatusDocument/seed#88 (0.00s)
+  edits core/pkg/lcp/lsd.go 246-246
+  restored: GREEN again
+MUTANT M08_nav12_loop: KILLED
+--- FAIL: TestHRD070OPDSNavigation (0.00s)
+  edits server/internal/opds/opds12.go 39-39
+  restored: GREEN again
+MUTANT M12_nextpos_nilcursor: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+  edits server/internal/opds/opds12.go 93-93
+  restored: GREEN again
+MUTANT M16_acq12_updated: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+  edits server/internal/opds/opds12.go 123-123
+  restored: GREEN again
+MUTANT M17e_acq12_prev_cursor: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+  edits server/internal/opds/opds12.go 132-132
+  restored: GREEN again
+MUTANT M19b_acq20_entries: KILLED
+--- FAIL: TestHRD070OPDSPaging (0.00s)
+--- FAIL: FuzzOPDSGeneration (0.00s)
+  edits server/internal/opds/opds20.go 26-26
+  restored: GREEN again
+MUTANT M23_pub20_authors: KILLED
+--- FAIL: TestHRD070OPDSPublication20 (0.00s)
+  edits server/internal/opds/detail.go 63-63
+  restored: GREEN again
+MUTANT A07_put_store_error: KILLED
+--- FAIL: TestHRD070StoreErrorsPropagate (0.12s)
+    fuzz_test.go:298: write failure: <nil>, want the store error
+  edits server/internal/kosync/service.go 78-78
+  restored: GREEN again
+MUTANT A11_get_invalid_err: KILLED
+--- FAIL: TestHRD070GetProgressBoundary (0.06s)
+    fuzz_test.go:120: document length 0: invalid=false want true (kosync: progress not found)
+  edits server/internal/kosync/service.go 87-87
+  restored: GREEN again
+MUTANT X04_canon_bool_true_false: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 222-222
+  restored: GREEN again
+MUTANT X08_lsd_haslicense_last_only: KILLED
+--- FAIL: TestHRD070LSDRejectionClasses (0.00s)
+--- FAIL: TestHRD070LegalDocumentsAreAccepted (0.00s)
+  edits core/pkg/lcp/lsd.go 240-240
+  restored: GREEN again
+MUTANT X12_lsd_rels_array_dropped: KILLED
+--- FAIL: TestHRD070LSDLinkRelForms (0.01s)
+  edits core/pkg/lcp/lsd.go 290-290
+  restored: GREEN again
+MUTANT X17_lic_unknown_known_member: KILLED
+--- FAIL: TestHRD070LicenseValuesPropagate (0.00s)
+--- FAIL: FuzzParseLicense (0.01s)
+  edits core/pkg/lcp/license.go 159-159
+  restored: GREEN again
+MUTANT C03_write_err_ignored: KILLED
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 77-77
+  restored: GREEN again
+MUTANT C07_wtm_not_object: KILLED
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 124-124
+  restored: GREEN again
+MUTANT C12_wtm_member_match: KILLED
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 143-143
+  restored: GREEN again
+MUTANT C17_snd_scalar: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 178-178
+  restored: GREEN again
+MUTANT C21_snd_obj_key_err: SURVIVED (BAD)
+  edits core/pkg/lcp/canonical.go 186-186
+  restored: GREEN again
+MUTANT C27_snd_arr_recurse_err: KILLED
+  edits core/pkg/lcp/canonical.go 203-203
+  restored: GREEN again
+MUTANT C32_wc_case_bool: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 220-220
+  restored: GREEN again
+MUTANT C36_wc_number_err: KILLED
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 228-228
+  restored: GREEN again
+MUTANT C40_wc_arr_comma: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 237-237
+  restored: GREEN again
+MUTANT C44_wc_members_loop: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 252-252
+  restored: GREEN again
+MUTANT C49_wcs_loop_bound: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 280-280
+  restored: GREEN again
+MUTANT C52a_wcs_quote: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 294-294
+  restored: GREEN again
+MUTANT C52e_wcs_newline: NOT APPLIED (mutant does not compile; a compile error is not a kill)
+  edits core/pkg/lcp/canonical.go 302-302
+  restored: GREEN again
+MUTANT C53b_wcs_control_above: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 309-309
+  restored: GREEN again
+MUTANT C57_cn_minus_zero: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+  edits core/pkg/lcp/canonical.go 340-340
+  restored: GREEN again
+MUTANT C61a_cn_exp_upper_loose: KILLED
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 357-357
+  restored: GREEN again
+MUTANT C62_cn_fraction_split: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalForSigning (0.00s)
+  edits core/pkg/lcp/canonical.go 363-363
+  restored: GREEN again
+MUTANT C72_link_length_string: KILLED
+--- FAIL: TestHRD070LinkLength (0.00s)
+  edits core/pkg/lcp/license.go 66-66
+  restored: GREEN again
+MUTANT C80_valid_switch: KILLED
+--- FAIL: TestHRD070StatusVocabularyAndRefresh (0.00s)
+--- FAIL: TestHRD070LSDLinkRelForms (0.00s)
+  edits core/pkg/lcp/lsd.go 73-73
+  restored: GREEN again
+MUTANT H01_hasrel_loop: KILLED
+--- FAIL: TestHRD070StatusVocabularyAndRefresh (0.00s)
+--- FAIL: TestHRD070LSDLinkHasRel (0.00s)
+  edits core/pkg/lcp/lsd.go 93-93
+  restored: GREEN again
+MUTANT N03_refresh_issued_fallback: KILLED
+--- FAIL: TestHRD070StatusVocabularyAndRefresh (0.00s)
+  edits core/pkg/lcp/lsd.go 306-306
+  restored: GREEN again
+MUTANT Y03_mem_progress_map: KILLED
+--- FAIL: TestHRD070PutProgressReturnsStoredWinner (0.06s)
+	/home/milosvasic/.cache/claude-tmp/mutscratch.xzxp/w/server/internal/kosync/fuzz_test.go:245 +0x249
+  edits server/internal/kosync/memory.go 43-43
+  restored: GREEN again
+MUTANT D01_register_username_pattern: KILLED
+--- FAIL: TestHRD070RegisterBoundaries (0.38s)
+    fuzz_test.go:146: Register(2-byte user, 8-byte pass): err=<nil> want ok=false
+  edits server/internal/kosync/service.go 42-42
+  restored: GREEN again
+MUTANT F02_CanonicalAsReference_mode: KILLED
+--- FAIL: TestHRD070CanonicalOutput (0.00s)
+--- FAIL: TestHRD070CanonicalRejections (0.00s)
+  edits core/pkg/lcp/canonical.go 63-63
+  restored: GREEN again
+MUTANT F06_NewMemory_progress_map: KILLED
+--- FAIL: TestHRD070PutProgressReturnsStoredWinner (0.05s)
+	/home/milosvasic/.cache/claude-tmp/mutscratch.xzxp/w/server/internal/kosync/fuzz_test.go:245 +0x20f
+  edits server/internal/kosync/memory.go 17-17
+  restored: GREEN again
+MUTANT F11_Navigation20_title: KILLED
+--- FAIL: TestHRD070OPDSNavigation (0.00s)
+  edits server/internal/opds/opds20.go 10-10
+  restored: GREEN again
+MUTANT E03_opensearch_base_EQUIV: SURVIVED (equivalent, expected)
+  edits server/internal/opds/opds12.go 46-46
+  restored: GREEN again
+MUTANT C02_canon_decode_err_EQUIV: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/canonical.go 73-73
+  restored: GREEN again
+MUTANT C47_wc_default_UNREACHABLE: SURVIVED (equivalent, expected)
+  edits core/pkg/lcp/canonical.go 264-264
+  restored: GREEN again
