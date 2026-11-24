@@ -1,0 +1,45 @@
+npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 270 packages in 9s
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice
+
+> helix-reader-web@0.1.0 build
+> tsc -b && vite build
+
+vite v7.3.8 building client environment for production...
+transforming...
+✓ 37 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.49 kB │ gzip:  0.30 kB
+dist/assets/index-Cgxcm7QF.css    3.42 kB │ gzip:  1.23 kB
+dist/assets/index-HS0Fcywq.js   234.89 kB │ gzip: 73.60 kB
+✓ built in 2.20s
+
+added 98 packages in 2s
+✔ Copying web assets from dist to android/app/src/main/assets/public in 9.64ms
+✔ Creating capacitor.config.json in android/app/src/main/assets in 1.44ms
+✔ copy android in 23.12ms
+✔ Updating Android plugins in 1.48ms
+✔ update android in 44.66ms
+[info] Sync finished in 0.09s
+[android_matrix] prepared tree at /home/milosvasic/.cache/claude-tmp/hrd040-work/prepared (git-free, host-only)
+[android_matrix] unit tests (JVM, offline, --network none)
+[android_matrix] assemble debug + androidTest APKs (offline)
+[android_matrix] boot hrdiso-android-api34 (ghcr.io/vasic-digital/lava-android-emulator@sha256:afbc7a1c89a5e15a027f3194a26eec33689769cacf64a9bd2142f1f7a1cd121e)
+[android_matrix] row api34-phone: 1080x2400@420
+[android_matrix] row api34-small: 720x1280@320
+[android_matrix] row api34-tablet: 1600x2560@320
+[android_matrix] boot hrdiso-android-api30 (localhost/hrd040-emu:api30-x86_64)
+[android_matrix] row api30-phone: 1080x2400@420
+[android_matrix] boot hrdiso-android-api36 (localhost/hrd040-emu:api36-x86_64)
+[android_matrix] row api36-phone: 1080x2400@420
+api30-phone    PASS     sdk=30 px=1080x2274 dpi=420 widthDp=411 heightDp=866 webview=1080x2211
+api34-phone    PASS     sdk=34 px=1080x2337 dpi=420 widthDp=411 heightDp=890 webview=1080x2274
+api34-small    PASS     sdk=34 px=720x1232 dpi=320 widthDp=360 heightDp=616 webview=720x1184
+api34-tablet   PASS     sdk=34 px=1600x2440 dpi=320 widthDp=800 heightDp=1220 webview=1600x2392
+api36-phone    PASS     sdk=36 px=1080x2400 dpi=420 widthDp=411 heightDp=914 webview=1080x2274

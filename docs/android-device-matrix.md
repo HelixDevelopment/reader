@@ -65,7 +65,7 @@ relative names; `source_rev.txt` is the git revision the APKs were built from (`
 
 Evidence (sealed, `SHA256SUMS` in each directory): `evidence/android-matrix/run-v2/` (all rows, unit, mutant, APK hashes, installed-package read-back,
 runner log, runner/summarizer self-tests with their RED runs) and `evidence/android-matrix/run-red/` (the RED run before the fix below, older runner).
-Sealed manifest of `run-v2`: sha256 of its `SHA256SUMS` = `77958a73aa4750cbe16de4a725957fd0a3af7d27ebebd85b0d48396baa913903`. APKs built from source revision `ef369a58bf6fb29e7c883b21889dcc6036ddfce2`
+`evidence/android-matrix/run-final/` is the SUPERSEDED first run (earlier runner, no installed-hash read-back, absolute paths in `apk.sha256.txt`); it stays only because earlier commits cite it and evidence is frozen once recorded. Sealed manifest of `run-v2`: sha256 of its `SHA256SUMS` = `77958a73aa4750cbe16de4a725957fd0a3af7d27ebebd85b0d48396baa913903`. APKs built from source revision `ef369a58bf6fb29e7c883b21889dcc6036ddfce2`
 (`source_rev.txt`); every row's installed `base.apk` sha256 equals the build (`installed.txt`).
 
 | Check | Result |
