@@ -1,0 +1,21 @@
+?   	github.com/helixreader/helix/server/cmd/helix-http3-check	[no test files]
+# github.com/helixreader/helix/server/internal/httpapi [github.com/helixreader/helix/server/internal/httpapi.test]
+internal/httpapi/slow_client_live_test.go:431:22: invalid operation: r.LatencyMS >= jobsFastReadBudget.Milliseconds() (mismatched types float64 and int64)
+internal/httpapi/slow_client_live_test.go:441:54: invalid operation: s.TimeToTerminalMS > jobsSlowScanBudget.Milliseconds() (mismatched types float64 and int64)
+internal/httpapi/slow_client_live_test.go:484:31: invalid operation: ev.Shutdown.ElapsedMS >= jobsShutdownBudget.Milliseconds() + 500 (mismatched types float64 and int64)
+internal/httpapi/slow_client_live_test.go:591:14: cannot use jobsDeadlineScanBudget.Milliseconds() (value of type int64) as float64 value in struct literal
+internal/httpapi/slow_client_live_test.go:601:14: cannot use jobsShutdownBudget.Milliseconds() (value of type int64) as float64 value in struct literal
+ok  	github.com/helixreader/helix/server/cmd/helix-pse-check	0.013s
+?   	github.com/helixreader/helix/server/cmd/helix-server	[no test files]
+ok  	github.com/helixreader/helix/server/internal/aimemory	0.163s
+ok  	github.com/helixreader/helix/server/internal/catalog	58.547s
+ok  	github.com/helixreader/helix/server/internal/config	0.026s
+ok  	github.com/helixreader/helix/server/internal/covers	0.023s
+FAIL	github.com/helixreader/helix/server/internal/httpapi [build failed]
+ok  	github.com/helixreader/helix/server/internal/identify	0.061s
+ok  	github.com/helixreader/helix/server/internal/ingest	0.453s
+ok  	github.com/helixreader/helix/server/internal/kosync	0.564s
+ok  	github.com/helixreader/helix/server/internal/opds	0.017s
+ok  	github.com/helixreader/helix/server/internal/sources	0.387s
+ok  	github.com/helixreader/helix/server/internal/syncstore	0.010s
+FAIL

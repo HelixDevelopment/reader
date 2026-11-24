@@ -1,0 +1,100 @@
+{
+  "assertions": {
+    "browse_max_shortfall": 0,
+    "browse_short_pages": 0,
+    "merge_ops_per_sec": 266.06565964484724,
+    "repo_browse_knee_ms": 27.7,
+    "repo_browse_p95_ms": 0,
+    "repo_browse_p95_within_knee": true,
+    "text_search_knee_s": 12,
+    "text_search_p99_ms": 0,
+    "text_search_p99_s": 0,
+    "text_search_p99_within_knee": true,
+    "write_floor_ops_per_sec": 271.94,
+    "write_throughput_floor_met": false,
+    "zero_ingest_errors": true,
+    "zero_read_errors": true
+  },
+  "emitted_at": "2026-11-23T19:06:11Z",
+  "ingest_arms": [
+    {
+      "name": "merge_work",
+      "workers": 3,
+      "ops": 3195,
+      "errors": {},
+      "ops_per_sec": 266.06565964484724,
+      "p50_ms": 10.379,
+      "p95_ms": 16.467,
+      "p99_ms": 25.052
+    },
+    {
+      "name": "reconcile_source",
+      "workers": 3,
+      "ops": 3197,
+      "errors": {},
+      "ops_per_sec": 266.23221091849035,
+      "p50_ms": 10.376,
+      "p95_ms": 16.401,
+      "p99_ms": 24.541
+    }
+  ],
+  "measurement_path": "host_hrd027_merge_only_control",
+  "overlap_seconds": 12,
+  "overlap_wall_seconds": 12.008314054,
+  "read_arms": [
+    {
+      "name": "repo_browse",
+      "clients": 0,
+      "requests": 0,
+      "rows_read": 0,
+      "errors": {},
+      "p50_ms": 0,
+      "p95_ms": 0,
+      "p99_ms": 0
+    },
+    {
+      "name": "opds_search",
+      "clients": 0,
+      "requests": 0,
+      "rows_read": 0,
+      "errors": {},
+      "p50_ms": 0,
+      "p95_ms": 0,
+      "p99_ms": 0
+    },
+    {
+      "name": "text_search",
+      "clients": 0,
+      "requests": 0,
+      "rows_read": 0,
+      "errors": {},
+      "p50_ms": 0,
+      "p95_ms": 0,
+      "p99_ms": 0
+    }
+  ],
+  "rows_read": 0,
+  "rows_written": {
+    "works": 3,
+    "editions": 3,
+    "files": 4,
+    "identifiers": 3,
+    "metadata_evidence": 0
+  },
+  "run_tag": "atm027overlap20261123T190558Z",
+  "seeded_rows": {
+    "works": 200,
+    "editions": 200,
+    "files": 200,
+    "identifiers": 0,
+    "metadata_evidence": 0
+  },
+  "test": "ingest_concurrent_with_reads",
+  "write_throughput": {
+    "floor_ops_per_sec": 271.94,
+    "floor_source": "evidence/campaign-2026-11-20/lock-scope/summary.md (legacy-global arm)",
+    "merge_ops_per_sec": 266.06565964484724,
+    "reconcile_ops_per_sec": 266.23221091849035,
+    "sharded_arm_ops_per_sec": 1592.21
+  }
+}
