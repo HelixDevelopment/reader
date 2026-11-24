@@ -895,7 +895,7 @@ UNCONFIRMED: a same-size flip that also restores mtime and inode of a cache file
 - UNCONFIRMED: production HelixTrack instance, external auth/permission services, multi-user permission scoping, attachments, scale.
 - Wording and quirks: `docs/helixtrack-sync.md`.
 
-## HRD-046 LCP interop against the Readium reference provider (2026-11-24, PR #33)
+## HRD-046 LCP interop against the Readium reference provider (2026-11-24, PR #38, supersedes closed #33)
 
 `core/pkg/lcp` was run as a library consumer against the real Readium License Server, Status Server and `lcpencrypt` (readium-lcp-server@32570b69) in a
 rootless, network-less container (`qa/lcp-interop`, see its README). Sealed evidence: `evidence/lcp-interop-run1..3` (17 PASS assertions + 2 INFO records each,

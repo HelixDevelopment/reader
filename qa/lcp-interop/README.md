@@ -26,7 +26,7 @@ the server/OPDS path, a third-party reader opening a Helix artifact.
    `CGO_ENABLED=1 go build -o /out/lcpserver ./lcpserver` (likewise `./lsdserver`, `./lcpencrypt`) with `src` mounted at the working dir.
 2. Helix test binary, no network:
    `podman run --rm --network none --cap-drop ALL --security-opt no-new-privileges -e CGO_ENABLED=0 -e GOPROXY=off -e GOFLAGS=-mod=mod -e GOCACHE=/gc -v <repo>/core:/src:ro -v <out>:/out -v <gocache>:/gc -w /src docker.io/library/golang@sha256:0fd028db9bdd4f01657bc8047c209b04d8ce19b853d776bd6f1e76a41729b936 go test -c -o /out/lcp.test ./pkg/lcp/`
-   (the module cache in `<gocache>` must already hold the dependencies).
+   (`<gocache>` is the Go build cache directory; core is stdlib-only, so no module cache is needed).
 3. Inputs, all from `readium-lcp-server@32570b69` `test/`: `samples/sample.epub` (sha256 9c516119872123fe61ca8311b525b980a08c52fcb1710777fc10f87c33caf3c7),
    `samples/lorem.epub` (sha256 291086e08da8671a702f64f3b5594113f0684f076f3957080a2c9ed7321bcdef), `cert/cert-edrlab-test.pem`
    (sha256 874afaf5bd6b8d2262d541ea867dce31452e3cd63b98699797741e9298738f83). The hashes were compared with the copies used for the evidence.
