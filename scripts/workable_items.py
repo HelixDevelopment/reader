@@ -347,7 +347,7 @@ def _validate(db: sqlite3.Connection, check_hash: bool) -> list[str]:
         errors.append(problem)
     for row in db.execute("SELECT * FROM item_history"):
         for column in ("event_type", "actor", "on_date", "reason", "evidence_path"):
-            if CONTROL_RE.search(row[column] or ""):
+            if stored_has_invisible(row[column]):
                 errors.append(f'{row["atm_id"]}: history #{row["sequence"]} {column} contains control characters')
         if any(BOUNDARY_RE.search(row[column] or "") for column in ("reason", "evidence_path")):
             errors.append(f'{row["atm_id"]}: history #{row["sequence"]} carries the field boundary token')
@@ -371,7 +371,7 @@ def _validate(db: sqlite3.Connection, check_hash: bool) -> list[str]:
             errors.append(f"{atm}: invalid or duplicate {PROJECT_KEY} identifier")
         seen.add(atm)
         for column in TEXT_COLUMNS:
-            if CONTROL_RE.search(item[column] or ""):
+            if stored_has_invisible(item[column]):
                 errors.append(f"{atm}: {column} contains control characters")
             if len(item[column] or "") > MAX_FIELD_CHARS:
                 errors.append(f"{atm}: {column} exceeds {MAX_FIELD_CHARS} characters")
@@ -451,6 +451,11 @@ FIELD_TOKENS = {"actor": BOUNDARY_RE, "reason": BOUNDARY_RE, "evidence": BOUNDAR
 
 
 MAX_FIELD_CHARS = 32768
+
+
+def stored_has_invisible(value: str | None) -> bool:
+    """Stored-row counterpart of the input check: control/invisible characters or any Unicode format (Cf) character."""
+    return bool(value) and (bool(CONTROL_RE.search(value)) or any(unicodedata.category(ch) == "Cf" for ch in value))
 
 
 def refuse_control_chars(**fields: str | None) -> None:
@@ -1267,8 +1272,7 @@ def main() -> int:
         elif args.command == "diff":
             differences = diff(db)
             outbox = DOCS / "tracking" / "helixtrack-outbox.json"
-            if outbox.exists():
-                differences += outbox_differences(db, outbox)
+            differences += outbox_differences(db, outbox)  # a missing outbox is a difference, not a pass
             print(json.dumps({"status": "PASS" if not differences else "FAIL", "differences": differences}, sort_keys=True))
             return bool(differences)
         elif args.command == "export":

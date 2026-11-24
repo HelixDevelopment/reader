@@ -1384,6 +1384,36 @@ class WorkableItemsTest(unittest.TestCase):
         self.assertEqual(missing.returncode, 2)
         self.db = wi.connect(self.root / "other.db")
 
+    def test_diff_fails_without_outbox_and_stored_rows_refuse_format_characters_and_cap_boundary(self):
+        import os, shutil, subprocess, sys, tempfile
+        # CLI diff: a deleted outbox is a difference, never a pass (sandbox with its own empty registry).
+        with tempfile.TemporaryDirectory(prefix="helix-wi-diff-") as tmp:
+            top = Path(tmp)
+            (top / "scripts").mkdir()
+            (top / "docs" / "tracking").mkdir(parents=True)
+            shutil.copyfile(ROOT / "scripts" / "workable_items.py", top / "scripts" / "workable_items.py")
+            run = lambda *args: subprocess.run([sys.executable, "scripts/workable_items.py", "--db", "docs/workable_items.db", *args], cwd=top, text=True, capture_output=True)
+            self.assertEqual(run("export", "--no-pdf").returncode, 0)
+            self.assertEqual(run("helixtrack-outbox").returncode, 0)
+            done = run("diff")
+            self.assertEqual((done.returncode, json.loads(done.stdout)["status"]), (0, "PASS"), done.stdout + done.stderr)
+            (top / "docs" / "tracking" / "helixtrack-outbox.json").unlink()
+            done = run("diff")
+            self.assertEqual(done.returncode, 1, done.stdout + done.stderr)
+            self.assertIn("helixtrack-outbox.json: missing", json.loads(done.stdout)["differences"])
+        # BMP format character (category Cf, not in CONTROL_RE) is refused on input and in stored rows.
+        with self.assertRaises(ValueError, msg="U+0600 on input"):
+            wi.add_item(self.db, new_item_args(title="a\u0600b"))
+        atm = self.add()
+        self.db.execute("UPDATE items SET title=? WHERE atm_id=?", ("stored\u0600title", atm))
+        self.assertTrue(self.errors_containing("contains control characters"), wi.validate(self.db))
+        self.db.execute("UPDATE items SET title='plain title' WHERE atm_id=?", (atm,))
+        # Stored cap boundary: exactly MAX_FIELD_CHARS is fine, one more is not.
+        self.db.execute("UPDATE items SET description=? WHERE atm_id=?", ("w " * (wi.MAX_FIELD_CHARS // 2), atm))
+        self.assertFalse(self.errors_containing("exceeds"), wi.validate(self.db))
+        self.db.execute("UPDATE items SET description=? WHERE atm_id=?", ("w " * (wi.MAX_FIELD_CHARS // 2) + "w", atm))
+        self.assertTrue(self.errors_containing("exceeds"), wi.validate(self.db))
+
     def test_unblock_is_a_recorded_transition(self):
         self.use_evidence_root()
         atm = self.add()

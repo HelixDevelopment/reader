@@ -2,8 +2,8 @@
 
 Status: proven against a **self-hosted local Helix-Track/Core instance only** (rounds 1 and 2, 2026-11-23). Not proven
 against any production HelixTrack deployment. Tool: `tools/helixtrack-sync/helixtrack_sync.py` (stdlib Python, never writes
-the registry). Evidence: `evidence/campaign-2026-11-23/helixtrack/` (round 1 in `live/`, round 2 in `runs/20261123T212401Z/`,
-`latest` points at the newest run; `SHA256SUMS.top` and each run's `SHA256SUMS`).
+the registry). Evidence: `evidence/campaign-2026-11-23/helixtrack/` (round 1 in `live/`, with its own `SHA256SUMS`; round 2 in `runs/20261123T212401Z/`; the `latest` link and `SHA256SUMS.top` seal all runs).
+**Not in the repository yet:** `runs/`, `latest`, `SHA256SUMS.top` and `run_live.sh` belong to HRD-029 (undelivered, mapped in docs/tracking/pending_ownership.json); only round 1 (`live/`, redaction-scanned) and the four `core-*`/`mutants-round2` files are tracked.
 
 ## Target API (read from Helix-Track/Core @ c85221282d8b, Application/internal)
 
@@ -66,7 +66,7 @@ compare mismatch), 3 error or aborted run (including every item below).
 
 **Single-instance lock.** Every invocation (push, pull, compare, dry-run) takes an exclusive, non-blocking `flock` on `<state>.lock` (a 0600 file beside the state file; POSIX only) before
 reading any input. A second concurrent run exits **3** at once with `LockError: another helixtrack-sync instance holds the lock ...`, makes no request, and deliberately does **not**
-overwrite `--report` (that file belongs to the running instance). The kernel drops the lock when the process ends or dies, so there is no stale-lock cleanup; the `.lock` file
+overwrite `--report` (that file belongs to the running instance). The kernel drops the lock when the process ends or dies, so there is no stale-lock cleanup; the lock file
 itself is left in place and is safe to ignore or delete while no run is active.
 
 **Input validation before login.** The outbox, the state file and (with `--db`) the registry history DB are validated before the first request. Truncated/empty/NUL/non-UTF-8 files,
@@ -96,8 +96,8 @@ The env file is opened first (non-blocking, so a FIFO cannot hang the tool) and 
 ## Core quirks found (all reproduced live)
 
 1. `read`/`list` do not return `version`. 2. `modify` ignores `type` and silently drops an unknown `status` when other fields are present. 3. `modified` has 1-second resolution.
-4. Shipped `Application/Database/Definition.sqlite` lacks `ticket.version`, `project.version`, `ticket_history`; with it `create project` fails and is mislabelled HTTP 409 "already exists". The first-start
-   migrator over the root `Database/DDL` fails on its own MySQL-style `INDEX (...)` DDL. The local instance used the shipped DB plus `core-local-schema-patch.sql`. UNCONFIRMED whether upstream Docker images carry a fixed DB.
+4. Shipped Application/Database/Definition.sqlite (a path inside HelixTrack Core, not in this repository) lacks `ticket.version`, `project.version`, `ticket_history`; with it `create project` fails and is mislabelled HTTP 409 "already exists". The first-start
+   migrator over the root Database/DDL (a path inside HelixTrack Core) fails on its own MySQL-style `INDEX (...)` DDL. The local instance used the shipped DB plus `core-local-schema-patch.sql`. UNCONFIRMED whether upstream Docker images carry a fixed DB.
 5. The server logs raw `/do` bodies including passwords. 6. The default JWT secret is a hard-coded public string when none is configured.
 
 ## Usage

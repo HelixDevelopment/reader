@@ -15,9 +15,9 @@ When no secret is configured, tokens are signed with a publicly known constant, 
 Reproduce: start Core with no JWT secret configured, `authenticate`, and verify the returned token against the public constant. UNCONFIRMED here which source file holds the constant; the behaviour was inferred from live tokens accepted under the default config (see `live/02-push1.traffic.jsonl` for a token-bearing flow, token redacted).
 Expected: refuse to start without a secret, or generate a random one.
 
-## D3: shipped `Application/Database/Definition.sqlite` lacks `ticket.version`, `project.version` and `ticket_history`
+## D3: shipped Application/Database/Definition.sqlite (a path inside HelixTrack Core, not in this repository) lacks `ticket.version`, `project.version` and `ticket_history`
 Effect: `create project` fails and is mislabelled HTTP 409 "already exists" instead of a schema error. The first-start migrator
-over the root `Database/DDL` fails on its own MySQL-style `INDEX (...)` DDL under SQLite.
+over the root Database/DDL (a path inside HelixTrack Core) fails on its own MySQL-style `INDEX (...)` DDL under SQLite.
 Reproduce: start Core with the shipped DB, `create project`; compare with the same call after applying
 `evidence/campaign-2026-11-23/helixtrack/core-local-schema-patch.sql` (3 statements, used for our local instance). Sink-side DB check: `live/13-sink-side-core-db.txt`.
 UNCONFIRMED whether upstream Docker images carry a corrected DB.

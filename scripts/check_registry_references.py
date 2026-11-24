@@ -8,12 +8,16 @@ Classes of a missing path:
   OWNED-BY-PENDING-PR       listed in the ownership map with a pull request number
   OWNED-BY-UNDELIVERED-WORK listed in the ownership map with pr null (no pull request yet)
   NOWHERE                   not in the tree and in no map entry (a real defect)
-Exit 0 = nothing missing; 1 = something missing (see classes); 2 = BLIND (registry unreadable or the
-control needle failed: no stored evidence path resolves at all), never a pass.
+Exit 0 = nothing missing; 1 = something missing (see classes); 2 = BLIND (registry unreadable, the ownership
+map malformed, or the control needle failed: no stored evidence path resolves at all), never a pass.
 """
 import argparse, glob, json, os, re, sqlite3, sys
 
 DOC_LINK = re.compile(r"(?<![\w/.-])((?:docs|evidence|scripts|tests|deploy|config|tools|clients|core|server|README|CHANGELOG)[\w./@+-]*)")
+BACKTICK = re.compile(r"`([^`\s]+)`")
+REL_TOKEN = re.compile(r"[\w@+.-]+(?:/[\w@+.-]+)*/?")
+DEFAULT_DOCS = ["docs/Issues*.md", "docs/Fixed*.md", "docs/upstream-issues/*.md", "docs/gap-register*.md", "docs/helixtrack-sync.md",
+                "docs/constitution-update-plan-*.md", "docs/submodule-pins-*.md", "docs/workable-items.md", "README.md", "deploy/README.md"]
 TABLES = ("items", "item_history", "reopen_details", "obsolete_details", "operator_block_details")
 
 
@@ -46,8 +50,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
     ap.add_argument("--db", default="docs/workable_items.db")
-    ap.add_argument("--docs", nargs="*", default=["docs/Issues*.md", "docs/Fixed*.md", "docs/upstream-issues/*.md", "docs/gap-register*.md", "docs/helixtrack-sync.md",
-                             "docs/constitution-update-plan-*.md", "docs/submodule-pins-*.md", "docs/workable-items.md", "README.md", "deploy/README.md"])
+    ap.add_argument("--docs", nargs="*", default=DEFAULT_DOCS)
     ap.add_argument("--ownership", default="docs/tracking/pending_ownership.json")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(argv)
@@ -64,7 +67,12 @@ def main(argv=None):
     entries = []
     omap = os.path.join(root, a.ownership)
     if os.path.exists(omap):
-        entries = json.load(open(omap, encoding="utf-8")).get("entries", [])
+        try:
+            entries = json.load(open(omap, encoding="utf-8"))["entries"]
+            if not (isinstance(entries, list) and all(isinstance(e, dict) and isinstance(e.get("prefix"), str) and e["prefix"] and e.get("task") for e in entries)):
+                raise ValueError("entries must be a list of objects with a non-empty prefix and a task")
+        except (ValueError, KeyError, TypeError, OSError) as exc:
+            print(f"BLIND: ownership map unreadable or malformed: {exc}", file=sys.stderr); return 2
     missing, seen = [], set()
     for table, k, p in paths:
         if (k, p) in seen: continue
@@ -80,6 +88,19 @@ def main(argv=None):
             m = m.rstrip(".,;:)")
             if "/" in m and not exists(m):
                 missing.append({"kind": "doc-link", "where": rel, "path": m})
+        # Paths cited RELATIVE to a directory the same document cites (for example `live/x.json` after
+        # `evidence/c/h/`, an existing directory under evidence/): resolved against every cited directory and against the document's own directory; if it resolves under
+        # none, it is reported under the first one. Limit: only backticked tokens with a slash or a file
+        # extension are examined; a bare name such as `latest` cannot be told from prose.
+        cited_dirs = [m.rstrip(".,;:)") for m in sorted(found) if m.rstrip(".,;:)").endswith("/") and m.startswith("evidence/") and m.count("/") >= 3 and os.path.isdir(os.path.join(root, m))]
+        if cited_dirs:
+            for tok in sorted({t.group(1).rstrip(".,;:)") for t in BACKTICK.finditer(text)}):
+                if not REL_TOKEN.fullmatch(tok) or not ("/" in tok or re.search(r"\.\w{2,5}$", tok)):
+                    continue
+                if any(tok.startswith(r) for r in ("docs/", "evidence/", "scripts/", "tests/", "deploy/", "config/", "tools/", "clients/", "core/", "server/", "README", "CHANGELOG")):
+                    continue
+                if not any(exists(d + tok) for d in cited_dirs) and not exists(os.path.join(os.path.dirname(rel), tok)):
+                    missing.append({"kind": "doc-relative-link", "where": rel, "path": cited_dirs[0] + tok})
     for m in missing:
         m["class"], e = classify(m["path"], entries)
         if e: m["owner"] = {"task": e["task"], "pr": e.get("pr")}

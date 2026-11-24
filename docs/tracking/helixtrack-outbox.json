@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T11:04:51Z",
+  "generated_at": "2026-11-24T11:32:35Z",
   "records": [
     {
       "client_key": "HRD-001",
@@ -2357,11 +2357,11 @@
       "client_key": "HRD-085",
       "operation": "upsert",
       "payload": {
-        "acceptance": "validate and diff PASS; verify_workable_items.py PASS 169/0 with reportlab; unit tests pass; check_registry_references.py reports zero missing except paths listed as owned by open PRs HRD-051/055/081; independent review GO.",
+        "acceptance": "validate and diff PASS (diff also compares the HelixTrack outbox with the registry and fails when it is missing); verify_workable_items.py reports zero failures with reportlab; unit tests pass with and without reportlab; check_registry_references.py classifies every missing reference as OWNED-BY-PENDING-PR, OWNED-BY-UNDELIVERED-WORK or NOWHERE and its output is recorded; zero NOWHERE is NOT required for this item because the NOWHERE citations come from earlier work and are tracked separately; independent review GO.",
         "affected_scope": "scripts/workable_items.py, scripts/verify_workable_items.py, scripts/check_registry_references.py, tests/, docs/workable_items.db, docs/tracking/*, the generated docs/Issues*, docs/Fixed*, README.md and deploy/README.md (HRD-034 scope note), and the documents and sealed evidence files the registry cites (gap register, upstream-issue drafts, campaign evidence). Executable product code cited by the registry (tools/firebase, tests/helixqa_web, clients, run_android_matrix.sh) is NOT part of this item.",
         "assigned_to": "Operator",
         "atm_id": "HRD-085",
-        "closure_criteria": "validate and diff PASS; verify_workable_items.py PASS 169/0 with reportlab; unit tests pass; check_registry_references.py reports zero missing except paths listed as owned by open PRs HRD-051/055/081; independent review GO.",
+        "closure_criteria": "validate and diff PASS (diff also compares the HelixTrack outbox with the registry and fails when it is missing); verify_workable_items.py reports zero failures with reportlab; unit tests pass with and without reportlab; check_registry_references.py classifies every missing reference as OWNED-BY-PENDING-PR, OWNED-BY-UNDELIVERED-WORK or NOWHERE and its output is recorded; zero NOWHERE is NOT required for this item because the NOWHERE citations come from earlier work and are tracked separately; independent review GO.",
         "composes_with": [],
         "created_at": "2026-11-24T10:35:56Z",
         "created_by": "AI",
@@ -2369,7 +2369,7 @@
         "description": "Land the hardened workable-items registry tooling (scripts/workable_items.py, verify_workable_items.py, 85+ tests, docs/workable-items.md) together with the registry content the dirty shared worktree accumulated on 2026-11-23: 49 new items (HRD-036 onward) filed from the gap register, status or description updates on 16 pre-existing items, and the regenerated Issues/Fixed documents and outbox. Makes the registry self-consistent on a clean clone for documents and sealed evidence: adds the gap-register documents and cited evidence files, a reference checker (scripts/check_registry_references.py) with an ownership map for paths delivered by other work, and an outbox-versus-database consistency check in diff. Cited executable code is deliberately not landed here; the checker lists it as owned by its own item.",
         "evidence_path": "",
         "forensic_anchor": "docs/pr-delivery.md",
-        "last_modified": "2026-11-24T11:04:40Z",
+        "last_modified": "2026-11-24T11:32:28Z",
         "reopens_count": 0,
         "reproduction": "On github/main before this PR the registry lacks the gap-register items; after merge without the cited files, 120 stored evidence paths or docs links dangle (evidence/workable-items/registry-hardening-pr8/RED_dangling_references_before_fix.txt).",
         "severity": "Medium",

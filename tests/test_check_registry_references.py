@@ -68,6 +68,65 @@ class CheckerTest(unittest.TestCase):
         done = subprocess.run([sys.executable, str(SCRIPT), "--root", str(self.root)], capture_output=True, text=True)
         self.assertEqual(done.returncode, 2, done.stdout + done.stderr)
 
+    def scenario_default_docs(self, script=SCRIPT):
+        # Every default doc glob must be scanned: one missing link per document class.
+        docs = {"docs/helixtrack-sync.md": "docs/gone-sync.md", "docs/gap-register-x.md": "docs/gone-gap.md", "docs/constitution-update-plan-x.md": "docs/gone-plan.md",
+                "docs/submodule-pins-x.md": "docs/gone-pins.md", "docs/workable-items.md": "docs/gone-wi.md", "README.md": "docs/gone-readme.md",
+                "deploy/README.md": "docs/gone-deploy.md", "docs/Fixed.md": "docs/gone-fixed.md", "docs/upstream-issues/u.md": "docs/gone-up.md"}
+        (self.root / "deploy").mkdir(exist_ok=True)
+        for name, target in docs.items():
+            (self.root / name).write_text(f"see {target}\n")
+        rc, res = self.run_script(script)
+        return docs, {m["path"] for m in res["items"]}
+
+    def test_default_doc_set_is_pinned(self):
+        docs, paths = self.scenario_default_docs()
+        for target in docs.values():
+            self.assertIn(target, paths)
+
+    def scenario_relative(self, script=SCRIPT):
+        sealed = self.root / "evidence" / "camp" / "ht"
+        (sealed / "live").mkdir(parents=True, exist_ok=True)
+        (sealed / "live" / "here.json").write_text("{}\n")
+        (self.root / "docs" / "helixtrack-sync.md").write_text(
+            "Evidence `evidence/camp/ht/`: `live/here.json`, `live/gone.json`, `runs/r1/` and `SHA256SUMS.top`.\n")
+        own = self.root / "docs" / "tracking" / "pending_ownership.json"
+        data = json.loads(own.read_text())
+        data["entries"].append({"prefix": "evidence/camp/ht/runs", "task": "HRD-029", "pr": None})
+        own.write_text(json.dumps(data))
+        rc, res = self.run_script(script)
+        return {m["path"]: m["class"] for m in res["items"] if m["kind"] == "doc-relative-link"}
+
+    def test_paths_relative_to_a_cited_directory_are_resolved_and_classified(self):
+        rel = self.scenario_relative()
+        self.assertEqual(rel, {"evidence/camp/ht/live/gone.json": "NOWHERE", "evidence/camp/ht/runs/r1/": "OWNED-BY-UNDELIVERED-WORK",
+                               "evidence/camp/ht/SHA256SUMS.top": "NOWHERE"})
+
+    def scenario_malformed(self, script=SCRIPT):
+        own = self.root / "docs" / "tracking" / "pending_ownership.json"
+        out = []
+        for bad in ("{not json", json.dumps({"entries": "x"}), json.dumps({"entries": [{"prefix": "", "task": "T"}]}), json.dumps({})):
+            own.write_text(bad)
+            done = subprocess.run([sys.executable, str(script), "--root", str(self.root)], capture_output=True, text=True)
+            out.append((done.returncode, "Traceback" in done.stderr))
+        return out
+
+    def test_malformed_ownership_map_is_blind_exit_2(self):
+        self.assertEqual(self.scenario_malformed(), [(2, False)] * 4)
+
+    def test_scenario_mutants_are_killed(self):
+        source = SCRIPT.read_text()
+        mutants = {
+            "default-docs-drop-helixtrack-sync": ('"docs/gap-register*.md", "docs/helixtrack-sync.md",', '"docs/gap-register*.md",', self.scenario_default_docs),
+            "relative-links-ignored": ('if cited_dirs:', 'if False:', self.scenario_relative),
+            "malformed-map-traceback": ('print(f"BLIND: ownership map unreadable or malformed: {exc}", file=sys.stderr); return 2', 'raise', self.scenario_malformed),
+        }
+        for name, (old, new, scenario) in mutants.items():
+            self.assertIn(old, source, name)
+            mutated = self.root / f"mutant_{name}.py"
+            mutated.write_text(source.replace(old, new, 1))
+            self.assertNotEqual(scenario(mutated), scenario(), f"mutant {name} survived")
+
     def test_paired_mutants_are_killed(self):
         source = SCRIPT.read_text()
         mutants = {
