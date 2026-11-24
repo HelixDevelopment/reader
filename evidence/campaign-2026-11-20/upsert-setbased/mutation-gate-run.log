@@ -1,0 +1,5 @@
+CASE drop-work-key: detected — TestCatalogMergePreservesEveryWriterUnderIdentityLocks failed as required (exit 1)
+CASE drop-source-key: detected — TestCatalogFileClaimByDistinctWorksKeepsOneRow failed as required (exit 1)
+CASE drop-edition-key: detected — TestCatalogEditionOwnershipIsDecidedOnce failed as required (exit 1)
+CASE drop-all-locks: detected — TestCatalogMergePreservesEveryWriterUnderIdentityLocks failed as required (exit 1)
+gate_status=0 restored_tests=pass sha256_verified=yes
