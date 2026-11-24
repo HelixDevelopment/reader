@@ -1,0 +1,37 @@
+test_abort_report_is_0600_and_written_atomically (test_helixtrack_sync.Gap6ResidualTests.test_abort_report_is_0600_and_written_atomically) ... ok
+test_create_with_ignored_status_keeps_as_created_baseline_then_resumes_as_update (test_helixtrack_sync.Gap6ResidualTests.test_create_with_ignored_status_keeps_as_created_baseline_then_resumes_as_update) ... ok
+test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging (test_helixtrack_sync.Gap6ResidualTests.test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging) ... ERROR
+test_env_file_non_utf8_is_syncerror_and_environment_untouched (test_helixtrack_sync.Gap6ResidualTests.test_env_file_non_utf8_is_syncerror_and_environment_untouched) ... ERROR
+test_missing_history_db_is_refused_and_not_created (test_helixtrack_sync.Gap6ResidualTests.test_missing_history_db_is_refused_and_not_created) ... ok
+test_refused_env_file_is_never_read_environment_untouched (test_helixtrack_sync.Gap6ResidualTests.test_refused_env_file_is_never_read_environment_untouched) ... ok
+test_state_report_compare_report_and_lock_are_0600_even_under_umask_0 (test_helixtrack_sync.Gap6ResidualTests.test_state_report_compare_report_and_lock_are_0600_even_under_umask_0) ... ok
+test_update_with_dropped_write_leaves_baseline_so_next_run_is_update_not_conflict (test_helixtrack_sync.Gap6ResidualTests.test_update_with_dropped_write_leaves_baseline_so_next_run_is_update_not_conflict) ... ok
+
+======================================================================
+ERROR: test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging (test_helixtrack_sync.Gap6ResidualTests.test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1456, in test_env_file_must_be_regular_file_fifo_dir_missing_all_exit_3_without_hanging
+    hs.load_env_file(path, environ)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 648, in load_env_file
+    st = os.stat(path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/milosvasic/.cache/claude-tmp/tmpwdvxgkd6/missing.env'
+
+======================================================================
+ERROR: test_env_file_non_utf8_is_syncerror_and_environment_untouched (test_helixtrack_sync.Gap6ResidualTests.test_env_file_non_utf8_is_syncerror_and_environment_untouched)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/test_helixtrack_sync.py", line 1473, in test_env_file_non_utf8_is_syncerror_and_environment_untouched
+    hs.load_env_file(self.env, environ)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/milosvasic/Projects/helix_reader/tools/helixtrack-sync/helixtrack_sync.py", line 652, in load_env_file
+    for line in fh:
+                ^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 10: invalid start byte
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.122s
+
+FAILED (errors=2)

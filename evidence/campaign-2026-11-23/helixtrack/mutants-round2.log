@@ -1,0 +1,32 @@
+KILLED   F1 url guard case-sensitive startswith (original bug) -> 2 tests failed; first: test_allows_https_and_loopback_http_any_case
+KILLED   F1b url guard allows any http -> 3 tests failed; first: test_plain_http_and_uppercase_http_refused_before_any_request
+KILLED   F1c transport constructor skips guard -> 1 tests failed; first: test_transport_constructor_enforces_guard_too
+KILLED   F2a opener follows redirects -> 1 tests failed; first: test_real_transport_never_follows_redirects_or_forwards_authorization
+KILLED   F2b client does not treat 3xx as error -> 2 tests failed; first: test_3xx_from_any_transport_is_refused
+KILLED   F3 probe sends marker title -> 2 tests failed; first: test_probe_sends_current_fields_and_never_a_marker_title
+KILLED   F3b accepted probe not detected -> 1 tests failed; first: test_server_that_ignores_version_is_not_corrupted_and_is_detected
+KILLED   F3c pull ignores --no-probe -> 2 tests failed; first: test_pull_no_probe_flag
+KILLED   F4a state ticket_id ignored when matching -> 5 tests failed; first: test_missing_remote_and_deleted_ticket
+KILLED   F4b duplicate claimants ignored -> 1 tests failed; first: test_forged_title_next_to_known_ticket_is_reported_duplicate
+KILLED   F4c marker line ignored -> 2 tests failed; first: test_marker_line_matches_when_state_lost_and_title_lost_key
+KILLED   F5a remote-deleted silently re-created -> 5 tests failed; first: test_missing_remote_and_deleted_ticket
+KILLED   F5b overwrite does not recreate -> 2 tests failed; first: test_dry_run_reports_without_recreating
+KILLED   F5c remote-deleted not a conflict -> 1 tests failed; first: test_push_reports_remote_deleted_and_does_not_recreate
+KILLED   F6a no per-item checkpoint -> 1 tests failed; first: test_state_checkpointed_between_create_and_status_modify_even_on_hard_crash
+KILLED   F6b create baseline recorded only after status modify -> 2 tests failed; first: test_failed_status_modify_after_create_does_not_become_false_conflict
+KILLED   F6c item errors propagate instead of partial report -> 4 tests failed; first: test_readback_mismatch_is_detected
+KILLED   F6d lost-state interrupted create not reconciled -> 1 tests failed; first: test_interrupted_create_with_lost_state_reconciles
+KILLED   F6e state save not atomic -> 1 tests failed; first: test_state_is_written_atomically_with_no_temp_leftovers
+KILLED   F7a dry-run checkpoints state -> 2 tests failed; first: test_dry_run_never_writes_state_or_remote
+KILLED   F7b dry-run final state write -> 1 tests failed; first: test_dry_run_never_writes_state_or_remote
+KILLED   F7c env-file mode check removed -> 1 tests failed; first: test_env_file_0644_refused_exit_3_and_0600_accepted
+KILLED   F7d pull drift exits 0 -> 2 tests failed; first: test_pull_drift_exits_2_and_compare_mismatch_exits_2
+KILLED   F7e push conflict exits 0 -> 1 tests failed; first: test_push_conflict_exits_2
+KILLED   F7f aborted run exits 0 -> 1 tests failed; first: test_mid_batch_503_exit_3_partial_state_and_report_then_resume
+KILLED   F7g compare mismatch exits 0 -> 1 tests failed; first: test_pull_drift_exits_2_and_compare_mismatch_exits_2
+KILLED   F8 unpushed field list drifts -> 1 tests failed; first: test_every_outbox_payload_key_is_either_pushed_or_explicitly_unpushed
+KILLED   R1 remote edits overwritten -> 5 tests failed; first: test_push_conflict_exits_2
+KILLED   R2 readback verification skipped -> 1 tests failed; first: test_readback_mismatch_is_detected
+KILLED   R3 redaction disabled -> 2 tests failed; first: test_recorded_traffic_never_contains_secrets
+KILLED   R4 existing tickets ignored (duplicates) -> 7 tests failed; first: test_forged_title_next_to_known_ticket_is_reported_duplicate
+mutants=31 survivors_or_inapplicable=0
