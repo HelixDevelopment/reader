@@ -48,6 +48,12 @@ stage_unit() { local d=$EVID/unit; log "unit tests (JVM, offline, --network none
   gradle_run ':app:testDebugUnitTest --rerun-tasks' "$d" && echo "gradle exit 0" > "$d/exit.txt" || echo "gradle exit nonzero" > "$d/exit.txt"
   mkdir -p "$d/junit"; cp "$d"/build/test-results/testDebugUnitTest/*.xml "$d/junit/" 2>/dev/null || true; rm -rf "$d/build"; }
 
+stage_mutation() { # paired mutant: ApiRequestPolicy accepts POST; the unit tests MUST fail (a green here would mean they prove nothing)
+  local f=$WORK/prepared/android/android/app/src/main/java/org/helixreader/app/ApiRequestPolicy.java d=$EVID/unit_mutant; cp "$f" "$f.orig"
+  sed -i 's/Arrays.asList("GET", "HEAD", "OPTIONS")/Arrays.asList("GET", "HEAD", "OPTIONS", "POST")/' "$f"; cmp -s "$f" "$f.orig" && { log "mutation did not apply"; return 1; }
+  local rc=0; gradle_run ':app:testDebugUnitTest --rerun-tasks' "$d" || rc=$?; mv "$f.orig" "$f"; mkdir -p "$d/junit"; cp "$d"/build/test-results/testDebugUnitTest/*.xml "$d/junit/" 2>/dev/null || true; rm -rf "$d/build"
+  echo "gradle exit $rc (nonzero expected)" > "$d/exit.txt"; [ "$rc" -ne 0 ]; }
+
 stage_apk() { local d=$WORK/apk; log "assemble debug + androidTest APKs (offline)"
   gradle_run ':app:assembleDebug :app:assembleDebugAndroidTest' "$d"; cp "$d"/build/outputs/apk/debug/app-debug.apk "$d/app-debug.apk"; cp "$d"/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk "$d/app-debug-androidTest.apk"
   rm -rf "$d/build"; sha256sum "$d"/*.apk > "$d/apk.sha256"; }
@@ -97,6 +103,7 @@ stage_emulators() { local only=${1:-}; mkdir -p "$EVID"; cp "$MATRIX" "$EVID/mat
 case ${1:-} in
   images) stage_images;; seed) stage_seed;;
   warm) pack_src; [ -d "$WORK/prepared" ] || stage_prepare; GR_NET= GR_OFF= gradle_run ":app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest" "$WORK/warm";; prepare) stage_prepare;;
+  mutation) mkdir -p "$EVID"; stage_mutation;;
   unit) mkdir -p "$EVID"; stage_unit;; apk) stage_apk;;
   emulators) shift; only=; [ "${1:-}" = --rows ] && only=$2; stage_emulators "$only"; python3 -I "$HERE/summarize.py" "$EVID";;
   all) mkdir -p "$EVID"; stage_prepare; stage_unit; stage_apk; stage_emulators ""; python3 -I "$HERE/summarize.py" "$EVID";;

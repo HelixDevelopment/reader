@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """summarize.py <evidence_dir> - read the per-row result files written by run_matrix.sh and write results.json + summary.txt.
+The activity display height may be smaller than the configured height by the system bars (<=10%); width, dpi and sdk must match exactly.
 A row is PASS only when its instrumentation output says `OK (N tests)` with N>=1 AND the screenshot is non-blank AND the
 HRDMATRIX line proves the configured display; FAIL when instrumentation ran and did not; SKIP/BLOCKED rows keep their reason."""
 import json, os, re, sys, struct, zlib
@@ -39,9 +40,11 @@ for name in sorted(os.listdir(ev)):
         ins = open(os.path.join(rd, "instrument.txt"), errors="replace").read()
         m = re.search(r"^OK \((\d+) tests?\)", ins, re.M); r["checks"]["instrumentation_ok"] = bool(m) and int(m.group(1)) >= 1
         r["instrumentation_tests"] = int(m.group(1)) if m else 0
-        h = re.search(r"HRDMATRIX (sdk=\d+ px=(\d+)x(\d+) dpi=(\d+).*)", ins)
+        lc = os.path.join(rd, "logcat_hrdmatrix.txt")
+        h = re.search(r"HRDMATRIX: (sdk=\d+ px=(\d+)x(\d+) dpi=(\d+).*)", open(lc, errors="replace").read()) if os.path.exists(lc) else None
         r["hrdmatrix"] = h.group(1) if h else None
-        r["checks"]["display_matches_row"] = bool(h) and (int(h.group(2)), int(h.group(3)), int(h.group(4))) == (r["width"], r["height"], r["dpi"]) \
+        r["checks"]["display_matches_row"] = bool(h) and (int(h.group(2)), int(h.group(4))) == (r["width"], r["dpi"]) \
+            and 0.9 * r["height"] <= int(h.group(3)) <= r["height"] \
             and ("sdk=%d " % r["api"]) in h.group(1)
         shot = os.path.join(rd, "screen.png"); n = png_colors(shot) if os.path.exists(shot) else 0
         r["screenshot_distinct_colors"] = n; r["checks"]["screenshot_nonblank"] = n >= 8
