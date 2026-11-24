@@ -25,6 +25,46 @@ STATUSES = {"BUILT", "VERIFIED", "BLOCKED", "NOT_STARTED"}
 REQUIRED = {"linux", "windows", "macos", "android", "ios", "android-tv"}
 
 
+# --- pure helpers (hermetic tests below exercise them with plain strings) -----------------------
+SKIP_DISABLED = "feature_disabled_by_config"
+SKIP_NO_HW = "hardware_not_present"
+
+
+def is_tv_characteristics(value: str) -> bool:
+    """True when `getprop ro.build.characteristics` output names the tv characteristic.
+
+    The output is comma separated and ends in a line end ("tv\n", "nosdcard,tv\r\n"), so strip first and
+    compare each trimmed item exactly (so "television" does not match).
+    """
+    return "tv" in [c.strip() for c in value.strip().lower().split(",")]
+
+
+def live_probe_skip_reason(environ) -> str | None:
+    """Closed skip reason for the opt-in live probe, or None when it is enabled."""
+    if environ.get("HELIX_LIVE_PLATFORM_PROBE") != "1":
+        return SKIP_DISABLED + ": set HELIX_LIVE_PLATFORM_PROBE=1 to run the live host probes"
+    return None
+
+
+def find_adb(environ, which=shutil.which) -> str | None:
+    """adb from PATH or $ANDROID_HOME/platform-tools; None (never a relative path) when absent."""
+    found = which("adb")
+    if found:
+        return found
+    home = environ.get("ANDROID_HOME", "")
+    if home and Path(home).is_absolute():
+        cand = Path(home) / "platform-tools" / "adb"
+        if cand.exists():
+            return str(cand)
+    return None
+
+
+def stale_pending(doc: dict, root: Path) -> list:
+    """pending_evidence paths that now exist on disk (their PR has landed): the row should be promoted."""
+    paths = (doc.get("pending_evidence") or {}).get("paths", {})
+    return sorted(rel for rel in paths if (root / rel).exists())
+
+
 def load(path: Path):
     return json.loads(path.read_text())
 
@@ -114,36 +154,91 @@ class SupportedPlatformsTest(unittest.TestCase):
             self.assertNotEqual(c["exit_code"], 0, f"{pid}: reproducer succeeded, platform is not blocked")
             self.assertIn(p["reproducer"]["expect_output_contains"], c["output"], pid)
 
+    def test_stale_pending_evidence_is_reported(self) -> None:
+        # Not a failure (the merge order #5, #10, #18 makes some paths exist at merge time): a warning that the
+        # row should be promoted or the entry removed.
+        stale = stale_pending(self.doc, ROOT)
+        if stale:
+            import warnings
+            warnings.warn(f"pending_evidence now present on disk, promote or remove: {stale}")
+
     def test_reproducers_still_fail_on_this_host(self) -> None:
         """Opt-in LIVE probe (HELIX_LIVE_PLATFORM_PROBE=1); not part of the hermetic unit suite.
 
-        Skips with a closed reason code (11.4.69): feature_disabled_by_config when not enabled,
-        hardware_not_present for android-tv when no TV-class device is attached. The android-tv
-        check looks for a device whose ro.build.characteristics contains 'tv' (adb from PATH or
-        $ANDROID_HOME/platform-tools), not for any attached Android device.
+        Skips with a closed reason code (11.4.69): feature_disabled_by_config when not enabled. The android-tv
+        sub-check is skipped (hardware_not_present, printed) when adb is absent, but the other BLOCKED
+        reproducers still run. It looks for a device whose ro.build.characteristics has the tv item, not for
+        any attached Android device.
         """
-        if os.environ.get("HELIX_LIVE_PLATFORM_PROBE") != "1":
-            self.skipTest("feature_disabled_by_config: set HELIX_LIVE_PLATFORM_PROBE=1 to run the live host probes")
+        reason = live_probe_skip_reason(os.environ)
+        if reason:
+            self.skipTest(reason)
         for p in self.platforms:
             if p["status"] != "BLOCKED":
                 continue
             if p["id"] == "android-tv":
-                adb = shutil.which("adb") or str(Path(os.environ.get("ANDROID_HOME", "")) / "platform-tools" / "adb")
-                if not Path(adb).exists():
-                    self.skipTest("hardware_not_present: adb not found")
+                adb = find_adb(os.environ)
+                if adb is None:
+                    print(f"\n{SKIP_NO_HW}: adb not found, android-tv sub-check skipped")
+                    continue
                 out = subprocess.run([adb, "devices"], capture_output=True, text=True, timeout=30).stdout
-                serials = [l.split()[0] for l in out.splitlines()[1:] if l.strip().endswith("device")]
+                serials = [l.split()[0] for l in out.splitlines()[1:] if len(l.split()) == 2 and l.split()[1] == "device"]
                 tv = []
                 for sn in serials:
                     ch = subprocess.run([adb, "-s", sn, "shell", "getprop", "ro.build.characteristics"],
                                         capture_output=True, text=True, timeout=30).stdout
-                    if "tv" in ch.lower().split(","):
+                    if is_tv_characteristics(ch):
                         tv.append(sn)
                 self.assertEqual(tv, [], f"android-tv: TV-class device now attached {tv}; revisit BLOCKED")
                 continue
             r = subprocess.run(["bash", "-c", p["reproducer"]["command"]], capture_output=True, text=True, timeout=30)
             self.assertNotEqual(r.returncode, 0, f"{p['id']}: now succeeds; revisit BLOCKED")
             self.assertIn(p["reproducer"]["expect_output_contains"], r.stdout + r.stderr, p["id"])
+
+
+class HermeticHelpersTest(unittest.TestCase):
+    """Pure-function tests (no host access) with paired mutants in tests/mutate_supported_platforms.py."""
+
+    def test_tv_characteristics_parsing(self) -> None:
+        for v in ("tv\n", "tv", "nosdcard,tv\n", "tv,nosdcard\n", "tv\r\n", " Tv , nosdcard \n"):
+            self.assertTrue(is_tv_characteristics(v), repr(v))
+        for v in ("default\n", "", "\n", "television\n", "nosdcard\n", "tablet,nosdcard\n", "tvbox\n", "mytv,x\n"):
+            self.assertFalse(is_tv_characteristics(v), repr(v))
+
+    def test_live_probe_stays_opt_in(self) -> None:
+        self.assertTrue(live_probe_skip_reason({}).startswith(SKIP_DISABLED))
+        self.assertTrue(live_probe_skip_reason({"HELIX_LIVE_PLATFORM_PROBE": "0"}).startswith(SKIP_DISABLED))
+        self.assertTrue(live_probe_skip_reason({"HELIX_LIVE_PLATFORM_PROBE": "yes"}).startswith(SKIP_DISABLED))
+        self.assertIsNone(live_probe_skip_reason({"HELIX_LIVE_PLATFORM_PROBE": "1"}))
+        self.assertEqual((SKIP_DISABLED, SKIP_NO_HW), ("feature_disabled_by_config", "hardware_not_present"))
+
+    def test_find_adb_never_returns_a_relative_path(self) -> None:
+        none = lambda _n: None
+        self.assertIsNone(find_adb({}, none))
+        self.assertIsNone(find_adb({"ANDROID_HOME": ""}, none))
+        self.assertIsNone(find_adb({"ANDROID_HOME": "relative/sdk"}, none))
+        self.assertEqual(find_adb({}, lambda _n: "/usr/bin/adb"), "/usr/bin/adb")
+        import tempfile
+        old = os.getcwd()
+        with tempfile.TemporaryDirectory() as d:
+            try:
+                os.chdir(d)
+                (Path(d) / "sdk" / "platform-tools").mkdir(parents=True)
+                (Path(d) / "sdk" / "platform-tools" / "adb").write_text("")
+                # a relative ANDROID_HOME that resolves from the cwd must still be refused
+                self.assertIsNone(find_adb({"ANDROID_HOME": "sdk"}, none))
+                self.assertEqual(find_adb({"ANDROID_HOME": str(Path(d) / "sdk")}, none), str(Path(d) / "sdk" / "platform-tools" / "adb"))
+            finally:
+                os.chdir(old)
+
+    def test_stale_pending_detection(self) -> None:
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "here.txt").write_text("x")
+            doc = {"pending_evidence": {"paths": {"here.txt": "PR #5", "gone.txt": "PR #5"}}}
+            self.assertEqual(stale_pending(doc, root), ["here.txt"])
+            self.assertEqual(stale_pending({}, root), [])
 
 
 if __name__ == "__main__":
