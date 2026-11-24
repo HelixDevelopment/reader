@@ -38,14 +38,30 @@ CWD0=$PWD
 abs() { case $1 in /*) printf '%s' "$1";; *) printf '%s' "$CWD0/$1";; esac; }
 ROOT=$(cd "$(dirname "$0")/../.." && pwd) || exit 2; cd "$ROOT" || exit 2
 OUT=evidence/campaign-2026-11-23/gap-fix/hrd050; ALLOW=tests/live/allowed_skips.txt
-NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
+SEDIR=""; SEMODE=""; SEOUT=""; NOENV=0; CHECKS=(); PB=""; SEALDIR=""; PREFLIGHT=0; SELFTEST=0
 while [ $# -gt 0 ]; do case $1 in
   --no-env) NOENV=1;; --out) OUT=$(abs "$2"); shift;; --allow) ALLOW=$(abs "$2"); shift;; --check) CHECKS+=("$(abs "$2")"); shift;;
   --print-phase-b) PB=$(abs "$2"); shift;;
   --seal) SEALDIR=$(abs "$2"); shift;; --preflight) PREFLIGHT=1;; --selftest-missing-cmd) SELFTEST=1;; --selftest-wait) SELFTEST=2;;
+  --selftest-side-effects) SELFTEST=3; SEDIR=$(abs "$2"); SEMODE=$3; SEOUT=$(abs "$4"); shift 3;;
   *) echo "unknown arg $1" >&2; exit 2;; esac; shift; done
 # wait_workers PID... : wait for background workers; any non-zero exit sets RC=1 (B3 failure propagation).
 wait_workers() { local p; for p in "$@"; do wait "$p" || RC=1; done; }
+# Side effects of the live tests inside the tracked evidence tree. Only paths that were CLEAN (absent from the pre-run
+# status) are touched: a file already modified/untracked before the run is never copied, reverted or removed.
+se_snapshot() { git status --porcelain --untracked-files=all evidence | cut -c4- | LC_ALL=C sort -u > "$1"; }
+se_restore() { # BEFORE_PATHS OUTDIR_SIDE [OUT_REL_TO_SKIP]
+  local before=$1 dest=$2 skip=${3:-} line st path
+  while IFS= read -r line; do
+    st=${line:0:2}; path=${line:3}
+    grep -xF -- "$path" "$before" >/dev/null && continue
+    [ -n "$skip" ] && case "$path" in "$skip"/*) continue;; esac
+    [ -f "$path" ] || continue
+    mkdir -p "$dest/$(dirname "$path")"; cp -- "$path" "$dest/$path"
+    if [ "$st" = "??" ]; then rm -f -- "$path"; else git checkout -- "$path"; fi
+  done < <(git status --porcelain --untracked-files=all evidence)
+}
+if [ $SELFTEST = 3 ]; then cd "$SEDIR" || exit 2; case $SEMODE in snap) se_snapshot "$SEOUT";; restore) se_restore "$SEOUT" "$SEOUT.d";; *) exit 2;; esac; exit 0; fi
 if [ $SELFTEST = 1 ]; then hrd_no_such_command_xyz; exit 0; fi
 if [ $SELFTEST = 2 ]; then RC=0; ( exit 0 ) & a=$!; ( exit 3 ) & b=$!; wait_workers $a $b; [ $RC -eq 1 ] && exit 7; exit 8; fi
 # need TOOL...: exit 2 naming the first missing tool (checked before anything is started).
@@ -88,7 +104,7 @@ log_records() {
 # Violations: net-skipped test (skips somewhere in its package, passes nowhere) not allow-listed; any FAIL test;
 # build failure / failed package / panic / timeout / package with no results; malformed allow-list.
 skip_gate() {
-  local bad=0 pk n r i kind rec
+  local bad=0 pk n r rr i kind rec
   : > "$OUT/.rec.tsv"; LOGBAD=""
   for l in "$@"; do log_records "$l" >> "$OUT/.rec.tsv"; done
   [ -n "$LOGBAD" ] && return 2
@@ -100,7 +116,8 @@ skip_gate() {
   while IFS='|' read -r pk n r i || [ -n "$pk$n$r$i" ]; do
     pk=$(trim "$pk"); n=$(trim "$n"); r=$(trim "$r"); i=$(trim "$i")
     [ -z "$pk" ] && continue; case $pk in \#*) continue;; esac
-    if [ -z "$n" ] || ! [[ $r =~ [^[:space:]] ]] || ! [[ $i =~ ^HRD-[0-9]+$ ]]; then
+    rr=${r//$'\xc2\xa0'/}   # NBSP is not [[:space:]] in the C locale; strip it so an NBSP-only reason is blank
+    if [ -z "$n" ] || ! [[ $rr =~ [^[:space:]] ]] || ! [[ $i =~ ^HRD-[0-9]+$ ]]; then
       echo "ALLOWLIST-MALFORMED: '$pk|$n' needs Package|Test|reason|HRD-NNN (non-blank reason without '|', item exactly HRD-<digits>)"; bad=1
     else
       if [ -n "${SEEN_ALLOW["$pk|$n"]:-}" ]; then
@@ -159,7 +176,7 @@ trap cleanup EXIT INT TERM
 free_port() { python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'; }
 hdr() { echo "# HRD-050 $1  $(date -u +%FT%TZ)  head=$(git rev-parse --short HEAD)  dirty_files=$(git status --porcelain | wc -l)  dirty_diff_sha=$( (git diff HEAD; git ls-files -o --exclude-standard | sort) | sha256sum | cut -c1-16)  mode=$([ $NOENV = 1 ] && echo no-env || echo live)"; echo "# cmd: $0 $ORIG"; echo "# go: $(go version)"; }
 ORIG="$*"
-EVBEFORE="$TMPD/ev_before.txt"; git status --porcelain --untracked-files=all evidence > "$EVBEFORE"
+EVBEFORE="$TMPD/ev_before.txt"; se_snapshot "$EVBEFORE"
 
 if [ $NOENV = 1 ]; then SUF=noenv; else SUF=live; fi
 LA="$OUT/run_A_race_$SUF.log"; LB="$OUT/run_B_load.log"
@@ -251,12 +268,7 @@ fi
 
 # evidence side effects written by tests into the tracked evidence tree
 mkdir -p "$OUT/side_effects"
-git status --porcelain --untracked-files=all evidence | grep -vxFf "$EVBEFORE" | while read -r st path; do
-  case "$path" in "${OUT#"$ROOT"/}"/*) continue;; esac
-  [ -f "$path" ] || continue
-  mkdir -p "$OUT/side_effects/$(dirname "$path")"; cp "$path" "$OUT/side_effects/$path"
-  if [ "$st" = "??" ]; then rm -f "$path"; else git checkout -- "$path"; fi
-done
+se_restore "$EVBEFORE" "$OUT/side_effects" "${OUT#"$ROOT"/}"
 
 { for l in "${LOGS[@]}"; do echo "$(basename "$l"): PASS=$(grep -cE '^\s*--- PASS' "$l") FAIL=$(grep -cE '^\s*--- FAIL' "$l") SKIP=$(grep -cE '^\s*--- SKIP' "$l") DATA_RACE=$(grep -c 'WARNING: DATA RACE' "$l")"; done; } | tee "$OUT/summary_$SUF.txt"
 grep -hE '^\s*--- FAIL' "${LOGS[@]}" | sed 's/ (.*//' | sort -u > "$OUT/failures_$SUF.txt"

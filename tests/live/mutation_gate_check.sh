@@ -9,7 +9,7 @@ W=$(mktemp -d); trap 'rm -rf "$W"' EXIT
 M=(
 "M1-F1-no-unusable-check@run_gated_tests.sh@s/\[ -n \"\$LOGBAD\" \] && return 2$/:/"
 "M2-F2-bare-name-key@parse_gotest.awk@s/print bk\\[i\\] \"\\\\t\" p \"\\\\t\" bn\\[i\\]/print bk[i] \"\\\\tX\\\\t\" bn[i]/"
-"M3-F3-blank-reason-accepted@run_gated_tests.sh@s/! \[\[ \$r =~ \[^\[:space:\]\] \]\]/false/"
+"M3-F3-blank-reason-accepted@run_gated_tests.sh@s/! \[\[ \$rr =~ \[^\[:space:\]\] \]\]/false/"
 "M4-F3-unanchored-item@run_gated_tests.sh@s/\^HRD-\[0-9\]+\$ \]\]/HRD-[0-9]+ ]]/"
 "M5-F4-ignore-FAIL-tests@run_gated_tests.sh@s/FAIL) echo \"FAILED-TEST: \\\$pk|\\\$n\"; bad=1;;/FAIL) :;;/"
 "M6-F4-ignore-build-failed@parse_gotest.awk@s/print \"BUILDFAIL/print \"IGNORED/"
@@ -43,6 +43,16 @@ M=(
 "M34-m5-open-at-eof-ignored@parse_gotest.awk@s/if (open) print \"INCOMPLETE.t\" def \".tmarker-open/if (0) print \"INCOMPLETE.t\" def \".tmarker-open/"
 "M35-m5-pkgline-while-open-ignored@parse_gotest.awk@s/if (open) { print \"INCOMPLETE.t\" def \".tpackage-line/if (0) { print \"INCOMPLETE.t\" def \".tpackage-line/"
 "M36-m8-seq-not-needed@run_gated_tests.sh@s/xargs seq cp/xargs cp/"
+"M37-X1-panic-not-bad@run_gated_tests.sh@s/\(PANIC).*\)bad=1;;/\1:;;/"
+"M38-X2-timeout-not-bad@run_gated_tests.sh@s/\(TIMEOUT).*\)bad=1;;/\1:;;/"
+"M39-X4-substring-allow-match@run_gated_tests.sh@s/grep -qxF \"\$rec\"/grep -qF \"\$rec\"/"
+"M40-X5-empty-item-digits@run_gated_tests.sh@s/\^HRD-\[0-9\]+\$ \]\]/^HRD-[0-9]*$ ]]/"
+"M41-X6-nbsp-not-stripped@run_gated_tests.sh@s/rr=\${r\/\/.*   # NBSP/rr=\$r   # NBSP/"
+"M42-X7-space-separated-ok-accepted@parse_gotest.awk@s/\^(ok|FAIL) \*.t\[\^ .t\]\//^(ok|FAIL)[ \\t]+[^ \\t]\//"
+"M43-X8-bare-pass-eof-not-incomplete@parse_gotest.awk@s/if (nb > 0) print \"INCOMPLETE/if (0) print \"INCOMPLETE/"
+"M44-X9-empty-marker-pair-ok@parse_gotest.awk@s/if (open \&\& nb == 0)/if (0)/"
+"M45-I4-touch-preexisting-changes@run_gated_tests.sh@s/grep -xF -- \"\$path\" \"\$before\" >\/dev\/null \&\& continue/:/"
+"M46-I4-no-copy-before-revert@run_gated_tests.sh@s/mkdir -p \"\$dest\/\$(dirname \"\$path\")\"; cp -- \"\$path\" \"\$dest\/\$path\"/:/"
 )
 # Baseline control: the UNMUTATED copy must pass every case, else a mutant's "kill" could be an artefact of the copy.
 mkcopy() { rm -rf "$W/c"; mkdir -p "$W/c/tests/live"; cp "$ROOT"/tests/live/run_gated_tests.sh "$ROOT"/tests/live/parse_gotest.awk "$ROOT"/tests/live/allowed_skips.txt "$W/c/tests/live/"; }

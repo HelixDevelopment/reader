@@ -116,4 +116,35 @@ chk m4_worker_failure_sets_RC bash -c "[ $wrc -eq 7 ]"
 # m8: a missing common tool (seq) is a setup error, exit 2
 rm -f "$SB/seq"; out=$(PATH=$SB "$GATE" --preflight 2>&1); rc=$?
 chk m8_missing_seq_exit2 bash -c "[ $rc -eq 2 ] && grep -q \"'seq'\" <<<\"\$0\"" "$out"
+# round 5: panic/timeout alone (no FAIL line, no INCOMPLETE) must fail; allow-list matching is exact, not substring
+t X1_marker_panic_no_fail_line    3 'PANIC: example.com/m/a'          $A $FX/marker_panic_nofail.log
+t X2_marker_timeout_no_fail_line  3 'TIMEOUT: example.com/m/a'        $A $FX/marker_timeout_nofail.log
+t X4_allow_superstring_not_a_match 3 'UNLISTED-SKIP: example.com/m/a\|TestX' $FX/allow_superstring.txt $FX/skip_x.log
+t X5_item_empty_digits_malformed  3 'ALLOWLIST-MALFORMED'             $FX/allow_item_empty_digits.txt $FX/good.log
+t X6_nbsp_only_reason_malformed   3 'ALLOWLIST-MALFORMED'             $FX/allow_nbsp_reason.txt $FX/good.log
+t X7_space_separated_ok_not_a_package_line 3 'INCOMPLETE'             $A $FX/ok_space_sep.log
+t X8_bare_pass_then_eof_incomplete 3 'INCOMPLETE'                     $A $FX/bare_pass_eof.log
+t X9_empty_marker_pair_incomplete 3 'INCOMPLETE: example.com/m/a .empty-marker-pair' $A $FX/empty_marker_pair.log
+# I4: side-effect cleanup only touches files that were clean before the run
+SR=$W/serepo; mkdir -p "$SR/evidence/x"; ( cd "$SR" && git init -q . && git config user.email t@t && git config user.name t \
+  && echo base > evidence/x/tracked_pre.txt && echo base > evidence/x/tracked_new.txt && echo base > evidence/x/staged_pre.txt \
+  && git add -A && git commit -q -m init ) >/dev/null 2>&1
+echo mine > "$SR/evidence/x/tracked_pre.txt"; echo mine > "$SR/evidence/x/untracked_pre.txt"
+"$GATE" --selftest-side-effects "$SR" snap "$W/se_before.txt" >/dev/null 2>&1
+echo run > "$SR/evidence/x/tracked_new.txt"; echo run > "$SR/evidence/x/untracked_new.txt"; echo more >> "$SR/evidence/x/tracked_pre.txt"
+"$GATE" --selftest-side-effects "$SR" restore "$W/se_before.txt" >/dev/null 2>&1; serc=$?
+chk I4_cleanup_rc0 bash -c "[ $serc -eq 0 ]"
+chk I4_run_created_untracked_removed_and_copied bash -c "[ ! -e $SR/evidence/x/untracked_new.txt ] && [ -f $W/se_before.txt.d/evidence/x/untracked_new.txt ]"
+chk I4_run_modified_clean_tracked_reverted bash -c "[ \$(cat $SR/evidence/x/tracked_new.txt) = base ] && [ -f $W/se_before.txt.d/evidence/x/tracked_new.txt ]"
+chk I4_preexisting_changes_untouched bash -c "[ \$(wc -l < $SR/evidence/x/tracked_pre.txt) -eq 2 ] && [ -f $SR/evidence/x/untracked_pre.txt ] && [ ! -e $W/se_before.txt.d/evidence/x/untracked_pre.txt ]"
+# R1b: every file the tests/harness use is tracked and not ignored (a clean checkout must be able to run them)
+ign=""; for pth in $(git -C "$ROOT" ls-files --others --ignored --exclude-standard -- tests/live); do ign="$ign $pth"; done
+for pth in $(grep -ohE 'tests/live/[A-Za-z0-9_./-]+' "$ROOT/tests/live/test_run_gated_tests.sh" "$ROOT/tests/live/mutation_gate_check.sh" | sort -u); do
+  case $pth in */) continue;; esac
+  [ -e "$ROOT/$pth" ] || continue
+  [ -n "$(git -C "$ROOT" ls-files -- "$pth" | head -1)" ] || ign="$ign $pth"
+done
+for f in "$FX"/*; do [ -n "$(git -C "$ROOT" ls-files -- "${f#"$ROOT"/}" | head -1)" ] || ign="$ign ${f#"$ROOT"/}"; done
+chk R1b_tests_and_fixtures_tracked_not_ignored test -z "$ign"
+[ -z "$ign" ] || echo "     untracked/ignored:$ign"
 echo "cases passed=$pass failed=$fail"; [ $fail -eq 0 ]

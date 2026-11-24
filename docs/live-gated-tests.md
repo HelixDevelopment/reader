@@ -37,7 +37,7 @@ Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `-
 - Portability: no `grep -P`; the runner verifies at start that `grep -x -F`, `grep -E`, awk, sort and comm work and exits 2 otherwise.
 - Known limits: a test that prints an unindented `--- PASS: TestX` to stdout can forge a record (UNCONFIRMED in practice); `-race` DATA RACE lines are reported in the summary but are not a gate condition (go test normally fails the test).
 - Header of every log records `head`, `dirty_files` and `dirty_diff_sha`.
-- Gate tests: `tests/live/test_run_gated_tests.sh` (fixtures in `tests/live/fixtures`); mutants: `tests/live/mutation_gate_check.sh`. They test the gate's own logic, not any live test.
+- Gate tests: `tests/live/test_run_gated_tests.sh` (fixtures in `tests/live/fixtures`, committed: `.gitignore` negates the global `*.log` ignore for them, and test `R1b_tests_and_fixtures_tracked_not_ignored` fails if any file the tests, harness or fixture directory use is untracked or git-ignored); mutants: `tests/live/mutation_gate_check.sh`. They test the gate's own logic, not any live test.
 - Sealed logs under `evidence/.../hrd050` predate the `# PKG` markers: their in-container phase-B results are not attributed to a package, and `--check` on them gives a real verdict (UNLISTED-SKIP / FAILED-TEST, exit 3: the in-container tests are unattributed and the throughput test FAILs). A fresh live run is owed (UNCONFIRMED until run).
 
 ## Review round 3 additions
@@ -48,8 +48,15 @@ Re-run: `tests/live/run_gated_tests.sh` (add `--no-env` for the RED baseline, `-
 - Known limit: a column-0 `ok <pkg>` line printed by test code is indistinguishable from the go test package line and can flush records to the wrong package (UNCONFIRMED in practice).
 
 ## Round 4 additions and residual limits
-- Big-log fix: `grep -q` at the end of a pipe under `pipefail` made the gate blind on logs over the pipe buffer (SIGPIPE, rc 141); the class was swept (no `| grep -q`, no early-exit consumer in a pipe in `tests/live/*.sh`). Tests generate a >1 MiB log (30000 PASS) and require a real verdict.
-- `seal_dir` passes names after `--` to `sha256sum` (names such as `--help`, `-x`, `-c`, spaces are sealed and verify). File names containing a backslash or newline are UNCONFIRMED/unsupported (newline fails closed).
+- Big-log fix: `grep -q` at the end of a pipe under `pipefail` made the gate blind on logs over the pipe buffer (SIGPIPE, rc 141); the class was swept (no `| grep -q`, no early-exit consumer in a pipe whose status decides a verdict; the only early-exit consumer left is `git ls-files | head -1` inside `$(...)` in the test scripts, where the status is not used). Tests generate a >1 MiB log (30000 PASS) and require a real verdict.
+- `seal_dir` passes names after `--` to `sha256sum` (names such as `--help`, `-x`, `-c`, spaces are sealed and verify). File names containing a backslash or newline are UNCONFIRMED/unsupported (newline fails closed). Path format: `seal_dir` writes bare relative paths; the already-sealed `hrd050/SHA256SUMS` was written by the old seal tool with `./`-prefixed paths. Both verify with `sha256sum -c` from the sealed directory.
 - `mutation_gate_check.sh` first requires the UNMUTATED copy (with `allowed_skips.txt`) to pass all cases, else exits 2.
 - B3 worker failure propagation is tested through `wait_workers` (`--selftest-wait`).
 - Residual limits (text mode): a test that prints a column-0 `ok <pkg> ...` line, or an unindented `--- PASS: X`, can mislead the parser (a `go test -json` mode would remove this; follow-up). Whether DATA RACE lines gate is left to go test's own failure.
+
+## Round 5 additions
+- Fixtures were previously git-ignored (`*.log`), so a clean checkout failed most gate tests and the mutation harness baseline. They are now tracked; `R1b` sweeps tests, harness and fixtures for untracked or ignored files.
+- Parser: the package line must be `ok`/`FAIL` followed by optional spaces and a TAB (space-separated lines are not package lines); records left at EOF with no package line (for example a log cut after a bare `PASS`) and an empty `# PKG`/`# PKG-END` pair are `INCOMPLETE`. A binary that legitimately runs zero tests inside a marker pair is therefore reported INCOMPLETE (conservative).
+- Allow-list: a reason made only of NBSP (U+00A0) is blank; `HRD-` with no digits is malformed.
+- Side effects: the post-run cleanup (`se_snapshot`/`se_restore`) only copies, reverts or removes paths that were clean before the run; files already modified or untracked beforehand are never touched (test `I4_*`, mutants M45/M46).
+- Panic and timeout alone (no `FAIL` line) fail the gate (fixtures `marker_panic_nofail`, `marker_timeout_nofail`; mutants M37/M38); allow-list matching is exact, not substring (mutant M39).
