@@ -1,0 +1,5 @@
+--- FAIL: TestWebDAVListSkipsCollectionsWithSecondPropstat (0.00s)
+    remote_revalidate_test.go:108: want exactly the one file, got [{Path:books Name:books Size:0 Modified:0001-01-01 00:00:00 +0000 UTC ETag:} {Path:books/r.bin Name:r.bin Size:3 Modified:2026-11-23 21:54:04 +0000 UTC ETag:18eacb384b37b5293}]
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/sources	0.006s
+FAIL

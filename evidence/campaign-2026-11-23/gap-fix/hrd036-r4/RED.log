@@ -1,0 +1,37 @@
+tree: merge head e61a5d3e8425a671a3b4dce2057e1636ebb306de (branch + github/main 60123d4), clean detached worktree, zero untracked
+== RED A: new tests vs github/main production files
+# github.com/helixreader/helix/server/internal/sources [github.com/helixreader/helix/server/internal/sources.test]
+internal/sources/remote_revalidate_test.go:49:22: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+internal/sources/remote_revalidate_test.go:54:20: w.Revalidate undefined (type *WebDAV has no field or method Revalidate)
+--- FAIL: TestSingleRangeRFC9110 (0.00s)
+--- FAIL: TestRemoteSourcesHonourRange (0.17s)
+    --- FAIL: TestRemoteSourcesHonourRange/webdav (0.00s)
+    --- FAIL: TestRemoteSourcesHonourRange/rclone (0.05s)
+--- FAIL: TestOpenRangeFailureDoesNotLeakPartialHeaders (0.00s)
+--- FAIL: TestContentErrorPathsCarryNoSuccessHeaders (0.01s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_origin_GET_500_after_PROPFIND (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_origin_GET_404_after_PROPFIND (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_origin_GET_500 (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_origin_ignores_Range_at_offset (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_PROPFIND_500 (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_PROPFIND_500 (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_PROPFIND_404 (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/HEAD,_PROPFIND_500 (0.00s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/local-style_source:_Seek_fails_on_a_range_request (0.00s)
+--- FAIL: TestIfRangeWeakValidatorGetsFull200 (0.00s)
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.196s
+FAIL
+== RED B: B2 only (router of 706414e)
+--- FAIL: TestContentErrorPathsCarryNoSuccessHeaders (0.01s)
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_origin_GET_500_after_PROPFIND (0.00s)
+        remote_range_test.go:343: read body: unexpected EOF
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_origin_GET_404_after_PROPFIND (0.00s)
+        remote_range_test.go:343: read body: unexpected EOF
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_origin_GET_500 (0.00s)
+        remote_range_test.go:344: error response carries ETag="\"sha256-ab6c5f3237f551d208fc2ca5225a4cca20b3fd638794a804f0ed5549d5041734\""
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_origin_ignores_Range_at_offset (0.00s)
+        remote_range_test.go:344: error response carries ETag="\"sha256-ab6c5f3237f551d208fc2ca5225a4cca20b3fd638794a804f0ed5549d5041734\""
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/full_GET,_PROPFIND_500 (0.00s)
+        remote_range_test.go:344: error response carries Content-Disposition="attachment; filename=\"b.bin\""
+    --- FAIL: TestContentErrorPathsCarryNoSuccessHeaders/range_GET,_PROPFIND_500 (0.00s)

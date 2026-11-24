@@ -1,0 +1,8 @@
+--- FAIL: TestSingleRangeRFC9110 (0.00s)
+    range_parse_test.go:39: "bytes=0-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=0 len=1000
+    range_parse_test.go:39: "bytes=5-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=5 len=995
+    range_parse_test.go:39: "bytes=-99999999999999999999" -> start=0 len=0 err=invalid; want ok=true start=0 len=1000
+    range_parse_test.go:39: "bytes=+1-5" -> start=1 len=5 err=<nil>; want ok=false start=0 len=0
+FAIL
+FAIL	github.com/helixreader/helix/server/internal/httpapi	0.012s
+FAIL
