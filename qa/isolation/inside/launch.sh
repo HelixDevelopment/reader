@@ -23,4 +23,6 @@ if [ -n "$BR" ]; then
   node /opt/isoinside/sockbridge.js 127.0.0.1 "$BR" "$SOCK" &
   i=0; while [ $i -lt 50 ]; do node -e "require('net').connect(+process.argv[1],'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))" "$BR" && break; sleep 0.1; i=$((i+1)); done
 fi
+# every assertion above passed: mark the environment as the sanctioned isolation container (read by tools/verify uiverify)
+HRDISO_ISOLATED=1; export HRDISO_ISOLATED
 exec "$@"

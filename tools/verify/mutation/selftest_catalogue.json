@@ -1,0 +1,252 @@
+[
+ {
+  "id": "runner-ignores-predicted-assertion",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "case killed && m.Expect != \"\" && !strings.Contains(output, m.Expect):",
+  "new": "case false:",
+  "package": "./internal/mutation",
+  "test": "TestKilledSurvivedAndWrongAssertion",
+  "expect": "Pass:2 Fail:1 Mutants:3"
+ },
+ {
+  "id": "runner-ignores-build-failure-marker",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "case setup != \"\":",
+  "new": "case false:",
+  "package": "./internal/mutation",
+  "test": "TestBuildFailureIsNotARejectedMutant",
+  "expect": "broken-build = "
+ },
+ {
+  "id": "runner-accepts-absent-anchor",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if n := strings.Count(string(text), m.Old); n != 1 {",
+  "new": "if n := strings.Count(string(text), m.Old); n < 1 {",
+  "package": "./internal/mutation",
+  "test": "TestAnchorMustOccurExactlyOnce",
+  "expect": "twice = "
+ },
+ {
+  "id": "runner-timeout-read-as-verdict",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "case code == timeoutExit:",
+  "new": "case false:",
+  "package": "./internal/mutation",
+  "test": "TestNoVerdictOnTimeout",
+  "expect": "hangs = "
+ },
+ {
+  "id": "runner-ignores-failing-control",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "\t\tif code != 0 {\n\t\t\tresults = append(results, Result{ID: fmt.Sprintf(\"control-%s-%s\"",
+  "new": "\t\tif false {\n\t\t\tresults = append(results, Result{ID: fmt.Sprintf(\"control-%s-%s\"",
+  "package": "./internal/mutation",
+  "test": "TestControlFailureFailsCampaign",
+  "expect": "control = "
+ },
+ {
+  "id": "runner-unknown-only-id-is-vacuous-pass",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if len(want) > 0 {",
+  "new": "if false {",
+  "package": "./internal/mutation",
+  "test": "TestOnlyFiltersCatalogue",
+  "expect": "unknown --only id must be an error"
+ },
+ {
+  "id": "runner-allows-mutant-without-expect",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if m.Expect == \"\" {",
+  "new": "if false {",
+  "package": "./internal/mutation",
+  "test": "TestMutantWithoutPredictedAssertionIsRefusedUpFront",
+  "expect": "summary = "
+ },
+ {
+  "id": "runner-mutates-original-tree",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "target := filepath.Join(moduleCopy, m.File)",
+  "new": "target := filepath.Join(cfg.Root, m.Module, m.File)",
+  "package": "./internal/mutation",
+  "test": "TestKilledSurvivedAndWrongAssertion",
+  "expect": "OriginalTreeUnchanged:false"
+ },
+ {
+  "id": "ui-nav-layout-selection-ignored",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "\tif width > 700 {\n\t\treturn Locator{Kind: \"css\", Value: \".sidebar .nav-item\"",
+  "new": "\tif width > 70000 {\n\t\treturn Locator{Kind: \"css\", Value: \".sidebar .nav-item\"",
+  "package": "./internal/uiverify",
+  "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+  "expect": "check ids = [viewport-run]"
+ },
+ {
+  "id": "ui-next-delta-always-passes",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "before != after && strings.Contains(after, \"Chapter 8\")",
+  "new": "strings.Contains(after, \"\") && before != after+\"\\x00\"",
+  "package": "./internal/uiverify",
+  "test": "TestEachSeededFaultFailsItsCheck",
+  "expect": "fault \"next-noop\": check reader-next-delta did not FAIL"
+ },
+ {
+  "id": "ui-source-validation-always-passes",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "check(\"source-validation\", vis,",
+  "new": "check(\"source-validation\", true,",
+  "package": "./internal/uiverify",
+  "test": "TestEachSeededFaultFailsItsCheck",
+  "expect": "fault \"no-validation\": check source-validation did not FAIL"
+ },
+ {
+  "id": "ui-overflow-always-passes",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "check(\"no-horizontal-overflow\", scroll <= client,",
+  "new": "check(\"no-horizontal-overflow\", true,",
+  "package": "./internal/uiverify",
+  "test": "TestEachSeededFaultFailsItsCheck",
+  "expect": "fault \"overflow\": check no-horizontal-overflow did not FAIL"
+ },
+ {
+  "id": "ui-empty-console-evidence-null",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "\tif ce == nil {\n\t\tce = []ConsoleError{}\n\t}",
+  "new": "\tif false {\n\t\tce = []ConsoleError{}\n\t}",
+  "package": "./internal/uiverify",
+  "test": "TestReportJSONShapeMatchesPython",
+  "expect": "empty console/missing evidence must serialise as []"
+ },
+ {
+  "id": "ui-summary-overcounts-pass",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "rep.Summary.Pass++",
+  "new": "rep.Summary.Pass += 2",
+  "package": "./internal/uiverify",
+  "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+  "expect": "healthy app: summary = "
+ },
+ {
+  "id": "ui-viewport-error-swallowed",
+  "module": "verify",
+  "file": "internal/uiverify/checks.go",
+  "old": "\tpage, err := b.NewPage(v)\n\tif err != nil {\n\t\treturn failedView(v, fmt.Sprintf(\"%T\", err), err.Error())\n\t}",
+  "new": "\tpage, err := b.NewPage(v)\n\tif err != nil {\n\t\treturn ViewportResult{Viewport: v}\n\t}",
+  "package": "./internal/uiverify",
+  "test": "TestViewportErrorIsRecordedAndDoesNotAbortTheOthers",
+  "expect": "tablet = "
+ },
+ {
+  "id": "ui-visible-filter-dropped-from-locator-key",
+  "module": "verify",
+  "file": "internal/uiverify/locator.go",
+  "old": "\tif l.Visible {\n\t\tb.WriteString(\" visible\")",
+  "new": "\tif false {\n\t\tb.WriteString(\" visible\")",
+  "package": "./internal/uiverify",
+  "test": "TestHealthyAppPassesEverySixteenChecksOnFourViewports",
+  "expect": "check ids = [viewport-run]"
+ },
+ {
+  "id": "scratch-system-dir-guard-dropped",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if resolved == p {",
+  "new": "if resolved == p && false {",
+  "package": "./internal/mutation",
+  "test": "TestScratchPathRefusalReasons",
+  "expect": "want the system-directory refusal"
+ },
+ {
+  "id": "scratch-descendant-check-dropped",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if !underScratch {",
+  "new": "if !underScratch && false {",
+  "package": "./internal/mutation",
+  "test": "TestRemoveScratchRefusesNonScratch",
+  "expect": "marked directory outside"
+ },
+ {
+  "id": "scratch-marker-check-dropped",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if derr != nil || len(ents) != 0 {",
+  "new": "if (derr != nil || len(ents) != 0) && false {",
+  "package": "./internal/mutation",
+  "test": "TestRemoveScratchRefusesNonScratch",
+  "expect": "accepted an unmarked non-empty directory"
+ },
+ {
+  "id": "scratch-home-ancestor-check-dropped",
+  "module": "verify",
+  "file": "internal/mutation/run.go",
+  "old": "if resolved == home || strings.HasPrefix(",
+  "new": "if resolved == home || false && strings.HasPrefix(",
+  "package": "./internal/mutation",
+  "test": "TestScratchPathRefusalReasons",
+  "expect": "want a HOME refusal"
+ },
+ {
+  "id": "ui-browser-launch-allowed-outside-container",
+  "module": "verify",
+  "file": "internal/uiverify/driver_chromedp.go",
+  "old": "if _, err := os.Stat(f); err != nil {",
+  "new": "if _, err := os.Stat(f); err != nil && false {",
+  "package": "./internal/uiverify",
+  "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+  "expect": "no launch marker: err = <nil>"
+ },
+ {
+  "id": "ui-isolation-env-not-required",
+  "module": "verify",
+  "file": "internal/uiverify/driver_chromedp.go",
+  "old": "if p.Getenv(\"HRDISO_ISOLATED\") != \"1\" {",
+  "new": "if p.Getenv(\"HRDISO_ISOLATED\") != \"1\" && false {",
+  "package": "./internal/uiverify",
+  "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+  "expect": "no isolation env: err = <nil>"
+ },
+ {
+  "id": "ui-host-network-allowed",
+  "module": "verify",
+  "file": "internal/uiverify/driver_chromedp.go",
+  "old": "if e.Name() != \"lo\" {",
+  "new": "if e.Name() != \"lo\" && false {",
+  "package": "./internal/uiverify",
+  "test": "TestRequireContainerRefusesOutsideTheIsolationContainer",
+  "expect": "host network: err = <nil>"
+ },
+ {
+  "id": "ui-action-budget-not-doubled",
+  "module": "verify",
+  "file": "internal/uiverify/driver_chromedp.go",
+  "old": "return 2 * timeout",
+  "new": "return timeout",
+  "package": "./internal/uiverify",
+  "test": "TestActionBudgetBoundsEveryBrowserCall",
+  "expect": "budget = 3s"
+ },
+ {
+  "id": "fixture-verdict-always-pass",
+  "module": "verify",
+  "file": "internal/uiverify/fixture.go",
+  "old": "case fmt.Sprint(got) == fmt.Sprint(want):",
+  "new": "case true:",
+  "package": "./internal/uiverify",
+  "test": "TestFixtureRejectsAnEngineStuckOnOneAnswer",
+  "expect": "was not caught by bad-hidden-display-none"
+ }
+]

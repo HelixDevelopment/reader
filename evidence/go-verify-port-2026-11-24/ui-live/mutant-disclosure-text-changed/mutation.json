@@ -1,0 +1,24 @@
+{
+ "id": "disclosure-text-changed",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "7bcea3d19cb6222aa1629f319920f8ce61ec9dc6301be9efbd6cb7d2d0d524c9",
+ "expect_failing_checks": [
+  "sample-data-disclosure"
+ ],
+ "operations": [
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "children:\"No backend connected\"",
+   "new": "children:\"Backend state unknown\"",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "c27a7fe2584295813294d59ce369d27f649f9a4c298a77a0aa641cd19a35cafd"
+  },
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "Sample data only · no backend connected",
+   "new": "Sample data only",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "f01f9cb9f11fece870bfd211b29b2789609fbd9ee23d7a0340a26eaf0563daec"
+  }
+ ]
+}

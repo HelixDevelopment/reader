@@ -1,0 +1,947 @@
+{
+  "status": "PASS",
+  "pass": 104,
+  "fail": 0,
+  "mutants": 104,
+  "controls": 76,
+  "with_predicted_assertion": 104,
+  "original_tree_unchanged": true,
+  "results": [
+    {
+      "id": "equal-clock-regresses-to-local",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "furthest equal-clock position must win",
+      "test": "TestResolveEqualClocksFurthestAndCommutative",
+      "exit": 1,
+      "log": "equal-clock-regresses-to-local.log"
+    },
+    {
+      "id": "compressed-length-not-removed-before-write",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "br truncated network response",
+      "test": "TestCompressionNetworkContentLength",
+      "exit": 1,
+      "log": "compressed-length-not-removed-before-write.log"
+    },
+    {
+      "id": "opds-private-destination-policy-bypassed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "cross-origin loopback acquisition must be rejected",
+      "test": "TestOPDSRejectsCrossOriginLoopbackAcquisitionByDefault",
+      "exit": 1,
+      "log": "opds-private-destination-policy-bypassed.log"
+    },
+    {
+      "id": "if-range-validator-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must force full 200",
+      "test": "TestContentIfRangeHonorsETag",
+      "exit": 1,
+      "log": "if-range-validator-ignored.log"
+    },
+    {
+      "id": "active-source-deletion-guard-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "delete during active scan",
+      "test": "TestSourceDeletionWaitsForScanAndScanAdmission",
+      "exit": 1,
+      "log": "active-source-deletion-guard-removed.log"
+    },
+    {
+      "id": "redis-watch-never-executed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale lower-percentage update rewound progress",
+      "test": "TestRedisPutProgressRetriesWatchConflict",
+      "exit": 1,
+      "log": "redis-watch-never-executed.log"
+    },
+    {
+      "id": "cross-origin-redirect-rejection-bypassed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "before rejection",
+      "test": "TestHTTPRejectsCrossOriginRedirectBeforeRequest",
+      "exit": 1,
+      "log": "cross-origin-redirect-rejection-bypassed.log"
+    },
+    {
+      "id": "changed-file-current-bytes-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "changed file did not replace stale byte evidence",
+      "test": "TestMergeWorkReplacesChangedFileAtSameSourcePath",
+      "exit": 1,
+      "log": "changed-file-current-bytes-ignored.log"
+    },
+    {
+      "id": "source-reconciliation-disabled",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "deletion rescan: report={Works:1 Files:1 Removed:0",
+      "test": "TestMemoryFullScanReconcilesDeletedSourceFiles",
+      "exit": 1,
+      "log": "source-reconciliation-disabled.log"
+    },
+    {
+      "id": "opds-pagination-limit-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "truncated OPDS listing must fail closed",
+      "test": "TestOPDSRejectsTruncatedPaginationInsteadOfReturningPartialSnapshot",
+      "exit": 1,
+      "log": "opds-pagination-limit-ignored.log"
+    },
+    {
+      "id": "stale-etag-range-gating-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale validator produced unsafe response",
+      "test": "TestContentStaleETagCannotSpliceChangedEqualSizeFile",
+      "exit": 1,
+      "log": "stale-etag-range-gating-removed.log"
+    },
+    {
+      "id": "stable-source-id-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stable source creation",
+      "test": "TestStableSourceIDReattachesCatalogAfterRestart",
+      "exit": 1,
+      "log": "stable-source-id-ignored.log"
+    },
+    {
+      "id": "embedded-isbn-normalization-discarded",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "embedded ISBN normalization was discarded",
+      "test": "TestValidEmbeddedISBNAccepted",
+      "exit": 1,
+      "log": "embedded-isbn-normalization-discarded.log"
+    },
+    {
+      "id": "isbn-identity-canonicalization-disabled",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "ISBN-10 and equivalent ISBN-13 forked identity",
+      "test": "TestISBNIdentityCanonicalizesSchemePairAndOrder",
+      "exit": 1,
+      "log": "isbn-identity-canonicalization-disabled.log"
+    },
+    {
+      "id": "opds-query-collision-disambiguation-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OPDS acquisition identity collision",
+      "test": "TestOPDSQueryAddressedAcquisitionsKeepDistinctPublicIdentities",
+      "exit": 1,
+      "log": "opds-query-collision-disambiguation-removed.log"
+    },
+    {
+      "id": "memory-file-validation-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "memory repository accepted an empty file ID",
+      "test": "TestMemoryRejectsIncompleteFileIdentityLikePostgres",
+      "exit": 1,
+      "log": "memory-file-validation-removed.log"
+    },
+    {
+      "id": "opds-stable-collision-grouping-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OPDS acquisition identity collision",
+      "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+      "exit": 1,
+      "log": "opds-stable-collision-grouping-removed.log"
+    },
+    {
+      "id": "local-delete-not-found-translation-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "deleted local file returned 502, want 404",
+      "test": "TestContentDeletedLocalFileReturns404",
+      "exit": 1,
+      "log": "local-delete-not-found-translation-removed.log"
+    },
+    {
+      "id": "opds-previous-generation-keys-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "colliding member lacks stable synthetic key",
+      "test": "TestOPDSCollisionKeysSurviveReorderAndSiblingRemoval",
+      "exit": 1,
+      "log": "opds-previous-generation-keys-ignored.log"
+    },
+    {
+      "id": "content-single-handle-validation-bypassed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "source does not support range reads",
+      "test": "TestContentGETValidatesAndReadsSameOpenedHandle",
+      "exit": 1,
+      "log": "content-single-handle-validation-bypassed.log"
+    },
+    {
+      "id": "identity-response-closes-unused-compressor",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "read /data after identity fallback",
+      "test": "TestCompressionIdentityFallbackPreservesKeepAlive",
+      "exit": 1,
+      "log": "identity-response-closes-unused-compressor.log"
+    },
+    {
+      "id": "lcp-cbc-minimum-size-loosened",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "index out of range [-1]",
+      "test": "TestDecryptCBCRejectsMalformedCiphertext",
+      "exit": 1,
+      "log": "lcp-cbc-minimum-size-loosened.log"
+    },
+    {
+      "id": "lcp-cbc-minimum-size-over-strict",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "n=0 decrypt",
+      "test": "TestEncryptDecryptRoundTripEveryLength",
+      "exit": 1,
+      "log": "lcp-cbc-minimum-size-over-strict.log"
+    },
+    {
+      "id": "lcp-cbc-block-multiple-guard-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "input not full blocks",
+      "test": "TestDecryptCBCRejectsMalformedCiphertext",
+      "exit": 1,
+      "log": "lcp-cbc-block-multiple-guard-removed.log"
+    },
+    {
+      "id": "lcp-pad-length-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "pad length 0: error = \u003cnil\u003e",
+      "test": "TestDecryptCBCRejectsMalformedCiphertext",
+      "exit": 1,
+      "log": "lcp-pad-length-zero-accepted.log"
+    },
+    {
+      "id": "lcp-pad-length-bound-widened",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "pad length 25 over two blocks: error = \u003cnil\u003e",
+      "test": "TestDecryptCBCRejectsMalformedCiphertext",
+      "exit": 1,
+      "log": "lcp-pad-length-bound-widened.log"
+    },
+    {
+      "id": "lcp-user-key-not-raw-utf8",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "UserKey(",
+      "test": "TestUserKeyIsRawSHA256OfPassphrase",
+      "exit": 1,
+      "log": "lcp-user-key-not-raw-utf8.log"
+    },
+    {
+      "id": "lcp-key-check-does-not-bind-license-id",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "tampered id error = \u003cnil\u003e",
+      "test": "TestKeyCheckDetectsTamperedLicenseID",
+      "exit": 1,
+      "log": "lcp-key-check-does-not-bind-license-id.log"
+    },
+    {
+      "id": "lcp-content-key-length-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "ContentKey error = \u003cnil\u003e",
+      "test": "TestContentKeyRejectsWrongLength",
+      "exit": 1,
+      "log": "lcp-content-key-length-unchecked.log"
+    },
+    {
+      "id": "lcp-duplicate-member-guard-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrAmbiguousLicense",
+      "test": "TestCanonicalRejectsDuplicateMembers",
+      "exit": 1,
+      "log": "lcp-duplicate-member-guard-removed.log"
+    },
+    {
+      "id": "lcp-duplicate-scan-skipped-before-signing",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "CanonicalForSigning error = \u003cnil\u003e",
+      "test": "TestCanonicalRejectsDuplicateMembers",
+      "exit": 1,
+      "log": "lcp-duplicate-scan-skipped-before-signing.log"
+    },
+    {
+      "id": "lcp-member-sorting-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "depends on map iteration order",
+      "test": "TestCanonicalIsDeterministicAcrossMapOrder",
+      "exit": 1,
+      "log": "lcp-member-sorting-removed.log"
+    },
+    {
+      "id": "lcp-array-order-not-preserved",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Canonical({\"k\":[3,{\"x\":1},2]})",
+      "test": "TestCanonicalSortingAndArrayOrder",
+      "exit": 1,
+      "log": "lcp-array-order-not-preserved.log"
+    },
+    {
+      "id": "lcp-reference-hex-case-drift",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "reference mode should use lower-case hex",
+      "test": "TestCanonicalSpecModeEscaping",
+      "exit": 1,
+      "log": "lcp-reference-hex-case-drift.log"
+    },
+    {
+      "id": "lcp-reference-line-separator-unescaped",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "reference mode should escape U+2028/U+2029",
+      "test": "TestCanonicalSpecModeEscaping",
+      "exit": 1,
+      "log": "lcp-reference-line-separator-unescaped.log"
+    },
+    {
+      "id": "lcp-trailing-zero-scale-lost",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "1E-1",
+      "test": "TestCanonicalNumbers",
+      "exit": 1,
+      "log": "lcp-trailing-zero-scale-lost.log"
+    },
+    {
+      "id": "lcp-negative-zero-preserved",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Canonical({\"n\":-0}) = {\"n\":-0}",
+      "test": "TestCanonicalNumbers",
+      "exit": 1,
+      "log": "lcp-negative-zero-preserved.log"
+    },
+    {
+      "id": "lcp-reference-number-rewritten",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "reference-mode divergence",
+      "test": "TestCanonicalMatchesReferenceProducer",
+      "exit": 1,
+      "log": "lcp-reference-number-rewritten.log"
+    },
+    {
+      "id": "lcp-missing-signature-unreported",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "missing signature object must be reported",
+      "test": "TestCanonicalForSigningRemovesOnlyTopLevelSignature",
+      "exit": 1,
+      "log": "lcp-missing-signature-unreported.log"
+    },
+    {
+      "id": "lcp-trailing-data-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "error = \u003cnil\u003e, want ErrLicenseSyntax",
+      "test": "TestCanonicalRejectsMalformedInput",
+      "exit": 1,
+      "log": "lcp-trailing-data-accepted.log"
+    },
+    {
+      "id": "lcp-chain-trust-check-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "foreign chain error = \u003cnil\u003e",
+      "test": "TestVerifyRejectsForeignChain",
+      "exit": 1,
+      "log": "lcp-chain-trust-check-removed.log"
+    },
+    {
+      "id": "lcp-cert-validity-window-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "expires before issue: error = \u003cnil\u003e",
+      "test": "TestCertificateValidityWindows",
+      "exit": 1,
+      "log": "lcp-cert-validity-window-removed.log"
+    },
+    {
+      "id": "lcp-crl-never-consulted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "revoked error = \u003cnil\u003e",
+      "test": "TestRevokedProviderCertificateIsRefused",
+      "exit": 1,
+      "log": "lcp-crl-never-consulted.log"
+    },
+    {
+      "id": "lcp-crl-status-overstated",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "CRLChecked is true without a CRL being supplied",
+      "test": "TestVerifyAcceptsARealChain",
+      "exit": 1,
+      "log": "lcp-crl-status-overstated.log"
+    },
+    {
+      "id": "lcp-unconfigured-root-generic-error",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want it to say",
+      "test": "TestVerifyWithoutRootsConfigured",
+      "exit": 1,
+      "log": "lcp-unconfigured-root-generic-error.log"
+    },
+    {
+      "id": "lcp-sign-does-not-excise-placeholder",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Verify after re-signing in place",
+      "test": "TestSignExcisesAPlaceholderSignature",
+      "exit": 1,
+      "log": "lcp-sign-does-not-excise-placeholder.log"
+    },
+    {
+      "id": "lcp-sign-key-certificate-match-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "mismatched key) error = \u003cnil\u003e",
+      "test": "TestSignRefusesKeyCertificateMismatch",
+      "exit": 1,
+      "log": "lcp-sign-key-certificate-match-unchecked.log"
+    },
+    {
+      "id": "lcp-verify-skips-profile-check",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "error = \u003cnil\u003e, want ErrUnsupportedAlgorithm",
+      "test": "TestVerifyRejectsNonProfileSignatureAlgorithm",
+      "exit": 1,
+      "log": "lcp-verify-skips-profile-check.log"
+    },
+    {
+      "id": "lcp-cert-expiry-at-update-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "valid at issue, expired by the last update: error = \u003cnil\u003e",
+      "test": "TestCertificateValidityWindows",
+      "exit": 1,
+      "log": "lcp-cert-expiry-at-update-ignored.log"
+    },
+    {
+      "id": "lcp-absent-issued-reported-as-syntax",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Parse without issued error = lcp: license document is not valid JSON",
+      "test": "TestParseRejectsIncompleteLicenses",
+      "exit": 1,
+      "log": "lcp-absent-issued-reported-as-syntax.log"
+    },
+    {
+      "id": "lcp-rights-dropped-when-present",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "print:0 read as \u003cnil\u003e",
+      "test": "TestParseRightsAbsentIsNotZero",
+      "exit": 1,
+      "log": "lcp-rights-dropped-when-present.log"
+    },
+    {
+      "id": "lcp-unknown-members-not-reported",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "UnknownMembers = [], want",
+      "test": "TestParseAcceptsAndReportsUnknownMembers",
+      "exit": 1,
+      "log": "lcp-unknown-members-not-reported.log"
+    },
+    {
+      "id": "lcp-unknown-members-order-nondeterministic",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "UnknownMembers order is not deterministic",
+      "test": "TestParseAcceptsAndReportsUnknownMembers",
+      "exit": 1,
+      "log": "lcp-unknown-members-order-nondeterministic.log"
+    },
+    {
+      "id": "lcp-signature-algorithm-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "CheckProfile error = \u003cnil\u003e",
+      "test": "TestCheckProfileMatrix",
+      "exit": 1,
+      "log": "lcp-signature-algorithm-unchecked.log"
+    },
+    {
+      "id": "lcp-profile-uri-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "CheckProfile error = \u003cnil\u003e",
+      "test": "TestCheckProfileMatrix",
+      "exit": 1,
+      "log": "lcp-profile-uri-unchecked.log"
+    },
+    {
+      "id": "lcp-empty-link-href-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "error = \u003cnil\u003e, want ErrIncomplete",
+      "test": "TestParseRejectsEmptyLinkHref",
+      "exit": 1,
+      "log": "lcp-empty-link-href-accepted.log"
+    },
+    {
+      "id": "lcp-empty-links-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Parse without links error = \u003cnil\u003e",
+      "test": "TestParseRejectsIncompleteLicenses",
+      "exit": 1,
+      "log": "lcp-empty-links-accepted.log"
+    },
+    {
+      "id": "lcp-signature-members-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Parse without signature/algorithm error = \u003cnil\u003e",
+      "test": "TestParseRejectsIncompleteLicenses",
+      "exit": 1,
+      "log": "lcp-signature-members-unchecked.log"
+    },
+    {
+      "id": "lcp-texthint-absent-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Parse without encryption/user_key/text_hint error = \u003cnil\u003e",
+      "test": "TestParseRejectsIncompleteLicenses",
+      "exit": 1,
+      "log": "lcp-texthint-absent-accepted.log"
+    },
+    {
+      "id": "lcp-texthint-emptiness-refused",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "incomplete: encryption/user_key/text_hint",
+      "test": "TestParseAcceptsAnEmptyTextHint",
+      "exit": 1,
+      "log": "lcp-texthint-emptiness-refused.log"
+    },
+    {
+      "id": "lcp-updated-defaults-to-zero-time",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want it to default to Issued",
+      "test": "TestParseDefaultsUpdatedToIssued",
+      "exit": 1,
+      "log": "lcp-updated-defaults-to-zero-time.log"
+    },
+    {
+      "id": "lcp-malformed-date-read-as-zero-time",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrLicenseSyntax",
+      "test": "TestParseRejectsMalformedDates",
+      "exit": 1,
+      "log": "lcp-malformed-date-read-as-zero-time.log"
+    },
+    {
+      "id": "lcp-user-name-not-decryptable",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "decrypted user = ",
+      "test": "TestDecryptUserFields",
+      "exit": 1,
+      "log": "lcp-user-name-not-decryptable.log"
+    },
+    {
+      "id": "lcp-unknown-encrypted-member-fatal",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "should be ignored",
+      "test": "TestDecryptUserIgnoresUnknownEncryptedMembers",
+      "exit": 1,
+      "log": "lcp-unknown-encrypted-member-fatal.log"
+    },
+    {
+      "id": "lcp-passphrase-checks-key-before-profile",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "error = \u003cnil\u003e, want ErrUnsupportedProfile",
+      "test": "TestCheckPassphraseRefusesUnsupportedProfile",
+      "exit": 1,
+      "log": "lcp-passphrase-checks-key-before-profile.log"
+    },
+    {
+      "id": "lcp-contentkey-decrypts-before-profile",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "ContentKey error = \u003cnil\u003e, want ErrUnsupportedProfile",
+      "test": "TestCheckPassphraseRefusesUnsupportedProfile",
+      "exit": 1,
+      "log": "lcp-contentkey-decrypts-before-profile.log"
+    },
+    {
+      "id": "lcp-container-duplicate-entry-last-wins",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Unlock with a trailing imposter license",
+      "test": "TestContainerFirstLicenseEntryWins",
+      "exit": 1,
+      "log": "lcp-container-duplicate-entry-last-wins.log"
+    },
+    {
+      "id": "lcp-container-exclusion-list-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrExcludedResourceEncrypted",
+      "test": "TestContainerRefusesEncryptedExcludedResources",
+      "exit": 1,
+      "log": "lcp-container-exclusion-list-unchecked.log"
+    },
+    {
+      "id": "lcp-container-rootfile-exclusion-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrExcludedResourceEncrypted",
+      "test": "TestContainerRefusesEncryptedExcludedResources",
+      "exit": 1,
+      "log": "lcp-container-rootfile-exclusion-unchecked.log"
+    },
+    {
+      "id": "lcp-container-malformed-encryption-xml-swallowed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "malformed encryption.xml reported no error",
+      "test": "TestContainerRejectsMalformedEncryptionXML",
+      "exit": 1,
+      "log": "lcp-container-malformed-encryption-xml-swallowed.log"
+    },
+    {
+      "id": "lcp-container-cipher-reference-not-cleaned",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want [etc/passwd]",
+      "test": "TestContainerKeepsCipherReferencesInsideTheContainer",
+      "exit": 1,
+      "log": "lcp-container-cipher-reference-not-cleaned.log"
+    },
+    {
+      "id": "lcp-container-cipher-reference-origin-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrLicenseSyntax",
+      "test": "TestContainerKeepsCipherReferencesInsideTheContainer",
+      "exit": 1,
+      "log": "lcp-container-cipher-reference-origin-unchecked.log"
+    },
+    {
+      "id": "lcp-container-protection-requires-license",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "did not register as protection",
+      "test": "TestContainerDetectsByEachMeans",
+      "exit": 1,
+      "log": "lcp-container-protection-requires-license.log"
+    },
+    {
+      "id": "lcp-container-missing-license-reported-as-unprotected",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrMissingLicense",
+      "test": "TestContainerDetectsByEachMeans",
+      "exit": 1,
+      "log": "lcp-container-missing-license-reported-as-unprotected.log"
+    },
+    {
+      "id": "lcp-container-deflate-never-inflated",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "lcp: decrypted length does not match encryption.xml",
+      "test": "TestContainerUnlocksAndReadsEveryResource",
+      "exit": 1,
+      "log": "lcp-container-deflate-never-inflated.log"
+    },
+    {
+      "id": "lcp-container-original-length-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrOriginalLengthMismatch",
+      "test": "TestContainerHonoursDeclaredOriginalLength",
+      "exit": 1,
+      "log": "lcp-container-original-length-unchecked.log"
+    },
+    {
+      "id": "lcp-container-algorithm-agreement-unchecked",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrAlgorithmMismatch",
+      "test": "TestContainerRejectsAlgorithmDisagreement",
+      "exit": 1,
+      "log": "lcp-container-algorithm-agreement-unchecked.log"
+    },
+    {
+      "id": "lcp-container-encrypted-readable-before-unlock",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want ErrLocked",
+      "test": "TestContainerWrongPassphraseLeavesResourcesLocked",
+      "exit": 1,
+      "log": "lcp-container-encrypted-readable-before-unlock.log"
+    },
+    {
+      "id": "lcp-container-ciphertext-budget-excludes-overhead",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "entry exceeds",
+      "test": "TestContainerCiphertextBudgetCoversEncryptionOverhead",
+      "exit": 1,
+      "log": "lcp-container-ciphertext-budget-excludes-overhead.log"
+    },
+    {
+      "id": "lcp-container-plaintext-limit-unenforced",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "Resource returned 1997 bytes against a 1996 byte limit",
+      "test": "TestContainerCiphertextBudgetCoversEncryptionOverhead",
+      "exit": 1,
+      "log": "lcp-container-plaintext-limit-unenforced.log"
+    },
+    {
+      "id": "lcp-producer-manifest-properties-read-as-element",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "ProtectedResources = [OEBPS/nav.xhtml",
+      "test": "TestIssueProtectUnlockRoundTrip",
+      "exit": 1,
+      "log": "lcp-producer-manifest-properties-read-as-element.log"
+    },
+    {
+      "id": "lcp-producer-nav-property-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OEBPS/nav.xhtml",
+      "test": "TestIssueProtectUnlockRoundTrip",
+      "exit": 1,
+      "log": "lcp-producer-nav-property-ignored.log"
+    },
+    {
+      "id": "lcp-producer-ncx-media-type-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OEBPS/toc.ncx",
+      "test": "TestIssueProtectUnlockRoundTrip",
+      "exit": 1,
+      "log": "lcp-producer-ncx-media-type-ignored.log"
+    },
+    {
+      "id": "lcp-producer-opf2-cover-meta-attribute-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OEBPS/images/cover.jpeg",
+      "test": "TestIssueProtectUnlockRoundTrip",
+      "exit": 1,
+      "log": "lcp-producer-opf2-cover-meta-attribute-ignored.log"
+    },
+    {
+      "id": "lcp-producer-guide-cover-reference-ignored",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "OEBPS/titlepage.xhtml",
+      "test": "TestIssueProtectUnlockRoundTrip",
+      "exit": 1,
+      "log": "lcp-producer-guide-cover-reference-ignored.log"
+    },
+    {
+      "id": "lcp-producer-ciphertext-keeps-source-method",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want Store",
+      "test": "TestProtectDeclaresCompressionAndStoresCiphertext",
+      "exit": 1,
+      "log": "lcp-producer-ciphertext-keeps-source-method.log"
+    },
+    {
+      "id": "lcp-producer-protects-a-non-publication",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "want lcp: container is not a publication",
+      "test": "TestProtectRefusesContainersItCannotHonestlyReturn",
+      "exit": 1,
+      "log": "lcp-producer-protects-a-non-publication.log"
+    },
+    {
+      "id": "pse-image-type-check-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "is not an image type allowed by OPDS-PSE",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-image-type-check-removed.log"
+    },
+    {
+      "id": "pse-page-number-template-check-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must contain the {pageNumber} template",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-page-number-template-check-removed.log"
+    },
+    {
+      "id": "pse-count-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "positive integer, got \\\"0\\\"",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-count-zero-accepted.log"
+    },
+    {
+      "id": "pse-last-read-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "numbering starts at 1), got \\\"0\\\"",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-last-read-zero-accepted.log"
+    },
+    {
+      "id": "pse-page-upper-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "page 2 out of range 0..1",
+      "test": "TestPageURL",
+      "exit": 1,
+      "log": "pse-page-upper-bound-removed.log"
+    },
+    {
+      "id": "pse-max-width-zero-accepted",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "maxWidth 0 is not positive",
+      "test": "TestPageURL",
+      "exit": 1,
+      "log": "pse-max-width-zero-accepted.log"
+    },
+    {
+      "id": "pse-last-read-date-unvalidated",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must conform to the Atom date construct",
+      "test": "TestParseAcquisitionLinkErrors",
+      "exit": 1,
+      "log": "pse-last-read-date-unvalidated.log"
+    },
+    {
+      "id": "opds-stream-advertises-illegal-link",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "feed advertises a stream it cannot describe",
+      "test": "TestIllegalStreamsAreNeverAdvertised",
+      "exit": 1,
+      "log": "opds-stream-advertises-illegal-link.log"
+    },
+    {
+      "id": "opds-stream-href-drops-page-template",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must contain the {pageNumber} template",
+      "test": "TestStreamLinkRoundTripsThroughTheParser",
+      "exit": 1,
+      "log": "opds-stream-href-drops-page-template.log"
+    },
+    {
+      "id": "opds-feed-omits-pse-namespace",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must declare the namespace",
+      "test": "TestFeedDeclaresThePSENamespace",
+      "exit": 1,
+      "log": "opds-feed-omits-pse-namespace.log"
+    },
+    {
+      "id": "opds-entry-omits-pse-namespace",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "must declare the namespace itself",
+      "test": "TestEditionEntryStandaloneCarriesNamespaceAndLink",
+      "exit": 1,
+      "log": "opds-entry-omits-pse-namespace.log"
+    },
+    {
+      "id": "cbz-stream-type-ignores-mixed-payloads",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "pages mix image/png and image/jpeg",
+      "test": "TestStreamMediaTypeCases",
+      "exit": 1,
+      "log": "cbz-stream-type-ignores-mixed-payloads.log"
+    },
+    {
+      "id": "cbz-stream-type-ignores-unproven-payload",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "is not a jpeg, png or gif image",
+      "test": "TestStreamMediaTypeCases",
+      "exit": 1,
+      "log": "cbz-stream-type-ignores-unproven-payload.log"
+    },
+    {
+      "id": "cbz-page-index-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "index out of range [2]",
+      "test": "TestPageIndexOutOfRange",
+      "exit": 1,
+      "log": "cbz-page-index-bound-removed.log"
+    },
+    {
+      "id": "http-stream-serves-stale-catalog-record",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "stale catalog record was advertised",
+      "test": "TestPageStreamRefusesFileChangedAfterScan",
+      "exit": 1,
+      "log": "http-stream-serves-stale-catalog-record.log"
+    },
+    {
+      "id": "http-stream-serves-protected-archive",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "protected archive was advertised",
+      "test": "TestPageStreamRefusesProtectedAndUnknownFormats",
+      "exit": 1,
+      "log": "http-stream-serves-protected-archive.log"
+    },
+    {
+      "id": "http-stream-page-bound-removed",
+      "status": "PASS",
+      "reason": "rejected with the predicted assertion",
+      "expected": "beyond-count page: 502",
+      "test": "TestPageStreamFeedAndServe",
+      "exit": 1,
+      "log": "http-stream-page-bound-removed.log"
+    }
+  ]
+}
