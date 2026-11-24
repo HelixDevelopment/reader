@@ -1,0 +1,11 @@
+# --- candidate equivalent / unreachable (every survivor is explained in equiv.tsv; a KILLED here is reported BAD) ---
+run X14_lic_parsetime_nano core ./pkg/lcpfuzz $L '/^func parseTime/,/^}/s/time.RFC3339,/time.RFC3339Nano,/' "$LRE"
+run X18_hint_decode_err_ignored core ./pkg/lcpfuzz $L 's/if err := json.Unmarshal(generic\["encryption"\], &hint); err != nil {/if err := json.Unmarshal(generic["encryption"], \&hint); err != nil \&\& false {/' "$LRE"
+run C02_canon_decode_err_EQUIV core ./pkg/lcpfuzz $CN 's/if err := dec.Decode(&v); err != nil {/if err := dec.Decode(\&v); err != nil \&\& false {/' "$LRE"
+run C10_wtm_key_notstring_UNREACHABLE core ./pkg/lcpfuzz $CN '/^func withoutTopLevelMember/,/^}/{/key, ok := keyTok.(string)/{n;s/if !ok {/if false {/}}' "$LRE"
+run C22_snd_key_notstring_UNREACHABLE core ./pkg/lcpfuzz $CN "/^func scanNoDupes/,/^}/{/case .{.:/,/case .\[.:/{/key, ok := keyTok.(string)/{n;s/if !ok {/if false {/}}}" "$LRE"
+run C28_snd_default_UNREACHABLE core ./pkg/lcpfuzz $CN '/^func scanNoDupes/,/^}/s/return fmt.Errorf("%w: unexpected %v", ErrLicenseSyntax, d)/return nil/' "$LRE"
+run C47_wc_default_UNREACHABLE core ./pkg/lcpfuzz $CN 's/return fmt.Errorf("lcp: cannot canonicalize %T", v)/return nil/' "$LRE"
+run C63_cn_first_empty_digits_EQUIV core ./pkg/lcpfuzz $CN '0,/if digits == "" {/s/if digits == "" {/if false {/' "$LRE"
+run C64_cn_second_empty_digits_UNREACHABLE core ./pkg/lcpfuzz $CN '/digits = strings.TrimLeft(digits, "0")/{n;s/if digits == "" {/if false {/}' "$LRE"
+run C73_link_string_decode_UNREACHABLE core ./pkg/lcpfuzz $L 's/if err := json.Unmarshal(raw, &text); err != nil {/if err := json.Unmarshal(raw, \&text); err != nil \&\& false {/' "$LRE"

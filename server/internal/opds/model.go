@@ -29,8 +29,17 @@ type Link12 struct {
 	ActiveFacet string `xml:"opds:activeFacet,attr,omitempty"`
 	Count       int    `xml:"thr:count,attr,omitempty"`
 
+	// IndirectAcquisition children (OPDS 1.2 §5.3) name what the acquired
+	// document yields, e.g. an EPUB behind an LCP License Document.
+	IndirectAcquisition []Indirect12 `xml:"opds:indirectAcquisition,omitempty"`
+
 	// PSECount is pse:count, the page total a stream link MUST carry.
 	PSECount int `xml:"http://vaemendis.net/opds-pse/ns count,attr,omitempty"`
+}
+
+// Indirect12 is opds:indirectAcquisition.
+type Indirect12 struct {
+	Type string `xml:"type,attr"`
 }
 
 type Author12 struct {

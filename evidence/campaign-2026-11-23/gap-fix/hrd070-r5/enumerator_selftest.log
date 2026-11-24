@@ -1,0 +1,12 @@
+== remove one row
+UNMAPPED server/internal/kosync/service.go:39 Register: if !s.registration {
+exit=1
+== point a KILL row at a surviving mutant
+WRONG E02_parserels_empty_EQUIV: log says 'SURVIVED (equivalent, expected)' want KILLED (core/pkg/lcp/lsd.go:201)
+exit=1
+== stale row
+STALE map row ('core/pkg/lcp/lsd.go', 'NoSuch', 'if x {', 1)
+exit=1
+== real map
+OK: 95 branches, all mapped and outcomes match the mutation log
+exit=0

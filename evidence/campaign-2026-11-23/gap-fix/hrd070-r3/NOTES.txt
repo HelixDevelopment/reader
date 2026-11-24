@@ -1,0 +1,2 @@
+HRD-070 round 3 (review e79fc65 F5/F6): boundary seeds added; mutation.log 24/24 KILLED by the seed run (R1,R2,R3,R5,R6 x4,R7 plus prior 15). Kosync seed -0.5 uses a unique document id because the service returns the stored winner for a same-second repeat write on one document.
+fuzz20_summary.txt: 20s fuzz of all 6 targets.
