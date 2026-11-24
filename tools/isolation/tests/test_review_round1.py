@@ -146,13 +146,15 @@ class I3LintEscapes(unittest.TestCase):
     def scan(self, g, name, body):
         d = tempfile.mkdtemp(prefix="i3-", dir=CT)
         try:
-            pathlib.Path(d, name).parent.mkdir(parents=True, exist_ok=True); pathlib.Path(d, name).write_text(body); return g.scan(d)
+            pathlib.Path(d, name).parent.mkdir(parents=True, exist_ok=True); pathlib.Path(d, name).write_text(body)
+            # round 3: tools/isolation/ has no blanket exemption of the class rule any more; these tests judge the ESCAPE rules, so the class finding is filtered here
+            return [h for h in g.scan(d) if not (name.startswith("tools/isolation/") and h[2] == "container-outside-isolation")]
         finally: shutil.rmtree(d, ignore_errors=True)
     def test_each_gap_caught_and_good_not(self):
         g = load(ISO / "guard/assert_host_untouched.py", "g_i3")
         for k, body in self.CASES.items(): self.assertTrue(self.scan(g, "tools/a.sh", body), k)
         self.assertTrue(self.scan(g, "tools/host.env", "DISPLAY=:0\n"), "env file content")
-        for body in self.GOOD: self.assertEqual(self.scan(g, "tools/isolation/a.sh", body), [], body)   # tools/isolation/ is exempt from the round-2 class rule
+        for body in self.GOOD: self.assertEqual(self.scan(g, "tools/isolation/a.sh", body), [], body)   # the class finding is filtered by scan() for tools/isolation/ paths
         self.assertEqual(self.scan(g, "tools/ok.env", "HELIX_PORT=1\n"), [])
     def test_paired_mutants_each_alternative_is_load_bearing(self):
         src = (ISO / "guard/assert_host_untouched.py").read_text()
@@ -172,10 +174,11 @@ class I3LintEscapes(unittest.TestCase):
                 self.assertTrue(self.scan(load(ISO / "guard/assert_host_untouched.py", "g_ok_" + k.replace("-", "_")), "tools/isolation/a.sh", body), k)   # unmutated catches it
                 self.assertEqual(self.scan(load(p, "g_m2_" + k.replace("-", "_")), "tools/isolation/a.sh", body), [], k)                                    # mutant misses it
             finally: shutil.rmtree(t, ignore_errors=True)
-        for k, old in (("var-command", "CONTAINER_CMD = re.compile(r\"\\b(?:podman|docker|nerdctl|buildah)\\s+(?:container\\s+)?(?:run|create|exec)\\b|\\$\\{?\\w+\\}?\\s+(?:container\\s+)?(?:run|create|exec)\\b\")"),):
+        VARALT = "\\$\\{?\\w+\\}?\\s+(?:container\\s+)?(?:run|create|exec)\\b|"    # the `$P run` alternative of CONTAINER_CMD (round 3: followed by + RUNTIME_EXTRA)
+        for k, old in (("var-command", 'exec)\\b|' + VARALT + '" + RUNTIME_EXTRA)'),):
             self.assertIn(old, src)
             t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py")
-            p.write_text(src.replace(old, "CONTAINER_CMD = re.compile(r\"\\b(?:podman|docker|nerdctl|buildah)\\s+(?:container\\s+)?(?:run|create|exec)\\b\")", 1))
+            p.write_text(src.replace(old, 'exec)\\b|" + RUNTIME_EXTRA)', 1))
             try: self.assertEqual(self.scan(load(p, "g_m_var"), "tools/isolation/a.sh", self.CASES[k]), [], k)
             finally: shutil.rmtree(t, ignore_errors=True)
 

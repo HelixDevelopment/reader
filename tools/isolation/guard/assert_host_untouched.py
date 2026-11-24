@@ -79,11 +79,16 @@ QEMU = re.compile(CMD + r"(?:\S*/)?qemu(?:-system-[\w]+|-kvm)?\s")
 TOOLS = ["xdotool", "ydotool", "dotool", "wtype", "wmctrl", "xclip", "xsel", "wl-copy", "wl-paste", "scrot", "maim", "grim", "import", "xdg-open",
          "notify-send", "scrcpy", "gnome-screenshot", "flameshot", "spectacle", "xte", "xinput", "xrandr", "dbus-send", "gdbus", "busctl", "qdbus",
          "chromium", "chromium-browser", "google-chrome", "firefox", "electron", "gio", "xwininfo", "xdpyinfo", "xvkbd"]
-CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
+# R3-I4: the runtime family beyond podman/docker/nerdctl: every other way of starting a process in a namespace / sandbox / container is the same class
+# ("a runtime call that bypasses run_container.sh"). Command-position anchored so prose and identifiers do not match.
+RUNTIME_EXTRA = (r"(?:^|[\s;&|(`'\"=/{}])(?:podman-remote\s+\S|buildah\s+(?:run|bud|build)\b|runc\s+(?:run|exec|create|start)\b|lxc\s+(?:exec|launch|start|shell|run)\b|"
+                 r"lxc-(?:execute|attach|start|create)\b|(?:apptainer|singularity)\s+(?:run|exec|shell|instance)\b|distrobox(?:-enter|-create|\s+(?:enter|create|run))\b|"
+                 r"toolbox\s+(?:run|enter|create)\b|flatpak\s+run\b|systemd-run\b|bwrap\b|nsenter\b|unshare\b|chroot\b)")
+CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b|" + RUNTIME_EXTRA)
 # R2-I2: ANY container-runtime run/create/exec/cp outside tools/isolation/ (the one place that owns the hardened launch path) is a finding unless
 # a pinned `waive` row names it - it is how --env-host / --rootfs / -v .:/h / "$PWD" / --pod / --sysctl / --device-cgroup-rule / `podman cp ... $HOME`
 # escapes would be written, and the per-flag list can never be complete (the class is "a runtime call that bypasses run_container.sh").
-CONTAINER_USE = re.compile(r"\b(?:podman|docker|nerdctl)\s+(?:container\s+)?(?:run|create|exec|cp)\b|[\"']\s*(?:podman|docker|nerdctl)\s*[\"']\s*,\s*[\"'](?:run|create|exec|cp)[\"']|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec|cp)\b")
+CONTAINER_USE = re.compile(r"\b(?:podman|docker|nerdctl)\s+(?:container\s+)?(?:run|create|exec|cp)\b|[\"']\s*(?:podman|docker|nerdctl)\s*[\"']\s*,\s*[\"'](?:run|create|exec|cp)[\"']|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec|cp)\b|" + RUNTIME_EXTRA)
 VARCMD = re.compile(r"\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
 ESCAPES = re.compile(
     r"--(?:net|network)(?:=|\s+)(?!none\b)[^\s-]|--(?:net|network)(?:=|\s+)--|--privileged\b|--(?:pid|ipc|userns|uts|cgroupns)(?:=|\s+)host\b|"
@@ -92,6 +97,7 @@ ESCAPES = re.compile(
     r"(?:^|\s)(?:-v|--volume)(?:=|\s*)(?:/|~|\$HOME|\$\{HOME\}|\$XDG|\$\{XDG|\$PWD/\.\.|\$\(pwd\)/\.\.|\$\{PWD\}/\.\.|\.\.)|"
     r"(?:-v|--volume|--mount)(?:=|\s*)\S*(?:/\.\.(?:/|:|,|\s|$))|"
     r"(?:--mount)(?:=|\s*)\S*(?:source|src)=(?:/|~|\$)|"
+    r"--rootfs\b|--env-host\b|--pod(?:=|\s+)|--security-opt(?:=|\s+)(?:unconfined|seccomp=unconfined|label=disable|apparmor=unconfined)|(?:^|\s)(?:-v|--volume)(?:=|\s*)\.(?:/|:|\s)|--userns(?:=|\s+)host\b|"
     r"volume-opt\b|--env-file\b|--gpus\b|--hooks-dir\b|--annotation\b|host-gateway|"
     r"(?:^|\s)(?:-p|--publish)(?:=|\s*)(?:0\.0\.0\.0:|\[::\]:|\d+:\d+(?:/\w+)?(?:\s|$))|--publish-all\b")
 KUBE = re.compile(r"\b(?:podman|docker)\s+volume\s+create\b[^\n]*(?:--opt\b|\s-o\b)|\b(?:podman|docker)\s+(?:kube\s+play|play\s+kube|compose\s+up|machine\s+ssh|system\s+service|--remote|-H\s|--host\s)|\bpodman\s+--(?:url|connection)\b")
@@ -102,7 +108,7 @@ ANY = _union(None)
 _SPLICE1 = re.compile(r"[\"']\s*\+\s*[\"']"); _SPLICE2 = re.compile(r"(?<=\w)(?:''|\"\")(?=\w)"); _SPLICE3 = re.compile(r"(?<=[A-Za-z])\\(?=[A-Za-z])")
 _QUOTES = re.compile(r"[\"'\\]")
 _GLOBCH = re.compile(r"[*?\[]")
-_CMDWORDS = ("podman", "docker", "nerdctl", "buildah")
+_CMDWORDS = ("podman", "docker", "nerdctl", "buildah", "runc", "lxc", "apptainer", "singularity", "distrobox", "toolbox", "flatpak", "systemd-run", "bwrap", "nsenter", "unshare", "chroot")
 
 JSON_RULES = {"headed-browser", "electron-launch", "container-escape", "display-env", "xdotool-family", "uinput", "gui-automation-lib", "portal-or-dbus", "x11-socket"}
 ANY_DATA = _union(JSON_RULES)
@@ -399,7 +405,7 @@ def scan(root, include_submodules=False, stats=None):
                 continue
             if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in views) or (kind == "code" and any(KUBE.search(b) for b in views)):
                 fh.append((rel, n, "container-escape", text.strip()[:160]))
-            if kind == "code" and not rel.startswith("tools/isolation/") and any(CONTAINER_USE.search(b) for b in views):
+            if kind == "code" and any(CONTAINER_USE.search(b) for b in views):   # no blanket tools/isolation/ exemption (review round 3): each legitimate file carries its own pinned waiver row
                 fh.append((rel, n, "container-outside-isolation", text.strip()[:160]))
             if kind != "code":
                 continue

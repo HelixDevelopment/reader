@@ -58,7 +58,8 @@ class Guard(unittest.TestCase):
 
     def test_containerised_android_emulator_is_allowed_pattern(self):
         body = "podman run -d --device /dev/kvm --userns=keep-id img emulator -avd default -no-window -no-audio\n"
-        self.assertEqual(scan_tree({"tools/isolation/a.sh": body}), [])
+        # the emulator/device/kvm pattern itself raises no rule; since round 3 every runtime call outside a pinned waiver is the class finding, nothing else
+        self.assertEqual([h for h in scan_tree({"tools/isolation/a.sh": body}) if h[2] != "container-outside-isolation"], [])
 
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as d:

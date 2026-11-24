@@ -9,13 +9,50 @@ base is opened with O_NOFOLLOW relative to a directory fd, so no path component 
   write  the existing entry is unlinked (a link is removed, never followed) and the file is created with O_EXCL|O_NOFOLLOW.
   scan   every entry below DIR must be a regular file (link count 1) or a plain directory; anything else is reported and rc=1.
   first  first regular file in BASE/REL whose name matches GLOB (and the safe-name charset), printed as a bare name.
-usage: safe_io.py scan DIR | put DIR NAME (data on stdin) | copy SRCBASE SRCREL DSTDIR DSTNAME [--max N] | first BASE REL GLOB
+  deny   (review round 3, class "post-run trust of container-written trees") the SINGLE deny table below (DENY_EXACT / DENY_PREFIX) names every
+         git / agent / tool control artifact (.git dir OR file, .gitattributes, .gitmodules, .gitignore, .claude*, CLAUDE.md, AGENTS.md, GEMINI.md,
+         QWEN.md, .mcp.json, .envrc, .direnv, .vscode, .idea, .cursor*, .husky, .githooks, .specify, hook dirs ...): scan refuses it at ANY depth,
+         and bindcheck.py (pre-run) imports the SAME table, so the pre-run and post-run checks cannot drift apart. A refused entry is never
+         descended into, hashed, copied or handed to any host tool (no host git/claude/make runs on a tree that holds one).
+  allow  `scan DIR --allow` additionally refuses every regular file whose extension is not in ALLOW_EXT (publish allow-list: png json jsonl log
+         txt md html csv mp4 webm gif webp); the runners use it on the evidence dir before anything is sealed.
+  caps   scan refuses a tree with more than MAX_FILES files, more than MAX_TOTAL bytes in total, one file above MAX_FILE bytes or more than
+         MAX_DEPTH levels (env SAFE_IO_MAX_FILES / _TOTAL / _FILE / _DEPTH override; a malformed value is itself a refusal).
+usage: safe_io.py scan DIR [--allow] | put DIR NAME (data on stdin) | copy SRCBASE SRCREL DSTDIR DSTNAME [--max N] | first BASE REL GLOB
 BASE / DIR arguments are trusted host paths (not under container control); REL / NAME are names, never '..'.
 exit: 0 ok, 1 refused (message on stderr), 2 usage."""
 import fnmatch, os, re, stat, sys
 
 NAME_OK = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._ -]{0,200}$")
 MAX_DEFAULT = 64 * 1024 * 1024
+
+# ---- the ONE deny table (imported by bindcheck.py: pre-run bind check and post-run scan share it) ----
+DENY_EXACT = frozenset({".git", ".gitattributes", ".gitmodules", ".gitignore", ".gitconfig", ".git-credentials", ".git-hooks", ".githooks", ".husky",
+                        ".hooks", "hooks", ".specify", "claude.md", "agents.md", "gemini.md", "qwen.md", ".mcp.json", ".envrc", ".direnv",
+                        ".vscode", ".idea", ".cursorrules", ".pre-commit-config.yaml", ".npmrc", ".pypirc", ".netrc"})
+DENY_PREFIX = (".claude", ".cursor", ".aider", ".gemini", ".qwen", ".codex", ".windsurf")
+
+def deny_name(n):
+    """True for a git / agent / tool control artifact name (case-insensitive: a case-folding file system must not hide one)."""
+    ln = n.lower()
+    return ln in DENY_EXACT or ln.startswith(DENY_PREFIX)
+
+ALLOW_EXT = frozenset({"png", "json", "jsonl", "log", "txt", "md", "html", "csv", "mp4", "webm", "gif", "webp"})
+CAP_DEFAULTS = {"FILES": 20000, "TOTAL": 4 * 1024 ** 3, "FILE": 2 * 1024 ** 3, "DEPTH": 12}
+
+def caps(env=None):
+    """-> (dict of caps, [config problems]); a malformed override is a refusal, never a silent default."""
+    env = os.environ if env is None else env
+    out, bad = {}, []
+    for k, d in CAP_DEFAULTS.items():
+        v = env.get("SAFE_IO_MAX_" + k)
+        if v is None:
+            out[k] = d
+        elif re.fullmatch(r"[1-9][0-9]{0,15}", v):
+            out[k] = int(v)
+        else:
+            out[k] = d; bad.append(f"SAFE_IO_MAX_{k}={v!r} is not a positive integer")
+    return out, bad
 
 
 class Refused(Exception):
@@ -106,16 +143,25 @@ def put(dirpath, name, data, mode=0o644):
         os.close(d)
 
 
-def scan(dirpath):
-    """-> list of problems below dirpath (links, special files, hard-linked files); [] when clean."""
-    bad = []
+def scan(dirpath, allow=False, env=None):
+    """-> list of problems below dirpath (deny-table names, links, special files, hard-linked files, over-cap volume; with allow=True also
+    non-allow-listed extensions); [] when clean. Nothing below dirpath is ever opened for reading, hashed or executed here."""
+    cp, bad = caps(env)
+    count = [0, 0]                       # files, bytes
 
-    def walk(fd, prefix):
+    def walk(fd, prefix, depth):
+        if depth > cp["DEPTH"]:
+            bad.append(f"{prefix}: deeper than {cp['DEPTH']} levels"); return
         for e in os.listdir(fd):
+            if len(bad) > 200:
+                return
             try:
                 st = os.lstat(e, dir_fd=fd)
             except OSError as ex:
                 bad.append(f"{prefix}{e}: {ex.strerror}")
+                continue
+            if deny_name(e):
+                bad.append(f"{prefix}{e}: git/agent/tool control artifact (deny table)")
                 continue
             if stat.S_ISDIR(st.st_mode):
                 try:
@@ -124,20 +170,29 @@ def scan(dirpath):
                     bad.append(f"{prefix}{e}: {r}")
                     continue
                 try:
-                    walk(sub, prefix + e + "/")
+                    walk(sub, prefix + e + "/", depth + 1)
                 finally:
                     os.close(sub)
             elif stat.S_ISREG(st.st_mode):
+                count[0] += 1; count[1] += st.st_size
                 if st.st_nlink != 1:
                     bad.append(f"{prefix}{e}: hard link (count {st.st_nlink})")
+                if st.st_size > cp["FILE"]:
+                    bad.append(f"{prefix}{e}: file larger than {cp['FILE']} bytes")
+                if allow and (("." not in e) or e.rsplit(".", 1)[-1].lower() not in ALLOW_EXT):
+                    bad.append(f"{prefix}{e}: not an allow-listed publish type")
             else:
                 bad.append(f"{prefix}{e}: " + ("symlink" if stat.S_ISLNK(st.st_mode) else "special file"))
 
     r = _root(dirpath)
     try:
-        walk(r, "")
+        walk(r, "", 0)
     finally:
         os.close(r)
+    if count[0] > cp["FILES"]:
+        bad.append(f"{count[0]} files exceed the cap of {cp['FILES']}")
+    if count[1] > cp["TOTAL"]:
+        bad.append(f"{count[1]} bytes exceed the cap of {cp['TOTAL']}")
     return bad
 
 
@@ -161,8 +216,8 @@ def first(base, rel, pattern):
 
 def main(argv):
     try:
-        if len(argv) == 3 and argv[1] == "scan":
-            bad = scan(argv[2])
+        if argv[1:2] == ["scan"] and (len(argv) == 3 or (len(argv) == 4 and argv[3] == "--allow")):
+            bad = scan(argv[2], allow=len(argv) == 4)
             for b in bad:
                 print(f"safe_io: refused {b}", file=sys.stderr)
             return 1 if bad else 0

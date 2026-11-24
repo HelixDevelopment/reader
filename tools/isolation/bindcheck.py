@@ -11,14 +11,18 @@ Rules (all must hold):
            ISO_FRESH_SECS (default 6 h) - a sealed or stale sibling is never writable; under ISO_WORK a sub-directory, never ISO_WORK itself.
   ISO_WORK absolute, canonical (no '..', no symlink in the chain), strictly inside a dedicated root (~/.cache/claude-tmp or ~/.cache/helix-iso),
            not inside/over a sensitive dir.
-  hostile  (review round 2, class "container-writable state the host later acts on or follows") a rw source - and ISO_WORK - must not be, lie
+  hostile  (review rounds 2+3; table = safe_io.DENY_EXACT/DENY_PREFIX, the SAME one the post-run scan uses; also refused: fifos, devices, sockets and
+           hard-linked files (link count > 1) at any depth, and a rw bind of another runner's host-only dir ISO_WORK/host-*)
+           (review round 2, class "container-writable state the host later acts on or follows") a rw source - and ISO_WORK - must not be, lie
            under, or contain a git checkout/worktree/gitdir (a `.git` dir OR pointer file: `core.hooksPath`, `.git/hooks`, `gitdir:` redirection),
            a `.claude*` / `.specify` / `.husky` / `.githooks` entry (host-run hooks/skills), or any symlink: all of these are host-executed or
            host-followed the moment a host tool (git, claude, make, cp) runs inside the tree after the container wrote to it.
   dest     absolute, canonical (normpath-equal: no '..', '//', '.', trailing '/'), charset [A-Za-z0-9_./-], below an allowed prefix, and it may
            never be, lie inside or cover the reserved mounts /opt/isoinside and /run/helixsock (the latter only via --bridge); run_container.sh
            additionally refuses duplicate destinations."""
-import os, posixpath, re, sys, time, pathlib
+import os, posixpath, re, stat, sys, time, pathlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))     # python -I does not add the script dir
+import safe_io                                                       # SINGLE deny table shared with the post-run scan (review round 3)
 
 DEDICATED = ("~/.cache/claude-tmp", "~/.cache/helix-iso")
 SENSITIVE = (".ssh", ".config", ".gnupg", ".aws", ".kube", ".docker", ".mozilla", ".local", ".password-store", ".pki", ".var", ".thunderbird",
@@ -52,37 +56,47 @@ def touches_sensitive(real, home):
             return rs
     return None
 
-HOSTILE_EXACT = (".git", ".specify", ".husky", ".githooks")
 SCAN_LIMIT = 50000
 
 def hostile_name(n):
-    return n in HOSTILE_EXACT or n.startswith(".claude")
+    return safe_io.deny_name(n)
 
 def dedicated_roots():
     return [os.path.realpath(os.path.expanduser(r)) for r in DEDICATED]
 
 def checkout_ancestor(path):
-    """-> the nearest ancestor-or-self of `path`, below the dedicated roots, that holds a `.git` entry (dir, file or link), else None."""
-    roots = dedicated_roots(); p = path
-    while p not in roots and p != "/" and not any(p == os.path.dirname(r) for r in roots):
+    """-> the nearest ancestor-or-self of `path` - ALL the way up to `/`, the dedicated roots and everything above them included - that holds a
+    `.git` entry (dir, file or link), else None."""
+    p = path
+    while True:
         if os.path.lexists(os.path.join(p, ".git")):
             return p
-        p = os.path.dirname(p)
-    return None
+        q = os.path.dirname(p)
+        if q == p:
+            return None
+        p = q
 
 def hostile_tree_error(real):
-    """-> reason when the tree below `real` holds a hostile entry (git pointer/gitdir, .claude*, hook dirs) or any symlink; None when clean."""
+    """-> reason when the tree below `real` holds a deny-table name, any symlink, fifo/device/socket or hard-linked file, or is too big to certify."""
     n = 0
     for dp, dn, fn in os.walk(real, followlinks=False):
         for name in dn + fn:
             n += 1
+            if n > SCAN_LIMIT:
+                return f"more than {SCAN_LIMIT} entries below {real}: refusing to certify it"
             full = os.path.join(dp, name)
             if hostile_name(name):
                 return f"{full} is a git/hook/agent-config entry ({name}): host tools would act on it"
-            if os.path.islink(full):
+            try:
+                st = os.lstat(full)
+            except OSError as e:
+                return f"{full}: {e.strerror}"
+            if stat.S_ISLNK(st.st_mode):
                 return f"{full} is a symlink: the host would follow it"
-        if n > SCAN_LIMIT:
-            return f"more than {SCAN_LIMIT} entries below {real}: refusing to certify it"
+            if not (stat.S_ISDIR(st.st_mode) or stat.S_ISREG(st.st_mode)):
+                return f"{full} is a fifo/device/socket: a host read would block or act on it"
+            if stat.S_ISREG(st.st_mode) and st.st_nlink != 1:
+                return f"{full} is a hard link (count {st.st_nlink}): a host write would change another file"
     return None
 
 def iso_error(iso, home, repo=None):
@@ -157,6 +171,10 @@ def check(mode, src, dst, repo, env=os.environ, bridge=False, now=None):
     allowed = rw if mode == "rw" else ro + rw   # rw roots are also readable
     if not any(inside(real, r) for r in allowed):
         return f"source {real} is outside the {mode} allow-list"
+    if iso and inside(real, os.path.realpath(iso)):          # another runner's HOST-ONLY dir (logs, proofs, derived files) is never bound, in any mode
+        rel = os.path.relpath(real, os.path.realpath(iso)).split("/")
+        if rel and rel[0].startswith("host-"):
+            return f"source {real} is a host-only directory ({rel[0]}): it is never bound into a container"
     if mode == "rw":
         if real in rw:
             return f"rw bind of a root ({real}) refused; bind a per-run subdirectory"

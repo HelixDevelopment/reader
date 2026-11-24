@@ -19,7 +19,7 @@ for P in A B; do D=$PR/$P/.config/koreader/settings; mkdir -p "$D" "$PR/$P/Books
   printf 'return { ["settings"] = { ["username"]="%s", ["userkey"]="%s", ["custom_server"]="http://127.0.0.1:38191", ["auto_sync"]=true, ["sync_forward"]=2, ["sync_backward"]=2, ["checksum_method"]=0 } }\n' "$KOU" "$KOK" > "$D/kosync.lua"
   printf 'return { ["servers"] = { { ["title"]="Helix", ["url"]="http://127.0.0.1:38191/opds/1.2", ["username"]="%s", ["password"]="%s" } } }\n' "$OPDS_USER" "$OPDS_PASS" > "$D/opds.lua"
   chmod 600 "$D"/*.lua; done
-"$R/tools/isolation/run_container.sh" -d -n $N -m 2g -b "$ST/sock" -p "$OUT/container_proof.json" -e GUI_WM=none -r "$KO_LIB:/opt/koreader" -r "$R/qa/isolation/inside:/work/inside" -w "$PR:/prof" -w "$OUT:/out" -- sleep 1800 >/dev/null
+"$R/tools/isolation/run_container.sh" -d -n $N -m 2g -b "$ST/sock" -p "$HW/container_proof.json" -e GUI_WM=none -r "$KO_LIB:/opt/koreader" -r "$R/qa/isolation/inside:/work/inside" -w "$PR:/prof" -w "$OUT:/out" -- sleep 1800 >/dev/null
 sleep 3
 D() { podman exec $N sh /work/inside/ko_drive.sh "$@"; }
 LOG=$HW/steps.log; : > "$LOG"; sink() { grep -E "syncs/progress" "$ST/access.log" | cut -c12-110 | tee -a "$LOG" || true; }; say() { echo "$(date -u +%FT%TZ) $*" | tee -a "$LOG"; }
@@ -42,10 +42,10 @@ say "B close: $(D close)"
 # safe_io (unlink + O_EXCL|O_NOFOLLOW), and what the container itself left in $OUT / $PR is only read through safe_io (no symlink, no hard link)
 podman rm -f $N >/dev/null 2>&1 || true
 cp "$ST/access.log" "$HW/server_access.log"; cp "$ST/access.log.bodies" "$HW/kosync_bodies.jsonl" 2>/dev/null || true
-for k in $(podman exec "$RN" redis-cli --scan --pattern 'helix:v1:kosync:*'); do t=$(podman exec "$RN" redis-cli type "$k"); echo "KEY $k ($t)"; [ "$t" = string ] && podman exec "$RN" redis-cli get "$k"; done > "$HW/redis_sink.txt"
+podman exec "$RN" redis-cli --scan --pattern 'helix:v1:kosync:*' | while IFS= read -r k; do t=$(podman exec "$RN" redis-cli type -- "$k"); echo "KEY $k ($t)"; [ "$t" = string ] && podman exec "$RN" redis-cli get -- "$k"; done > "$HW/redis_sink.txt" || true
 sed -i "s/$KOK/<redacted>/g" "$HW/redis_sink.txt" "$HW/server_access.log" 2>/dev/null || true
 python3 -I "$R/qa/isolation/kosync_proof.py" "$HW/kosync_bodies.jsonl" "$HW/kosync_proof.json" | tee -a "$LOG" || say "KOSYNC PROOF FAILED"
 for P in A B; do $SIO copy "$PR" "$P/ko.log" "$OUT" "ko_$P.log" 2>/dev/null || true; done
 say "run complete"
-for f in server_access.log kosync_bodies.jsonl redis_sink.txt kosync_proof.json steps.log; do [ -f "$HW/$f" ] && $SIO put "$OUT" "$f" < "$HW/$f"; done
-$SIO scan "$OUT" || { echo "run_koreader_gui: $OUT holds a link or special file planted by the container: evidence is tainted" >&2; exit 1; }
+for f in container_proof.json server_access.log kosync_bodies.jsonl redis_sink.txt kosync_proof.json steps.log; do [ -f "$HW/$f" ] && $SIO put "$OUT" "$f" < "$HW/$f"; done
+$SIO scan "$OUT" --allow || { echo "run_koreader_gui: $OUT holds a link or special file planted by the container: evidence is tainted" >&2; exit 1; }

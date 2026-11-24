@@ -120,7 +120,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
 
 ## 4. Guard and gate (F2) - a lint
 
-* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 213-case evader matrix, pinned-waiver tests, bind tests, proxy
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 239-case evader matrix, pinned-waiver tests, bind tests, proxy
   route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
   startup-race tests; needs rootless podman and the image).
 * Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
@@ -150,9 +150,9 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   15 lines of a file under `qa/isolation/inside/` or `submodules/containers/images/` (ignored anywhere else). Such files
   must not be executable and may not be referenced by file name from host-side files (only the directory mount is allowed).
 * Exemptions are PINNED (N3) in `tools/isolation/guard/waivers.txt`, one line `kind|path|sha256|rule|justification|expires`, exact
-  paths only (no globs), expiry at most 366 days out: `self` (the lint's own FIVE sources: `assert_host_untouched.py`,
-  `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`;
-  not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
+  paths only (no globs), expiry at most 366 days out: `self` (the lint's own EIGHT sources - the count is whatever `waivers.txt` lists, `pin_waivers.py list`: `assert_host_untouched.py`,
+  `guard/test_assert_host_untouched.py`, `tests/test_guard_matrix.py`, `tests/test_runtime_checks.py`, `tests/test_bindcheck.py`,
+  `tests/test_review_round1.py`, `tests/test_review_round2.py`, `tests/test_review_round3.py`; not scanned while the hash matches), `denylist` (the trailing `# isolation: denylist` annotation on a line that names a forbidden
   thing in order to refuse it is honoured ONLY in a pinned file under `tools/isolation/`; an unpinned marker is itself a finding
   `denylist-marker-unpinned` and exempts nothing), `waive` (findings of one rule in one pinned file: the spec-kit `eval` scripts,
   three third-party `xdg-open` shims). A changed pinned file (`waiver-pin-mismatch`), a deleted waiver (the file is scanned
@@ -162,7 +162,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
   (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
 * Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
-  `mutants_codec.py`): 213 cases = 201 REQUIRED (all caught; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
+  `mutants_codec.py`): 239 cases = 227 REQUIRED (all caught; round 3 added 14 runtime-family and 12 risky-flag cases; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
   extensions, container escapes, inside-script references, obfuscation, recon) and 12 documented RESIDUAL cases. HONEST
   CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
   80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
@@ -245,15 +245,19 @@ fifos, git pointer files, `.claude*` hooks). Rules, each with a test and a paire
   paths: `run_koreader_gui.sh` (profiles `$PR`, out `$OUT`), `run_web_live.sh` / `run_desktop_live.sh` (only the `-p` proof, now via
   `safe_io`), `container_proof.py`, `seal_evidence.sh`, `fresh_out.sh` (moves a directory, never follows). `run_helixqa_container.sh`
   binds only read-only paths, so its `$OUT` is host-only. The socket directory bound with `-b` (`$ST/sock`) is read by the host only
-  through the unix socket itself; a container that replaces that socket can answer host requests (UNCONFIRMED impact, not closed).
+  through the unix socket itself. RULE (round 3, pinned by `test_review_round3.SocketRule`): after a container start the host is
+  never a client of `h.sock` - the directory is container-writable, so the container can replace the socket by its own listener;
+  the only host use is the pre-start `curl` that creates the throwaway KOSync user, before `run_container.sh` runs.
 * `bindcheck.py` refuses an `ISO_WORK`, and any rw source, that is or lies inside a git checkout/worktree (a `.git` directory or
   pointer file in the directory or an ancestor below the dedicated root), contains `.git`, `.claude*`, `.specify`, `.husky`,
   `.githooks`, or holds any symlink. Read-only binds are not affected.
 * `run_container.sh`: `-m` 64m..16g (unit required, no leading zero), `-c` 0.10..8 (at most two decimals), `-t` 1..14400 s;
   `ICEAUTHORITY` joins the refused environment names.
-* Lint class rule `container-outside-isolation`: any `podman|docker|nerdctl` `run|create|exec|cp` outside `tools/isolation/` is a
-  finding unless a content-pinned `waive` row names the file (13 pre-existing service-container scripts and
-  `run_koreader_gui.sh` are pinned that way). This replaces the endless per-flag list as the primary control for odd flags.
+* Lint class rule `container-outside-isolation`: any `podman|docker|nerdctl` `run|create|exec|cp` (round 3: and `podman-remote`, `buildah run`,
+  `runc`, `lxc`, `apptainer`, `singularity`, `distrobox`, `toolbox`, `flatpak run`, `systemd-run`, `bwrap`, `nsenter`, `unshare`, `chroot`) is a
+  finding unless a content-pinned `waive` row names the file (12 pre-existing service-container scripts and
+  `run_koreader_gui.sh` = 13 rows in round 2; round 3 removed the blanket `tools/isolation/` exemption, so `run_container.sh`,
+  `start_server.sh` and `tests/test_reaper.py` carry their own rows: 16 `container-outside-isolation` rows now). This replaces the endless per-flag list as the primary control for odd flags.
 * Not run in this session: the container-gated tests (network isolation, runtime checks, reaper against real podman, canary probe) and
   every live run; the hermetic suites use a PATH `podman` stub.
 
@@ -264,3 +268,40 @@ fifos, git pointer files, `.claude*` hooks). Rules, each with a test and a paire
   profile needs a warm-up (the runner does it); KOReader is closed by SIGTERM and still pushes progress.
 * The lint has residual classes (section 4); only the container is the boundary.
 * Disk: the image is about 0.9 GB; browsers and KOReader are bind-mounted.
+
+### 8.2 Post-run trust of container-written trees (review round 3)
+
+Class: after the container ran, the host must treat every entry of every rw-bound tree as hostile BEFORE it seals, hashes, copies, commits or
+executes anything. Rules, each with a test and a paired mutant in `tools/isolation/tests/test_review_round3.py`:
+
+* ONE deny table (`safe_io.DENY_EXACT` / `DENY_PREFIX` / `deny_name`, case-insensitive) names the git / agent / tool control artifacts:
+  `.git` (dir or file), `.gitattributes`, `.gitmodules`, `.gitignore`, `.claude*`, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.mcp.json`,
+  `.envrc`, `.direnv`, `.vscode`, `.idea`, `.cursor*`, `.husky`, `.githooks`, `.specify`, `hooks`, `.hooks` and a few credential-config names. The pre-run
+  `bindcheck.py` imports it (no copy) and the post-run `safe_io.py scan` uses it, so the two cannot drift. `scan` also refuses symlinks, fifos,
+  devices, sockets and hard-linked files at any depth and never descends into a denied directory. A planted nested git repository with
+  `core.fsmonitor` plus `.claude/settings.json` is refused by `seal_evidence.sh` (exit 3) with no SHA256SUMS written and no host `git`/`claude`
+  executed (the test puts logging stubs first on PATH).
+* Publish allow-list: the runners finish with `safe_io.py scan "$OUT" --allow`, which additionally refuses every regular file whose extension is not
+  one of `png json jsonl log txt md html csv mp4 webm gif webp` (and files with no extension). A non-zero status makes the runner exit non-zero
+  (`run_koreader_gui.sh`, `run_web_live.sh`, `run_desktop_live.sh`). `seal_evidence.sh` keeps the default scan (names and kinds only) because committed
+  evidence directories also hold scripts. UNCONFIRMED: the allow-list was not exercised by a live web/desktop run (no container was started); a real
+  run that writes another file type is refused, which is the intended fail-closed outcome.
+* Pre-run rw sources are refused when they hold hard-linked files, fifos, devices or sockets as well as symlinks and denied names; the enclosing-checkout
+  check now climbs to `/` (the dedicated roots and everything above them included); another runner's host-only directory (`$ISO_WORK/host-*`) is never
+  bound in any mode; the tree walk's `SCAN_LIMIT` is checked per entry and is itself tested (M9).
+* Proofs and verdicts live in a host-only directory: `run_container.sh -p FILE` refuses a FILE that is relative, not canonical, in a missing / linked
+  directory or inside any rw-bound source; the runners pass `$ISO_WORK/host-ko/` or `$ST/host-proof/` and publish with `safe_io put` AFTER the container
+  stopped. EXISTING committed proofs under `evidence/campaign-2026-11-23/isolated/{web,koreader,desktop}/container_proof.json` were written by the OLD flow
+  (the proof inside the container-writable directory); they are frozen evidence and are NOT regenerated here. Anything produced by the new flow carries the
+  host-only path in its `-p` argument. `run_helixqa_container.sh` binds no rw path, so its proof in `$OUT` is host-only already.
+* Volume caps: `safe_io.py scan` refuses more than 20000 files, 4 GiB in total, one file above 2 GiB or more than 12 directory levels
+  (`SAFE_IO_MAX_FILES|TOTAL|FILE|DEPTH` override; a malformed value is a refusal), and `run_container.sh` passes `--ulimit fsize=2147483648` so a
+  single container-written file cannot exceed 2 GiB while the container runs. UNCONFIRMED / not closed: there is no run-time cap on the TOTAL bytes a
+  container writes to a bind-mounted directory (rootless podman offers no portable quota for bind mounts; `--storage-opt size` applies to the image
+  layer, not to binds); the total is bounded only by the post-run refusal and by the 512 MiB `/tmp` tmpfs.
+* Lint: the runtime family is extended (see section 8.1), the blanket `tools/isolation/` exemption of the class rule is gone, and the escape flags
+  `--rootfs`, `--env-host`, `--pod`, a relative `-v .:`, `--userns=host` and `unconfined` security options are escapes in every file, `tools/isolation/`
+  included; matrix entries for each were added.
+* Behavioural (not hash-pin) coverage of ordering and fatality: the harness runs the real runner scripts in a repo-shaped temp tree with podman /
+  curl / server / `run_container.sh` stubs and ONE event log: the container is stopped before the first host `safe_io` read (M5); a failing final scan
+  makes the runner exit 1 (M6); `safe_io` read size cap holds even when `fstat` under-reports (M4).

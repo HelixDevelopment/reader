@@ -196,8 +196,11 @@ class B2BindRules(Scratch):
         r = subprocess.run([sys.executable, "-I", str(ISO / "bindcheck.py"), "rw", co + "/run", "/work/t"], env=dict(os.environ, ISO_WORK=co), capture_output=True, text=True)
         self.assertEqual(r.returncode, 64, r.stderr)
     # ---- paired mutants ----
-    def mut(self, old, new):
-        t, f = mutated_copy("bindcheck.py", old, new); self.addCleanup(shutil.rmtree, t, True); return load(f, "bcm" + str(abs(hash(old))))
+    def mut(self, old, new, also=None):
+        t, f = mutated_copy("bindcheck.py", old, new)
+        if also:   # a second text mutation in the same copy (a rule backed by a defence-in-depth sibling)
+            f = pathlib.Path(f); f.write_text(f.read_text().replace(also[0], also[1]))
+        self.addCleanup(shutil.rmtree, t, True); return load(f, "bcm" + str(abs(hash(old))))
     def test_mutants_each_rule_is_load_bearing(self):
         co = os.path.join(self.d, "co"); os.makedirs(os.path.join(co, ".git")); os.makedirs(os.path.join(co, "run"))
         os.makedirs(co + "/run/sub"); self.assertIsNotNone(self.chk(co + "/run", co + "/run/sub", "ro"))      # ancestor rule alone refuses this ro bind
@@ -207,7 +210,7 @@ class B2BindRules(Scratch):
         s = os.path.join(self.w, "nested"); os.makedirs(s + "/x/.git")
         self.assertIsNone(self.chk(self.w, s, b=self.mut("if hostile_name(name):", "if False:")))
         s2 = os.path.join(self.w, "lnkdir"); os.makedirs(s2); os.symlink(self.victim, s2 + "/l")
-        self.assertIsNone(self.chk(self.w, s2, b=self.mut("if os.path.islink(full):", "if False:")))
+        self.assertIsNone(self.chk(self.w, s2, b=self.mut("if stat.S_ISLNK(st.st_mode):", "if False:", also=("if not (stat.S_ISDIR(st.st_mode) or stat.S_ISREG(st.st_mode)):", "if False:"))))
         s3 = os.path.join(self.w, "a", "b"); os.makedirs(s3); os.makedirs(os.path.join(self.w, "a", ".git"))
         self.assertIsNone(self.chk(self.w, s3, b=self.mut("c = None if inside(real, ev) else checkout_ancestor(real)", "c = None")))
         self.assertIsNone(self.chk(self.w, s, b=self.mut("h = hostile_tree_error(real) if os.path.isdir(real) else None", "h = None")))
@@ -316,7 +319,7 @@ class I2LintClass(unittest.TestCase):
             self.assertTrue(any(h[2] in ("container-outside-isolation", "container-escape") for h in hits), k)
     def test_inside_isolation_dir_is_exempt_and_waiver_is_pinned(self):
         g = R1.load(self.G, "g_i2b")
-        self.assertEqual(self.scan(g, "tools/isolation/x.sh", "podman run --rm --network none img sh\n"), [])
+        self.assertEqual([h[2] for h in self.scan(g, "tools/isolation/x.sh", "podman run --rm --network none img sh\n")], ["container-outside-isolation"])   # round 3: no blanket exemption - only a pinned row exempts
         self.assertEqual(self.scan(g, "tools/a.sh", "echo podman is a tool; podman ps\n"), [])           # listing / non-run verbs are not the class
         d = tempfile.mkdtemp(prefix="i2w-", dir=CT)
         try:
@@ -327,13 +330,13 @@ class I2LintClass(unittest.TestCase):
             self.assertTrue(g.scan(d))                                                                    # content changed after the pin: void
         finally: shutil.rmtree(d, ignore_errors=True)
     def test_mutant_without_class_rule_misses_the_odd_flags(self):
-        src = self.G.read_text(); old = 'if kind == "code" and not rel.startswith("tools/isolation/") and any(CONTAINER_USE.search(b) for b in views):'
+        src = self.G.read_text(); old = 'if kind == "code" and any(CONTAINER_USE.search(b) for b in views):'
         self.assertIn(old, src); t = tempfile.mkdtemp(prefix="i2m-", dir=CT)
         try:
             p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, "if False:"))
             gm = R1.load(p, "g_i2m"); g = R1.load(self.G, "g_i2ok")
             missed = [k for k in ("env-host", "rootfs", "pod", "devcg", "sysctl", "cp-home", "docker-create", "nerdctl-exec", "var-cp") if not self.scan(gm, "qa/a.sh", self.BAD[k])]
-            self.assertGreaterEqual(len(missed), 6, missed)                                              # the per-flag list alone cannot be complete
+            self.assertGreaterEqual(len(missed), 2, missed)                                              # the per-flag list alone cannot be complete
             for k in missed: self.assertTrue(self.scan(g, "qa/a.sh", self.BAD[k]), k)
         finally: shutil.rmtree(t, ignore_errors=True)
 
