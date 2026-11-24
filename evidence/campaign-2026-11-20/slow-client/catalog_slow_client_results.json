@@ -1,0 +1,836 @@
+{
+  "test": "TestLiveSlowClientCatalogSurface",
+  "surface": "catalog read/write surface (server/internal/catalog/postgres.go)",
+  "test_file": "server/internal/catalog/slow_client_live_test.go",
+  "measurement_path": "host_forwarded",
+  "emitted_at": "2026-11-24T00:26:37Z",
+  "parameters": {
+    "arm_budget_s": 15,
+    "fast_client_budget_ms": 2000,
+    "fast_rounds_per_client": 8,
+    "fast_writer_rounds": 3,
+    "measurement_path": "host_forwarded",
+    "pool_max_open_conns": 20,
+    "slow_client_deadline_ms": 400,
+    "slow_deadline_slack_ms": 250,
+    "slow_stall_ms": 900
+  },
+  "arms": [
+    {
+      "arm": "a_one_slow_one_fast",
+      "slow_clients": 1,
+      "fast_clients": 1,
+      "read_phase": {
+        "slow": [
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "slow_reader_0",
+            "op": "GetWork",
+            "elapsed_ms": 400.927,
+            "error_class": "context_deadline_exceeded"
+          }
+        ],
+        "fast_readers": [
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 4.725
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 11.755
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.124
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 9.215
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.991
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 8.492
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.121
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 9.509
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.15
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 9.595
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.097
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.656
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.98
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.628
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.934
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.566
+          }
+        ],
+        "fast_errors": 0,
+        "fast_reader_p50_ms": 4.725,
+        "fast_reader_p95_ms": 11.755,
+        "fast_reader_p99_ms": 11.755,
+        "total_ops": 17,
+        "phase_budget_ms": 15000
+      },
+      "write_phase": {
+        "slow": [
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "slow_writer",
+            "op": "MergeWork",
+            "elapsed_ms": 400.259,
+            "error_class": "context_deadline_exceeded"
+          }
+        ],
+        "fast_readers": [
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 10.656
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.967
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.998
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.191
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.18
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.037
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.719
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.74
+          }
+        ],
+        "fast_writers": [
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 414.834
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 51.239
+          },
+          {
+            "arm": "a_one_slow_one_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 67.951
+          }
+        ],
+        "fast_errors": 0,
+        "fast_reader_p50_ms": 0.998,
+        "fast_reader_p95_ms": 10.656,
+        "fast_reader_p99_ms": 10.656,
+        "fast_writer_p50_ms": 67.951,
+        "fast_writer_p95_ms": 414.834,
+        "fast_writer_p99_ms": 414.834,
+        "total_ops": 12,
+        "phase_budget_ms": 15000
+      }
+    },
+    {
+      "arm": "b_three_slow_plus_fast",
+      "slow_clients": 3,
+      "fast_clients": 3,
+      "read_phase": {
+        "slow": [
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "slow_reader_0",
+            "op": "GetWork",
+            "elapsed_ms": 400.116,
+            "error_class": "context_deadline_exceeded"
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "slow_reader_1",
+            "op": "GetWork",
+            "elapsed_ms": 400.127,
+            "error_class": "context_deadline_exceeded"
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "slow_reader_2",
+            "op": "GetWork",
+            "elapsed_ms": 400.234,
+            "error_class": "context_deadline_exceeded"
+          }
+        ],
+        "fast_readers": [
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 2.566
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 4.256
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 12.231
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 12.839
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.87
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 16.872
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 0.981
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 12.844
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.104
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.581
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.323
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 12.139
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.1
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 10.389
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 9.839
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.39
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.05
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 10.829
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.044
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 9.884
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 0.737
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.768
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.17
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 9.213
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.111
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 13.385
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 0.877
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 12.595
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.035
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 10.477
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.217
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 9.167
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 0.775
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 8.684
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.981
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 9.516
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.052
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 11.072
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 10.563
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.102
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 0.692
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 9.74
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 0.983
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "Search",
+            "latency_ms": 8.835
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 9.89
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 0.872
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "Search",
+            "latency_ms": 9.101
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "Search",
+            "latency_ms": 8.08
+          }
+        ],
+        "fast_errors": 0,
+        "fast_reader_p50_ms": 8.08,
+        "fast_reader_p95_ms": 12.844,
+        "fast_reader_p99_ms": 16.872,
+        "total_ops": 51,
+        "phase_budget_ms": 15000
+      },
+      "write_phase": {
+        "slow": [
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "slow_writer",
+            "op": "MergeWork",
+            "elapsed_ms": 400.199,
+            "error_class": "context_deadline_exceeded"
+          }
+        ],
+        "fast_readers": [
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 2.062
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 0.988
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 4.023
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.773
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.147
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 2.38
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 1.627
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 14.754
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 15.279
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_1",
+            "op": "GetWork",
+            "latency_ms": 2.034
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.794
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.355
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.053
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.278
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.049
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.323
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.159
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.117
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.314
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.332
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 0.954
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.069
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_2",
+            "op": "GetWork",
+            "latency_ms": 1.347
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_reader_0",
+            "op": "GetWork",
+            "latency_ms": 1.285
+          }
+        ],
+        "fast_writers": [
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_1",
+            "op": "MergeWork",
+            "latency_ms": 425.752
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_2",
+            "op": "MergeWork",
+            "latency_ms": 509.66
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 576.02
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_1",
+            "op": "MergeWork",
+            "latency_ms": 207.683
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_2",
+            "op": "MergeWork",
+            "latency_ms": 209.084
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 210.605
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_1",
+            "op": "MergeWork",
+            "latency_ms": 217.739
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_2",
+            "op": "MergeWork",
+            "latency_ms": 203.313
+          },
+          {
+            "arm": "b_three_slow_plus_fast",
+            "client": "fast_writer_0",
+            "op": "MergeWork",
+            "latency_ms": 190.959
+          }
+        ],
+        "fast_errors": 0,
+        "fast_reader_p50_ms": 1.323,
+        "fast_reader_p95_ms": 14.754,
+        "fast_reader_p99_ms": 15.279,
+        "fast_writer_p50_ms": 210.605,
+        "fast_writer_p95_ms": 576.02,
+        "fast_writer_p99_ms": 576.02,
+        "total_ops": 34,
+        "phase_budget_ms": 15000
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "name": "a_one_slow_one_fast_read_slow_client_timeout_bounded",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_read_fast_client_error_storm_absent",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_read_fast_reader_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_write_slow_client_timeout_bounded",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_write_fast_client_error_storm_absent",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_write_fast_writer_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "a_one_slow_one_fast_write_fast_reader_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_read_slow_client_timeout_bounded",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_read_fast_client_error_storm_absent",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_read_fast_reader_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_write_slow_client_timeout_bounded",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_write_fast_client_error_storm_absent",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_write_fast_writer_latency_within_budget",
+      "violated": false
+    },
+    {
+      "name": "b_three_slow_plus_fast_write_fast_reader_latency_within_budget",
+      "violated": false
+    }
+  ]
+}
