@@ -27,7 +27,7 @@ residual; it is not what keeps the host safe.
 | Electron desktop client e2e | no | yes |
 | HelixQA HTTP banks (`helixqa http`) | no (static binary built on host, executed in container) | yes |
 | HelixQA web bank browser cases (HLX-WEB-001/002) | no | yes, by `tests/helixqa_web/run_web_bank.sh` (HRD-038, separate work, container name `hrd038-web` is outside the `hrdiso-` namespace: reported, not changed) |
-| Android emulator | no | yes, own container, headless, `/dev/kvm` device (section 6) |
+| Android emulator | no | NOT covered: the wrapper was removed from this PR (section 6); no isolated Android run exists yet |
 
 The host only ever runs non-GUI processes (server, proxy, redis, `podman`). Drivers such as xdotool, Xvfb, openbox,
 ImageMagick and Chromium exist only inside the image.
@@ -120,7 +120,7 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
 
 ## 4. Guard and gate (F2) - a lint
 
-* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 187-case evader matrix, pinned-waiver tests, bind tests, proxy
+* Gate: `tools/isolation/assert_host_untouched.sh` (fast: lint tests, 213-case evader matrix, pinned-waiver tests, bind tests, proxy
   route-policy tests, repo scan) and `--full` (adds network isolation incl. the real-server N1 test, runtime checks, reaper and
   startup-race tests; needs rootless podman and the image).
 * Scan set: tracked, untracked AND git-ignored files; extensions incl. `.gradle .kts .txt .html`; extension-less files WITH a
@@ -162,8 +162,8 @@ RED: `hardening/N4_RED.log` (the old reaper killed a starting container).
   record fails. The gate prints a `NOTICE pinned waivers active: N (self/denylist/waive)` line. Tests: `tests/test_waivers.py`
   (RED/GREEN `hardening/N3_RED_GREEN.log`, `hardening/N3_GREEN.log`).
 * Evader matrix: `tools/isolation/guard/mutants.b64` (base64 so this tree carries no forbidden literals; edit with
-  `mutants_codec.py`): 187 cases = 177 REQUIRED (all caught; the 83 earlier ones plus the 94 round-2 evaders: skip-dir hiding,
-  extensions, container escapes, inside-script references, obfuscation, recon) and 10 documented RESIDUAL cases. HONEST
+  `mutants_codec.py`): 213 cases = 201 REQUIRED (all caught; the 83 earlier ones, the 94 round-2 evaders and the round-1/round-2 review additions incl. 12 odd-flag cases of the class rule `container-outside-isolation`: skip-dir hiding,
+  extensions, container escapes, inside-script references, obfuscation, recon) and 12 documented RESIDUAL cases. HONEST
   CLAIM: "caught" means caught by the lint; it does NOT mean the host is safe - the container is the boundary. The reviewer's own
   80 `isorev2_*` mutants were not available to this session (scratch not found); the new cases were re-created from the
   reviewer's list, class by class, so equality with the reviewer's set is UNCONFIRMED. REAL REMAINING (uncaught) classes: command
@@ -231,6 +231,31 @@ redis), pixel probes of KOReader's rendered pages.
 * TOCTOU (review M2): `bindcheck.py` hands podman the RESOLVED path, which closes a swap of the leaf, but a parent component
   could still be replaced by a symlink between the check and podman's mount if a concurrent host-side writer exists. Not
   closed; mitigated only by `ISO_WORK` being a dedicated directory no other process should write.
+
+### 8.1 Container-writable state the host later acts on or follows (review round 2)
+
+Model: after a container has had a rw bind of a directory, everything in it is attacker-controlled (names, symlinks, hard links,
+fifos, git pointer files, `.claude*` hooks). Rules, each with a test and a paired mutant in `tools/isolation/tests/test_review_round2.py`:
+
+* Host-side access is symlink-safe: `tools/isolation/safe_io.py` (`put`, `copy`, `scan`, `first`) opens every component below the
+  trusted base with `O_NOFOLLOW`, refuses non-regular and hard-linked files, and creates outputs with `unlink` + `O_EXCL|O_NOFOLLOW`.
+  `container_proof.py` writes through it; `seal_evidence.sh` scans first and refuses (exit 3) a directory holding a link or special
+  file; `qa/isolation/run_koreader_gui.sh` stops its container before any host read, builds every host log/derived file in a
+  host-only directory (`$ISO_WORK/host-ko`, never bound) and publishes them with `safe_io put`. Enumerated host accesses to rw-bound
+  paths: `run_koreader_gui.sh` (profiles `$PR`, out `$OUT`), `run_web_live.sh` / `run_desktop_live.sh` (only the `-p` proof, now via
+  `safe_io`), `container_proof.py`, `seal_evidence.sh`, `fresh_out.sh` (moves a directory, never follows). `run_helixqa_container.sh`
+  binds only read-only paths, so its `$OUT` is host-only. The socket directory bound with `-b` (`$ST/sock`) is read by the host only
+  through the unix socket itself; a container that replaces that socket can answer host requests (UNCONFIRMED impact, not closed).
+* `bindcheck.py` refuses an `ISO_WORK`, and any rw source, that is or lies inside a git checkout/worktree (a `.git` directory or
+  pointer file in the directory or an ancestor below the dedicated root), contains `.git`, `.claude*`, `.specify`, `.husky`,
+  `.githooks`, or holds any symlink. Read-only binds are not affected.
+* `run_container.sh`: `-m` 64m..16g (unit required, no leading zero), `-c` 0.10..8 (at most two decimals), `-t` 1..14400 s;
+  `ICEAUTHORITY` joins the refused environment names.
+* Lint class rule `container-outside-isolation`: any `podman|docker|nerdctl` `run|create|exec|cp` outside `tools/isolation/` is a
+  finding unless a content-pinned `waive` row names the file (13 pre-existing service-container scripts and
+  `run_koreader_gui.sh` are pinned that way). This replaces the endless per-flag list as the primary control for odd flags.
+* Not run in this session: the container-gated tests (network isolation, runtime checks, reaper against real podman, canary probe) and
+  every live run; the hermetic suites use a PATH `podman` stub.
 
 * Chromium's own sandbox is OFF for the Electron run: with it on, Electron fails to launch in the unprivileged rootless
   container (`hardening/desktop_sandbox_attempt.log`; `--cap-add SYS_ADMIN` is not acceptable). Evidence therefore says

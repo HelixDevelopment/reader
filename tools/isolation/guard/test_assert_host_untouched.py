@@ -58,7 +58,7 @@ class Guard(unittest.TestCase):
 
     def test_containerised_android_emulator_is_allowed_pattern(self):
         body = "podman run -d --device /dev/kvm --userns=keep-id img emulator -avd default -no-window -no-audio\n"
-        self.assertEqual(scan_tree({"a.sh": body}), [])
+        self.assertEqual(scan_tree({"tools/isolation/a.sh": body}), [])
 
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as d:

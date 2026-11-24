@@ -117,10 +117,7 @@ class I1RunnerEnv(unittest.TestCase):
         self.assertTrue(self.mutant_accepts("case $b in *=*) ;; *)", "case $b in *) ;; *)", ["-e", "FOO"]))
         self.assertTrue(self.mutant_accepts("case $IMG in -*|", "case $IMG in ZZZ|", ["-i", "-x"]))
         self.assertTrue(self.mutant_accepts("DISPLAY*|*_DISPLAY|", "", ["-e", "DISPLAY=:0"]))
-        # M3 numeric/value checks: each mutant (check disabled) accepts the value the real script refuses
-        self.assertTrue(self.mutant_accepts("case $MEM in *[!0-9kKmMgG]*|'')", "case $MEM in ZZZ)", ["-m", "--x"]))
-        self.assertTrue(self.mutant_accepts("case $CPUS in *[!0-9.]*|'')", "case $CPUS in ZZZ)", ["-c", "x"]))
-        self.assertTrue(self.mutant_accepts("case $LIFE in *[!0-9]*|'')", "case $LIFE in ZZZ)", ["-t", "1;2"]))
+        # M3 numeric checks: superseded by the strict range checks of round 2 (each with its own paired mutant in test_review_round2.py)
 
 class M4Reaper(unittest.TestCase):
     def reaped(self, script, pid):
@@ -155,7 +152,7 @@ class I3LintEscapes(unittest.TestCase):
         g = load(ISO / "guard/assert_host_untouched.py", "g_i3")
         for k, body in self.CASES.items(): self.assertTrue(self.scan(g, "tools/a.sh", body), k)
         self.assertTrue(self.scan(g, "tools/host.env", "DISPLAY=:0\n"), "env file content")
-        for body in self.GOOD: self.assertEqual(self.scan(g, "tools/a.sh", body), [], body)
+        for body in self.GOOD: self.assertEqual(self.scan(g, "tools/isolation/a.sh", body), [], body)   # tools/isolation/ is exempt from the round-2 class rule
         self.assertEqual(self.scan(g, "tools/ok.env", "HELIX_PORT=1\n"), [])
     def test_paired_mutants_each_alternative_is_load_bearing(self):
         src = (ISO / "guard/assert_host_untouched.py").read_text()
@@ -163,7 +160,7 @@ class I3LintEscapes(unittest.TestCase):
                        ("annotation", "--annotation\\b|"), ("add-host", "host-gateway|")):
             self.assertIn(old, src, k)
             t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, "", 1))
-            try: self.assertEqual(self.scan(load(p, "g_m_" + k.replace("-", "_")), "tools/a.sh", self.CASES[k]), [], k)
+            try: self.assertEqual(self.scan(load(p, "g_m_" + k.replace("-", "_")), "tools/isolation/a.sh", self.CASES[k]), [], k)
             finally: shutil.rmtree(t, ignore_errors=True)
         for k, old, new, body in (
                 ("publish-0000", r"(?:0\.0\.0\.0:|", r"(?:ZZ:|", "podman run --rm -p 0.0.0.0:6000:6000 img sh\n"),
@@ -172,14 +169,14 @@ class I3LintEscapes(unittest.TestCase):
             self.assertEqual(src.count(old), 1, k)
             t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py"); p.write_text(src.replace(old, new, 1))
             try:
-                self.assertTrue(self.scan(load(ISO / "guard/assert_host_untouched.py", "g_ok_" + k.replace("-", "_")), "tools/a.sh", body), k)   # unmutated catches it
-                self.assertEqual(self.scan(load(p, "g_m2_" + k.replace("-", "_")), "tools/a.sh", body), [], k)                                    # mutant misses it
+                self.assertTrue(self.scan(load(ISO / "guard/assert_host_untouched.py", "g_ok_" + k.replace("-", "_")), "tools/isolation/a.sh", body), k)   # unmutated catches it
+                self.assertEqual(self.scan(load(p, "g_m2_" + k.replace("-", "_")), "tools/isolation/a.sh", body), [], k)                                    # mutant misses it
             finally: shutil.rmtree(t, ignore_errors=True)
         for k, old in (("var-command", "CONTAINER_CMD = re.compile(r\"\\b(?:podman|docker|nerdctl|buildah)\\s+(?:container\\s+)?(?:run|create|exec)\\b|\\$\\{?\\w+\\}?\\s+(?:container\\s+)?(?:run|create|exec)\\b\")"),):
             self.assertIn(old, src)
             t = tempfile.mkdtemp(prefix="i3m-", dir=CT); p = pathlib.Path(t, "m.py")
             p.write_text(src.replace(old, "CONTAINER_CMD = re.compile(r\"\\b(?:podman|docker|nerdctl|buildah)\\s+(?:container\\s+)?(?:run|create|exec)\\b\")", 1))
-            try: self.assertEqual(self.scan(load(p, "g_m_var"), "tools/a.sh", self.CASES[k]), [], k)
+            try: self.assertEqual(self.scan(load(p, "g_m_var"), "tools/isolation/a.sh", self.CASES[k]), [], k)
             finally: shutil.rmtree(t, ignore_errors=True)
 
 class B1CleanTree(unittest.TestCase):

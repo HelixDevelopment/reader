@@ -17,6 +17,12 @@ proof = {"name": i["Name"], "image": i["ImageName"], "created": i["Created"],
          "oom_score_adj": h.get("OomScoreAdj"), "userns_mode": h["UsernsMode"], "lifetime_timeout_s": c.get("Timeout"),
          "binds": h["Binds"], "devices": h.get("Devices"), "ports": h.get("PortBindings"),
          "env_names": sorted(e.split("=", 1)[0] for e in c["Env"]), "labels": c["Labels"], "entrypoint": c["Entrypoint"], "cmd": c["Cmd"]}
-tmp = out + ".tmp"
-open(tmp, "w").write(json.dumps(proof, indent=2) + "\n")
-import os; os.replace(tmp, out)
+# OUT may be a container-writable directory (run_container.sh -w): never open a path there with a plain open()/os.replace()
+# (a planted symlink at OUT or OUT.tmp would redirect the write) - safe_io.put unlinks any existing entry and creates it O_EXCL|O_NOFOLLOW.
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import safe_io
+try:
+    safe_io.put(os.path.dirname(os.path.abspath(out)), os.path.basename(out), (json.dumps(proof, indent=2) + "\n").encode())
+except safe_io.Refused as e:
+    print(f"container_proof: refused: {e}", file=sys.stderr); sys.exit(1)

@@ -30,11 +30,18 @@ case $NAME in hrdiso-*|hrdisorev-*) ;; *) echo "run_container: name must start w
 for b in "${ENVS[@]:-}"; do [ -z "$b" ] && continue; [ "$b" = -e ] && continue; n=${b%%=*}; N=${n^^}
   case $b in *=*) ;; *) echo "run_container: env must be explicit NAME=VALUE (a bare name passes the host value through): $b" >&2; exit 64;; esac
   case $n in ''|[0-9]*|*[!A-Za-z0-9_]*) echo "run_container: invalid env name: $n" >&2; exit 64;; esac
-  case $N in DISPLAY*|*_DISPLAY|WAYLAND*|XAUTHORITY*|*DBUS*|XDG_*|SSH_AUTH_SOCK|SSH_*|PULSE*|PIPEWIRE*|GNOME_*|KDE_*|GTK_*|QT_QPA*|DESKTOP_SESSION|SESSION_MANAGER|GPG_AGENT*|GDK_*) echo "run_container: refusing host display/session env: $n" >&2; exit 64;; esac; done  # isolation: denylist
+  case $N in DISPLAY*|*_DISPLAY|WAYLAND*|XAUTHORITY*|ICEAUTHORITY*|*DBUS*|XDG_*|SSH_AUTH_SOCK|SSH_*|PULSE*|PIPEWIRE*|GNOME_*|KDE_*|GTK_*|QT_QPA*|DESKTOP_SESSION|SESSION_MANAGER|GPG_AGENT*|GDK_*) echo "run_container: refusing host display/session env: $n" >&2; exit 64;; esac; done  # isolation: denylist
 case $IMG in -*|*[!A-Za-z0-9_./:@-]*|'') echo "run_container: invalid image name: $IMG" >&2; exit 64;; esac
-case $MEM in *[!0-9kKmMgG]*|'') echo "run_container: invalid -m $MEM" >&2; exit 64;; esac
-case $CPUS in *[!0-9.]*|'') echo "run_container: invalid -c $CPUS" >&2; exit 64;; esac
-case $LIFE in *[!0-9]*|'') echo "run_container: invalid -t $LIFE" >&2; exit 64;; esac
+# strict positive ranges with documented caps (review round 2): 0 / "0k" / "0." / "1.2.3" mean unlimited or garbage to podman, and an unbounded
+# value defeats the resource cap. -m 64m..16g (unit m or g required), -c 0.10..8 (at most two decimals), -t 1..14400 s (4 h).
+[[ $MEM =~ ^([1-9][0-9]{0,5})([mMgG])$ ]] || { echo "run_container: invalid -m $MEM (positive integer + m or g)" >&2; exit 64; }
+mem_n=${BASH_REMATCH[1]}; mem_mul=1; case ${BASH_REMATCH[2]} in g|G) mem_mul=1024;; esac; mem_mib=$((mem_n * mem_mul))
+{ [ "$mem_mib" -ge 64 ] && [ "$mem_mib" -le 16384 ]; } || { echo "run_container: -m $MEM outside 64m..16g" >&2; exit 64; }
+[[ $CPUS =~ ^([0-9]{1,2})(\.([0-9]{1,2}))?$ ]] || { echo "run_container: invalid -c $CPUS (number with at most two decimals)" >&2; exit 64; }
+frac=${BASH_REMATCH[3]:-0}; [ ${#frac} -eq 2 ] || frac=${frac}0; [ "$frac" = 00 ] && frac=0
+cpu_centi=$(( 10#${BASH_REMATCH[1]} * 100 + 10#$frac ))
+{ [ "$cpu_centi" -ge 10 ] && [ "$cpu_centi" -le 800 ]; } || { echo "run_container: -c $CPUS outside 0.10..8" >&2; exit 64; }
+[[ $LIFE =~ ^[1-9][0-9]{0,4}$ ]] && [ "$LIFE" -le 14400 ] || { echo "run_container: -t $LIFE outside 1..14400 seconds" >&2; exit 64; }
 OWNER=$$; [ ${#DETACH[@]} -eq 0 ] || OWNER=$PPID   # detached: the runner exits at once, so the caller owns the container
 LAUNCH=(sh /opt/isoinside/launch.sh)
 if [ -n "$BRIDGE" ]; then

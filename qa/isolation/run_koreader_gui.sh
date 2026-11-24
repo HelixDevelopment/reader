@@ -5,8 +5,8 @@
 set -eu
 R=$(cd "$(dirname "$0")/../.." && pwd); OUT=$1; SRV=${HELIX_SERVER_BIN:?set HELIX_SERVER_BIN}; WORK=${ISO_WORK:?set ISO_WORK}
 KO_LIB=${KO_INSTALL:-/usr/lib/koreader}
-ST=$WORK/st-ko; PR=$WORK/ko-prof; N=hrdiso-ko
-"$R/tools/isolation/fresh_out.sh" "$OUT"; mkdir -p "$WORK"; rm -rf "${ST:?}" "${PR:?}"; mkdir -p "$PR"
+ST=$WORK/st-ko; PR=$WORK/ko-prof; HW=$WORK/host-ko; N=hrdiso-ko; SIO="python3 -I $R/tools/isolation/safe_io.py"
+"$R/tools/isolation/fresh_out.sh" "$OUT"; mkdir -p "$WORK"; rm -rf "${ST:?}" "${PR:?}" "${HW:?}"; mkdir -p "$PR" "$HW"   # $HW is HOST-ONLY: never bound into a container, holds every host log/derived file until it is published
 python3 -I "$R/qa/isolation/make_gui_fixtures.py" koreader "$WORK/fx-ko"
 bash "$R/tools/isolation/start_server.sh" start "$SRV" "$ST" "$WORK/fx-ko"
 RN=$(cat "$ST/redis.name")
@@ -22,7 +22,7 @@ for P in A B; do D=$PR/$P/.config/koreader/settings; mkdir -p "$D" "$PR/$P/Books
 "$R/tools/isolation/run_container.sh" -d -n $N -m 2g -b "$ST/sock" -p "$OUT/container_proof.json" -e GUI_WM=none -r "$KO_LIB:/opt/koreader" -r "$R/qa/isolation/inside:/work/inside" -w "$PR:/prof" -w "$OUT:/out" -- sleep 1800 >/dev/null
 sleep 3
 D() { podman exec $N sh /work/inside/ko_drive.sh "$@"; }
-LOG=$OUT/steps.log; : > "$LOG"; sink() { grep -E "syncs/progress" "$ST/access.log" | cut -c12-110 | tee -a "$LOG" || true; }; say() { echo "$(date -u +%FT%TZ) $*" | tee -a "$LOG"; }
+LOG=$HW/steps.log; : > "$LOG"; sink() { grep -E "syncs/progress" "$ST/access.log" | cut -c12-110 | tee -a "$LOG" || true; }; say() { echo "$(date -u +%FT%TZ) $*" | tee -a "$LOG"; }
 say "warm-up: first launch of each fresh profile shows one-time notices that swallow the first tap; dismiss and exit"
 for P in A B; do D start $P; D tap 300 450 1; D tap 300 450 1; D shot warm_$P; D close >/dev/null; sleep 2; done
 say "profile A: start, OPDS browse, download, read now"
@@ -32,15 +32,20 @@ say "profile B: start, OPDS browse, download"
 D start B; D opds_open; D shot B01_opds; D opds_download_read; D shot B02_book_opened_pulled
 sleep 3; D shot B03_after_pull; say "B docsettings: $(D docpercent B)"; say "B turns 2 pages"; D pages 2; D shot B04_page6; say "B close: $(D close)"; sleep 3; sink
 say "A re-open book: pull B's progress"
-BOOK=$(ls "$PR/A/Books"/*.epub | head -1); D start A "/prof/A/Books/$(basename "$BOOK")"; D shot A05_reopened_pulled; say "A docsettings: $(D docpercent A)"; say "A close: $(D close)"; sleep 3; sink
+BN=$($SIO first "$PR" A/Books "*.epub") || { say "no epub in A/Books (or unsafe entry)"; exit 1; }; D start A "/prof/A/Books/$BN"   # name read without following links, charset-checked; D shot A05_reopened_pulled; say "A docsettings: $(D docpercent A)"; say "A close: $(D close)"; sleep 3; sink
 say "PSE: profile B streams the CBZ"
 D start B; D opds_open; D opds_comic_stream; D shot B05_pse_page1
 say "pse page1 centre pixel: $(D pixel 300 400)"
 D key Next 4; D shot B06_pse_page2; say "pse page2 centre pixel: $(D pixel 300 400)"
 say "B close: $(D close)"
-cp "$ST/access.log" "$OUT/server_access.log"; cp "$ST/access.log.bodies" "$OUT/kosync_bodies.jsonl" 2>/dev/null || true
-for k in $(podman exec "$RN" redis-cli --scan --pattern 'helix:v1:kosync:*'); do t=$(podman exec "$RN" redis-cli type "$k"); echo "KEY $k ($t)"; [ "$t" = string ] && podman exec "$RN" redis-cli get "$k"; done > "$OUT/redis_sink.txt"
-sed -i "s/$KOK/<redacted>/g" "$OUT/redis_sink.txt" "$OUT/server_access.log" 2>/dev/null || true
-python3 -I "$R/qa/isolation/kosync_proof.py" "$OUT/kosync_bodies.jsonl" "$OUT/kosync_proof.json" | tee -a "$LOG" || say "KOSYNC PROOF FAILED"
-for P in A B; do cp "$PR/$P/ko.log" "$OUT/ko_$P.log" 2>/dev/null || true; done
-say done
+# the container is stopped BEFORE any host read of what it could write; every derived file is built in $HW and published into $OUT through
+# safe_io (unlink + O_EXCL|O_NOFOLLOW), and what the container itself left in $OUT / $PR is only read through safe_io (no symlink, no hard link)
+podman rm -f $N >/dev/null 2>&1 || true
+cp "$ST/access.log" "$HW/server_access.log"; cp "$ST/access.log.bodies" "$HW/kosync_bodies.jsonl" 2>/dev/null || true
+for k in $(podman exec "$RN" redis-cli --scan --pattern 'helix:v1:kosync:*'); do t=$(podman exec "$RN" redis-cli type "$k"); echo "KEY $k ($t)"; [ "$t" = string ] && podman exec "$RN" redis-cli get "$k"; done > "$HW/redis_sink.txt"
+sed -i "s/$KOK/<redacted>/g" "$HW/redis_sink.txt" "$HW/server_access.log" 2>/dev/null || true
+python3 -I "$R/qa/isolation/kosync_proof.py" "$HW/kosync_bodies.jsonl" "$HW/kosync_proof.json" | tee -a "$LOG" || say "KOSYNC PROOF FAILED"
+for P in A B; do $SIO copy "$PR" "$P/ko.log" "$OUT" "ko_$P.log" 2>/dev/null || true; done
+say "run complete"
+for f in server_access.log kosync_bodies.jsonl redis_sink.txt kosync_proof.json steps.log; do [ -f "$HW/$f" ] && $SIO put "$OUT" "$f" < "$HW/$f"; done
+$SIO scan "$OUT" || { echo "run_koreader_gui: $OUT holds a link or special file planted by the container: evidence is tainted" >&2; exit 1; }

@@ -11,6 +11,10 @@ Rules (all must hold):
            ISO_FRESH_SECS (default 6 h) - a sealed or stale sibling is never writable; under ISO_WORK a sub-directory, never ISO_WORK itself.
   ISO_WORK absolute, canonical (no '..', no symlink in the chain), strictly inside a dedicated root (~/.cache/claude-tmp or ~/.cache/helix-iso),
            not inside/over a sensitive dir.
+  hostile  (review round 2, class "container-writable state the host later acts on or follows") a rw source - and ISO_WORK - must not be, lie
+           under, or contain a git checkout/worktree/gitdir (a `.git` dir OR pointer file: `core.hooksPath`, `.git/hooks`, `gitdir:` redirection),
+           a `.claude*` / `.specify` / `.husky` / `.githooks` entry (host-run hooks/skills), or any symlink: all of these are host-executed or
+           host-followed the moment a host tool (git, claude, make, cp) runs inside the tree after the container wrote to it.
   dest     absolute, canonical (normpath-equal: no '..', '//', '.', trailing '/'), charset [A-Za-z0-9_./-], below an allowed prefix, and it may
            never be, lie inside or cover the reserved mounts /opt/isoinside and /run/helixsock (the latter only via --bridge); run_container.sh
            additionally refuses duplicate destinations."""
@@ -48,6 +52,39 @@ def touches_sensitive(real, home):
             return rs
     return None
 
+HOSTILE_EXACT = (".git", ".specify", ".husky", ".githooks")
+SCAN_LIMIT = 50000
+
+def hostile_name(n):
+    return n in HOSTILE_EXACT or n.startswith(".claude")
+
+def dedicated_roots():
+    return [os.path.realpath(os.path.expanduser(r)) for r in DEDICATED]
+
+def checkout_ancestor(path):
+    """-> the nearest ancestor-or-self of `path`, below the dedicated roots, that holds a `.git` entry (dir, file or link), else None."""
+    roots = dedicated_roots(); p = path
+    while p not in roots and p != "/" and not any(p == os.path.dirname(r) for r in roots):
+        if os.path.lexists(os.path.join(p, ".git")):
+            return p
+        p = os.path.dirname(p)
+    return None
+
+def hostile_tree_error(real):
+    """-> reason when the tree below `real` holds a hostile entry (git pointer/gitdir, .claude*, hook dirs) or any symlink; None when clean."""
+    n = 0
+    for dp, dn, fn in os.walk(real, followlinks=False):
+        for name in dn + fn:
+            n += 1
+            full = os.path.join(dp, name)
+            if hostile_name(name):
+                return f"{full} is a git/hook/agent-config entry ({name}): host tools would act on it"
+            if os.path.islink(full):
+                return f"{full} is a symlink: the host would follow it"
+        if n > SCAN_LIMIT:
+            return f"more than {SCAN_LIMIT} entries below {real}: refusing to certify it"
+    return None
+
 def iso_error(iso, home, repo=None):
     if not os.path.isabs(iso):
         return "ISO_WORK must be an absolute path"
@@ -61,6 +98,15 @@ def iso_error(iso, home, repo=None):
     t = touches_sensitive(iso, home)
     if t:
         return f"ISO_WORK overlaps the sensitive path {t}"
+    c = checkout_ancestor(iso)
+    if c:
+        return f"ISO_WORK {iso} is, or lies inside, the git checkout/worktree {c}: the container could plant hooks or pointer files the host would run"
+    try:
+        top = [n for n in os.listdir(iso) if hostile_name(n)]
+    except OSError:
+        top = []
+    if top:
+        return f"ISO_WORK {iso} contains {top[0]} (git/hook/agent-config entry): refuse"
     if repo:   # the repo's host-executed tooling must never become writable: ISO_WORK may be neither the repo, inside it, nor an ancestor of it
         rr = os.path.realpath(repo)
         if inside(iso, rr) or inside(rr, iso):
@@ -114,6 +160,12 @@ def check(mode, src, dst, repo, env=os.environ, bridge=False, now=None):
     if mode == "rw":
         if real in rw:
             return f"rw bind of a root ({real}) refused; bind a per-run subdirectory"
+        c = None if inside(real, ev) else checkout_ancestor(real)
+        if c:
+            return f"rw source {real} is, or lies inside, the git checkout/worktree {c}"
+        h = hostile_tree_error(real) if os.path.isdir(real) else None
+        if h:
+            return f"rw source refused: {h}"
         if inside(real, ev):
             e = fresh_error(real, now if now is not None else time.time(), int(env.get("ISO_FRESH_SECS", "21600")))
             if e:

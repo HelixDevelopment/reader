@@ -12,6 +12,8 @@ python3 -I -m unittest discover -s "$H/tests" -p 'test_guard_matrix.py' >&2
 python3 -I -m unittest discover -s "$H/tests" -p 'test_bindcheck.py' >&2
 python3 -I -m unittest discover -s "$H/tests" -p 'test_waivers.py' >&2
 python3 -I -m unittest discover -s "$H/tests" -p 'test_proxy_policy.py' >&2
+python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round1.py' >&2
+python3 -I -W ignore -m unittest discover -s "$H/tests" -p 'test_review_round2.py' >&2
 if [ "${1:-}" = --full ]; then
   # the real-server half of the N1 test (admin routes refused, no source created) needs a helix-server binary; say so when it is absent
   : "${HELIX_SERVER_BIN:=$HOME/.cache/claude-tmp/helix-server-fresh}"; [ -x "$HELIX_SERVER_BIN" ] || { echo "NOTICE: HELIX_SERVER_BIN not set/executable - real-server N1 test will SKIP" >&2; unset HELIX_SERVER_BIN; }

@@ -80,6 +80,10 @@ TOOLS = ["xdotool", "ydotool", "dotool", "wtype", "wmctrl", "xclip", "xsel", "wl
          "notify-send", "scrcpy", "gnome-screenshot", "flameshot", "spectacle", "xte", "xinput", "xrandr", "dbus-send", "gdbus", "busctl", "qdbus",
          "chromium", "chromium-browser", "google-chrome", "firefox", "electron", "gio", "xwininfo", "xdpyinfo", "xvkbd"]
 CONTAINER_CMD = re.compile(r"\b(?:podman|docker|nerdctl|buildah)\s+(?:container\s+)?(?:run|create|exec)\b|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
+# R2-I2: ANY container-runtime run/create/exec/cp outside tools/isolation/ (the one place that owns the hardened launch path) is a finding unless
+# a pinned `waive` row names it - it is how --env-host / --rootfs / -v .:/h / "$PWD" / --pod / --sysctl / --device-cgroup-rule / `podman cp ... $HOME`
+# escapes would be written, and the per-flag list can never be complete (the class is "a runtime call that bypasses run_container.sh").
+CONTAINER_USE = re.compile(r"\b(?:podman|docker|nerdctl)\s+(?:container\s+)?(?:run|create|exec|cp)\b|[\"']\s*(?:podman|docker|nerdctl)\s*[\"']\s*,\s*[\"'](?:run|create|exec|cp)[\"']|\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec|cp)\b")
 VARCMD = re.compile(r"\$\{?\w+\}?\s+(?:container\s+)?(?:run|create|exec)\b")
 ESCAPES = re.compile(
     r"--(?:net|network)(?:=|\s+)(?!none\b)[^\s-]|--(?:net|network)(?:=|\s+)--|--privileged\b|--(?:pid|ipc|userns|uts|cgroupns)(?:=|\s+)host\b|"
@@ -395,6 +399,8 @@ def scan(root, include_submodules=False, stats=None):
                 continue
             if any(CONTAINER_CMD.search(b) and ESCAPES.search(b) for b in views) or (kind == "code" and any(KUBE.search(b) for b in views)):
                 fh.append((rel, n, "container-escape", text.strip()[:160]))
+            if kind == "code" and not rel.startswith("tools/isolation/") and any(CONTAINER_USE.search(b) for b in views):
+                fh.append((rel, n, "container-outside-isolation", text.strip()[:160]))
             if kind != "code":
                 continue
             if any(EMU.search(b) for b in views) and not any("-no-window" in b for b in views):
