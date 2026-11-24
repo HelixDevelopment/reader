@@ -36,7 +36,8 @@ if [ "${SKIP_BUILD:-0}" != 1 ]; then
   (cd "$R/clients/android/android" && ./gradlew --no-daemon -q :app:assembleLab :app:assembleAndroidTest -PhelixLabDir="$LABDIR" > "$OUT/gradle.log" 2>&1) || { echo "gradle build failed, see $OUT/gradle.log" >&2; exit 1; }
   cp "$R/clients/android/android/app/build/outputs/apk/lab/app-lab.apk" "$R/clients/android/android/app/build/outputs/apk/androidTest/lab/app-lab-androidTest.apk" "$ST/apk/"
 fi
-sha256sum "$ST/apk/"*.apk > "$OUT/apk.sha256"
+sha256sum "$ST/apk/"*.apk > "$OUT/apk_sha256.txt"
+printf 'LAB_SYSTEM_CA=%s\nEXPECT_PROTO=%s\nEXPECT_H3=%s\nSKIP_BUILD=%s\n' "${LAB_SYSTEM_CA:-0}" "${EXPECT_PROTO:-HTTP/2.0}" "${EXPECT_H3:-}" "${SKIP_BUILD:-0}" > "$OUT/run_env.txt"
 # 2. emulator on the lab network
 podman run -d --rm --timeout 2400 --name "$EMU" --network "hrdiso-h3-net-$RID" --device /dev/kvm --userns=keep-id --cap-drop ALL --security-opt no-new-privileges \
   --pids-limit 2048 --memory 6g --memory-swap 6g --cpus 4 --oom-score-adj 500 --label org.helix.isolation=h3-lab -v "$ST/apk:/apk:ro" "$EMU_IMAGE" > /dev/null || exit 1

@@ -39,7 +39,11 @@ run)
   while getopts "r:w:e:" o; do case $o in
     r) IFS=: read -r s d <<<"$OPTARG"; real=$(python3 -I "$HERE/bindcheck.py" ro "$s" "$d") || exit 64; B+=(-v "$real:$d:ro");;
     w) IFS=: read -r s d <<<"$OPTARG"; real=$(python3 -I "$HERE/bindcheck.py" rw "$s" "$d") || exit 64; B+=(-v "$real:$d:rw");;
-    e) E+=(-e "$OPTARG");; *) exit 2;; esac; done; shift $((OPTIND-1)); [ "${1:-}" = -- ] && shift
+    e) b=$OPTARG; n=${b%%=*}; N=${n^^}
+       case $b in *=*) ;; *) echo "h3_lab: env must be explicit NAME=VALUE: $b" >&2; exit 64;; esac
+       case $n in ''|[0-9]*|*[!A-Za-z0-9_]*) echo "h3_lab: invalid env name: $n" >&2; exit 64;; esac
+       case $N in DISPLAY*|*_DISPLAY|WAYLAND*|XAUTHORITY*|ICEAUTHORITY*|*DBUS*|XDG_*|SSH_AUTH_SOCK|SSH_*|PULSE*|PIPEWIRE*|GNOME_*|KDE_*|GTK_*|QT_QPA*|DESKTOP_SESSION|SESSION_MANAGER|GPG_AGENT*|GDK_*) echo "h3_lab: refusing host display/session env: $n" >&2; exit 64;; esac  # same denylist as run_container.sh
+       E+=(-e "$b");; *) exit 2;; esac; done; shift $((OPTIND-1)); [ "${1:-}" = -- ] && shift
   case $NAME in hrdiso-h3-*) ;; *) echo "name must start hrdiso-h3-" >&2; exit 64;; esac
   exec podman run $(flags) --name "$NAME-$RID" --network "hrdiso-h3-net-$RID" --memory 3g --memory-swap 3g --cpus 2 --shm-size 512m --tmpfs /tmp:rw,size=512m \
     -v "$ST/lab/ca.pem:/lab/ca.pem:ro" "${B[@]}" "${E[@]}" --entrypoint "" "$IMG" "$@"

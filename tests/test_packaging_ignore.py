@@ -10,7 +10,9 @@ IGNORED = [".claude/skills/" + s for s in SKILLS] + [
     "evidence/campaign-2026-11-23/research/bundles/koodo-reader-fe1abf4b8960.bundle",
     "docs/requests/background_queue.md", "clients/android/.env.sh"]
 NOT_IGNORED = [".claude/settings.json", ".claude/skills/speckit-plan/SKILL.md", "docs/requests/history.md",
-               "evidence/campaign-2026-11-23/research/bundles/SHA256SUMS", "docs/bundles/koodo-reader.manifest.json"]
+               "evidence/campaign-2026-11-23/research/bundles/SHA256SUMS", "docs/bundles/koodo-reader.manifest.json",
+               "clients/desktop/test/transport.test.js",
+               "clients/android/android/app/src/test/java/org/helixreader/app/ApiRequestPolicyTest.java"]
 
 
 def check_ignore(path, root=ROOT):

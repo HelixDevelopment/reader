@@ -8,13 +8,13 @@ Lab: tools/isolation/h3_lab.sh (rootless podman `--internal` network; UDP/QUIC b
 |---|---|---|
 | Web (Chromium) | browser h3 | LIVE: HTTP/3.0 + br when QUIC is forced; with a private CA and no force flag Chromium stays on HTTP/2.0 + br (Alt-Svc discovery refused). Production needs a publicly trusted cert and UDP/PORT open. |
 | Desktop (Electron) | Chromium session (`session.fromPartition('helix-api').fetch`) instead of Node fetch | LIVE: HTTP/3.0 + br. RED baseline (PR #18 shell, Node fetch): HTTP/1.1. Private-CA lab needs `origin-to-force-quic-on` + `ignore-certificate-errors-spki-list` (clients/desktop/lib/transport.js). |
-| Android | Cronet (cronet-bundled 500.1.0, embedded) via WebViewClient.shouldInterceptRequest | Code + unit tests done, APK builds. Live on emulator: transport works, Brotli decoded (br), but negotiated HTTP/2 not h3 (see below). UNCONFIRMED for h3. |
+| Android | Cronet (cronet-bundled 500.1.0, embedded) via WebViewClient.shouldInterceptRequest | Code done; JVM unit test (ApiRequestPolicyTest) committed, executed only by a Gradle run that was not part of the review (UNCONFIRMED here); APK builds. Live on emulator: transport works, Brotli decoded (br), but negotiated HTTP/2 not h3 (see below). UNCONFIRMED for h3. |
 | KOReader | Lua, no QUIC | Honest limit: HTTP/2 or 1.1 + Brotli only (server falls back transparently). |
 
 ## Android findings
 - Cronet needs `ACCESS_NETWORK_STATE` (SecurityException crash otherwise) - fixed in the manifest.
 - Emulator guest resolves `helix-server` on the lab network; TLS with the per-run CA works through a lab-only network-security-config.
-- ROOT CAUSE (Cronet net-log, evidence out_android/cronet_netlog.json): UDP reaches the server and the QUIC handshake starts (forced QUIC option works, 
+- ROOT CAUSE (Cronet net-log, evidence evidence/h3-cronet/android/cronet_netlog.json): UDP reaches the server and the QUIC handshake starts (forced QUIC option works, 
   ALT_SVC_FOUND, QUIC_SESSION created, server Initial/Handshake packets received), then Cronet closes the session with
   `TLS handshake failure 46: certificate unknown ... CERTIFICATE_VERIFY_FAILED` (net_error -356) and falls back to h2 over TCP, where the same CA is trusted
   through the network-security-config. So the QUIC path of Chromium's verifier rejects the private-CA certificate. Putting the CA into the emulator system store
