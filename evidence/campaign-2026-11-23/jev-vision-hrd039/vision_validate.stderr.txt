@@ -1,0 +1,3 @@
+refusing to send validation probes to vision: memory pressure is too high (PSI full avg10=5.96 > 2). Wait for it to drop, or free memory; this gate protects the host from a stall.
+ERROR: validation of 'vision' refused under memory pressure (hw_pressure_gate rc 75): the probes were NOT sent, nothing is recorded - UNDETERMINED (exit 2); retry when 'head -2 /proc/pressure/memory' is quiet
+WARN: 'vision' keeps running (--keep) - it was started for this validation; use it only if 'llmctl require-validated vision' passes
