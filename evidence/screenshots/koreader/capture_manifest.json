@@ -1,0 +1,156 @@
+{
+  "task": "HRD-076",
+  "client": "koreader",
+  "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+  "captured_utc": "2026-11-24T20:10:21Z",
+  "container_image_id": "65b4b467208d",
+  "server_binary_sha256": "82979ec4986ae2c1c87073beb2a840ed88775a5729bd4dbca8b2a27250c5ccbc",
+  "git_head": "f9d14dc5e2aea6b21676b3cb4674e0b52be50d73 + HRD-076 branch scripts",
+  "isolation": "rootless podman, --network none, private Xvfb/headless browser inside the container, only the unix-socket bridge to the host test server; see docs/test-isolation.md",
+  "note": "KOReader driven by xdotool on a private Xvfb inside the container; kosync_proof.json is the machine verdict of the sync (PASS); the PNG resolution is the Xvfb screen, the device area is the white 600x800 panel",
+  "items": [
+    {
+      "file": "A01_filemanager.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "KOReader 2026.07 file manager of profile A, Books folder empty before the first download",
+      "sha256": "98bc4734ba42009d8f0cdad415b36626ca763330c78844f45b02385a7d167e47",
+      "bytes": 8369,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A02_opds_all_publications.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "OPDS browse: Helix catalog 'All publications' (comic, Ninety Lanterns, Tidal Ledger, The Glass Meridian) from the live helix-server /opds/1.2",
+      "sha256": "30fc5f5f833e747af80da2fe5ee461645028fc737968430963416832b5c99705",
+      "bytes": 13390,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A03_book_opened_page1.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile A downloaded 'The Glass Meridian' over OPDS and opened it: first page",
+      "sha256": "b557b78dae41a35f22b8ad25149a581da6ffea819b39b9125e96fdf7ddca4c99",
+      "bytes": 56770,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A04_page4.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile A after turning to page 4 of 9 (progress pushed to the KOSync endpoint: 0.4444, see kosync_proof.json)",
+      "sha256": "201b016bfe7a8e0ba55fb17d0ea238ec74fe1783b03f2bfcb612cd2373698be9",
+      "bytes": 56399,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "A05_reopened_pulled.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile A re-opens the book: KOSync pulls B's position, reader lands on page 6 of 9",
+      "sha256": "6e7a4335cdf4fdaba903d797208c1d76e081b2430c34cb41dbbe4fb8fa776a48",
+      "bytes": 5120,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B01_opds.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile B (second device) browsing the same OPDS catalog",
+      "sha256": "30fc5f5f833e747af80da2fe5ee461645028fc737968430963416832b5c99705",
+      "bytes": 13390,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B02_book_opened_pulled.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile B opens the same book: KOSync pulls A's position, the reader lands on page 4 of 9",
+      "sha256": "201b016bfe7a8e0ba55fb17d0ea238ec74fe1783b03f2bfcb612cd2373698be9",
+      "bytes": 56399,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B03_after_pull.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile B after the pull, still page 4 of 9",
+      "sha256": "201b016bfe7a8e0ba55fb17d0ea238ec74fe1783b03f2bfcb612cd2373698be9",
+      "bytes": 56399,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B04_page6.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Profile B turned two pages: page 6 of 9 (progress pushed: 0.6666)",
+      "sha256": "6e7a4335cdf4fdaba903d797208c1d76e081b2430c34cb41dbbe4fb8fa776a48",
+      "bytes": 5120,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B05_pse_page1.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "OPDS-PSE page streaming: profile B opens the CBZ 'comic' streamed page by page, page 1 (fixture page: solid red; centre pixel srgb(200,30,30) read by the harness)",
+      "sha256": "87e3b1c42592a8b5616f4eadbd8202229465302f1016462f8266468bdafa82be",
+      "bytes": 1360,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "B06_pse_page2.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "OPDS-PSE: page 2 of the streamed CBZ (fixture page: solid green; centre pixel srgb(30,200,30))",
+      "sha256": "a4e43734620963c531e7987bd70dd5cc95ee2d32e7324f8bc8d8b57877bd3427",
+      "bytes": 1366,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "warm_A.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Warm-up, profile A: first launch of a fresh KOReader profile (file manager of the empty Books folder); one-time notices dismissed",
+      "sha256": "98bc4734ba42009d8f0cdad415b36626ca763330c78844f45b02385a7d167e47",
+      "bytes": 8369,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    },
+    {
+      "file": "warm_B.png",
+      "client": "koreader",
+      "client_version": "KOReader v2026.07 (/usr/lib/koreader git-rev; emulator build on Linux)",
+      "scenario": "Warm-up, profile B: same, second KOReader profile",
+      "sha256": "98bc4734ba42009d8f0cdad415b36626ca763330c78844f45b02385a7d167e47",
+      "bytes": 8369,
+      "producing_command": "ISO_WORK=<dedicated dir under ~/.cache/claude-tmp> HELIX_SERVER_BIN=<helix-server> qa/isolation/run_koreader_gui.sh evidence/screenshots/koreader",
+      "resolution_px": "1280x900",
+      "viewport": "1280x900 (KOReader emulator window on the container Xvfb, 600x800 device area)"
+    }
+  ]
+}

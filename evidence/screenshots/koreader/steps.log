@@ -1,0 +1,28 @@
+2026-11-24T20:04:12Z warm-up: first launch of each fresh profile shows one-time notices that swallow the first tap; dismiss and exit
+2026-11-24T20:05:04Z profile A: start, OPDS browse, download, read now
+2026-11-24T20:06:08Z A close: [container] exited
+[proxy-log] 20:05:52.193764+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+[proxy-log] 20:06:07.936613+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-24T20:06:11Z profile B: start, OPDS browse, download
+2026-11-24T20:07:10Z B docsettings: 
+2026-11-24T20:07:10Z B turns 2 pages
+2026-11-24T20:07:17Z B close: [container] exited
+[proxy-log] 20:05:52.193764+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+[proxy-log] 20:06:07.936613+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+[proxy-log] 20:06:58.425627+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=205 auth=ye
+[proxy-log] 20:07:16.470193+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-24T20:07:20Z A re-open book: pull B's progress
+2026-11-24T20:07:40Z A docsettings: [container] ["percent_finished"] = 0.44444444444444
+2026-11-24T20:07:55Z A close: [container] exited
+[proxy-log] 20:05:52.193764+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=2 auth=yes 
+[proxy-log] 20:06:07.936613+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+[proxy-log] 20:06:58.425627+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=205 auth=ye
+[proxy-log] 20:07:16.470193+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+[proxy-log] 20:07:21.148944+00:00 GET /syncs/progress/585a404323a6105ff0eb4404628956fc -> 200 bytes=209 auth=ye
+[proxy-log] 20:07:40.148206+00:00 PUT /syncs/progress -> 200 bytes=70 auth=yes ua='lua-Spore'
+2026-11-24T20:07:58Z PSE: profile B streams the CBZ
+2026-11-24T20:09:35Z pse page1 centre pixel: [container] srgb(200,30,30)
+2026-11-24T20:09:41Z pse page2 centre pixel: [container] srgb(30,200,30)
+2026-11-24T20:09:42Z B close: [container] exited
+PASS
+2026-11-24T20:09:53Z run complete
