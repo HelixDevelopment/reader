@@ -1,0 +1,350 @@
+# Commands run for docs/gap-register-2026-11-23.md (read-only audit, 2026-11-23). Outputs follow in the sibling files.
+grep -n '### §11.4.<N> — ' submodules/constitution/Constitution.md  (anchors 27,169,85,49,98,107,278,143,25,239,243,244,245,248,117,160,154,266,156,277)
+sed -n 2656,2700p / 10189,10230p / 4327,4350p Constitution.md
+python3 read of docs/workable_items.db (mode=ro)
+sha256sum -c on MANIFEST/SHA256SUMS files, json counts -> proven_checks.txt
+bash submodules/constitution/scripts/gates/cm_*.sh (5 read-only gates) -> gates_run.txt
+gofmt -l core server; grep t.Skip; grep Benchmark/Fuzz; git status counts -> commands_raw.txt, commands_part2.txt
+ls/grep over submodules/containers/{pkg,cmd} and submodules/helixqa/{cmd,pkg,banks}
+
+===== commands_raw.txt =====
+$ ls evidence/clients evidence/ui evidence/ui-mutation evidence/campaign-2026-11-23/helixqa
+evidence/campaign-2026-11-23/helixqa:
+BANKS.sha256
+PROVENANCE.txt
+SHA256SUMS
+green-1.exit
+green-1.json
+green-1.server.log
+green-1.stderr.txt
+green-1.txt
+green-2.exit
+green-2.json
+green-2.server.log
+green-2.stderr.txt
+green-2.txt
+mutation.diff
+red-mutant.exit
+red-mutant.json
+red-mutant.server.log
+red-mutant.stderr.txt
+red-mutant.txt
+
+evidence/clients:
+android
+blocked_reproducers.json
+desktop
+test_platforms_GREEN.log
+test_platforms_RED.log
+web
+
+evidence/ui:
+desktop-library.png
+desktop-settings.png
+final-npm-build.log
+final-npm-ci-dry-run.log
+final-npm-lint.log
+final-run.log
+npm-build.log
+npm-ci-dry-run.log
+npm-lint.log
+phone-library.png
+phone-settings.png
+preview-review.log
+run.2026-10-27T2145.log
+run.log
+tablet-library.png
+tablet-settings.png
+ui-results.2026-10-27T2145.json
+ui-results.json
+wide-library.png
+wide-settings.png
+
+evidence/ui-mutation:
+desktop-library.png
+desktop-settings.png
+mutation-result.json
+phone-library.png
+phone-settings.png
+run.log
+server.log
+tablet-library.png
+tablet-settings.png
+ui-results.json
+wide-library.png
+wide-settings.png
+$ t.Skip count
+83
+$ t.Skip list (head 80)
+server/internal/aimemory/vector_load_test.go:244:		t.Skip("HELIX_TEST_POSTGRES_DSN and HELIX_LOAD_RUN=1 are both required for the vector load benchmark")
+server/internal/aimemory/vector_load_test.go:268:		t.Skipf("pgvector unavailable in this database: %v", err)
+server/internal/aimemory/pool_test.go:86:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/opds/lcp_test.go:107:		t.Skip("HELIX_OPDS_DUMP not set")
+server/internal/syncstore/redis_live_test.go:16:		t.Skip("HELIX_TEST_REDIS_ADDR is not configured")
+server/internal/sources/rclone_test.go:17:		t.Skip("shell script fixture")
+server/internal/ingest/identity_regression_test.go:49:	if err != nil || report.Files != 2 || len(report.Skipped) != 0 {
+server/internal/ingest/identity_regression_test.go:89:	if report, err := service.ScanSource(context.Background(), "memory-rehome-source", connector, ""); err != nil || report.Files != 1 || len(report.
+server/internal/ingest/identity_regression_test.go:130:	if err != nil || first.Files != 2 || first.Removed != 0 || len(first.Skipped) != 0 {
+server/internal/ingest/identity_regression_test.go:185:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/ingest/identity_regression_test.go:227:	if err != nil || first.Files != 1 || len(first.Skipped) != 0 {
+server/internal/ingest/identity_regression_test.go:298:	if err != nil || report.Files != 1 || len(report.Skipped) != 0 {
+server/internal/ingest/identity_regression_test.go:341:	if err != nil || report.Files != 2 || len(report.Skipped) != 0 {
+server/internal/ingest/lcp_test.go:81:	if report.Files != 1 || report.Works != 1 || len(report.Skipped) != 0 {
+server/internal/ingest/lcp_test.go:153:	if err != nil || report.Files != 0 || len(report.Skipped) != 1 {
+server/internal/ingest/lcp_test.go:336:	if err != nil || report.Files != 0 || len(report.Skipped) != 1 {
+server/internal/ingest/lcp_test.go:339:	if strings.Contains(report.Skipped[0], "SECRETTOKEN") {
+server/internal/ingest/lcp_test.go:340:		t.Fatalf("token echoed: %s", report.Skipped[0])
+server/internal/ingest/lcp_test.go:342:	if !strings.Contains(report.Skipped[0], "LCP fulfillment") {
+server/internal/ingest/lcp_test.go:343:		t.Fatalf("skip reason unclear: %s", report.Skipped[0])
+server/internal/ingest/service_test.go:40:	if report.Files != 1 || len(report.Skipped) != 1 {
+server/internal/ingest/service_test.go:224:	if err != nil || report.Files != 0 || report.Removed != 0 || len(report.Skipped) != 1 {
+server/internal/ingest/service_test.go:365:	if report.Files != 0 || len(report.Skipped) != 1 {
+server/internal/ingest/service_test.go:368:	assertNoSecret(t, report.Skipped[0])
+server/internal/ingest/service_test.go:369:	if !strings.Contains(report.Skipped[0], "book.txt") || !strings.Contains(report.Skipped[0], "https://example.com/books/book.txt") {
+server/internal/ingest/service_test.go:370:		t.Fatalf("sanitized skip lost useful context: %q", report.Skipped[0])
+server/internal/ingest/service_test.go:446:	if len(report.Skipped) != 1 {
+server/internal/ingest/service_test.go:449:	assertLocationSafe(report.Skipped[0])
+server/internal/httpapi/load_remote_rclone_test.go:74:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/load_remote_rclone_test.go:78:		t.Skip("rclone is not installed: no rclone target available in this environment")
+server/internal/httpapi/lcp_live_test.go:34:		t.Skip("set HELIX_LCP_LIVE_BIN and HELIX_LCP_LIVE_EVIDENCE to run the live qualification")
+server/internal/httpapi/load_jobs_test.go:122:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/load_jobs_test.go:126:		t.Skip("HELIX_TEST_REDIS_ADDR is not set; durability needs a real Redis")
+server/internal/aimemory/postgres_live_test.go:13:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/slow_client_live_test.go:594:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/catalog/slow_client_live_test.go:598:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/httpapi/jobs_test.go:205:	first.Report.Skipped[0] = "mutated"
+server/internal/httpapi/jobs_test.go:207:	if second.Report.Skipped[0] != "original" {
+server/internal/catalog/catalog_scale_test.go:48:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/postgres_hrd_live_test.go:16:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/httpapi/load_remote_throttle_test.go:121:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/slow_client_live_test.go:558:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/slow_client_live_test.go:562:		t.Skip("HELIX_TEST_REDIS_ADDR is not configured; a live journal needs Redis")
+server/internal/httpapi/slow_client_live_test.go:567:		t.Skipf("HELIX_TEST_REDIS_ADDR=%s unreachable: %v", addr, err)
+server/internal/httpapi/load_remote_webdav_test.go:75:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/load_remote_webdav_test.go:79:		t.Skip("rclone is not installed: no WebDAV target available in this environment")
+core/pkg/parse/fb2/fb2_test.go:94:			t.Skip("bound fuzz input memory")
+server/internal/httpapi/load_test.go:47:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/httpapi/load_test.go:50:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/httpapi/load_test.go:486:		t.Skipf("catalog holds %d works; the scale fixture is not seeded, run TestLiveScaleCatalog first", fixtureWorks)
+core/pkg/parse/cbz/cbz_test.go:92:			t.Skip("bound fuzz input memory")
+server/internal/catalog/cursor_test.go:171:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/catalog_phase_test.go:35:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/catalog_phase_test.go:50:		t.Skipf("scale fixture not seeded (%d works); run TestLiveScaleCatalog first", seeded)
+server/internal/catalog/catalog_phase_test.go:89:		t.Skipf("measurement path degraded for %d of %d shapes (client time far exceeds the server's own account of the same statement): the ratios below wou
+core/pkg/sync/paginate_test.go:180:			t.Skip("bound fuzz input memory")
+core/formats/fuzz_test.go:11:			t.Skip("bound path input")
+server/internal/httpapi/fuzz_test.go:11:			t.Skip("bound fuzz input")
+server/internal/catalog/postgres_coldstart_test.go:21:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/postgres_coldstart_test.go:224:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/postgres_live_test.go:14:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/postgres_live_test.go:98:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/load_test.go:41:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/load_test.go:44:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/catalog/load_test.go:524:		t.Skipf("scale fixture not seeded (%d works < %d); run TestLiveScaleCatalog first", seeded, scaleWorks)
+server/internal/catalog/reconcile_live_test.go:26:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+core/pkg/parse/epub/spine_test.go:168:			t.Skip("bound fuzz input memory")
+core/pkg/parse/epub/epub_test.go:190:			t.Skip("bound fuzz input memory")
+server/internal/catalog/postgres_batch_test.go:22:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/httpapi/load_delivery_test.go:767:		t.Skip("HELIX_TEST_REDIS_ADDR is not configured; measuring the in-memory fallback store would say nothing about the Redis path that ships")
+server/internal/catalog/lock_scope_test.go:50:		t.Skip("HELIX_TEST_POSTGRES_DSN is not configured")
+server/internal/catalog/lock_scope_test.go:389:		t.Skipf("needle did not fire in %d unlocked rounds: the primary key on files alone prevented duplication this run, so the source-key assertion is unpro
+server/internal/catalog/lock_scope_test.go:751:		t.Skip("HELIX_MP_ROLE must be worker or verify; run evidence/campaign-2026-11-20/multiprocess/run_multiprocess.sh")
+core/pkg/parse/txt/txt_test.go:88:			t.Skip("bound fuzz input memory")
+core/pkg/parse/cbz/pages_test.go:120:			t.Skip("bound fuzz input memory")
+server/internal/httpapi/load_remote_test.go:154:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+server/internal/ingest/lcp_hardening_test.go:27:	if err != nil || len(report.Skipped) != 1 {
+server/internal/ingest/lcp_hardening_test.go:30:	if strings.Contains(report.Skipped[0], "SECRETTOKEN") {
+server/internal/ingest/lcp_hardening_test.go:31:		t.Fatalf("token echoed: %s", report.Skipped[0])
+server/internal/httpapi/load_jobs_multiinstance_test.go:597:		t.Skip("HELIX_LOAD_RUN is not 1; measurement harness opted out")
+$ gofmt -l core server
+hdm/hdm.go
+hlc/hlc.go
+pkg/crypto/crypto.go
+pkg/source/source.go
+pkg/source/source_test.go
+$ test file counts
+114
+5
+clients/desktop/test:
+allowlist.test.js
+app-handler.test.js
+csp.test.js
+proxy.test.js
+secrets.test.js
+static.test.js
+
+clients/web/e2e:
+live.mjs
+$ build tags
+server/internal/ingest/lcp_ctime_linux.go
+server/internal/ingest/lcp_ctime_other.go
+$ bench/fuzz/race counts
+3
+11
+4
+$ stale claims
+docs/formats.md:7:PARSE PASS + RENDER NOT IMPLEMENTED is the normal state for text formats. -->
+docs/formats.md:13:| detect | filename/extension classification via `core/formats` registry. **Content/magic-byte sniffing is NOT IMPLEMENTED anywhere in the core**; an extension match never grants any other stage. |
+docs/formats.md:16:| render | put glyphs/pixels on screen. **NOT IMPLEMENTED for every format in the Go core.** The core produces HDM and page geometry only; the client renderer consumes them. `formats` registry keeps `C
+docs/formats.md:23:| EPUB | PASS (ext only) | PASS | PASS (reflowable text; fixed-layout NOT IMPLEMENTED) | **NOT IMPLEMENTED** | PASS → txt/xhtml/fb2/epub/cbz | detect: `TestMandatedThoriumAndLCPExtensions`, `FuzzDetect
+docs/formats.md:24:| MOBI (old PalmDOC/PRC, uncompressed + PalmDOC-LZ77) | PASS (ext only) | PASS | PASS | **NOT IMPLEMENTED** | PASS → txt/xhtml/fb2/epub (text only; MOBI writing NOT IMPLEMENTED) | parse: `TestParseMOBI
+docs/formats.md:25:| FB2 | PASS (ext only) | PASS incl. `<binary>` payloads + image refs | PASS | **NOT IMPLEMENTED** | PASS → epub/txt/xhtml (FB2 *export* is a documented text-only projection: `<binary>` images are drop
+docs/formats.md:26:| TXT/Markdown-ish | PASS (ext only) | PASS | PASS | **NOT IMPLEMENTED** | PASS → fb2/xhtml/epub | parse: `TestChaptersAndHeadings`, `TestAllCapsHeading`, `TestNoHeadingsSingleChapter`, `TestEmpty`, li
+docs/formats.md:27:| CBZ | PASS (ext only) | PASS (container-level: page bytes + order; **image decoding/layout NOT IMPLEMENTED**) | PASS as fixed page enumeration (`cbz.Pages` = one physical page per image). Reflowable 
+docs/formats.md:31:detect: PASS (extension only) — parse: **NOT IMPLEMENTED** — paginate: **NOT IMPLEMENTED** — render: **NOT IMPLEMENTED** — convert: **NOT IMPLEMENTED** (all Blocked; same-format repack Blocked too, sin
+docs/formats.md:61:## Explicit NOT IMPLEMENTED (what would be required)
+docs/formats.md:65:- **DRM/LCP beyond EPUB license fulfillment**: server-side decryption, server-side license signature/certificate-chain validation (no trust root is configured), License Status Document handling in the 
+docs/Issues.md:122:**Description:** Deliver catalog and reader clients for native desktop, mobile, and workstation platforms. This registry entry records the implemented or remaining work without expanding evidence beyon
+docs/Issues.md:126:**Reproduction / current observation:** Web VERIFIED (67/67 live Chromium checks, evidence/clients/web); Android VERIFIED on emulator only, debug build, no physical device (evidence/clients/android/run
+docs/Issues.md:403:**Description:** Found 2026-11-23 during HRD-026 interop. For library sources backed by remote providers (rclone WebDAV and SFTP loopback), a ranged GET of a book file is answered with the full body an
+docs/Issues.md:413:**Evidence:** Not yet available; no pass is claimed.
+docs/Fixed.md:778:- 2026-11-20 — Implemented by AI: matrix cells each backed by a passing test or an explicit NOT IMPLEMENTED; guard tests pin the matrix against the code; evidence: docs/formats.md; evidence/campaign-202
+EVIDENCE.md:231:explicit NOT IMPLEMENTED cells. Render is NOT IMPLEMENTED for every format
+EVIDENCE.md:847:license.lcpl placement for PDF/audiobook NOT implemented); `AllowUnverified()` opt-in (stated
+EVIDENCE.md:875:Not verified (UNCONFIRMED): any real LCP provider / Readium LCP server; any third-party LCP reader opening the artifact; PostgreSQL-backed catalog for this flow (columns pre-exist and are mapped, not exer
+docs/architecture.md:25:The web prototype does not call the API. Native desktop/mobile applications, real content renderers, external conversion engines, OIDC, Kobo sync, and LCP license fulfillment are not shown as conn
+docs/architecture.md:170:The authoritative platform list is `clients/supported-platforms.json` (checked by `tests/test_supported_platforms.py`). Every platform carries one status from `BUILT | VERIFIED | BLOCKED | NOT_ST
+docs/architecture.md:175:    WEB -.->|wrapped by| EL[Electron: Linux NOT_STARTED\nWindows and macOS BLOCKED]
+docs/architecture.md:177:    OTHER[HarmonyOS, Aurora OS\nBLOCKED; e-ink profile NOT_STARTED]
+docs/user_guide.md:9:- The server is not yet production-hardened. Local live PostgreSQL, Redis, pgvector, daemon-restart, and transport checks have passed, but external-device, third-party-reader, public-deployment, upgr
+docs/user_guide.md:85:Actual KOReader firmware interoperability has not yet been live-tested; unit, HTTP, and Redis-backed tests do not substitute for that device check.
+docs/faq.md:13:The catalog and OPDS endpoints can run without OPDS credentials on a loopback evaluation deployment. Management APIs use the admin Bearer token when configured; a token is required by default for non-loopb
+docs/faq.md:17:Yes, that is the purpose of the read-only connector model. Local files, mounted SMB/NFS directories, HTTP(S), WebDAV, OPDS feeds, and configured rclone remotes are indexed from their existing locations. So
+docs/faq.md:49:Yes, the server has acquisition/navigation feeds, standalone edition documents, acquisition links, pagination, covers, and an OpenSearch description. OPDS-PSE page streaming is implemented for CBZ only, an
+docs/faq.md:53:Not yet. These are identified product gaps, not hidden completed features. The current prototype’s passage notes are sample UI state only and are not a durable annotation service.
+===== commands_part2.txt =====
+$ a11y/rtl/large-font/dark/axe in client tests
+clients/web/src/components/Settings.tsx
+clients/web/src/App.tsx
+clients/web/src/components/Reader.tsx
+clients/web/src/components/Cover.tsx
+clients/web/src/App.css
+clients/web/src/components/Library.tsx
+scripts/verify_ui.py:0
+clients/web/e2e/live.mjs:0
+$ web src files / tests
+17
+clients/web/src/lib/settings.test.ts
+clients/web/src/lib/api.test.ts
+clients/web/src/components/Cover.test.tsx
+clients/web/src/components/Library.test.tsx
+clients/web/src/components/Reader.test.tsx
+$ browsers used
+scripts/verify_ui.py:102:        browser = p.chromium.launch(headless=True, executable_path="/usr/bin/chromium", args=["--no-sandbox"])
+clients/web/e2e/live.mjs:3:import { chromium } from 'playwright-core'
+clients/web/e2e/live.mjs:16:const browser = await chromium.launch({ executablePath: chrome || undefined, headless: true })
+$ verify_go_mutation scope
+4:Each mutant runs in an isolated copy. The original files are hashed before and
+5:after the campaign; a mutant that passes, a failed mutation edit, or any original
+8:A mutant that fails for an unrelated reason proves nothing about the assertion it
+10:for the mutant to count as rejected.
+29:# build would otherwise be counted as a rejected mutant.
+30:GO_MODULES = tuple(sorted(p.parent.name for p in ROOT.glob("*/go.mod")))
+32:# cannot produce them, so their presence means the mutant never ran.
+42:MUTANTS = [
+628:    # and emptiness are two separate contracts and need two separate mutants.
+670:        "id": "lcp-user-name-not-decryptable",
+673:        "old": '"id": &out.ID, "email": &out.Email, "name": &out.Name,',
+684:        "new": "return out, fmt.Errorf(\"lcp: unsupported encrypted member %s\", name)",
+723:        "old": "if neverEncrypted[name] {",
+724:        "new": "if false && neverEncrypted[name] {",
+823:        "old": 'if !c.unlocked {\n\t\treturn nil, fmt.Errorf("%w: %s", ErrLocked, name)\n\t}',
+824:        "new": 'if false && !c.unlocked {\n\t\treturn nil, fmt.Errorf("%w: %s", ErrLocked, name)\n\t}',
+1012:        # runs, so the parser's wording is what proves this mutant dead.
+1016:        "id": "opds-feed-omits-pse-namespace",
+1023:        "expect": 'must declare the namespace',
+1026:        "id": "opds-entry-omits-pse-namespace",
+$ server http routes
+0
+$ response header oracles
+1
+$ lcp reader/provider claims
+735:  in the untracked slow_client files were not present when I started (UNCONFIRMED
+765:  absolute numbers and the attribution to read overlap are UNCONFIRMED; the
+817:- NOT PROVEN (UNCONFIRMED): interop with a real LCP provider/License Authority or third-party reader; License Status Document (register/return/renew); Readium root trust (Helix embeds none); server route/OPDS wiring for fulfillment (ingest still skips stan
+839:- NOT PROVEN (UNCONFIRMED): any real LSD provider (the provider in tests is written in-repo from the same spec text); TLS/redirect behaviour of real hosts; `register` verb is POST per rev 5 l.270 while some deployed providers have been reported to use PUT 
+875:Not verified (UNCONFIRMED): any real LCP provider / Readium LCP server; any third-party LCP reader opening the artifact; PostgreSQL-backed catalog for this flow (columns pre-exist and are mapped, not exercised live); server-side signature/trust-chain valid
+888:UNCONFIRMED: a same-size flip that also restores mtime and inode of a cache file is not detected between requests (verdict cache; local cache-dir write access is out of scope); backoff state is in memory (a restart permits one extra bounded fetch); GC walk
+895:- UNCONFIRMED: production HelixTrack instance, external auth/permission services, multi-user permission scoping, attachments, scale.
+904:- UNCONFIRMED / NOT RUN: real App Distribution upload, tester groups, signed release APK, real Hosting deploy, Firebase service account permissions.
+$ web reader epub
+$ electron out gitignored?
+clients/desktop/.gitignore:2:out/	clients/desktop/out
+.gitignore:45:clients/*/dist/	clients/web/dist
+.gitignore:110:node_modules/	clients/android/node_modules
+$ go version coverage totals
+evidence/campaign-2026-11-20/core:
+coverage.out
+go-build.log
+go-cover.log
+go-race.log
+go-test.log
+go-vet.log
+go127-test.log
+
+evidence/campaign-2026-11-20/server:
+coverage.out
+go-build.log
+go-cover.log
+go-race.log
+go-test-live-fixed.log
+go-test-live.log
+go-test.log
+go-vet.log
+go127-test-live.log
+$ emulator-matrix usage in repo
+$ opds-pse / lcp skipped
+server/internal/httpapi/lcp_live_test.go:34:		t.Skip("set HELIX_LCP_LIVE_BIN and HELIX_LCP_LIVE_EVIDENCE to run the live qualification")
+server/internal/opds/lcp_test.go:107:		t.Skip("HELIX_OPDS_DUMP not set")
+$ mutant count
+110
+$ skip env-gated by env var
+     18 HELIX_TEST_POSTGRES_DSN
+     11 HELIX_LOAD_RUN
+      7 HELIX_TEST_REDIS_ADDR
+      1 HELIX_OPDS_DUMP
+      1 HELIX_MP_ROLE
+      1 HELIX_LCP_LIVE_EVIDENCE
+      1 HELIX_LCP_LIVE_BIN
+$ fuzz targets
+11
+$ git untracked count
+72
+25
+$ clients tracked?
+0
+$ helixqa run flags
+131:	banks := fs.String("banks", "",
+133:	platform := fs.String("platform", "all",
+135:	device := fs.String("device", "",
+137:	output := fs.String("output", "qa-results",
+139:	speed := fs.String("speed", "normal",
+141:	reportFmt := fs.String("report", "markdown",
+143:	validate := fs.Bool("validate", true,
+145:	record := fs.Bool("record", true,
+147:	verbose := fs.Bool("verbose", false,
+149:	pkg := fs.String("package", "",
+153:	browserURL := fs.String("browser-url", "",
+155:	desktopProcess := fs.String("desktop-process", "",
+157:	tickets := fs.Bool("tickets", true,
+330:	banks := fs.String("banks", "",
+382:	banks := fs.String("banks", "",
+384:	platform := fs.String("platform", "",
+386:	category := fs.String("category", "",
+388:	priority := fs.String("priority", "",
+390:	tag := fs.String("tag", "",
+392:	jsonOut := fs.Bool("json", false,
+490:	input := fs.String("input", "qa-results",
+492:	format := fs.String("format", "markdown",
+494:	output := fs.String("output", "",
+545:	project := fs.String("project", ".",
+547:	platforms := fs.String("platforms", "android,desktop,web",
+549:	envFile := fs.String("env", ".env",
+555:	output := fs.String("output", "qa-results",
+557:	reportFmts := fs.String("report", "markdown,html,json",
+559:	verbose := fs.Bool("verbose", false,
+561:	curiosity := fs.Bool("curiosity", true,
+1193:	short := fs.Bool("short", false, "skip long-running tests")
+$ grep -rn "t\.Skipf\?(" server core --include=*_test.go | wc -l
+57
+(GAP-015 corrected: 83 included report.Skipped matches)

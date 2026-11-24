@@ -1,0 +1,95 @@
+{
+  "note": "query values (device id/name) deliberately not recorded",
+  "provider": "in-repo loopback provider written from the spec text (NOT a third-party LSD provider)",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/status",
+      "query_keys": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/register",
+      "query_keys": [
+        "id",
+        "name"
+      ],
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/renew",
+      "query_keys": [
+        "end",
+        "id",
+        "name"
+      ],
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/renew",
+      "query_keys": [
+        "end",
+        "id",
+        "name"
+      ],
+      "status": 403
+    },
+    {
+      "method": "PUT",
+      "path": "/return",
+      "query_keys": [
+        "id",
+        "name"
+      ],
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/return",
+      "query_keys": [
+        "id",
+        "name"
+      ],
+      "status": 403
+    }
+  ],
+  "spec": "readium/lcp-specs releases/lsd/latest.md revision 5, commit 812dd91d6b90087e657a5c94d04e6f16abd8873b",
+  "trace": [
+    {
+      "events": 0,
+      "status": "ready",
+      "step": "fetch",
+      "updated_license": "2026-11-01T10:00:00Z",
+      "updated_status": "2026-11-01T10:00:00Z"
+    },
+    {
+      "events": 1,
+      "status": "active",
+      "step": "register",
+      "updated_license": "2026-11-01T10:00:00Z",
+      "updated_status": "2026-11-01T10:01:00Z"
+    },
+    {
+      "events": 2,
+      "status": "active",
+      "step": "renew",
+      "updated_license": "2026-11-01T10:02:00Z",
+      "updated_status": "2026-11-01T10:02:00Z"
+    },
+    {
+      "events": 3,
+      "status": "returned",
+      "step": "return",
+      "updated_license": "2026-11-01T10:03:00Z",
+      "updated_status": "2026-11-01T10:03:00Z"
+    },
+    {
+      "http_status": 403,
+      "problem_type": "http://readium.org/license-status-document/error/return/already",
+      "step": "second_return"
+    }
+  ]
+}

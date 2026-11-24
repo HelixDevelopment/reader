@@ -1,0 +1,74 @@
+{
+  "name": "hrdiso-hrd038",
+  "image": "localhost/helix-gui-test:1",
+  "created": "2026-11-23T23:32:48.834702701+01:00",
+  "network_mode": "none",
+  "privileged": false,
+  "cap_drop": [
+    "CAP_CHOWN",
+    "CAP_DAC_OVERRIDE",
+    "CAP_FOWNER",
+    "CAP_FSETID",
+    "CAP_KILL",
+    "CAP_NET_BIND_SERVICE",
+    "CAP_SETFCAP",
+    "CAP_SETGID",
+    "CAP_SETPCAP",
+    "CAP_SETUID",
+    "CAP_SYS_CHROOT"
+  ],
+  "cap_add": [],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "memory": 1610612736,
+  "memory_swap": 1610612736,
+  "pids_limit": 512,
+  "oom_score_adj": 500,
+  "userns_mode": "private",
+  "lifetime_timeout_s": 600,
+  "binds": [
+    "/home/milosvasic/.cache/ms-playwright:/ms-playwright:ro,rprivate,rbind",
+    "/home/milosvasic/Projects/helix_reader/evidence/campaign-2026-11-23/gap-fix/hrd038/rev2_mutant_ui_search:/out:rw,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd038.ODC6Bj/st/sock:/run/helixsock:rw,rprivate,rbind",
+    "/home/milosvasic/Projects/helix_reader/qa/isolation/inside:/opt/isoinside:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd038.ODC6Bj/inside:/work/inside:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd038.ODC6Bj/bin:/work/bin:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd038.ODC6Bj/banks:/work/banks:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd038.ODC6Bj/web:/work/web:ro,rprivate,rbind"
+  ],
+  "devices": [],
+  "ports": {},
+  "env_names": [
+    "BANK",
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "HOSTNAME",
+    "LANG",
+    "LC_ALL",
+    "NO_AUTOEXIT_SHIM",
+    "PATH",
+    "PLAYWRIGHT_BROWSERS_PATH",
+    "SERVER",
+    "container"
+  ],
+  "labels": {
+    "io.buildah.version": "1.42.1",
+    "org.helix.isolation": "gui-test",
+    "org.helix.owner-pid": "1177081",
+    "org.opencontainers.image.version": "24.04"
+  },
+  "entrypoint": [
+    "/usr/local/bin/gui-entrypoint.sh"
+  ],
+  "cmd": [
+    "sh",
+    "/opt/isoinside/launch.sh",
+    "--bridge",
+    "38191",
+    "/run/helixsock/h.sock",
+    "--",
+    "sh",
+    "/work/inside/inside_web_bank.sh"
+  ]
+}

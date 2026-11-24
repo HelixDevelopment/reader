@@ -1,0 +1,23 @@
+{
+  "answer": "Helix Reader\nLibrary\nH\nhq-novel\nUnknown author\nhq-notes\nUnknown author\nhq-mixed\nUnknown author\nhq-comic\nUnknown author\nPrevious 1-4 of 4 Next",
+  "forbidden_hit": [],
+  "image": "HLX-WEB-001-step12.png",
+  "image_sha256": "9237a5e63effe93868dbd9122ae136b8f93780f76e9fbddae56ae7a75251ffdb",
+  "missing": [],
+  "model": "/home/milosvasic/.local/share/llmctl/models/vision/gemma-3-4b-it-Q4_K_M.gguf",
+  "must_contain": [
+    "Library",
+    "hq-comic",
+    "hq-novel",
+    "hq-mixed",
+    "hq-notes"
+  ],
+  "must_not_contain": [
+    "Server settings"
+  ],
+  "profile": "vision",
+  "prompt": "Transcribe every piece of text visible in this screenshot, exactly as written, one item per line. Do not describe the picture and do not add anything that is not visible.",
+  "role": "golden",
+  "verdict": "PASS",
+  "verdict_file": "HLX-WEB-001-step12.png.golden.vision.json"
+}

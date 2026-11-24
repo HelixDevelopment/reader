@@ -1,0 +1,10 @@
+{
+  "red": "before lsd.go existed: go test ./pkg/lcp failed to build (undefined: StatusValue, StatusReady, LSDClient, lsdMediaType, ...)",
+  "mutations": [
+    {"change": "Register stops rejecting status ready after registration", "failed": ["TestLSDStateTransitionChecks/register_still_ready_is_a_contradiction", "TestLSDLiveRegisterRefusalsAndFaults/provider_that_does_not_activate_is_caught"]},
+    {"change": "Return accepts any status", "failed": ["TestLSDStateTransitionChecks/return_left_active_is_a_contradiction", "TestLSDStateTransitionChecks/return_->_expired_is_a_contradiction"]},
+    {"change": "NeedsLicenseRefresh After->Before", "failed": ["TestNeedsLicenseRefresh/status_newer", "TestNeedsLicenseRefresh/status_older", "TestNeedsLicenseRefresh/local_has_no_updated,_uses_issued", "TestLSDLiveLoopbackLifecycle"]}
+  ],
+  "restored_and_green": true,
+  "note": "mutations applied to a scratch copy of core/, never to the working tree"
+}

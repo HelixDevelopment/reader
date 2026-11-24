@@ -1,0 +1,25 @@
+
+ FAIL  src/lib/api.test.ts [ src/lib/api.test.ts ]
+Error: Failed to resolve import "./api" from "src/lib/api.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/milosvasic/Projects/helix_reader/clients/web/src/lib/api.test.ts:1:39
+  1  |  import { ApiError, createClient } from "./api";
+     |                                          ^
+  2  |  const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "applica...
+  3  |  describe("api client", () => {
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/config.js:29250:43
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/config.js:29247:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/config.js:27370:18
+ ❯ node_modules/vite/dist/node/chunks/config.js:27428:32
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/config.js:27396:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/config.js:29048:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/config.js:22914:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  no tests
+   Start at  20:35:51
+   Duration  1.34s (transform 86ms, setup 315ms, import 0ms, tests 0ms, environment 2.57s)
+

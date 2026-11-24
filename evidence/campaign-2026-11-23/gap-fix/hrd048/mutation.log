@@ -1,0 +1,9 @@
+BASELINE: GREEN
+MUTANT heap_leak_512B_per_content_request_(256B_per_iteration): KILLED
+    soak_test.go:257: SOAK iterations=6000 samples=20 slope=272.19 B/iter steady_growth=1048960 B goroutine_delta=0 heap_first=3029768 heap_last=4590352
+    soak_test.go:266: leak detected: [confirmed on second pass; first pass: heap slope 280.5 B/iter, R2 1.000, growth 1088216 B heap slope 272.2 B/iter, R2 0.999, growth 1048960 B]
+MUTANT goroutine_leak_1_per_200_content_requests: KILLED
+    soak_test.go:266: leak detected: [confirmed on second pass; first pass: goroutines grew by 10 goroutines grew by 10]
+RESTORED: GREEN
+MUTANT rclone_missing_cmd_Wait: KILLED
+    soak_test.go:479: 50 helpers lingered

@@ -1,0 +1,32 @@
+baseline on the copy: GREEN
+M1 min_rows ignored: KILLED
+M2 duplicates allowed: KILLED
+M3 required API ignored: KILLED
+M4 required form factor ignored: KILLED
+M5 boot error ignored: KILLED
+M6 boot_seconds ignored: KILLED
+M7 adb state ignored: KILLED
+M8 test_passed ignored: KILLED
+M9 all_passed trusted: KILLED
+M10 unknown rows allowed: KILLED
+M11 missing spec rows allowed: KILLED
+M12 exit always 0: KILLED
+M13 api/form factor vs spec ignored: KILLED
+M14 test class not compared: KILLED
+M15 tests_run not required: KILLED
+M16 build sha not bound: KILLED
+M17 pre-run sha not bound: KILLED
+M18 post-run sha not bound: KILLED
+M19 attestation apk_sha ignored: KILLED
+M20 row apk_sha ignored: KILLED
+M21 manifest optional: KILLED
+M22 manifest hashes not checked: KILLED
+M23 manifest need not list attestation/binding: KILLED
+M24 gradle-log fallback broken: KILLED
+M25 preflight TEST_CLASS check dropped: KILLED
+M26 preflight image check dropped: KILLED
+M27 preflight refusal exits 0: KILLED
+M28 APK vs build record not compared: KILLED
+M29 disk check dropped: KILLED
+M30 zip check dropped: KILLED
+mutation: 30 mutants, 0 survived/invalid; working tree untouched

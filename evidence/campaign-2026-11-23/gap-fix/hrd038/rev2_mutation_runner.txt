@@ -1,0 +1,25 @@
+baseline on the copy: GREEN
+M1 OK ignores skips: KILLED
+M2 _skip step executes: KILLED
+M3 non-playwright step not skipped: KILLED
+M4 executor Blocked counts as FAIL not SKIP: KILLED
+M5 FAIL does not stop the case: KILLED
+M6 every verb retried: KILLED
+M7 retry window unbounded: KILLED
+M8 OK ignores passes: KILLED
+M9 no retry at all: KILLED
+M10 skip counted as pass: KILLED
+M11 screenshot capture error ignored: KILLED
+M12 screenshot save error ignored: KILLED
+M13 missing shooter allowed: KILLED
+M14 pins ignored (bank shrink): KILLED
+M15 step pin ignored: KILLED
+M16 pass pin ignored: KILLED
+M17 unpinned bank allowed: KILLED
+M18 PinErrors ignored by OK: KILLED
+M19 platform filter ignored: KILLED
+M20 attempts not recorded: KILLED
+M21 viewport not enforced: KILLED
+M22 page-state failure ignored: KILLED
+M23 page state not recorded: KILLED
+mutation: 23 mutants, 0 survived/invalid; working tree untouched

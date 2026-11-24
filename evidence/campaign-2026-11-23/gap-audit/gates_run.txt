@@ -1,0 +1,51 @@
+### cm_helix_deps_manifest_present
+#!/usr/bin/env bash
+# cm_helix_deps_manifest_present.sh — CM-HELIX-DEPS-MANIFEST-PRESENT gate (§11.4.31 EXTENSION of 2026-10-21).
+#
+# ── Purpose ───────────────────────────────────────────────────────────────
+SKIP(third_party)	submodules/constitution/submodules/open_design	leaf	nexu-io/open-design is not in the own-org list; no manifest required
+PASS	submodules/constitution/submodules/claude_toolkit	leaf	tracked, well-formed helix-deps.yaml
+PASS	submodules/constitution/submodules/containers	leaf	tracked, well-formed helix-deps.yaml
+SKIP(third_party)	submodules/constitution/submodules/superspec	leaf	WangX0111/superspec is not in the own-org list; no manifest required
+VERDICT: PASS (pass=21 fail=0 blind=0 skip_third_party=18 known=0)
+✅ CM-HELIX-DEPS-MANIFEST-PRESENT: PASS (root=/home/milosvasic/Projects/helix_reader)
+exit=0
+### cm_helix_deps_ref_matches_gitlink
+#!/usr/bin/env bash
+# cm_helix_deps_ref_matches_gitlink.sh — CM-HELIX-DEPS-REF-MATCHES-GITLINK gate (§11.4.31, §11.4.201).
+#
+# ── Purpose ──────────────────────────────────────────────────────────────────
+✅ MATCH  mcp-audio-tweaker: ref 5d64b4f == gitlink 5d64b4f2bf16 (submodules/mcp-audio-tweaker)
+✅ MATCH  polyscreen-mcp: ref 0e72e71 == gitlink 0e72e718de9c (submodules/polyscreen-mcp)
+✅ MATCH  colibri: ref e0db083 == gitlink e0db083cdc9e (submodules/llmctl/submodules/colibri)
+❌ DRIFT  llama.cpp: ref 1537a0a (1537a0a) != gitlink 2bc46baa9207 (submodules/llmctl/submodules/llama.cpp)
+----------------------------------------------------------------------
+❌ CM-HELIX-DEPS-REF-MATCHES-GITLINK: FAIL — helix-deps.yaml disagrees with the index (27 deps)
+exit=1
+### cm_machine_evidence_at_every_gate
+#!/usr/bin/env bash
+# cm_machine_evidence_at_every_gate.sh — CM-MACHINE-EVIDENCE-AT-EVERY-GATE
+# gate (§11.4.262(A)(B)(E) — every gate-verdict claim MUST cite a machine-
+# created, machine-verifiable evidence artefact, bound to a specific
+CM-MACHINE-EVIDENCE-AT-EVERY-GATE: PASS — no gate-evidence manifest declared at '/home/milosvasic/Projects/helix_reader/docs/evidence/gate_evidence_manifest.tsv' (nothing to validate, honest §11.4.201(1) vacuous case, §11.4.262)
+exit=0
+### cm_ledger_row_typed_from_closed_vocabulary
+#!/usr/bin/env bash
+# cm_ledger_row_typed_from_closed_vocabulary.sh
+#   — CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY gate
+# (§11.4.266(B) — every claim-vs-reality ledger row carries a bluff type drawn
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: no ledger at /home/milosvasic/Projects/helix_reader/docs/claim_reality_ledger.tsv — nothing to type (CM-CLAIM-REALITY-LEDGER-COMPLETE governs the ledger's EXISTENCE) — SKIP-vacuous
+CM-LEDGER-ROW-TYPED-FROM-CLOSED-VOCABULARY: PASS — 0 row(s) present, vacuously compliant (§11.4.266)
+exit=0
+### cm_provisional_done_anchor_wired
+#!/usr/bin/env bash
+# cm_provisional_done_anchor_wired.sh — gate CM-PROVISIONAL-DONE-ANCHOR-WIRED
+#
+# Purpose
+PASS  seam: generated propagation gate cm_covenant_114_290_propagation.sh exists
+PASS  seam: generated propagation mutation test exists
+PASS  seam: this gate's paired mutation test exists
+PASS  seam: post_update_hook.sh runs this gate on every pull
+PASS  seam: post_update_hook.sh names the token CM-PROVISIONAL-DONE-ANCHOR-WIRED
+CM-PROVISIONAL-DONE-ANCHOR-WIRED: PASS — 117/117 checks (root: /home/milosvasic/Projects/helix_reader/submodules/constitution)
+exit=0

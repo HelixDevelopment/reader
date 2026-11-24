@@ -66,7 +66,7 @@ compare mismatch), 3 error or aborted run (including every item below).
 
 **Single-instance lock.** Every invocation (push, pull, compare, dry-run) takes an exclusive, non-blocking `flock` on `<state>.lock` (a 0600 file beside the state file; POSIX only) before
 reading any input. A second concurrent run exits **3** at once with `LockError: another helixtrack-sync instance holds the lock ...`, makes no request, and deliberately does **not**
-overwrite `--report` (that file belongs to the running instance). The kernel drops the lock when the process ends or dies, so there is no stale-lock cleanup; the `.lock` file
+overwrite `--report` (that file belongs to the running instance). The kernel drops the lock when the process ends or dies, so there is no stale-lock cleanup; the .lock file
 itself is left in place and is safe to ignore or delete while no run is active.
 
 **Input validation before login.** The outbox, the state file and (with `--db`) the registry history DB are validated before the first request. Truncated/empty/NUL/non-UTF-8 files,
@@ -96,8 +96,8 @@ The env file is opened first (non-blocking, so a FIFO cannot hang the tool) and 
 ## Core quirks found (all reproduced live)
 
 1. `read`/`list` do not return `version`. 2. `modify` ignores `type` and silently drops an unknown `status` when other fields are present. 3. `modified` has 1-second resolution.
-4. Shipped `Application/Database/Definition.sqlite` lacks `ticket.version`, `project.version`, `ticket_history`; with it `create project` fails and is mislabelled HTTP 409 "already exists". The first-start
-   migrator over the root `Database/DDL` fails on its own MySQL-style `INDEX (...)` DDL. The local instance used the shipped DB plus `core-local-schema-patch.sql`. UNCONFIRMED whether upstream Docker images carry a fixed DB.
+4. Shipped Application/Database/Definition.sqlite (upstream Core) lacks `ticket.version`, `project.version`, `ticket_history`; with it `create project` fails and is mislabelled HTTP 409 "already exists". The first-start
+   migrator over the root Database/DDL (upstream Core) fails on its own MySQL-style `INDEX (...)` DDL. The local instance used the shipped DB plus `core-local-schema-patch.sql`. UNCONFIRMED whether upstream Docker images carry a fixed DB.
 5. The server logs raw `/do` bodies including passwords. 6. The default JWT secret is a hard-coded public string when none is configured.
 
 ## Usage

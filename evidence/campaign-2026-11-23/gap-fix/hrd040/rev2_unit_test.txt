@@ -1,0 +1,26 @@
+test_refuses_apk_that_differs_from_the_build_record (test_android_matrix.PreflightTests.test_refuses_apk_that_differs_from_the_build_record) ... ok
+test_refuses_low_disk (test_android_matrix.PreflightTests.test_refuses_low_disk) ... ok
+test_refuses_malformed_test_class (test_android_matrix.PreflightTests.test_refuses_malformed_test_class) ... ok
+test_refuses_missing_build_record_and_invalid_zip (test_android_matrix.PreflightTests.test_refuses_missing_build_record_and_invalid_zip) ... ok
+test_refuses_when_images_and_test_class_missing (test_android_matrix.PreflightTests.test_refuses_when_images_and_test_class_missing) ... ok
+test_all_passed_flag_not_trusted (test_android_matrix.VerifierTests.test_all_passed_flag_not_trusted) ... ok
+test_api_or_form_factor_must_match_the_spec_row (test_android_matrix.VerifierTests.test_api_or_form_factor_must_match_the_spec_row) ... ok
+test_apk_binding_each_hash_must_match (test_android_matrix.VerifierTests.test_apk_binding_each_hash_must_match) ... ok
+test_apk_swapped_during_run (test_android_matrix.VerifierTests.test_apk_swapped_during_run) ... ok
+test_attestation_embedded_apk_sha_must_match_when_present (test_android_matrix.VerifierTests.test_attestation_embedded_apk_sha_must_match_when_present) ... ok
+test_boot_error_zero_boot_time_and_adb_state (test_android_matrix.VerifierTests.test_boot_error_zero_boot_time_and_adb_state) ... ok
+test_duplicate_rows_do_not_count (test_android_matrix.VerifierTests.test_duplicate_rows_do_not_count) ... ok
+test_green_12_rows (test_android_matrix.VerifierTests.test_green_12_rows) ... ok
+test_manifest_is_mandatory (test_android_matrix.VerifierTests.test_manifest_is_mandatory) ... ok
+test_manifest_tamper_and_omission (test_android_matrix.VerifierTests.test_manifest_tamper_and_omission) ... ok
+test_missing_required_api_and_form_factor (test_android_matrix.VerifierTests.test_missing_required_api_and_form_factor) ... ok
+test_no_rows (test_android_matrix.VerifierTests.test_no_rows) ... ok
+test_red_broken_apk_row (test_android_matrix.VerifierTests.test_red_broken_apk_row) ... ok
+test_renamed_row_cannot_stand_in_for_a_spec_avd (test_android_matrix.VerifierTests.test_renamed_row_cannot_stand_in_for_a_spec_avd) ... ok
+test_tampered_apk_between_build_and_run (test_android_matrix.VerifierTests.test_tampered_apk_between_build_and_run) ... ok
+test_too_few_rows_and_missing_spec_avd (test_android_matrix.VerifierTests.test_too_few_rows_and_missing_spec_avd) ... ok
+test_unknown_extra_row_rejected (test_android_matrix.VerifierTests.test_unknown_extra_row_rejected) ... ok
+test_wrong_test_class_rejected (test_android_matrix.VerifierTests.test_wrong_test_class_rejected) ... ok
+test_zero_tests_run_rejected_and_log_fallback (test_android_matrix.VerifierTests.test_zero_tests_run_rejected_and_log_fallback) ... ok
+Ran 24 tests in 2.822s
+OK

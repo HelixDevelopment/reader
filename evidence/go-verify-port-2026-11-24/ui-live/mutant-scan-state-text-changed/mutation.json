@@ -1,0 +1,17 @@
+{
+ "id": "scan-state-text-changed",
+ "base_tree_sha256": "abf6e5d45927fb8747d300774eff7a0b0908e5b0118ef5d7b24f7e3ecc287110",
+ "dist_tree_sha256": "f93586095d5fd49c9cb12a0dbf12e69c4945bc39e831aa6e70f955b9983df5e3",
+ "expect_failing_checks": [
+  "source-scan-state"
+ ],
+ "operations": [
+  {
+   "file": "assets/index-CjdaCBSS.js",
+   "old": "Scan queued in prototype",
+   "new": "Scan done",
+   "sha256_before": "7b474c91e527beab018d177aa48043d7a105aba8bda5db34757847081ebe9d51",
+   "sha256_after": "81ce653e4e3f40f47bc284d814f869772c1ef2baa118a5255a5b9dd01c00cc63"
+  }
+ ]
+}

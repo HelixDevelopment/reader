@@ -1,0 +1,10 @@
+# HRD-026 loopback providers 2026-11-23T21:04:40Z; rclone rclone v1.60.1-DEV
+# fixture sha256 (origin):
+00d6cc409e2774c1387f01e669cb80d86f18df7fe6c57f3cab87d4f7e82c1cdf  comic.cbz
+cff18ad858edce6bfdcea6442cd7150bfa4d1cf114e6f19db771cd50a918a6bc  oebps.epub
+963b0f234c1d055c44bfe47feb84e42592c679d267836e172212b03812c89050  relative_paths.epub
+9c516119872123fe61ca8311b525b980a08c52fcb1710777fc10f87c33caf3c7  sample.epub
+# REG webdav: http=201
+# SCAN webdav: {"id":"scan-4e26733870dcf0023c81dfbd0f54d36b","source_id":"p-webdav","state":"succeeded","created_at":"2026-11-23T21:04:40.388069782Z","finished_at":"2026-11-23T21:04:40.563065864Z","report":{"works":4,"files":4,"removed":0}}
+# REG sftp(rclone): http=201
+# SCAN sftp: {"id":"scan-fcc8b510c4b5f38766668df0265485b4","source_id":"p-sftp","state":"succeeded","created_at":"2026-11-23T21:04:40.967369494Z","finished_at":"2026-11-23T21:04:41.606830069Z","report":{"works":4,"files":4,"removed":0}}

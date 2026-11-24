@@ -1,0 +1,42 @@
+# GET /
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 491
+ETag: 834b4d924eec62393f22bcc959550f90
+Last-Modified: Mon, 23 Nov 2026 21:02:35 GMT
+Vary: Accept-Encoding
+Date: Mon, 23 Nov 2026 21:04:58 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+<!doctype html>
+<html lang="en">
+# GET /library/some/deep/route (SPA rewrite)
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 491
+ETag: 834b4d924eec62393f22bcc959550f90
+Last-Modified: Mon, 23 Nov 2026 21:02:35 GMT
+Vary: Accept-Encoding
+Date: Mon, 23 Nov 2026 21:04:58 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+<!doctype html>
+<html lang="en">
+# GET /assets/index-C40zDHeF.js headers
+HTTP/1.1 200 OK
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 234271
+ETag: 109df0ef74bd14847c9bcb84a8fd0435
+Last-Modified: Mon, 23 Nov 2026 21:02:35 GMT
+Vary: Accept-Encoding
+Cache-Control: public, max-age=31536000, immutable
+Date: Mon, 23 Nov 2026 21:04:58 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+# sha compare index.html
+f975850b9efd12d1296c4e6f4d4bfb0ea56e03ef9a5819c6171a4b90c36a304e  -
+f975850b9efd12d1296c4e6f4d4bfb0ea56e03ef9a5819c6171a4b90c36a304e  clients/web/dist/index.html
+# missing asset (rewrite also applies per config)
+200

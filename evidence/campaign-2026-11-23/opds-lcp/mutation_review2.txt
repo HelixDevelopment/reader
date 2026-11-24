@@ -1,0 +1,15 @@
+KILLED F1 cap evicts inside grace :: --- FAIL: TestGCCapNeverEvictsInsideGraceWindow (0.32s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.329s
+SURVIVED F1 lease ignored by GC :: 
+KILLED F1 lease not taken on fetch :: --- FAIL: TestGCSkipsLeasedArtifactUntilScanCloses (0.18s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.185s
+SURVIVED F2 paged references (updated_at keyset) :: 
+KILLED F2 no re-verify before unlink :: FAIL	github.com/helixreader/helix/server/internal/ingest [build failed]
+SURVIVED F2 re-verify uses paging too :: 
+KILLED F3 ctime dropped from verdict key :: --- FAIL: TestOpenVerifiedDetectsSameSizeRewriteWithRestoredMtime (0.09s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.095s
+KILLED F5 host backoff disabled :: --- FAIL: TestHostBackoffAcrossDistinctLicenses (2.83s) | FAIL	github.com/helixreader/helix/server/internal/ingest	2.846s
+KILLED F5 scan budget not enforced :: --- FAIL: TestScanBudgetLimitsDistinctFetches (1.71s) | --- FAIL: TestScanBudgetLimitsTotalBytes (1.21s) | FAIL	github.com/helixreader/helix/server/internal/ingest	2.947s
+KILLED F5 eviction wipes whole map :: FAIL	github.com/helixreader/helix/server/internal/ingest [build failed]
+KILLED F5 over-cap deletes referenced?? (cap warning removed) :: --- FAIL: TestGCOverCapWarnsAndKeepsReferenced (0.64s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.680s
+KILLED F1 lease ignored by GC (both checks) :: --- FAIL: TestGCSkipsLeasedArtifactUntilScanCloses (0.19s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.203s
+KILLED F2 paged references in Collect AND re-verify :: --- FAIL: TestGCKeepsReferencedArtifactWhenWorkMovesDuringRead (0.68s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.692s
+KILLED F2 no re-verify before unlink :: --- FAIL: TestGCReverifiesUnreferencedBeforeUnlink (0.69s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.762s
+KILLED F5 eviction wipes whole map :: --- FAIL: TestFailureMapEvictsOldestOnly (0.00s) | FAIL	github.com/helixreader/helix/server/internal/ingest	0.022s

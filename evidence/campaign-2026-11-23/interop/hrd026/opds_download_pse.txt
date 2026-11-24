@@ -1,0 +1,18 @@
+# OPDS acquisition + PSE via Basic auth (what KOReader's OPDS browser does)
+acq http=200 size=1628144 UA=curl
+9c516119872123fe61ca8311b525b980a08c52fcb1710777fc10f87c33caf3c7
+9c516119872123fe61ca8311b525b980a08c52fcb1710777fc10f87c33caf3c7
+no-auth acq http=401
+pse page 1 http=200 ct=image/png size=4192
+pse page 2 http=200 ct=image/png size=4192
+pse page 3 http=200 ct=image/png size=4132
+pse page 4 http=404 ct=application/json; charset=utf-8 size=84
+pse page 5 http=404 ct=application/json; charset=utf-8 size=84
+pse page 0 http=200 ct=image/png size=4074
+origin p01.png sha256 25c301ad3a65d4f87264aa055a81537e470b47059b7c94663c668f97f8e308e7
+a4435c635b49d60e65dc5e0859f926bdc0a7c436abac91c9b8f352c16bf07f4c
+# PSE pages are 0-based (pse:count=4 -> pages 0..3; page 4 = 404). sha256 of each streamed page vs the cbz member:
+page 0 == p01.png: True
+page 1 == p02.png: True
+page 2 == p03.png: True
+page 3 == p04.png: True

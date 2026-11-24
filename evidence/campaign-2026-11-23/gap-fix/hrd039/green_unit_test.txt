@@ -1,0 +1,14 @@
+test_endpoint_comes_from_llmctl_only_when_given_none (test_vision_verify.T.test_endpoint_comes_from_llmctl_only_when_given_none) ... ok
+test_forbidden_text_fails (test_vision_verify.T.test_forbidden_text_fails) ... ok
+test_green_golden_pass_and_bad_control_rejected (test_vision_verify.T.test_green_golden_pass_and_bad_control_rejected) ... /home/milosvasic/Projects/helix_reader/tests/test_vision_verify.py:65: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/milosvasic/.cache/claude-tmp/tmpotb5udrr/o/lib.png.golden.vision.json' mode='r' encoding='UTF-8'>
+  v = json.load(open(self.d / "o" / "lib.png.golden.vision.json"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_unvalidated_model_refused_and_writes_no_verdict (test_vision_verify.T.test_unvalidated_model_refused_and_writes_no_verdict) ... ok
+test_wrong_golden_fails (test_vision_verify.T.test_wrong_golden_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.259s
+
+OK
+<sys>:0: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 33813)>

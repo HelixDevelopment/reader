@@ -1,0 +1,13 @@
+  FAIL: llmctl-llama@ carries ProtectSystem=/PrivateTmp= (HRD-039)
+  ok: llmctl-llama@: NoNewPrivileges kept
+  FAIL: llmctl-onnx@ carries ProtectSystem=/PrivateTmp= (HRD-039)
+  ok: llmctl-onnx@: NoNewPrivileges kept
+  FAIL: llmctl-colibri@ carries ProtectSystem=/PrivateTmp= (HRD-039)
+  ok: llmctl-colibri@: NoNewPrivileges kept
+  replaying generated llama@ properties: -p NoNewPrivileges=yes -p ProtectSystem=full
+  FAIL: the real admission gate accepts /dev/shm under the GENERATED engine unit's sandbox properties
+    needle not found: rc=0
+    haystack: the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user
+  fact: control with ProtectSystem=full -> the sticky admission dir /dev/shm is owned by uid 65534, neither root nor this user 
+RESULT: FAIL (4 assertion failure(s))
+rc=1
