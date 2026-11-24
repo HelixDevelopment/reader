@@ -2,7 +2,7 @@
 
 Generated from the authoritative SQLite registry.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
+In progress: 18, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
 
 | ID | Type | Severity | Status | Reopens | Description |
 |---|---|---|---|---:|---|
@@ -103,3 +103,4 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 | HRD-119 | Bug | Medium | Queued | 0 | HelixTrack sync: final --report is written after the lock is released, a later run marker can be overwritten |
 | HRD-120 | Task | Medium | Queued | 0 | PR #26 (HRD-087 Cronet and HTTP/3 clients) review follow-ups: verdict identity, access-log flag, ApiRequestPolicy, JVM test not executed |
 | HRD-121 | Task | Medium | Queued | 0 | Gate tool gaps found reviewing PR 27: helix-deps ref compared by 7 characters, gitlink_on_remote BLIND instead of FAIL, no pointer-on-main check (OWED-GATE-151) |
+| HRD-122 | Bug | Low | In progress | 0 | ExampleInstrumentedTest asserts scaffold package com.getcapacitor.app, fails on every device |
