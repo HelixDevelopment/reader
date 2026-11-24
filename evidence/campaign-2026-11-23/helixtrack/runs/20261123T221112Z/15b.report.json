@@ -1,0 +1,80 @@
+{
+  "aborted": true,
+  "actions": [
+    {
+      "action": "update",
+      "changed_fields": [
+        "status"
+      ],
+      "key": "HRD-001",
+      "ticket_id": "ec0cf259-07e4-44c8-b647-e718d57600e2"
+    },
+    {
+      "action": "create",
+      "key": "HRD-002",
+      "ticket_id": "004baae4-2451-4cec-a44a-5f866b68ae29"
+    },
+    {
+      "action": "create",
+      "key": "HRD-003",
+      "ticket_id": "304b4745-6283-4fb7-a34b-5c311ba2afd1"
+    },
+    {
+      "action": "create",
+      "key": "HRD-004",
+      "ticket_id": "4ec0ec55-80b1-4763-92fa-fc22d0970633"
+    },
+    {
+      "action": "create",
+      "key": "HRD-005",
+      "ticket_id": "fb082ad1-1a57-426c-8606-ea7deac39d0b"
+    },
+    {
+      "action": "create",
+      "key": "HRD-006",
+      "ticket_id": "b3753453-dcf2-4e8c-87d7-6f872484d14b"
+    },
+    {
+      "action": "create",
+      "key": "HRD-007",
+      "ticket_id": "62de475e-add7-41ea-af32-cd64f7dd827d"
+    },
+    {
+      "action": "create",
+      "key": "HRD-008",
+      "ticket_id": "a4d1f1fd-ec75-49e6-867e-c550a6721195"
+    },
+    {
+      "action": "create",
+      "key": "HRD-009",
+      "ticket_id": "0c552653-8abf-47fc-a478-5d15a337c35a"
+    },
+    {
+      "action": "create",
+      "key": "HRD-010",
+      "ticket_id": "67372408-3e66-413a-aab0-3fb244e9820b"
+    },
+    {
+      "action": "error",
+      "error": "ServerError",
+      "key": "HRD-011",
+      "message": "injected unavailable"
+    }
+  ],
+  "counts": {
+    "create": 9,
+    "error": 1,
+    "update": 1
+  },
+  "dry_run": false,
+  "error": {
+    "key": "HRD-011",
+    "message": "injected unavailable",
+    "type": "ServerError"
+  },
+  "has_conflicts": false,
+  "has_drift": true,
+  "mode": "push",
+  "orphans": [],
+  "proposals": []
+}

@@ -1,0 +1,69 @@
+PASS G1a-lock-exit3 actual=3 expected=3
+PASS G1a-no-extra-requests actual=0 expected=0
+PASS G1a-lock-message actual=1 expected=1
+PASS G1a-report-not-clobbered actual={"sentinel":"running-instance-report"} expected={"sentinel":"running-instance-report"}
+PASS G1a-no-traffic-file actual=absent expected=absent
+PASS G1a-no-state-file actual=absent expected=absent
+PASS G1b-race-one-wins-one-refused actual=ok expected=ok
+PASS G1b-core-tickets-no-dupes actual=75/75 expected=75/75
+PASS G2-null-item-exit3 actual=3 expected=3
+PASS G2-null-item-no-requests actual=0 expected=0
+PASS G2-null-item-state-untouched actual=same expected=same
+PASS G2-null-item-error-report actual=True SyncError expected=True SyncError
+PASS G2-truncated-exit3 actual=3 expected=3
+PASS G2-truncated-no-requests actual=0 expected=0
+PASS G2-truncated-state-untouched actual=same expected=same
+PASS G2-truncated-error-report actual=True SyncError expected=True SyncError
+PASS G2-items-list-exit3 actual=3 expected=3
+PASS G2-items-list-no-requests actual=0 expected=0
+PASS G2-items-list-state-untouched actual=same expected=same
+PASS G2-items-list-error-report actual=True SyncError expected=True SyncError
+PASS G2-bad-ticketid-exit3 actual=3 expected=3
+PASS G2-bad-ticketid-no-requests actual=0 expected=0
+PASS G2-bad-ticketid-state-untouched actual=same expected=same
+PASS G2-bad-ticketid-error-report actual=True SyncError expected=True SyncError
+PASS G2-root-list-exit3 actual=3 expected=3
+PASS G2-root-list-no-requests actual=0 expected=0
+PASS G2-root-list-state-untouched actual=same expected=same
+PASS G2-root-list-error-report actual=True SyncError expected=True SyncError
+PASS G2-binary-exit3 actual=3 expected=3
+PASS G2-binary-no-requests actual=0 expected=0
+PASS G2-binary-state-untouched actual=same expected=same
+PASS G2-binary-error-report actual=True SyncError expected=True SyncError
+PASS G3-1-exit3 actual=3 expected=3
+PASS G3-1-no-core-requests actual=0 expected=0
+PASS G3-1-no-traffic-file actual=absent expected=absent
+PASS G3-1-url-not-echoed actual=0 expected=0
+PASS G3-2-exit3 actual=3 expected=3
+PASS G3-2-no-core-requests actual=0 expected=0
+PASS G3-2-no-traffic-file actual=absent expected=absent
+PASS G3-2-url-not-echoed actual=0 expected=0
+PASS G3-3-exit3 actual=3 expected=3
+PASS G3-3-no-core-requests actual=0 expected=0
+PASS G3-3-no-traffic-file actual=absent expected=absent
+PASS G3-3-url-not-echoed actual=0 expected=0
+PASS G3-4-exit3 actual=3 expected=3
+PASS G3-4-no-core-requests actual=0 expected=0
+PASS G3-4-no-traffic-file actual=absent expected=absent
+PASS G3-4-url-not-echoed actual=0 expected=0
+PASS G3-5-exit3 actual=3 expected=3
+PASS G3-5-no-core-requests actual=0 expected=0
+PASS G3-5-no-traffic-file actual=absent expected=absent
+PASS G3-5-url-not-echoed actual=0 expected=0
+PASS G3-6-exit3 actual=3 expected=3
+PASS G3-6-no-core-requests actual=0 expected=0
+PASS G3-6-no-traffic-file actual=absent expected=absent
+PASS G3-6-url-not-echoed actual=0 expected=0
+PASS G3-7-exit3 actual=3 expected=3
+PASS G3-7-no-core-requests actual=0 expected=0
+PASS G3-7-no-traffic-file actual=absent expected=absent
+PASS G3-7-url-not-echoed actual=0 expected=0
+PASS G3-env-0640-refused-exit3 actual=3 expected=3
+PASS G3-env-0640-no-requests actual=0 expected=0
+PASS G4a-garbage-html-exit3 actual=3 expected=3
+PASS G4a-no-traceback actual=0 expected=0
+PASS G4a-partial-report actual=True HRD-003 2 expected=True HRD-003 2
+PASS G4a-state-has-2 actual=['HRD-001', 'HRD-002'] expected=['HRD-001', 'HRD-002']
+PASS G4a-core-tickets-2-or-3 actual=2 expected=2
+PASS G4b-resume-exit0 actual=0 expected=0
+PASS G4b-core-final-75 actual=75/75 expected=75/75
