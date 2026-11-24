@@ -1,0 +1,93 @@
+{
+  "provider": "readium-lcp-server",
+  "steps": [
+    {
+      "name": "provider_issues_license",
+      "result": "PASS",
+      "detail": "HTTP 201 application/vnd.readium.lcp.license.v1.0+json"
+    },
+    {
+      "name": "helix_parses_provider_license",
+      "result": "PASS"
+    },
+    {
+      "name": "provider_license_is_basic_profile",
+      "result": "PASS",
+      "detail": "http://readium.org/lcp/basic-profile"
+    },
+    {
+      "name": "helix_fulfills_provider_publication_default_strict",
+      "result": "PASS",
+      "detail": "len=1646335 linkLength=1646335 linkHashSet=true"
+    },
+    {
+      "name": "helix_opens_fulfilled_container",
+      "result": "PASS"
+    },
+    {
+      "name": "helix_unlocks_with_provider_signature_chain_and_passphrase",
+      "result": "PASS",
+      "detail": "canonical_mode=1 crl_checked=false"
+    },
+    {
+      "name": "helix_decrypts_every_protected_resource_byte_identical_to_source",
+      "result": "PASS",
+      "detail": "protected=149 identical=149"
+    },
+    {
+      "name": "wrong_passphrase_refused",
+      "result": "PASS",
+      "detail": "lcp: passphrase does not match this license"
+    },
+    {
+      "name": "no_trust_root_refused",
+      "result": "PASS",
+      "detail": "lcp: provider certificate is not signed by a trusted root: no root certificate configured"
+    },
+    {
+      "name": "tampered_license_signature_refused",
+      "result": "PASS",
+      "detail": "lcp: signature does not match the license document"
+    },
+    {
+      "name": "helix_fetches_provider_status_document",
+      "result": "PASS",
+      "detail": "status=ready"
+    },
+    {
+      "name": "status_ready_and_license_usable",
+      "result": "PASS",
+      "detail": "status=ready"
+    },
+    {
+      "name": "helix_registers_device_status_becomes_active",
+      "result": "PASS",
+      "detail": "status=active"
+    },
+    {
+      "name": "helix_returns_license_status_becomes_returned",
+      "result": "PASS",
+      "detail": "status=returned"
+    },
+    {
+      "name": "needs_license_refresh_after_return",
+      "result": "PASS",
+      "detail": "status.updated.license=2026-11-24T20:01:29Z status.updated.status=2026-11-24T20:01:29Z license.issued=2026-11-24T20:01:27Z license.updated=2026-11-24T20:01:27Z"
+    },
+    {
+      "name": "raw_status_document_after_return",
+      "result": "PASS",
+      "detail": "{\"id\":\"cac2e81c-59ea-400d-9f37-3ef81800efb4\",\"status\":\"returned\",\"updated\":{\"license\":\"2026-11-24T20:01:29Z\",\"status\":\"2026-11-24T20:01:29Z\"},\"message\":\"The license is in returned state\",\"links\":[{\"rel\":\"self\",\"href\":\"http://127.0.0.1:8990/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4/status\",\"type\":\"application/vnd.readium.license.status.v1.0+json\"},{\"rel\":\"license\",\"href\":\"http://127.0.0.1:8989/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4\",\"type\":\"application/vnd.readium.lcp.license.v1.0+json\"}],\"events\":[{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:01:29Z\",\"type\":\"register\",\"id\":\"interop-device-1\"},{\"name\":\"Helix interop device\",\"timestamp\":\"2026-11-24T20:01:29Z\",\"type\":\"return\",\"id\":\"interop-device-1\"}]}\n"
+    },
+    {
+      "name": "returned_status_offers_license_link",
+      "result": "PASS",
+      "detail": "http://127.0.0.1:8989/licenses/cac2e81c-59ea-400d-9f37-3ef81800efb4"
+    },
+    {
+      "name": "license_document_sha256",
+      "result": "PASS",
+      "detail": "4d1e9b179d71ea04e51e1c0b0cf20e8399bad39b77794da4f39c79eec3f7a781"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "hrdiso-lcpinterop",
+  "image": "localhost/helix-gui-test:1",
+  "created": "2026-11-24T21:01:16.301523241+01:00",
+  "network_mode": "none",
+  "privileged": false,
+  "cap_drop": [
+    "CAP_CHOWN",
+    "CAP_DAC_OVERRIDE",
+    "CAP_FOWNER",
+    "CAP_FSETID",
+    "CAP_KILL",
+    "CAP_NET_BIND_SERVICE",
+    "CAP_SETFCAP",
+    "CAP_SETGID",
+    "CAP_SETPCAP",
+    "CAP_SETUID",
+    "CAP_SYS_CHROOT"
+  ],
+  "cap_add": [],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "memory": 2147483648,
+  "memory_swap": 2147483648,
+  "pids_limit": 512,
+  "oom_score_adj": 500,
+  "userns_mode": "private",
+  "lifetime_timeout_s": 600,
+  "binds": [
+    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/bin:/work/bin:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd046/iso/in:/work/in:ro,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd046/wt/evidence/lcp-interop-run1:/out:rw,rprivate,rbind",
+    "/home/milosvasic/.cache/claude-tmp/hrd046/wt/qa/isolation/inside:/opt/isoinside:ro,rprivate,rbind"
+  ],
+  "devices": [],
+  "ports": {},
+  "env_names": [
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "HOSTNAME",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "container"
+  ],
+  "labels": {
+    "io.buildah.version": "1.42.1",
+    "org.helix.isolation": "gui-test",
+    "org.helix.lease-ts": "1795550476",
+    "org.helix.owner-pid": "745718",
+    "org.opencontainers.image.version": "24.04"
+  },
+  "entrypoint": [
+    "/usr/local/bin/gui-entrypoint.sh"
+  ],
+  "cmd": [
+    "sh",
+    "/opt/isoinside/launch.sh",
+    "--",
+    "sh",
+    "-c",
+    ". /work/in/creds.env && sh /work/in/inside.sh"
+  ]
+}

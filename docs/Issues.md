@@ -2,7 +2,7 @@
 
 Generated from `docs/workable_items.db`; do not edit directly.
 
-In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testing: 0, Reopened: 0
+In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 82, Ready for testing: 0, Reopened: 0
 
 ## [HRD-019] Complete revision-pinned research for every deduplicated reader repository
 
@@ -758,7 +758,7 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 
 **Reopens:** 0
 
-**Description:** LCP never exercised against a real provider or third-party reader. Filed 2026-11-23 from the read-only gap audit (GAP-011, Security, severity High); no work started. EVIDENCE: EVIDENCE.md lines 817,839,875 NOT PROVEN/UNCONFIRMED; lsd provider written in-repo from same spec text ROOT CAUSE (UNCONFIRMED unless stated): Self-referential test oracle (§11.4.245): producer and consumer share an author. PROPOSED FIX: Stand up Readium lcpserver (or EDRLab test provider) in a container as independent oracle; open produced artifact with Thorium/readium-lcp-client-in-container. REQUIRED TEST TYPES (11.4.169 / 11.4.27 members): Integration (11.4.169(2)); Security (11.4.169(8)); End-to-end (11.4.169(3)); Interop (End-to-end 11.4.169(3) against third-party peer). Cross-links (11.4.214, both ways): HRD-031, HRD-026. Source: docs/gap-register-2026-11-23.md#gap-011---lcp-never-exercised-against-a-real-provider-or-third-party-reader. Audit evidence: evidence/campaign-2026-11-23/gap-audit/commands.txt, evidence/campaign-2026-11-23/gap-audit/commands_part2.txt, evidence/campaign-2026-11-23/gap-audit/commands_raw.txt, evidence/campaign-2026-11-23/gap-audit/proven_checks.txt, evidence/campaign-2026-11-23/gap-audit/gates_run.txt. Owner suggestion: server.
+**Description:** LCP never exercised against a real provider or third-party reader. Filed 2026-11-23 from the read-only gap audit (GAP-011, Security, severity High); no work started. EVIDENCE: EVIDENCE.md lines 817,839,875 NOT PROVEN/UNCONFIRMED; lsd provider written in-repo from same spec text ROOT CAUSE (UNCONFIRMED unless stated): Self-referential test oracle (§11.4.245): producer and consumer share an author. PROPOSED FIX: Stand up Readium lcpserver (or EDRLab test provider) in a container as independent oracle; open produced artifact with Thorium/readium-lcp-client-in-container. REQUIRED TEST TYPES (11.4.169 / 11.4.27 members): Integration (11.4.169(2)); Security (11.4.169(8)); End-to-end (11.4.169(3)); Interop (End-to-end 11.4.169(3) against third-party peer). Cross-links (11.4.214, both ways): HRD-031, HRD-026. Source: docs/gap-register-2026-11-23.md#gap-011---lcp-never-exercised-against-a-real-provider-or-third-party-reader. Audit evidence: evidence/campaign-2026-11-23/gap-audit/commands.txt, evidence/campaign-2026-11-23/gap-audit/commands_part2.txt, evidence/campaign-2026-11-23/gap-audit/commands_raw.txt, evidence/campaign-2026-11-23/gap-audit/proven_checks.txt, evidence/campaign-2026-11-23/gap-audit/gates_run.txt. Owner suggestion: server. UPDATE 2026-11-24 (PR task/HRD-046-lcp-interop): the Readium reference License+Status Server (readium-lcp-server@32570b6) and lcpencrypt were run as real processes inside a rootless --network none container; Helix core/pkg/lcp fulfilled, verified (operator test root), unlocked and decrypted all 149 protected resources byte-identical to the source EPUB, refused wrong passphrase / no root / tampered license, and completed LSD register+return (evidence/lcp-interop-run1..3 sealed, mutant FAIL). NOT done / UNCONFIRMED: any third-party READER app (Thorium etc.) opening a Helix-produced artifact; real EDRLab root chain; renew; production provider; server-side wiring (OPDS/ingest) against the provider. Item stays open.
 
 **Affected scope:** Security gap GAP-011: LCP never exercised against a real provider or third-party reader
 
@@ -776,11 +776,12 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 
 **Attribution:** created by AI; assigned to Operator
 
-**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-23T21:22:39Z
+**Created / modified:** 2026-11-23T21:22:39Z / 2026-11-24T20:02:35Z
 
 **History:**
 
 - 2026-11-23 — Opened by AI: new-work-item; evidence: none recorded
+- 2026-11-24 — Updated by AI: HRD-046 interop run; evidence: evidence/lcp-interop-run1
 
 ## [HRD-047] No Challenges-submodule or Security-submodule use in repo code, gates or scripts
 
@@ -3349,6 +3350,74 @@ In progress: 17, In testing: 0, Operator-blocked: 0, Queued: 80, Ready for testi
 **Attribution:** created by AI; assigned to Operator
 
 **Created / modified:** 2026-11-24T18:57:45Z / 2026-11-24T18:57:45Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-122] Readium LCP test CA root is not distributed with the reference server: shipped EDRLab test provider cert cannot be chain-verified by Helix
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Medium
+
+**Reopens:** 0
+
+**Description:** Found by HRD-046. test/cert/cert-edrlab-test.pem in readium-lcp-server@32570b6 is issued by 'EDRLab Readium LCP test CA', but no root/CA certificate exists in that repo or in readium/lcp-specs@812dd91 (evidence/lcp-interop-provenance/edrlab_test_cert_chain_gap.txt). Helix embeds no root (fail-closed ErrUntrustedRoot, correct), so interop was run with an operator-generated test root; verification against the real EDRLab/Readium root remains UNCONFIRMED. Needs the operator to obtain the published test/production root from EDRLab (or the Readium License Authority) and re-run qa/lcp-interop with it.
+
+**Affected scope:** core/pkg/lcp trust-root policy; qa/lcp-interop
+
+**Reproduction / current observation:** evidence/lcp-interop-provenance/edrlab_test_cert_chain_gap.txt
+
+**Acceptance:** Real EDRLab test root obtained from an authoritative source with recorded provenance; qa/lcp-interop run with it unlocks a license signed with the EDRLab test provider cert; evidence sealed.
+
+**Closure criteria:** Real EDRLab test root obtained from an authoritative source with recorded provenance; qa/lcp-interop run with it unlocks a license signed with the EDRLab test provider cert; evidence sealed.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** HRD-046
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T20:02:34Z / 2026-11-24T20:02:34Z
+
+**History:**
+
+- 2026-11-24 — Opened by AI: new-work-item; evidence: none recorded
+
+## [HRD-123] NeedsLicenseRefresh compares whole-second Status timestamps strictly: an update inside the issuing second is not detected
+
+**Status:** Queued
+
+**Type:** Task
+
+**Severity:** Low
+
+**Reopens:** 0
+
+**Description:** Found by HRD-046. The Readium reference Status Server stamps updated.license with whole-second resolution. lcp.NeedsLicenseRefresh uses After; on the first interop run (issue, register and return inside one second) it returned false after a return (status.updated.license == license.issued). Runs 1-3 of the committed test wait 1.1 s so the check is deterministic. Decide whether a tie should be treated as stale after a return/renew (spec: client must download the updated license after return/renew, lsd latest.md l.326/l.383, so the interaction itself, not the timestamp, is the trigger). The original failing output was archived outside the repo by fresh_out (UNCONFIRMED as repo evidence).
+
+**Affected scope:** core/pkg/lcp/lsd.go NeedsLicenseRefresh
+
+**Reproduction / current observation:** Issue license and Return within one second against the reference lsdserver; NeedsLicenseRefresh(status, license) == false.
+
+**Acceptance:** Decision recorded; if changed, unit test plus interop re-run; evidence sealed.
+
+**Closure criteria:** Decision recorded; if changed, unit test plus interop re-run; evidence sealed.
+
+**Evidence:** Not yet available; no pass is claimed.
+
+**Forensic anchor:** HRD-046
+
+**Composes with:** None recorded
+
+**Attribution:** created by AI; assigned to Operator
+
+**Created / modified:** 2026-11-24T20:02:35Z / 2026-11-24T20:02:35Z
 
 **History:**
 
